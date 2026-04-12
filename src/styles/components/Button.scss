@@ -1,0 +1,27 @@
+.button {
+  display: inline-block;
+  height: 100%;
+  border: none;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: var(--fz-md);
+  background-color: #1f6fea;
+  color: #f0f6fc;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    background-color: #4089f7;
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.75;
+    user-select: none;
+    pointer-events: none;
+  }
+}
