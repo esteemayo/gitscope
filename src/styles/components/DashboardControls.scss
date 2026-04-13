@@ -1,0 +1,221 @@
+.dashboard-controls {
+  padding: 4.8rem 8rem;
+
+  &__container {
+    width: 100%;
+    max-width: 140rem;
+    margin: 0 auto;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 3.2rem;
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+  }
+
+  &__heading {
+    display: inline-block;
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    font-weight: 300;
+    font-size: 2.8rem;
+    padding-bottom: 0.6rem;
+    background-image: linear-gradient(
+      90deg,
+      rgb(209, 213, 218) 50%,
+      rgba(255, 255, 255, 0) 0px
+    );
+    background-size: 1rem 3px;
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    color: rgba(200, 225, 255, 0.7);
+  }
+
+  &__dropdown-wrapper {
+    display: flex;
+    align-items: center;
+
+    font-size: 100%;
+    color: rgb(106, 115, 125);
+    color: #94a3b8;
+  }
+
+  &__label {
+    margin: 0 1.6rem;
+  }
+
+  &__dropdown-style {
+    width: 15rem;
+    font-weight: 500;
+    font-size: var(--fz-sm);
+    position: relative;
+  }
+
+  &__dropdown-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    text-transform: capitalize;
+    text-align: left;
+    font-weight: 500;
+    font-size: var(--fz-sm);
+    padding: 1rem 0.7rem;
+    background-color: transparent;
+    color: #1f6fea;
+    border: 1px solid rgba(0, 118, 255, 0.1);
+    border-radius: 0.5rem 0.5rem 0 0;
+    line-height: 1;
+    cursor: pointer;
+    transition: var(--transition);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      border-radius: 0;
+      outline: 3px dashed #1f6fea;
+      outline-offset: 3px;
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    label {
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    svg {
+      display: inline-block;
+      fill: currentColor;
+      user-select: none;
+      vertical-align: text-bottom;
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__dropdown-list {
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    padding: 2px;
+    background-color: rgb(23, 27, 36);
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0.5rem 3rem -1.5rem;
+    border: 1px solid rgba(0, 118, 255, 0.1);
+    border-top: 0;
+    border-radius: 0 0 0.5rem 0.5rem;
+    overflow: hidden;
+    visibility: hidden;
+    z-index: 2000;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+  }
+
+  &__dropdown-item {
+    width: 100%;
+
+    button {
+      display: flex;
+      align-items: center;
+
+      width: 100%;
+      border: none;
+      text-transform: capitalize;
+      font-weight: 500;
+      font-size: var(--fz-sm);
+      padding: 1rem 0.7rem;
+      background-color: rgb(23, 27, 36);
+      color: #1f6fea;
+      line-height: 1;
+      cursor: pointer;
+      transition: var(--transition);
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background-color: #0d1017;
+        border-radius: 3px;
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &--btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: none;
+      width: 3.5rem;
+      height: 3.5rem;
+      background-color: #1f70ea1f;
+      // background-color: rgb(23, 27, 36);
+      color: rgba(200, 225, 255, 0.7);
+      border: 1px solid currentColor;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      transition: var(--transition);
+
+      &.active {
+        background-color: #38bdf8;
+        color: #0f172a;
+        border-color: transparent;
+      }
+
+      &:hover {
+        opacity: 0.85;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        border: none;
+        border-radius: 0;
+        outline: 3px dashed #1f6fea;
+        outline-offset: 3px;
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        color: currentColor;
+        user-select: none;
+        vertical-align: text-bottom;
+      }
+    }
+  }
+}

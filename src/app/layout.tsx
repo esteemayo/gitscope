@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${poppins.className} ${roboto.className}`}>
       <body>
-        <main className='main-content'>{children}</main>
+        <main className='main-container'>{children}</main>
       </body>
     </html>
   );

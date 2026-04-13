@@ -1,0 +1,120 @@
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+  padding: 3.2rem;
+  background-color: rgb(23, 27, 36);
+  color: rgb(88, 96, 105);
+  border-radius: var(--border-radius);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1rem 3rem -1.5rem;
+  transition: var(--transition);
+  position: relative;
+
+  &:focus-visible {
+    outline: 3px dashed #1f6fea;
+    outline-offset: 3px;
+  }
+
+  &__link {
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  &__top {
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+
+    svg {
+      min-width: 1.6rem;
+      display: inline-block;
+      fill: currentColor;
+      user-select: none;
+      vertical-align: text-bottom;
+      margin-right: 0.8rem;
+    }
+
+    &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: var(--fz-lg);
+      color: rgba(200, 225, 255, 0.7);
+      letter-spacing: -0.5px;
+      overflow: hidden;
+    }
+  }
+
+  &__desc {
+    font-size: var(--fz-sm);
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 3.2rem;
+    margin: 1.6rem 0 3.2rem;
+  }
+
+  &__stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    color: rgb(106, 115, 125);
+    color: #94a3b8;
+
+    &--left {
+      flex: 1;
+      display: flex;
+
+      span {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+          margin-right: 1.2rem;
+        }
+
+        .language {
+          display: inline-block;
+          width: 1rem;
+          height: 1rem;
+          background-color: rgb(241, 224, 90);
+          border-radius: 100%;
+          margin-right: 4px;
+        }
+
+        svg {
+          display: inline-block;
+          fill: currentColor;
+          user-select: none;
+          vertical-align: text-bottom;
+          margin-right: 4px;
+        }
+      }
+    }
+
+    &--right {
+      span {
+        text-overflow: tabular-nums;
+        font-size: inherit;
+      }
+    }
+  }
+}

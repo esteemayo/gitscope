@@ -1,9 +1,7 @@
-
+import DashboardClient from '@/components/dashboard/DashboardClient';
 
 const UserPage = () => {
-  return (
-    <div>UserPage</div>
-  );
+  return <DashboardClient />;
 };
 
 export default UserPage;
