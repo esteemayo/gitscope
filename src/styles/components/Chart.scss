@@ -1,0 +1,36 @@
+.chart {
+  max-width: 50rem;
+  padding: 2rem;
+  background-color: rgb(255, 255, 255);
+  background-color: var(--black-lightest);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0.5rem 3rem -1.5rem;
+  box-shadow: rgba(255, 255, 255, 0.11) 0 1rem 1.75rem -1.5rem;
+  border-radius: var(--border-radius);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 3.2rem;
+  }
+
+  &__heading {
+    display: inline-block;
+    font-weight: 300;
+    font-size: 2.4rem;
+    padding-bottom: 0.6rem;
+    background-image: linear-gradient(
+      90deg,
+      rgb(209, 213, 218) 50%,
+      rgba(255, 255, 255, 0) 0px
+    );
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    background-size: 1rem 1px;
+    color: rgba(200, 225, 255, 0.7);
+  }
+
+  &__container {
+  }
+}

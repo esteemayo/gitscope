@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+
 import Square from '../icons/Square';
 import ListBullet from '../icons/ListBullet';
 
@@ -5,6 +9,16 @@ import { DashboardControlsProps } from '@/types/dashboard.control.type';
 import '../../styles/components/DashboardControls.scss';
 
 const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+
+    if (!target.classList.contains('dashboard-controls__dropdown-button')) {
+      setIsOpen(false);
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
       e.preventDefault();
@@ -13,7 +27,7 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
   };
 
   return (
-    <div className='dashboard-controls'>
+    <div onClick={handleClose} className='dashboard-controls'>
       <div className='dashboard-controls__container'>
         <header className='dashboard-controls__header'>
           <div className='dashboard-controls__group'>
@@ -25,6 +39,7 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
               <div className='dashboard-controls__dropdown-style'>
                 <button
                   type='button'
+                  onClick={() => setIsOpen((prev) => !prev)}
                   className='dashboard-controls__dropdown-button'
                 >
                   <label>{sort}</label>
@@ -41,7 +56,11 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
                   </svg>
                 </button>
 
-                <ul className='dashboard-controls__dropdown-list'>
+                <ul className={
+                  isOpen ?
+                    'dashboard-controls__dropdown-list show' :
+                    'dashboard-controls__dropdown-list hide'
+                }>
                   <li className='dashboard-controls__dropdown-item'>
                     <button
                       type='button'

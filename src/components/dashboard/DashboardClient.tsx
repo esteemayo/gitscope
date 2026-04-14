@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 
-import ProfileHeader from './ProfileHeader';
+import ChartSection from './ChartSection';
 import RepoList from './RepoList';
+import ProfileHeader from './ProfileHeader';
+import StatsCards from './StatsCards';
 import DashboardControls from './DashboardControls';
 
 import { sortType, ViewType } from '@/types';
@@ -15,6 +17,8 @@ const DashboardClient = () => {
   return (
     <div>
       <ProfileHeader />
+      <ChartSection />
+      <StatsCards />
 
       <DashboardControls
         sort={sort}
@@ -23,7 +27,7 @@ const DashboardClient = () => {
         onView={setView}
       />
 
-      <RepoList />
+      <RepoList view={view} />
     </div>
   );
 };

@@ -6,15 +6,24 @@
   height: 100%;
   padding: 3.2rem;
   background-color: rgb(23, 27, 36);
+  background-color: var(--black-lightest);
   color: rgb(88, 96, 105);
   border-radius: var(--border-radius);
   box-shadow: rgba(0, 0, 0, 0.2) 0 1rem 3rem -1.5rem;
+  box-shadow: rgba(255, 255, 255, 0.11) 0 1rem 1.75rem -1.5rem;
   transition: var(--transition);
   position: relative;
 
+  &:hover,
   &:focus-visible {
-    outline: 3px dashed #1f6fea;
-    outline-offset: 3px;
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0.8rem 2rem -1.5rem;
+    box-shadow: rgba(255, 255, 255, 0.11) 0 0.8rem 1.45rem -1.5rem;
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
   }
 
   &__link {
@@ -31,6 +40,7 @@
   }
 
   &__top {
+    width: 100%;
   }
 
   &__name {
@@ -40,7 +50,7 @@
     svg {
       min-width: 1.6rem;
       display: inline-block;
-      fill: currentColor;
+      fill: #38bdf8;
       user-select: none;
       vertical-align: text-bottom;
       margin-right: 0.8rem;
@@ -57,6 +67,7 @@
       font-size: var(--fz-lg);
       color: rgba(200, 225, 255, 0.7);
       letter-spacing: -0.5px;
+      line-height: 1.1;
       overflow: hidden;
     }
   }
@@ -98,6 +109,7 @@
           background-color: rgb(241, 224, 90);
           border-radius: 100%;
           margin-right: 4px;
+          user-select: none;
         }
 
         svg {

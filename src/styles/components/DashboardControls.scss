@@ -32,7 +32,7 @@
       rgb(209, 213, 218) 50%,
       rgba(255, 255, 255, 0) 0px
     );
-    background-size: 1rem 3px;
+    background-size: 1rem 1px;
     background-position: center bottom;
     background-repeat: repeat-x;
     color: rgba(200, 225, 255, 0.7);
@@ -118,10 +118,19 @@
     border-top: 0;
     border-radius: 0 0 0.5rem 0.5rem;
     overflow: hidden;
-    visibility: hidden;
-    z-index: 2000;
-    opacity: 0;
     transition: 0.2s ease-in-out;
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      z-index: 2000;
+    }
+
+    &.hide {
+      visibility: hidden;
+      opacity: 0;
+      z-index: -1;
+    }
   }
 
   &__dropdown-item {

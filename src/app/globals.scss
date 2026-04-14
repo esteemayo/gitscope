@@ -1,4 +1,9 @@
 :root {
+  --black: #0d1017;
+  --black-light: #1518202f;
+  --black-lightest: #2528332f;
+  --gray-dark: rgb(26, 30, 34);
+  --gray-light: rgb(23, 27, 36);
   --font-poppins: Poppins, 'Poppins Fallback';
   --font-mono: Roboto Mono, 'Roboto Mono Fallback';
   --fz-xxs: 1.2rem;
@@ -71,7 +76,7 @@ body {
   min-height: 100vh;
   font-family: var(--font-poppins);
   font-size: var(--fz-md);
-  background-color: #0d1017;
+  background-color: var(--black);
   color: #f0f6fc;
   line-height: 1.6;
 }

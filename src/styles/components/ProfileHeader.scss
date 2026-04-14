@@ -1,7 +1,7 @@
 .profile-header {
   padding: 4.8rem 8rem 16rem;
-  // background-color: rgb(26, 30, 34);
-  background-color: #1518202f;
+  background-color: var(--gray-dark);
+  background-color: var(--black-light);
   margin-bottom: 4rem;
   position: relative;
 
@@ -21,7 +21,6 @@
   & > div {
     max-width: 140rem;
     margin: 0 auto;
-    // background-color: crimson;
   }
 
   &__container {
@@ -163,7 +162,7 @@
 
     text-align: center;
     padding: 1.6rem;
-    background-color: rgb(23, 27, 36);
+    background-color: var(--gray-light);
     border-radius: var(--border-radius);
     line-height: 1.3;
 
