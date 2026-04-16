@@ -1,0 +1,49 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-bottom: 2.4rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    padding: 0.8rem;
+    background-image: linear-gradient(
+      90deg,
+      #1f6fea,
+      #38bdf8,
+      #38bdf8,
+      #1f6fea
+    );
+    background-size: 300% 300%;
+    border-radius: inherit;
+
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  img {
+    display: inline-block;
+    width: 13.4rem;
+    height: 13.4rem;
+    object-fit: cover;
+    vertical-align: middle;
+    border-radius: 100%;
+    user-select: none;
+  }
+}

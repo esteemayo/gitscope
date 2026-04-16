@@ -1,0 +1,45 @@
+@mixin animated-underline(
+  $color: currentColor,
+  $bottom: 3px,
+  $height: 1px,
+  $duration1: 0.35s,
+  $duration2: 0.75s,
+  $origin: left
+) {
+  &:link,
+  &:visited {
+    display: inline-block;
+    position: relative;
+    color: $color;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: $bottom;
+    width: 100%;
+    height: $height;
+    background-color: $color;
+    transform: scaleX(0);
+    transform-origin: $origin;
+    opacity: 0;
+    transition:
+      transform $duration1 cubic-bezier(0.645, 0.045, 0.355, 1),
+      opacity $duration2 ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px dashed $color;
+    outline-offset: 3px;
+  }
+}

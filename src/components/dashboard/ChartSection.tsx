@@ -29,7 +29,7 @@ const ChartSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ChartSection
+export default ChartSection;

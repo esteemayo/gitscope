@@ -40,7 +40,11 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
                 <button
                   type='button'
                   onClick={() => setIsOpen((prev) => !prev)}
-                  className='dashboard-controls__dropdown-button'
+                  className={
+                    isOpen ?
+                      'dashboard-controls__dropdown-button active' :
+                      'dashboard-controls__dropdown-button'
+                  }
                 >
                   <label>{sort}</label>
 

@@ -1,7 +1,8 @@
-import Image from 'next/image';
+import Avatar from './Avatar';
+import ProfileStatsCard from './ProfileStatsCard';
 
-import MapPin from '../icons/MapPin';
 import Calendar from '../icons/Calendar';
+import MapPin from '../icons/MapPin';
 
 import '../../styles/components/ProfileHeader.scss';
 
@@ -9,9 +10,7 @@ const ProfileHeader = () => {
   return (
     <section className='profile-header'>
       <div className='profile-header__container'>
-        <div className='profile-header__avatar'>
-          <Image src='/hero.png' width={130} height={130} alt='avatar' />
-        </div>
+        <Avatar />
 
         <h1 className='profile-header__name'>Emmanuel Adebayo</h1>
 
@@ -42,20 +41,9 @@ const ProfileHeader = () => {
         </div>
 
         <div className='profile-header__stats'>
-          <div className='profile-header__item'>
-            <span className='profile-header__item--num'>200</span>
-            <span className='profile-header__item--num-label'>Repositories</span>
-          </div>
-
-          <div className='profile-header__item'>
-            <span className='profile-header__item--num'>14</span>
-            <span className='profile-header__item--num-label'>Followers</span>
-          </div>
-
-          <div className='profile-header__item'>
-            <span className='profile-header__item--num'>45</span>
-            <span className='profile-header__item--num-label'>Following</span>
-          </div>
+          <ProfileStatsCard value={200} label='Repositories' />
+          <ProfileStatsCard value={14} label='Followers' />
+          <ProfileStatsCard value={45} label='Following' />
         </div>
       </div>
     </section>

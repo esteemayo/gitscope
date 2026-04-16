@@ -33,6 +33,7 @@ const TopReposChart = ({ grid, isAnimationActive }: TopReposChartProps) => {
       }}
       responsive
       data={data}
+      tabIndex={-1}
     >
       {grid && <CartesianGrid strokeDasharray='3 3' />}
       <XAxis dataKey='name' />

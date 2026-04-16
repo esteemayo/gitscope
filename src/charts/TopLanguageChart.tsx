@@ -39,6 +39,7 @@ const TopLanguageChart = ({ grid, isAnimationActive = true }: TopLanguageChartPr
         left: 20,
         bottom: 5,
       }}
+      tabIndex={-1}
     >
       {grid && <CartesianGrid strokeDasharray='3 3' />}
       <XAxis dataKey='name' />

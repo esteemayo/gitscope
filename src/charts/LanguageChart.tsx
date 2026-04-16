@@ -24,6 +24,7 @@ const LanguageChart = ({ isAnimationActive, defaultIndex }: LanguageChartProps) 
         aspectRatio: 1,
       }}
       responsive
+      tabIndex={-1}
     >
       <Pie
         data={data}
