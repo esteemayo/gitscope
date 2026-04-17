@@ -1,2 +1,103 @@
 .compare-users {
+  display: flex;
+  justify-content: center;
+
+  padding: 4.8rem 8rem;
+
+  &__container {
+    width: 120rem;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    margin-bottom: 10rem;
+
+    input {
+      display: inline-block;
+      text-align: center;
+      text-transform: lowercase;
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: var(--fz-xl);
+      padding: 1rem;
+      background-color: #1e293b;
+      color: #1f6fea;
+      border: 1px solid #334155;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+
+      @media (max-width: 48em) {
+        font-size: var(--fz-md);
+      }
+
+      &::placeholder {
+        text-transform: capitalize;
+        font-weight: 400;
+        font-size: var(--fz-sm);
+        color: #94a3b8;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        border-radius: 0;
+        outline: 3px dashed #1f6fea;
+        outline-offset: 3px;
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+
+    button {
+      display: inline-block;
+      text-transform: capitalize;
+      font-weight: 500;
+      font-size: var(--fz-sm);
+      padding: 1rem;
+      background-color: #1f6fea;
+      color: var(--white);
+      border: 1px solid transparent;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+
+      &:hover {
+        background-color: #4089f7;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        border-radius: 0;
+        outline: 3px dashed #1f6fea;
+        outline-offset: 3px;
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 }

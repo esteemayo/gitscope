@@ -4,6 +4,7 @@
   --black-lightest: #2528332f;
   --gray-dark: rgb(26, 30, 34);
   --gray-light: rgb(23, 27, 36);
+  --white: #f0f6fc;
   --font-poppins: Poppins, 'Poppins Fallback';
   --font-mono: Roboto Mono, 'Roboto Mono Fallback';
   --fz-xxs: 1.2rem;
@@ -78,14 +79,14 @@ body {
   font-family: var(--font-poppins);
   font-size: var(--fz-md);
   background-color: var(--black);
-  color: #f0f6fc;
+  color: var(--white);
   line-height: 1.6;
 }
 
 a {
   text-decoration: none;
   text-decoration-skip-ink: auto;
-  color: #f0f6fc;
+  color: var(--white);
   transition: var(--transition);
 }
 
@@ -100,4 +101,8 @@ input,
 textarea,
 select {
   font-size: var(--fz-md);
+}
+
+.main-container {
+  min-height: 100vh;
 }

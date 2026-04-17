@@ -1,14 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import Square from '../icons/Square';
 import ListBullet from '../icons/ListBullet';
 
+import { sortItems } from '@/data';
 import { DashboardControlsProps } from '@/types/dashboard.control.type';
+
 import '../../styles/components/DashboardControls.scss';
 
 const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProps) => {
+  const refs = useRef<(HTMLButtonElement | null)[]>([]);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -17,6 +21,33 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
     if (!target.classList.contains('dashboard-controls__dropdown-button')) {
       setIsOpen(false);
     }
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    let nextIndex = index;
+    const lastIndex = sortItems.length - 1;
+
+    if (e.key === 'ArrowDown') {
+      nextIndex = index === lastIndex ? 0 : index + 1;
+    }
+
+    if (e.key === 'ArrowUp') {
+      nextIndex = index === 0 ? lastIndex : index - 1;
+    }
+
+    if (e.key === 'Home') {
+      nextIndex = 0;
+    }
+
+    if (e.key === 'End') {
+      nextIndex = lastIndex;
+    }
+
+    e.preventDefault();
+
+    const nextItem = sortItems[nextIndex].id;
+    onSort(nextItem);
+    refs.current[nextIndex]?.focus();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
@@ -65,50 +96,20 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
                     'dashboard-controls__dropdown-list show' :
                     'dashboard-controls__dropdown-list hide'
                 }>
-                  <li className='dashboard-controls__dropdown-item'>
-                    <button
-                      type='button'
-                      onClick={() => onSort('stars')}
-                    >
-                      stars
-                    </button>
-                  </li>
-
-                  <li className='dashboard-controls__dropdown-item'>
-                    <button
-                      type='button'
-                      onClick={() => onSort('forks')}
-                    >
-                      forks
-                    </button>
-                  </li>
-
-                  <li className='dashboard-controls__dropdown-item'>
-                    <button
-                      type='button'
-                      onClick={() => onSort('size')}
-                    >
-                      size
-                    </button>
-                  </li>
-
-                  <li className='dashboard-controls__dropdown-item'>
-                    <button
-                      type='button'
-                      onClick={() => onSort('updated')}
-                    >
-                      updated
-                    </button>
-                  </li>
-
-                  <li className='dashboard-controls__dropdown-item'>
-                    <button
-                      type='button'
-                      onClick={() => onSort('name')}
-                    >
-                      name
-                    </button>
-                  </li>
+                  {sortItems.map(({ id, label }, index) => (
+                    <li key={id} className='dashboard-controls__dropdown-item'>
+                      <button
+                        ref={(el) => {
+                          refs.current[index] = el;
+                        }}
+                        type='button'
+                        onClick={() => onSort(id)}
+                        onKeyDown={(e) => onKeyDown(e, index)}
+                      >
+                        {label}
+                      </button>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

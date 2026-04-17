@@ -8,11 +8,11 @@ import ProfileHeader from './ProfileHeader';
 import StatsCards from './StatsCards';
 import DashboardControls from './DashboardControls';
 
-import { sortType, ViewType } from '@/types';
+import { SortType, ViewType } from '@/types';
 
 const DashboardClient = () => {
   const [view, setView] = useState<ViewType>('grid');
-  const [sort, setSort] = useState<sortType>('stars');
+  const [sort, setSort] = useState<SortType>('stars');
 
   return (
     <div>

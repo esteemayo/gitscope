@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import Book from '../icons/Book';
 import Fork from '../icons/Fork';
 import Star from '../icons/Star';
@@ -8,11 +10,9 @@ import '../../styles/components/RepoCard.scss';
 const RepoCard = ({ view }: RepoCardProps) => {
   return (
     <article className='repo-card' tabIndex={0}>
-      <a
-        href='#'
+      <Link
+        href={`/repo/esteemayo/albumz-api`}
         className='repo-card__link'
-        target='_blank'
-        rel='noopener noreferrer'
         tabIndex={-1}
       >
         <div className='repo-card__top'>
@@ -49,7 +49,7 @@ const RepoCard = ({ view }: RepoCardProps) => {
             <span>364 KB</span>
           </div>
         </div>
-      </a>
+      </Link>
     </article>
   );
 };
