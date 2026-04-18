@@ -13,8 +13,9 @@
 
   &__header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 
     margin-bottom: 3.2rem;
   }
@@ -33,6 +34,12 @@
     background-repeat: repeat-x;
     background-size: 1rem 1px;
     color: rgba(200, 225, 255, 0.7);
+    margin-bottom: 4px;
+  }
+
+  &__desc {
+    font-size: var(--fz-xs);
+    color: #94a3b8;
   }
 
   &__container {

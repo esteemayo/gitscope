@@ -178,61 +178,65 @@
     }
   }
 
-  &__toggle {
+  &__actions {
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
 
-    &--btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  &__toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      border: none;
-      width: 3.5rem;
-      height: 3.5rem;
-      background-color: #1f70ea1f;
-      // background-color: rgb(23, 27, 36);
-      color: rgba(200, 225, 255, 0.7);
-      border: 1px solid currentColor;
-      border-radius: 0.6rem;
-      cursor: pointer;
-      transition: var(--transition);
+    border: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: #1f70ea1f;
+    // background-color: rgb(23, 27, 36);
+    color: rgba(200, 225, 255, 0.7);
+    border: 1px solid currentColor;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: var(--transition);
 
-      &.active {
-        background-color: #38bdf8;
-        color: #0f172a;
-        border-color: transparent;
-      }
-
-      &:hover {
-        opacity: 0.85;
-      }
-
-      &:focus {
-        outline: none;
-      }
-
-      &:focus-visible {
-        border: none;
-        border-radius: 0;
-        outline: 3px dashed #1f6fea;
-        outline-offset: 3px;
-      }
-
-      &:disabled {
-        opacity: 0.75;
-        user-select: none;
-        pointer-events: none;
-      }
-
-      svg {
-        width: 2.5rem;
-        height: 2.5rem;
-        color: currentColor;
-        user-select: none;
-        vertical-align: text-bottom;
-      }
+    &.active {
+      background-color: #38bdf8;
+      color: #0f172a;
+      border-color: transparent;
     }
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      border: none;
+      border-radius: 0;
+      outline: 3px dashed #1f6fea;
+      outline-offset: 3px;
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: currentColor;
+      user-select: none;
+      vertical-align: text-bottom;
+    }
+  }
+
+  &__export {
+    display: inline-block;
   }
 }

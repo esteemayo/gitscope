@@ -115,15 +115,15 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
             </div>
           </div>
 
-          <div className='dashboard-controls__toggle'>
+          <div className='dashboard-controls__actions'>
             <button
               type='button'
               onClick={() => onView('grid')}
               onKeyDown={handleKeyDown}
               className={
                 view === 'grid' ?
-                  'dashboard-controls__toggle--btn active' :
-                  'dashboard-controls__toggle--btn'
+                  'dashboard-controls__toggle-btn active' :
+                  'dashboard-controls__toggle-btn'
               }
               title='Grid'
             >
@@ -136,13 +136,15 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
               onKeyDown={handleKeyDown}
               className={
                 view === 'list' ?
-                  'dashboard-controls__toggle--btn active' :
-                  'dashboard-controls__toggle--btn'
+                  'dashboard-controls__toggle-btn active' :
+                  'dashboard-controls__toggle-btn'
               }
               title='List'
             >
               <ListBullet />
             </button>
+
+            <button type='button' className='dashboard-controls__export'>Export CSV</button>
           </div>
         </header>
       </div>
