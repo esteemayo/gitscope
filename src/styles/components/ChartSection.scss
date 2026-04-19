@@ -6,6 +6,10 @@
     max-width: 120rem;
     margin: 0 auto;
     // margin-top: -12.8rem;
+
+    @media (max-width: 48em) {
+      max-width: 40rem;
+    }
   }
 
   &__wrapper {
@@ -13,9 +17,15 @@
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
     justify-content: center;
     gap: 3.2rem;
+
     margin-top: -12.8rem;
     margin-top: -17rem;
     position: relative;
     z-index: 2000;
+
+    @media (max-width: 48em) {
+      gap: 5rem;
+      margin-top: 0;
+    }
   }
 }

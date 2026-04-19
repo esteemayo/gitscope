@@ -42,6 +42,23 @@ const CompareUsers = () => {
           <button type='button' onClick={handleClick}>Compare</button>
         </div>
 
+        <div className='compare-users__summary'>
+          <div className='compare-users__box'>
+            <strong className='compare-users__box--label'>Stars:</strong>
+            <span className='compare-users__box--count'>120 vs 340</span>
+          </div>
+
+          <div className='compare-users__box'>
+            <strong className='compare-users__box--label'>Repositories:</strong>
+            <span className='compare-users__box--count'>12 vs 28</span>
+          </div>
+
+          <div className='compare-users__box'>
+            <strong className='compare-users__box--label'>Stars:</strong>
+            <span className='compare-users__box--count'>80 vs 210</span>
+          </div>
+        </div>
+
         {run && (
           <div className='compare-users__grid'>
             <UserDashboard />

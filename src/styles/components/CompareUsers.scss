@@ -13,10 +13,11 @@
 
   &__wrapper {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1.2rem;
 
-    margin-bottom: 10rem;
+    margin-bottom: 2.4rem;
 
     input {
       display: inline-block;
@@ -34,6 +35,10 @@
 
       @media (max-width: 48em) {
         font-size: var(--fz-md);
+      }
+
+      @media (max-width: 30em) {
+        width: 100%;
       }
 
       &::placeholder {
@@ -73,6 +78,10 @@
       cursor: pointer;
       transition: var(--transition);
 
+      @media (max-width: 30em) {
+        width: 100%;
+      }
+
       &:hover {
         background-color: #4089f7;
       }
@@ -95,9 +104,39 @@
     }
   }
 
+  &__summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.4rem;
+
+    color: var(--gray-lightest);
+    margin-bottom: 2.4rem;
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &--label {
+      font-weight: 500;
+      font-size: 100%;
+    }
+
+    &--count {
+      font-size: var(--fz-sm);
+    }
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+
+    @media (max-width: 48em) {
+      grid-template-columns: 1fr;
+      gap: 5rem;
+    }
   }
 }

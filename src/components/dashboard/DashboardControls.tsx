@@ -144,7 +144,12 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
               <ListBullet />
             </button>
 
-            <button type='button' className='dashboard-controls__export'>Export CSV</button>
+            <button
+              type='button'
+              className='dashboard-controls__export'
+            >
+              Export CSV
+            </button>
           </div>
         </header>
       </div>

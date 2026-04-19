@@ -44,6 +44,10 @@
     }
   }
 
+  &__wrapper {
+    margin-bottom: 2rem;
+  }
+
   &__badge {
     text-transform: capitalize;
     font-family: var(--font-mono);
@@ -67,7 +71,7 @@
   &__subtitle {
     max-width: 60rem;
     font-size: var(--fz-xs);
-    color: #94a3b8;
+    color: var(--gray-lightest);
   }
 
   &__form {
@@ -98,6 +102,53 @@
 
     .button {
       flex: 0.5;
+    }
+  }
+
+  &__recent {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+    margin-top: 2rem;
+
+    &--label {
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: var(--gray-lightest);
+    }
+
+    &--btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: var(--fz-xxs);
+      padding: 0.6rem 1rem;
+      background-color: transparent;
+      color: currentColor;
+      border: 1px solid #1e293b;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        border-radius: 0;
+        outline: 3px dashed #1f6fea;
+        outline-offset: 3px;
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        user-select: none;
+        pointer-events: none;
+      }
     }
   }
 }
