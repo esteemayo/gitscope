@@ -8,14 +8,25 @@ import Input from '../ui/Input';
 import Logo from '../ui/Logo';
 import Button from '../ui/Button';
 
-import { getFromStorage, recentKey, setToStorage } from '@/utils/index';
+import { getFromStorage, hintKey, recentKey, setToStorage } from '@/utils/index';
 import './Landing.scss';
+
+const placeholders = [
+  'Enter GitHub username...',
+  'Try "esteemayo"',
+  'Try "torvalds"',
+  'Try "gaearon"',
+];
 
 const Landing = () => {
   const router = useRouter();
 
   const [username, setUsername] = useState('');
-  const [recentUsers, setRecentUsers] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [placeholder, setPlaceholder] = useState('');
+  const [subIndex, setSubIndex] = useState(0);
+  const [recentUsers, setRecentUsers] = useState<string[]>([]);
+  const [showHint, setShowHint] = useState(false);
 
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,6 +52,46 @@ const Landing = () => {
 
     return () => cancelAnimationFrame(raf);
   }, []);
+
+  useEffect(() => {
+    if (subIndex < placeholders[index].length) {
+      const timeout = setTimeout(() => {
+        setPlaceholder((prev) => prev + placeholders[index][subIndex]);
+        setSubIndex(subIndex + 1);
+      }, 40);
+
+      return () => clearTimeout(timeout);
+    }
+
+    const timeout = setTimeout(() => {
+      setPlaceholder('');
+      setSubIndex(0);
+      setIndex((prev) => (prev + 1) % placeholders.length);
+    }, 1500);
+
+    return () => clearTimeout(timeout);
+  }, [index, subIndex]);
+
+  useEffect(() => {
+    const seen = getFromStorage(hintKey);
+
+    if (!seen) {
+      const frame = requestAnimationFrame(() => {
+        setShowHint(true);
+      });
+
+      setToStorage(hintKey, 'true');
+
+      return () => cancelAnimationFrame(frame);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (showHint) {
+      const timer = setTimeout(() => setShowHint(false), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [showHint]);
 
   return (
     <section className='landing'>
@@ -71,13 +122,35 @@ const Landing = () => {
               id='username'
               name='username'
               value={username}
-              placeholder='Enter GitHub username...'
+              placeholder={placeholder}
               onChange={(e) => setUsername(e.target.value)}
               autoFocus={true}
             />
 
             <Button type='submit' tabIndex={-1}>Analyze profile</Button>
           </form>
+
+          {showHint && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className='landing__hint'
+            >
+              <p className='landing__hint--text'>
+                Search any GitHub username to explore insights
+              </p>
+
+              <button
+                type='button'
+                onClick={() => setShowHint(false)}
+                className='landing__hint--btn'
+              >
+                Got it
+              </button>
+            </motion.div>
+          )}
 
           {recentUsers.length > 0 && (
             <motion.div

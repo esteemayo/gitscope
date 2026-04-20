@@ -1,5 +1,7 @@
 export const recentKey = 'recentUsers';
 
+export const hintKey = 'seen_hint';
+
 export const getFromStorage = (key: string) => {
   if (typeof window !== 'undefined') {
     return JSON.parse(localStorage.getItem(key)!);
