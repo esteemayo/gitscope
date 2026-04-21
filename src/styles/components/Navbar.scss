@@ -8,13 +8,14 @@
   height: var(--nav-height);
   padding: 2rem 8rem;
   background-color: var(--black);
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid transparent;
   z-index: 5000;
   transition: var(--transition);
 
   &.scrolled {
     background-color: rgba(var(--black), 0.75);
     backdrop-filter: blur(1rem);
+    border-bottom: 1px solid #1e293b;
   }
 
   &__container {

@@ -3,21 +3,21 @@
 import { useEffect } from 'react';
 
 import { ErrorProps } from '@/types/error.type';
+import { logError } from '@/lib/logError';
 import ErrorView from '@/components/ui/ErrorView';
 
 const GlobalError = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
-    console.error(error);
+    logError(error);
   }, [error]);
 
   return (
     <html>
       <body>
         <ErrorView
-          code='System Error'
           title='Something broke'
-          description='Unexpected error. Please try again.'
-          primaryAction={{
+          message='Unexpected error. Please try again.'
+          action={{
             label: 'Reload',
             onClick: reset,
           }}

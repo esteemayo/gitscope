@@ -3,19 +3,19 @@
 import { useEffect } from 'react';
 
 import { ErrorProps } from '@/types/error.type';
+import { logError } from '@/lib/logError';
 import ErrorView from '@/components/ui/ErrorView';
 
 const ErrorPage = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
-    console.error(error);
+    logError(error);
   }, [error]);
 
   return (
     <ErrorView
-      code='Error'
       title='Something went wrong'
-      description='An unexpected error occurred.'
-      primaryAction={{
+      message='An unexpected error occurred.'
+      action={{
         label: 'Try Again',
         onClick: reset,
       }}

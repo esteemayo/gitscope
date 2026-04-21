@@ -1,18 +1,12 @@
 export interface ErrorViewProps {
-  code?: string;
   title: string;
-  description: string;
-  primaryAction?: {
-    label: string;
-    onClick(): void;
-  };
-  secondaryAction?: {
-    label: string;
-    onClick(): void;
-  };
-  tertiaryAction?: {
+  message: string;
+  imageSrc?: string;
+  icon?: React.ReactElement;
+  action?: {
     label: string;
     onClick(): void;
   };
   meta?: string;
+  variant?: 'default' | 'warning' | 'network';
 }
