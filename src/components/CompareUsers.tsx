@@ -43,27 +43,36 @@ const CompareUsers = () => {
         </div>
 
         <div className='compare-users__summary'>
-          <div className='compare-users__box'>
-            <strong className='compare-users__box--label'>Stars:</strong>
-            <span className='compare-users__box--count'>120 vs 340</span>
+          <div className='compare-users__box win'>
+            <span className='compare-users__box--label'>Stars:</span>
+            <strong className='compare-users__box--count'>120 vs 340</strong>
           </div>
 
           <div className='compare-users__box'>
-            <strong className='compare-users__box--label'>Repositories:</strong>
-            <span className='compare-users__box--count'>12 vs 28</span>
+            <span className='compare-users__box--label'>Repositories:</span>
+            <strong className='compare-users__box--count'>12 vs 28</strong>
           </div>
 
           <div className='compare-users__box'>
-            <strong className='compare-users__box--label'>Stars:</strong>
-            <span className='compare-users__box--count'>80 vs 210</span>
+            <span className='compare-users__box--label'>Followers:</span>
+            <strong className='compare-users__box--count'>80 vs 210</strong>
           </div>
         </div>
 
+        <section className='compare-users__insights'>
+          <p className='compare-users__insights--text'>
+            compateStats(stats1, stats2)
+          </p>
+          <p className='compare-users__insights--text'>
+            compateRepos(stats1, stats2)
+          </p>
+        </section>
+
         {run && (
-          <div className='compare-users__grid'>
+          <section className='compare-users__grid'>
             <UserDashboard />
             <UserDashboard />
-          </div>
+          </section>
         )}
       </div>
     </div>

@@ -119,13 +119,41 @@
     align-items: center;
     gap: 4px;
 
+    padding: 1.6rem;
+    border: 1px solid transparent;
+    border-radius: 1.2rem;
+
+    &.win {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px #38bdf8 inset;
+    }
+
     &--label {
-      font-weight: 500;
-      font-size: 100%;
+      font-size: var(--fz-xs);
     }
 
     &--count {
-      font-size: var(--fz-sm);
+      font-weight: 500;
+      font-size: 100%;
+    }
+  }
+
+  &__insights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    color: var(--gray-lightest);
+
+    &--text {
+      font-size: var(--fz-xs);
+      padding: 0.8rem 1.2rem;
+      background-color: var(--black-lightest);
+      background-color: #1e293b;
+      color: currentColor;
+      border: 1px solid #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.8rem;
     }
   }
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Poppins, Roboto_Mono } from 'next/font/google';
 
+import MainLayout from '@/components/layout/MainLayout';
 import './globals.scss';
 
 const poppins = Poppins({
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${poppins.className} ${roboto.className}`}>
       <body>
-        <main className='main-container'>{children}</main>
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   );

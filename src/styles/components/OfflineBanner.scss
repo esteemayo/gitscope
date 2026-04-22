@@ -1,0 +1,25 @@
+.offline-banner {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 5000;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--red);
+    border-bottom: 0.5rem solid #fc5252;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+
+    &--text {
+      font-family: var(--font-mono);
+      font-size: var(--fz-xs);
+    }
+  }
+}

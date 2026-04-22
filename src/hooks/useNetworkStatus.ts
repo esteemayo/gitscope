@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
-export const useNetworkStatus = () => {
+interface IUseNetworkStatus {
+  (): { isOnline: boolean; }
+}
+
+export const useNetworkStatus: IUseNetworkStatus = () => {
   const [isOnline, setIsOnline] = useState(true);
 
   useEffect(() => {
