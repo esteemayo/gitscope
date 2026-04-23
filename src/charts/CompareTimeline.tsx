@@ -11,17 +11,17 @@ import {
   YAxis,
 } from 'recharts';
 
-import { TopLanguageChartProps } from '@/types/top.language.chart.type';
-
 const data = [
-  { name: 'albumz-api', value: 12 },
-  { name: 'ecommerce-store-api', value: 45 },
-  { name: 'hotel-booking-app-api', value: 20 },
-  { name: 'hotel-booking-app-client', value: 11 },
-  { name: 'next-albumz-client', value: 2 },
+  { date: '2023-11', userA: 1, userB: 0 },
+  { date: '2023-12', userA: 2, userB: 1 },
+  { date: '2024-01', userA: 8, userB: 3 },
+  { date: '2024-02', userA: 6, userB: 2 },
+  { date: '2024-03', userA: 10, userB: 5 },
+  { date: '2024-04', userA: 3, userB: 6 },
+  { date: '2024-05', userA: 7, userB: 4 },
 ];
 
-const TopLanguageChart = ({ grid, isAnimationActive = true }: TopLanguageChartProps) => {
+const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimationActive?: boolean }) => {
   return (
     <LineChart
       style={{
@@ -43,7 +43,7 @@ const TopLanguageChart = ({ grid, isAnimationActive = true }: TopLanguageChartPr
     >
       {grid && <CartesianGrid strokeDasharray='3 3' />}
       <XAxis
-        dataKey='name'
+        dataKey='date'
         fontFamily='var(--font-mono)'
         fontSize='1.2rem'
         color='var(--gray-lightest)'
@@ -59,7 +59,6 @@ const TopLanguageChart = ({ grid, isAnimationActive = true }: TopLanguageChartPr
         stroke='var(--gray-lightest)'
         strokeWidth={1}
       />
-
       <Tooltip
         contentStyle={{
           padding: '2rem',
@@ -71,8 +70,14 @@ const TopLanguageChart = ({ grid, isAnimationActive = true }: TopLanguageChartPr
       <Legend align='right' />
       <Line
         type='monotone'
-        dataKey='value'
+        dataKey='userA'
         stroke='#38bdf8'
+        isAnimationActive={isAnimationActive}
+      />
+      <Line
+        type='monotone'
+        dataKey='userB'
+        stroke='#1f6fea'
         isAnimationActive={isAnimationActive}
       />
       <RechartsDevtools />
@@ -80,4 +85,4 @@ const TopLanguageChart = ({ grid, isAnimationActive = true }: TopLanguageChartPr
   );
 };
 
-export default TopLanguageChart;
+export default CompareTimeline;

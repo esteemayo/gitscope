@@ -4,7 +4,7 @@
   background-color: #1e293b;
   background-color: var(--black-light);
   border: 1px solid #1e293b;
-  border-radius: 1rem;
+  border-radius: var(--radius);
 
   &__container {
     .repo-list {

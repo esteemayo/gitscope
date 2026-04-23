@@ -36,10 +36,27 @@ const TopReposChart = ({ grid, isAnimationActive }: TopReposChartProps) => {
       tabIndex={-1}
     >
       {grid && <CartesianGrid strokeDasharray='3 3' />}
-      <XAxis dataKey='name' />
-      <YAxis width='auto' />
+      <XAxis
+        dataKey='name'
+        fontFamily='var(--font-mono)'
+        fontSize='1.2rem'
+        color='var(--gray-lightest)'
+        stroke='var(--gray-lightest)'
+        strokeWidth={1}
+      />
+
+      <YAxis
+        width='auto'
+        fontFamily='var(--font-mono)'
+        fontSize='1.2rem'
+        color='var(--gray-lightest)'
+        stroke='var(--gray-lightest)'
+        strokeWidth={1}
+      />
+
       <Tooltip
         contentStyle={{
+          padding: '2rem',
           backgroundColor: '#0d1017',
           border: 'none',
           borderRadius: '4px',

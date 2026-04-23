@@ -1,6 +1,6 @@
 'use client';
 
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 
 import Chart from '@/charts/Chart';
 
@@ -19,21 +19,27 @@ const ChartSection = () => {
             title='Language Distribution'
             subtitle='Breakdown of repositories by language'
           >
-            <LanguageChart />
+            <Suspense fallback='loading...'>
+              <LanguageChart />
+            </Suspense>
           </Chart>
 
           <Chart
             title='Top Repositories'
             subtitle='Ranked by stars'
           >
-            <TopReposChart />
+            <Suspense fallback='loading...'>
+              <TopReposChart />
+            </Suspense>
           </Chart>
 
           <Chart
             title='Top Language by Stars'
             subtitle='Total stars grouped by language'
           >
-            <StarsLanguageChart />
+            <Suspense fallback='loading...'>
+              <StarsLanguageChart />
+            </Suspense>
           </Chart>
         </div>
       </div>

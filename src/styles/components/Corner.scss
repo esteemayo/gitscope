@@ -1,0 +1,45 @@
+@use '../abstracts/animation';
+
+.corner {
+  position: fixed;
+  top: 7rem;
+  right: 0;
+  z-index: 5000;
+
+  &__container {
+    &--link {
+      &:link,
+      &:visited {
+        display: inline-block;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover .octo-arm,
+      &:focus-visible .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+
+        @media (max-width: 31.25em) {
+          animation: none;
+        }
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      svg {
+        fill: var(--blue);
+        color: var(--white);
+
+        .octo-arm {
+          transform-origin: 13rem 10.6rem;
+        }
+      }
+    }
+  }
+}

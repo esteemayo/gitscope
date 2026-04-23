@@ -12,7 +12,7 @@ const Footer = () => {
         <ul className='footer__list'>
           <li className='footer__item'>
             <a
-              href='https://github.com'
+              href='https://github.com/esteemayo'
               className='footer__item--link'
               target='_blank'
               rel='noopener noreferrer'

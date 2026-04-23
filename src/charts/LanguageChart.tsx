@@ -36,10 +36,14 @@ const LanguageChart = ({ isAnimationActive, defaultIndex }: LanguageChartProps) 
         fill='#38bdf8'
         label
         isAnimationActive={isAnimationActive}
+        fontFamily='var(--font-mono)'
+        fontSize='1.2rem'
+        strokeWidth={1}
       />
       <Tooltip
         defaultIndex={defaultIndex}
         contentStyle={{
+          padding: '2rem',
           backgroundColor: '#0d1017',
           border: 'none',
           borderRadius: '4px',

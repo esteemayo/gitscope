@@ -5,7 +5,10 @@
   --gray-dark: rgb(26, 30, 34);
   --gray-light: rgb(23, 27, 36);
   --gray-lightest: #94a3b8;
+  --border: #1e293b;
   --white: #f0f6fc;
+  --blue: #1f6fea;
+  --blue-light: #38bdf8;
   --red: #f87171;
   --yellow: #facc15;
   --font-poppins: Poppins, 'Poppins Fallback';
@@ -19,6 +22,7 @@
   --fz-xxl: 2.2rem;
   --fz-heading: 3.2rem;
   --border-radius: 4px;
+  --radius: 1.2rem;
   --nav-height: 7rem;
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
