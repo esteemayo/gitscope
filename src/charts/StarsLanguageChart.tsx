@@ -49,6 +49,7 @@ const TopLanguageChart = ({ grid, isAnimationActive = true }: TopLanguageChartPr
         color='var(--gray-lightest)'
         stroke='var(--gray-lightest)'
         strokeWidth={1}
+        tick={{ fontSize: 10 }}
       />
 
       <YAxis
@@ -58,6 +59,7 @@ const TopLanguageChart = ({ grid, isAnimationActive = true }: TopLanguageChartPr
         color='var(--gray-lightest)'
         stroke='var(--gray-lightest)'
         strokeWidth={1}
+        tick={{ fontSize: 10 }}
       />
 
       <Tooltip
@@ -67,11 +69,15 @@ const TopLanguageChart = ({ grid, isAnimationActive = true }: TopLanguageChartPr
           border: 'none',
           borderRadius: '4px',
         }}
+        cursor={{ opacity: 0.1 }}
       />
       <Legend align='right' />
       <Line
         type='monotone'
         dataKey='value'
+        name='Languages'
+        dot={{ r: 3 }}
+        activeDot={{ r: 6 }}
         stroke='#38bdf8'
         isAnimationActive={isAnimationActive}
       />

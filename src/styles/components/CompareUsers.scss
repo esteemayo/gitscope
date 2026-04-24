@@ -158,6 +158,10 @@
     border-radius: var(--radius);
 
     &--text {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+
       font-size: var(--fz-xs);
       padding: 0.8rem 1.2rem;
       background-color: var(--black);

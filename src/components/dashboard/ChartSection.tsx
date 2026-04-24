@@ -42,6 +42,22 @@ const ChartSection = () => {
             </Suspense>
           </Chart>
         </div>
+
+        <div className='chart-section__insights'>
+          <div className='chart-section__group'>
+            <p className='chart-section__group--paragraph'>
+              Most starred language is <strong>JavaScript</strong>
+            </p>
+
+            <p className='chart-section__group--paragraph'>
+              <strong>overlay-lab</strong> drives the highest engagement
+            </p>
+
+            <p className='chart-section__group--paragraph'>
+              Total stars across repositories: <strong>20</strong>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

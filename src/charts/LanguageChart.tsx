@@ -48,6 +48,7 @@ const LanguageChart = ({ isAnimationActive, defaultIndex }: LanguageChartProps) 
           border: 'none',
           borderRadius: '4px',
         }}
+        cursor={{ opacity: 0.1 }}
       />
       <RechartsDevtools />
     </PieChart>

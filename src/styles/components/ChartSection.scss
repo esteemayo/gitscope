@@ -28,4 +28,34 @@
       margin-top: 0;
     }
   }
+
+  &__insights {
+    margin-top: 2.4rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--border);
+  }
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.6rem;
+
+    color: rgba(200, 225, 255, 0.7);
+
+    &--paragraph {
+      font-weight: 300;
+      font-size: var(--fz-xs);
+      padding: 0.8rem 1.2rem;
+      background-color: var(--gray-light);
+      border: 1px solid var(--border);
+      color: currentColor;
+      border-radius: 99.9rem;
+
+      strong {
+        font-weight: 500;
+        color: currentColor;
+      }
+    }
+  }
 }

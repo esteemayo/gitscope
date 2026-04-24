@@ -49,6 +49,7 @@ const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimat
         color='var(--gray-lightest)'
         stroke='var(--gray-lightest)'
         strokeWidth={1}
+        tick={{ fontSize: 10 }}
       />
 
       <YAxis
@@ -58,6 +59,7 @@ const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimat
         color='var(--gray-lightest)'
         stroke='var(--gray-lightest)'
         strokeWidth={1}
+        tick={{ fontSize: 10 }}
       />
       <Tooltip
         contentStyle={{
@@ -66,17 +68,24 @@ const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimat
           border: 'none',
           borderRadius: '4px',
         }}
+        cursor={{ opacity: 0.1 }}
       />
       <Legend align='right' />
       <Line
         type='monotone'
         dataKey='userA'
+        name='User A'
+        dot={{ r: 3 }}
+        activeDot={{ r: 6 }}
         stroke='#38bdf8'
         isAnimationActive={isAnimationActive}
       />
       <Line
         type='monotone'
         dataKey='userB'
+        name='User B'
+        dot={{ r: 3 }}
+        activeDot={{ r: 6 }}
         stroke='#1f6fea'
         isAnimationActive={isAnimationActive}
       />

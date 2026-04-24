@@ -1,6 +1,8 @@
 'use client';
 
 import { lazy, Suspense, useState } from 'react';
+
+import Tooltip from './ui/Tooltip';
 import UserDashboard from './dashboard/UserDashboard';
 
 import '../styles/components/CompareUsers.scss';
@@ -69,12 +71,14 @@ const CompareUsers = () => {
             </p>
 
             <p className='compare-users__insights--text'>
-              Consistency {' '}
+              Consistency
+              <Tooltip text='How evenly activity is spread over time' />
               <strong>consistencyA% vs consistencyB%</strong>
             </p>
 
             <p className='compare-users__insights--text'>
-              Peak Activity {' '}
+              Peak Activity
+              <Tooltip text='Month with highest repository updates' />
               <strong>mostA?.date</strong> vs <strong>mostB?.date</strong>
             </p>
           </section>

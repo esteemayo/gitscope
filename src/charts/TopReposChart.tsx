@@ -37,12 +37,14 @@ const TopReposChart = ({ grid, isAnimationActive }: TopReposChartProps) => {
     >
       {grid && <CartesianGrid strokeDasharray='3 3' />}
       <XAxis
+        hide
         dataKey='name'
         fontFamily='var(--font-mono)'
         fontSize='1.2rem'
         color='var(--gray-lightest)'
         stroke='var(--gray-lightest)'
         strokeWidth={1}
+        tick={{ fontSize: 10 }}
       />
 
       <YAxis
@@ -52,6 +54,7 @@ const TopReposChart = ({ grid, isAnimationActive }: TopReposChartProps) => {
         color='var(--gray-lightest)'
         stroke='var(--gray-lightest)'
         strokeWidth={1}
+        tick={{ fontSize: 10 }}
       />
 
       <Tooltip
@@ -61,10 +64,12 @@ const TopReposChart = ({ grid, isAnimationActive }: TopReposChartProps) => {
           border: 'none',
           borderRadius: '4px',
         }}
+        cursor={{ opacity: 0.1 }}
       />
       <Legend align='right' />
       <Bar
         dataKey='value'
+        name='Repositories'
         fill='#38bdf8'
         isAnimationActive={isAnimationActive}
       />
