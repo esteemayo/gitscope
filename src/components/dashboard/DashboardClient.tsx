@@ -17,8 +17,8 @@ const DashboardClient = () => {
   return (
     <div>
       <ProfileHeader />
-      <ChartSection />
       <StatsCards />
+      <ChartSection />
 
       <DashboardControls
         sort={sort}

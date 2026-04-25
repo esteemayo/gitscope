@@ -6,10 +6,16 @@
   background-color: var(--gray-light);
   box-shadow: rgba(0, 0, 0, 0.2) 0 0.5rem 3rem -1.5rem;
   box-shadow: rgba(255, 255, 255, 0.11) 0 1rem 1.75rem -1.5rem;
-  border: 1px solid #1e293b;
-  border-radius: var(--border-radius);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   position: relative;
   z-index: 2000;
+  transition: var(--transition);
+
+  &:hover {
+    border-color: var(--blue-light);
+    transform: translateY(-2px) scale(1.03);
+  }
 
   &__header {
     display: flex;

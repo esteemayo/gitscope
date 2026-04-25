@@ -8,6 +8,10 @@ const LanguageChart = lazy(() => import('@/charts/LanguageChart'));
 const TopReposChart = lazy(() => import('@/charts/TopReposChart'));
 const StarsLanguageChart = lazy(() => import('@/charts/StarsLanguageChart'));
 
+import { languageChartData } from '@/data/charts/languageChartData';
+import { topReposData } from '@/data/charts/topReposData';
+import { starsLanguageChartData } from '@/data/charts/starsLanguageChartData';
+
 import '../../styles/components/ChartSection.scss';
 
 const ChartSection = () => {
@@ -20,7 +24,7 @@ const ChartSection = () => {
             subtitle='Breakdown of repositories by language'
           >
             <Suspense fallback='loading...'>
-              <LanguageChart />
+              <LanguageChart data={languageChartData} />
             </Suspense>
           </Chart>
 
@@ -29,7 +33,7 @@ const ChartSection = () => {
             subtitle='Ranked by stars'
           >
             <Suspense fallback='loading...'>
-              <TopReposChart />
+              <TopReposChart data={topReposData} />
             </Suspense>
           </Chart>
 
@@ -38,7 +42,7 @@ const ChartSection = () => {
             subtitle='Total stars grouped by language'
           >
             <Suspense fallback='loading...'>
-              <StarsLanguageChart />
+              <StarsLanguageChart data={starsLanguageChartData} />
             </Suspense>
           </Chart>
         </div>

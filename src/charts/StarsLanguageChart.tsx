@@ -13,15 +13,7 @@ import {
 
 import { TopLanguageChartProps } from '@/types/top.language.chart.type';
 
-const data = [
-  { name: 'albumz-api', value: 12 },
-  { name: 'ecommerce-store-api', value: 45 },
-  { name: 'hotel-booking-app-api', value: 20 },
-  { name: 'hotel-booking-app-client', value: 11 },
-  { name: 'next-albumz-client', value: 2 },
-];
-
-const TopLanguageChart = ({ grid, isAnimationActive = true }: TopLanguageChartProps) => {
+const TopLanguageChart = ({ data, grid, isAnimationActive = true }: TopLanguageChartProps) => {
   return (
     <LineChart
       style={{
