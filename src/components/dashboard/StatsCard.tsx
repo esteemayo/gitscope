@@ -4,9 +4,24 @@ import ArrowDownRight from '../icons/ArrowDownRight';
 import { StatsCardProps } from '@/types/stats.card.type';
 import '../../styles/components/StatsCard.scss';
 
-const StatsCard = ({ label, value, delta, icon, hint }: StatsCardProps) => {
+const StatsCard = ({
+  label,
+  value,
+  delta,
+  icon,
+  hint,
+  filter,
+  sort,
+  onSort,
+}: StatsCardProps) => {
+  const active = sort === filter;
+
   return (
-    <article className='stats-card'>
+    <article
+      onClick={() => onSort(filter)}
+      className={active ? 'stats-card active' : 'stats-card'}
+      role='button'
+    >
       <header className='stats-card__header'>
         <span className='stats-card__header--icon'>{icon}</span>
         <h3 className='stats-card__header--label'>{label}</h3>

@@ -1,8 +1,9 @@
+import ShareProfile from './ShareProfile';
 import Avatar from './Avatar';
 import ProfileStatsCard from './ProfileStatsCard';
 
-import Calendar from '../icons/Calendar';
 import MapPin from '../icons/MapPin';
+import Calendar from '../icons/Calendar';
 
 import '../../styles/components/ProfileHeader.scss';
 
@@ -39,6 +40,8 @@ const ProfileHeader = () => {
             Joined July 25, 2019
           </span>
         </div>
+
+        <ShareProfile username='esteemayo' />
 
         <div className='profile-header__stats'>
           <ProfileStatsCard value={200} label='Repositories' />

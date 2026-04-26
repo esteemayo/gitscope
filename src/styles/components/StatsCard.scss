@@ -9,13 +9,13 @@
   border-radius: var(--radius);
   transition: var(--transition);
 
-  &.primary {
+  &.active {
     box-shadow: 0 0 0 1px var(--blue-light) inset;
   }
 
   &:hover {
     border-color: var(--blue-light);
-    transform: translateY(-2px);
+    transform: translateY(-4px) scale(0.98);
   }
 
   &__header {

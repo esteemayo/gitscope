@@ -2,7 +2,7 @@
 
 .footer {
   padding: 4.8rem 8rem;
-  border-top: 1px solid #1e293b;
+  border-top: 1px solid var(--border);
 
   &__container {
     display: flex;
@@ -29,12 +29,13 @@
 
   &__item {
     text-transform: initial;
-    color: inherit;
+    color: var(--blue);
 
     &--link {
       &:link,
       &:visited {
         font-size: inherit;
+        padding: 0.5rem;
         color: currentColor;
         @include animated-underline();
       }

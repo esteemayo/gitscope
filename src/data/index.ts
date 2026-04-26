@@ -6,4 +6,5 @@ export const sortItems: SortItemType[] = [
   { id: 'size', label: 'size' },
   { id: 'updated', label: 'updated' },
   { id: 'name', label: 'name' },
+  { id: 'quality', label: 'quality' },
 ];

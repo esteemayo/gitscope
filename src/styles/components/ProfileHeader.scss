@@ -47,6 +47,11 @@
   }
 
   &__username {
+    display: flex;
+    align-items: center;
+    align-items: baseline;
+    gap: 1rem;
+
     text-transform: initial;
     text-rendering: optimizeLegibility;
     font-family: var(--font-mono);

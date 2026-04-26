@@ -3,6 +3,6 @@ import { SortType, ViewType } from './index';
 export interface DashboardControlsProps {
   sort: SortType;
   view: ViewType;
-  onSort: React.Dispatch<React.SetStateAction<'stars' | 'forks' | 'size' | 'updated' | 'name'>>;
-  onView: React.Dispatch<React.SetStateAction<'grid' | 'list'>>;
+  onSort: React.Dispatch<React.SetStateAction<SortType>>;
+  onView: React.Dispatch<React.SetStateAction<ViewType>>;
 }

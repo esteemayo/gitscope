@@ -1,0 +1,49 @@
+.share-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  &__share-btn,
+  &__copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+
+    border: none;
+    padding: 0.5rem;
+    background-color: transparent;
+    color: rgba(200, 225, 255, 0.7);
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: var(--transition);
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--border);
+      color: var(--blue-light);
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: currentColor;
+    }
+
+    span {
+      text-transform: capitalize;
+      font-size: var(--fz-sm);
+    }
+  }
+}
