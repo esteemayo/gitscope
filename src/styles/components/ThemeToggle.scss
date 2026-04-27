@@ -1,0 +1,49 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  border: none;
+  padding: 0.5rem;
+  background-color: transparent;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px dashed var(--blue);
+    outline-offset: 3px;
+  }
+
+  &__track {
+    width: 4rem;
+    height: 2rem;
+    background-color: var(--border);
+    border-radius: 99.9rem;
+    position: relative;
+  }
+
+  &__thumb {
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: var(--blue-light);
+    border-radius: 100%;
+    transition: var(--transition);
+
+    position: absolute;
+    top: 2px;
+    left: 2px;
+
+    &.dark {
+      transform: translateX(2rem);
+    }
+  }
+
+  &__label {
+    font-size: var(--fz-xxs);
+    color: var(--gray-lightest);
+  }
+}

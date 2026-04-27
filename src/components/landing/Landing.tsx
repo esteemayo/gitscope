@@ -40,7 +40,7 @@ const Landing = () => {
     ].slice(0, 5);
 
     setToStorage(recentKey, updated);
-    router.push(`/user?id=${value}`);
+    router.push(`/${value}`);
   };
 
   useEffect(() => {
@@ -165,7 +165,7 @@ const Landing = () => {
                 <button
                   key={user}
                   type='button'
-                  onClick={() => router.push(`/user?id=${user}`)}
+                  onClick={() => router.push(`/${user}`)}
                   className='landing__recent--btn'
                 >
                   {user}

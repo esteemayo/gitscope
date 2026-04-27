@@ -5,9 +5,10 @@ import ProfileStatsCard from './ProfileStatsCard';
 import MapPin from '../icons/MapPin';
 import Calendar from '../icons/Calendar';
 
+import { formatDate } from '@/utils/formatDate';
 import '../../styles/components/ProfileHeader.scss';
 
-const ProfileHeader = () => {
+const ProfileHeader = ({ username }: { username: string }) => {
   return (
     <section className='profile-header'>
       <div className='profile-header__container'>
@@ -17,12 +18,14 @@ const ProfileHeader = () => {
 
         <h2 className='profile-header__username'>
           <a
-            href='https://github.com/esteemayo'
+            href={`https://github.com/${username}`}
             target='_blank'
             rel='noopener noreferrer'
           >
-            @esteemayo
+            @{username}
           </a>
+
+          <ShareProfile username={username} />
         </h2>
 
         <p className='profile-header__bio'>
@@ -37,11 +40,9 @@ const ProfileHeader = () => {
 
           <span className='profile-header__info--item'>
             <Calendar />
-            Joined July 25, 2019
+            Joined {formatDate(new Date())}
           </span>
         </div>
-
-        <ShareProfile username='esteemayo' />
 
         <div className='profile-header__stats'>
           <ProfileStatsCard value={200} label='Repositories' />

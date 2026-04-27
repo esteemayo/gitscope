@@ -10,13 +10,13 @@ import DashboardControls from './DashboardControls';
 
 import { SortType, ViewType } from '@/types';
 
-const DashboardClient = () => {
+const DashboardClient = ({ username }: { username: string }) => {
   const [view, setView] = useState<ViewType>('grid');
   const [sort, setSort] = useState<SortType>('stars');
 
   return (
     <div>
-      <ProfileHeader />
+      <ProfileHeader username={username} />
 
       <StatsCards sort={sort} onSort={setSort} />
 

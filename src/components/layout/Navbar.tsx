@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import Logo from '../ui/Logo';
+import ThemeToggle from '../ui/ThemeToggle';
+
 import '../../styles/components/Navbar.scss';
 
 const Navbar = () => {
@@ -23,7 +25,10 @@ const Navbar = () => {
       <div className='navbar__container'>
         <Logo />
 
-        <Link href='/compare' className='navbar__link'>Compare</Link>
+        <div className='navbar__wrapper'>
+          <ThemeToggle />
+          <Link href='/compare' className='navbar__link'>Compare</Link>
+        </div>
       </div>
     </nav>
   );

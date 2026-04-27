@@ -41,17 +41,12 @@
     text-rendering: optimizeLegibility;
     font-weight: 400;
     font-size: 4rem;
-    color: #f0f6fc;
+    color: var(--white);
     line-height: 1.1;
     margin-bottom: 1rem;
   }
 
   &__username {
-    display: flex;
-    align-items: center;
-    align-items: baseline;
-    gap: 1rem;
-
     text-transform: initial;
     text-rendering: optimizeLegibility;
     font-family: var(--font-mono);
