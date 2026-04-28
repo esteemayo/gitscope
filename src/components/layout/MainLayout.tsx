@@ -4,6 +4,7 @@ import ClientOnly from '../ClientOnly';
 import OfflineBanner from '../ui/OfflineBanner';
 
 import ToasterProvider from '@/providers/ToasterProvider';
+import ThemeProvider from '@/context/ThemeContext';
 import { useNetworkStatus } from '@/hooks/useNetworkStatus';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
@@ -11,11 +12,13 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <main className='main-container'>
-      <ClientOnly>
-        <ToasterProvider />
-        {!isOnline && <OfflineBanner />}
-        {children}
-      </ClientOnly>
+      <ThemeProvider>
+        <ClientOnly>
+          <ToasterProvider />
+          {!isOnline && <OfflineBanner />}
+          {children}
+        </ClientOnly>
+      </ThemeProvider>
     </main>
   );
 };

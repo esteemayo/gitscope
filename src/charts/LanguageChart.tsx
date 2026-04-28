@@ -3,9 +3,14 @@
 import { Pie, PieChart, Tooltip } from 'recharts';
 import { RechartsDevtools } from '@recharts/devtools';
 
+import { getChartTheme } from '@/utils/chartTheme';
+import { useTheme } from '@/context/ThemeContext';
 import { LanguageChartProps } from '@/types/language.chart.type';
 
 const LanguageChart = ({ data, isAnimationActive, defaultIndex }: LanguageChartProps) => {
+  const { theme } = useTheme();
+  const chartTheme = getChartTheme(theme);
+
   return (
     <PieChart
       style={{
@@ -24,7 +29,7 @@ const LanguageChart = ({ data, isAnimationActive, defaultIndex }: LanguageChartP
         nameKey='name'
         cx='50%'
         cy='50%'
-        fill='#38bdf8'
+        fill={chartTheme.fill}
         label
         isAnimationActive={isAnimationActive}
         fontFamily='var(--font-mono)'
@@ -35,7 +40,8 @@ const LanguageChart = ({ data, isAnimationActive, defaultIndex }: LanguageChartP
         defaultIndex={defaultIndex}
         contentStyle={{
           padding: '2rem',
-          backgroundColor: '#0d1017',
+          backgroundColor: chartTheme.tooltipBg,
+          color: chartTheme.tooltipText,
           border: 'none',
           borderRadius: '4px',
         }}

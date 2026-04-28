@@ -11,9 +11,14 @@ import {
   YAxis,
 } from 'recharts';
 
+import { getChartTheme } from '@/utils/chartTheme';
+import { useTheme } from '@/context/ThemeContext';
 import { TopLanguageChartProps } from '@/types/top.language.chart.type';
 
 const TopLanguageChart = ({ data, grid, isAnimationActive = true }: TopLanguageChartProps) => {
+  const { theme } = useTheme();
+  const chartTheme = getChartTheme(theme);
+
   return (
     <LineChart
       style={{
@@ -33,13 +38,14 @@ const TopLanguageChart = ({ data, grid, isAnimationActive = true }: TopLanguageC
       }}
       tabIndex={-1}
     >
-      {grid && <CartesianGrid strokeDasharray='3 3' />}
+      {grid && <CartesianGrid stroke={chartTheme.grid} strokeDasharray='3 3' />}
+
       <XAxis
         dataKey='name'
         fontFamily='var(--font-mono)'
         fontSize='1.2rem'
         color='var(--gray-lightest)'
-        stroke='var(--gray-lightest)'
+        stroke={chartTheme.axis}
         strokeWidth={1}
         tick={{ fontSize: 10 }}
       />
@@ -49,7 +55,7 @@ const TopLanguageChart = ({ data, grid, isAnimationActive = true }: TopLanguageC
         fontFamily='var(--font-mono)'
         fontSize='1.2rem'
         color='var(--gray-lightest)'
-        stroke='var(--gray-lightest)'
+        stroke={chartTheme.axis}
         strokeWidth={1}
         tick={{ fontSize: 10 }}
       />
@@ -57,7 +63,8 @@ const TopLanguageChart = ({ data, grid, isAnimationActive = true }: TopLanguageC
       <Tooltip
         contentStyle={{
           padding: '2rem',
-          backgroundColor: '#0d1017',
+          backgroundColor: chartTheme.tooltipBg,
+          color: chartTheme.tooltipText,
           border: 'none',
           borderRadius: '4px',
         }}
@@ -70,7 +77,7 @@ const TopLanguageChart = ({ data, grid, isAnimationActive = true }: TopLanguageC
         name='Languages'
         dot={{ r: 3 }}
         activeDot={{ r: 6 }}
-        stroke='#38bdf8'
+        stroke={chartTheme.fill}
         isAnimationActive={isAnimationActive}
       />
       <RechartsDevtools />

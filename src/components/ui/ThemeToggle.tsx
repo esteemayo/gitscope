@@ -1,35 +1,50 @@
 'use client';
 
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+
+import MoonIcon from '../icons/MoonIcon';
+import SunIcon from '../icons/SunIcon';
+import ComputerDesktopIcon from '../icons/ComputerDesktopIcon';
+
+import { useTheme } from '@/context/ThemeContext';
 import '../../styles/components/ThemeToggle.scss';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const { theme, resolvedTheme, setTheme } = useTheme();
 
-  const handleToggle = () => {
-    setTheme((prev) => prev === 'dark' ? 'light' : 'dark');
-  };
+  const isDark = resolvedTheme === 'dark';
 
   return (
-    <button
-      type='button'
-      onClick={handleToggle}
-      className='theme-toggle'
-      aria-label='Toggle theme'
-    >
-      <div className='theme-toggle__track'>
-        <div
-          className={theme === 'dark' ?
-            'theme-toggle__thumb dark' :
-            'theme-toggle__thumb'
-          }
-        />
-      </div>
+    <div className='theme'>
+      <button
+        type='button'
+        onClick={() => setTheme(isDark ? 'light' : 'dark')}
+        className='theme__toggle'
+        aria-label='Toggle theme'
+      >
+        <div className='theme__toggle--track'>
+          <motion.div
+            animate={{ x: isDark ? 20 : 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            className={isDark ?
+              'theme__toggle--thumb dark' :
+              'theme__toggle--thumb'
+            }
+          >
+            {isDark ? <MoonIcon /> : <SunIcon />}
+          </motion.div>
+        </div>
+      </button>
 
-      <span className='theme-toggle__label'>
-        {theme === 'dark' ? 'Dark' : 'Light'}
-      </span>
-    </button>
+      <button
+        type='button'
+        onClick={() => setTheme('auto')}
+        className={theme === 'auto' ? 'theme__auto active' : 'theme__auto'}
+        aria-label='System theme'
+      >
+        <ComputerDesktopIcon />
+      </button>
+    </div>
   );
 };
 

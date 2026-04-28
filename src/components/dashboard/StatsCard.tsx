@@ -1,3 +1,7 @@
+'use client';
+
+import { useRef } from 'react';
+
 import ArrowUpRight from '../icons/ArrowUpRight';
 import ArrowDownRight from '../icons/ArrowDownRight';
 
@@ -14,12 +18,40 @@ const StatsCard = ({
   sort,
   onSort,
 }: StatsCardProps) => {
+  const refs = useRef<HTMLButtonElement | null>(null);
+
   const active = sort === filter;
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault()
+      onSort((prev) => {
+        if (prev === 'stars') return 'forks';
+        if (prev === 'forks') return 'quality';
+        if (prev === 'quality') return 'stars';
+
+        return prev;
+      });
+    }
+
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault()
+      onSort((prev) => {
+        if (prev === 'stars') return 'quality';
+        if (prev === 'quality') return 'forks';
+        if (prev === 'forks') return 'stars';
+
+        return prev;
+      });
+    }
+  };
 
   return (
     <button
+      ref={refs}
       type='button'
       onClick={() => onSort(filter)}
+      onKeyDown={handleKeyDown}
       className={active ? 'stats-card active' : 'stats-card'}
     >
       <article className='stats-card__wrapper'>

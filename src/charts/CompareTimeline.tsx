@@ -11,6 +11,9 @@ import {
   YAxis,
 } from 'recharts';
 
+import { useTheme } from '@/context/ThemeContext';
+import { getChartTheme } from '@/utils/chartTheme';
+
 const data = [
   { date: '2023-11', userA: 1, userB: 0 },
   { date: '2023-12', userA: 2, userB: 1 },
@@ -22,6 +25,9 @@ const data = [
 ];
 
 const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimationActive?: boolean }) => {
+  const { theme } = useTheme();
+  const chartTheme = getChartTheme(theme);
+
   return (
     <LineChart
       style={{
@@ -41,13 +47,14 @@ const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimat
       }}
       tabIndex={-1}
     >
-      {grid && <CartesianGrid strokeDasharray='3 3' />}
+      {grid && <CartesianGrid stroke={chartTheme.grid} strokeDasharray='3 3' />}
+
       <XAxis
         dataKey='date'
         fontFamily='var(--font-mono)'
         fontSize='1.2rem'
-        color='var(--gray-lightest)'
-        stroke='var(--gray-lightest)'
+        color={chartTheme.axis}
+        stroke={chartTheme.axis}
         strokeWidth={1}
         tick={{ fontSize: 10 }}
       />
@@ -56,21 +63,25 @@ const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimat
         width='auto'
         fontFamily='var(--font-mono)'
         fontSize='1.2rem'
-        color='var(--gray-lightest)'
-        stroke='var(--gray-lightest)'
+        color={chartTheme.axis}
+        stroke={chartTheme.axis}
         strokeWidth={1}
         tick={{ fontSize: 10 }}
       />
+
       <Tooltip
         contentStyle={{
           padding: '2rem',
-          backgroundColor: '#0d1017',
+          backgroundColor: chartTheme.tooltipBg,
+          color: chartTheme.tooltipText,
           border: 'none',
           borderRadius: '4px',
         }}
         cursor={{ opacity: 0.1 }}
       />
+
       <Legend align='right' />
+
       <Line
         type='monotone'
         dataKey='userA'
@@ -80,6 +91,7 @@ const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimat
         stroke='#38bdf8'
         isAnimationActive={isAnimationActive}
       />
+
       <Line
         type='monotone'
         dataKey='userB'
@@ -89,6 +101,7 @@ const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimat
         stroke='#1f6fea'
         isAnimationActive={isAnimationActive}
       />
+
       <RechartsDevtools />
     </LineChart>
   );

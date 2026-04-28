@@ -1,49 +1,95 @@
-.theme-toggle {
+.theme {
   display: flex;
   align-items: center;
   gap: 0.8rem;
 
-  border: none;
-  padding: 0.5rem;
-  background-color: transparent;
-  cursor: pointer;
-  transition: var(--transition);
+  &__toggle,
+  &__auto {
+    display: flex;
+    align-items: center;
 
-  &:focus {
-    outline: none;
-  }
-
-  &:focus-visible {
-    outline: 3px dashed var(--blue);
-    outline-offset: 3px;
-  }
-
-  &__track {
-    width: 4rem;
-    height: 2rem;
-    background-color: var(--border);
-    border-radius: 99.9rem;
-    position: relative;
-  }
-
-  &__thumb {
-    width: 1.6rem;
-    height: 1.6rem;
-    background-color: var(--blue-light);
-    border-radius: 100%;
+    background-color: transparent;
+    cursor: pointer;
     transition: var(--transition);
 
-    position: absolute;
-    top: 2px;
-    left: 2px;
+    &:focus {
+      outline: none;
+    }
 
-    &.dark {
-      transform: translateX(2rem);
+    &:focus-visible {
+      border-radius: 0;
+      outline: 3px dashed var(--blue);
+      outline-offset: 3px;
+    }
+
+    svg {
+      width: 1.4rem;
+      height: 1.4rem;
+      stroke: var(--white);
     }
   }
 
-  &__label {
+  &__toggle {
+    gap: 0.8rem;
+
+    border: none;
+    padding: 0.5rem;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &--track {
+      width: 4.4rem;
+      height: 2.2rem;
+      padding: 2px;
+      background-color: var(--border);
+      border-radius: 10rem;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    &--thumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 1.8rem;
+      height: 1.8rem;
+      background-color: var(--blue-light);
+      border-radius: 100%;
+      transition: var(--transition);
+
+      position: absolute;
+      top: 2px;
+      left: 2px;
+
+      &.dark {
+        transform: translateX(2rem);
+      }
+    }
+  }
+
+  &__auto {
+    justify-content: center;
+
+    width: 2.8rem;
+    height: 2.8rem;
+    text-transform: capitalize;
     font-size: var(--fz-xxs);
-    color: var(--gray-lightest);
+    padding: 0.5rem;
+    color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 0.6rem;
+    opacity: 0.6;
+
+    &.active {
+      border-color: var(--blue-light);
+      opacity: 1;
+    }
+
+    &:hover {
+      border-color: var(--blue-light);
+    }
   }
 }

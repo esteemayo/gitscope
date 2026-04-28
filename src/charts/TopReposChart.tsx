@@ -11,9 +11,14 @@ import {
   YAxis,
 } from 'recharts';
 
+import { getChartTheme } from '@/utils/chartTheme';
+import { useTheme } from '@/context/ThemeContext';
 import { TopReposChartProps } from '@/types/top.repos.chart.type';
 
 const TopReposChart = ({ data, grid, isAnimationActive }: TopReposChartProps) => {
+  const { theme } = useTheme();
+  const chartTheme = getChartTheme(theme);
+
   return (
     <BarChart
       style={{
@@ -27,14 +32,15 @@ const TopReposChart = ({ data, grid, isAnimationActive }: TopReposChartProps) =>
       data={data}
       tabIndex={-1}
     >
-      {grid && <CartesianGrid strokeDasharray='3 3' />}
+      {grid && <CartesianGrid stroke={chartTheme.grid} strokeDasharray='3 3' />}
+
       <XAxis
         hide
         dataKey='name'
         fontFamily='var(--font-mono)'
         fontSize='1.2rem'
         color='var(--gray-lightest)'
-        stroke='var(--gray-lightest)'
+        stroke={chartTheme.axis}
         strokeWidth={1}
         tick={{ fontSize: 10 }}
       />
@@ -44,7 +50,7 @@ const TopReposChart = ({ data, grid, isAnimationActive }: TopReposChartProps) =>
         fontFamily='var(--font-mono)'
         fontSize='1.2rem'
         color='var(--gray-lightest)'
-        stroke='var(--gray-lightest)'
+        stroke={chartTheme.axis}
         strokeWidth={1}
         tick={{ fontSize: 10 }}
       />
@@ -52,7 +58,8 @@ const TopReposChart = ({ data, grid, isAnimationActive }: TopReposChartProps) =>
       <Tooltip
         contentStyle={{
           padding: '2rem',
-          backgroundColor: '#0d1017',
+          backgroundColor: chartTheme.tooltipBg,
+          color: chartTheme.tooltipText,
           border: 'none',
           borderRadius: '4px',
         }}
@@ -62,7 +69,7 @@ const TopReposChart = ({ data, grid, isAnimationActive }: TopReposChartProps) =>
       <Bar
         dataKey='value'
         name='Repositories'
-        fill='#38bdf8'
+        fill={chartTheme.fill}
         isAnimationActive={isAnimationActive}
       />
       <RechartsDevtools />

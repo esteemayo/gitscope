@@ -1,4 +1,7 @@
+export type ThemeType = 'light' | 'dark' | 'auto';
+
 export type ViewType = 'grid' | 'list';
+
 export type SortType = 'stars' | 'forks' | 'size' | 'updated' | 'name' | 'quality';
 
 export type SortItemType = {
