@@ -6,11 +6,13 @@
   height: 100%;
   padding: 3.2rem;
   background-color: rgb(23, 27, 36);
-  background-color: var(--black-lightest);
+  background-color: var(--bg-card-secondary);
   color: rgb(88, 96, 105);
-  border-radius: var(--border-radius);
+  border: 1px solid var(--border);
   box-shadow: rgba(0, 0, 0, 0.2) 0 1rem 3rem -1.5rem;
   box-shadow: rgba(255, 255, 255, 0.11) 0 1rem 1.75rem -1.5rem;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
   transition: var(--transition);
   position: relative;
 
@@ -19,6 +21,7 @@
     transform: translateY(-2px);
     box-shadow: rgba(0, 0, 0, 0.2) 0 0.8rem 2rem -1.5rem;
     box-shadow: rgba(255, 255, 255, 0.11) 0 0.8rem 1.45rem -1.5rem;
+    box-shadow: 0 0 0 1px var(--blue-light) inset;
   }
 
   &:focus,
@@ -50,7 +53,7 @@
     svg {
       min-width: 1.6rem;
       display: inline-block;
-      fill: #38bdf8;
+      fill: var(--icon);
       user-select: none;
       vertical-align: text-bottom;
       margin-right: 0.8rem;
@@ -65,7 +68,7 @@
       font-family: var(--font-mono);
       font-weight: 400;
       font-size: var(--fz-lg);
-      color: rgba(200, 225, 255, 0.7);
+      color: var(--heading);
       letter-spacing: -0.5px;
       line-height: 1.1;
       overflow: hidden;
@@ -74,7 +77,7 @@
 
   &__desc {
     font-size: var(--fz-sm);
-    color: #94a3b8;
+    color: var(--text-muted);
     line-height: 1.5;
     margin-bottom: 3.2rem;
     margin: 1.6rem 0 3.2rem;
@@ -87,8 +90,7 @@
 
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
-    color: rgb(106, 115, 125);
-    color: #94a3b8;
+    color: var(--text-muted);
 
     &--left {
       flex: 1;

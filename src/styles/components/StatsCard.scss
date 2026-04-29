@@ -1,8 +1,9 @@
 .stats-card {
   padding: 1.6rem;
-  background-color: var(--gray-light);
+  background-color: var(--surface);
   color: var(--white);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   border-radius: var(--radius);
   transition: var(--transition);
   cursor: pointer;
@@ -40,7 +41,7 @@
 
       width: 2.8rem;
       height: 2.8rem;
-      background-color: var(--border);
+      background-color: var(--bg-icon);
       color: var(--blue-light);
       border-radius: 0.6rem;
 
@@ -57,7 +58,7 @@
       text-rendering: optimizeLegibility;
       font-weight: 600;
       font-size: var(--fz-xs);
-      color: var(--gray-lightest);
+      color: var(--heading);
       letter-spacing: 0.5px;
       line-height: 1.1;
     }
@@ -67,7 +68,7 @@
     font-weight: 600;
     font-size: 2.6rem;
     font-variant: tabular-nums;
-    color: inherit;
+    color: var(--text);
   }
 
   &__footer {
@@ -84,11 +85,11 @@
       gap: 3px;
 
       &.green {
-        color: var(--green);
+        color: var(--success);
       }
 
       &.red {
-        color: var(--red);
+        color: var(--danger);
       }
 
       svg {
@@ -99,7 +100,7 @@
     }
 
     &--hint {
-      color: var(--gray-lightest);
+      color: var(--text-muted);
     }
   }
 }

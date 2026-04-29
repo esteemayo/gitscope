@@ -48,29 +48,29 @@
     }
 
     &.warning {
-      border-color: var(--yellow);
+      border-color: var(--warning);
 
       .error-view__icon {
-        color: var(--yellow);
+        color: var(--warning);
       }
 
       .error-view__action {
         &--btn {
-          color: var(--yellow);
+          color: var(--warning);
         }
       }
     }
 
     &.network {
-      border-color: var(--red);
+      border-color: var(--danger);
 
       .error-view__icon {
-        color: var(--red);
+        color: var(--danger);
       }
 
       .error-view__action {
         &--btn {
-          color: var(--red);
+          color: var(--danger);
         }
       }
     }

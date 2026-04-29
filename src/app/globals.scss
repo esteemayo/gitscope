@@ -1,4 +1,40 @@
 :root {
+  --color-white-50: #ffffff;
+  --color-white-100: #f0f6fc;
+
+  --color-black-200: #1518202f;
+  --color-black-300: #2528332f;
+  --color-black-400: #020617;
+  --color-black-500: #010409;
+
+  --color-gray-50: #f8fafc;
+  --color-gray-100: rgb(246, 248, 250);
+  --color-gray-200: #f1f5f9;
+  --color-gray-300: #e2e8f0;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #475569;
+  --color-gray-600: #1e293b;
+  --color-gray-700: rgb(23, 27, 36);
+  --color-gray-800: rgb(26, 30, 34);
+  --color-gray-900: #0d1017;
+
+  --color-blue-400: #38bdf8;
+  --color-blue-600: #4089f7;
+  --color-blue-800: #1f6fea;
+  --color-blue-900: #2563eb;
+
+  --color-red-500: #f87171;
+  --color-red-600: #fc5252;
+  --color-red-800: #dc2626;
+
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+
+  --color-yellow-500: #facc15;
+  --color-yellow-600: #ca8a04;
+}
+
+:root {
   --bg: #f0f6fc;
   --black: #0d1017;
   --black-light: #1518202f;
@@ -29,10 +65,72 @@
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-// [data-theme='dark'] {
-//   --bg: #0d1017;
-// }
+[data-theme='dark'] {
+  --bg: var(--color-gray-900);
+  --bg-secondary: #151820;
+  // --surface: #1a1e22;
+  --surface: var(--color-gray-700);
+  --surface-header: var(--color-black-200);
 
+  --bg-card-primary: var(--color-gray-700);
+  --bg-card-secondary: var(--color-black-300);
+  --card-heading: rgba(200, 225, 255, 0.7);
+  --card-text: var(--color-gray-400);
+
+  --icon: var(--color-blue-400);
+  --bg-icon: var(--color-gray-600);
+
+  --text: var(--color-white-100);
+  --text-muted: var(--color-gray-400);
+
+  --accent: var(--color-blue-400);
+
+  --border: var(--color-gray-600);
+  --border-secondary: var(--color-gray-600);
+  --border-tertiary: var(--color-blue-800);
+
+  --success: var(--color-green-500);
+  --danger: var(--color-red-500);
+  --warning: var(--color-yellow-500);
+
+  --shadow: 0 2rem 5rem rgba(0, 0, 0, 0.6);
+  --gradient: linear-gradient(135deg, #020617, #0f172a);
+}
+
+[data-theme='light'] {
+  --bg: var(--color-gray-100);
+  --bg-secondary: var(--color-gray-50);
+  // --surface: var(--color-gray-200);
+  --surface: var(--color-white-50);
+  --surface-header: var(--color-gray-800);
+
+  --bg-card-primary: #24292d;
+  --bg-card-secondary: var(--color-white-50);
+  --heading: rgb(36, 41, 46);
+  --card-text: rgb(106, 115, 125);
+
+  --icon: var(--color-blue-800);
+  --bg-icon: var(--color-gray-200);
+
+  // --text: var(--color-black-300);
+  --text: rgb(36, 41, 46);
+  // --text-muted: var(--color-gray-600);
+  --text-muted: rgb(106, 115, 125);
+
+  --accent: var(--color-blue-900);
+
+  --border: var(--color-gray-300);
+  --border-secondary: #2f3438;
+  --border-tertiary: rgba(0, 118, 255, 0.1);
+
+  --success: var(--color-green-600);
+  --danger: var(--color-red-800);
+  --warning: var(--color-yellow-600);
+
+  --shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08);
+  --gradient: linear-gradient(135deg, #e0f2fe, #ffffff);
+}
+// rgba(0, 118, 255, 0.1); ---> dropdown border light mode
 *,
 *::after,
 *::before {
@@ -86,18 +184,18 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-// #9198a1
+
 body {
   min-height: 100vh;
   font-family: var(--font-poppins);
   font-size: var(--fz-md);
-  // background-color: var(--bg);
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--bg);
+  color: var(--text);
   line-height: 1.6;
   transition:
     background 0.25s,
     color 0.25s;
+  transition: var(--transition);
 }
 
 a {
