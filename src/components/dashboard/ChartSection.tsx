@@ -4,15 +4,15 @@ import { lazy, Suspense } from 'react';
 
 import Chart from '@/charts/Chart';
 
-const LanguageChart = lazy(() => import('@/charts/LanguageChart'));
-const TopReposChart = lazy(() => import('@/charts/TopReposChart'));
-const StarsLanguageChart = lazy(() => import('@/charts/StarsLanguageChart'));
-
 import { languageChartData } from '@/data/charts/languageChartData';
 import { topReposData } from '@/data/charts/topReposData';
 import { starsLanguageChartData } from '@/data/charts/starsLanguageChartData';
 
 import '../../styles/components/ChartSection.scss';
+
+const LanguageChart = lazy(() => import('@/charts/LanguageChart'));
+const TopReposChart = lazy(() => import('@/charts/TopReposChart'));
+const StarsLanguageChart = lazy(() => import('@/charts/StarsLanguageChart'));
 
 const ChartSection = () => {
   return (

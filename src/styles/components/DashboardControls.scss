@@ -1,6 +1,4 @@
 .dashboard-controls {
-  padding: 4.8rem 8rem;
-
   &__container {
     width: 100%;
     max-width: 140rem;
@@ -49,8 +47,7 @@
     align-items: center;
 
     font-size: 100%;
-    color: rgb(106, 115, 125);
-    color: #94a3b8;
+    color: var(--text-muted);
   }
 
   &__label {
@@ -76,7 +73,7 @@
     font-size: var(--fz-sm);
     padding: 1rem 0.7rem;
     background-color: transparent;
-    color: #1f6fea;
+    color: var(--color-blue-800);
     border: 1px solid var(--border-tertiary);
     border-radius: 0.5rem 0.5rem 0 0;
     line-height: 1;
@@ -84,6 +81,8 @@
     transition: var(--transition);
 
     &.active {
+      background-color: rgba(0, 118, 255, 0.1);
+
       svg {
         rotate: 0.5turn;
       }
@@ -99,7 +98,7 @@
 
     &:focus-visible {
       border-radius: 0;
-      outline: 3px dashed #1f6fea;
+      outline: 3px dashed var(--color-blue-800);
       outline-offset: 3px;
     }
 
@@ -128,7 +127,7 @@
     position: absolute;
     width: 100%;
     padding: 2px;
-    background-color: rgb(23, 27, 36);
+    background-color: var(--bg-menu-list);
     box-shadow: rgba(0, 0, 0, 0.2) 0 0.5rem 3rem -1.5rem;
     border: 1px solid var(--border-tertiary);
     border-top: 0;
@@ -162,8 +161,8 @@
       font-weight: 400;
       font-size: var(--fz-sm);
       padding: 1rem 0.7rem;
-      background-color: var(--gray-light);
-      color: #1f6fea;
+      background-color: var(--bg-menu-btn);
+      color: var(--color-blue-800);
       line-height: 1;
       cursor: pointer;
       transition: var(--transition);
@@ -174,7 +173,7 @@
 
       &:hover,
       &:focus-visible {
-        background-color: var(--black);
+        background-color: var(--bg-menu-hover);
         border-radius: 3px;
       }
 
@@ -201,18 +200,18 @@
     width: 3.5rem;
     height: 3.5rem;
     background-color: transparent;
-    color: #1f6fea;
+    color: var(--color-blue-800);
     border: 1px solid var(--border-tertiary);
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: var(--transition);
 
     &.active {
-      background-color: #1f70ea50;
+      background-color: rgba(0, 118, 255, 0.1);
     }
 
     &:hover {
-      background-color: #4089f71f;
+      background-color: rgba(0, 118, 255, 0.1);
     }
 
     &:focus {
@@ -221,7 +220,7 @@
 
     &:focus-visible {
       border-radius: 0;
-      outline: 3px dashed #1f6fea;
+      outline: 3px dashed var(--color-blue-800);
       outline-offset: 3px;
     }
 
@@ -252,7 +251,7 @@
     padding: 0.8rem 1.2rem;
     background-color: transparent;
     color: rgba(200, 225, 255, 0.7);
-    color: #1f6fea;
+    color: var(--color-blue-800);
     border: 1px solid var(--border-tertiary);
     border-radius: var(--border-radius);
     cursor: pointer;
@@ -260,6 +259,7 @@
 
     &:hover {
       background-color: #4089f71f;
+      background-color: rgba(0, 118, 255, 0.1);
     }
 
     &:focus {
@@ -268,7 +268,7 @@
 
     &:focus-visible {
       border-radius: 0;
-      outline: 3px dashed #1f6fea;
+      outline: 3px dashed var(--color-blue-800);
       outline-offset: 3px;
     }
 

@@ -3,10 +3,9 @@
 import { useState } from 'react';
 
 import ChartSection from './ChartSection';
-import RepoList from './RepoList';
+import RepoLists from './RepoLists';
 import ProfileHeader from './ProfileHeader';
 import StatsCards from './StatsCards';
-import DashboardControls from './DashboardControls';
 
 import { SortType, ViewType } from '@/types';
 
@@ -22,14 +21,12 @@ const DashboardClient = ({ username }: { username: string }) => {
 
       <ChartSection />
 
-      <DashboardControls
+      <RepoLists
         sort={sort}
         view={view}
         onSort={setSort}
         onView={setView}
       />
-
-      <RepoList view={view} />
     </div>
   );
 };

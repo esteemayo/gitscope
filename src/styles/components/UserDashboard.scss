@@ -1,9 +1,9 @@
 .user-dashboard {
   padding: 1.6rem;
   padding: 2rem;
-  background-color: #1e293b;
-  background-color: var(--black-light);
-  border: 1px solid #1e293b;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   border-radius: var(--radius);
 
   &__container {
@@ -40,7 +40,7 @@
     span {
       text-transform: lowercase;
       font-size: var(--fz-sm);
-      color: rgba(200, 225, 255, 0.7);
+      color: var(--dashboard-text);
     }
   }
 }

@@ -1,7 +1,7 @@
 .stats-card {
   padding: 1.6rem;
   background-color: var(--surface);
-  color: var(--white);
+  color: var(--text);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   border-radius: var(--radius);
@@ -68,7 +68,6 @@
     font-weight: 600;
     font-size: 2.6rem;
     font-variant: tabular-nums;
-    color: var(--text);
   }
 
   &__footer {

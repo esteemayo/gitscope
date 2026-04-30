@@ -10,7 +10,7 @@
   font-size: 3.2rem;
   margin: 0 auto;
   background-color: transparent;
-  color: #38bdf8;
+  color: var(--color-blue-400);
 
   @media (max-width: 48em) {
     font-size: var(--fz-md);
@@ -19,7 +19,7 @@
   &::placeholder {
     font-weight: 400;
     font-size: var(--fz-sm);
-    color: var(--gray-lightest);
+    color: var(--color-gray-400);
   }
 
   &:focus,
