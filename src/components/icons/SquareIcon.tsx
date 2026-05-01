@@ -1,4 +1,4 @@
-const Square = () => {
+const SquareIcon = () => {
   return (
     <svg
       role='img'
@@ -20,4 +20,4 @@ const Square = () => {
   );
 };
 
-export default Square;
+export default SquareIcon;

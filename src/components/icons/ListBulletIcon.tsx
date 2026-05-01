@@ -1,4 +1,4 @@
-const ListBullet = () => {
+const ListBulletIcon = () => {
   return (
     <svg
       role='img'
@@ -20,4 +20,4 @@ const ListBullet = () => {
   );
 };
 
-export default ListBullet;
+export default ListBulletIcon;

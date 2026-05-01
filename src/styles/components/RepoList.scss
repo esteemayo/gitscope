@@ -1,18 +1,4 @@
 .repo-list {
-  &__empty {
-    text-align: center;
-    padding: 3.2rem;
-
-    p {
-      font-weight: 500;
-    }
-
-    span {
-      font-size: var(--fz-xs);
-      color: var(--gray-lightest);
-    }
-  }
-
   &__container {
     list-style: none;
 

@@ -45,7 +45,7 @@
         text-transform: initial;
         font-weight: 400;
         font-size: var(--fz-sm);
-        color: #94a3b8;
+        color: var(--text-muted);
       }
 
       &:focus {
@@ -53,9 +53,7 @@
       }
 
       &:focus-visible {
-        border-radius: 0;
-        outline: 3px dashed var(--color-blue-800);
-        outline-offset: 3px;
+        background-color: var(--bg-secondary);
       }
 
       &:disabled {

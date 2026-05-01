@@ -1,9 +1,8 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import Square from '../icons/Square';
-import ListBullet from '../icons/ListBullet';
+import DashboardControlActions from './DashboardControlActions';
 
 import { sortItems } from '@/data';
 import { DashboardControlsProps } from '@/types/dashboard.control.type';
@@ -11,17 +10,10 @@ import { DashboardControlsProps } from '@/types/dashboard.control.type';
 import '../../styles/components/DashboardControls.scss';
 
 const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProps) => {
+  const menuRef = useRef<HTMLUListElement | null>(null);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
-    const target = e.target as HTMLElement;
-
-    if (!target.classList.contains('dashboard-controls__dropdown-button')) {
-      setIsOpen(false);
-    }
-  };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
     let nextIndex = index;
@@ -57,8 +49,19 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
-    <div onClick={handleClose} className='dashboard-controls'>
+    <div className='dashboard-controls'>
       <div className='dashboard-controls__container'>
         <header className='dashboard-controls__header'>
           <div className='dashboard-controls__group'>
@@ -91,11 +94,14 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
                   </svg>
                 </button>
 
-                <ul className={
-                  isOpen ?
-                    'dashboard-controls__dropdown-list show' :
-                    'dashboard-controls__dropdown-list hide'
-                }>
+                <ul
+                  ref={menuRef}
+                  className={
+                    isOpen ?
+                      'dashboard-controls__dropdown-list show' :
+                      'dashboard-controls__dropdown-list hide'
+                  }
+                >
                   {sortItems.map(({ id, label }, index) => (
                     <li key={id} className='dashboard-controls__dropdown-item'>
                       <button
@@ -115,42 +121,11 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
             </div>
           </div>
 
-          <div className='dashboard-controls__actions'>
-            <button
-              type='button'
-              onClick={() => onView('grid')}
-              onKeyDown={handleKeyDown}
-              className={
-                view === 'grid' ?
-                  'dashboard-controls__toggle-btn active' :
-                  'dashboard-controls__toggle-btn'
-              }
-              title='Grid'
-            >
-              <Square />
-            </button>
-
-            <button
-              type='button'
-              onClick={() => onView('list')}
-              onKeyDown={handleKeyDown}
-              className={
-                view === 'list' ?
-                  'dashboard-controls__toggle-btn active' :
-                  'dashboard-controls__toggle-btn'
-              }
-              title='List'
-            >
-              <ListBullet />
-            </button>
-
-            <button
-              type='button'
-              className='dashboard-controls__export'
-            >
-              Export CSV
-            </button>
-          </div>
+          <DashboardControlActions
+            view={view}
+            onView={onView}
+            onKeyDown={handleKeyDown}
+          />
         </header>
       </div>
     </div>

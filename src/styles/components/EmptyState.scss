@@ -1,0 +1,14 @@
+.empty-state {
+  text-align: center;
+  padding: 3.2rem;
+
+  &__title {
+    font-weight: 500;
+    font-size: 100%;
+  }
+
+  &__desc {
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+  }
+}

@@ -3,8 +3,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 
 import RepoCard from './RepoCard';
-import { RepoListProps } from '@/types/repo.list.type';
+import EmptyState from '../ui/EmptyState';
 
+import { RepoListProps } from '@/types/repo.list.type';
 import '../../styles/components/RepoList.scss';
 
 const RepoList = ({ view }: RepoListProps) => {
@@ -14,10 +15,7 @@ const RepoList = ({ view }: RepoListProps) => {
     <motion.div layout className='repo-list'>
       <AnimatePresence mode='popLayout'>
         {!repos ? (
-          <div className='repo-list__empty'>
-            <p>No repositories found for this user.</p>
-            <span>Try another username or check availability.</span>
-          </div>
+          <EmptyState />
         ) : (
           <motion.ul
             layout
