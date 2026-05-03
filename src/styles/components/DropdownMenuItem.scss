@@ -1,0 +1,36 @@
+.dropdown-menu-item {
+  width: 100%;
+
+  button {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    border: none;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: var(--fz-sm);
+    padding: 1rem 0.7rem;
+    background-color: var(--bg-menu-btn);
+    color: var(--color-blue-800);
+    line-height: 1;
+    cursor: pointer;
+    transition: var(--transition);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--bg-menu-hover);
+      border-radius: 3px;
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+}

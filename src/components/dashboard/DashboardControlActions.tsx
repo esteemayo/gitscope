@@ -4,13 +4,20 @@ import ListBulletIcon from '../icons/ListBulletIcon';
 import { DashboardControlActionsProps } from '@/types/dashboard.control.actions';
 import '../../styles/components/DashboardControlActions.scss';
 
-const DashboardControlActions = ({ view, onView, onKeyDown }: DashboardControlActionsProps) => {
+const DashboardControlActions = ({ view, onView }: DashboardControlActionsProps) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      onView(view === 'grid' ? 'list' : 'grid');
+    }
+  };
+
   return (
     <div className='dashboard-control-actions'>
       <button
         type='button'
         onClick={() => onView('grid')}
-        onKeyDown={onKeyDown}
+        onKeyDown={handleKeyDown}
         className={
           view === 'grid' ?
             'dashboard-control-actions__toggle-btn active' :
@@ -24,7 +31,7 @@ const DashboardControlActions = ({ view, onView, onKeyDown }: DashboardControlAc
       <button
         type='button'
         onClick={() => onView('list')}
-        onKeyDown={onKeyDown}
+        onKeyDown={handleKeyDown}
         className={
           view === 'list' ?
             'dashboard-control-actions__toggle-btn active' :

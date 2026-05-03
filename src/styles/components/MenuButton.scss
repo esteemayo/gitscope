@@ -1,0 +1,60 @@
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  text-transform: capitalize;
+  text-align: left;
+  font-weight: 400;
+  font-size: var(--fz-sm);
+  padding: 1rem 0.7rem;
+  background-color: transparent;
+  color: var(--color-blue-800);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 0.5rem 0.5rem 0 0;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &.active {
+    background-color: rgba(0, 118, 255, 0.1);
+
+    svg {
+      rotate: 0.5turn;
+    }
+  }
+
+  &:hover {
+    background-color: #4089f71f;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    border-radius: 0;
+    outline: 3px dashed var(--color-blue-800);
+    outline-offset: 3px;
+  }
+
+  &:disabled {
+    opacity: 0.75;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  label {
+    transition: var(--transition);
+    cursor: pointer;
+  }
+
+  svg {
+    display: inline-block;
+    fill: currentColor;
+    user-select: none;
+    vertical-align: text-bottom;
+    margin-left: 0.5rem;
+  }
+}
