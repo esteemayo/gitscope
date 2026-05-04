@@ -5,12 +5,12 @@
   border: none;
   text-align: center;
   font-family: var(--font-mono);
-  font-weight: 400;
+  font-weight: 500;
   font-size: var(--fz-xl);
   font-size: 3.2rem;
   margin: 0 auto;
   background-color: transparent;
-  color: var(--color-blue-400);
+  color: var(--icon);
 
   @media (max-width: 48em) {
     font-size: var(--fz-md);
@@ -19,12 +19,15 @@
   &::placeholder {
     font-weight: 400;
     font-size: var(--fz-sm);
-    color: var(--color-gray-400);
+    color: var(--text-muted);
   }
 
-  &:focus,
-  &:focus-visible {
+  &:focus {
     outline: none;
+  }
+
+  &:focus-visible {
+    background-color: var(--bg-secondary);
   }
 
   &:disabled {

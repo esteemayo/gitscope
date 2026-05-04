@@ -23,10 +23,14 @@
   --color-blue-800: #1f6fea;
   --color-blue-900: #2563eb;
 
+  --color-red-100: #f8c1c1;
+  --color-red-200: #f17c7c;
   --color-red-500: #f87171;
   --color-red-600: #fc5252;
   --color-red-800: #dc2626;
 
+  --color-green-100: #bffad5;
+  --color-green-200: #94fcba;
   --color-green-500: #22c55e;
   --color-green-600: #16a34a;
 
@@ -85,6 +89,9 @@
   --bg-menu-btn: var(--color-gray-700);
   --bg-menu-hover: rgba(0, 118, 255, 0.1);
 
+  --bg-widget-green-icon: var(--color-green-200);
+  --bg-widget-red-icon: var(--color-red-200);
+
   --text: var(--color-white-100);
   --text-muted: var(--color-gray-400);
 
@@ -122,6 +129,9 @@
   --bg-menu-btn: rgba(0, 118, 255, 0.1);
   --bg-menu-hover: rgb(200, 225, 255);
 
+  --bg-widget-green-icon: var(--color-green-100);
+  --bg-widget-red-icon: var(--color-red-100);
+
   // --text: var(--color-black-300);
   --text: rgb(36, 41, 46);
   // --text-muted: var(--color-gray-600);
@@ -149,44 +159,6 @@
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
-
-// dark
-// :root {
-//   --color-workflow-card-bg: var(--bgColor-muted);
-//   --color-workflow-card-header-shadow: #1b1f230a;
-//   --color-bg-discussions-row-emoji-box: #57606a;
-//   --color-notifications-row-read-bg: var(--bgColor-default);
-//   --color-notifications-row-bg: var(--bgColor-muted);
-//   --color-user-mention-fg: var(--fgColor-attention);
-//   --color-mktg-btn-shadow-outline: #ffffff40 0 0 0 1px inset;
-//   --color-marketing-icon-primary: #79c0ff;
-//   --color-marketing-icon-secondary: #1f6feb;
-//   --color-project-header-bg: #0d1117;
-//   --color-project-sidebar-bg: #161b22;
-//   --color-project-gradient-in: #161b22;
-//   --color-project-gradient-out: #161b2200;
-//   --color-diff-blob-selected-line-highlight-mix-blend-mode: screen;
-//   --color-text-white: var(--fgColor-white);
-// }
-
-// light
-// :root {
-//   --color-workflow-card-bg: var(--bgColor-default);
-//   --color-workflow-card-header-shadow: #0000;
-//   --color-bg-discussions-row-emoji-box: #d1d5da80;
-//   --color-notifications-row-read-bg: var(--bgColor-muted);
-//   --color-notifications-row-bg: var(--bgColor-white);
-//   --color-user-mention-fg: var(--fgColor-default);
-//   --color-mktg-btn-shadow-outline: #00000026 0 0 0 1px inset;
-//   --color-marketing-icon-primary: #218bff;
-//   --color-marketing-icon-secondary: #54aeff;
-//   --color-project-header-bg: #24292f;
-//   --color-project-sidebar-bg: var(--bgColor-white);
-//   --color-project-gradient-in: var(--bgColor-white);
-//   --color-project-gradient-out: #fff0;
-//   --color-diff-blob-selected-line-highlight-mix-blend-mode: multiply;
-//   --color-text-white: var(--fgColor-white);
-// }
 
 html {
   font-size: 62.5%;

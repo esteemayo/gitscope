@@ -34,7 +34,6 @@
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    // margin-bottom: 20vh;
 
     display: flex;
     flex-direction: column;
@@ -56,7 +55,7 @@
     font-family: var(--font-mono);
     font-weight: 600;
     font-size: var(--fz-sm);
-    color: var(--color-blue-400);
+    color: var(--icon);
     letter-spacing: 1px;
     margin-bottom: 2rem;
   }
@@ -74,7 +73,7 @@
   &__subtitle {
     max-width: 60rem;
     font-size: var(--fz-xs);
-    color: var(--gray-lightest);
+    color: var(--text-muted);
   }
 
   &__form {
@@ -86,18 +85,10 @@
     max-width: 50rem;
     height: 7rem;
     background-color: rgb(23, 27, 36);
+    background-color: var(--bg-tertiary);
     border-radius: var(--border-radius);
     overflow: hidden;
     margin-top: 2rem;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:focus-visible {
-      outline: 2px solid #38bdf8;
-      outline-offset: 3px;
-    }
 
     .input {
       flex: 1;
@@ -119,7 +110,7 @@
 
     &--text {
       font-size: var(--fz-xs);
-      color: var(--gray-lightest);
+      color: var(--text-muted);
     }
 
     &--btn {
@@ -127,8 +118,8 @@
       font-size: var(--fz-xxs);
       padding: 3px 0.5rem;
       background-color: transparent;
-      color: #38bdf8;
-      border: 1px solid #1e293b;
+      color: var(--icon);
+      border: 1px solid var(--border);
       border-radius: var(--border-radius);
       cursor: pointer;
       transition: var(--transition);
@@ -139,7 +130,7 @@
 
       &:focus-visible {
         border-radius: 0;
-        outline: 3px dashed #1f6fea;
+        outline: 3px dashed var(--color-blue-800);
         outline-offset: 3px;
       }
 
@@ -163,7 +154,7 @@
     &--label {
       font-weight: 600;
       font-size: var(--fz-sm);
-      color: var(--gray-lightest);
+      color: var(--text-muted);
     }
 
     &--btn {
@@ -175,7 +166,7 @@
       padding: 0.6rem 1rem;
       background-color: transparent;
       color: currentColor;
-      border: 1px solid #1e293b;
+      border: 1px solid var(--border);
       border-radius: var(--border-radius);
       cursor: pointer;
       transition: var(--transition);
@@ -186,7 +177,7 @@
 
       &:focus-visible {
         border-radius: 0;
-        outline: 3px dashed #1f6fea;
+        outline: 3px dashed var(--color-blue-800);
         outline-offset: 3px;
       }
 

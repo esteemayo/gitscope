@@ -114,7 +114,6 @@ const Landing = () => {
           <form
             onSubmit={handleSubmit}
             className='landing__form'
-            tabIndex={0}
             noValidate
           >
             <Input
@@ -127,7 +126,7 @@ const Landing = () => {
               autoFocus={true}
             />
 
-            <Button type='submit' tabIndex={-1}>Analyze profile</Button>
+            <Button type='submit'>Analyze profile</Button>
           </form>
 
           {showHint && (

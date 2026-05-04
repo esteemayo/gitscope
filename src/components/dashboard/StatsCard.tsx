@@ -64,10 +64,13 @@ const StatsCard = ({
 
         <footer className='stats-card__footer'>
           {typeof delta !== 'undefined' && (
-            <span className={`stats-card__footer--delta ${delta > 0 ? 'green' : 'red'}`}>
-              {delta > 0 ? <ArrowUpRight /> : <ArrowDownRight />}
-              {delta > 0 ? '+' : '-'}{delta}%
-            </span>
+            <div className={`stats-card__footer--delta ${delta > 0 ? 'green' : 'red'}`}>
+              <span className={`stats-card__footer--box ${delta > 0 ? 'green' : 'red'}`}>
+                {delta > 0 ? <ArrowUpRight /> : <ArrowDownRight />}
+              </span>
+
+              <span>{delta > 0 ? '+' : '-'}{delta}%</span>
+            </div>
           )}
 
           {hint && <span className='stats-card__footer--hint'>{hint}</span>}

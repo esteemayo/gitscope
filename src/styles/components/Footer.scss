@@ -38,7 +38,7 @@
         font-size: inherit;
         padding: 0.5rem;
         color: currentColor;
-        @include animated-underline();
+        @include animated-underline($bottom: 7px);
       }
     }
   }
