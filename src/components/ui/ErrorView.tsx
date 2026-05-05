@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 import Spinner from './Spinner';
-import Default from '../icons/Default';
+import DefaultIcon from '../icons/DefaultIcon';
 
 import { ErrorViewProps } from '@/types/error.view.type';
 import '../../styles/components/ErrorView.scss';
@@ -28,7 +28,7 @@ const ErrorView = ({
     if (!action?.onClick) return;
 
     setIsLoading(true);
-    
+
     await new Promise((r) => setTimeout(r, 300));
     await action?.onClick();
   };
@@ -56,7 +56,7 @@ const ErrorView = ({
             />
           ) : (
             <div className='error-view__icon'>
-              {icon || <Default />}
+              {icon || <DefaultIcon />}
             </div>
           )}
 

@@ -19,7 +19,7 @@
     }
 
     &:focus-visible {
-      outline: 3px dashed var(--blue);
+      outline: 3px dashed var(--color-blue-800);
       outline-offset: 3px;
     }
 
@@ -28,19 +28,20 @@
       padding: 0 0.5rem;
       background-image: linear-gradient(
         90deg,
-        var(--blue),
-        var(--blue-light),
-        var(--blue-light),
-        var(--blue)
+        var(--color-blue-800),
+        var(--color-blue-400),
+        var(--color-blue-400),
+        var(--color-blue-800)
       );
       background-size: 300% 300%;
+      color: var(--color-white-50);
       border-radius: var(--border-radius);
     }
 
     &--secondary {
       font-size: 2.2rem;
       color: var(--border);
-      // color: #395075;
+      color: #395075;
     }
   }
 }

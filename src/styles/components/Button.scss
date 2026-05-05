@@ -5,7 +5,7 @@
   text-transform: capitalize;
   font-weight: 600;
   font-size: var(--fz-md);
-  background-color: var(--blue);
+  background-color: var(--color-blue-800);
   color: var(--white);
   cursor: pointer;
   transition: var(--transition);
@@ -16,7 +16,7 @@
 
   &:hover,
   &:focus-visible {
-    background-color: #4089f7;
+    background-color: var(--color-blue-600);
   }
 
   &:disabled {

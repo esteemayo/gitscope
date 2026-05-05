@@ -2,13 +2,15 @@
 
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Input from '../ui/Input';
 import Logo from '../ui/Logo';
 import Button from '../ui/Button';
 
+import XCircleIcon from '../icons/XCircleIcon';
 import { getFromStorage, hintKey, recentKey, setToStorage } from '@/utils/index';
+
 import './Landing.scss';
 
 const placeholders = [
@@ -21,12 +23,19 @@ const placeholders = [
 const Landing = () => {
   const router = useRouter();
 
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
   const [username, setUsername] = useState('');
   const [index, setIndex] = useState(0);
   const [placeholder, setPlaceholder] = useState('');
   const [subIndex, setSubIndex] = useState(0);
   const [recentUsers, setRecentUsers] = useState<string[]>([]);
   const [showHint, setShowHint] = useState(false);
+
+  const handleClear = () => {
+    setUsername('');
+    inputRef.current?.focus();
+  };
 
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -73,6 +82,10 @@ const Landing = () => {
   }, [index, subIndex]);
 
   useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
     const seen = getFromStorage(hintKey);
 
     if (!seen) {
@@ -117,6 +130,7 @@ const Landing = () => {
             noValidate
           >
             <Input
+              ref={inputRef}
               type='text'
               id='username'
               name='username'
@@ -125,6 +139,20 @@ const Landing = () => {
               onChange={(e) => setUsername(e.target.value)}
               autoFocus={true}
             />
+
+            {username.length > 0 && (
+              <motion.button
+                initial={{ y: 8, opacity: 0 }}
+                animate={{ y: -8, opacity: 1 }}
+                exit={{ y: 8, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                type='button'
+                onClick={handleClear}
+                className='landing__form--icon'
+              >
+                <XCircleIcon />
+              </motion.button>
+            )}
 
             <Button type='submit'>Analyze profile</Button>
           </form>

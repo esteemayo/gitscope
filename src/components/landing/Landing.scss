@@ -86,12 +86,36 @@
     height: 7rem;
     background-color: rgb(23, 27, 36);
     background-color: var(--bg-tertiary);
+    box-shadow: var(--shadow);
     border-radius: var(--border-radius);
     overflow: hidden;
     margin-top: 2rem;
+    position: relative;
 
     .input {
       flex: 1;
+    }
+
+    &--icon {
+      position: absolute;
+      top: 50%;
+      left: 60%;
+      transform: translate(-60%, -50%);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: none;
+      background-color: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+        stroke: currentColor;
+      }
     }
 
     .button {

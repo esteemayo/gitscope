@@ -1,11 +1,12 @@
-const Default = () => {
+const DefaultIcon = () => {
   return (
     <svg
       role='img'
       aria-hidden='true'
       focusable='false'
-      viewBox='0 0 24 24'
+      xmlns='http://www.w3.org/2000/svg'
       fill='none'
+      viewBox='0 0 24 24'
       stroke='currentColor'
       strokeWidth='2'
       strokeLinecap='round'
@@ -20,4 +21,4 @@ const Default = () => {
   );
 };
 
-export default Default;
+export default DefaultIcon;
