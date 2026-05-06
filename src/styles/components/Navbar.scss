@@ -1,3 +1,5 @@
+@use '../abstracts/responsive' as bp;
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -11,9 +13,14 @@
   background-color: #010409;
   background-image: linear-gradient(90deg, #010409, var(--black));
   background-size: 300% 300%;
+  color: var(--text);
   border-bottom: 1px solid transparent;
   z-index: 5000;
   transition: var(--transition);
+
+  @media (max-width: 56.25em) {
+    padding: 3.2rem;
+  }
 
   &.scrolled {
     background-image: none;
@@ -35,6 +42,10 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    @include bp.sm {
+      display: none;
+    }
   }
 
   &__link {
@@ -43,6 +54,7 @@
       text-transform: capitalize;
       font-size: var(--fz-sm);
       padding: 0.5rem;
+      color: inherit;
     }
 
     &:focus {
@@ -50,7 +62,7 @@
     }
 
     &:focus-visible {
-      outline: 3px dashed var(--blue);
+      outline: 3px dashed var(--color-blue-800);
       outline-offset: 3px;
     }
   }

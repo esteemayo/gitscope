@@ -1,8 +1,13 @@
 @use '../abstracts/mixins' as *;
+@use '../abstracts/responsive' as bp;
 
 .footer {
   padding: 4.8rem 8rem;
   border-top: 1px solid var(--border);
+
+  @media (max-width: 56.25em) {
+    padding: 4.8rem 3.2rem;
+  }
 
   &__container {
     display: flex;
@@ -13,6 +18,10 @@
     font-weight: 500;
     font-size: var(--fz-sm);
     color: var(--card-text);
+
+    @include bp.sm {
+      justify-content: center;
+    }
   }
 
   &__copyright {
@@ -38,7 +47,7 @@
         font-size: inherit;
         padding: 0.5rem;
         color: currentColor;
-        @include animated-underline($bottom: 7px);
+        @include animated-underline($bottom: 0.7rem);
       }
     }
   }

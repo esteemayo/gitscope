@@ -22,21 +22,24 @@ const ThemeSelector = () => {
             mobile: MobileIcon,
           } = icons;
 
+          const isActive = theme === id;
+          const isAuto = theme === 'auto';
+
           return (
             <button
               key={id}
               type='button'
               onClick={() => setTheme(id)}
-              className='theme-selector__btn'
+              className={isActive ? 'theme-selector__btn active' : 'theme-selector__btn'}
               aria-label={label}
-              disabled={theme === id}
+              disabled={isActive}
               title={`${label} mode`}
             >
               {DefaultIcon && (
                 <motion.span
                   animate={{
-                    scale: theme === id ? 1.1 : 1,
-                    opacity: theme === id ? 1 : 0.6,
+                    scale: isActive ? 1.1 : 1,
+                    opacity: isActive ? 1 : 0.6,
                   }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.2 }}
@@ -48,8 +51,8 @@ const ThemeSelector = () => {
               {DesktopIcon && (
                 <motion.span
                   animate={{
-                    scale: theme === 'auto' ? 1.1 : 0.95,
-                    opacity: theme === 'auto' ? 1 : 0.5,
+                    scale: isAuto ? 1.1 : 0.95,
+                    opacity: isAuto ? 1 : 0.5,
                   }}
                   transition={{ duration: 0.2 }}
                   className='theme-selector__btn--desktop'
@@ -61,8 +64,8 @@ const ThemeSelector = () => {
               {MobileIcon && (
                 <motion.span
                   animate={{
-                    scale: theme === 'auto' ? 1.1 : 0.95,
-                    opacity: theme === 'auto' ? 1 : 0.5,
+                    scale: isAuto ? 1.1 : 0.95,
+                    opacity: isAuto ? 1 : 0.5,
                   }}
                   transition={{ duration: 0.2 }}
                   className='theme-selector__btn--mobile'
