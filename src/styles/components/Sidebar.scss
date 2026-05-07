@@ -1,4 +1,103 @@
+@use '../abstracts/responsive' as bp;
+
 .sidebar {
-  &__container {
+  display: none;
+
+  @include bp.md {
+    position: fixed;
+    inset: 0;
+    z-index: 7000;
+
+    width: 100vw;
+    height: 100%;
+
+    display: flex;
+
+    &__overlay {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(0.5rem);
+    }
+
+    &__container {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 30rem;
+      height: 100%;
+      padding: 3rem;
+      background-color: var(--color-white-50);
+      background-color: #010409;
+      // color: var(--color-white-50);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__list {
+      list-style: none;
+      margin-top: 2rem;
+    }
+
+    &__item {
+      text-transform: initial;
+
+      &:not(:last-child) {
+        margin-bottom: 1.25rem;
+      }
+
+      &--link {
+        &:link,
+        &:visited {
+          font-size: inherit;
+          color: currentColor;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover,
+        &:focus-visible {
+          color: var(--color-blue-400);
+        }
+      }
+    }
+
+    &__copyright {
+      text-align: center;
+      color: var(--text);
+
+      &--text {
+        font-size: var(--fz-xxs);
+        color: currentColor;
+      }
+    }
+
+    &__btn-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 4rem;
+      height: 4rem;
+      border: none;
+      background-color: transparent;
+      color: inherit;
+      border-radius: 100%;
+      cursor: pointer;
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
   }
 }

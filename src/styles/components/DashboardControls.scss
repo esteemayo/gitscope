@@ -57,5 +57,9 @@
     font-weight: 500;
     font-size: var(--fz-sm);
     position: relative;
+
+    @include bp.sm {
+      width: 10rem;
+    }
   }
 }

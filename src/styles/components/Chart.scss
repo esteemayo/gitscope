@@ -1,6 +1,8 @@
+@use '../abstracts/responsive' as bp;
+
 .chart {
   max-width: 50rem;
-  padding: 2rem;
+  padding: 3.2rem;
   background-color: rgb(255, 255, 255);
   background-color: var(--surface);
   box-shadow: rgba(0, 0, 0, 0.2) 0 0.5rem 3rem -1.5rem;
@@ -11,6 +13,10 @@
   position: relative;
   z-index: 2000;
   transition: var(--transition);
+
+  @media (max-width: 25em) {
+    padding: 3.2rem 1.6rem;
+  }
 
   &:hover {
     border-color: var(--blue-light);

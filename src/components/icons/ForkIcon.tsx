@@ -1,4 +1,4 @@
-const Fork = () => {
+const ForkIcon = () => {
   return (
     <svg
       role='img'
@@ -19,4 +19,4 @@ const Fork = () => {
   );
 };
 
-export default Fork;
+export default ForkIcon;

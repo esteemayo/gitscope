@@ -1,4 +1,4 @@
-const Xmark = () => {
+const XmarkIcon = () => {
   return (
     <svg
       role='img'
@@ -20,4 +20,4 @@ const Xmark = () => {
   );
 };
 
-export default Xmark;
+export default XmarkIcon;

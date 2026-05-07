@@ -1,4 +1,4 @@
-const Book = () => {
+const BookIcon = () => {
   return (
     <svg
       role='img'
@@ -19,4 +19,4 @@ const Book = () => {
   );
 };
 
-export default Book;
+export default BookIcon;

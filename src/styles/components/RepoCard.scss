@@ -1,3 +1,5 @@
+@use '../abstracts/responsive' as bp;
+
 .repo-card {
   display: flex;
   flex-direction: column;
@@ -15,6 +17,10 @@
   border-radius: var(--radius);
   transition: var(--transition);
   position: relative;
+
+  @media (max-width: 37.5em) {
+    padding: 2.4rem;
+  }
 
   &:hover,
   &:focus-visible {

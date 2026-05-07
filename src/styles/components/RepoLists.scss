@@ -7,6 +7,10 @@
     padding: 3.2rem;
   }
 
+  @media (max-width: 25em) {
+    padding: 1.6rem;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;

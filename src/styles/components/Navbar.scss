@@ -22,6 +22,10 @@
     padding: 3.2rem;
   }
 
+  @media (max-width: 25em) {
+    padding: 1.6rem;
+  }
+
   &.scrolled {
     background-image: none;
     background-color: rgba(var(--black), 0.75);
@@ -43,7 +47,7 @@
     align-items: center;
     gap: 1rem;
 
-    @include bp.sm {
+    @include bp.md {
       display: none;
     }
   }
@@ -64,6 +68,46 @@
     &:focus-visible {
       outline: 3px dashed var(--color-blue-800);
       outline-offset: 3px;
+    }
+  }
+
+  &__toggle {
+    display: none;
+
+    @include bp.md {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: none;
+      width: 3.2rem;
+      height: 3.2rem;
+      background-color: transparent;
+      color: var(--color-white-50);
+      cursor: pointer;
+      transition: var(--transition);
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        outline: 3px dashed var(--color-blue-800);
+        outline-offset: 3px;
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        stroke: currentColor;
+        stroke-width: 2px;
+      }
     }
   }
 }

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-import Book from '../icons/Book';
-import Fork from '../icons/Fork';
-import Star from '../icons/Star';
+import BookIcon from '../icons/BookIcon';
+import ForkIcon from '../icons/ForkIcon';
+import StarIcon from '../icons/StarIcon';
 
 import { RepoCardProps } from '@/types/repo.card.type';
 import '../../styles/components/RepoCard.scss';
@@ -17,9 +17,9 @@ const RepoCard = ({ view }: RepoCardProps) => {
       >
         <div className='repo-card__top'>
           <div className='repo-card__name'>
-            <Book />
+            <BookIcon />
 
-            <h3 className='repo-card__name--title'>albumz-api</h3>
+            <h3 className='repo-card__name--title' title='albumz-api'>albumz-api</h3>
           </div>
 
           {view === 'list' && <p className='repo-card__desc'>
@@ -37,11 +37,11 @@ const RepoCard = ({ view }: RepoCardProps) => {
             </span>
 
             <span>
-              <Star /> 2
+              <StarIcon /> 2
             </span>
 
             <span>
-              <Fork /> 0
+              <ForkIcon /> 0
             </span>
           </div>
 

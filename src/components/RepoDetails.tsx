@@ -1,7 +1,7 @@
-import Code from './icons/Code';
-import Fork from './icons/Fork';
-import Star from './icons/Star';
-import Alert from './icons/Alert';
+import CodeIcon from './icons/CodeIcon';
+import ForkIcon from './icons/ForkIcon';
+import StarIcon from './icons/StarIcon';
+import AlertIcon from './icons/AlertIcon';
 
 import '../styles/components/RepoDetails.scss';
 
@@ -10,7 +10,7 @@ const RepoDetails = () => {
     <div className='repo-details'>
       <div className='repo-details__container'>
         <header className='repo-details__header'>
-          <h1 className='repo-details__heading'>albumz-api</h1>
+          <h1 className='repo-details__heading' title='albumz-api'>albumz-api</h1>
 
           <a
             href='#'
@@ -30,22 +30,22 @@ const RepoDetails = () => {
 
         <section className='repo-details__stats'>
           <div className='repo-details__stats--wrapper'>
-            <Star />
+            <StarIcon />
             <span>200</span>
           </div>
 
           <div className='repo-details__stats--wrapper'>
-            <Fork />
+            <ForkIcon />
             <span>43</span>
           </div>
 
           <div className='repo-details__stats--wrapper'>
-            <Code />
+            <CodeIcon />
             <span>JavaScript</span>
           </div>
 
           <div className='repo-details__stats--wrapper'>
-            <Alert />
+            <AlertIcon />
             <span>3 Issues</span>
           </div>
         </section>

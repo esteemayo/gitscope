@@ -2,6 +2,7 @@
 
 import Footer from './Footer';
 import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 
 import Corner from '../ui/Corner';
 import RateLimit from '../ui/RateLimit';
@@ -12,6 +13,7 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main>
       <Navbar />
+      <Sidebar />
       <ToasterProvider />
       <RateLimit />
       <Corner />

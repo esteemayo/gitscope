@@ -3,22 +3,19 @@
 
 .profile-header {
   width: 100%;
-  height: calc(100vh - var(--nav-height));
+  // height: calc(100vh - var(--nav-height));
   padding: 4.8rem 8rem 16rem;
   background-color: var(--surface-header);
   margin-bottom: 4rem;
   position: relative;
 
-  @include bp.xxl {
-    height: 100vh;
-  }
-
-  @media (max-width: 76.25em) {
-    height: 110vh;
-  }
-
   @media (max-width: 56.25em) {
     padding: 3.2rem 3.2rem 16rem;
+  }
+
+  @media (max-width: 25em) {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
   }
 
   &::before {
@@ -32,6 +29,17 @@
     background-color: rgba(56, 189, 248, 0.15);
     filter: blur(15rem);
     border-radius: 100%;
+    z-index: 1000;
+
+    @include bp.sm {
+      width: 25rem;
+      height: 25rem;
+    }
+
+    @media (max-width: 20em) {
+      width: 15rem;
+      height: 15rem;
+    }
   }
 
   & > div {
@@ -46,13 +54,15 @@
     justify-content: center;
 
     text-align: center;
+    position: relative;
+    z-index: 2000;
   }
 
   &__name {
     text-transform: capitalize;
     text-rendering: optimizeLegibility;
     font-weight: 400;
-    font-size: 4rem;
+    font-size: clamp(3.2rem, 5vw, 4rem);
     color: var(--color-white-100);
     line-height: 1.1;
     margin-bottom: 1rem;
@@ -89,6 +99,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 37.5em) {
+      display: block;
+    }
 
     &--item {
       display: flex;

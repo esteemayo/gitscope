@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+import BarsIcon from '../icons/BarsIcon';
 import Logo from '../ui/Logo';
 import ThemeToggle from '../ui/ThemeToggle';
 
@@ -29,6 +30,10 @@ const Navbar = () => {
           <ThemeToggle />
           <Link href='/compare' className='navbar__link'>Compare</Link>
         </div>
+
+        <button type='button' className='navbar__toggle'>
+          <BarsIcon />
+        </button>
       </div>
     </nav>
   );

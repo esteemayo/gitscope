@@ -10,6 +10,11 @@
     padding: 3.2rem;
   }
 
+  @media (max-width: 25em) {
+    margin-top: -12.5rem;
+    padding: 1.6rem;
+  }
+
   &__container {
     width: 100%;
     max-width: 80rem;
@@ -17,6 +22,10 @@
 
     @media (max-width: 37.5em) {
       max-width: 35rem;
+    }
+
+    @media (max-width: 25em) {
+      max-width: 100%;
     }
   }
 

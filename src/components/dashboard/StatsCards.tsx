@@ -1,7 +1,7 @@
 import StatsCard from './StatsCard';
-import Fork from '../icons/Fork';
+import Fork from '../icons/ForkIcon';
 import ChartBar from '../icons/ChartBar';
-import Star from '../icons/Star';
+import Star from '../icons/StarIcon';
 
 import { StatsCardsProps } from '@/types/stats.cards.type';
 import '../../styles/components/StatsCards.scss';

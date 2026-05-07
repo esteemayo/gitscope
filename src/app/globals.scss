@@ -193,6 +193,7 @@ body {
     background 0.25s,
     color 0.25s;
   transition: var(--transition);
+  overflow-x: clip;
 }
 
 a {

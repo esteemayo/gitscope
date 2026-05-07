@@ -1,3 +1,5 @@
+@use '../abstracts/responsive' as bp;
+
 .theme-selector {
   position: fixed;
   bottom: 3rem;
@@ -5,6 +7,12 @@
 
   writing-mode: vertical-rl;
   z-index: 3000;
+
+  @media (max-width: 34.375em) {
+    bottom: 1.6rem;
+    right: 1.6rem;
+    writing-mode: unset;
+  }
 
   &__container {
     display: flex;
@@ -40,6 +48,10 @@
     }
 
     span {
+      @media (max-width: 34.375em) {
+        transform: none !important;
+      }
+
       &:focus,
       &:focus-visible {
         outline: none;
@@ -59,6 +71,10 @@
 
       @media (max-width: 48em) {
         display: block;
+      }
+
+      @media (max-width: 34.375em) {
+        transform: none !important;
       }
     }
 

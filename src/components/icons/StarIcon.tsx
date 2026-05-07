@@ -1,4 +1,4 @@
-const Star = () => {
+const StarIcon = () => {
   return (
     <svg
       role='img'
@@ -19,4 +19,4 @@ const Star = () => {
   );
 };
 
-export default Star;
+export default StarIcon;
