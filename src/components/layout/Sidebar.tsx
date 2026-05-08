@@ -1,15 +1,43 @@
+'use client';
+
+import { useEffect } from 'react';
 import Link from 'next/link';
+import { createPortal } from 'react-dom';
+
 import XmarkIcon from '../icons/XmarkIcon';
+import ThemeToggle from '../ui/ThemeToggle';
+
+import { usePortal } from '@/hooks/usePortal';
+import { useEscapeKey } from '@/hooks/useEscapeKey';
+
+import { useSidebar } from '@/context/SidebarContext';
 
 import '../../styles/components/Sidebar.scss';
 
 const Sidebar = () => {
-  return (
-    <aside className='sidebar'>
-      <div className='sidebar__overlay'>
+  const { isOpen, onClose } = useSidebar();
+  const { portalId } = usePortal('overlay-root');
+
+  const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  useEscapeKey({ isEnabled: isOpen, onEscape: onClose });
+
+  const sidebarContent = (
+    <div
+      onClick={handleClose}
+      className={isOpen ? 'overlay visible' : 'overlay hidden'}
+    >
+      <aside
+        className={isOpen ? 'sidebar visible' : 'sidebar hidden'}
+        tabIndex={-1}
+      >
         <div className='sidebar__container'>
           <ul className='sidebar__list'>
-            <li className='sidebar__item'>
+            <li onClick={onClose} className='sidebar__item'>
               <a
                 href='https://github.com/esteemayo'
                 className='sidebar__item--link'
@@ -20,7 +48,7 @@ const Sidebar = () => {
               </a>
             </li>
 
-            <li className='sidebar__item'>
+            <li onClick={onClose} className='sidebar__item'>
               <Link href='/compare' className='sidebar__item--link'>
                 Compare
               </Link>
@@ -28,18 +56,28 @@ const Sidebar = () => {
           </ul>
 
           <div className='sidebar__copyright'>
+            <div className='sidebar__copyright--theme'>
+              <ThemeToggle />
+            </div>
+
             <p className='sidebar__copyright--text'>
               &copy; {new Date().getFullYear()} GitScope, Inc. All rights reserved.
             </p>
           </div>
 
-          <button type='button' className='sidebar__btn-close'>
+          <button
+            type='button'
+            onClick={onClose}
+            className='sidebar__btn-close'
+          >
             <XmarkIcon />
           </button>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </div>
   );
+
+  return !portalId ? null : createPortal(sidebarContent, portalId);
 };
 
 export default Sidebar;

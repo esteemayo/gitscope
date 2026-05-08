@@ -30,6 +30,8 @@ export default function RootLayout({
     <html lang='en' className={`${poppins.className} ${roboto.className}`}>
       <body>
         <MainLayout>{children}</MainLayout>
+        <div id='overlay-root' />
+
         {/* 
         <script
           dangerouslySetInnerHTML={{

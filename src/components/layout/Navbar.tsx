@@ -7,16 +7,19 @@ import BarsIcon from '../icons/BarsIcon';
 import Logo from '../ui/Logo';
 import ThemeToggle from '../ui/ThemeToggle';
 
+import { useSidebar } from '@/context/SidebarContext';
 import '../../styles/components/Navbar.scss';
 
 const Navbar = () => {
+  const { onOpen } = useSidebar();
+
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 50 ? true : false);
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50 ? true : false);
+    };
+
     document.addEventListener('scroll', handleScroll);
     return () => document.removeEventListener('scroll', handleScroll);
   }, []);
@@ -31,7 +34,11 @@ const Navbar = () => {
           <Link href='/compare' className='navbar__link'>Compare</Link>
         </div>
 
-        <button type='button' className='navbar__toggle'>
+        <button
+          type='button'
+          onClick={onOpen}
+          className='navbar__toggle'
+        >
           <BarsIcon />
         </button>
       </div>

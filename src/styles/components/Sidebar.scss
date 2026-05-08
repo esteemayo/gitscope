@@ -1,37 +1,58 @@
 @use '../abstracts/responsive' as bp;
 
+.overlay {
+  display: none;
+
+  @include bp.md {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+
+    width: 100vw;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.5rem) brightness(0.7);
+    z-index: 7000;
+    transition: var(--transition);
+
+    &.visible {
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    &.hidden {
+      transform: translateX(100vw);
+      visibility: hidden;
+    }
+  }
+}
+
 .sidebar {
   display: none;
 
   @include bp.md {
-    position: fixed;
-    inset: 0;
-    z-index: 7000;
-
-    width: 100vw;
+    outline: none;
+    width: min(75vw, 30rem);
     height: 100%;
+    padding: 3rem;
+    background-color: var(--color-black-500);
+    // color: var(--color-white-50);
+    transform: translateX(0vw);
+    visibility: visible;
+    overflow: hidden;
+    transition: var(--transition);
 
-    display: flex;
+    &.visible {
+      display: flex;
+    }
 
-    &__overlay {
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(0.5rem);
+    &.hidden {
+      display: none;
     }
 
     &__container {
-      position: absolute;
-      top: 0;
-      right: 0;
-
-      width: 30rem;
-      height: 100%;
-      padding: 3rem;
-      background-color: var(--color-white-50);
-      background-color: #010409;
-      // color: var(--color-white-50);
-
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -39,7 +60,7 @@
 
     &__list {
       list-style: none;
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
 
     &__item {
@@ -71,6 +92,10 @@
       text-align: center;
       color: var(--text);
 
+      &--theme {
+        margin-bottom: 2rem;
+      }
+
       &--text {
         font-size: var(--fz-xxs);
         color: currentColor;
@@ -79,24 +104,46 @@
 
     &__btn-close {
       position: absolute;
-      top: 2rem;
-      right: 2rem;
+      top: 1rem;
+      right: 1rem;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      width: 4rem;
-      height: 4rem;
+      width: 3rem;
+      height: 3rem;
       border: none;
-      background-color: transparent;
+      background-color: var(--color-gray-900);
       color: inherit;
       border-radius: 100%;
       cursor: pointer;
+      transition: var(--transition);
+
+      &:hover {
+        background-color: rgba(0, 118, 255, 0.1);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        outline: 3px dashed var(--color-blue-800);
+        outline-offset: 3px;
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        user-select: none;
+        pointer-events: none;
+      }
 
       svg {
         width: 2rem;
         height: 2rem;
+        stroke: currentColor;
+        stroke-width: 2px;
       }
     }
   }
