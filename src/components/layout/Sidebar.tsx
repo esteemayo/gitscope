@@ -1,15 +1,14 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useRef } from 'react';
 import Link from 'next/link';
 import { createPortal } from 'react-dom';
 
 import XmarkIcon from '../icons/XmarkIcon';
 import ThemeToggle from '../ui/ThemeToggle';
 
+import { useOverlay } from '@/hooks/useOverlay';
 import { usePortal } from '@/hooks/usePortal';
-import { useEscapeKey } from '@/hooks/useEscapeKey';
-
 import { useSidebar } from '@/context/SidebarContext';
 
 import '../../styles/components/Sidebar.scss';
@@ -18,13 +17,18 @@ const Sidebar = () => {
   const { isOpen, onClose } = useSidebar();
   const { portalId } = usePortal('overlay-root');
 
+  const sidebarRef = useRef<HTMLElement | null>(null);
+
+  useOverlay(sidebarRef, {
+    isOpen,
+    onClose,
+  })
+
   const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
   };
-
-  useEscapeKey({ isEnabled: isOpen, onEscape: onClose });
 
   const sidebarContent = (
     <div
@@ -32,6 +36,7 @@ const Sidebar = () => {
       className={isOpen ? 'overlay visible' : 'overlay hidden'}
     >
       <aside
+        ref={sidebarRef}
         className={isOpen ? 'sidebar visible' : 'sidebar hidden'}
         tabIndex={-1}
       >

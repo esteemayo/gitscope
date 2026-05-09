@@ -7,7 +7,7 @@ type EscapeKeyType = {
   onEscape(): void;
 };
 
-export const useEscapeKey = ({ isEnabled, onEscape }: EscapeKeyType) => {
+export const useEscapeKey = ({ isEnabled, onEscape }: EscapeKeyType): void => {
   const handlerRef = useRef(onEscape);
 
   useEffect(() => {
@@ -25,5 +25,5 @@ export const useEscapeKey = ({ isEnabled, onEscape }: EscapeKeyType) => {
 
     document.addEventListener('keydown', handleEscKey);
     return () => document.removeEventListener('keydown', handleEscKey);
-  }, [isEnabled]);
+  }, [isEnabled, onEscape]);
 };

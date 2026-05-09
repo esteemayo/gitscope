@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 import DropdownMenuItem from './DropdownMenuItem';
 
-import { sortItems } from '@/data';
+import { SORT_ITEMS } from '@/data';
 import { DropdownMenuProps } from '@/types/dropdown.menu.type';
 
 import '../../styles/components/DropdownMenu.scss';
@@ -15,7 +15,7 @@ const DropdownMenu = ({ isOpen, onOpen, onSort }: DropdownMenuProps) => {
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
     let nextIndex = index;
-    const lastIndex = sortItems.length - 1;
+    const lastIndex = SORT_ITEMS.length - 1;
 
     if (e.key === 'ArrowDown') {
       nextIndex = index === lastIndex ? 0 : index + 1;
@@ -35,7 +35,7 @@ const DropdownMenu = ({ isOpen, onOpen, onSort }: DropdownMenuProps) => {
 
     e.preventDefault();
 
-    const nextItem = sortItems[nextIndex].id;
+    const nextItem = SORT_ITEMS[nextIndex].id;
     onSort(nextItem);
     refs.current[nextIndex]?.focus();
   };
@@ -56,7 +56,7 @@ const DropdownMenu = ({ isOpen, onOpen, onSort }: DropdownMenuProps) => {
       ref={menuRef}
       className={isOpen ? 'dropdown-menu show' : 'dropdown-menu hide'}
     >
-      {sortItems.map(({ id, label }, index) => (
+      {SORT_ITEMS.map(({ id, label }, index) => (
         <DropdownMenuItem
           key={id}
           id={id}

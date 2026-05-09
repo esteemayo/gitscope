@@ -1,10 +1,24 @@
+'use client';
+
+import { useState } from 'react';
+
+import ArrowDownIcon from '../icons/ArrowDownIcon';
 import SquareIcon from '../icons/SquareIcon';
 import ListBulletIcon from '../icons/ListBulletIcon';
+
+import ContextMenu from '../ui/ContextMenu';
+import ContextMenuItem from '../ui/ContextMenuItem';
 
 import { DashboardControlActionsProps } from '@/types/dashboard.control.actions';
 import '../../styles/components/DashboardControlActions.scss';
 
 const DashboardControlActions = ({ view, onView }: DashboardControlActionsProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClose = () => {
+    setIsOpen(false)
+  }
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
       e.preventDefault();
@@ -14,40 +28,26 @@ const DashboardControlActions = ({ view, onView }: DashboardControlActionsProps)
 
   return (
     <div className='dashboard-control-actions'>
-      <button
-        type='button'
-        onClick={() => onView('grid')}
-        onKeyDown={handleKeyDown}
-        className={
-          view === 'grid' ?
-            'dashboard-control-actions__toggle-btn active' :
-            'dashboard-control-actions__toggle-btn'
-        }
-        title='Grid'
-      >
-        <SquareIcon />
-      </button>
+      <div className='dashboard-control-actions__container'>
+        <button
+          type='button'
+          className={
+            isOpen ?
+              'dashboard-control-actions__toggle-btn active' :
+              'dashboard-control-actions__toggle-btn'
+          }
+          onClick={() => setIsOpen((prev) => !prev)}
+        >
+          <label>Grid</label>
+          <ArrowDownIcon />
+        </button>
 
-      <button
-        type='button'
-        onClick={() => onView('list')}
-        onKeyDown={handleKeyDown}
-        className={
-          view === 'list' ?
-            'dashboard-control-actions__toggle-btn active' :
-            'dashboard-control-actions__toggle-btn'
-        }
-        title='List'
-      >
-        <ListBulletIcon />
-      </button>
-
-      <button
-        type='button'
-        className='dashboard-control-actions__export'
-      >
-        Export CSV
-      </button>
+        <ContextMenu isOpen={isOpen} onClose={handleClose}>
+          <ContextMenuItem label='Grid' icon={<SquareIcon />} />
+          <ContextMenuItem label='List' icon={<ListBulletIcon />} />
+          <ContextMenuItem label='Export CSV' icon={<ListBulletIcon />} />
+        </ContextMenu>
+      </div>
     </div>
   );
 };
