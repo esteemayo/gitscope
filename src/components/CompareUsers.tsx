@@ -2,6 +2,7 @@
 
 import { lazy, Suspense, useState } from 'react';
 
+import CompareStat from './ui/CompareStat';
 import Tooltip from './ui/Tooltip';
 import UserDashboard from './dashboard/UserDashboard';
 
@@ -47,20 +48,9 @@ const CompareUsers = () => {
         </div>
 
         <div className='compare-users__summary'>
-          <div className='compare-users__card win'>
-            <p className='compare-users__card--label'>Stars</p>
-            <strong className='compare-users__card--count'>120 vs 340</strong>
-          </div>
-
-          <div className='compare-users__card'>
-            <p className='compare-users__card--label'>Repositories</p>
-            <strong className='compare-users__card--count'>12 vs 28</strong>
-          </div>
-
-          <div className='compare-users__card'>
-            <p className='compare-users__card--label'>Followers</p>
-            <strong className='compare-users__card--count'>80 vs 210</strong>
-          </div>
+          <CompareStat label='Stars' value='120 vs 340' />
+          <CompareStat label='Repositories' value='12 vs 28' />
+          <CompareStat label='Followers' value='80 vs 210' />
         </div>
 
         <div className='compare-users__box'>

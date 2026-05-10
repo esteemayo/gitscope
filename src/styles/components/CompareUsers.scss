@@ -1,8 +1,18 @@
+@use '../abstracts/responsive' as bp;
+
 .compare-users {
   display: flex;
   justify-content: center;
 
   padding: 4.8rem 8rem;
+
+  @media (max-width: 56.25em) {
+    padding: 4.8rem 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 4.8rem 1.6rem;
+  }
 
   &__container {
     width: 120rem;
@@ -17,6 +27,11 @@
     align-items: center;
     gap: 1.2rem;
 
+    width: max-content;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
     margin-bottom: 4.8rem;
 
     input {
@@ -111,37 +126,16 @@
     margin-bottom: 4.8rem;
   }
 
-  &__card {
-    padding: 1.6rem;
-    background-color: var(--bg-tertiary);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-    border-radius: 1.2rem;
-    transition: var(--transition);
-
-    &.win {
-      border-color: var(--color-blue-400);
-      box-shadow: 0 0 0 1px var(--color-blue-400) inset;
-    }
-
-    &--label {
-      font-size: var(--fz-xs);
-      color: var(--heading);
-    }
-
-    &--count {
-      font-weight: 500;
-      font-size: 100%;
-      color: var(--text-muted);
-    }
-  }
-
   &__box {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 
     margin-bottom: 4.8rem;
+
+    @include bp.xl {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__insights {

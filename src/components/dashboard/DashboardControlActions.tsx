@@ -16,11 +16,25 @@ const DashboardControlActions = ({ view, onView }: DashboardControlActionsProps)
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
+
+  const handleToggleGrid = () => {
+    onView('grid');
+    handleClose();
+  };
+
+  const handleToggleList = () => {
+    onView('list');
+    handleClose();
+  };
+
+  const handleExportCSV = () => {
+    console.log('repos exported!');
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
       onView(view === 'grid' ? 'list' : 'grid');
     }
@@ -38,14 +52,30 @@ const DashboardControlActions = ({ view, onView }: DashboardControlActionsProps)
           }
           onClick={() => setIsOpen((prev) => !prev)}
         >
-          <label>Grid</label>
+          <label>Options</label>
           <ArrowDownIcon />
         </button>
 
         <ContextMenu isOpen={isOpen} onClose={handleClose}>
-          <ContextMenuItem label='Grid' icon={<SquareIcon />} />
-          <ContextMenuItem label='List' icon={<ListBulletIcon />} />
-          <ContextMenuItem label='Export CSV' icon={<ListBulletIcon />} />
+          <ContextMenuItem
+            label='Grid'
+            icon={<SquareIcon />}
+            onClick={handleToggleGrid}
+            onKeyDown={handleKeyDown}
+          />
+
+          <ContextMenuItem
+            label='List'
+            icon={<ListBulletIcon />}
+            onClick={handleToggleList}
+            onKeyDown={handleKeyDown}
+          />
+
+          <ContextMenuItem
+            label='Export CSV'
+            icon={<ListBulletIcon />}
+            onClick={handleExportCSV}
+          />
         </ContextMenu>
       </div>
     </div>
