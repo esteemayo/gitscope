@@ -1,10 +1,19 @@
+@use '../abstracts/responsive' as bp;
+
 .user-dashboard {
-  padding: 1.6rem;
   padding: 2rem;
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   border-radius: var(--radius);
+
+  @media (max-width: 31.25em) {
+    padding: 2rem 1.6rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 1.6rem 1.2rem;
+  }
 
   &__container {
     .repo-list {
