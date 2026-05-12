@@ -1,4 +1,4 @@
-import CompareUsers from '@/components/CompareUsers';
+import CompareUsers from '@/components/compare/CompareUsers';
 
 const ComparePage = () => {
   return <CompareUsers />;

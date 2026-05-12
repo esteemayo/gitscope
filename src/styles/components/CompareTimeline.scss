@@ -1,0 +1,104 @@
+@use '../abstracts/responsive' as bp;
+
+.compare-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 2rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+
+  @media (max-width: 34.375em) {
+    width: 48.6rem;
+  }
+
+  @media (max-width: 31.25em) {
+    width: 43.6rem;
+    padding: 2rem 1.6rem;
+  }
+
+  @media (max-width: 28.125em) {
+    width: 38.6rem;
+  }
+
+  @media (max-width: 26.875em) {
+    width: 36.6rem;
+  }
+
+  @media (max-width: 26.25em) {
+    width: 35.6rem;
+  }
+
+  @media (max-width: 25.625em) {
+    width: 34.6rem;
+  }
+
+  @media (max-width: 25em) {
+    width: 36.8rem;
+    padding: 1.6rem 1.2rem;
+  }
+
+  @media (max-width: 24.375em) {
+    width: 35.8rem;
+  }
+
+  @media (max-width: 23.75em) {
+    width: 34.8rem;
+  }
+
+  @media (max-width: 23.4375em) {
+    width: 34.3rem;
+  }
+
+  @media (max-width: 23.125em) {
+    width: 33.8rem;
+  }
+
+  @media (max-width: 22.5em) {
+    width: 32.8rem;
+  }
+
+  @media (max-width: 21.5em) {
+    width: 31.2rem;
+  }
+
+  @media (max-width: 20em) {
+    width: 28.8rem;
+    padding: 0.8rem;
+  }
+
+  @media (max-width: 18.75em) {
+    width: 26.8rem;
+  }
+
+  @media (max-width: 17.5em) {
+    width: 25.705rem;
+  }
+
+  &__heading {
+    display: inline-block;
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    font-weight: 400;
+    color: var(--heading);
+    line-height: 1.1;
+  }
+
+  &__desc {
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  svg,
+  g {
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}

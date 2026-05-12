@@ -24,7 +24,7 @@ const data = [
   { date: '2024-05', userA: 7, userB: 4 },
 ];
 
-const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimationActive?: boolean }) => {
+const CompareTimelineChart = ({ grid, isAnimationActive }: { grid?: boolean, isAnimationActive?: boolean }) => {
   const { theme } = useTheme();
   const chartTheme = getChartTheme(theme);
 
@@ -107,4 +107,4 @@ const CompareTimeline = ({ grid, isAnimationActive }: { grid?: boolean, isAnimat
   );
 };
 
-export default CompareTimeline;
+export default CompareTimelineChart;

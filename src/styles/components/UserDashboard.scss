@@ -15,9 +15,41 @@
     padding: 1.6rem 1.2rem;
   }
 
+  @media (max-width: 20em) {
+    padding: 0.8rem;
+  }
+
   &__container {
+    .avatar {
+      @media (max-width: 31.25em) {
+        width: 13rem;
+        height: 13rem;
+      }
+
+      img {
+        @media (max-width: 31.25em) {
+          width: 11.4rem;
+          height: 11.4rem;
+        }
+      }
+    }
+
     .repo-list {
       padding: 0;
+    }
+
+    .repo-card {
+      @media (max-width: 31.25em) {
+        padding: 2rem;
+      }
+
+      @media (max-width: 25em) {
+        padding: 1.6rem;
+      }
+
+      @media (max-width: 20em) {
+        padding: 0.8rem;
+      }
     }
   }
 

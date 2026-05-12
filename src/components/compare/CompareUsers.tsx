@@ -2,14 +2,14 @@
 
 import { useState } from 'react';
 
-import CompareStat from './ui/CompareStat';
-import UserDashboard from './dashboard/UserDashboard';
+import CompareStat from '../ui/CompareStat';
+import UserDashboard from '../dashboard/UserDashboard';
 
 import CompareInsight from './CompareInsight';
-import CompareForm from './forms/CompareForm';
-import CompareTimeline from './compare/CompareTimeline';
+import CompareForm from '../forms/CompareForm';
+import CompareTimeline from './CompareTimeline';
 
-import '../styles/components/CompareUsers.scss';
+import '../../styles/components/CompareUsers.scss';
 
 const CompareUsers = () => {
   const [firstUser, setFirstUser] = useState('');
