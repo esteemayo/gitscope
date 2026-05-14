@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import '../../styles/components/Logo.scss';
 
-const Logo = () => {
+const Logo = ({ onClick }: { onClick?(): void }) => {
   return (
-    <h2 className='logo'>
+    <h2 className='logo' onClick={onClick}>
       <Link href='/' className='logo__link'>
         <span className='logo__link--primary'>Git</span>
         <span className='logo__link--secondary'>Scope</span>

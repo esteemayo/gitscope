@@ -5,7 +5,7 @@ import { useState } from 'react';
 import CompareStat from './ui/CompareStat';
 import UserDashboard from './dashboard/UserDashboard';
 
-import CompareInsight from './CompareInsight';
+import CompareInsight from './compare/CompareInsight';
 import CompareForm from './forms/CompareForm';
 import CompareTimeline from './compare/CompareTimeline';
 

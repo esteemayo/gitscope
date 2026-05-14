@@ -4,12 +4,15 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
-import Input from '../ui/Input';
 import Logo from '../ui/Logo';
-import Button from '../ui/Button';
+import GitHubSearchForm from '../forms/GitHubSearchForm';
 
-import XCircleIcon from '../icons/XCircleIcon';
-import { getFromStorage, hintKey, recentKey, setToStorage } from '@/utils/index';
+import {
+  getFromStorage,
+  hintKey,
+  recentKey,
+  setToStorage,
+} from '@/utils/index';
 
 import './Landing.scss';
 
@@ -124,38 +127,14 @@ const Landing = () => {
             Analyze GitHub profiles, repositories, language usage, and developer metrics through a modern analytics dashboard.
           </p>
 
-          <form
+          <GitHubSearchForm
+            ref={inputRef}
+            value={username}
+            placeholder={placeholder}
+            onChange={setUsername}
+            onClear={handleClear}
             onSubmit={handleSubmit}
-            className='landing__form'
-            noValidate
-          >
-            <Input
-              ref={inputRef}
-              type='text'
-              id='username'
-              name='username'
-              value={username}
-              placeholder={placeholder}
-              onChange={(e) => setUsername(e.target.value)}
-              autoFocus={true}
-            />
-
-            {username.length > 0 && (
-              <motion.button
-                initial={{ y: 8, opacity: 0 }}
-                animate={{ y: -8, opacity: 1 }}
-                exit={{ y: 8, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                type='button'
-                onClick={handleClear}
-                className='landing__form--icon'
-              >
-                <XCircleIcon />
-              </motion.button>
-            )}
-
-            <Button type='submit'>Analyze profile</Button>
-          </form>
+          />
 
           {showHint && (
             <motion.div

@@ -2,8 +2,8 @@
 
 import { useRef } from 'react';
 
-import ArrowUpRight from '../icons/ArrowUpRight';
-import ArrowDownRight from '../icons/ArrowDownRight';
+import ArrowUpRightIcon from '../icons/ArrowUpRightIcon';
+import ArrowDownRightIcon from '../icons/ArrowDownRightIcon';
 
 import { StatsCardProps } from '@/types/stats.card.type';
 import '../../styles/components/StatsCard.scss';
@@ -66,7 +66,7 @@ const StatsCard = ({
           {typeof delta !== 'undefined' && (
             <div className={`stats-card__footer--delta ${delta > 0 ? 'green' : 'red'}`}>
               <span className={`stats-card__footer--box ${delta > 0 ? 'green' : 'red'}`}>
-                {delta > 0 ? <ArrowUpRight /> : <ArrowDownRight />}
+                {delta > 0 ? <ArrowUpRightIcon /> : <ArrowDownRightIcon />}
               </span>
 
               <span>{delta > 0 ? '+' : '-'}{delta}%</span>

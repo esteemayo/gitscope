@@ -1,4 +1,4 @@
-const GitHub = () => {
+const GitHubIcon = () => {
   return (
     <svg
       role='img'
@@ -25,4 +25,4 @@ const GitHub = () => {
   );
 };
 
-export default GitHub;
+export default GitHubIcon;

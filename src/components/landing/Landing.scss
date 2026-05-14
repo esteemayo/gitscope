@@ -94,66 +94,6 @@
     color: var(--text-muted);
   }
 
-  &__form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    max-width: 50rem;
-    height: 7rem;
-    background-color: rgb(23, 27, 36);
-    background-color: var(--bg-tertiary);
-    box-shadow: var(--shadow);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    margin-top: 2rem;
-    position: relative;
-
-    @media (max-width: 25em) {
-      max-width: 31.1rem;
-    }
-
-    .input {
-      flex: 1;
-    }
-
-    &--icon {
-      position: absolute;
-      top: 50%;
-      left: 60%;
-      transform: translate(-60%, -50%);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border: none;
-      background-color: transparent;
-      color: var(--text-muted);
-      cursor: pointer;
-
-      @include bp.sm {
-        left: 90%;
-        transform: translateX(-90%);
-      }
-
-      svg {
-        width: 2rem;
-        height: 2rem;
-        stroke: currentColor;
-      }
-    }
-
-    .button {
-      flex: 0.5;
-
-      @include bp.sm {
-        display: none;
-      }
-    }
-  }
-
   &__hint {
     margin-top: 2rem;
     text-align: center;

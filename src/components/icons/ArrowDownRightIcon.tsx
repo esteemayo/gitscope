@@ -1,4 +1,4 @@
-const ArrowDownRight = () => {
+const ArrowDownRightIcon = () => {
   return (
     <svg
       role='img'
@@ -20,4 +20,4 @@ const ArrowDownRight = () => {
   );
 };
 
-export default ArrowDownRight;
+export default ArrowDownRightIcon;

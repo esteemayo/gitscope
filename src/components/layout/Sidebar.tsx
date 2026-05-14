@@ -52,9 +52,7 @@ const Sidebar = () => {
         <div className='sidebar__container'>
           <header className='sidebar__header'>
             <div className='sidebar__branding'>
-              <div className='sidebar__logo'>
-                <Logo />
-              </div>
+              <Logo onClick={onClose} />
 
               <div className='sidebar__text'>
                 <h2 className='sidebar__text--heading'>GitScope</h2>
@@ -100,7 +98,7 @@ const Sidebar = () => {
               </li>
 
               <li onClick={onClose} className='sidebar__item'>
-                <Link href='/analytics' className='sidebar__item--link'>
+                <Link href='/analytics' className='sidebar__item--link active'>
                   <span className='sidebar__item--icon'>
                     <AnalyticsIcon />
                   </span>
@@ -154,7 +152,6 @@ const Sidebar = () => {
                 const {
                   default: DefaultIcon,
                   mobile: MobileIcon,
-                  desktop: DesktopIcon,
                 } = icons;
 
                 const isActive = theme === id;
@@ -171,7 +168,7 @@ const Sidebar = () => {
                     aria-label={`${label} mode`}
                   >
                     {DefaultIcon && <DefaultIcon />}
-                    {DesktopIcon && <DesktopIcon />}
+                    {MobileIcon && <MobileIcon />}
                   </button>
                 )
               })}
@@ -181,14 +178,6 @@ const Sidebar = () => {
               &copy; {new Date().getFullYear()} GitScope, Inc.
             </p>
           </footer>
-
-          {/* <button
-            type='button'
-            onClick={onClose}
-            className='sidebar__btn-close'
-          >
-            <XmarkIcon />
-          </button> */}
         </div>
       </aside>
     </div>

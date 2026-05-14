@@ -1,4 +1,4 @@
-const Calendar = () => {
+const CalendarIcon = () => {
   return (
     <svg
       role='img'
@@ -19,4 +19,4 @@ const Calendar = () => {
   );
 };
 
-export default Calendar;
+export default CalendarIcon;

@@ -1,4 +1,4 @@
-const InformationCircle = () => {
+const InformationCircleIcon = () => {
   return (
     <svg
       role='img'
@@ -20,4 +20,4 @@ const InformationCircle = () => {
   );
 };
 
-export default InformationCircle;
+export default InformationCircleIcon;

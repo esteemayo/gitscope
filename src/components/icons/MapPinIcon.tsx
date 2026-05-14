@@ -1,4 +1,4 @@
-const MapPin = () => {
+const MapPinIcon = () => {
   return (
     <svg
       role='img'
@@ -19,4 +19,4 @@ const MapPin = () => {
   );
 };
 
-export default MapPin;
+export default MapPinIcon;

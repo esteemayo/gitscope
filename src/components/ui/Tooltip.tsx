@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-
-import InformationCircle from '../icons/InformationCircle';
+import InformationCircleIcon from '../icons/InformationCircleIcon';
 import '../../styles/components/Tooltip.scss';
 
 const Tooltip = ({ text }: { text: string }) => {
@@ -17,7 +16,7 @@ const Tooltip = ({ text }: { text: string }) => {
       className='tooltip'
     >
       <button type='button'>
-        <InformationCircle />
+        <InformationCircleIcon />
       </button>
 
       {isShow && (

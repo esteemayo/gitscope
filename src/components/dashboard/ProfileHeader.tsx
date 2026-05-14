@@ -2,8 +2,8 @@ import ShareProfile from './ShareProfile';
 import Avatar from './Avatar';
 import ProfileStatsCard from './ProfileStatsCard';
 
-import MapPin from '../icons/MapPin';
-import Calendar from '../icons/Calendar';
+import MapPinIcon from '../icons/MapPinIcon';
+import CalendarIcon from '../icons/CalendarIcon';
 
 import { formatDate } from '@/utils/formatDate';
 import '../../styles/components/ProfileHeader.scss';
@@ -34,12 +34,12 @@ const ProfileHeader = ({ username }: { username: string }) => {
 
         <div className='profile-header__info'>
           <span className='profile-header__info--item'>
-            <MapPin />
+            <MapPinIcon />
             Lagos, Nigeria
           </span>
 
           <span className='profile-header__info--item'>
-            <Calendar />
+            <CalendarIcon />
             Joined {formatDate(new Date())}
           </span>
         </div>

@@ -1,4 +1,4 @@
-const ChartLine = () => {
+const ChartBarIcon = () => {
   return (
     <svg
       role='img'
@@ -8,13 +8,12 @@ const ChartLine = () => {
       viewBox='0 0 24 24'
       fill='none'
       strokeWidth='2'
-      strokeLinecap='round'
-      strokeLinejoin='round'
     >
-      <path d='M3 3v18h18' />
-      <path d='M7 1413-3 4 4 5-5' />
+      <rect x='4' y='10' width='3' height='10' />
+      <rect x='10' y='6' width='3' height='14' />
+      <rect x='16' y='2' width='3' height='18' />
     </svg>
   );
 };
 
-export default ChartLine;
+export default ChartBarIcon;

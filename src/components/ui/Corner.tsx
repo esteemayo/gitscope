@@ -1,4 +1,4 @@
-import GitHub from '../icons/GitHub';
+import GitHubIcon from '../icons/GitHubIcon';
 import '../../styles/components/Corner.scss';
 
 const Corner = () => {
@@ -12,7 +12,7 @@ const Corner = () => {
           rel='noopener noreferrer'
           aria-label='View source on GitHub'
         >
-          <GitHub />
+          <GitHubIcon />
         </a>
       </div>
     </div>
