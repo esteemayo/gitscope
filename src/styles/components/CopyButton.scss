@@ -1,0 +1,47 @@
+@use '../abstracts/responsive' as bp;
+
+.copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
+  border: none;
+  padding: 0.5rem;
+  background-color: transparent;
+  color: rgba(200, 225, 255, 0.7);
+  border: 1px solid transparent;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--bg-card-primary);
+    color: var(--color-blue-400);
+    border-color: var(--border-secondary);
+  }
+
+  &:disabled {
+    opacity: 0.75;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke: currentColor;
+    stroke-width: 2px;
+  }
+
+  span {
+    text-transform: capitalize;
+    font-size: var(--fz-sm);
+  }
+}

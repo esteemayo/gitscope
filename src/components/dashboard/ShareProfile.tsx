@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-
-import CheckIcon from '../icons/CheckIcon';
-import ShareIcon from '../icons/ShareIcon';
-import ClipboardIcon from '../icons/ClipboardIcon';
+import SavedButton from '../ui/SavedButton';
+import CopyButton from '../ui/CopyButton';
+import ShareButton from '../ui/ShareButton';
 
 import '../../styles/components/ShareProfile.scss';
 
@@ -33,35 +32,26 @@ const ShareProfile = ({ username }: { username: string }) => {
     }
   };
 
-  useEffect(() => {
-    const raf = requestAnimationFrame(() => {
-      setUrl(`${window.location.origin}/user?id=${username}`);
-    })
+  const handleSave = () => {
+    const user = {
+      username: 'user.login',
+      avatar: 'user.avatar_url',
+      name: 'user.name',
+    };
 
-    return cancelAnimationFrame(raf);
+    console.log('profile saved successfully!', user);
+  };
+
+  useEffect(() => {
+    const url = `${window.location.origin}/user?id=${username}`;
+    setUrl(url);
   }, [username]);
 
   return (
     <div className='share-profile'>
-      <button
-        type='button'
-        onClick={handleShare}
-        className='share-profile__share-btn'
-        title='Share profile url'
-      >
-        <ShareIcon />
-        <span>Share</span>
-      </button>
-
-      <button
-        type='button'
-        onClick={handleCopy}
-        className='share-profile__copy-btn'
-        title='Copy profile url'
-      >
-        {isCopied ? <CheckIcon /> : <ClipboardIcon />}
-        <span>{isCopied ? 'Copied' : 'Copy'}</span>
-      </button>
+      <ShareButton onClick={handleShare} />
+      <CopyButton isCopied={isCopied} onClick={handleCopy} />
+      <SavedButton onClick={handleSave} />
     </div>
   );
 };
