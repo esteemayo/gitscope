@@ -13,7 +13,7 @@
   background-color: #010409;
   background-image: linear-gradient(90deg, #010409, var(--black));
   background-size: 300% 300%;
-  color: var(--text);
+  color: var(--color-white-50);
   border-bottom: 1px solid transparent;
   z-index: 5000;
   transition: var(--transition);
@@ -29,6 +29,7 @@
   &.scrolled {
     background-image: none;
     background-color: rgba(var(--black), 0.75);
+    color: var(--color-blue-800);
     backdrop-filter: blur(1rem);
     border-bottom: 1px solid var(--border);
   }

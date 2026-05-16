@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import SavedButton from '../ui/SavedButton';
 import CopyButton from '../ui/CopyButton';
@@ -9,8 +9,12 @@ import ShareButton from '../ui/ShareButton';
 import '../../styles/components/ShareProfile.scss';
 
 const ShareProfile = ({ username }: { username: string }) => {
-  const [url, setUrl] = useState('');
   const [isCopied, setIsCopied] = useState(false);
+
+  const url = useMemo(() =>
+    `${window.location.origin}/user?id=${username}`,
+    [username]
+  );
 
   const handleCopy = async () => {
     if (!url) return;
@@ -41,11 +45,6 @@ const ShareProfile = ({ username }: { username: string }) => {
 
     console.log('profile saved successfully!', user);
   };
-
-  useEffect(() => {
-    const url = `${window.location.origin}/user?id=${username}`;
-    setUrl(url);
-  }, [username]);
 
   return (
     <div className='share-profile'>

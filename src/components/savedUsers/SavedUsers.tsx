@@ -1,3 +1,6 @@
+'use client';
+
+import SavedCard from '../ui/SavedCard';
 import '../../styles/components/SavedUsers.scss';
 
 const SavedUsers = () => {
@@ -9,9 +12,9 @@ const SavedUsers = () => {
         </header>
 
         <div className='saved-users__grid'>
-          SavedCard
-          SavedCard
-          SavedCard
+          {Array.from({ length: 12 }).map((_, index) => (
+            <SavedCard key={index} />
+          ))}
         </div>
       </div>
     </div>
