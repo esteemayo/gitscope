@@ -37,3 +37,9 @@ export type ThemeButtonsType = {
     mobile?: IconType;
   };
 };
+
+export type SavedUserType = {
+  username: string;
+  avatar: string;
+  name: string;
+};

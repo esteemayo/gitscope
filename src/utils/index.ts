@@ -1,8 +1,10 @@
-export const recentKey = 'recentUsers';
+export const RECENT_KEY = 'gitScope:recentUsers';
 
-export const hintKey = 'seen_hint';
+export const HINT_KEY = 'gitScope:seen_hint';
 
-export const themeKey = 'theme';
+export const THEME_KEY = 'gitScope:theme';
+
+export const STORAGE_KEY = 'gitScope:saved';
 
 export const getFromStorage = (key: string) => {
   if (typeof window !== 'undefined') {

@@ -6,9 +6,11 @@ import SavedButton from '../ui/SavedButton';
 import CopyButton from '../ui/CopyButton';
 import ShareButton from '../ui/ShareButton';
 
+import { saveUser } from '@/lib/storage';
 import '../../styles/components/ShareProfile.scss';
 
 const ShareProfile = ({ username }: { username: string }) => {
+  const [isSaved, setIsSaved] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
   const url = useMemo(() =>
@@ -38,10 +40,12 @@ const ShareProfile = ({ username }: { username: string }) => {
 
   const handleSave = () => {
     const user = {
-      username: 'user.login',
-      avatar: 'user.avatar_url',
-      name: 'user.name',
+      username: 'esteemayo',
+      avatar: '/avatar-2.jpg',
+      name: 'Emmanuel Adebayo',
     };
+
+    saveUser(user);
 
     console.log('profile saved successfully!', user);
   };

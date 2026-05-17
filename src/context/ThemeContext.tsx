@@ -4,7 +4,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 
 import { useThemeQuery } from '@/hooks/useThemeQuery';
 import { ThemeType } from '@/types';
-import { getFromStorage, setToStorage, themeKey } from '@/utils';
+import { getFromStorage, setToStorage, THEME_KEY } from '@/utils';
 
 type ThemeContextType = {
   theme: ThemeType;
@@ -37,14 +37,14 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const next: ThemeType = theme === 'dark' ? 'light' : 'dark';
 
     setTheme(next);
-    setToStorage(themeKey, next);
+    setToStorage(THEME_KEY, next);
     document.documentElement.setAttribute('data-theme', next);
   };
 
   const handleSetTheme = (theme: ThemeType) => {
     setTheme(theme);
     setThemeQuery(theme);
-    setToStorage(themeKey, theme);
+    setToStorage(THEME_KEY, theme);
 
     const applied = theme === 'auto' ? getSystem() : theme;
 
@@ -53,7 +53,7 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    const savedTheme = getFromStorage(themeKey) as ThemeType;
+    const savedTheme = getFromStorage(THEME_KEY) as ThemeType;
 
     const urlParams = new URLSearchParams(window.location.search);
     const urlTheme = urlParams.get('theme') as ThemeType;

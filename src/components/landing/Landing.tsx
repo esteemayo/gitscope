@@ -9,8 +9,8 @@ import GitHubSearchForm from '../forms/GitHubSearchForm';
 
 import {
   getFromStorage,
-  hintKey,
-  recentKey,
+  HINT_KEY,
+  RECENT_KEY,
   setToStorage,
 } from '@/utils/index';
 
@@ -51,12 +51,12 @@ const Landing = () => {
       ...recentUsers.filter((user) => user !== username),
     ].slice(0, 5);
 
-    setToStorage(recentKey, updated);
+    setToStorage(RECENT_KEY, updated);
     router.push(`/${value}`);
   };
 
   useEffect(() => {
-    const storedItems = getFromStorage(recentKey) || [];
+    const storedItems = getFromStorage(RECENT_KEY) || [];
 
     const raf = requestAnimationFrame(() => {
       setRecentUsers(storedItems);
@@ -89,14 +89,14 @@ const Landing = () => {
   }, []);
 
   useEffect(() => {
-    const seen = getFromStorage(hintKey);
+    const seen = getFromStorage(HINT_KEY);
 
     if (!seen) {
       const frame = requestAnimationFrame(() => {
         setShowHint(true);
       });
 
-      setToStorage(hintKey, 'true');
+      setToStorage(HINT_KEY, 'true');
 
       return () => cancelAnimationFrame(frame);
     }
