@@ -1,9 +1,10 @@
 import BookmarkIcon from '../icons/BookmarkIcon';
-import { SavedButtonProps } from '@/types/saved.button.type';
+import BookmarkOutlineIcon from '../icons/BookmarkOutlineIcon';
 
+import { SavedButtonProps } from '@/types/saved.button.type';
 import '../../styles/components/SavedButton.scss';
 
-const SavedButton = ({ label, disabled, onClick }: SavedButtonProps) => {
+const SavedButton = ({ label, isSaved, disabled, onClick }: SavedButtonProps) => {
   return (
     <button
       type='button'
@@ -12,8 +13,8 @@ const SavedButton = ({ label, disabled, onClick }: SavedButtonProps) => {
       disabled={disabled}
       title='Save user profile'
     >
-      <BookmarkIcon />
-      <span>{label ?? 'Save'}</span>
+      {isSaved ? <BookmarkIcon /> : <BookmarkOutlineIcon />}
+      <span>{isSaved ? 'Saved' : label ?? 'Save'}</span>
     </button>
   );
 };

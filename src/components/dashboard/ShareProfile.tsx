@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import toast from 'react-hot-toast';
+import { useState, useMemo, useEffect } from 'react';
 
 import SavedButton from '../ui/SavedButton';
 import CopyButton from '../ui/CopyButton';
 import ShareButton from '../ui/ShareButton';
 
-import { saveUser } from '@/lib/storage';
+import { isUserSaved, removeUser, saveUser } from '@/lib/storage';
 import '../../styles/components/ShareProfile.scss';
 
 const ShareProfile = ({ username }: { username: string }) => {
@@ -38,23 +39,39 @@ const ShareProfile = ({ username }: { username: string }) => {
     }
   };
 
-  const handleSave = () => {
+  const handleToggleSave = () => {
     const user = {
       username: 'esteemayo',
       avatar: '/avatar-2.jpg',
       name: 'Emmanuel Adebayo',
     };
 
-    saveUser(user);
-
-    console.log('profile saved successfully!', user);
+    if (isSaved) {
+      removeUser(username);
+      toast.success('Removed');
+    } else {
+      saveUser(user);
+      toast.success('Saved');
+      console.log('profile saved successfully!', user);
+    }
   };
+
+  useEffect(() => {
+    setIsSaved(isUserSaved(username)); // user.login
+
+    const handler = () => {
+      setIsSaved(isUserSaved(username));
+    };
+
+    window.addEventListener('saved:updated', handler);
+    return () => window.removeEventListener('saved:updated', handler);
+  }, [username]);
 
   return (
     <div className='share-profile'>
       <ShareButton onClick={handleShare} />
       <CopyButton isCopied={isCopied} onClick={handleCopy} />
-      <SavedButton onClick={handleSave} />
+      <SavedButton isSaved={isSaved} onClick={handleToggleSave} />
     </div>
   );
 };

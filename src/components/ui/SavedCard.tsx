@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -8,11 +9,33 @@ import { SavedCardProps } from '@/types/saved.card.type';
 
 import '../../styles/components/SavedCard.scss';
 
+const variants = {
+  initial: {
+    opacity: 0,
+    x: -100,
+    y: 20,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      duration: 0.25,
+    },
+  },
+};
+
 const SavedCard = ({ name, avatar, username }: SavedCardProps) => {
   const router = useRouter();
 
   return (
-    <article className='saved-card'>
+    <motion.article
+      variants={variants}
+      initial='initial'
+      animate='animate'
+      exit='initial'
+      className='saved-card'
+    >
       <div className='saved-card__container'>
         <div className='saved-card__box'>
           <Image
@@ -47,7 +70,7 @@ const SavedCard = ({ name, avatar, username }: SavedCardProps) => {
           </button>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 

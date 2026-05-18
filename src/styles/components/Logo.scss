@@ -28,7 +28,7 @@
       font-size: 2.4rem;
       padding: 0 2px;
       background-image: linear-gradient(
-        90deg,
+        0,
         var(--color-blue-800),
         var(--color-blue-400),
         var(--color-blue-400),
@@ -37,7 +37,7 @@
       background-size: 300% 300%;
       color: var(--color-white-50);
       border-radius: 2px;
-      margin-right: 3px;
+      margin-right: 2px;
     }
 
     &--secondary {

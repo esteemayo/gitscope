@@ -1,15 +1,12 @@
+import { EmptyStateProps } from '@/types/empty.state.type';
 import '../../styles/components/EmptyState.scss';
 
-const EmptyState = () => {
+const EmptyState = ({ title, subtitle }: EmptyStateProps) => {
   return (
     <div className='empty-state' role='alert'>
-      <h3 className='empty-state__title'>
-        No repositories found for this user.
-      </h3>
+      <h3 className='empty-state__title'>{title}</h3>
 
-      <span className='empty-state__desc'>
-        Try another username or check availability.
-      </span>
+      <span className='empty-state__desc'>{subtitle}</span>
     </div>
   );
 };

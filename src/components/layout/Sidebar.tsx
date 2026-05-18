@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom';
 
 import Logo from '../ui/Logo';
 
-import BookmarkIcon from '../icons/BookmarkIcon';
+import BookmarkIcon from '../icons/BookmarkOutlineIcon';
 import XmarkIcon from '../icons/XmarkIcon';
 import GitHubLogoIcon from '../icons/GitHubLogoIcon';
 import CompareIcon from '../icons/CompareIcon';

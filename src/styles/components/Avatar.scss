@@ -45,5 +45,10 @@
     vertical-align: middle;
     border-radius: 100%;
     user-select: none;
+    transition: var(--transition);
+
+    &:hover {
+      filter: blur(1px) grayscale(0.3);
+    }
   }
 }
