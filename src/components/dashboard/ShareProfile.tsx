@@ -3,9 +3,13 @@
 import toast from 'react-hot-toast';
 import { useState, useMemo, useEffect } from 'react';
 
-import SavedButton from '../ui/SavedButton';
-import CopyButton from '../ui/CopyButton';
-import ShareButton from '../ui/ShareButton';
+import ActionButton from '../ui/ActionButton';
+
+import BookmarkIcon from '../icons/BookmarkIcon';
+import ShareIcon from '../icons/ShareIcon';
+import ClipboardIcon from '../icons/ClipboardIcon';
+import CheckIcon from '../icons/CheckIcon';
+import BookmarkOutlineIcon from '../icons/BookmarkOutlineIcon';
 
 import { isUserSaved, removeUser, saveUser } from '@/lib/storage';
 import '../../styles/components/ShareProfile.scss';
@@ -15,7 +19,7 @@ const ShareProfile = ({ username }: { username: string }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const url = useMemo(() =>
-    `${window.location.origin}/user?id=${username}`,
+    `${window.location.origin}/${username}`,
     [username]
   );
 
@@ -57,21 +61,44 @@ const ShareProfile = ({ username }: { username: string }) => {
   };
 
   useEffect(() => {
-    setIsSaved(isUserSaved(username)); // user.login
+    const raf = requestAnimationFrame(() => {
+      setIsSaved(isUserSaved(username));
+    });
 
     const handler = () => {
       setIsSaved(isUserSaved(username));
     };
 
     window.addEventListener('saved:updated', handler);
-    return () => window.removeEventListener('saved:updated', handler);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('saved:updated', handler);
+    };
   }, [username]);
 
   return (
     <div className='share-profile'>
-      <ShareButton onClick={handleShare} />
-      <CopyButton isCopied={isCopied} onClick={handleCopy} />
-      <SavedButton isSaved={isSaved} onClick={handleToggleSave} />
+      <ActionButton
+        icon={<ShareIcon />}
+        label='Share'
+        onClick={handleShare}
+        title='Share profile url'
+      />
+
+      <ActionButton
+        icon={isCopied ? <CheckIcon /> : <ClipboardIcon />}
+        label={isCopied ? 'Copied' : 'Copy'}
+        onClick={handleCopy}
+        title='Copy profile url'
+      />
+
+      <ActionButton
+        icon={isSaved ? <BookmarkIcon /> : <BookmarkOutlineIcon />}
+        label={isSaved ? 'Saved' : 'Save'}
+        onClick={handleToggleSave}
+        title='Save user profile'
+      />
     </div>
   );
 };

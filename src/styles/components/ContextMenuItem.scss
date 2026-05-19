@@ -23,6 +23,10 @@
     cursor: pointer;
     transition: var(--transition);
 
+    &:active {
+      background-color: var(--bg-menu-hover);
+    }
+
     &:focus {
       outline: none;
     }

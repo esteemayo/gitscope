@@ -1,17 +1,27 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
-import DropdownMenuItem from './DropdownMenuItem';
+import ContextMenu from './ContextMenu';
+import ContextMenuItem from './ContextMenuItem';
 
 import { SORT_ITEMS } from '@/data';
+import { SortType } from '@/types';
 import { DropdownMenuProps } from '@/types/dropdown.menu.type';
 
 import '../../styles/components/DropdownMenu.scss';
 
 const DropdownMenu = ({ isOpen, onOpen, onSort }: DropdownMenuProps) => {
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
-  const menuRef = useRef<HTMLUListElement | null>(null);
+
+  const handleClose = () => {
+    onOpen(false);
+  };
+
+  const handleClick = (id: SortType) => {
+    onSort(id);
+    handleClose();
+  };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
     let nextIndex = index;
@@ -40,34 +50,18 @@ const DropdownMenu = ({ isOpen, onOpen, onSort }: DropdownMenuProps) => {
     refs.current[nextIndex]?.focus();
   };
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        onOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [onOpen]);
-
   return (
-    <ul
-      ref={menuRef}
-      className={isOpen ? 'dropdown-menu show' : 'dropdown-menu hide'}
-    >
+    <ContextMenu isOpen={isOpen} onClose={handleClose}>
       {SORT_ITEMS.map(({ id, label }, index) => (
-        <DropdownMenuItem
+        <ContextMenuItem
           key={id}
-          id={id}
-          ref={(el) => { refs.current[index] = el }}
+          innerRef={(el) => { refs.current[index] = el }}
           label={label}
-          index={index}
-          onSort={onSort}
-          onKeyDown={onKeyDown}
+          onClick={() => handleClick(id)}
+          onKeyDown={(e) => onKeyDown(e, index)}
         />
       ))}
-    </ul>
+    </ContextMenu>
   );
 };
 

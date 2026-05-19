@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import ArrowDownIcon from '../icons/ArrowDownIcon';
-import SquareIcon from '../icons/SquareIcon';
 import ListBulletIcon from '../icons/ListBulletIcon';
+import SquareIcon from '../icons/SquareIcon';
+import ArrowDownTrayIcon from '../icons/ArrowDownTrayIcon';
 
+import DropdownButton from '../ui/DropdownButton';
 import ContextMenu from '../ui/ContextMenu';
 import ContextMenuItem from '../ui/ContextMenuItem';
 
@@ -13,7 +14,23 @@ import { DashboardControlActionsProps } from '@/types/dashboard.control.actions'
 import '../../styles/components/DashboardControlActions.scss';
 
 const DashboardControlActions = ({ view, onView }: DashboardControlActionsProps) => {
+  const firstItemRef = useRef<HTMLButtonElement | null>(null);
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen((prev) => {
+      const next = !prev;
+
+      if (!prev) {
+        setTimeout(() => {
+          firstItemRef.current?.focus();
+        }, 100);
+      }
+
+      return next;
+    });
+  };
 
   const handleClose = () => {
     setIsOpen(false);
@@ -34,30 +51,50 @@ const DashboardControlActions = ({ view, onView }: DashboardControlActionsProps)
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-      e.preventDefault();
-      onView(view === 'grid' ? 'list' : 'grid');
+    switch (e.key) {
+      case 'ArrowDown':
+      case 'ArrowUp':
+        e.preventDefault();
+        onView(view === 'grid' ? 'list' : 'grid');
+        return;
+
+      case 'e': // 'e' / 'E' ---> export
+      case 'E':
+        e.preventDefault();
+        handleExportCSV();
+        return;
+
+      case 'Enter':
+      case '':
+        e.preventDefault();
+        handleToggle();
+        return;
+
+      default:
+        return;
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        firstItemRef.current?.focus();
+      }, 100)
+    }
+  }, [isOpen]);
 
   return (
     <div className='dashboard-control-actions'>
       <div className='dashboard-control-actions__container'>
-        <button
-          type='button'
-          className={
-            isOpen ?
-              'dashboard-control-actions__toggle-btn active' :
-              'dashboard-control-actions__toggle-btn'
-          }
-          onClick={() => setIsOpen((prev) => !prev)}
-        >
-          <label>Options</label>
-          <ArrowDownIcon />
-        </button>
+        <DropdownButton
+          isOpen={isOpen}
+          label='Actions'
+          onToggle={handleToggle}
+        />
 
         <ContextMenu isOpen={isOpen} onClose={handleClose}>
           <ContextMenuItem
+            innerRef={firstItemRef}
             label='Grid'
             icon={<SquareIcon />}
             onClick={handleToggleGrid}
@@ -72,9 +109,10 @@ const DashboardControlActions = ({ view, onView }: DashboardControlActionsProps)
           />
 
           <ContextMenuItem
-            label='Export CSV'
-            icon={<ListBulletIcon />}
+            label='Export CSV (E)'
+            icon={<ArrowDownTrayIcon />}
             onClick={handleExportCSV}
+            onKeyDown={handleKeyDown}
           />
         </ContextMenu>
       </div>

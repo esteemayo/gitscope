@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
+import DropdownButton from '../ui/DropdownButton';
 import DropdownMenu from '../ui/DropdownMenu';
-import MenuButton from '../ui/MenuButton';
 import DashboardControlActions from './DashboardControlActions';
 
 import { DashboardControlsProps } from '@/types/dashboard.control.type';
@@ -11,6 +11,10 @@ import '../../styles/components/DashboardControls.scss';
 
 const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <div className='dashboard-controls'>
@@ -23,10 +27,10 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
               <span className='dashboard-controls__label'>by</span>
 
               <div className='dashboard-controls__dropdown-style'>
-                <MenuButton
+                <DropdownButton
                   isOpen={isOpen}
-                  sort={sort}
-                  onOpen={setIsOpen}
+                  label={sort}
+                  onToggle={handleToggle}
                 />
 
                 <DropdownMenu

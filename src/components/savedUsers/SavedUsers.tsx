@@ -27,7 +27,11 @@ const SavedUsers = () => {
   const [users, setUsers] = useState<SavedUserType[]>([]);
 
   const load = () => {
-    setUsers(() => getSavedUsers());
+    const frame = requestAnimationFrame(() => {
+      setUsers(() => getSavedUsers());
+    });
+
+    return () => cancelAnimationFrame(frame);
   };
 
   useEffect(() => {
