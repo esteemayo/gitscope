@@ -13,7 +13,7 @@ import ContextMenuItem from '../ui/ContextMenuItem';
 import { DashboardControlActionsProps } from '@/types/dashboard.control.actions';
 import '../../styles/components/DashboardControlActions.scss';
 
-const DashboardControlActions = ({ view, onView }: DashboardControlActionsProps) => {
+const DashboardControlActions = ({ onView }: DashboardControlActionsProps) => {
   const firstItemRef = useRef<HTMLButtonElement | null>(null);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +55,7 @@ const DashboardControlActions = ({ view, onView }: DashboardControlActionsProps)
       case 'ArrowDown':
       case 'ArrowUp':
         e.preventDefault();
-        onView(view === 'grid' ? 'list' : 'grid');
+        onView((prev) => prev === 'grid' ? 'list' : 'grid');
         return;
 
       case 'e': // 'e' / 'E' ---> export

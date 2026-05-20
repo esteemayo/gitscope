@@ -21,6 +21,10 @@
   &:hover {
     border-color: var(--blue-light);
     transform: translateY(-2px) scale(1.03);
+
+    @include bp.sm {
+      transform: none;
+    }
   }
 
   &__header {

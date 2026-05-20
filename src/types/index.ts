@@ -42,4 +42,5 @@ export type SavedUserType = {
   username: string;
   avatar: string;
   name: string;
+  pinned?: boolean;
 };

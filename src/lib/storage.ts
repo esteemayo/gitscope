@@ -16,6 +16,11 @@ export const isUserSaved = (username: string) => {
   return getSavedUsers().some((user) => user.username === username);
 };
 
+export const saveAllUsers = (users: SavedUserType[]) => {
+  setToStorage(STORAGE_KEY, users);
+  emitChange();
+};
+
 export const saveUser = (user: SavedUserType) => {
   const existing = getSavedUsers();
 
@@ -23,13 +28,29 @@ export const saveUser = (user: SavedUserType) => {
 
   if (exists) return;
 
-  setToStorage(STORAGE_KEY, [user, ...existing]);
-  emitChange();
+  saveAllUsers([
+    { ...user, pinned: false },
+    ...existing,
+  ]);
 };
 
 export const removeUser = (username: string) => {
   const updated = getSavedUsers().filter((user) => user.username !== username);
 
-  setToStorage(STORAGE_KEY, updated);
-  emitChange();
+  saveAllUsers(updated);
+};
+
+export const togglePin = (username: string) => {
+  const updated = getSavedUsers().map((user) =>
+    user.username === username
+      ? { ...user, pinned: !user.pinned }
+      : user
+  );
+
+  const sorted = [
+    ...updated.filter((user) => user.pinned),
+    ...updated.filter((user) => !user.pinned),
+  ];
+
+  saveAllUsers(sorted);
 };

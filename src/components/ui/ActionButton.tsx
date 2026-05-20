@@ -2,17 +2,17 @@ import { ActionButtonProps } from '@/types/action.button.type';
 import '../../styles/components/ActionButton.scss';
 
 const ActionButton = ({
+  ref,
   icon,
   label,
   title,
   disabled,
   onClick,
   onKeyDown,
-  innerRef,
 }: ActionButtonProps) => {
   return (
     <button
-      ref={innerRef}
+      ref={ref}
       type='button'
       onClick={onClick}
       onKeyDown={onKeyDown}

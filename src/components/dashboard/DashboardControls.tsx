@@ -9,7 +9,7 @@ import DashboardControlActions from './DashboardControlActions';
 import { DashboardControlsProps } from '@/types/dashboard.control.type';
 import '../../styles/components/DashboardControls.scss';
 
-const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProps) => {
+const DashboardControls = ({ sort, onSort, onView }: DashboardControlsProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
@@ -42,7 +42,7 @@ const DashboardControls = ({ sort, view, onSort, onView }: DashboardControlsProp
             </div>
           </div>
 
-          <DashboardControlActions view={view} onView={onView} />
+          <DashboardControlActions onView={onView} />
         </header>
       </div>
     </div>

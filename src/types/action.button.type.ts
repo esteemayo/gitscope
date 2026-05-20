@@ -5,5 +5,5 @@ export interface ActionButtonProps {
   disabled?: boolean;
   onClick(): void;
   onKeyDown?(e: React.KeyboardEvent<HTMLButtonElement>): void;
-  innerRef?: React.RefObject<HTMLButtonElement | null>;
+  ref?: React.Ref<HTMLButtonElement>;
 }

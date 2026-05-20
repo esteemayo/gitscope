@@ -10,7 +10,6 @@ const RepoLists = ({ sort, view, onSort, onView }: RepoListsProps) => {
       <div className='repo-lists__container'>
         <DashboardControls
           sort={sort}
-          view={view}
           onSort={onSort}
           onView={onView}
         />
