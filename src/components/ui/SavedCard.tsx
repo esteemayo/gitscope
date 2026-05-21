@@ -69,6 +69,15 @@ const SavedCard = ({ name, avatar, username }: SavedCardProps) => {
             Remove
           </button>
         </div>
+
+        <div className='saved-card__pin'>
+          <button
+            type='button'
+            className='saved-card__pin--btn'
+          >
+            📌
+          </button>
+        </div>
       </div>
     </motion.article>
   );
