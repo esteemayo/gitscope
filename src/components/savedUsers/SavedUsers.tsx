@@ -1,13 +1,20 @@
 'use client';
 
+import type { DragEndEvent } from '@dnd-kit/core';
 import { motion } from 'framer-motion';
+import { closestCenter, DndContext } from '@dnd-kit/core';
 import { useEffect, useState } from 'react';
+import {
+  arrayMove,
+  SortableContext,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 
 import SavedCard from '../ui/SavedCard';
 import EmptyState from '../ui/EmptyState';
 
 import { SavedUserType } from '@/types';
-import { getSavedUsers } from '@/lib/storage';
+import { getSavedUsers, saveAllUsers } from '@/lib/storage';
 
 import '../../styles/components/SavedUsers.scss';
 
@@ -25,6 +32,29 @@ const variants = {
 
 const SavedUsers = () => {
   const [users, setUsers] = useState<SavedUserType[]>([]);
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    if (!over || active.id === over.id) return;
+
+    const oldIndex = users.findIndex(
+      (user) => user.username === active.id
+    );
+
+    const newIndex = users.findIndex(
+      (user) => user.username === over.id
+    );
+
+    const reordered = arrayMove(
+      users,
+      oldIndex,
+      newIndex,
+    );
+
+    setUsers(reordered);
+    saveAllUsers(reordered);
+  }
 
   const load = () => {
     const frame = requestAnimationFrame(() => {
@@ -60,11 +90,21 @@ const SavedUsers = () => {
             subtitle='You have not saved any profile yet.'
           />
         ) : (
-          <div className='saved-users__grid'>
-            {users?.map((user) => (
-              <SavedCard key={user.username} {...user} />
-            ))}
-          </div>
+          <DndContext
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext
+              items={users.map((user) => user.username)}
+              strategy={verticalListSortingStrategy}
+            >
+              <div className='saved-users__grid'>
+                {users?.map((user) => (
+                  <SavedCard key={user.username} {...user} />
+                ))}
+              </div>
+            </SortableContext>
+          </DndContext>
         )}
       </div>
     </motion.div>

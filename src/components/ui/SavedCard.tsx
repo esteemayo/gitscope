@@ -1,10 +1,14 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { CSS } from '@dnd-kit/utilities';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { useSortable } from '@dnd-kit/sortable';
 
-import { removeUser } from '@/lib/storage';
+import DragIcon from '../icons/DragIcon';
+
+import { removeUser, togglePin } from '@/lib/storage';
 import { SavedCardProps } from '@/types/saved.card.type';
 
 import '../../styles/components/SavedCard.scss';
@@ -25,16 +29,40 @@ const variants = {
   },
 };
 
-const SavedCard = ({ name, avatar, username }: SavedCardProps) => {
+const SavedCard = ({ name, avatar, username, pinned }: SavedCardProps) => {
   const router = useRouter();
+
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: username });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
 
   return (
     <motion.article
-      variants={variants}
-      initial='initial'
-      animate='animate'
-      exit='initial'
-      className='saved-card'
+      ref={setNodeRef}
+      style={style}
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        scale: isDragging ? 1.04 : 1,
+        rotate: isDragging ? 1.5 : 0,
+      }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.2 }}
+      className={
+        pinned ? 'saved-card pinned' : isDragging ? 'saved-card dragging' : 'saved-card'
+      }
     >
       <div className='saved-card__container'>
         <div className='saved-card__box'>
@@ -70,12 +98,22 @@ const SavedCard = ({ name, avatar, username }: SavedCardProps) => {
           </button>
         </div>
 
-        <div className='saved-card__pin'>
+        <div className='saved-card__options'>
+          <span
+            {...attributes}
+            {...listeners}
+            className='saved-card__options--drag'
+            tabIndex={-1}
+          >
+            <DragIcon />
+          </span>
+
           <button
             type='button'
-            className='saved-card__pin--btn'
+            onClick={() => togglePin(username)}
+            className='saved-card__options--btn'
           >
-            📌
+            {pinned ? '📌' : 'Pin'}
           </button>
         </div>
       </div>
