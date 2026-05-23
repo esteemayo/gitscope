@@ -15,11 +15,12 @@ const RepoCard = ({ view }: RepoCardProps) => {
         className='repo-card__link'
         tabIndex={-1}
       >
-        <div className='repo-card__top'>
-          <div className='repo-card__name'>
+        <header className='repo-card__top'>
+          <div className='repo-card__heading'>
             <BookIcon />
 
-            <h3 className='repo-card__name--title' title='albumz-api'>albumz-api</h3>
+            <h3 className='repo-card__heading--title' title='albumz-api'>albumz-api</h3>
+            <span className='repo-card__heading--label'>Public</span>
           </div>
 
           {view === 'list' && <p className='repo-card__desc'>
@@ -27,9 +28,9 @@ const RepoCard = ({ view }: RepoCardProps) => {
           </p>}
 
           {view === 'grid' && <p className='repo-card__desc' />}
-        </div>
+        </header>
 
-        <div className='repo-card__stats'>
+        <footer className='repo-card__stats'>
           <div className='repo-card__stats--left'>
             <span>
               <div className='language' />
@@ -48,7 +49,7 @@ const RepoCard = ({ view }: RepoCardProps) => {
           <div className='repo-card__stats--right'>
             <span>364 KB</span>
           </div>
-        </div>
+        </footer>
       </Link>
     </article>
   );

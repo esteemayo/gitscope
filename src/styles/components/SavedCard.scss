@@ -193,21 +193,6 @@
       display: grid;
       place-items: center;
 
-      color: var(--text-muted);
-
-      &:focus {
-        outline: none;
-      }
-
-      svg {
-        width: 1.6rem;
-        height: 1.6rem;
-        fill: currentColor;
-        stroke: currentColor;
-      }
-    }
-
-    &--btn {
       border: none;
       font-size: var(--fz-xxs);
       background-color: transparent;
@@ -225,10 +210,26 @@
         user-select: none;
         pointer-events: none;
       }
+
+      &:focus {
+        outline: none;
+      }
+
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        fill: currentColor;
+        stroke: currentColor;
+      }
     }
 
     &--grab {
       cursor: grab;
+
+      &:active {
+        transform: scale(0.95);
+        cursor: grabbing;
+      }
     }
   }
 }

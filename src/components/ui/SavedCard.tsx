@@ -13,22 +13,6 @@ import { SavedCardProps } from '@/types/saved.card.type';
 
 import '../../styles/components/SavedCard.scss';
 
-const variants = {
-  initial: {
-    opacity: 0,
-    x: -100,
-    y: 20,
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    transition: {
-      duration: 0.25,
-    },
-  },
-};
-
 const SavedCard = ({ name, avatar, username, pinned }: SavedCardProps) => {
   const router = useRouter();
 
@@ -51,14 +35,15 @@ const SavedCard = ({ name, avatar, username, pinned }: SavedCardProps) => {
       ref={setNodeRef}
       style={style}
       layout
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, x: -100, y: 20 }}
       animate={{
         opacity: 1,
+        x: 0,
         y: 0,
         scale: isDragging ? 1.04 : 1,
         rotate: isDragging ? 1.5 : 0,
       }}
-      exit={{ opacity: 0, y: 20 }}
+      exit={{ opacity: 0, x: -100, y: 20 }}
       transition={{ duration: 0.2 }}
       className={
         pinned ? 'saved-card pinned' : isDragging ? 'saved-card dragging' : 'saved-card'
@@ -99,14 +84,15 @@ const SavedCard = ({ name, avatar, username, pinned }: SavedCardProps) => {
         </div>
 
         <div className='saved-card__options'>
-          <span
+          <button
             {...attributes}
             {...listeners}
+            type='button'
             className='saved-card__options--drag'
             tabIndex={-1}
           >
             <DragIcon />
-          </span>
+          </button>
 
           <button
             type='button'

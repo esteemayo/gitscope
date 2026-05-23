@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
+import XmarkIcon from '../icons/XmarkIcon';
 import Logo from '../ui/Logo';
 import GitHubSearchForm from '../forms/GitHubSearchForm';
 
@@ -165,18 +166,39 @@ const Landing = () => {
               transition={{ duration: 0.2 }}
               className='landing__recent'
             >
-              <span className='landing__recent--label'>Recent:</span>
+              <div className='landing__recent--header'>
+                <span className='landing__recent--label'>Recent:</span>
 
-              {recentUsers.map((user) => (
                 <button
-                  key={user}
                   type='button'
-                  onClick={() => router.push(`/${user}`)}
-                  className='landing__recent--btn'
+                  className='landing__recent--clear'
                 >
-                  {user}
+                  Clear all
                 </button>
-              ))}
+              </div>
+
+              <div className='landing__recent--list'>
+                {recentUsers.map((user) => (
+                  <div key={user} className='landing__recent--item'>
+                    <button
+                      key={user}
+                      type='button'
+                      onClick={() => router.push(`/${user}`)}
+                      className='landing__recent--btn'
+                    >
+                      {user}
+                    </button>
+
+                    <button
+                      type='button'
+                      className='landing__recent--remove'
+                      aria-label={`Remove ${user}`}
+                    >
+                      <XmarkIcon />
+                    </button>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           )}
         </div>

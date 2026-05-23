@@ -52,7 +52,7 @@
     width: 100%;
   }
 
-  &__name {
+  &__heading {
     display: flex;
     align-items: center;
 
@@ -78,6 +78,21 @@
       letter-spacing: -0.5px;
       line-height: 1.1;
       overflow: hidden;
+    }
+
+    &--label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+
+      text-transform: capitalize;
+      font-size: 1.1rem;
+      padding: 1.428px 5.95px;
+      color: var(--text-muted);
+      border: 1px solid currentColor;
+      border-radius: 10rem;
+      margin-left: 0.8rem;
     }
   }
 

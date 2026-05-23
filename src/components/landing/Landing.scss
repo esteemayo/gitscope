@@ -139,13 +139,21 @@
   }
 
   &__recent {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
+    // display: flex;
+    // flex-wrap: wrap;
+    // align-items: center;
+    // justify-content: center;
+    // gap: 0.8rem;
 
     margin-top: 2rem;
+
+    &--header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 0.75rem;
+    }
 
     &--label {
       font-weight: 600;
@@ -153,17 +161,33 @@
       color: var(--text-muted);
     }
 
-    &--btn {
+    &--clear {
+      border: none;
+      font-size: var(--fz-xxs);
+      background-color: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    &--list {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 0.8rem;
+    }
 
-      font-size: var(--fz-xxs);
-      padding: 0.6rem 1rem;
-      background-color: transparent;
-      color: currentColor;
+    &--item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+
+      padding: 0.35rem 0.5rem;
       border: 1px solid var(--border);
-      border-radius: var(--border-radius);
+      border-radius: 10rem;
+    }
+
+    &--btn,
+    &--remove {
+      border: none;
       cursor: pointer;
       transition: var(--transition);
 
@@ -171,16 +195,48 @@
         outline: none;
       }
 
-      &:focus-visible {
-        border-radius: 0;
-        outline: 3px dashed var(--color-blue-800);
-        outline-offset: 3px;
-      }
-
       &:disabled {
         opacity: 0.75;
         user-select: none;
         pointer-events: none;
+      }
+    }
+
+    &--btn {
+      font-size: var(--fz-xxs);
+      background-color: transparent;
+      color: currentColor;
+
+      &:hover,
+      &:focus-visible {
+        opacity: 0.5;
+      }
+    }
+
+    &--remove {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 2rem;
+      height: 2rem;
+      font-size: 1rem;
+      background-color: var(--bg-input);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 100%;
+      line-height: 1;
+
+      &:hover,
+      &:focus-visible {
+        opacity: 0.8;
+      }
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+        color: currentColor;
+        stroke: currentColor;
       }
     }
   }
