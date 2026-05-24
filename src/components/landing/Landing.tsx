@@ -4,8 +4,10 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
-import XmarkIcon from '../icons/XmarkIcon';
 import Logo from '../ui/Logo';
+import RecentUsers from '../ui/RecentUsers';
+
+import SearchHint from '../ui/SearchHint';
 import GitHubSearchForm from '../forms/GitHubSearchForm';
 
 import {
@@ -24,17 +26,54 @@ const placeholders = [
   'Try "gaearon"',
 ];
 
+const containerVariants = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.5,
+    },
+  },
+};
+
+const itemVariants = {
+  initial: {
+    opacity: 0,
+    y: 24,
+    filter: 'blur(6px)',
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 0.45,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
 const Landing = () => {
   const router = useRouter();
 
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const recentRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const [username, setUsername] = useState('');
   const [index, setIndex] = useState(0);
   const [placeholder, setPlaceholder] = useState('');
   const [subIndex, setSubIndex] = useState(0);
+  const [activeRecentIndex, setActiveRecentIndex] = useState(-1);
   const [recentUsers, setRecentUsers] = useState<string[]>([]);
-  const [showHint, setShowHint] = useState(false);
+
+  const [showHint, setShowHint] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false;
+    }
+
+    const seen = getFromStorage(HINT_KEY);
+    return !seen;
+  });
 
   const handleClear = () => {
     setUsername('');
@@ -48,12 +87,63 @@ const Landing = () => {
     if (!value) return;
 
     const updated = [
-      username,
-      ...recentUsers.filter((user) => user !== username),
+      value,
+      ...recentUsers.filter((user) => user !== value),
     ].slice(0, 5);
 
     setToStorage(RECENT_KEY, updated);
     router.push(`/${value}`);
+  };
+
+  const handleClearRecent = () => {
+    setRecentUsers([]);
+    setToStorage(RECENT_KEY, []);
+  };
+
+  const handleRemoveUser = (targetUser: string) => {
+    const updatedUsers = recentUsers.filter((user) => user !== targetUser);
+
+    setRecentUsers(updatedUsers);
+    setToStorage(RECENT_KEY, updatedUsers);
+  };
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'ArrowDown' && recentUsers.length > 0) {
+      e.preventDefault();
+      setActiveRecentIndex(0);
+    }
+  };
+
+  const handleRecentKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (!recentUsers.length) return;
+
+    switch (e.key) {
+      case 'ArrowRight':
+        e.preventDefault();
+
+        const next = index === recentUsers.length - 1 ? 0 : index + 1;
+        setActiveRecentIndex(next);
+        break;
+
+      case 'ArrowLeft':
+        e.preventDefault();
+
+        const prev = index === 0 ? recentUsers.length - 1 : index - 1;
+        setActiveRecentIndex(prev);
+        break;
+
+      case 'Escape':
+        setActiveRecentIndex(-1);
+        inputRef.current?.focus();
+        break;
+
+      case 'Enter':
+        router.push(`/${recentUsers[index]}`);
+        break;
+
+      default:
+        break;
+    }
   };
 
   useEffect(() => {
@@ -90,18 +180,16 @@ const Landing = () => {
   }, []);
 
   useEffect(() => {
-    const seen = getFromStorage(HINT_KEY);
-
-    if (!seen) {
-      const frame = requestAnimationFrame(() => {
-        setShowHint(true);
-      });
-
-      setToStorage(HINT_KEY, 'true');
-
-      return () => cancelAnimationFrame(frame);
+    if (activeRecentIndex >= 0) {
+      recentRefs.current[activeRecentIndex]?.focus();
     }
-  }, []);
+  }, [activeRecentIndex]);
+
+  useEffect(() => {
+    if (showHint) {
+      setToStorage(HINT_KEY, 'true');
+    }
+  }, [showHint]);
 
   useEffect(() => {
     if (showHint) {
@@ -112,97 +200,71 @@ const Landing = () => {
 
   return (
     <section className='landing'>
-      <div className='landing__container'>
+      <motion.div
+        variants={containerVariants}
+        initial='initial'
+        animate='animate'
+        className='landing__container'
+      >
         <div className='landing__content'>
-          <div className='landing__wrapper'>
+          <motion.div
+            variants={itemVariants}
+            className='landing__wrapper'
+          >
             <Logo />
-          </div>
+          </motion.div>
 
-          <p className='landing__badge'>GitHub analytics platform</p>
+          <motion.p
+            variants={itemVariants}
+            className='landing__badge'
+          >
+            GitHub analytics platform
+          </motion.p>
 
-          <h1 className='landing__title'>
+          <motion.h1
+            variants={itemVariants}
+            className='landing__title'
+          >
             Visualize developer insights beyond the code.
-          </h1>
+          </motion.h1>
 
-          <p className='landing__subtitle'>
+          <motion.p
+            variants={itemVariants}
+            className='landing__subtitle'
+          >
             Analyze GitHub profiles, repositories, language usage, and developer metrics through a modern analytics dashboard.
-          </p>
+          </motion.p>
 
-          <GitHubSearchForm
-            ref={inputRef}
-            value={username}
-            placeholder={placeholder}
-            onChange={setUsername}
-            onClear={handleClear}
-            onSubmit={handleSubmit}
-          />
+          <motion.div variants={itemVariants}>
+            <GitHubSearchForm
+              ref={inputRef}
+              value={username}
+              placeholder={placeholder}
+              onChange={setUsername}
+              onClear={handleClear}
+              onSubmit={handleSubmit}
+              onKeyDown={handleInputKeyDown}
+            />
+          </motion.div>
 
-          {showHint && (
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 8 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className='landing__hint'
-            >
-              <p className='landing__hint--text'>
-                Search any GitHub username to explore insights
-              </p>
+          <motion.div variants={itemVariants}>
+            <SearchHint
+              isShow={showHint}
+              onClose={() => setShowHint(false)}
+            />
+          </motion.div>
 
-              <button
-                type='button'
-                onClick={() => setShowHint(false)}
-                className='landing__hint--btn'
-              >
-                Got it
-              </button>
-            </motion.div>
-          )}
-
-          {recentUsers.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2 }}
-              className='landing__recent'
-            >
-              <div className='landing__recent--header'>
-                <span className='landing__recent--label'>Recent:</span>
-
-                <button
-                  type='button'
-                  className='landing__recent--clear'
-                >
-                  Clear all
-                </button>
-              </div>
-
-              <div className='landing__recent--list'>
-                {recentUsers.map((user) => (
-                  <div key={user} className='landing__recent--item'>
-                    <button
-                      key={user}
-                      type='button'
-                      onClick={() => router.push(`/${user}`)}
-                      className='landing__recent--btn'
-                    >
-                      {user}
-                    </button>
-
-                    <button
-                      type='button'
-                      className='landing__recent--remove'
-                      aria-label={`Remove ${user}`}
-                    >
-                      <XmarkIcon />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
+          <motion.div variants={itemVariants}>
+            <RecentUsers
+              ref={recentRefs}
+              recentUsers={recentUsers}
+              onKeyDown={handleRecentKeyDown}
+              onClearAll={handleClearRecent}
+              onRemoveUser={handleRemoveUser}
+            />
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -45,6 +45,7 @@
     box-shadow:
       0 2rem 4rem rgba(0, 0, 0, 0.45),
       0 2.4rem rgba(91, 141, 239, 0.18);
+    user-select: none;
     cursor: grabbing;
     z-index: 100;
   }

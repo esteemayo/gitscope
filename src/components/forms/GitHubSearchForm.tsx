@@ -16,6 +16,7 @@ const GitHubSearchForm = ({
   onChange,
   onClear,
   onSubmit,
+  onKeyDown,
 }: GitHubSearchFormProps) => {
   return (
     <form
@@ -31,6 +32,7 @@ const GitHubSearchForm = ({
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
+        onKeyDown={onKeyDown}
         autoFocus={true}
       />
 
