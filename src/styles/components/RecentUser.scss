@@ -1,0 +1,65 @@
+.recent-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 10rem;
+
+  &__btn-user,
+  &__btn-remove {
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+
+  &__btn-user {
+    font-size: var(--fz-xxs);
+    background-color: transparent;
+    color: currentColor;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.5;
+    }
+  }
+
+  &__btn-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    background-color: var(--bg-input);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 100%;
+    line-height: 1;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.8;
+    }
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+}

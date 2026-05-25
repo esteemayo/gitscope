@@ -1,23 +1,23 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
+import { AnimatePresence, motion } from 'framer-motion';
 
-import XmarkIcon from '../icons/XmarkIcon';
+import UndoToast from './UndoToast';
+import RecentUser from './RecentUser';
+
 import { RecentUsersProps } from '@/types/recent.users.type';
-
 import '../../styles/components/RecentUsers.scss';
 
 const RecentUsers = ({
   ref,
   recentUsers,
+  removedUser,
   onKeyDown,
   onClearAll,
   onRemoveUser,
+  onUndoRemove,
 }: RecentUsersProps) => {
-  const router = useRouter();
-
-  if (!recentUsers.length) return null;
+  if (!recentUsers.length && !removedUser) return null;
 
   return (
     <motion.div
@@ -44,30 +44,23 @@ const RecentUsers = ({
       </div>
 
       <ul className='recent-users__list'>
-        {recentUsers.map((user, index) => (
-          <li key={user} className='recent-users__item'>
-            <button
-              ref={(el) => { ref.current[index] = el }}
+        <AnimatePresence mode='popLayout'>
+          {recentUsers.map((user, index) => (
+            <RecentUser
               key={user}
-              type='button'
-              onClick={() => router.push(`/${user}`)}
+              ref={(el) => { ref.current[index] = el }}
+              user={user}
+              onRemove={onRemoveUser}
               onKeyDown={(e) => onKeyDown(e, index)}
-              className='recent-users__item--btn-user'
-            >
-              {user}
-            </button>
-
-            <button
-              type='button'
-              onClick={() => onRemoveUser(user)}
-              className='recent-users__item--btn-remove'
-              aria-label={`Remove ${user}`}
-            >
-              <XmarkIcon />
-            </button>
-          </li>
-        ))}
+            />
+          ))}
+        </AnimatePresence>
       </ul>
+
+      <UndoToast
+        removedUser={removedUser}
+        onUndo={onUndoRemove}
+      />
     </motion.div>
   );
 };

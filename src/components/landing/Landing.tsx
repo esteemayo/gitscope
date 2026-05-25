@@ -56,8 +56,9 @@ const itemVariants = {
 const Landing = () => {
   const router = useRouter();
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
   const recentRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const removeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const [username, setUsername] = useState('');
   const [index, setIndex] = useState(0);
@@ -65,6 +66,7 @@ const Landing = () => {
   const [subIndex, setSubIndex] = useState(0);
   const [activeRecentIndex, setActiveRecentIndex] = useState(-1);
   const [recentUsers, setRecentUsers] = useState<string[]>([]);
+  const [removedUser, setRemovedUser] = useState<string | null>(null);
 
   const [showHint, setShowHint] = useState(() => {
     if (typeof window === 'undefined') {
@@ -103,8 +105,32 @@ const Landing = () => {
   const handleRemoveUser = (targetUser: string) => {
     const updatedUsers = recentUsers.filter((user) => user !== targetUser);
 
+    setRemovedUser(targetUser);
+    setRecentUsers(updatedUsers);
+
+    if (removeTimeoutRef.current) {
+      clearTimeout(removeTimeoutRef.current);
+    }
+
+    removeTimeoutRef.current = setTimeout(() => {
+      setToStorage(RECENT_KEY, updatedUsers);
+      setRemovedUser(null);
+    }, 4000);
+  };
+
+  const handleUndoRemove = () => {
+    if (!removedUser) return;
+
+    const updatedUsers = [removedUser, ...recentUsers];
+
     setRecentUsers(updatedUsers);
     setToStorage(RECENT_KEY, updatedUsers);
+
+    setRemovedUser(null)
+
+    if (removeTimeoutRef.current) {
+      clearTimeout(removeTimeoutRef.current);
+    }
   };
 
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -258,9 +284,11 @@ const Landing = () => {
             <RecentUsers
               ref={recentRefs}
               recentUsers={recentUsers}
+              removedUser={removedUser}
               onKeyDown={handleRecentKeyDown}
               onClearAll={handleClearRecent}
               onRemoveUser={handleRemoveUser}
+              onUndoRemove={handleUndoRemove}
             />
           </motion.div>
         </div>

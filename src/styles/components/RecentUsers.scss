@@ -19,6 +19,7 @@
     &--clear {
       border: none;
       text-transform: initial;
+      font-weight: 400;
       font-size: var(--fz-xxs);
       background-color: transparent;
       color: var(--text-muted);
@@ -50,68 +51,43 @@
     gap: 0.8rem;
   }
 
-  &__item {
+  &__toast {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.35rem;
+    gap: 1rem;
 
-    padding: 0.35rem 0.5rem;
+    margin-top: 2rem;
+    padding: 0.85rem 1rem;
+    background-color: var(--bg-input);
     border: 1px solid var(--border);
-    border-radius: 10rem;
+    border-radius: 0.75rem;
 
-    &--btn-user,
-    &--btn-remove {
+    &--msg {
+      font-size: var(--fz-sm);
+    }
+
+    &--undo-btn {
+      display: inline-block;
       border: none;
+      text-transform: capitalize;
+      font-weight: 400;
+      background-color: transparent;
+      color: var(--text-muted);
       cursor: pointer;
       transition: var(--transition);
+      position: relative;
 
-      &:focus {
-        outline: none;
+      @include animated-underline();
+
+      &:focus-visible {
+        outline-color: var(--color-blue-800);
       }
 
       &:disabled {
         opacity: 0.75;
         user-select: none;
         pointer-events: none;
-      }
-    }
-
-    &--btn-user {
-      font-size: var(--fz-xxs);
-      background-color: transparent;
-      color: currentColor;
-
-      &:hover,
-      &:focus-visible {
-        opacity: 0.5;
-      }
-    }
-
-    &--btn-remove {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      width: 2rem;
-      height: 2rem;
-      font-size: 1rem;
-      background-color: var(--bg-input);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 100%;
-      line-height: 1;
-
-      &:hover,
-      &:focus-visible {
-        opacity: 0.8;
-      }
-
-      svg {
-        width: 1rem;
-        height: 1rem;
-        color: currentColor;
-        stroke: currentColor;
       }
     }
   }
