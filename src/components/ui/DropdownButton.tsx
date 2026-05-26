@@ -10,10 +10,7 @@ const DropdownButton = ({ isOpen, label, onToggle }: DropdownButtonProps) => {
       onClick={onToggle}
       className={isOpen ? 'dropdown-button active' : 'dropdown-button'}
     >
-      <span className='dropdown-button__label'>
-        {label}
-      </span>
-
+      <span className='dropdown-button__label'>{label}</span>
       <ArrowDownIcon />
     </button>
   );

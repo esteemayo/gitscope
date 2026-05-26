@@ -32,15 +32,16 @@ const Navbar = () => {
         <div className='navbar__wrapper'>
           <ThemeToggle />
 
-          <Link href='/compare' className='navbar__link'>Compare</Link>
-          <Link href='/saved' className='navbar__link'>Saved</Link>
+          <Link href='/compare' className='navbar__link'>
+            Compare
+          </Link>
+
+          <Link href='/saved' className='navbar__link'>
+            Saved
+          </Link>
         </div>
 
-        <button
-          type='button'
-          onClick={onOpen}
-          className='navbar__toggle'
-        >
+        <button type='button' onClick={onOpen} className='navbar__toggle'>
           <BarsIcon />
         </button>
       </div>

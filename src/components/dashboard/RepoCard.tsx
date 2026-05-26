@@ -19,13 +19,19 @@ const RepoCard = ({ view }: RepoCardProps) => {
           <div className='repo-card__heading'>
             <BookIcon />
 
-            <h3 className='repo-card__heading--title' title='albumz-api'>albumz-api</h3>
+            <h3 className='repo-card__heading--title' title='albumz-api'>
+              albumz-api
+            </h3>
+
             <span className='repo-card__heading--label'>Public</span>
           </div>
 
-          {view === 'list' && <p className='repo-card__desc'>
-            User password authentication and email verification using passport and passport-local.
-          </p>}
+          {view === 'list' && (
+            <p className='repo-card__desc'>
+              User password authentication and email verification using passport
+              and passport-local.
+            </p>
+          )}
 
           {view === 'grid' && <p className='repo-card__desc' />}
         </header>

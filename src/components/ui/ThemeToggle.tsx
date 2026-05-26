@@ -26,9 +26,8 @@ const ThemeToggle = () => {
           <motion.div
             animate={{ x: isDark ? 20 : 0 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className={isDark ?
-              'theme__toggle--thumb dark' :
-              'theme__toggle--thumb'
+            className={
+              isDark ? 'theme__toggle--thumb dark' : 'theme__toggle--thumb'
             }
           >
             {isDark ? <MoonIcon /> : <SunIcon />}

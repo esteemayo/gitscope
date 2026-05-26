@@ -23,7 +23,10 @@ const DropdownMenu = ({ isOpen, onOpen, onSort }: DropdownMenuProps) => {
     handleClose();
   };
 
-  const onKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+  const onKeyDown = (
+    e: React.KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
     let nextIndex = index;
     const lastIndex = SORT_ITEMS.length - 1;
 
@@ -55,7 +58,9 @@ const DropdownMenu = ({ isOpen, onOpen, onSort }: DropdownMenuProps) => {
       {SORT_ITEMS.map(({ id, label }, index) => (
         <ContextMenuItem
           key={id}
-          innerRef={(el) => { refs.current[index] = el }}
+          innerRef={(el) => {
+            refs.current[index] = el;
+          }}
           label={label}
           onClick={() => handleClick(id)}
           onKeyDown={(e) => onKeyDown(e, index)}

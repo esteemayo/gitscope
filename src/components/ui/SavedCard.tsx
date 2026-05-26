@@ -46,7 +46,11 @@ const SavedCard = ({ name, avatar, username, pinned }: SavedCardProps) => {
       exit={{ opacity: 0, x: -100, y: 20 }}
       transition={{ duration: 0.2 }}
       className={
-        pinned ? 'saved-card pinned' : isDragging ? 'saved-card dragging' : 'saved-card'
+        pinned
+          ? 'saved-card pinned'
+          : isDragging
+            ? 'saved-card dragging'
+            : 'saved-card'
       }
     >
       <div className='saved-card__container'>

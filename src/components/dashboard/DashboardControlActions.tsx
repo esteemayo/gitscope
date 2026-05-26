@@ -55,7 +55,7 @@ const DashboardControlActions = ({ onView }: DashboardControlActionsProps) => {
       case 'ArrowDown':
       case 'ArrowUp':
         e.preventDefault();
-        onView((prev) => prev === 'grid' ? 'list' : 'grid');
+        onView((prev) => (prev === 'grid' ? 'list' : 'grid'));
         return;
 
       case 'e': // 'e' / 'E' ---> export
@@ -79,7 +79,7 @@ const DashboardControlActions = ({ onView }: DashboardControlActionsProps) => {
     if (isOpen) {
       setTimeout(() => {
         firstItemRef.current?.focus();
-      }, 100)
+      }, 100);
     }
   }, [isOpen]);
 

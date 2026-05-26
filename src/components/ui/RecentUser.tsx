@@ -22,7 +22,7 @@ const RecentUser = ({ ref, user, onRemove, onKeyDown }: RecentUserProps) => {
         y: -8,
         transition: {
           duration: 0.18,
-        }
+        },
       }}
       transition={{
         duration: 0.2,

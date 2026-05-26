@@ -21,12 +21,7 @@ const DashboardClient = ({ username }: { username: string }) => {
 
       <ChartSection />
 
-      <RepoLists
-        sort={sort}
-        view={view}
-        onSort={setSort}
-        onView={setView}
-      />
+      <RepoLists sort={sort} view={view} onSort={setSort} onView={setView} />
     </div>
   );
 };

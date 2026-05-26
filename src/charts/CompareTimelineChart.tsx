@@ -11,8 +11,9 @@ import {
   YAxis,
 } from 'recharts';
 
-import { useTheme } from '@/context/ThemeContext';
 import { getChartTheme } from '@/utils/chartTheme';
+import { useTheme } from '@/context/ThemeContext';
+import { CompareTimelineChartProps } from '@/types/compare.timeline.chart.type';
 
 const data = [
   { date: '2023-11', userA: 1, userB: 0 },
@@ -24,7 +25,10 @@ const data = [
   { date: '2024-05', userA: 7, userB: 4 },
 ];
 
-const CompareTimelineChart = ({ grid, isAnimationActive }: { grid?: boolean, isAnimationActive?: boolean }) => {
+const CompareTimelineChart = ({
+  grid,
+  isAnimationActive,
+}: CompareTimelineChartProps) => {
   const { theme } = useTheme();
   const chartTheme = getChartTheme(theme);
 

@@ -1,6 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
+
+import NoSymbolIcon from '../icons/NoSymbolIcon';
+import { OfflineBannerProps } from '@/types/offline.banner.type';
+
 import '../../styles/components/OfflineBanner.scss';
 
 const variants = {
@@ -17,7 +21,7 @@ const variants = {
   },
 };
 
-const OfflineBanner = ({ text }: { text?: string }) => {
+const OfflineBanner = ({ icon, text }: OfflineBannerProps) => {
   return (
     <motion.div
       variants={variants}
@@ -27,6 +31,8 @@ const OfflineBanner = ({ text }: { text?: string }) => {
       className='offline-banner'
     >
       <div className='offline-banner__container'>
+        {icon ?? <NoSymbolIcon />}
+
         <span className='offline-banner__container--text'>
           {text ?? 'You are offline. Reconnecting...'}
         </span>

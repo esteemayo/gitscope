@@ -17,10 +17,10 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className='main-container'>
       <ThemeProvider>
-        <ClientOnly>
-          <ToasterProvider />
+        <ToasterProvider />
 
-          {!isOnline && <OfflineBanner />}
+        <ClientOnly>
+          {!isOnline && <OfflineBanner text='No internet connection.' />}
 
           {pathname === '/' && <ThemeSelector />}
 

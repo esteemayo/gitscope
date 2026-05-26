@@ -7,7 +7,11 @@ import { getChartTheme } from '@/utils/chartTheme';
 import { useTheme } from '@/context/ThemeContext';
 import { LanguageChartProps } from '@/types/language.chart.type';
 
-const LanguageChart = ({ data, isAnimationActive, defaultIndex }: LanguageChartProps) => {
+const LanguageChart = ({
+  data,
+  isAnimationActive,
+  defaultIndex,
+}: LanguageChartProps) => {
   const { theme } = useTheme();
   const chartTheme = getChartTheme(theme);
 

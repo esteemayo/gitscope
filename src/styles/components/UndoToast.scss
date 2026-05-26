@@ -1,0 +1,42 @@
+@use '../abstracts/mixins' as *;
+
+.undo-toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-top: 2rem;
+  padding: 0.85rem 1rem;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+
+  &__msg {
+    font-size: var(--fz-sm);
+  }
+
+  &__btn {
+    display: inline-block;
+    border: none;
+    text-transform: capitalize;
+    font-weight: 400;
+    background-color: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+
+    @include animated-underline();
+
+    &:focus-visible {
+      outline-color: var(--color-blue-800);
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+}

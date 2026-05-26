@@ -28,10 +28,7 @@ const ChartSection = () => {
             </Suspense>
           </Chart>
 
-          <Chart
-            title='Top Repositories'
-            subtitle='Ranked by stars'
-          >
+          <Chart title='Top Repositories' subtitle='Ranked by stars'>
             <Suspense fallback='loading...'>
               <TopReposChart data={topReposData} />
             </Suspense>

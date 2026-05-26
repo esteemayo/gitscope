@@ -29,7 +29,8 @@ const ProfileHeader = ({ username }: { username: string }) => {
         </h2>
 
         <p className='profile-header__bio'>
-          Full Stack Web Developer → MERN | MEVN | GraphQL | NextJS | React Native | TypeScript
+          Full Stack Web Developer → MERN | MEVN | GraphQL | NextJS | React
+          Native | TypeScript
         </p>
 
         <div className='profile-header__info'>

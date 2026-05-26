@@ -48,7 +48,9 @@ const RecentUsers = ({
           {recentUsers.map((user, index) => (
             <RecentUser
               key={user}
-              ref={(el) => { ref.current[index] = el }}
+              ref={(el) => {
+                ref.current[index] = el;
+              }}
               user={user}
               onRemove={onRemoveUser}
               onKeyDown={(e) => onKeyDown(e, index)}
@@ -57,10 +59,7 @@ const RecentUsers = ({
         </AnimatePresence>
       </ul>
 
-      <UndoToast
-        removedUser={removedUser}
-        onUndo={onUndoRemove}
-      />
+      <UndoToast removedUser={removedUser} onUndo={onUndoRemove} />
     </motion.div>
   );
 };

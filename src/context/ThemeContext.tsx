@@ -16,8 +16,8 @@ type ThemeContextType = {
 const INITIAL_STATE: ThemeContextType = {
   theme: 'auto',
   resolvedTheme: 'light',
-  setTheme: (() => { }) as (theme: ThemeType) => void,
-  toggleTheme: () => { },
+  setTheme: (() => {}) as (theme: ThemeType) => void,
+  toggleTheme: () => {},
 };
 
 const ThemeContext = createContext(INITIAL_STATE);
@@ -29,8 +29,9 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light');
 
   const getSystem = () => {
-    return window.matchMedia('(prefers-color-scheme: dark)')
-      .matches ? 'dark' : 'light';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
   };
 
   const toggleTheme = () => {
@@ -95,12 +96,14 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{
-      theme,
-      resolvedTheme,
-      setTheme: handleSetTheme,
-      toggleTheme,
-    }}>
+    <ThemeContext.Provider
+      value={{
+        theme,
+        resolvedTheme,
+        setTheme: handleSetTheme,
+        toggleTheme,
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );

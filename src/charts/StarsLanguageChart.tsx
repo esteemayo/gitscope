@@ -15,7 +15,11 @@ import { getChartTheme } from '@/utils/chartTheme';
 import { useTheme } from '@/context/ThemeContext';
 import { TopLanguageChartProps } from '@/types/top.language.chart.type';
 
-const TopLanguageChart = ({ data, grid, isAnimationActive = true }: TopLanguageChartProps) => {
+const TopLanguageChart = ({
+  data,
+  grid,
+  isAnimationActive = true,
+}: TopLanguageChartProps) => {
   const { theme } = useTheme();
   const chartTheme = getChartTheme(theme);
 

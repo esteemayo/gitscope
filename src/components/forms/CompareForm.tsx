@@ -12,11 +12,7 @@ const CompareForm = ({
   onSubmit,
 }: CompareFormProps) => {
   return (
-    <form
-      onSubmit={onSubmit}
-      className='compare-form'
-      noValidate
-    >
+    <form onSubmit={onSubmit} className='compare-form' noValidate>
       <input
         type='text'
         id='first_user'
@@ -37,11 +33,7 @@ const CompareForm = ({
         className='compare-form__input'
       />
 
-      <button
-        type='submit'
-        disabled={isLoading}
-        className='compare-form__btn'
-      >
+      <button type='submit' disabled={isLoading} className='compare-form__btn'>
         {isLoading ? <Spinner size='lg' /> : 'Compare'}
       </button>
     </form>

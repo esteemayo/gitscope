@@ -15,7 +15,11 @@ import { getChartTheme } from '@/utils/chartTheme';
 import { useTheme } from '@/context/ThemeContext';
 import { TopReposChartProps } from '@/types/top.repos.chart.type';
 
-const TopReposChart = ({ data, grid, isAnimationActive }: TopReposChartProps) => {
+const TopReposChart = ({
+  data,
+  grid,
+  isAnimationActive,
+}: TopReposChartProps) => {
   const { theme } = useTheme();
   const chartTheme = getChartTheme(theme);
 

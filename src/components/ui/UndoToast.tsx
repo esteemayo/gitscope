@@ -1,33 +1,37 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { UndoToastProps } from '@/types/undo.toast.type';
+
 import '../../styles/components/UndoToast.scss';
 
-const UndoToast = ({ removedUser, onUndo }) => {
+const UndoToast = ({ removedUser, onUndo }: UndoToastProps) => {
+  if (!removedUser) return null;
+
   return (
     <AnimatePresence>
-      {removedUser && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 0.2 }}
-          className='recent-users__toast'
-          role='alert'
-        >
-          <span className='recent-users__toast--msg'>
-            Removed {removedUser}
-          </span>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 10 }}
+        transition={{ duration: 0.2 }}
+        className='undo-toast'
+        role='alert'
+        aria-live='polite'
+      >
+        <span className='undo-toast__msg'>
+          Removed {removedUser}
+        </span>
 
-          <button
-            type='button'
-            onClick={onUndo}
-            className='recent-users__toast--undo-btn'
-          >
-            Undo
-          </button>
-        </motion.div>
-      )}
+        <button
+          type='button'
+          onClick={onUndo}
+          className='undo-toast__btn'
+          aria-label='Undo'
+        >
+          Undo
+        </button>
+      </motion.div>
     </AnimatePresence>
   );
 };

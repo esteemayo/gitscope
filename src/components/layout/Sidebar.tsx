@@ -131,9 +131,7 @@ const Sidebar = () => {
             <div className='sidebar__divider' />
 
             <article className='sidebar__card-item'>
-              <span className='sidebar__card-item--label'>
-                Last update
-              </span>
+              <span className='sidebar__card-item--label'>Last update</span>
 
               <time
                 dateTime={new Date().toISOString()}
@@ -144,15 +142,11 @@ const Sidebar = () => {
             </article>
           </section>
 
-
           <footer className='sidebar__footer'>
             <div className='sidebar__theme-toggle'>
               {THEMEBUTTONS.map((item) => {
                 const { id, label, icons } = item;
-                const {
-                  default: DefaultIcon,
-                  mobile: MobileIcon,
-                } = icons;
+                const { default: DefaultIcon, mobile: MobileIcon } = icons;
 
                 const isActive = theme === id;
 
@@ -161,16 +155,17 @@ const Sidebar = () => {
                     key={id}
                     type='button'
                     onClick={() => setTheme(id)}
-                    className={isActive ?
-                      'sidebar__theme-toggle--btn active' :
-                      'sidebar__theme-toggle--btn'
+                    className={
+                      isActive
+                        ? 'sidebar__theme-toggle--btn active'
+                        : 'sidebar__theme-toggle--btn'
                     }
                     aria-label={`${label} mode`}
                   >
                     {DefaultIcon && <DefaultIcon />}
                     {MobileIcon && <MobileIcon />}
                   </button>
-                )
+                );
               })}
             </div>
 

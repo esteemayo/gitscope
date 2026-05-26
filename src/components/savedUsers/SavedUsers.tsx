@@ -38,23 +38,15 @@ const SavedUsers = () => {
 
     if (!over || active.id === over.id) return;
 
-    const oldIndex = users.findIndex(
-      (user) => user.username === active.id
-    );
+    const oldIndex = users.findIndex((user) => user.username === active.id);
 
-    const newIndex = users.findIndex(
-      (user) => user.username === over.id
-    );
+    const newIndex = users.findIndex((user) => user.username === over.id);
 
-    const reordered = arrayMove(
-      users,
-      oldIndex,
-      newIndex,
-    );
+    const reordered = arrayMove(users, oldIndex, newIndex);
 
     setUsers(reordered);
     saveAllUsers(reordered);
-  }
+  };
 
   const load = () => {
     const frame = requestAnimationFrame(() => {

@@ -20,9 +20,9 @@ const ShareProfile = ({ username }: { username: string }) => {
   const [isSaved, setIsSaved] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
-  const url = useMemo(() =>
-    `${window.location.origin}/${username}`,
-    [username]
+  const url = useMemo(
+    () => `${window.location.origin}/${username}`,
+    [username],
   );
 
   const handleCopy = async () => {
@@ -64,7 +64,7 @@ const ShareProfile = ({ username }: { username: string }) => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     const currentIndex = buttonsRef.current.findIndex(
-      (button) => button === document.activeElement
+      (button) => button === document.activeElement,
     );
 
     if (currentIndex === -1) return;
@@ -80,7 +80,8 @@ const ShareProfile = ({ username }: { username: string }) => {
       e.preventDefault();
 
       const prev =
-        (currentIndex - 1 + buttonsRef.current.length) % buttonsRef.current.length;
+        (currentIndex - 1 + buttonsRef.current.length) %
+        buttonsRef.current.length;
 
       buttonsRef.current[prev]?.focus();
     }
@@ -115,7 +116,9 @@ const ShareProfile = ({ username }: { username: string }) => {
         onClick={handleShare}
         onKeyDown={handleKeyDown}
         title='Share profile url'
-        ref={(el) => { buttonsRef.current[0] = el }}
+        ref={(el) => {
+          buttonsRef.current[0] = el;
+        }}
       />
 
       <ActionButton
@@ -124,7 +127,9 @@ const ShareProfile = ({ username }: { username: string }) => {
         onClick={handleCopy}
         onKeyDown={handleKeyDown}
         title='Copy profile url'
-        ref={(el) => { buttonsRef.current[1] = el }}
+        ref={(el) => {
+          buttonsRef.current[1] = el;
+        }}
       />
 
       <ActionButton
@@ -133,7 +138,9 @@ const ShareProfile = ({ username }: { username: string }) => {
         onClick={handleToggleSave}
         onKeyDown={handleKeyDown}
         title='Save user profile'
-        ref={(el) => { buttonsRef.current[2] = el }}
+        ref={(el) => {
+          buttonsRef.current[2] = el;
+        }}
       />
     </div>
   );

@@ -126,7 +126,7 @@ const Landing = () => {
     setRecentUsers(updatedUsers);
     setToStorage(RECENT_KEY, updatedUsers);
 
-    setRemovedUser(null)
+    setRemovedUser(null);
 
     if (removeTimeoutRef.current) {
       clearTimeout(removeTimeoutRef.current);
@@ -140,7 +140,10 @@ const Landing = () => {
     }
   };
 
-  const handleRecentKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+  const handleRecentKeyDown = (
+    e: React.KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
     if (!recentUsers.length) return;
 
     switch (e.key) {
@@ -233,32 +236,21 @@ const Landing = () => {
         className='landing__container'
       >
         <div className='landing__content'>
-          <motion.div
-            variants={itemVariants}
-            className='landing__wrapper'
-          >
+          <motion.div variants={itemVariants} className='landing__wrapper'>
             <Logo />
           </motion.div>
 
-          <motion.p
-            variants={itemVariants}
-            className='landing__badge'
-          >
+          <motion.p variants={itemVariants} className='landing__badge'>
             GitHub analytics platform
           </motion.p>
 
-          <motion.h1
-            variants={itemVariants}
-            className='landing__title'
-          >
+          <motion.h1 variants={itemVariants} className='landing__title'>
             Visualize developer insights beyond the code.
           </motion.h1>
 
-          <motion.p
-            variants={itemVariants}
-            className='landing__subtitle'
-          >
-            Analyze GitHub profiles, repositories, language usage, and developer metrics through a modern analytics dashboard.
+          <motion.p variants={itemVariants} className='landing__subtitle'>
+            Analyze GitHub profiles, repositories, language usage, and developer
+            metrics through a modern analytics dashboard.
           </motion.p>
 
           <motion.div variants={itemVariants}>
@@ -274,10 +266,7 @@ const Landing = () => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <SearchHint
-              isShow={showHint}
-              onClose={() => setShowHint(false)}
-            />
+            <SearchHint isShow={showHint} onClose={() => setShowHint(false)} />
           </motion.div>
 
           <motion.div variants={itemVariants}>
