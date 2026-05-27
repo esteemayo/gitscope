@@ -6,6 +6,14 @@ export const THEME_KEY = 'gitScope:theme';
 
 export const STORAGE_KEY = 'gitScope:saved';
 
+export const truncText = (str: string, count: number) => {
+  if (typeof str === 'string' && str.length > count) {
+    str = str.split('').slice(0, count).join('').concat(' ...');
+  }
+
+  return str;
+};
+
 export const getFromStorage = (key: string) => {
   if (typeof window !== 'undefined') {
     return JSON.parse(localStorage.getItem(key)!);

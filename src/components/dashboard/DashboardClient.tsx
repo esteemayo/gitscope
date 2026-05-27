@@ -3,10 +3,11 @@
 import { useState } from 'react';
 
 import ChartSection from './ChartSection';
-import RepoLists from './RepoLists';
+import RepoLists from './repos/RepoLists';
 import ProfileHeader from './ProfileHeader';
 import StatsCards from './StatsCards';
 
+import { REPOSITORIES } from '@/data';
 import { SortType, ViewType } from '@/types';
 
 const DashboardClient = ({ username }: { username: string }) => {
@@ -21,7 +22,13 @@ const DashboardClient = ({ username }: { username: string }) => {
 
       <ChartSection />
 
-      <RepoLists sort={sort} view={view} onSort={setSort} onView={setView} />
+      <RepoLists
+        sort={sort}
+        view={view}
+        repos={REPOSITORIES}
+        onSort={setSort}
+        onView={setView}
+      />
     </div>
   );
 };

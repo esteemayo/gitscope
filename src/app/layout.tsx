@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Poppins, Roboto_Mono } from 'next/font/google';
 
 import MainLayout from '@/components/layout/MainLayout';
+
+import 'react-loading-skeleton/dist/skeleton.css';
 import './globals.scss';
 
 const poppins = Poppins({
@@ -18,7 +20,8 @@ const roboto = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: 'GitScope',
-  description: 'A GitHub analytics dashboard for visualizing developer repository insights.',
+  description:
+    'A GitHub analytics dashboard for visualizing developer repository insights.',
 };
 
 export default function RootLayout({

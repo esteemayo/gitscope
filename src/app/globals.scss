@@ -78,6 +78,9 @@
   --surface: var(--color-gray-700);
   --surface-header: var(--color-black-200);
 
+  --bg-base-color: var(--color-gray-700);
+  --bg-highlight-color: rgba(255, 255, 255, 0.06);
+
   --bg-theme: rgba(0, 118, 255, 0.1);
   --bg-active-theme: rgba(0, 118, 255, 0.25);
   --bg-hover-theme: rgba(0, 118, 255, 0.15);
@@ -124,6 +127,9 @@
   // --surface: var(--color-gray-200);
   --surface: var(--color-white-50);
   --surface-header: var(--color-gray-800);
+
+  --bg-base-color: var(--color-gray-300);
+  --bg-highlight-color: var(--color-white-100);
 
   // --bg-theme: rgba(31, 111, 234, 0.2);
   --bg-theme: var(--color-white-50);
@@ -227,4 +233,10 @@ select {
 
 .no-interaction {
   overflow: hidden;
+}
+
+.react-loading-skeleton {
+  --base-color: var(--bg-base-color);
+  --highlight-color: var(--bg-highlight-color);
+  line-height: 1;
 }

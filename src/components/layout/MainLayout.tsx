@@ -7,6 +7,8 @@ import ClientOnly from '../ClientOnly';
 import ThemeSelector from '../ui/ThemeSelector';
 
 import ToasterProvider from '@/providers/ToasterProvider';
+import SkeletonProvider from '@/providers/SkeletonProvider';
+
 import ThemeProvider from '@/context/ThemeContext';
 import { useNetworkStatus } from '@/hooks/useNetworkStatus';
 
@@ -24,7 +26,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
           {pathname === '/' && <ThemeSelector />}
 
-          {children}
+          <SkeletonProvider>{children}</SkeletonProvider>
         </ClientOnly>
       </ThemeProvider>
     </main>

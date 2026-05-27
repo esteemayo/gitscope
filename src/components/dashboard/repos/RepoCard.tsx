@@ -1,13 +1,24 @@
 import Link from 'next/link';
 
-import BookIcon from '../icons/BookIcon';
-import ForkIcon from '../icons/ForkIcon';
-import StarIcon from '../icons/StarIcon';
+import BookIcon from '@/components/icons/BookIcon';
+import ForkIcon from '@/components/icons/ForkIcon';
+import StarIcon from '@/components/icons/StarIcon';
 
+import { truncText } from '@/utils';
 import { RepoCardProps } from '@/types/repo.card.type';
-import '../../styles/components/RepoCard.scss';
 
-const RepoCard = ({ view }: RepoCardProps) => {
+import '../../../styles/components/RepoCard.scss';
+
+const RepoCard = ({
+  view,
+  title,
+  desc,
+  language,
+  stars,
+  fork,
+  status,
+  size,
+}: RepoCardProps) => {
   return (
     <article className='repo-card' tabIndex={0}>
       <Link
@@ -20,40 +31,39 @@ const RepoCard = ({ view }: RepoCardProps) => {
             <BookIcon />
 
             <h3 className='repo-card__heading--title' title='albumz-api'>
-              albumz-api
+              {title}
             </h3>
 
-            <span className='repo-card__heading--label'>Public</span>
+            <span className='repo-card__heading--label'>{status}</span>
           </div>
 
-          {view === 'list' && (
-            <p className='repo-card__desc'>
-              User password authentication and email verification using passport
-              and passport-local.
-            </p>
+          {view === 'list' && <p className='repo-card__desc'>{desc}</p>}
+
+          {view === 'grid' && desc && (
+            <p className='repo-card__desc'>{truncText(desc, 50)}</p>
           )}
 
-          {view === 'grid' && <p className='repo-card__desc' />}
+          {view === 'grid' && !desc && <p className='repo-card__desc' />}
         </header>
 
         <footer className='repo-card__stats'>
           <div className='repo-card__stats--left'>
             <span>
               <div className='language' />
-              JavaScript
+              {language}
             </span>
 
             <span>
-              <StarIcon /> 2
+              <StarIcon /> {stars}
             </span>
 
             <span>
-              <ForkIcon /> 0
+              <ForkIcon /> {fork}
             </span>
           </div>
 
           <div className='repo-card__stats--right'>
-            <span>364 KB</span>
+            <span>{size}</span>
           </div>
         </footer>
       </Link>

@@ -49,9 +49,8 @@
       &:link,
       &:visited {
         font-size: inherit;
-        padding: 0.5rem;
         color: currentColor;
-        @include animated-underline($bottom: 0.7rem);
+        @include animated-underline();
       }
     }
   }

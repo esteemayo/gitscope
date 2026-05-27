@@ -1,10 +1,14 @@
-import React from 'react';
-
 export type ThemeType = 'light' | 'dark' | 'auto';
 
 export type ViewType = 'grid' | 'list';
 
-export type SortType = 'stars' | 'forks' | 'size' | 'updated' | 'name' | 'quality';
+export type SortType =
+  | 'stars'
+  | 'forks'
+  | 'size'
+  | 'updated'
+  | 'name'
+  | 'quality';
 
 export type SortItemType = {
   id: SortType;
@@ -43,4 +47,15 @@ export type SavedUserType = {
   avatar: string;
   name: string;
   pinned?: boolean;
+};
+
+export type RepositoryType = {
+  id: string;
+  title: string;
+  desc: string;
+  language: string;
+  stars: number;
+  fork: number;
+  status: string;
+  size: string;
 };

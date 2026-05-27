@@ -1,4 +1,4 @@
-import { SortItemType } from '@/types';
+import { RepositoryType, SortItemType } from '@/types';
 
 export const SORT_ITEMS: SortItemType[] = [
   { id: 'stars', label: 'stars' },
@@ -7,4 +7,87 @@ export const SORT_ITEMS: SortItemType[] = [
   { id: 'updated', label: 'updated' },
   { id: 'name', label: 'name' },
   { id: 'quality', label: 'quality' },
+];
+
+export const REPOSITORIES: RepositoryType[] = [
+  {
+    id: 'albumz-api',
+    title: 'albumz-api',
+    desc: 'User password authentication and email verification using passport and passport-local.',
+    language: 'JavaScript',
+    stars: 2,
+    fork: 0,
+    status: 'public',
+    size: '364 kb',
+  },
+  {
+    id: 'overlay-lab',
+    title: 'overlay-lab',
+    desc: 'Headless popup system with stack-based state, compound components, and built-in accessibility (focus trap, overlay, scroll lock)',
+    language: 'TypeScript',
+    stars: 1,
+    fork: 0,
+    status: 'public',
+    size: '364 kb',
+  },
+  {
+    id: 'gitscope',
+    title: 'gitscope',
+    desc: 'A GitHub analytics dashboard for visualizing developer repository insights.',
+    language: 'TypeScript',
+    stars: 1,
+    fork: 0,
+    status: 'public',
+    size: '364 kb',
+  },
+  {
+    id: 'ecommerce-store-client',
+    title: 'ecommerce-store-client',
+    desc: 'Odio maiores vel facilis molestias exercitationem reiciendis ad voluptatibus molestiae eligendi voluptate maxime expedita, asperiores est laboriosam aspernatur temporibus enim beatae odit.',
+    language: 'TypeScript',
+    stars: 1,
+    fork: 0,
+    status: 'public',
+    size: '364 kb',
+  },
+  {
+    id: 'burgers',
+    title: 'burgers',
+    desc: 'Et nesciunt, eaque est totam inventore illum laborum ullam deserunt cupiditate nisi eos reprehenderit dolores voluptatibus ab quo eveniet quis architecto dolor.',
+    language: 'SCSS',
+    stars: 1,
+    fork: 0,
+    status: 'public',
+    size: '364 kb',
+  },
+  {
+    id: 'fusion-hub-server',
+    title: 'fusion-hub-server',
+    desc: 'Quia, consequuntur mollitia ipsam rem ullam eveniet officia impedit debitis. Provident magnam est aspernatur deleniti ipsum deserunt itaque nulla omnis earum quidem.',
+    language: 'JavaScript',
+    stars: 1,
+    fork: 0,
+    status: 'public',
+    size: '364 kb',
+  },
+  {
+    id: 'fusion-hub-client',
+    title: 'fusion-hub-client',
+    desc: 'Iusto velit aperiam, odit minima perspiciatis eligendi illo perferendis earum expedita cum, inventore necessitatibus debitis? Doloremque eveniet reprehenderit, dolorem labore vitae quo.',
+    language: 'TypeScript',
+    stars: 1,
+    fork: 0,
+    status: 'public',
+    size: '364 kb',
+  },
+  {
+    id: 'react-3d-animation',
+    title: 'react-3d-animation',
+    desc: 'Incidunt omnis officiis est voluptas saepe, voluptate, provident molestiae quam iusto odit quo nam, rerum molestias. Non distinctio atque debitis incidunt doloribus.',
+    language: 'TypeScript',
+    stars: 1,
+    fork: 0,
+    status: 'public',
+    size: '1000 mb',
+  },
 ];

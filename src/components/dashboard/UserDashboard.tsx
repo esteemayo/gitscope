@@ -1,6 +1,7 @@
 import Avatar from './Avatar';
-import RepoList from './RepoList';
+import RepoList from './repos/RepoList';
 
+import { REPOSITORIES } from '@/data';
 import '../../styles/components/UserDashboard.scss';
 
 const UserDashboard = () => {
@@ -17,7 +18,7 @@ const UserDashboard = () => {
           <span>44 followers</span>
         </div>
 
-        <RepoList view='list' />
+        <RepoList view='list' repos={REPOSITORIES.slice(0, 4)} />
       </div>
     </div>
   );
