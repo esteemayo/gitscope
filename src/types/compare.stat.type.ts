@@ -1,4 +1,5 @@
 export interface CompareStatProps {
   label: string;
-  value: string;
+  valueA: number;
+  valueB: number;
 }

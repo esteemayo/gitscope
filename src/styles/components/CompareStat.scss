@@ -24,11 +24,49 @@
   &__label {
     font-size: var(--fz-xs);
     color: var(--heading);
+    // color: var(--text-muted);
   }
 
-  &__count {
-    font-weight: 500;
-    font-size: 100%;
-    color: var(--text-muted);
+  &__values {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    margin-top: 0.6rem;
+
+    &--value {
+      font-weight: 500;
+      font-size: 100%;
+      color: var(--text-muted);
+
+      &.win {
+        color: var(--icon);
+      }
+    }
+
+    &--versus {
+      font-size: var(--fz-xxs);
+      color: var(--text);
+    }
+  }
+
+  &__bar {
+    height: 0.6rem;
+    background-color: var(--border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-top: 0.6rem;
+
+    &--fill {
+      height: 100%;
+      background-color: var(--icon);
+    }
+  }
+
+  &__diff {
+    display: block;
+    margin-top: 4px;
+    font-size: var(--fz-xxs);
+    color: var(--text);
   }
 }

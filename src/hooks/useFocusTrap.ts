@@ -15,7 +15,7 @@ export const useFocusTrap = <T extends HTMLElement>(
     const getFocusable = (): HTMLElement[] => {
       return Array.from(
         container.querySelectorAll<HTMLElement>(
-          'button, a, input, textarea, select, [tabindex]:not([tabindex="-1"])',
+          'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])',
         ),
       ).filter((el) => !el.hasAttribute('disabled'));
     }

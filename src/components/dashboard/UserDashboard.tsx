@@ -10,6 +10,7 @@ const UserDashboard = () => {
       <div className='user-dashboard__container'>
         <header className='user-dashboard__header'>
           <Avatar />
+
           <h3 className='user-dashboard__name'>Emmanuel Adebayo</h3>
         </header>
 
