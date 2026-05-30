@@ -16,6 +16,19 @@
     padding: 0.8rem;
   }
 
+  &.winnerA {
+    &:hover {
+      box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+    }
+  }
+
+  &.winnerB {
+    &:hover {
+      box-shadow: 0 0 2rem
+        color-mix(in srgb, var(--color-green-300) 20%, transparent);
+    }
+  }
+
   &.win {
     border-color: var(--color-blue-400);
     box-shadow: 0 0 0 1px var(--color-blue-400) inset;
@@ -39,8 +52,12 @@
       font-size: 100%;
       color: var(--text-muted);
 
-      &.win {
+      &.winnerA {
         color: var(--icon);
+      }
+
+      &.winnerB {
+        color: var(--color-green-300);
       }
     }
 
@@ -51,22 +68,114 @@
   }
 
   &__bar {
-    height: 0.6rem;
+    display: flex;
+
+    height: 0.8rem;
     background-color: var(--border);
     border-radius: var(--border-radius);
     overflow: hidden;
+    user-select: none;
+    pointer-events: none;
     margin-top: 0.6rem;
 
-    &--fill {
+    &--fillA,
+    &--fillB {
       height: 100%;
+    }
+
+    &--fillA {
       background-color: var(--icon);
+    }
+
+    &--fillB {
+      background-color: var(--color-green-300);
+    }
+  }
+
+  &__legend {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    margin-top: 0.8rem;
+
+    &--text {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+
+      text-transform: initial;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    &--dotA,
+    &--dotB {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 100%;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    &--dotA {
+      background-color: var(--icon);
+    }
+
+    &--dotB {
+      background-color: var(--color-green-300);
     }
   }
 
   &__diff {
     display: block;
-    margin-top: 4px;
-    font-size: var(--fz-xxs);
-    color: var(--text);
+    margin-top: 1rem;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    width: fit-content;
+    padding: 0.6rem 1rem;
+    background-color: color-mix(in srgb, var(--icon) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    border-radius: 10rem;
+
+    &.winnerA {
+      box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+    }
+
+    &.winnerB {
+      box-shadow: 0 0 2rem
+        color-mix(in srgb, var(--color-green-300) 20%, transparent);
+    }
+
+    &--img {
+      width: 1.8rem;
+      height: 1.8rem;
+      display: inline-block;
+      object-fit: cover;
+      border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+      border-radius: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    gap: 0.25rem;
+
+    &--name {
+      font-weight: 500;
+      font-size: var(--fz-xs);
+      color: var(--text);
+    }
+
+    &--text {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+    }
   }
 }

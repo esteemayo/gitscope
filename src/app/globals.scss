@@ -27,10 +27,12 @@
   --color-red-200: #f17c7c;
   --color-red-500: #f87171;
   --color-red-600: #fc5252;
+  --color-red-700: #ef4444;
   --color-red-800: #dc2626;
 
   --color-green-100: #bffad5;
   --color-green-200: #94fcba;
+  --color-green-300: #10b981;
   --color-green-500: #22c55e;
   --color-green-600: #16a34a;
 
@@ -225,6 +227,11 @@ input,
 textarea,
 select {
   font-size: var(--fz-md);
+}
+
+img {
+  user-select: none;
+  pointer-events: none;
 }
 
 .main-container {

@@ -16,13 +16,13 @@ import { useTheme } from '@/context/ThemeContext';
 import { CompareTimelineChartProps } from '@/types/compare.timeline.chart.type';
 
 const data = [
-  { date: '2023-11', userA: 1, userB: 0 },
-  { date: '2023-12', userA: 2, userB: 1 },
-  { date: '2024-01', userA: 8, userB: 3 },
-  { date: '2024-02', userA: 6, userB: 2 },
-  { date: '2024-03', userA: 10, userB: 5 },
-  { date: '2024-04', userA: 3, userB: 6 },
-  { date: '2024-05', userA: 7, userB: 4 },
+  { month: 'Jan', userA: 10, userB: 5 },
+  { month: 'Feb', userA: 20, userB: 15 },
+  { month: 'Mar', userA: 5, userB: 25 },
+  { month: 'Apr', userA: 30, userB: 10 },
+  { month: 'May', userA: 15, userB: 20 },
+  { month: 'Jun', userA: 40, userB: 30 },
+  { month: 'Jul', userA: 25, userB: 40 },
 ];
 
 const CompareTimelineChart = ({
@@ -30,6 +30,8 @@ const CompareTimelineChart = ({
   isAnimationActive,
 }: CompareTimelineChartProps) => {
   const { theme } = useTheme();
+
+  const isDark = theme === 'dark';
   const chartTheme = getChartTheme(theme);
 
   return (
@@ -54,7 +56,7 @@ const CompareTimelineChart = ({
       {grid && <CartesianGrid stroke={chartTheme.grid} strokeDasharray='3 3' />}
 
       <XAxis
-        dataKey='date'
+        dataKey='month'
         fontFamily='var(--font-mono)'
         fontSize='1.2rem'
         color={chartTheme.axis}
@@ -92,7 +94,7 @@ const CompareTimelineChart = ({
         name='User A'
         dot={{ r: 3 }}
         activeDot={{ r: 6 }}
-        stroke='#38bdf8'
+        stroke={isDark ? '#38bdf8' : '#1f6fea'}
         isAnimationActive={isAnimationActive}
       />
 
@@ -102,7 +104,7 @@ const CompareTimelineChart = ({
         name='User B'
         dot={{ r: 3 }}
         activeDot={{ r: 6 }}
-        stroke='#1f6fea'
+        stroke='#10b981'
         isAnimationActive={isAnimationActive}
       />
 

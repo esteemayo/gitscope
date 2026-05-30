@@ -13,20 +13,24 @@ const ToasterProvider = () => {
       toastOptions={{
         duration: 3000,
         style: {
-          backgroundColor: isDark ? 'rgb(23, 27, 36)' : '#ffffff',
+          backgroundColor: isDark
+            ? 'var(--color-gray-700)'
+            : 'var(--color-white-50)',
           color: isDark ? '#f0f6fc' : 'rgb(36, 41, 46)',
-          border: isDark ? '1px solid #1e293b' : '1px solid #e2e8f0',
+          border: isDark
+            ? '1px solid var(--color-gray-600)'
+            : '1px solid var(--color-gray-300)',
         },
         success: {
           iconTheme: {
-            primary: '#10b981',
-            secondary: '#ffffff',
+            primary: 'var(--color-green-300)',
+            secondary: 'var(--color-white-50)',
           },
         },
         error: {
           iconTheme: {
-            primary: '#ef4444',
-            secondary: '#ffffff',
+            primary: 'var(--color-red-700)',
+            secondary: 'var(--color-white-50)',
           },
         },
       }}

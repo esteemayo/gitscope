@@ -1,0 +1,43 @@
+.user-avatar {
+  display: inline-flex;
+
+  &__fallback,
+  &__img {
+    border-radius: 100%;
+    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  &__fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--surface);
+    color: var(--text-muted);
+
+    &--initials {
+      display: inline-flex;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: var(--fz-xs);
+      letter-spacing: 0.04em;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__img {
+    display: inline-block;
+    object-fit: cover;
+  }
+}

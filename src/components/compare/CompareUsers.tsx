@@ -102,10 +102,53 @@ const CompareUsers = () => {
           />
 
           <div className='compare-users__summary'>
-            <CompareStat label='Stars' valueA={120} valueB={80} />
-            <CompareStat label='Repositories' valueA={50} valueB={70} />
-            <CompareStat label='Forks' valueA={30} valueB={20} />
-            <CompareStat label='Followers' valueA={80} valueB={210} />
+            <CompareStat
+              label='Stars'
+              valueA={120}
+              valueB={80}
+              leftUser={{
+                name: 'Emmanuel Adebayo',
+                login: 'esteemayo',
+                avatar_url: '/avatar-2.jpg',
+              }}
+              rightUser={{ name: 'Brittany Chiang', login: 'brittany' }}
+            />
+
+            <CompareStat
+              label='Repositories'
+              valueA={50}
+              valueB={70}
+              leftUser={{
+                name: 'Emmanuel Adebayo',
+                login: 'esteemayo',
+                avatar_url: '/avatar-2.jpg',
+              }}
+              rightUser={{ name: 'Brittany Chiang', login: 'brittany' }}
+            />
+
+            <CompareStat
+              label='Forks'
+              valueA={30}
+              valueB={20}
+              leftUser={{
+                name: 'Emmanuel Adebayo',
+                login: 'esteemayo',
+                avatar_url: '/avatar-2.jpg',
+              }}
+              rightUser={{ name: 'Brittany Chiang', login: 'brittany' }}
+            />
+
+            <CompareStat
+              label='Followers'
+              valueA={80}
+              valueB={210}
+              leftUser={{
+                name: 'Emmanuel Adebayo',
+                login: 'esteemayo',
+                avatar_url: '/avatar-2.jpg',
+              }}
+              rightUser={{ name: 'Brittany Chiang', login: 'brittany' }}
+            />
           </div>
 
           <div className='compare-users__box'>
