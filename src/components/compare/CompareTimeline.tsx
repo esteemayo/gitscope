@@ -1,24 +1,27 @@
 'use client';
 
 import { lazy, Suspense } from 'react';
+import SectionHeader from '../ui/SectionHeader';
+
 import '../../styles/components/CompareTimeline.scss';
 
-const CompareTimelineChart = lazy(() => import('@/charts/CompareTimelineChart'));
+const CompareTimelineChart = lazy(
+  () => import('@/charts/CompareTimelineChart'),
+);
 
 const CompareTimeline = () => {
   return (
     <section className='compare-timeline'>
-      <h3 className='compare-timeline__heading'>
-        Activity over time
-      </h3>
+      <SectionHeader
+        title='Activity over time'
+        description='Repository updates across months'
+      />
 
-      <p className='compare-timeline__desc'>
-        Repository updates across months
-      </p>
-
-      <Suspense fallback='loading...'>
-        <CompareTimelineChart />
-      </Suspense>
+      <div className='compare-timeline__chart'>
+        <Suspense fallback='loading...'>
+          <CompareTimelineChart />
+        </Suspense>
+      </div>
     </section>
   );
 };

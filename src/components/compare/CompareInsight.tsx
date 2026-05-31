@@ -1,25 +1,42 @@
-import Tooltip from '../ui/Tooltip';
+import InsightCard from '../ui/InsightCard';
+import SectionHeader from '../ui/SectionHeader';
+
+import { TrophyIcon } from '../icons/TrophyIcon';
+import { FireIcon } from '../icons/FireIcon';
+import { ActivityIcon } from '../icons/ActivityIcon';
+
 import '../../styles/components/CompareInsight.scss';
 
 const CompareInsight = () => {
   return (
     <section className='compare-insight'>
-      <p className='compare-insight__text'>
-        User A leads by {' '}
-        <strong>getPercentDiff(stats1.stars, stats2.stars)</strong> stars
-      </p>
+      <SectionHeader
+        title='Key insights'
+        description='Quick comparison summary'
+      />
 
-      <p className='compare-insight__text'>
-        Consistency
-        <Tooltip text='How evenly activity is spread over time' />
-        <strong>consistencyA% vs consistencyB%</strong>
-      </p>
+      <div className='compare-insight__grid'>
+        <InsightCard
+          icon={<TrophyIcon />}
+          title='Stars Leader'
+          tooltip='Percentage difference in total repository stars'
+          value={`leader leads by ${90}%`} // getPercentDiff(stats1.stars, stats2.stars)
+        />
 
-      <p className='compare-insight__text'>
-        Peak Activity
-        <Tooltip text='Month with highest repository updates' />
-        <strong>mostA?.date</strong> vs <strong>mostB?.date</strong>
-      </p>
+        <InsightCard
+          icon={<ActivityIcon />}
+          title='Activity consistency'
+          tooltip='How evenly activity is spread over time'
+          value={`30% vs 20%`} // consistencyA% vs consistencyB%
+        />
+
+        <InsightCard
+          icon={<FireIcon />}
+          title='Peak Activity'
+          tooltip='Month with highest repository updates'
+          value={`Jan 24, 2026 vs Feb 14, 2026`} // mostA?.date vs mostB?.date
+        />
+      </div>
     </section>
   );
 };

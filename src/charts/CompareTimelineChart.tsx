@@ -23,6 +23,11 @@ const data = [
   { month: 'May', userA: 15, userB: 20 },
   { month: 'Jun', userA: 40, userB: 30 },
   { month: 'Jul', userA: 25, userB: 40 },
+  { month: 'Aug', userA: 25, userB: 40 },
+  { month: 'Sep', userA: 35, userB: 60 },
+  { month: 'Oct', userA: 27, userB: 15 },
+  { month: 'Nov', userA: 50, userB: 30 },
+  { month: 'Dec', userA: 90, userB: 50 },
 ];
 
 const CompareTimelineChart = ({

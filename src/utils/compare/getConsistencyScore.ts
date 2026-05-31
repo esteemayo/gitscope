@@ -1,14 +1,6 @@
-export const getMostActiveMonth = (data: number[]) => {
-  const max = Math.max(...data);
-  const index = data.indexOf(max);
-
-  return {
-    index,
-    value: max,
-  };
-};
-
 export const getConsistencyScore = (data: number[]) => {
+  if (!data.length) return 0;
+
   const avg = data.reduce((a, b) => a + b, 0) / data.length;
 
   const variance =

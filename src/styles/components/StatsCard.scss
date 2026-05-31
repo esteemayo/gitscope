@@ -10,7 +10,8 @@
   overflow: hidden;
 
   &.active {
-    box-shadow: 0 0 0 1px var(--icon) inset;
+    // box-shadow: 0 0 0 1px var(--icon) inset;
+    border-color: color-mix(in srgb, var(--icon) 30%, transparent);
   }
 
   &:focus {
@@ -19,8 +20,8 @@
 
   &:hover,
   &:focus-visible {
-    border-color: var(--icon);
-    transform: translateY(-4px) scale(0.98);
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
   }
 
   &__wrapper {

@@ -11,6 +11,7 @@ import CompareInsight from './CompareInsight';
 import CompareTimeline from './CompareTimeline';
 
 import '../../styles/components/CompareUsers.scss';
+import SectionHeader from '../ui/SectionHeader';
 
 const loadingStates = [
   'Fetching GitHub profiles...',
@@ -151,16 +152,39 @@ const CompareUsers = () => {
             />
           </div>
 
-          <div className='compare-users__box'>
-            <CompareInsight />
+          <CompareInsight />
 
-            <CompareTimeline />
-          </div>
+          <CompareTimeline />
 
           {run && (
-            <section className='compare-users__grid'>
-              <UserDashboard />
-              <UserDashboard />
+            <section className='compare-users__profiles'>
+              <SectionHeader
+                title='Developer profiles'
+                description='Side-by-side comparison of GitHub accounts'
+              />
+
+              <div className='compare-users__grid'>
+                <UserDashboard
+                  label='User A'
+                  data={{
+                    name: 'Emmanuel Adebayo',
+                    login: 'esteemayo',
+                    avatar_url: '/avatar-2.jpg',
+                    repos: 200,
+                    followers: 14,
+                  }}
+                />
+
+                <UserDashboard
+                  label='User B'
+                  data={{
+                    name: 'Brittany Chiang',
+                    login: 'brittany',
+                    repos: 420,
+                    followers: 1000,
+                  }}
+                />
+              </div>
             </section>
           )}
         </div>

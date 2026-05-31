@@ -24,7 +24,8 @@ const StatsCard = ({
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'ArrowRight') {
-      e.preventDefault()
+      e.preventDefault();
+
       onSort((prev) => {
         if (prev === 'stars') return 'forks';
         if (prev === 'forks') return 'quality';
@@ -35,7 +36,8 @@ const StatsCard = ({
     }
 
     if (e.key === 'ArrowLeft') {
-      e.preventDefault()
+      e.preventDefault();
+
       onSort((prev) => {
         if (prev === 'stars') return 'quality';
         if (prev === 'quality') return 'forks';
@@ -64,12 +66,19 @@ const StatsCard = ({
 
         <footer className='stats-card__footer'>
           {typeof delta !== 'undefined' && (
-            <div className={`stats-card__footer--delta ${delta > 0 ? 'green' : 'red'}`}>
-              <span className={`stats-card__footer--box ${delta > 0 ? 'green' : 'red'}`}>
+            <div
+              className={`stats-card__footer--delta ${delta > 0 ? 'green' : 'red'}`}
+            >
+              <span
+                className={`stats-card__footer--box ${delta > 0 ? 'green' : 'red'}`}
+              >
                 {delta > 0 ? <ArrowUpRightIcon /> : <ArrowDownRightIcon />}
               </span>
 
-              <span>{delta > 0 ? '+' : '-'}{delta}%</span>
+              <span>
+                {delta > 0 ? '+' : '-'}
+                {delta}%
+              </span>
             </div>
           )}
 

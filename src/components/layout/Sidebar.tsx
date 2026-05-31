@@ -6,11 +6,11 @@ import { createPortal } from 'react-dom';
 
 import Logo from '../ui/Logo';
 
-import BookmarkIcon from '../icons/BookmarkOutlineIcon';
+import AnalyticsIcon from '../icons/AnalyticsIcon';
 import XmarkIcon from '../icons/XmarkIcon';
 import GitHubLogoIcon from '../icons/GitHubLogoIcon';
 import CompareIcon from '../icons/CompareIcon';
-import AnalyticsIcon from '../icons/AnalyticsIcon';
+import BookmarkIcon from '../icons/BookmarkOutlineIcon';
 
 import { usePortal } from '@/hooks/usePortal';
 import { useOverlay } from '@/hooks/useOverlay';

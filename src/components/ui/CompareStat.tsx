@@ -1,8 +1,12 @@
 import UserAvatar from './UserAvatar';
 
-import { compareValues } from '@/utils/compare';
-import { CompareStatProps } from '@/types/compare.stat.type';
+// import { activityTimeline } from '@/utils/compare/getActivityTimeline';
+// import { getStats } from '@/utils/compare/getStats';
+// import { getMostActiveMonth } from '@/utils/compare/getMostActiveMonth';
+import { compareValues } from '@/utils/compare/compareValues';
+// import { getConsistencyScore } from '@/utils/compare/getConsistencyScore';
 
+import { CompareStatProps } from '@/types/compare.stat.type';
 import '../../styles/components/CompareStat.scss';
 
 const CompareStat = ({
@@ -12,6 +16,51 @@ const CompareStat = ({
   leftUser,
   rightUser,
 }: CompareStatProps) => {
+  if (!leftUser || !rightUser) return null;
+
+  // const stat1 = getStats(leftUser);
+  // const stat2 = getStats(rightUser);
+
+  // const statWinner = {
+  //   stars: stats1.stars > stats2.stars ? 'A' : 'B',
+  //   repos: stats1.repos > stats2.repos ? 'A' : 'B',
+  //   forks: stats1.forks > stats2.forks ? 'A' : 'B',
+  //   followers: stats1.followers > stats2.followers ? 'A' : 'B',
+  // };
+
+  // const timelineA = activityTimeline(leftUser.repos);
+  // const timelineB = activityTimeline(rightUser.repos);
+
+  // const merged = timelineA.map((item, index) => ({
+  //   date: item.date,
+  //   userA: item.count,
+  //   userB: timeline[index]?.count || 0,
+  // }));
+
+  // export const mergeTimeline = (a, b) => {
+  //   const map = {}
+
+  //   a.forEach((item) => {
+  //     map[item.date] = { date: item.date, userA: item.count, userB: 0 };
+  //   });
+
+  //   b.forEach((item) => {
+  //     if (!map[item.date]) {
+  //       map[item.date] = { date: item.date, userA: 0, userB: item.count };
+  //     } else {
+  //       map[item.date].userB = item.count;
+  //     }
+  //   });
+
+  //   return Object.values(map).sort((x, y) => x.date.localeCompare(y));
+  // };
+
+  // const mostA = getMostActiveMonth(timelineA);
+  // const mostB = getMostActiveMonth(timelineB);
+
+  // const consistencyA = getConsistencyScore(timelineA);
+  // const consistencyB = getConsistencyScore(timelineB);
+
   const { winner, diff } = compareValues(valueA, valueB);
 
   const isWinner = winner === 'A';

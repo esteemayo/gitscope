@@ -19,7 +19,8 @@
   }
 
   &:hover {
-    border-color: var(--blue-light);
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
     transform: translateY(-2px) scale(1.03);
 
     @include bp.sm {

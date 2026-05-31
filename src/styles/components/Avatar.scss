@@ -1,54 +1,84 @@
 .avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  position: relative;
-  width: 15rem;
-  height: 15rem;
-  border-radius: 100%;
-  overflow: hidden;
-  margin-bottom: 2.4rem;
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-bottom: 2.4rem;
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
 
-    padding: 0.8rem;
-    background-image: linear-gradient(
-      90deg,
-      var(--color-blue-800),
-      var(--color-blue-400),
-      var(--color-blue-400),
-      var(--color-blue-800)
-    );
-    background-size: 300% 300%;
-    border-radius: inherit;
+      padding: 0.8rem;
+      background-image: linear-gradient(
+        90deg,
+        var(--color-blue-800),
+        var(--color-blue-400),
+        var(--color-blue-400),
+        var(--color-blue-800)
+      );
+      background-size: 300% 300%;
+      border-radius: inherit;
 
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    img {
+      display: inline-block;
+      width: 13.4rem;
+      height: 13.4rem;
+      object-fit: cover;
+      vertical-align: middle;
+      border-radius: 100%;
+      user-select: none;
+      transition: var(--transition);
+
+      &:hover {
+        filter: blur(1px) grayscale(0.3);
+      }
+    }
   }
 
-  img {
-    display: inline-block;
-    width: 13.4rem;
-    height: 13.4rem;
-    object-fit: cover;
-    vertical-align: middle;
-    border-radius: 100%;
-    user-select: none;
-    transition: var(--transition);
+  &__fallback {
+    display: grid;
+    place-items: center;
 
-    &:hover {
-      filter: blur(1px) grayscale(0.3);
+    width: 15rem !important;
+    height: 15rem !important;
+    border-radius: 100%;
+    margin-bottom: 2.4rem;
+
+    &--initials {
+      display: inline-flex;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: var(--fz-heading);
+      letter-spacing: 0.04em;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      color: currentColor;
+      stroke: currentColor;
     }
   }
 }

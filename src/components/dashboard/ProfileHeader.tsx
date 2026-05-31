@@ -12,7 +12,7 @@ const ProfileHeader = ({ username }: { username: string }) => {
   return (
     <section className='profile-header'>
       <div className='profile-header__container'>
-        <Avatar />
+        <Avatar imgSrc='/avatar-2.jpg' alt='avatar' name='Emmanuel Adebayo' />
 
         <h1 className='profile-header__name'>Emmanuel Adebayo</h1>
 

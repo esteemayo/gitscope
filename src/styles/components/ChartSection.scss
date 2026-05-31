@@ -66,8 +66,10 @@
       font-size: var(--fz-xs);
       padding: 0.8rem 1.2rem;
       background-color: var(--surface);
-      border: 1px solid var(--border);
+      background-color: color-mix(in srgb, var(--icon) 12%, transparent);
       color: currentColor;
+      border: 1px solid var(--border);
+      border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
       border-radius: 99.9rem;
 
       strong {

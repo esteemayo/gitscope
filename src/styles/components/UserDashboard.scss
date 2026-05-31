@@ -6,6 +6,21 @@
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   border-radius: var(--radius);
+  transition: var(--transition);
+  position: relative;
+
+  &:hover {
+    &:nth-child(2n + 1) {
+      box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+      border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    }
+
+    &:nth-child(2n) {
+      box-shadow: 0 0 2rem
+        color-mix(in srgb, var(--color-green-300) 20%, transparent);
+      border-color: color-mix(in srgb, var(--color-green-300) 20%, transparent);
+    }
+  }
 
   @media (max-width: 31.25em) {
     padding: 2rem 1.6rem;
@@ -21,15 +36,24 @@
 
   &__container {
     .avatar {
-      @media (max-width: 31.25em) {
-        width: 13rem;
-        height: 13rem;
+      &__container {
+        @media (max-width: 31.25em) {
+          width: 13rem;
+          height: 13rem;
+        }
+
+        img {
+          @media (max-width: 31.25em) {
+            width: 11.4rem;
+            height: 11.4rem;
+          }
+        }
       }
 
-      img {
+      &__fallback {
         @media (max-width: 31.25em) {
-          width: 11.4rem;
-          height: 11.4rem;
+          width: 13rem !important;
+          height: 13rem !important;
         }
       }
     }
@@ -50,6 +74,39 @@
       @media (max-width: 20em) {
         padding: 0.8rem;
       }
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+
+    display: inline-flex;
+    align-items: center;
+
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    padding: 0.6rem 1rem;
+    color: var(--text-muted);
+    border-radius: 10rem;
+    user-select: none;
+    pointer-events: none;
+
+    &.userA {
+      background-color: color-mix(in srgb, var(--icon) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    }
+
+    &.userB {
+      background-color: color-mix(
+        in srgb,
+        var(--color-green-300) 12%,
+        transparent
+      );
+      border: 1px solid
+        color-mix(in srgb, var(--color-green-300) 20%, transparent);
     }
   }
 

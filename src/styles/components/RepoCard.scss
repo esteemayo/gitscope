@@ -25,9 +25,8 @@
   &:hover,
   &:focus-visible {
     transform: translateY(-2px);
-    box-shadow: rgba(0, 0, 0, 0.2) 0 0.8rem 2rem -1.5rem;
-    box-shadow: rgba(255, 255, 255, 0.11) 0 0.8rem 1.45rem -1.5rem;
-    box-shadow: 0 0 0 1px var(--blue-light) inset;
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
   }
 
   &:focus,
