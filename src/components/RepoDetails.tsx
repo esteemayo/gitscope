@@ -1,3 +1,7 @@
+'use client';
+
+import millify from 'millify';
+
 import CodeIcon from './icons/CodeIcon';
 import ForkIcon from './icons/ForkIcon';
 import StarIcon from './icons/StarIcon';
@@ -10,7 +14,9 @@ const RepoDetails = () => {
     <div className='repo-details'>
       <div className='repo-details__container'>
         <header className='repo-details__header'>
-          <h1 className='repo-details__heading' title='albumz-api'>albumz-api</h1>
+          <h1 className='repo-details__heading' title='albumz-api'>
+            albumz-api
+          </h1>
 
           <a
             href='#'
@@ -23,20 +29,21 @@ const RepoDetails = () => {
         </header>
 
         <p className='repo-details__desc'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat alias fugiat consectetur
-          cumque voluptate tempore quis. Veniam, unde! Inventore nam harum, aliquam laudantium
-          quisquam ex quod itaque assumenda dolor quo! || {'No description provided'}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat alias
+          fugiat consectetur cumque voluptate tempore quis. Veniam, unde!
+          Inventore nam harum, aliquam laudantium quisquam ex quod itaque
+          assumenda dolor quo! || {'No description provided'}
         </p>
 
         <section className='repo-details__stats'>
           <div className='repo-details__stats--wrapper'>
             <StarIcon />
-            <span>200</span>
+            <span>{millify(2000)}</span>
           </div>
 
           <div className='repo-details__stats--wrapper'>
             <ForkIcon />
-            <span>43</span>
+            <span>{millify(4300)}</span>
           </div>
 
           <div className='repo-details__stats--wrapper'>
@@ -46,7 +53,7 @@ const RepoDetails = () => {
 
           <div className='repo-details__stats--wrapper'>
             <AlertIcon />
-            <span>3 Issues</span>
+            <span>{millify(3)} Issues</span>
           </div>
         </section>
 

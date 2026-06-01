@@ -1,7 +1,9 @@
 'use client';
 
 import { lazy, Suspense } from 'react';
+
 import SectionHeader from '../ui/SectionHeader';
+import TimelineIcon from '../icons/TimelineIcon';
 
 import '../../styles/components/CompareTimeline.scss';
 
@@ -13,7 +15,8 @@ const CompareTimeline = () => {
   return (
     <section className='compare-timeline'>
       <SectionHeader
-        title='Activity over time'
+        icon={<TimelineIcon />}
+        title='Activity timeline'
         description='Repository updates across months'
       />
 

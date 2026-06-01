@@ -1,4 +1,4 @@
-export interface CompareFormProps {
+export interface CompareHeroProps {
   userA: string;
   userB: string;
   isLoading?: boolean;

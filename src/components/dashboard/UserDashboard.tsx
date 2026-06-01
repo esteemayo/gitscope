@@ -1,3 +1,7 @@
+'use client';
+
+import millify from 'millify';
+
 import Avatar from './Avatar';
 import RepoList from './repos/RepoList';
 
@@ -21,8 +25,8 @@ const UserDashboard = ({ label, data }: UserDashboardProps) => {
         </header>
 
         <div className='user-dashboard__stats'>
-          <span>{data.repos} repositories</span>
-          <span>{data.followers} followers</span>
+          <span>{millify(data.repos)} repositories</span>
+          <span>{millify(data.followers)} followers</span>
         </div>
 
         <RepoList view='list' repos={REPOSITORIES.slice(0, 4)} />

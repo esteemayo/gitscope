@@ -1,0 +1,14 @@
+.compare-profiles {
+  width: 100%;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 48em) {
+      grid-template-columns: 1fr;
+      gap: 5rem;
+    }
+  }
+}

@@ -4,11 +4,11 @@ import { CompareFormProps } from '@/types/compare.form.type';
 import '../../styles/components/CompareForm.scss';
 
 const CompareForm = ({
-  firstUser,
-  secondUser,
+  userA,
+  userB,
   isLoading,
-  onChangeFirst,
-  onChangeSecond,
+  onChangeUserA,
+  onChangeUserB,
   onSubmit,
 }: CompareFormProps) => {
   return (
@@ -17,9 +17,9 @@ const CompareForm = ({
         type='text'
         id='first_user'
         name='first_user'
-        value={firstUser}
+        value={userA}
         placeholder='First user'
-        onChange={(e) => onChangeFirst(e.target.value)}
+        onChange={(e) => onChangeUserA(e.target.value)}
         className='compare-form__input'
       />
 
@@ -27,9 +27,9 @@ const CompareForm = ({
         type='text'
         id='second_user'
         name='second_user'
-        value={secondUser}
+        value={userB}
         placeholder='Second user'
-        onChange={(e) => onChangeSecond(e.target.value)}
+        onChange={(e) => onChangeUserB(e.target.value)}
         className='compare-form__input'
       />
 

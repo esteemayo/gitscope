@@ -1,5 +1,6 @@
 'use client';
 
+import millify from 'millify';
 import { lazy, Suspense } from 'react';
 
 import Chart from '@/charts/Chart';
@@ -55,7 +56,7 @@ const ChartSection = () => {
             </p>
 
             <p className='chart-section__group--paragraph'>
-              Total stars across repositories: <strong>20</strong>
+              Total stars across repositories: <strong>{millify(2000)}</strong>
             </p>
           </div>
         </div>

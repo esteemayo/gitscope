@@ -4,6 +4,7 @@ import SectionHeader from '../ui/SectionHeader';
 import { TrophyIcon } from '../icons/TrophyIcon';
 import { FireIcon } from '../icons/FireIcon';
 import { ActivityIcon } from '../icons/ActivityIcon';
+import InsightIcon from '../icons/InsightIcon';
 
 import '../../styles/components/CompareInsight.scss';
 
@@ -11,6 +12,7 @@ const CompareInsight = () => {
   return (
     <section className='compare-insight'>
       <SectionHeader
+        icon={<InsightIcon />}
         title='Key insights'
         description='Quick comparison summary'
       />

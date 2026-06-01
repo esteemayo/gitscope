@@ -2,16 +2,15 @@
 
 import { useEffect, useState } from 'react';
 
-import CompareStat from '../ui/CompareStat';
 import Loader from '../ui/Loader';
-import UserDashboard from '../dashboard/UserDashboard';
 
-import CompareForm from '../forms/CompareForm';
-import CompareInsight from './CompareInsight';
+import CompareOverview from './CompareOverview';
+import CompareHero from './CompareHero';
 import CompareTimeline from './CompareTimeline';
+import CompareInsight from './CompareInsight';
+import CompareProfiles from './CompareProfiles';
 
 import '../../styles/components/CompareUsers.scss';
-import SectionHeader from '../ui/SectionHeader';
 
 const loadingStates = [
   'Fetching GitHub profiles...',
@@ -21,7 +20,6 @@ const loadingStates = [
 ];
 
 const CompareUsers = () => {
-  const [run, setRun] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const [firstUser, setFirstUser] = useState('');
@@ -33,7 +31,6 @@ const CompareUsers = () => {
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setRun(true);
     setIsLoading(true);
 
     setTimeout(() => {
@@ -83,110 +80,19 @@ const CompareUsers = () => {
 
       <div className='compare-users'>
         <div className='compare-users__container'>
-          <header className='compare-users__intro'>
-            <h2 className='compare-users__intro--title'>
-              Compare GitHub Profiles
-            </h2>
-
-            <p className='compare-users__intro--description'>
-              Analyze repositories, stars and activity between two users
-            </p>
-          </header>
-
-          <CompareForm
-            firstUser={firstUser}
-            secondUser={secondUser}
+          <CompareHero
+            userA={firstUser}
+            userB={secondUser}
             isLoading={isLoading}
-            onChangeFirst={setFirstUser}
-            onChangeSecond={setSecondUser}
+            onChangeUserA={setFirstUser}
+            onChangeUserB={setSecondUser}
             onSubmit={handleSubmit}
           />
 
-          <div className='compare-users__summary'>
-            <CompareStat
-              label='Stars'
-              valueA={120}
-              valueB={80}
-              leftUser={{
-                name: 'Emmanuel Adebayo',
-                login: 'esteemayo',
-                avatar_url: '/avatar-2.jpg',
-              }}
-              rightUser={{ name: 'Brittany Chiang', login: 'brittany' }}
-            />
-
-            <CompareStat
-              label='Repositories'
-              valueA={50}
-              valueB={70}
-              leftUser={{
-                name: 'Emmanuel Adebayo',
-                login: 'esteemayo',
-                avatar_url: '/avatar-2.jpg',
-              }}
-              rightUser={{ name: 'Brittany Chiang', login: 'brittany' }}
-            />
-
-            <CompareStat
-              label='Forks'
-              valueA={30}
-              valueB={20}
-              leftUser={{
-                name: 'Emmanuel Adebayo',
-                login: 'esteemayo',
-                avatar_url: '/avatar-2.jpg',
-              }}
-              rightUser={{ name: 'Brittany Chiang', login: 'brittany' }}
-            />
-
-            <CompareStat
-              label='Followers'
-              valueA={80}
-              valueB={210}
-              leftUser={{
-                name: 'Emmanuel Adebayo',
-                login: 'esteemayo',
-                avatar_url: '/avatar-2.jpg',
-              }}
-              rightUser={{ name: 'Brittany Chiang', login: 'brittany' }}
-            />
-          </div>
-
+          <CompareOverview />
           <CompareInsight />
-
           <CompareTimeline />
-
-          {run && (
-            <section className='compare-users__profiles'>
-              <SectionHeader
-                title='Developer profiles'
-                description='Side-by-side comparison of GitHub accounts'
-              />
-
-              <div className='compare-users__grid'>
-                <UserDashboard
-                  label='User A'
-                  data={{
-                    name: 'Emmanuel Adebayo',
-                    login: 'esteemayo',
-                    avatar_url: '/avatar-2.jpg',
-                    repos: 200,
-                    followers: 14,
-                  }}
-                />
-
-                <UserDashboard
-                  label='User B'
-                  data={{
-                    name: 'Brittany Chiang',
-                    login: 'brittany',
-                    repos: 420,
-                    followers: 1000,
-                  }}
-                />
-              </div>
-            </section>
-          )}
+          <CompareProfiles />
         </div>
       </div>
     </>

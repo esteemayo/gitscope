@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import millify from 'millify';
 
 import BookIcon from '@/components/icons/BookIcon';
 import ForkIcon from '@/components/icons/ForkIcon';
@@ -54,11 +57,11 @@ const RepoCard = ({
             </span>
 
             <span>
-              <StarIcon /> {stars}
+              <StarIcon /> {millify(stars)}
             </span>
 
             <span>
-              <ForkIcon /> {fork}
+              <ForkIcon /> {millify(fork)}
             </span>
           </div>
 

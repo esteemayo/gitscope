@@ -46,9 +46,9 @@ const ProfileHeader = ({ username }: { username: string }) => {
         </div>
 
         <div className='profile-header__stats'>
-          <ProfileStatsCard value={200} label='Repositories' />
-          <ProfileStatsCard value={14} label='Followers' />
-          <ProfileStatsCard value={45} label='Following' />
+          <ProfileStatsCard value={2000} label='Repositories' />
+          <ProfileStatsCard value={1400} label='Followers' />
+          <ProfileStatsCard value={4500} label='Following' />
         </div>
       </div>
     </section>
