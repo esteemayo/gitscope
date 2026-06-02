@@ -1,6 +1,8 @@
 @use '../abstracts/responsive' as bp;
 
 .compare-insight {
+  max-width: 90rem;
+  margin-inline: auto;
   margin-bottom: 10rem;
 
   &__grid {

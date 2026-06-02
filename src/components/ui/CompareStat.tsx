@@ -6,7 +6,7 @@ import UserAvatar from './UserAvatar';
 import { compareValues } from '@/utils/compare/compareValues';
 // import { getConsistencyScore } from '@/utils/compare/getConsistencyScore';
 
-import { CompareStatProps } from '@/types/compare.stat.type';
+import { CompareStatProps } from '@/types/compare/compare.stat.type';
 import '../../styles/components/CompareStat.scss';
 
 const CompareStat = ({

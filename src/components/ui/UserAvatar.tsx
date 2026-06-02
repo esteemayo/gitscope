@@ -1,7 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
+import Image from 'next/image';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import DefaultAvatarIcon from '../icons/DefaultAvatarIcon';
 
@@ -34,37 +35,54 @@ const UserAvatar = ({
 
   if (showFallback) {
     return (
-      <div className='user-avatar'>
-        <div
-          className='user-avatar__fallback'
-          style={{
-            width: size,
-            height: size,
-            backgroundColor: `${bcg}20`,
-            color: bcg,
-          }}
+      <AnimatePresence mode='wait'>
+        <motion.div
+          key={fallback}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className='user-avatar'
         >
-          {fallback === 'initials' && initials ? (
-            <span className='user-avatar__fallback--initials'>{initials}</span>
-          ) : (
-            <DefaultAvatarIcon size={size * 0.7} />
-          )}
-        </div>
-      </div>
+          <div
+            className='user-avatar__fallback'
+            style={{
+              width: size,
+              height: size,
+              backgroundColor: `${bcg}20`,
+              color: bcg,
+            }}
+          >
+            {fallback === 'initials' && initials ? (
+              <span className='user-avatar__fallback--initials'>
+                {initials}
+              </span>
+            ) : (
+              <DefaultAvatarIcon size={size * 0.7} />
+            )}
+          </div>
+        </motion.div>
+      </AnimatePresence>
     );
   }
 
   return (
-    <div className='user-avatar'>
-      <Image
-        src={src}
-        width={size}
-        height={size}
-        alt={alt}
-        className='user-avatar__img'
-        onError={() => setError(true)}
-      />
-    </div>
+    <AnimatePresence mode='wait'>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.8 }}
+        className='user-avatar'
+      >
+        <Image
+          src={src}
+          width={size}
+          height={size}
+          alt={alt}
+          className='user-avatar__img'
+          onError={() => setError(true)}
+        />
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

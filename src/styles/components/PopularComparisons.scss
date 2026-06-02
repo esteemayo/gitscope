@@ -1,0 +1,52 @@
+.popular-comparisons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  &__title {
+    text-transform: capitalize;
+    font-size: var(--fz-xs);
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+
+    &--btn {
+      display: inline-block;
+      text-transform: lowercase;
+      padding: 0.8rem 1.2rem;
+      background-color: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 10rem;
+      cursor: pointer;
+      transition: var(--transition);
+
+      &:active {
+        scale: 0.98;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover,
+      &:focus-visible {
+        border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+        box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+  }
+}

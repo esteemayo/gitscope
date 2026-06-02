@@ -138,18 +138,22 @@
     align-items: center;
     gap: 0.8rem;
 
-    width: fit-content;
+    // width: fit-content;
     padding: 0.6rem 1rem;
-    background-color: color-mix(in srgb, var(--icon) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
     border-radius: 10rem;
 
     &.winnerA {
-      box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+      background-color: color-mix(in srgb, var(--icon) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
     }
 
     &.winnerB {
-      box-shadow: 0 0 2rem
+      background-color: color-mix(
+        in srgb,
+        var(--color-green-300) 12%,
+        transparent
+      );
+      border: 1px solid
         color-mix(in srgb, var(--color-green-300) 20%, transparent);
     }
 

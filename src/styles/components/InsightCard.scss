@@ -39,12 +39,17 @@
     width: 3.5rem;
     height: 3.5rem;
     font-size: 1.1rem;
-    background-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-400) 20%,
+      transparent
+    );
+    color: var(--icon);
     border-radius: 100%;
 
     svg {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 1.75rem;
+      height: 1.75rem;
     }
   }
 
@@ -59,7 +64,7 @@
     text-rendering: optimizeLegibility;
     font-weight: 500;
     font-size: 1.52rem;
-    color: var(--heading);
+    color: var(--text);
     line-height: 1.1;
   }
 

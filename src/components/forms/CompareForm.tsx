@@ -1,6 +1,10 @@
 import Spinner from '../ui/Spinner';
-import { CompareFormProps } from '@/types/compare.form.type';
+import SwapIcon from '../icons/SwapIcon';
 
+import CompareUserInput from '../compare/CompareUserInput';
+import PopularComparisons from '../compare/PopularComparisons';
+
+import { CompareFormProps } from '@/types/compare/compare.form.type';
 import '../../styles/components/CompareForm.scss';
 
 const CompareForm = ({
@@ -9,33 +13,75 @@ const CompareForm = ({
   isLoading,
   onChangeUserA,
   onChangeUserB,
+  onSwap,
+  onReset,
+  onPreset,
   onSubmit,
 }: CompareFormProps) => {
   return (
     <form onSubmit={onSubmit} className='compare-form' noValidate>
-      <input
-        type='text'
-        id='first_user'
-        name='first_user'
-        value={userA}
-        placeholder='First user'
-        onChange={(e) => onChangeUserA(e.target.value)}
-        className='compare-form__input'
-      />
+      <div className='compare-form__field'>
+        <CompareUserInput
+          name='User A'
+          label='User A'
+          value={userA}
+          placeholder='e.g. torvalds'
+          profile={{
+            name: 'Emmanuel Adebayo',
+            login: 'esteemayo',
+            avatar_url: '/avatar-2.jpg',
+          }}
+          onClear={() => onChangeUserA('')}
+          onChange={onChangeUserA}
+        />
 
-      <input
-        type='text'
-        id='second_user'
-        name='second_user'
-        value={userB}
-        placeholder='Second user'
-        onChange={(e) => onChangeUserB(e.target.value)}
-        className='compare-form__input'
-      />
+        <button
+          type='button'
+          onClick={onSwap}
+          className='compare-form__field--swap'
+          aria-label='Swap users'
+        >
+          <SwapIcon />
+        </button>
 
-      <button type='submit' disabled={isLoading} className='compare-form__btn'>
-        {isLoading ? <Spinner size='lg' /> : 'Compare'}
-      </button>
+        <CompareUserInput
+          name='User B'
+          label='User B'
+          value={userB}
+          placeholder='e.g. gaearon'
+          profile={{ name: 'Brittany Chiang', login: 'brittany' }}
+          onClear={() => onChangeUserB('')}
+          onChange={onChangeUserB}
+        />
+      </div>
+
+      <PopularComparisons onSelect={onPreset} />
+
+      <div className='compare-form__actions'>
+        <button
+          type='button'
+          onClick={onReset}
+          className='compare-form__actions--reset'
+        >
+          Reset
+        </button>
+
+        <button
+          type='submit'
+          disabled={isLoading}
+          aria-disabled={isLoading}
+          className='compare-form__actions--submit'
+        >
+          {isLoading ? (
+            <>
+              <Spinner />
+              Comparing profiles...
+            </>
+          ) : (
+            'Compare developers'
+          )}
+        </button>
+      </div>
     </form>
   );
 };

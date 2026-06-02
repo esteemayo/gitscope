@@ -13,7 +13,7 @@ import {
 
 import { getChartTheme } from '@/utils/chartTheme';
 import { useTheme } from '@/context/ThemeContext';
-import { CompareTimelineChartProps } from '@/types/compare.timeline.chart.type';
+import { CompareTimelineChartProps } from '@/types/compare/compare.timeline.chart.type';
 
 const data = [
   { month: 'Jan', userA: 10, userB: 5 },

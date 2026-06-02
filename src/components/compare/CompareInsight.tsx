@@ -22,7 +22,7 @@ const CompareInsight = () => {
           icon={<TrophyIcon />}
           title='Stars Leader'
           tooltip='Percentage difference in total repository stars'
-          value={`leader leads by ${90}%`} // getPercentDiff(stats1.stars, stats2.stars)
+          value={`esteemayo leads by ${90}%`} // getPercentDiff(stats1.stars, stats2.stars)
         />
 
         <InsightCard

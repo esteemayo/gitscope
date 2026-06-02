@@ -8,6 +8,7 @@ import CompareOverview from './CompareOverview';
 import CompareHero from './CompareHero';
 import CompareTimeline from './CompareTimeline';
 import CompareInsight from './CompareInsight';
+import ComparisonPreview from './ComparisonPreview';
 import CompareProfiles from './CompareProfiles';
 
 import '../../styles/components/CompareUsers.scss';
@@ -22,11 +23,28 @@ const loadingStates = [
 const CompareUsers = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const [firstUser, setFirstUser] = useState('');
-  const [secondUser, setSecondUser] = useState('');
+  const [userA, setUserA] = useState('');
+  const [userB, setUserB] = useState('');
 
   const [showLoader, setShowLoader] = useState(false);
   const [messageIndex, setMessageIndex] = useState(0);
+
+  const handleSwapUsers = () => {
+    setUserA((prevA) => {
+      setUserB(prevA);
+      return userB;
+    });
+  };
+
+  const handlePreset = (userAValue: string, userBValue: string) => {
+    setUserA(userAValue);
+    setUserB(userBValue);
+  };
+
+  const handleReset = () => {
+    setUserA('');
+    setUserB('');
+  };
 
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,8 +52,8 @@ const CompareUsers = () => {
     setIsLoading(true);
 
     setTimeout(() => {
-      setFirstUser('');
-      setSecondUser('');
+      setUserA('');
+      setUserB('');
 
       setMessageIndex(0);
       setIsLoading(false);
@@ -81,12 +99,24 @@ const CompareUsers = () => {
       <div className='compare-users'>
         <div className='compare-users__container'>
           <CompareHero
-            userA={firstUser}
-            userB={secondUser}
+            userA={userA}
+            userB={userB}
             isLoading={isLoading}
-            onChangeUserA={setFirstUser}
-            onChangeUserB={setSecondUser}
+            onChangeUserA={setUserA}
+            onChangeUserB={setUserB}
+            onSwap={handleSwapUsers}
+            onReset={handleReset}
+            onPreset={handlePreset}
             onSubmit={handleSubmit}
+          />
+
+          <ComparisonPreview
+            userA={{
+              name: 'Emmanuel Adebayo',
+              login: 'esteemayo',
+              avatar_url: '/avatar-2.jpg',
+            }}
+            userB={{ name: 'Brittany Chiang', login: 'brittany' }}
           />
 
           <CompareOverview />

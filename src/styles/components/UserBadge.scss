@@ -1,0 +1,57 @@
+.user-badge {
+  min-width: 22rem;
+  padding: 1.2rem 1.6rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  transition: var(--transition);
+
+  &:hover {
+    &:nth-child(2n + 1) {
+      border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+      box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+    }
+
+    &:nth-child(2n) {
+      border-color: color-mix(in srgb, var(--color-green-300) 20%, transparent);
+      box-shadow: 0 0 2rem
+        color-mix(in srgb, var(--color-green-300) 20%, transparent);
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    width: 100%;
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__name,
+  &__username {
+    max-width: 20rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__name {
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    font-weight: 600;
+    font-size: var(--fz-sm);
+    line-height: 1.1;
+  }
+
+  &__username {
+    font-family: var(--font-mono);
+    font-size: var(--fz-xxs);
+    color: var(--text-muted);
+  }
+}
