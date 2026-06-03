@@ -1,4 +1,5 @@
 import { RepositoryType, SortItemType } from '@/types';
+import { Repository } from '@/types/repository.type';
 
 export const SORT_ITEMS: SortItemType[] = [
   { id: 'stars', label: 'stars' },
@@ -18,7 +19,7 @@ export const REPOSITORIES: RepositoryType[] = [
     stars: 2,
     fork: 0,
     status: 'public',
-    size: '364 kb',
+    size: 364,
   },
   {
     id: 'overlay-lab',
@@ -28,7 +29,7 @@ export const REPOSITORIES: RepositoryType[] = [
     stars: 1,
     fork: 0,
     status: 'public',
-    size: '364 kb',
+    size: 495,
   },
   {
     id: 'gitscope',
@@ -38,7 +39,7 @@ export const REPOSITORIES: RepositoryType[] = [
     stars: 1,
     fork: 0,
     status: 'public',
-    size: '364 kb',
+    size: 570,
   },
   {
     id: 'ecommerce-store-client',
@@ -48,7 +49,7 @@ export const REPOSITORIES: RepositoryType[] = [
     stars: 1,
     fork: 0,
     status: 'public',
-    size: '364 kb',
+    size: 2030,
   },
   {
     id: 'burgers',
@@ -58,7 +59,7 @@ export const REPOSITORIES: RepositoryType[] = [
     stars: 1,
     fork: 0,
     status: 'public',
-    size: '364 kb',
+    size: 256,
   },
   {
     id: 'fusion-hub-server',
@@ -68,7 +69,7 @@ export const REPOSITORIES: RepositoryType[] = [
     stars: 1,
     fork: 0,
     status: 'public',
-    size: '364 kb',
+    size: 703,
   },
   {
     id: 'fusion-hub-client',
@@ -78,7 +79,7 @@ export const REPOSITORIES: RepositoryType[] = [
     stars: 1,
     fork: 0,
     status: 'public',
-    size: '364 kb',
+    size: 569,
   },
   {
     id: 'react-3d-animation',
@@ -88,6 +89,113 @@ export const REPOSITORIES: RepositoryType[] = [
     stars: 1,
     fork: 0,
     status: 'public',
-    size: '1000 mb',
+    size: 1300,
+  },
+];
+
+export const REPOS: Repository[] = [
+  {
+    id: 1,
+    name: 'albumz-api',
+    htmlUrl: 'https://github.com/esteemayo/albumz-api',
+    description:
+      'User password authentication and email verification using passport and passport-local.',
+    stargazers_count: 2,
+    forks_count: 300,
+    size: 364,
+    language: 'JavaScript',
+    visibility: 'public',
+    updatedAt: '',
+  },
+  {
+    id: 2,
+    name: 'overlay-lab',
+    htmlUrl: 'https://github.com/esteemayo/overlay-lab',
+    description:
+      'Headless popup system with stack-based state, compound components, and built-in accessibility (focus trap, overlay, scroll lock)',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 495,
+    language: 'TypeScript',
+    visibility: 'public',
+    updatedAt: '',
+  },
+  {
+    id: 3,
+    name: 'gitscope',
+    htmlUrl: 'https://github.com/esteemayo/gitscope',
+    description:
+      'A GitHub analytics dashboard for visualizing developer repository insights.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 570,
+    language: 'TypeScript',
+    visibility: 'public',
+    updatedAt: '',
+  },
+  {
+    id: 4,
+    name: 'ecommerce-store-client',
+    htmlUrl: 'https://github.com/esteemayo/ecommerce-store-client',
+    description:
+      'Odio maiores vel facilis molestias exercitationem reiciendis ad voluptatibus molestiae eligendi voluptate maxime expedita, asperiores est laboriosam aspernatur temporibus enim beatae odit.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 2030,
+    language: 'TypeScript',
+    visibility: 'public',
+    updatedAt: '',
+  },
+  {
+    id: 5,
+    name: 'burgers',
+    htmlUrl: 'https://github.com/esteemayo/burgers',
+    description:
+      'Et nesciunt, eaque est totam inventore illum laborum ullam deserunt cupiditate nisi eos reprehenderit dolores voluptatibus ab quo eveniet quis architecto dolor.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 256,
+    language: 'SCSS',
+    visibility: 'public',
+    updatedAt: '',
+  },
+  {
+    id: 6,
+    name: 'fusion-hub-server',
+    htmlUrl: 'https://github.com/esteemayo/fusion-hub-server',
+    description:
+      'Quia, consequuntur mollitia ipsam rem ullam eveniet officia impedit debitis. Provident magnam est aspernatur deleniti ipsum deserunt itaque nulla omnis earum quidem.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 703,
+    language: 'JavaScript',
+    visibility: 'public',
+    updatedAt: '',
+  },
+  {
+    id: 7,
+    name: 'fusion-hub-client',
+    htmlUrl: 'https://github.com/esteemayo/fusion-hub-client',
+    description:
+      'Iusto velit aperiam, odit minima perspiciatis eligendi illo perferendis earum expedita cum, inventore necessitatibus debitis? Doloremque eveniet reprehenderit, dolorem labore vitae quo.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 569,
+    language: 'TypeScript',
+    visibility: 'public',
+    updatedAt: '',
+  },
+  {
+    id: 8,
+    name: 'react-3d-animation',
+    htmlUrl: 'https://github.com/esteemayo/react-3d-animation',
+    description:
+      'Incidunt omnis officiis est voluptas saepe, voluptate, provident molestiae quam iusto odit quo nam, rerum molestias. Non distinctio atque debitis incidunt doloribus.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 1300,
+    language: 'TypeScript',
+    visibility: 'public',
+    updatedAt: '',
   },
 ];

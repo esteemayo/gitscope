@@ -8,8 +8,9 @@ import ForkIcon from '@/components/icons/ForkIcon';
 import StarIcon from '@/components/icons/StarIcon';
 
 import { truncText } from '@/utils';
-import { RepoCardProps } from '@/types/repo.card.type';
+import { formatRepoSize } from '@/utils/formatRepoSize';
 
+import { RepoCardProps } from '@/types/repo.card.type';
 import '../../../styles/components/RepoCard.scss';
 
 const RepoCard = ({
@@ -66,7 +67,7 @@ const RepoCard = ({
           </div>
 
           <div className='repo-card__stats--right'>
-            <span>{size}</span>
+            <span>{formatRepoSize(size)}</span>
           </div>
         </footer>
       </Link>

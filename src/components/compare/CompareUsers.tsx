@@ -11,6 +11,9 @@ import CompareInsight from './CompareInsight';
 import ComparisonPreview from './ComparisonPreview';
 import CompareProfiles from './CompareProfiles';
 
+import { REPOS } from '@/data';
+import { GitHubUserPreview } from '@/types/compare';
+
 import '../../styles/components/CompareUsers.scss';
 
 const loadingStates = [
@@ -25,6 +28,29 @@ const CompareUsers = () => {
 
   const [userA, setUserA] = useState('');
   const [userB, setUserB] = useState('');
+
+  const [profileA, setProfileA] = useState<GitHubUserPreview>({
+    name: 'Emmanuel Adebayo',
+    login: 'esteemayo',
+    avatar_url: '/avatar-2.jpg',
+    location: 'Nigeria',
+    company: 'SwiftPay Nigeria',
+    html_url: 'https://github.com/esteemayo',
+    followers: 14,
+    following: 44,
+    public_repos: 200,
+  });
+
+  const [profileB, setProfileB] = useState<GitHubUserPreview>({
+    name: 'Brittany Chiang',
+    login: 'brittany',
+    location: 'United States of America',
+    company: 'Apple Inc.',
+    html_url: 'https://github.com/brittany',
+    followers: 5000,
+    following: 400,
+    public_repos: 2000,
+  });
 
   const [showLoader, setShowLoader] = useState(false);
   const [messageIndex, setMessageIndex] = useState(0);
@@ -110,19 +136,18 @@ const CompareUsers = () => {
             onSubmit={handleSubmit}
           />
 
-          <ComparisonPreview
-            userA={{
-              name: 'Emmanuel Adebayo',
-              login: 'esteemayo',
-              avatar_url: '/avatar-2.jpg',
-            }}
-            userB={{ name: 'Brittany Chiang', login: 'brittany' }}
-          />
+          <ComparisonPreview userA={profileA} userB={profileB} />
 
           <CompareOverview />
           <CompareInsight />
           <CompareTimeline />
-          <CompareProfiles />
+
+          <CompareProfiles
+            userA={profileA}
+            userB={profileB}
+            reposA={REPOS}
+            reposB={REPOS.reverse()}
+          />
         </div>
       </div>
     </>

@@ -1,0 +1,23 @@
+.profile-stat-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-width: 9rem;
+  padding: 1rem 1.4rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+
+  &__value {
+    font-variant: tabular-nums;
+    font-weight: 700;
+    font-size: 100%;
+  }
+
+  &__label {
+    margin-top: 2px;
+    color: var(--text-muted);
+  }
+}

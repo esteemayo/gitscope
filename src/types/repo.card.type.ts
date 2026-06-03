@@ -8,5 +8,5 @@ export interface RepoCardProps {
   stars: number;
   fork: number;
   status: string;
-  size: string;
+  size: number;
 }

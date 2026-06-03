@@ -1,10 +1,20 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 import SectionHeader from '../ui/SectionHeader';
 import UserIcon from '../icons/UserIcon';
-import UserDashboard from '../dashboard/UserDashboard';
+import CompareProfileCard from './CompareProfileCard';
 
+import { CompareProfilesProps } from '@/types/compare/compare.profiles.type';
 import '../../styles/components/CompareProfiles.scss';
 
-const CompareProfiles = () => {
+const CompareProfiles = ({
+  userA,
+  userB,
+  reposA,
+  reposB,
+}: CompareProfilesProps) => {
   return (
     <section className='compare-profiles'>
       <SectionHeader
@@ -14,26 +24,19 @@ const CompareProfiles = () => {
       />
 
       <div className='compare-profiles__grid'>
-        <UserDashboard
-          label='User A'
-          data={{
-            name: 'Emmanuel Adebayo',
-            login: 'esteemayo',
-            avatar_url: '/avatar-2.jpg',
-            repos: 200,
-            followers: 14,
-          }}
-        />
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+        >
+          <CompareProfileCard user={userA} repos={reposA} label='User A' />
+        </motion.div>
 
-        <UserDashboard
-          label='User B'
-          data={{
-            name: 'Brittany Chiang',
-            login: 'brittany',
-            repos: 420,
-            followers: 1000,
-          }}
-        />
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+        >
+          <CompareProfileCard user={userB} repos={reposB} label='User B' />
+        </motion.div>
       </div>
     </section>
   );

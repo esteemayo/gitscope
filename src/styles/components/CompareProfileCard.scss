@@ -1,0 +1,224 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/responsive' as bp;
+
+.compare-profile-card {
+  padding: 2.4rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  transition: var(--transition);
+
+  &:hover {
+    &:nth-child(2n + 1) {
+      border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+      box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .avatar {
+      &__container {
+        width: 12rem;
+        height: 12rem;
+
+        @include bp.md {
+          width: 10rem;
+          height: 10rem;
+        }
+
+        img {
+          width: 10.4rem;
+          height: 10.4rem;
+
+          @include bp.md {
+            width: 8.4rem;
+            height: 8.4rem;
+          }
+        }
+      }
+
+      &__fallback {
+        width: 12rem !important;
+        height: 12rem !important;
+
+        @include bp.md {
+          width: 10rem !important;
+          height: 10rem !important;
+        }
+      }
+    }
+  }
+
+  &__label {
+    align-self: flex-start;
+
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    padding: 0.6rem 1.2rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 10rem;
+    user-select: none;
+    pointer-events: none;
+
+    &.labelA {
+      background-color: color-mix(in srgb, var(--icon) 12%, transparent);
+      color: var(--icon);
+      border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    }
+
+    &.labelB {
+      background-color: color-mix(
+        in srgb,
+        var(--color-green-300) 12%,
+        transparent
+      );
+      color: var(--color-green-300);
+      border: 1px solid
+        color-mix(in srgb, var(--color-green-300) 20%, transparent);
+    }
+  }
+
+  &__name {
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 1.1;
+    margin-top: 1.6rem;
+
+    @include bp.md {
+      font-size: var(--fz-xl);
+    }
+  }
+
+  &__username {
+    &:link,
+    &:visited {
+      @include animated-underline($color: var(--color-blue-800));
+
+      display: flex !important;
+      align-items: center;
+      gap: 0.6rem;
+
+      font-family: var(--font-mono);
+      margin-top: 0.6rem;
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    svg {
+      width: 1.75rem;
+      height: 1.75rem;
+      color: currentColor;
+      stroke: currentColor;
+      opacity: 0.7;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+
+    font-size: 100%;
+    color: var(--dashboard-text);
+    margin-top: 1.6rem;
+
+    &--item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+
+      color: inherit;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: currentColor;
+      }
+    }
+  }
+
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    margin-top: 2rem;
+  }
+
+  &__repos {
+    margin-top: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  &__repos-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--title {
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-weight: 100%;
+      line-height: 1.1;
+    }
+
+    &--description {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+    }
+  }
+
+  &__repos-link {
+    &:link,
+    &:visited {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+
+      text-transform: initial;
+      font-weight: 500;
+      font-size: var(--fz-sm);
+      color: var(--color-blue-800);
+      transition: var(--transition);
+      margin-top: 1.6rem;
+    }
+
+    &:hover {
+      opacity: 0.8;
+      transform: translateX(2px);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring();
+    }
+
+    svg {
+      width: 1.75rem;
+      height: 1.75rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+}

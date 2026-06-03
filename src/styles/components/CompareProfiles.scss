@@ -1,14 +1,15 @@
+@use '../abstracts/responsive' as bp;
+
 .compare-profiles {
   width: 100%;
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2.4rem;
 
-    @media (max-width: 48em) {
+    @include bp.md {
       grid-template-columns: 1fr;
-      gap: 5rem;
     }
   }
 }

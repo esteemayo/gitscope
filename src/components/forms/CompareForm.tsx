@@ -30,6 +30,9 @@ const CompareForm = ({
             name: 'Emmanuel Adebayo',
             login: 'esteemayo',
             avatar_url: '/avatar-2.jpg',
+            location: 'Nigeria',
+            company: 'SwiftPay Nigeria',
+            html_url: 'https://github.com/esteemayo',
           }}
           onClear={() => onChangeUserA('')}
           onChange={onChangeUserA}
@@ -49,7 +52,13 @@ const CompareForm = ({
           label='User B'
           value={userB}
           placeholder='e.g. gaearon'
-          profile={{ name: 'Brittany Chiang', login: 'brittany' }}
+          profile={{
+            name: 'Brittany Chiang',
+            login: 'brittany',
+            location: 'United States of America',
+            company: 'Apple',
+            html_url: 'https://github.com/brittany',
+          }}
           onClear={() => onChangeUserB('')}
           onChange={onChangeUserB}
         />
