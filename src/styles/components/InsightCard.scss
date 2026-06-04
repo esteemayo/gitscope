@@ -44,7 +44,8 @@
       var(--color-blue-400) 20%,
       transparent
     );
-    color: var(--icon);
+    color: var(--widget-icon);
+    border: 1px solid color-mix(in srgb, var(--color-blue-400) 20%, transparent);
     border-radius: 100%;
 
     svg {

@@ -31,13 +31,19 @@
           height: 10rem;
         }
 
+        &::before {
+          @include bp.md {
+            padding: 0.5rem;
+          }
+        }
+
         img {
           width: 10.4rem;
           height: 10.4rem;
 
           @include bp.md {
-            width: 8.4rem;
-            height: 8.4rem;
+            width: 9rem;
+            height: 9rem;
           }
         }
       }
@@ -49,6 +55,7 @@
         @include bp.md {
           width: 10rem !important;
           height: 10rem !important;
+          border-width: 0.5rem !important;
         }
       }
     }
@@ -131,13 +138,16 @@
     justify-content: center;
     gap: 1.2rem;
 
+    max-width: 70%;
     font-size: 100%;
     color: var(--dashboard-text);
     margin-top: 1.6rem;
 
     &--item {
       display: inline-flex;
+      flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       gap: 0.8rem;
 
       color: inherit;
@@ -146,6 +156,12 @@
         width: 1.5rem;
         height: 1.5rem;
         color: currentColor;
+      }
+
+      &:last-child {
+        svg {
+          fill: currentColor;
+        }
       }
     }
   }
@@ -159,12 +175,17 @@
     margin-top: 2rem;
   }
 
-  &__repos {
-    margin-top: 3rem;
-
+  &__badges {
     display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+
+    margin-top: 1.6rem;
+  }
+
+  &__section {
+    margin-top: 3rem;
   }
 
   &__repos-header {
@@ -172,18 +193,26 @@
     align-items: center;
     justify-content: space-between;
 
-    &--title {
-      text-transform: capitalize;
-      text-rendering: optimizeLegibility;
-      font-weight: 600;
-      font-weight: 100%;
-      line-height: 1.1;
-    }
+    margin-bottom: 1.6rem;
+  }
 
-    &--description {
-      font-size: var(--fz-xxs);
-      color: var(--text-muted);
-    }
+  &__repos-title {
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    font-weight: 600;
+    font-weight: 100%;
+    line-height: 1.1;
+  }
+
+  &__repos-description {
+    font-size: var(--fz-xxs);
+    color: var(--text-muted);
+  }
+
+  &__repos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
   }
 
   &__repos-link {

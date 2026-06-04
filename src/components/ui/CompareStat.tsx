@@ -79,7 +79,8 @@ const CompareStat = ({
     <article
       className={isWinner ? 'compare-stat winnerA' : 'compare-stat winnerB'}
     >
-      <p className='compare-stat__label'>{label}</p>
+      <h3 className='compare-stat__label'>{label}</h3>
+
       <div className='compare-stat__values'>
         <strong
           className={

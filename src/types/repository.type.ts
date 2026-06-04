@@ -8,5 +8,6 @@ export interface Repository {
   size: number;
   language: string;
   visibility: 'public' | 'private';
-  updatedAt: string;
+  created_at: string;
+  updated_at: string;
 }

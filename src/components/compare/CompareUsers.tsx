@@ -11,7 +11,7 @@ import CompareInsight from './CompareInsight';
 import ComparisonPreview from './ComparisonPreview';
 import CompareProfiles from './CompareProfiles';
 
-import { REPOS } from '@/data';
+import { REPOS, REPOS2 } from '@/data';
 import { GitHubUserPreview } from '@/types/compare';
 
 import '../../styles/components/CompareUsers.scss';
@@ -38,7 +38,8 @@ const CompareUsers = () => {
     html_url: 'https://github.com/esteemayo',
     followers: 14,
     following: 44,
-    public_repos: 200,
+    public_repos: 3000,
+    created_at: '2018-10-29T15:34:58Z',
   });
 
   const [profileB, setProfileB] = useState<GitHubUserPreview>({
@@ -50,6 +51,7 @@ const CompareUsers = () => {
     followers: 5000,
     following: 400,
     public_repos: 2000,
+    created_at: '2010-05-29T15:34:58Z',
   });
 
   const [showLoader, setShowLoader] = useState(false);
@@ -140,13 +142,23 @@ const CompareUsers = () => {
 
           <CompareOverview />
           <CompareInsight />
-          <CompareTimeline />
+
+          <CompareTimeline
+            userAName={profileA.name!}
+            userBName={profileB.name!}
+            totalUpdatesA={200}
+            totalUpdatesB={300}
+            leader={profileA.name!}
+            leaderDiff={32}
+            peakMonthA='November'
+            peakMonthB='February'
+          />
 
           <CompareProfiles
             userA={profileA}
             userB={profileB}
             reposA={REPOS}
-            reposB={REPOS.reverse()}
+            reposB={REPOS2}
           />
         </div>
       </div>

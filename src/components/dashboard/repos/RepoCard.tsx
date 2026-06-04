@@ -7,8 +7,9 @@ import BookIcon from '@/components/icons/BookIcon';
 import ForkIcon from '@/components/icons/ForkIcon';
 import StarIcon from '@/components/icons/StarIcon';
 
-import { truncText } from '@/utils';
 import { formatRepoSize } from '@/utils/formatRepoSize';
+import { truncText } from '@/utils';
+import { getLanguageColor } from '@/utils/getLanguageColor';
 
 import { RepoCardProps } from '@/types/repo.card.type';
 import '../../../styles/components/RepoCard.scss';
@@ -53,8 +54,11 @@ const RepoCard = ({
         <footer className='repo-card__stats'>
           <div className='repo-card__stats--left'>
             <span>
-              <div className='language' />
-              {language}
+              <div
+                style={{ backgroundColor: getLanguageColor(language) }}
+                className='language'
+              />
+              {language || 'Unknown'}
             </span>
 
             <span>

@@ -1,0 +1,28 @@
+.profile-leader-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  font-weight: 600;
+  font-size: var(--fz-xs);
+  padding: 0.8rem 1.2rem;
+  background-color: var(--bg-tertiary);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10rem;
+  transition: var(--transition);
+
+  &__label {
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  svg {
+    flex-shrink: 0;
+
+    width: 1.5rem;
+    height: 1.5rem;
+    color: currentColor;
+    stroke: currentColor;
+  }
+}

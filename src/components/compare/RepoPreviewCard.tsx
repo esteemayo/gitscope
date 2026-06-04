@@ -7,8 +7,9 @@ import ForkIcon from '../icons/ForkIcon';
 import StarIcon from '../icons/StarIcon';
 
 import { formatRepoSize } from '@/utils/formatRepoSize';
-import { RepoPreviewCardProps } from '@/types/compare/repo.preview.card.type';
+import { getLanguageColor } from '@/utils/getLanguageColor';
 
+import { RepoPreviewCardProps } from '@/types/compare/repo.preview.card.type';
 import '../../styles/components/RepoPreviewCard.scss';
 
 const RepoPreviewCard = ({
@@ -28,14 +29,19 @@ const RepoPreviewCard = ({
       <h4 className='repo-preview-card__name'>{name}</h4>
 
       {description && (
-        <p className='repo-preview-card__description'>{description}</p>
+        <p className='repo-preview-card__description'>
+          {description ?? 'No description provided.'}
+        </p>
       )}
 
       <footer className='repo-preview-card__footer'>
         <div className='repo-preview-card__group'>
           <span className='repo-preview-card__group--language'>
-            <div />
-            {language}
+            <div
+              style={{ backgroundColor: getLanguageColor(language) }}
+              className='repo-preview-card__group--language-dot'
+            />
+            {language || 'Unknown'}
           </span>
 
           <span className='repo-preview-card__group--stars'>

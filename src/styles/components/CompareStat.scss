@@ -35,9 +35,12 @@
   }
 
   &__label {
-    font-size: var(--fz-xs);
-    color: var(--heading);
-    // color: var(--text-muted);
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    font-weight: 500;
+    font-size: var(--fz-md);
+    color: var(--text);
+    line-height: 1.1;
   }
 
   &__values {
@@ -138,9 +141,12 @@
     align-items: center;
     gap: 0.8rem;
 
-    // width: fit-content;
     padding: 0.6rem 1rem;
     border-radius: 10rem;
+
+    @media (max-width: 57.5em) {
+      width: fit-content;
+    }
 
     &.winnerA {
       background-color: color-mix(in srgb, var(--icon) 12%, transparent);

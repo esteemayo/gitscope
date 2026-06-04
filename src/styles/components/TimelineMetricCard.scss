@@ -1,0 +1,28 @@
+.timeline-metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  padding: 1.6rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+  }
+
+  &__label {
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+  }
+
+  &__value {
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: var(--fz-xl);
+  }
+}

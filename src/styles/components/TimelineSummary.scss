@@ -1,0 +1,15 @@
+@use '../abstracts/responsive' as bp;
+
+.timeline-summary {
+  margin-bottom: 2.4rem;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+
+    @include bp.md {
+      grid-template-columns: 1fr;
+    }
+  }
+}

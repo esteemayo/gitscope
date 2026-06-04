@@ -1,5 +1,5 @@
-import { RepositoryType, SortItemType } from '@/types';
 import { Repository } from '@/types/repository.type';
+import { RepositoryType, SortItemType } from '@/types';
 
 export const SORT_ITEMS: SortItemType[] = [
   { id: 'stars', label: 'stars' },
@@ -105,7 +105,8 @@ export const REPOS: Repository[] = [
     size: 364,
     language: 'JavaScript',
     visibility: 'public',
-    updatedAt: '',
+    created_at: '2024-10-29T15:34:58Z',
+    updated_at: '2024-10-29T15:34:58Z',
   },
   {
     id: 2,
@@ -118,7 +119,8 @@ export const REPOS: Repository[] = [
     size: 495,
     language: 'TypeScript',
     visibility: 'public',
-    updatedAt: '',
+    created_at: '2023-02-02T01:33:26Z',
+    updated_at: '2023-02-02T01:33:26Z',
   },
   {
     id: 3,
@@ -131,7 +133,8 @@ export const REPOS: Repository[] = [
     size: 570,
     language: 'TypeScript',
     visibility: 'public',
-    updatedAt: '',
+    created_at: '2022-06-27T16:36:02Z',
+    updated_at: '2022-06-27T16:36:02Z',
   },
   {
     id: 4,
@@ -144,7 +147,8 @@ export const REPOS: Repository[] = [
     size: 2030,
     language: 'TypeScript',
     visibility: 'public',
-    updatedAt: '',
+    created_at: '2021-05-12T21:32:19Z',
+    updated_at: '2021-05-12T21:32:19Z',
   },
   {
     id: 5,
@@ -157,7 +161,8 @@ export const REPOS: Repository[] = [
     size: 256,
     language: 'SCSS',
     visibility: 'public',
-    updatedAt: '',
+    created_at: '2025-03-06T16:35:41Z',
+    updated_at: '2025-03-06T16:35:41Z',
   },
   {
     id: 6,
@@ -170,7 +175,8 @@ export const REPOS: Repository[] = [
     size: 703,
     language: 'JavaScript',
     visibility: 'public',
-    updatedAt: '',
+    created_at: '2025-04-10T20:37:05Z',
+    updated_at: '2025-04-10T20:37:05Z',
   },
   {
     id: 7,
@@ -183,7 +189,8 @@ export const REPOS: Repository[] = [
     size: 569,
     language: 'TypeScript',
     visibility: 'public',
-    updatedAt: '',
+    created_at: '2023-12-04T01:27:08Z',
+    updated_at: '2023-12-04T01:27:08Z',
   },
   {
     id: 8,
@@ -196,6 +203,123 @@ export const REPOS: Repository[] = [
     size: 1300,
     language: 'TypeScript',
     visibility: 'public',
-    updatedAt: '',
+    created_at: '2026-01-04T01:30:28Z',
+    updated_at: '2026-01-04T01:30:28Z',
+  },
+];
+
+export const REPOS2: Repository[] = [
+  {
+    id: 1,
+    name: 'react-3d-animation',
+    htmlUrl: 'https://github.com/esteemayo/react-3d-animation',
+    description:
+      'Incidunt omnis officiis est voluptas saepe, voluptate, provident molestiae quam iusto odit quo nam, rerum molestias. Non distinctio atque debitis incidunt doloribus.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 1300,
+    language: 'TypeScript',
+    visibility: 'public',
+    created_at: '2026-12-04T01:30:28Z',
+    updated_at: '2026-12-04T01:30:28Z',
+  },
+  {
+    id: 2,
+    name: 'fusion-hub-server',
+    htmlUrl: 'https://github.com/esteemayo/fusion-hub-server',
+    description:
+      'Quia, consequuntur mollitia ipsam rem ullam eveniet officia impedit debitis. Provident magnam est aspernatur deleniti ipsum deserunt itaque nulla omnis earum quidem.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 703,
+    language: 'JavaScript',
+    visibility: 'public',
+    created_at: '2023-04-10T20:37:05Z',
+    updated_at: '2023-04-10T20:37:05Z',
+  },
+  {
+    id: 3,
+    name: 'burgers',
+    htmlUrl: 'https://github.com/esteemayo/burgers',
+    description:
+      'Et nesciunt, eaque est totam inventore illum laborum ullam deserunt cupiditate nisi eos reprehenderit dolores voluptatibus ab quo eveniet quis architecto dolor.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 256,
+    language: 'SCSS',
+    visibility: 'public',
+    created_at: '2024-03-06T16:35:41Z',
+    updated_at: '2024-03-06T16:35:41Z',
+  },
+  {
+    id: 4,
+    name: 'fusion-hub-client',
+    htmlUrl: 'https://github.com/esteemayo/fusion-hub-client',
+    description:
+      'Iusto velit aperiam, odit minima perspiciatis eligendi illo perferendis earum expedita cum, inventore necessitatibus debitis? Doloremque eveniet reprehenderit, dolorem labore vitae quo.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 569,
+    language: 'TypeScript',
+    visibility: 'public',
+    created_at: '2020-12-04T01:27:08Z',
+    updated_at: '2020-12-04T01:27:08Z',
+  },
+
+  {
+    id: 5,
+    name: 'gitscope',
+    htmlUrl: 'https://github.com/esteemayo/gitscope',
+    description:
+      'A GitHub analytics dashboard for visualizing developer repository insights.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 570,
+    language: 'TypeScript',
+    visibility: 'public',
+    created_at: '2021-06-27T16:36:02Z',
+    updated_at: '2021-06-27T16:36:02Z',
+  },
+  {
+    id: 6,
+    name: 'overlay-lab',
+    htmlUrl: 'https://github.com/esteemayo/overlay-lab',
+    description:
+      'Headless popup system with stack-based state, compound components, and built-in accessibility (focus trap, overlay, scroll lock)',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 495,
+    language: 'TypeScript',
+    visibility: 'public',
+    created_at: '2026-02-02T01:33:26Z',
+    updated_at: '2026-02-02T01:33:26Z',
+  },
+  {
+    id: 7,
+    name: 'ecommerce-store-client',
+    htmlUrl: 'https://github.com/esteemayo/ecommerce-store-client',
+    description:
+      'Odio maiores vel facilis molestias exercitationem reiciendis ad voluptatibus molestiae eligendi voluptate maxime expedita, asperiores est laboriosam aspernatur temporibus enim beatae odit.',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 2030,
+    language: 'TypeScript',
+    visibility: 'public',
+    created_at: '2020-05-12T21:32:19Z',
+    updated_at: '2020-05-12T21:32:19Z',
+  },
+  {
+    id: 8,
+    name: 'albumz-api',
+    htmlUrl: 'https://github.com/esteemayo/albumz-api',
+    description:
+      'User password authentication and email verification using passport and passport-local.',
+    stargazers_count: 2,
+    forks_count: 300,
+    size: 364,
+    language: 'JavaScript',
+    visibility: 'public',
+    created_at: '2025-10-29T15:34:58Z',
+    updated_at: '2025-10-29T15:34:58Z',
   },
 ];
