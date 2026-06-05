@@ -42,26 +42,33 @@ const TopLanguageChart = ({
       }}
       tabIndex={-1}
     >
-      {grid && <CartesianGrid stroke={chartTheme.grid} strokeDasharray='3 3' />}
+      {grid && (
+        <CartesianGrid
+          stroke={chartTheme.grid}
+          strokeDasharray='3 3'
+          opacity={0.2}
+        />
+      )}
 
       <XAxis
+        hide
         dataKey='name'
         fontFamily='var(--font-mono)'
-        fontSize='1.2rem'
+        fontSize='var(--fz-xs'
         color='var(--gray-lightest)'
         stroke={chartTheme.axis}
         strokeWidth={1}
-        tick={{ fontSize: 10 }}
+        tick={{ fontSize: 13 }}
       />
 
       <YAxis
         width='auto'
         fontFamily='var(--font-mono)'
-        fontSize='1.2rem'
+        fontSize='var(--fz-xs'
         color='var(--gray-lightest)'
         stroke={chartTheme.axis}
         strokeWidth={1}
-        tick={{ fontSize: 10 }}
+        tick={{ fontSize: 13 }}
       />
 
       <Tooltip
@@ -74,16 +81,20 @@ const TopLanguageChart = ({
         }}
         cursor={{ opacity: 0.1 }}
       />
-      <Legend align='right' />
+
+      <Legend align='right' verticalAlign='top' height={40} />
+
       <Line
         type='monotone'
         dataKey='value'
         name='Languages'
-        dot={{ r: 3 }}
-        activeDot={{ r: 6 }}
+        dot={{ r: 5 }}
+        activeDot={{ r: 8 }}
         stroke={chartTheme.fill}
+        strokeWidth={3}
         isAnimationActive={isAnimationActive}
       />
+
       <RechartsDevtools />
     </LineChart>
   );

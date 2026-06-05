@@ -13,16 +13,50 @@
   &:hover {
     border-color: color-mix(in srgb, var(--icon) 20%, transparent);
     box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+    transform: translateY(-2px);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.1rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-400) 20%,
+      transparent
+    );
+    color: var(--widget-icon);
+    border: 1px solid color-mix(in srgb, var(--color-blue-400) 20%, transparent);
+    border-radius: 100%;
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
   }
 
   &__label {
+    font-weight: 500;
     font-size: var(--fz-xs);
     color: var(--text-muted);
   }
 
   &__value {
     text-transform: capitalize;
-    font-weight: 600;
-    font-size: var(--fz-xl);
+    font-weight: 700;
+    font-size: var(--fz-md);
+    color: var(--text);
+    line-height: 1.2;
   }
 }

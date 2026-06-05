@@ -2,17 +2,35 @@
 
 import millify from 'millify';
 
-import CodeIcon from './icons/CodeIcon';
-import ForkIcon from './icons/ForkIcon';
-import StarIcon from './icons/StarIcon';
-import AlertIcon from './icons/AlertIcon';
+import RepoMetrics from './RepoMetrics';
+import RepoHero from './RepoHero';
+import RepoSummary from './RepoSummary';
+import RepoHealth from './RepoHealth';
+import RepoSidebar from './RepoSidebar';
 
-import '../styles/components/RepoDetails.scss';
+import CodeIcon from '../icons/CodeIcon';
+import ForkIcon from '../icons/ForkIcon';
+import StarIcon from '../icons/StarIcon';
+import AlertIcon from '../icons/AlertIcon';
+
+import '../../styles/components/RepoDetails.scss';
 
 const RepoDetails = () => {
   return (
     <div className='repo-details'>
       <div className='repo-details__container'>
+        <main>
+          <RepoHero />
+          <RepoMetrics />
+
+          <RepoSummary />
+          <RepoHealth />
+        </main>
+
+        <RepoSidebar />
+      </div>
+
+      {/* <div className='repo-details__container'>
         <header className='repo-details__header'>
           <h1 className='repo-details__heading' title='albumz-api'>
             albumz-api
@@ -79,7 +97,7 @@ const RepoDetails = () => {
             <span>main</span>
           </div>
         </section>
-      </div>
+      </div> */}
     </div>
   );
 };

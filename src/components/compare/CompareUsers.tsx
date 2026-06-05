@@ -144,11 +144,9 @@ const CompareUsers = () => {
           <CompareInsight />
 
           <CompareTimeline
-            userAName={profileA.name!}
-            userBName={profileB.name!}
             totalUpdatesA={200}
             totalUpdatesB={300}
-            leader={profileA.name!}
+            leaderName={profileA.name!}
             leaderDiff={32}
             peakMonthA='November'
             peakMonthB='February'

@@ -43,9 +43,7 @@ const CompareTimelineChart = ({
     <LineChart
       style={{
         width: '100%',
-        height: '300px',
-        maxWidth: '700px',
-        maxHeight: '70vh',
+        height: '450px',
         aspectRatio: 1.618,
       }}
       responsive
@@ -58,26 +56,32 @@ const CompareTimelineChart = ({
       }}
       tabIndex={-1}
     >
-      {grid && <CartesianGrid stroke={chartTheme.grid} strokeDasharray='3 3' />}
+      {grid && (
+        <CartesianGrid
+          stroke={chartTheme.grid}
+          strokeDasharray='3 3'
+          opacity={0.2}
+        />
+      )}
 
       <XAxis
         dataKey='month'
         fontFamily='var(--font-mono)'
-        fontSize='1.2rem'
+        fontSize='var(--fz-sm)'
         color={chartTheme.axis}
         stroke={chartTheme.axis}
         strokeWidth={1}
-        tick={{ fontSize: 10 }}
+        tick={{ fontSize: 14 }}
       />
 
       <YAxis
         width='auto'
         fontFamily='var(--font-mono)'
-        fontSize='1.2rem'
+        fontSize='var(--fz-sm)'
         color={chartTheme.axis}
         stroke={chartTheme.axis}
         strokeWidth={1}
-        tick={{ fontSize: 10 }}
+        tick={{ fontSize: 14 }}
       />
 
       <Tooltip
@@ -91,15 +95,16 @@ const CompareTimelineChart = ({
         cursor={{ opacity: 0.1 }}
       />
 
-      <Legend align='right' />
+      <Legend align='right' verticalAlign='top' height={40} />
 
       <Line
         type='monotone'
         dataKey='userA'
         name='User A'
-        dot={{ r: 3 }}
-        activeDot={{ r: 6 }}
+        dot={{ r: 5 }}
+        activeDot={{ r: 8 }}
         stroke={isDark ? '#38bdf8' : '#1f6fea'}
+        strokeWidth={3}
         isAnimationActive={isAnimationActive}
       />
 
@@ -107,9 +112,10 @@ const CompareTimelineChart = ({
         type='monotone'
         dataKey='userB'
         name='User B'
-        dot={{ r: 3 }}
-        activeDot={{ r: 6 }}
+        dot={{ r: 5 }}
+        activeDot={{ r: 8 }}
         stroke='#10b981'
+        strokeWidth={3}
         isAnimationActive={isAnimationActive}
       />
 

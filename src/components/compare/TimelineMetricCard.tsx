@@ -1,14 +1,18 @@
+import { TimelineMetricCardProps } from '@/types/compare/timeline.metric.card.type';
 import '../../styles/components/TimelineMetricCard.scss';
 
-interface TimelineMetricCardProps {
-  label: string;
-  value: string | number;
-}
-
-const TimelineMetricCard = ({ label, value }: TimelineMetricCardProps) => {
+const TimelineMetricCard = ({
+  icon,
+  label,
+  value,
+}: TimelineMetricCardProps) => {
   return (
     <article className='timeline-metric-card'>
-      <span className='timeline-metric-card__label'>{label}</span>
+      <div className='timeline-metric-card__header'>
+        <span className='timeline-metric-card__icon'>{icon}</span>
+
+        <span className='timeline-metric-card__label'>{label}</span>
+      </div>
 
       <strong className='timeline-metric-card__value'>{value}</strong>
     </article>

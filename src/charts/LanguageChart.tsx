@@ -37,9 +37,10 @@ const LanguageChart = ({
         label
         isAnimationActive={isAnimationActive}
         fontFamily='var(--font-mono)'
-        fontSize='1.2rem'
-        strokeWidth={1}
+        fontSize='var(--fz-xs)'
+        strokeWidth={3}
       />
+
       <Tooltip
         defaultIndex={defaultIndex}
         contentStyle={{
