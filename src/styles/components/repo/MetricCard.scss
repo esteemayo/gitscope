@@ -1,0 +1,58 @@
+.metric-card {
+  padding: 1.6rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  transition: var(--transition);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+    transform: translateY(-2px);
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800) 20%,
+      transparent
+    );
+    color: var(--icon);
+    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    border-radius: 100%;
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    &--value {
+      display: block;
+      font-size: 1.125rem;
+    }
+
+    &--label {
+      font-size: var(--fz-sm);
+      color: var(--text-muted);
+    }
+  }
+}

@@ -1,2 +1,15 @@
+@use '../../abstracts/responsive' as bp;
+
 .repo-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.4rem;
+
+  @include bp.md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 33.75em) {
+    grid-template-columns: 1fr;
+  }
 }

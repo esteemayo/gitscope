@@ -1,0 +1,27 @@
+.summary-card {
+  padding: 1.6rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  transition: var(--transition);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+    transform: translateY(-2px);
+  }
+
+  &__label {
+    display: block;
+    font-size: var(--fz-sm);
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  &__value {
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 100%;
+  }
+}

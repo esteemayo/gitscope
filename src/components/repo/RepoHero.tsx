@@ -1,9 +1,12 @@
+import { RepoHeroProps } from '@/types/repo/repo.hero.type';
 import '../../styles/components/repo/RepoHero.scss';
 
-const RepoHero = () => {
+const RepoHero = ({ repo }: RepoHeroProps) => {
   return (
     <section className='repo-hero'>
-      <div className='repo-hero__avatar'>AL</div>
+      <div className='repo-hero__avatar'>
+        {(repo.language ?? repo.name).slice(0, 2).toUpperCase()}
+      </div>
 
       <div className='repo-hero__content'>
         <span className='repo-hero__label'>Public repository</span>
@@ -11,19 +14,16 @@ const RepoHero = () => {
         <h1 className='repo-hero__title'>albumz</h1>
 
         <p className='repo-hero__description'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
-          consequatur dolore. Fuga sunt ducimus quae sed. Incidunt non aperiam
-          repellat omnis architecto dolor atque, vitae odio cum suscipit ab
-          reiciendis! {'No description provided'}
+          {repo.description ?? 'No description provided.'}
         </p>
       </div>
 
       <div className='repo-hero__actions'>
         <a
-          href='#'
+          href={repo.html_url}
           target='_blank'
           rel='noopener noreferrer'
-          className='btn__primary'
+          className='repo-hero__action--link'
         >
           View on GitHub
         </a>
