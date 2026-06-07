@@ -1,0 +1,64 @@
+.repo-snapshot {
+  padding: 1.25rem;
+  background-color: var(--bg-card-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+
+  &__header {
+    margin-bottom: 1rem;
+
+    &--title {
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-lg);
+      line-height: 1.1;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    color: var(--icon);
+    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    border-radius: 0.75rem;
+    border-radius: 100%;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+    &--label {
+      text-transform: capitalize;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+    }
+
+    &--value {
+      font-weight: 600;
+      font-size: var(--fz-xs);
+      font-variant: tabular-nums;
+    }
+  }
+}

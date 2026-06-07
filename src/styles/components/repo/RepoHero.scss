@@ -1,3 +1,4 @@
+@use '../../abstracts/mixins' as *;
 @use '../../abstracts/responsive' as bp;
 
 .repo-hero {
@@ -27,6 +28,7 @@
 
     width: 7.2rem;
     height: 7.2rem;
+    text-transform: uppercase;
     font-weight: 700;
     font-size: 1.25rem;
     background-color: color-mix(in srgb, var(--icon) 20%, transparent);
@@ -57,7 +59,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-family: var(--font-mono);
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1.1;
     overflow: hidden;
     margin-bottom: 0.75rem;
@@ -74,6 +76,46 @@
     &--link {
       &:link,
       &:visited {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        font-weight: 600;
+        font-size: 100%;
+        padding: 0.875rem 1rem;
+        background-color: var(--color-blue-800);
+        color: var(--color-white-50);
+        border: 1px solid var(--color-blue-800);
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+
+        &:hover {
+          border-color: color-mix(
+            in srgb,
+            var(--color-blue-800) 20%,
+            transparent
+          );
+          box-shadow: 0 0 2rem
+            color-mix(in srgb, var(--color-blue-800) 20%, transparent);
+          opacity: 0.9;
+          transform: translateY(-1px);
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &:focus-visible {
+          border-radius: 0;
+          @include focus-ring();
+        }
+
+        &:disabled {
+          opacity: 0.75;
+          user-select: none;
+          pointer-events: none;
+        }
       }
     }
   }

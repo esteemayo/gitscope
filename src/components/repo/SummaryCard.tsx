@@ -1,12 +1,18 @@
 import { SummaryCardProps } from '@/types/repo/summary.card.type';
 import '../../styles/components/repo/SummaryCard.scss';
 
-const SummaryCard = ({ label, value }: SummaryCardProps) => {
+const SummaryCard = ({ icon, label, value }: SummaryCardProps) => {
   return (
     <article className='summary-card'>
-      <span className='summary-card__label'>{label}</span>
+      <div className='summary-card__container'>
+        <div className='summary-card__icon'>{icon}</div>
 
-      <strong className='summary-card__value'>{value}</strong>
+        <div className='summary-card__content'>
+          <span className='summary-card__label'>{label}</span>
+
+          <strong className='summary-card__value'>{value}</strong>
+        </div>
+      </div>
     </article>
   );
 };

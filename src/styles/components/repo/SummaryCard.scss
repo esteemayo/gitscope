@@ -12,11 +12,43 @@
     transform: translateY(-2px);
   }
 
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    color: var(--icon);
+    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    border-radius: 100%;
+    transition: var(--transition);
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__label {
     display: block;
     font-size: var(--fz-sm);
     color: var(--text-muted);
-    margin-bottom: 0.5rem;
+    // margin-bottom: 0.5rem;
   }
 
   &__value {

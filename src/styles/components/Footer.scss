@@ -4,6 +4,7 @@
 .footer {
   padding: 4.8rem 8rem;
   border-top: 1px solid var(--border);
+  transition: var(--transition);
 
   @media (max-width: 56.25em) {
     padding: 4.8rem 3.2rem;

@@ -1,0 +1,42 @@
+.section-card {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    text-rendering: optimizeLegibility;
+    font-weight: 600;
+    font-size: var(--fz-xs);
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+  }
+
+  &__description {
+    font-size: var(--fz-xxs);
+    color: var(--text-muted);
+  }
+
+  &__action {
+  }
+
+  &__content {
+    padding: 1.5rem;
+  }
+}
