@@ -27,6 +27,7 @@
   }
 
   &.scrolled {
+    height: var(--nav-scroll-height);
     background-image: none;
     background-color: rgb(from var(--black) rgb / 0.75);
     color: var(--color-blue-800);

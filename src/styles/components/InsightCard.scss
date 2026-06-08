@@ -33,6 +33,8 @@
   }
 
   &__icon {
+    flex-shrink: 0;
+
     display: grid;
     place-items: center;
 

@@ -1,0 +1,36 @@
+.contributors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+  gap: 1rem;
+
+  &__card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    transition: var(--transition);
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+
+    &--username {
+      font-weight: 500;
+      font-size: var(--fz-sm);
+      margin-bottom: 0.25rem;
+    }
+
+    &--commits {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+    }
+  }
+}

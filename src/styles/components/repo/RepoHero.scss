@@ -17,11 +17,6 @@
     flex-direction: column;
   }
 
-  &:hover {
-    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
-    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
-  }
-
   &__avatar {
     display: grid;
     place-items: center;
@@ -79,43 +74,48 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        gap: 0.625rem;
 
         width: 100%;
         font-weight: 600;
-        font-size: 100%;
+        font-size: var(--fz-sm);
         padding: 0.875rem 1rem;
         background-color: var(--color-blue-800);
         color: var(--color-white-50);
         border: 1px solid var(--color-blue-800);
-        border-radius: var(--border-radius);
+        border-radius: 0.875rem;
         transition: var(--transition);
+      }
 
-        &:hover {
-          border-color: color-mix(
-            in srgb,
-            var(--color-blue-800) 20%,
-            transparent
-          );
-          box-shadow: 0 0 2rem
-            color-mix(in srgb, var(--color-blue-800) 20%, transparent);
-          opacity: 0.9;
-          transform: translateY(-1px);
-        }
+      &:hover {
+        border-color: color-mix(
+          in srgb,
+          var(--color-blue-800) 20%,
+          transparent
+        );
+        box-shadow: 0 0 2rem
+          color-mix(in srgb, var(--color-blue-800) 20%, transparent);
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
 
-        &:focus {
-          outline: none;
-        }
+      &:focus {
+        outline: none;
+      }
 
-        &:focus-visible {
-          border-radius: 0;
-          @include focus-ring();
-        }
+      &:focus-visible {
+        border-radius: 0;
+        @include focus-ring();
+      }
 
-        &:disabled {
-          opacity: 0.75;
-          user-select: none;
-          pointer-events: none;
-        }
+      &:disabled {
+        opacity: 0.75;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      svg {
+        opacity: 0.85;
       }
     }
   }

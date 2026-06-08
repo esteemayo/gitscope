@@ -13,3 +13,30 @@ export interface RepoDetails {
   subscribers_count?: number;
   size?: number;
 }
+
+export interface TimelineEvent {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+}
+
+export interface LanguageData {
+  name: string
+  percentage: number
+  color: string
+}
+
+export interface Contributor {
+  id: number
+  login: string
+  avatarUrl: string
+  contributions: number
+}
+
+export interface Commit {
+  sha: string
+  message: string
+  author: string
+  date: string
+}

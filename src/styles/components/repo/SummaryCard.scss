@@ -1,3 +1,5 @@
+@use '../../abstracts/responsive' as bp;
+
 .summary-card {
   padding: 1.6rem;
   background-color: var(--bg-tertiary);
@@ -6,9 +8,15 @@
   border-radius: var(--radius);
   transition: var(--transition);
 
+  @media (max-width: 50em) {
+    padding: 1.6rem 1rem;
+  }
+
+  @include bp.md {
+    padding: 1.6rem;
+  }
+
   &:hover {
-    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
-    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
     transform: translateY(-2px);
   }
 
@@ -42,18 +50,18 @@
   &__content {
     display: flex;
     flex-direction: column;
+
+    text-transform: capitalize;
   }
 
   &__label {
     display: block;
-    font-size: var(--fz-sm);
+    font-size: var(--fz-xs);
     color: var(--text-muted);
-    // margin-bottom: 0.5rem;
   }
 
   &__value {
-    text-transform: capitalize;
-    font-weight: 500;
-    font-size: 100%;
+    font-weight: 600;
+    font-size: var(--fz-sm);
   }
 }

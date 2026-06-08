@@ -1,6 +1,7 @@
 .section-card {
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   border-radius: var(--radius);
   overflow: hidden;
   transition: var(--transition);
@@ -11,7 +12,7 @@
     justify-content: space-between;
 
     padding: 1.5rem;
-    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     transition: var(--transition);
   }
 

@@ -1,4 +1,6 @@
+import { ExternalLink } from 'lucide-react';
 import { RepoHeroProps } from '@/types/repo/repo.hero.type';
+
 import '../../styles/components/repo/RepoHero.scss';
 
 const RepoHero = ({ repo }: RepoHeroProps) => {
@@ -25,7 +27,8 @@ const RepoHero = ({ repo }: RepoHeroProps) => {
           rel='noopener noreferrer'
           className='repo-hero__actions--link'
         >
-          View on GitHub
+          <ExternalLink size={16} />
+          <span>View on GitHub</span>
         </a>
       </div>
     </section>
