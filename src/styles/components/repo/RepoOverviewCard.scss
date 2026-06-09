@@ -1,29 +1,17 @@
-@use '../../abstracts/responsive' as bp;
+.repo-overview-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
-.metric-card {
   padding: 1.6rem;
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
   border-radius: var(--radius);
   transition: var(--transition);
 
-  @media (max-width: 50em) {
-    padding: 1.6rem 1rem;
-  }
-
-  @include bp.md {
-    padding: 1.6rem;
-  }
-
   &:hover {
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
     transform: translateY(-2px);
-  }
-
-  &__container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
   }
 
   &__icon {
@@ -34,7 +22,9 @@
 
     width: 3.5rem;
     height: 3.5rem;
-    background-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: color-mix(in srgb, var(--icon) 12%, transparent);
     color: var(--icon);
     border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
     border-radius: 100%;
@@ -43,8 +33,9 @@
     svg {
       width: 1.8rem;
       height: 1.8rem;
+      width: 1.4rem;
+      height: 1.4rem;
       color: currentColor;
-      stroke: currentColor;
     }
   }
 
@@ -54,16 +45,16 @@
 
     text-transform: capitalize;
 
+    &--label {
+      display: block;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+    }
+
     &--value {
       display: block;
       font-weight: 600;
-      font-size: var(--fz-xxs);
-      font-variant: tabular-nums;
-    }
-
-    &--label {
       font-size: var(--fz-sm);
-      color: var(--text-muted);
     }
   }
 }

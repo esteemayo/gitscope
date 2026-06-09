@@ -1,3 +1,6 @@
+import { LucideProps } from 'lucide-react';
+import { ForwardRefExoticComponent, RefAttributes } from 'react';
+
 export interface RepoDetails {
   id: number;
   name: string;
@@ -14,6 +17,22 @@ export interface RepoDetails {
   size?: number;
 }
 
+export interface RepoOverviewItem {
+  id: string;
+  label: string;
+  value: string | number;
+  icon: ForwardRefExoticComponent<
+    Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>
+  >;
+}
+
+export interface RepoHealthMetric {
+  id: string;
+  label: string;
+  value: string;
+  status?: 'success' | 'warning' | 'danger';
+}
+
 export interface TimelineEvent {
   id: string;
   title: string;
@@ -22,21 +41,22 @@ export interface TimelineEvent {
 }
 
 export interface LanguageData {
-  name: string
-  percentage: number
-  color: string
+  name: string;
+  percentage: number;
+  color: string;
 }
 
 export interface Contributor {
-  id: number
-  login: string
-  avatarUrl: string
-  contributions: number
+  id: number;
+  rank: number;
+  login: string;
+  avatarUrl: string;
+  contributions: number;
 }
 
 export interface Commit {
-  sha: string
-  message: string
-  author: string
-  date: string
+  sha: string;
+  message: string;
+  author: string;
+  date: string;
 }

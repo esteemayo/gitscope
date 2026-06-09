@@ -2,20 +2,20 @@
 
 import SectionCard from '../ui/SectionCard';
 
-import RepoMetrics from './RepoMetrics';
-import Commits from './Commits';
-import RepoSummary from './RepoSummary';
-import RepoHero from './RepoHero';
 import RepoSidebar from './RepoSidebar';
-import Timeline from './Timeline';
+import Commits from './Commits';
 import Contributors from './Contributors';
-import RepoHealth from './RepoHealth';
+import RepoHero from './RepoHero';
+import RepoOverview from './RepoOverview';
+import Timeline from './Timeline';
 import LanguageChart from './LanguageChart';
+import RepoHealth from './RepoHealth';
 
 import {
   commits,
   contributors,
   languageData,
+  overviewItems,
   timelineEvents,
 } from '@/data/repo/index';
 import '../../styles/components/RepoDetails.scss';
@@ -26,8 +26,8 @@ const RepoDetails = () => {
     name: 'albumz-api',
     description:
       'User password authentication and email verification using passport and passport-local.',
-    stargazers_count: 300,
-    forks_count: 1000,
+    stargazers_count: 2043,
+    forks_count: 4320,
     open_issues_count: 50,
     language: 'TypeScript',
     default_branch: 'main',
@@ -42,18 +42,12 @@ const RepoDetails = () => {
         <main className='repo-details__content'>
           <RepoHero repo={repo} />
 
-          <RepoMetrics
-            stars={repo.stargazers_count}
-            forks={repo.forks_count}
-            issues={repo.open_issues_count}
-            language={repo.language}
-          />
-
-          <RepoSummary
-            createdAt={repo.created_at}
-            updatedAt={repo.updated_at}
-            branch={repo.default_branch}
-          />
+          <SectionCard
+            title='Repository Overview'
+            description='Key repository statistics and metadata.'
+          >
+            <RepoOverview items={overviewItems} />
+          </SectionCard>
 
           <SectionCard
             title='Repository Health'
@@ -67,28 +61,28 @@ const RepoDetails = () => {
 
           <SectionCard
             title='Activity Timeline'
-            description='Recent repository activity'
+            description='Recent repository events and milestones.'
           >
             <Timeline events={timelineEvents.slice(0, 8)} />
           </SectionCard>
 
           <SectionCard
             title='Language Distribution'
-            description='Repository code breakdown'
+            description='Repository code composition.'
           >
             <LanguageChart languages={languageData} />
           </SectionCard>
 
           <SectionCard
             title='Top Contributors'
-            description='Most active repository contributors'
+            description='Most active repository contributors.'
           >
             <Contributors contributors={contributors.slice(0, 6)} />
           </SectionCard>
 
           <SectionCard
-            title='Recent Commits'
-            description='Latest repository changes'
+            title='Recent Changes'
+            description='Latest commits merged into the repository.'
           >
             <Commits commits={commits.slice(0, 10)} />
           </SectionCard>

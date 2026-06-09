@@ -1,0 +1,61 @@
+.commit-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  &__main {
+    flex: 1;
+
+    &--message {
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: inherit;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: var(--fz-xxs);
+    color: var(--text-muted);
+
+    &--author {
+      font-size: inherit;
+      color: currentColor;
+    }
+
+    &--date {
+      font-size: inherit;
+      color: currentColor;
+    }
+  }
+
+  &__hash {
+    align-self: center;
+
+    min-width: 7rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    padding: 0.25rem 0.5rem;
+    background-color: color-mix(in srgb, var(--icon) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    border-radius: 10rem;
+    transition: var(--transition);
+  }
+}

@@ -1,0 +1,48 @@
+.contributor-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  position: relative;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  transition: var(--transition);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    transform: translateY(-2px);
+  }
+
+  &__rank {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    padding: 0.25rem 0.5rem;
+    background-color: color-mix(in srgb, var(--icon) 12%, transparent);
+    border-radius: 10rem;
+    transition: var(--transition);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    &--name {
+      font-weight: 500;
+      font-size: var(--fz-sm);
+      margin-bottom: 0.25rem;
+    }
+
+    &--commits {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+    }
+  }
+}

@@ -1,9 +1,66 @@
+import { format } from 'date-fns';
+import {
+  AlertCircle,
+  CalendarDays,
+  Clock3,
+  Code2,
+  GitBranch,
+  GitFork,
+  Star,
+} from 'lucide-react';
+
 import {
   Commit,
   Contributor,
   LanguageData,
+  RepoOverviewItem,
   TimelineEvent,
 } from '@/types/repo/index';
+
+export const overviewItems: RepoOverviewItem[] = [
+  {
+    id: 'stars',
+    label: 'Stars',
+    value: Number('2043').toLocaleString(),
+    icon: Star,
+  },
+  {
+    id: 'fork',
+    label: 'Fork',
+    value: Number('4320').toLocaleString(),
+    icon: GitFork,
+  },
+  {
+    id: 'issues',
+    label: 'Issues',
+    value: Number('50').toLocaleString(),
+    icon: AlertCircle,
+  },
+  {
+    id: 'language',
+    label: 'Language',
+    value: 'TypeScript',
+    icon: Code2,
+  },
+  {
+    id: 'created',
+    label: 'Created',
+    value: format(new Date('2025-10-29T15:34:58Z'), 'MMM d, yyyy'),
+    icon: CalendarDays,
+  },
+  {
+    id: 'updated',
+    label: 'Updated',
+    value: format(new Date('2025-10-29T15:34:58Z'), 'MMM d, yyyy'),
+    icon: Clock3,
+  },
+  {
+    id: 'branch',
+    label: 'branch',
+    value: 'Main',
+    icon: GitBranch,
+  },
+];
 
 export const timelineEvents: TimelineEvent[] = [
   {
@@ -69,36 +126,42 @@ export const languageData: LanguageData[] = [
 export const contributors: Contributor[] = [
   {
     id: 1,
+    rank: 1,
     login: 'esteemayo',
     avatarUrl: 'https://i.pravatar.cc/150?img=11',
     contributions: 182,
   },
   {
     id: 2,
+    rank: 2,
     login: 'joshdev',
     avatarUrl: 'https://i.pravatar.cc/150?img=12',
     contributions: 124,
   },
   {
     id: 3,
+    rank: 3,
     login: 'sarahcodes',
     avatarUrl: 'https://i.pravatar.cc/150?img=13',
     contributions: 91,
   },
   {
     id: 4,
+    rank: 4,
     login: 'michael-ui',
     avatarUrl: 'https://i.pravatar.cc/150?img=14',
     contributions: 73,
   },
   {
     id: 5,
+    rank: 5,
     login: 'tom-react',
     avatarUrl: 'https://i.pravatar.cc/150?img=15',
     contributions: 51,
   },
   {
     id: 6,
+    rank: 6,
     login: 'amy-dev',
     avatarUrl: 'https://i.pravatar.cc/150?img=16',
     contributions: 38,
