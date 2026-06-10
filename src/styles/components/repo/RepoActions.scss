@@ -1,0 +1,150 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/responsive' as bp;
+
+.repo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+
+  padding: 1.25rem;
+  background-color: var(--bg-card-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+
+  &__title {
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    font-weight: 600;
+    font-size: var(--fz-sm);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625rem;
+
+      width: 100%;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      clip-path: polygon(
+        1.2rem 0%,
+        calc(100% - 1.2rem) 0%,
+        100% 50%,
+        calc(100% - 1.2rem) 100%,
+        1.2rem 100%,
+        1.2rem 100%,
+        0% 50%
+      );
+      padding: 0.875rem 1rem;
+      background-color: var(--color-blue-800);
+      color: var(--color-white-50);
+      border: 1px solid var(--color-blue-800);
+      border-radius: var(--border-radius);
+      border-radius: 0.875rem;
+      transition: var(--transition);
+
+      @include bp.md {
+        clip-path: polygon(
+          1.6rem 0%,
+          calc(100% - 1.6rem) 0%,
+          100% 50%,
+          calc(100% - 1.6rem) 100%,
+          1.6rem 100%,
+          1.6rem 100%,
+          0% 50%
+        );
+      }
+    }
+
+    &:hover {
+      border-color: color-mix(in srgb, var(--color-blue-800) 20%, transparent);
+      box-shadow: 0 0 2rem
+        color-mix(in srgb, var(--color-blue-800) 20%, transparent);
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      border-radius: 0;
+      @include focus-ring();
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    svg {
+      opacity: 0.85;
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+
+    width: 100%;
+    text-transform: initial;
+    font-weight: 500;
+    font-size: var(--fz-sm);
+    clip-path: polygon(
+      1.2rem 0%,
+      calc(100% - 1.2rem) 0%,
+      100% 50%,
+      calc(100% - 1.2rem) 100%,
+      1.2rem 100%,
+      1.2rem 100%,
+      0% 50%
+    );
+    padding: 0.875rem 1rem;
+    background-color: transparent;
+    background-color: color-mix(in srgb, var(--border) 20%, transparent);
+    color: var(--text);
+    // border: 1px solid var(--border);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    border-radius: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition);
+
+    @include bp.md {
+      clip-path: polygon(
+        1.6rem 0%,
+        calc(100% - 1.6rem) 0%,
+        100% 50%,
+        calc(100% - 1.6rem) 100%,
+        1.6rem 100%,
+        1.6rem 100%,
+        0% 50%
+      );
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: color-mix(in srgb, var(--icon) 12%, transparent);
+      color: var(--icon);
+      // border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    }
+
+    svg {
+      opacity: 0.85;
+    }
+  }
+}

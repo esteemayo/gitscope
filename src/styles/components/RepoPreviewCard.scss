@@ -1,9 +1,15 @@
+@use '../abstracts/responsive' as bp;
+
 .repo-preview-card {
   padding: 1.8rem;
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   transition: var(--transition);
+
+  @include bp.md {
+    padding: 1.6rem;
+  }
 
   &__name {
     text-transform: initial;
@@ -17,6 +23,7 @@
   &__description {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
 
     font-size: var(--fz-xxs);

@@ -1,17 +1,17 @@
-.repo-overview-card {
+.repo-snapshot-item {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.875rem;
 
-  padding: 1.6rem;
+  padding: 1rem;
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 0.875rem;
   transition: var(--transition);
 
   &:hover {
-    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
     transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
   }
 
   &__icon {
@@ -26,7 +26,8 @@
     color: var(--icon);
     border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
     border-radius: 100%;
-    transition: var(--transition);
+    user-select: none;
+    pointer-events: none;
 
     svg {
       width: 1.4rem;
@@ -38,19 +39,18 @@
   &__content {
     display: flex;
     flex-direction: column;
-
-    text-transform: capitalize;
+    gap: 0.25rem;
 
     &--label {
-      display: block;
-      font-size: var(--fz-xs);
+      text-transform: capitalize;
+      font-size: var(--fz-xxs);
       color: var(--text-muted);
     }
 
     &--value {
-      display: block;
       font-weight: 600;
-      font-size: var(--fz-sm);
+      font-size: var(--fz-xs);
+      font-variant: tabular-nums;
     }
   }
 }

@@ -17,6 +17,11 @@
     flex: 1;
 
     &--message {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+
       text-rendering: optimizeLegibility;
       font-weight: 600;
       font-size: var(--fz-sm);

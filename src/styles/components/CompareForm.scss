@@ -15,6 +15,10 @@
   margin-bottom: 10rem;
   transition: var(--transition);
 
+  @include bp.md {
+    padding: 1.6rem;
+  }
+
   &:hover {
     border-color: color-mix(in srgb, var(--icon) 20%, transparent);
     box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
@@ -90,13 +94,31 @@
       text-transform: capitalize;
       font-weight: 600;
       font-size: 100%;
+      clip-path: polygon(
+        1.2rem 0%,
+        calc(100% - 1.2rem) 0%,
+        100% 50%,
+        calc(100% - 1.2rem) 100%,
+        1.2rem 100%,
+        1.2rem 100%,
+        0% 50%
+      );
       padding-inline: 1.6rem;
-      border-radius: var(--radius);
+      border-radius: 0.875rem;
       cursor: pointer;
       transition: var(--transition);
 
       @include bp.md {
         width: 100%;
+        clip-path: polygon(
+          1.6rem 0%,
+          calc(100% - 1.6rem) 0%,
+          100% 50%,
+          calc(100% - 1.6rem) 100%,
+          1.6rem 100%,
+          1.6rem 100%,
+          0% 50%
+        );
       }
 
       &:focus {
@@ -105,7 +127,7 @@
 
       &:hover,
       &:focus-visible {
-        border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+        // border-color: color-mix(in srgb, var(--icon) 20%, transparent);
         box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
       }
 
@@ -119,8 +141,10 @@
     &--reset {
       min-width: 10rem;
       background-color: transparent;
+      background-color: color-mix(in srgb, var(--border) 20%, transparent);
       color: var(--text-muted);
-      border: 1px solid var(--border);
+      // border: 1px solid var(--border);
+      border: 1px solid transparent;
     }
 
     &--submit {

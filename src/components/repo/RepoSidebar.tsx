@@ -1,8 +1,9 @@
-import { Copy, ExternalLink, Share2 } from 'lucide-react';
+import RepoActions from './RepoActions';
+import RepoFacts from './RepoFacts';
+import RepoSnapshot from './RepoSnapshot';
+import RepoStatus from './RepoStatus';
 
-import RepositorySnapshot from './RepositorySnapshot';
 import { RepoSidebarProps } from '@/types/repo/repo.sidebar.type';
-
 import '../../styles/components/repo/RepoSidebar.scss';
 
 const RepoSidebar = ({
@@ -11,39 +12,25 @@ const RepoSidebar = ({
   forks,
   issues,
   language,
+  branch,
+  createdAt,
+  updatedAt,
+  status,
 }: RepoSidebarProps) => {
   return (
     <aside className='repo-sidebar'>
-      <RepositorySnapshot
+      <RepoSnapshot
         stars={stars}
         forks={forks}
         issues={issues}
         language={language}
       />
 
-      <div className='repo-sidebar__actions'>
-        <h4 className='repo-sidebar__actions--title'>Quick actions</h4>
+      <RepoFacts branch={branch} createdAt={createdAt} updatedAt={updatedAt} />
 
-        <a
-          href={githubUrl}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='repo-sidebar__actions--link'
-        >
-          <ExternalLink size={16} />
-          <span>View on GitHub</span>
-        </a>
+      <RepoStatus status={status} lastCommitDate={updatedAt} />
 
-        <button type='button' className='repo-sidebar__actions--btn'>
-          <Share2 size={16} />
-          <span>Share Repository</span>
-        </button>
-
-        <button type='button' className='repo-sidebar__actions--btn'>
-          <Copy size={16} />
-          <span>Copy URL</span>
-        </button>
-      </div>
+      <RepoActions githubUrl={githubUrl} />
     </aside>
   );
 };

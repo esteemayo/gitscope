@@ -35,17 +35,45 @@
       font-weight: 600;
       font-size: 100%;
       color: var(--text);
-    }
 
-    .status-dot {
-      width: 1.2rem;
-      height: 1.2rem;
-      display: inline-block;
-      margin-right: 0.5rem;
-      background-color: #22c55e;
-      border-radius: 100%;
-      user-select: none;
-      pointer-events: none;
+      &.active,
+      &.archived,
+      &.inactive,
+      &.disabled {
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 1.2rem;
+          height: 1.2rem;
+          border-radius: 100%;
+          user-select: none;
+          pointer-events: none;
+        }
+      }
+
+      &.active {
+        &::before {
+          background-color: #22c55e;
+        }
+      }
+
+      &.archived {
+        &::before {
+          background-color: #94a3b8;
+        }
+      }
+
+      &.inactive {
+        &::before {
+          background-color: #f59e0b;
+        }
+      }
+
+      &.disabled {
+        &::before {
+          background-color: #ef4444;
+        }
+      }
     }
   }
 }

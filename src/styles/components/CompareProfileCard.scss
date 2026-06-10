@@ -9,6 +9,10 @@
   border-radius: var(--radius);
   transition: var(--transition);
 
+  @include bp.md {
+    padding: 1.6rem;
+  }
+
   &:hover {
     &:nth-child(2n + 1) {
       border-color: color-mix(in srgb, var(--icon) 20%, transparent);
@@ -138,9 +142,10 @@
     justify-content: center;
     gap: 1.2rem;
 
-    max-width: 70%;
-    font-size: 100%;
+    width: 100%;
+    font-size: var(--fz-sm);
     color: var(--dashboard-text);
+    line-height: 1.1;
     margin-top: 1.6rem;
 
     &--item {

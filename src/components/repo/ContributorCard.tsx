@@ -1,27 +1,27 @@
 import UserAvatar from '../ui/UserAvatar';
-import { Contributor } from '@/types/repo';
+import { ContributorCardProps } from '@/types/repo/contributor.card.type';
 
 import '../../styles/components/repo/ContributorCard.scss';
 
-type ContributorCardProps = Contributor;
-
-const ContributorCard = ({
-  rank,
-  login,
-  avatarUrl,
-  contributions,
-}: ContributorCardProps) => {
+const ContributorCard = ({ contributor, rank }: ContributorCardProps) => {
   return (
     <article className='contributor-card'>
       <span className='contributor-card__rank'>#{rank}</span>
 
-      <UserAvatar src={avatarUrl} name={login} alt={login} size={44} />
+      <UserAvatar
+        src={contributor.avatarUrl}
+        name={contributor.login}
+        alt={contributor.login}
+        size={44}
+      />
 
       <div className='contributor-card__content'>
-        <strong className='contributor-card__content--name'>{login}</strong>
+        <strong className='contributor-card__content--name'>
+          {contributor.login}
+        </strong>
 
         <span className='contributor-card__content--commits'>
-          {contributions} commits
+          {contributor.contributions} commits
         </span>
       </div>
     </article>

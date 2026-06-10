@@ -11,13 +11,9 @@ import Timeline from './Timeline';
 import LanguageChart from './LanguageChart';
 import RepoHealth from './RepoHealth';
 
-import {
-  commits,
-  contributors,
-  languageData,
-  overviewItems,
-  timelineEvents,
-} from '@/data/repo/index';
+import * as repoData from '@/data/repo/index';
+import { getRepositoryStatus } from '@/utils/getRepositoryStatus';
+
 import '../../styles/components/RepoDetails.scss';
 
 const RepoDetails = () => {
@@ -34,6 +30,8 @@ const RepoDetails = () => {
     html_url: 'https://github.com/esteemayo/albumz-api',
     created_at: '2025-10-29T15:34:58Z',
     updated_at: '2025-10-29T15:34:58Z',
+    archived: false,
+    disabled: false,
   };
 
   return (
@@ -46,7 +44,7 @@ const RepoDetails = () => {
             title='Repository Overview'
             description='Key repository statistics and metadata.'
           >
-            <RepoOverview items={overviewItems} />
+            <RepoOverview items={repoData.overviewItems} />
           </SectionCard>
 
           <SectionCard
@@ -54,6 +52,12 @@ const RepoDetails = () => {
             description='Overview of repository activity and maintenance status.'
           >
             <RepoHealth
+              status={getRepositoryStatus({
+                archived: repo.archived,
+                disabled: repo.disabled,
+                updatedAt: repo.updated_at,
+              })}
+              archived={true}
               updatedAt={repo.updated_at}
               issues={repo.open_issues_count}
             />
@@ -63,28 +67,28 @@ const RepoDetails = () => {
             title='Activity Timeline'
             description='Recent repository events and milestones.'
           >
-            <Timeline events={timelineEvents.slice(0, 8)} />
+            <Timeline events={repoData.timelineEvents.slice(0, 8)} />
           </SectionCard>
 
           <SectionCard
             title='Language Distribution'
             description='Repository code composition.'
           >
-            <LanguageChart languages={languageData} />
+            <LanguageChart languages={repoData.languageData} />
           </SectionCard>
 
           <SectionCard
             title='Top Contributors'
             description='Most active repository contributors.'
           >
-            <Contributors contributors={contributors.slice(0, 6)} />
+            <Contributors contributors={repoData.contributors.slice(0, 6)} />
           </SectionCard>
 
           <SectionCard
             title='Recent Changes'
             description='Latest commits merged into the repository.'
           >
-            <Commits commits={commits.slice(0, 10)} />
+            <Commits commits={repoData.commits.slice(0, 10)} />
           </SectionCard>
         </main>
 
@@ -94,6 +98,14 @@ const RepoDetails = () => {
           forks={repo.forks_count}
           issues={repo.open_issues_count}
           language={repo.language}
+          branch={repo.default_branch}
+          createdAt={repo.created_at}
+          updatedAt={repo.updated_at}
+          status={getRepositoryStatus({
+            archived: repo.archived,
+            disabled: repo.disabled,
+            updatedAt: repo.updated_at,
+          })}
         />
       </div>
     </div>

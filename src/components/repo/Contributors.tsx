@@ -11,9 +11,9 @@ const Contributors = ({ contributors }: ContributorsProps) => {
   return (
     <div className='contributors'>
       {contributors
-        .sort((a, b) => a.rank - b.rank)
-        .map((user) => (
-          <ContributorCard key={user.id} {...user} />
+        .sort((a, b) => b.contributions - a.contributions)
+        .map((user, index) => (
+          <ContributorCard key={user.id} contributor={user} rank={index + 1} />
         ))}
     </div>
   );

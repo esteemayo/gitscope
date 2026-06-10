@@ -1,6 +1,8 @@
 import { LucideProps } from 'lucide-react';
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
+export type RepoStatusType = 'Active' | 'Archived' | 'Inactive' | 'Disabled';
+
 export interface RepoDetails {
   id: number;
   name: string;
@@ -48,7 +50,6 @@ export interface LanguageData {
 
 export interface Contributor {
   id: number;
-  rank: number;
   login: string;
   avatarUrl: string;
   contributions: number;

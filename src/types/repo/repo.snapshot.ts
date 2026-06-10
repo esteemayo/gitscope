@@ -1,4 +1,4 @@
-export interface RepositorySnapshotProps {
+export interface RepoSnapshotProps {
   stars: number;
   forks: number;
   issues: number;
