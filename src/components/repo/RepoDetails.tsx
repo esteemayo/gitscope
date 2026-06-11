@@ -6,8 +6,10 @@ import RepoSidebar from './RepoSidebar';
 import Commits from './Commits';
 import Contributors from './Contributors';
 import RepoHero from './RepoHero';
-import RepoOverview from './RepoOverview';
+import RepoNotFound from './RepoNotFound';
 import Timeline from './Timeline';
+import RepoOverview from './RepoOverview';
+import RepoError from './RepoError';
 import LanguageChart from './LanguageChart';
 import RepoHealth from './RepoHealth';
 
@@ -17,6 +19,8 @@ import { getRepositoryStatus } from '@/utils/getRepositoryStatus';
 import '../../styles/components/RepoDetails.scss';
 
 const RepoDetails = () => {
+  const error = false;
+
   const repo = {
     id: 1,
     name: 'albumz-api',
@@ -33,6 +37,14 @@ const RepoDetails = () => {
     archived: false,
     disabled: false,
   };
+
+  if (error) {
+    return <RepoError />;
+  }
+
+  if (!repo) {
+    return <RepoNotFound />;
+  }
 
   return (
     <div className='repo-details'>
@@ -92,21 +104,23 @@ const RepoDetails = () => {
           </SectionCard>
         </main>
 
-        <RepoSidebar
-          githubUrl={repo.html_url}
-          stars={repo.stargazers_count}
-          forks={repo.forks_count}
-          issues={repo.open_issues_count}
-          language={repo.language}
-          branch={repo.default_branch}
-          createdAt={repo.created_at}
-          updatedAt={repo.updated_at}
-          status={getRepositoryStatus({
-            archived: repo.archived,
-            disabled: repo.disabled,
-            updatedAt: repo.updated_at,
-          })}
-        />
+        {repo && (
+          <RepoSidebar
+            githubUrl={repo.html_url}
+            stars={repo.stargazers_count}
+            forks={repo.forks_count}
+            issues={repo.open_issues_count}
+            language={repo.language}
+            branch={repo.default_branch}
+            createdAt={repo.created_at}
+            updatedAt={repo.updated_at}
+            status={getRepositoryStatus({
+              archived: repo.archived,
+              disabled: repo.disabled,
+              updatedAt: repo.updated_at,
+            })}
+          />
+        )}
       </div>
     </div>
   );

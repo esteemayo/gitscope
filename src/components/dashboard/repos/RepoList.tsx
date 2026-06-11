@@ -41,7 +41,7 @@ const RepoList = ({ view, repos }: RepoListProps) => {
         {!repos.length ? (
           <EmptyState
             title='No repositories found for this user.'
-            subtitle='Try another username or check availability.'
+            description='Try another username or check availability.'
           />
         ) : (
           <motion.ul

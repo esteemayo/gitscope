@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 import RepoActions from './RepoActions';
 import RepoFacts from './RepoFacts';
 import RepoSnapshot from './RepoSnapshot';
@@ -18,7 +22,12 @@ const RepoSidebar = ({
   status,
 }: RepoSidebarProps) => {
   return (
-    <aside className='repo-sidebar'>
+    <motion.aside
+      initial={{ opacity: 0, x: 24 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 0.15, duration: 0.3 }}
+      className='repo-sidebar'
+    >
       <RepoSnapshot
         stars={stars}
         forks={forks}
@@ -31,7 +40,7 @@ const RepoSidebar = ({
       <RepoStatus status={status} lastCommitDate={updatedAt} />
 
       <RepoActions githubUrl={githubUrl} />
-    </aside>
+    </motion.aside>
   );
 };
 
