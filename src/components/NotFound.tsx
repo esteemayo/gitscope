@@ -3,7 +3,12 @@
 import { useRouter } from 'next/navigation';
 import ErrorView from './ui/ErrorView';
 
-const NotFound = ({ title, message }: { title?: string, message?: string }) => {
+interface NotFoundProps {
+  title?: string;
+  message?: string;
+}
+
+const NotFound = ({ title, message }: NotFoundProps) => {
   const router = useRouter();
 
   return (

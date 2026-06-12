@@ -14,13 +14,13 @@
   margin-top: 2rem;
   position: relative;
 
-  &:hover {
-    box-shadow: var(--shadow);
+  @media (max-width: 34.375em) {
+    width: 100%;
+    max-width: 100%;
   }
 
-  @media (max-width: 25em) {
-    width: 31.1rem;
-    max-width: 31.1rem;
+  &:hover {
+    box-shadow: var(--shadow);
   }
 
   .input {
@@ -58,7 +58,7 @@
   .button {
     flex: 0.5;
 
-    @include bp.sm {
+    @include bp.md {
       display: none;
     }
   }

@@ -34,7 +34,11 @@ const ErrorView = ({
   };
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -24 }}
+      transition={{ duration: 0.25 }}
       className='error-view'
       aria-labelledby={titleId}
       aria-describedby={descId}
@@ -44,6 +48,7 @@ const ErrorView = ({
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.15 }}
           className={`error-view__card ${variant}`}
         >
           {imageSrc ? (
@@ -55,19 +60,40 @@ const ErrorView = ({
               className='error-view__image'
             />
           ) : (
-            <div className='error-view__icon'>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.25 }}
+              className={`error-view__icon ${variant}`}
+            >
               {icon || <DefaultIcon />}
-            </div>
+            </motion.div>
           )}
 
-          <h1 id={titleId} className='error-view__title'>
-            {title}
-          </h1>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15 }}
+            className='error-view__content'
+          >
+            <h1 id={titleId} className='error-view__title'>
+              {title}
+            </h1>
 
-          <p id={descId} className='error-view__desc'>{message}</p>
+            <p id={descId} className='error-view__desc'>
+              {message}
+            </p>
+          </motion.div>
 
           {action && (
-            <div className='error-view__action' role='group' aria-label='Error action'>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className='error-view__action'
+              role='group'
+              aria-label='Error action'
+            >
               {action && (
                 <button
                   type='button'
@@ -77,13 +103,13 @@ const ErrorView = ({
                   {isLoading ? <Spinner size='md' /> : action.label}
                 </button>
               )}
-            </div>
+            </motion.div>
           )}
 
           {meta && <span className='error-view__meta'>{meta}</span>}
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

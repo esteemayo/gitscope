@@ -13,7 +13,7 @@ const RepoHero = ({ repo }: RepoHeroProps) => {
       <div className='repo-hero__content'>
         <span className='repo-hero__label'>Public repository</span>
 
-        <h1 className='repo-hero__title'>albumz</h1>
+        <h1 className='repo-hero__title'>{repo.name}</h1>
 
         <p className='repo-hero__description'>
           {repo.description ?? 'No description provided.'}

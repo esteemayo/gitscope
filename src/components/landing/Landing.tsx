@@ -253,7 +253,7 @@ const Landing = () => {
             metrics through a modern analytics dashboard.
           </motion.p>
 
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className='landing__form'>
             <GitHubSearchForm
               ref={inputRef}
               value={username}

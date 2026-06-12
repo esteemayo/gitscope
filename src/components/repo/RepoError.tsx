@@ -1,7 +1,8 @@
 'use client';
 
-import Link  from 'next/link';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { AlertTriangle } from 'lucide-react';
 
 import '../../styles/components/repo/RepoError.scss';
 
@@ -19,6 +20,15 @@ const RepoError = ({ message }: { message?: string }) => {
     >
       <div className='repo-error__container'>
         <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.1, duration: 0.25 }}
+          className='repo-error__icon'
+        >
+          <AlertTriangle size={48} />
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
@@ -34,15 +44,24 @@ const RepoError = ({ message }: { message?: string }) => {
           </p>
         </motion.div>
 
-        <div className='repo-error__actions'>
-          <button type='button' className='repo-error__actions--btn'>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className='repo-error__actions'
+        >
+          <button
+            type='button'
+            onClick={() => window.location.reload()}
+            className='repo-error__actions--btn'
+          >
             Try again
           </button>
 
           <Link href='/' className='repo-error__actions--link'>
             Go home
           </Link>
-        </div>
+        </motion.div>
       </div>
     </motion.section>
   );

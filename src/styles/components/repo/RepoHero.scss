@@ -53,11 +53,16 @@
     text-rendering: optimizeLegibility;
     text-overflow: ellipsis;
     white-space: nowrap;
+    max-width: 40rem;
     font-family: var(--font-mono);
     font-weight: 700;
     line-height: 1.1;
     overflow: hidden;
     margin-bottom: 0.75rem;
+
+    @include bp.sm {
+      max-width: 20rem;
+    }
   }
 
   &__description {
