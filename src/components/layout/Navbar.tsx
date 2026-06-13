@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-import BarsIcon from '../icons/BarsIcon';
+import MenuButton from '../ui/MenuButton';
 import Logo from '../ui/Logo';
 import ThemeToggle from '../ui/ThemeToggle';
 
@@ -41,9 +41,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <button type='button' onClick={onOpen} className='navbar__toggle'>
-          <BarsIcon />
-        </button>
+        <MenuButton onClick={onOpen} />
       </div>
     </nav>
   );

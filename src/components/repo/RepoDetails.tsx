@@ -1,5 +1,7 @@
 'use client';
 
+import { ExternalLink } from 'lucide-react';
+
 import SectionCard from '../ui/SectionCard';
 
 import RepoSidebar from './RepoSidebar';
@@ -93,6 +95,18 @@ const RepoDetails = ({ repositoryName }: { repositoryName?: string }) => {
             <SectionCard
               title='Top Contributors'
               description='Most active repository contributors.'
+              action={
+                <a
+                  href={`${repo.html_url}/graphs/contributors`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='View contributors on GitHub'
+                >
+                  <span>View on GitHub</span>
+
+                  <ExternalLink size={14} />
+                </a>
+              }
             >
               <Contributors contributors={repoData.contributors.slice(0, 6)} />
             </SectionCard>
@@ -100,6 +114,18 @@ const RepoDetails = ({ repositoryName }: { repositoryName?: string }) => {
             <SectionCard
               title='Recent Changes'
               description='Latest commits merged into the repository.'
+              action={
+                <a
+                  href={`${repo.html_url}/commits`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='View commit history on GitHub'
+                >
+                  <span>View on GitHub</span>
+
+                  <ExternalLink size={14} />
+                </a>
+              }
             >
               <Commits commits={repoData.commits.slice(0, 10)} />
             </SectionCard>

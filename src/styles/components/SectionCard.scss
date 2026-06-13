@@ -1,3 +1,6 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/responsive' as bp;
+
 .section-card {
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border);
@@ -14,6 +17,12 @@
     padding: 1.5rem;
     border-bottom: 1px solid var(--border);
     transition: var(--transition);
+
+    @media (max-width: 40em) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
   }
 
   &__container {
@@ -35,6 +44,48 @@
   }
 
   &__action {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 40em) {
+      justify-content: flex-start;
+    }
+
+    & > * {
+      flex-shrink: 0;
+
+      display: inline-flex !important;
+      align-items: center;
+      gap: 0.5rem;
+
+      border: none;
+      font-weight: 500;
+      font-size: var(--fz-xs);
+      background-color: transparent;
+      color: var(--color-blue-800) !important;
+      transition: var(--transition);
+
+      @include animated-underline();
+
+      @media (max-width: 40em) {
+        justify-content: flex-start;
+      }
+
+      &:hover {
+        svg {
+          transform: translate(2px, -2px);
+        }
+      }
+
+      svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        color: currentColor;
+        stroke: currentColor;
+        opacity: 0.7;
+        transition: var(--transition);
+      }
+    }
   }
 
   &__content {
