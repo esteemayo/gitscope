@@ -3,6 +3,14 @@ import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
 export type RepoStatusType = 'Active' | 'Archived' | 'Inactive' | 'Disabled';
 
+export type CommitType =
+  | 'feat'
+  | 'fix'
+  | 'docs'
+  | 'refactor'
+  | 'style'
+  | 'chore';
+
 export interface RepoDetails {
   id: number;
   name: string;
@@ -59,5 +67,24 @@ export interface Commit {
   sha: string;
   message: string;
   author: string;
+  authorAvatar: string;
   date: string;
+  htmlUrl: string;
+  type: CommitType;
+}
+
+export interface GithubCommit {
+  sha: string;
+  commit: {
+    message: string;
+    author: {
+      name: string;
+      date: string;
+    };
+  };
+  author: {
+    login: string;
+    avatar_url: string;
+  } | null;
+  html_url: string;
 }

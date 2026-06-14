@@ -1,4 +1,4 @@
-import CommitItem from './CommitItem';
+import CommitCard from './CommitCard';
 import EmptyState from '../ui/EmptyState';
 
 import { Commit } from '@/types/repo/index';
@@ -21,7 +21,7 @@ const Commits = ({ commits }: CommitsProps) => {
   return (
     <div className='commits'>
       {commits.map((commit) => (
-        <CommitItem key={commit.sha} {...commit} />
+        <CommitCard key={commit.sha} commit={commit} />
       ))}
     </div>
   );

@@ -16,7 +16,7 @@ import LanguageChart from './LanguageChart';
 import RepoHealth from './RepoHealth';
 
 import * as repoData from '@/data/repo/index';
-import { getRepositoryStatus } from '@/utils/getRepositoryStatus';
+import { getRepositoryStatus } from '@/utils/repo/getRepositoryStatus';
 
 import '../../styles/components/RepoDetails.scss';
 
