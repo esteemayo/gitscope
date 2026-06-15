@@ -1,0 +1,22 @@
+.repo-overview-skeleton {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+
+  &__card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 1.6rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: var(--transition);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+}

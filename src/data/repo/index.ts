@@ -165,7 +165,8 @@ export const contributors: Contributor[] = [
 export const commits: Commit[] = [
   {
     sha: '4af12bc89fde',
-    message: 'feat: add repository overview analytics cards',
+    message:
+      'feat: redesign repository details page and implement new analytics dashboard cards, timeline charts, repository health metrics, improved accessibility, responsive layouts, empty states, loading states, and enhanced navigation experience',
     author: 'esteemayo',
     authorAvatar: 'https://i.pravatar.cc/150?img=11',
     date: '2 hours ago',
@@ -228,7 +229,8 @@ export const commits: Commit[] = [
   },
   {
     sha: '6de8f1c4ab23d78',
-    message: 'fix: upgrade Next.js and dependencies',
+    message:
+      'fix: resolve data fetching issue. The repository service was incorrectly caching state responses which caused inconsistent metrics across dashboard views. This change updates the fetching strategy and adds retries.',
     author: 'esteemayo',
     authorAvatar: 'https://i.pravatar.cc/150?img=11',
     date: '1 week ago',

@@ -6,7 +6,7 @@
   position: relative;
   padding: 1rem;
   border: 1px solid var(--border);
-  border-radius: 0.875rem;
+  border-radius: var(--radius);
   transition: var(--transition);
 
   &:hover {

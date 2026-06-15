@@ -1,0 +1,30 @@
+.contributors-skeleton {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+  gap: 1rem;
+
+  &__card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    position: relative;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: var(--transition);
+  }
+
+  &__rank {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+  }
+}

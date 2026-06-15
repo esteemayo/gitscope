@@ -41,7 +41,9 @@ const CommitCard = ({ commit }: CommitCardProps) => {
       <div className='commit-card__content'>
         <GitCommit size={16} />
 
-        <p className='commit-card__content--message'>{commit.message}</p>
+        <p className='commit-card__content--message'>
+          {commit.message.split('\n')[0]}
+        </p>
       </div>
 
       <footer className='commit-card__footer'>

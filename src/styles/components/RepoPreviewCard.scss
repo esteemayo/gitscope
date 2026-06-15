@@ -26,9 +26,10 @@
     line-clamp: 2;
     -webkit-box-orient: vertical;
 
+    overflow: hidden;
+
     font-size: var(--fz-xxs);
     color: var(--text-muted);
-    overflow: hidden;
   }
 
   &__footer {
