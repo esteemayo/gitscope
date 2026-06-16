@@ -9,13 +9,14 @@
     gap: 1rem;
 
     padding: 1.6rem;
-    background-color: var(--bg-tertiary);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     transition: var(--transition);
   }
 
   &__content {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
   }

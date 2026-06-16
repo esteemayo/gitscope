@@ -1,5 +1,5 @@
 import { ButtonProps } from '@/types/button.type';
-import '../../styles/components/Button.scss';
+import '../../styles/components/ui/Button.scss';
 
 const Button = ({
   type = 'button',

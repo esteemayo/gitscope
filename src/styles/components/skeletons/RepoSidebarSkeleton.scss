@@ -1,2 +1,19 @@
+@use '../../abstracts/responsive' as bp;
+
 .repo-sidebar-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  position: sticky;
+  top: 5rem;
+  height: fit-content;
+  padding: 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+
+  @include bp.xl {
+    position: static;
+  }
 }

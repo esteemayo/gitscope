@@ -1,0 +1,35 @@
+@use '../../abstracts/responsive' as bp;
+
+.landing-header {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  height: var(--nav-height);
+  padding: 2rem 8rem;
+  position: relative;
+  z-index: 2000;
+
+  @media (max-width: 56.25em) {
+    padding: 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 1.6rem;
+  }
+
+  &__container {
+    width: 140rem;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+}

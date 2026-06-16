@@ -9,9 +9,9 @@ const RepoOverviewSkeleton = () => {
           <Skeleton circle width={27.5} height={27.5} />
 
           <div className='repo-overview-skeleton__content'>
-            <Skeleton width={70} height={20} />
+            <Skeleton width='50%' height={25} />
 
-            <Skeleton width={120} />
+            <Skeleton width='70%' />
           </div>
         </div>
       ))}

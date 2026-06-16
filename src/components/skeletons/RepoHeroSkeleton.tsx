@@ -11,11 +11,15 @@ const RepoHeroSkeleton = () => {
 
         <Skeleton width='45%' height={36} />
 
-        <Skeleton count={2} width='80%' />
+        <Skeleton
+          count={2}
+          width='80%'
+          className='repo-hero-skeleton__description'
+        />
       </div>
 
       <div className='repo-hero-skeleton__actions'>
-        <Skeleton width={160} height={44} borderRadius={5} />
+        <Skeleton width={160} height={44} borderRadius={8} />
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import { ActionButtonProps } from '@/types/action.button.type';
-import '../../styles/components/ActionButton.scss';
+import '../../styles/components/ui/ActionButton.scss';
 
 const ActionButton = ({
   ref,

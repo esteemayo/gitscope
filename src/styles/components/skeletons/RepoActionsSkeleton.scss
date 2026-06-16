@@ -1,0 +1,10 @@
+.repo-actions-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}

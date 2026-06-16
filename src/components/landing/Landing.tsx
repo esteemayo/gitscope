@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import Logo from '../ui/Logo';
 import RecentUsers from '../ui/RecentUsers';
 
+import LandingHeader from './LandingHeader';
 import SearchHint from '../ui/SearchHint';
 import GitHubSearchForm from '../forms/GitHubSearchForm';
 
@@ -17,7 +18,7 @@ import {
   setToStorage,
 } from '@/utils/index';
 
-import './Landing.scss';
+import '../../styles/components/landing/Landing.scss';
 
 const placeholders = [
   'Enter GitHub username...',
@@ -229,59 +230,66 @@ const Landing = () => {
 
   return (
     <section className='landing'>
-      <motion.div
-        variants={containerVariants}
-        initial='initial'
-        animate='animate'
-        className='landing__container'
-      >
-        <div className='landing__content'>
-          <motion.div variants={itemVariants} className='landing__wrapper'>
-            <Logo />
-          </motion.div>
+      <LandingHeader />
 
-          <motion.p variants={itemVariants} className='landing__badge'>
-            GitHub analytics platform
-          </motion.p>
+      <div className='landing__container'>
+        <motion.div
+          variants={containerVariants}
+          initial='initial'
+          animate='animate'
+          className='landing__wrapper'
+        >
+          <div className='landing__content'>
+            <motion.div variants={itemVariants} className='landing__logo'>
+              <Logo />
+            </motion.div>
 
-          <motion.h1 variants={itemVariants} className='landing__title'>
-            Visualize developer insights beyond the code.
-          </motion.h1>
+            <motion.p variants={itemVariants} className='landing__badge'>
+              GitHub analytics platform
+            </motion.p>
 
-          <motion.p variants={itemVariants} className='landing__subtitle'>
-            Analyze GitHub profiles, repositories, language usage, and developer
-            metrics through a modern analytics dashboard.
-          </motion.p>
+            <motion.h1 variants={itemVariants} className='landing__title'>
+              Visualize developer insights beyond the code.
+            </motion.h1>
 
-          <motion.div variants={itemVariants} className='landing__form'>
-            <GitHubSearchForm
-              ref={inputRef}
-              value={username}
-              placeholder={placeholder}
-              onChange={setUsername}
-              onClear={handleClear}
-              onSubmit={handleSubmit}
-              onKeyDown={handleInputKeyDown}
-            />
-          </motion.div>
+            <motion.p variants={itemVariants} className='landing__subtitle'>
+              Analyze GitHub profiles, repositories, language usage, and
+              developer metrics through a modern analytics dashboard.
+            </motion.p>
 
-          <motion.div variants={itemVariants}>
-            <SearchHint isShow={showHint} onClose={() => setShowHint(false)} />
-          </motion.div>
+            <motion.div variants={itemVariants} className='landing__form'>
+              <GitHubSearchForm
+                ref={inputRef}
+                value={username}
+                placeholder={placeholder}
+                onChange={setUsername}
+                onClear={handleClear}
+                onSubmit={handleSubmit}
+                onKeyDown={handleInputKeyDown}
+              />
+            </motion.div>
 
-          <motion.div variants={itemVariants}>
-            <RecentUsers
-              ref={recentRefs}
-              recentUsers={recentUsers}
-              removedUser={removedUser}
-              onKeyDown={handleRecentKeyDown}
-              onClearAll={handleClearRecent}
-              onRemoveUser={handleRemoveUser}
-              onUndoRemove={handleUndoRemove}
-            />
-          </motion.div>
-        </div>
-      </motion.div>
+            <motion.div variants={itemVariants}>
+              <SearchHint
+                isShow={showHint}
+                onClose={() => setShowHint(false)}
+              />
+            </motion.div>
+
+            <motion.div variants={itemVariants}>
+              <RecentUsers
+                ref={recentRefs}
+                recentUsers={recentUsers}
+                removedUser={removedUser}
+                onKeyDown={handleRecentKeyDown}
+                onClearAll={handleClearRecent}
+                onRemoveUser={handleRemoveUser}
+                onUndoRemove={handleUndoRemove}
+              />
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

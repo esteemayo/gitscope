@@ -1,2 +1,29 @@
 .language-chart-skeleton {
+  display: grid;
+  gap: 0.8rem;
+
+  &__bar {
+    width: 100%;
+    border-radius: 10rem;
+    overflow: hidden;
+  }
+
+  &__legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
 }

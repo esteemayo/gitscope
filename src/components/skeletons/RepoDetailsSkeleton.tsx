@@ -16,11 +16,17 @@ const RepoDetailsSkeleton = () => {
         <div className='repo-details-skeleton__wrapper'>
           <main className='repo-details-skeleton__content'>
             <RepoHeroSkeleton />
+
             <RepoOverviewSkeleton />
+
             <RepoHealthSkeleton />
+
             <TimelineSkeleton />
+
             <LanguageChartSkeleton />
+
             <ContributorsSkeleton />
+
             <CommitsSkeleton />
           </main>
 

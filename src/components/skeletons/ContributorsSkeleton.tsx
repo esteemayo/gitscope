@@ -15,9 +15,9 @@ const ContributorsSkeleton = () => {
           <Skeleton circle width={44} height={44} />
 
           <div className='contributors-skeleton__content'>
-            <Skeleton width={120} />
+            <Skeleton width='70%' />
 
-            <Skeleton width={80} />
+            <Skeleton width='40%' />
           </div>
         </article>
       ))}

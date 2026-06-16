@@ -1,8 +1,10 @@
 'use client';
 
 import { ExternalLink } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 import SectionCard from '../ui/SectionCard';
+import RepoDetailsSkeleton from '../skeletons/RepoDetailsSkeleton';
 
 import RepoSidebar from './RepoSidebar';
 import Commits from './Commits';
@@ -21,6 +23,8 @@ import { getRepositoryStatus } from '@/utils/repo/getRepositoryStatus';
 import '../../styles/components/RepoDetails.scss';
 
 const RepoDetails = ({ repositoryName }: { repositoryName?: string }) => {
+  const [isloading, setIsLoading] = useState(true);
+
   const error = false;
 
   const repo = {
@@ -39,6 +43,18 @@ const RepoDetails = ({ repositoryName }: { repositoryName?: string }) => {
     archived: false,
     disabled: false,
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 1200);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (isloading) {
+    return <RepoDetailsSkeleton />;
+  }
 
   if (error) {
     return <RepoError />;

@@ -21,7 +21,14 @@
     flex-direction: column;
     gap: 1rem;
 
+    width: 100%;
     min-width: 0;
+  }
+
+  &__description {
+    @include bp.md {
+      width: 100% !important;
+    }
   }
 
   &__actions {
