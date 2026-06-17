@@ -1,0 +1,148 @@
+@use '../../abstracts/mixins' as *;
+
+.user-menu {
+  &__container {
+    position: relative;
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    text-transform: lowercase;
+    font-weight: 600;
+    font-size: var(--fz-sm);
+    padding: 0.5rem 0.75rem;
+    background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+    color: inherit;
+    border: 1px solid var(--border);
+    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    border-radius: 10rem;
+    cursor: pointer;
+    transition: var(--transition);
+
+    &--username {
+      font-weight: inherit;
+      font-size: inherit;
+      color: currentColor;
+    }
+
+    svg {
+      color: currentColor;
+      stroke: currentColor;
+      opacity: 0.85;
+    }
+
+    &:hover {
+      color: var(--icon);
+      border-color: color-mix(in srgb, var(--icon) 30%, transparent);
+      box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring();
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 5000;
+
+    width: 26rem;
+    padding: 0.75rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    transition: var(--transition);
+
+    &:hover {
+      border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+      box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+
+    &--heading {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      font-weight: 500;
+      font-size: var(--fz-sm);
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+
+    &--username {
+      font-weight: 500;
+      font-size: var(--fz-xs);
+    }
+
+    &--email {
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    &--btn {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+
+      width: 100%;
+      text-transform: capitalize;
+      font-weight: 500;
+      font-size: var(--fz-sm);
+      padding: 0.875rem;
+      background-color: transparent;
+      color: inherit;
+      border: 1px solid var(--border);
+      border-radius: 0.875rem;
+      cursor: pointer;
+      transition: var(--transition);
+
+      svg {
+        color: currentColor;
+        stroke: currentColor;
+        opacity: 0.85;
+      }
+
+      span {
+        font-weight: inherit;
+        font-size: inherit;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+        color: var(--icon);
+        border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+      }
+    }
+  }
+}

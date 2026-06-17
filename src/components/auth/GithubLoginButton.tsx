@@ -1,7 +1,7 @@
 'use client';
 
 import GitHubLogoIcon from '../icons/GitHubLogoIcon';
-import '../../styles/components/ui/GithubLoginButton.scss';
+import '../../styles/components/auth/GithubLoginButton.scss';
 
 const GithubLoginButton = () => {
   return (

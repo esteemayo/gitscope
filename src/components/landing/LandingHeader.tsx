@@ -1,11 +1,14 @@
 'use client';
 
+import UserMenu from '../auth/UserMenu';
 import Logo from '../ui/Logo';
-import GithubLoginButton from '../ui/GithubLoginButton';
+import GithubLoginButton from '../auth/GithubLoginButton';
 
 import '../../styles/components/landing/LandingHeader.scss';
 
 const LandingHeader = () => {
+  const status = 'authenticated';
+
   return (
     <header className='landing-header'>
       <div className='landing-header__container'>
@@ -14,7 +17,7 @@ const LandingHeader = () => {
         </div>
 
         <div className='landing-header__actions'>
-          <GithubLoginButton />
+          {status === 'authenticated' ? <UserMenu /> : <GithubLoginButton />}
         </div>
       </div>
     </header>

@@ -6,6 +6,7 @@
 
   position: sticky;
   top: 0;
+  left: 0;
   width: 100%;
   height: var(--nav-height);
   padding: 2rem 8rem;
@@ -26,13 +27,38 @@
     padding: 1.6rem;
   }
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    padding-bottom: 0.5rem;
+    background-image: linear-gradient(
+      90deg,
+      var(--color-blue-800),
+      var(--color-blue-400),
+      var(--color-blue-400),
+      var(--color-blue-800)
+    );
+    background-size: 300% 300%;
+
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
   &.scrolled {
     height: var(--nav-scroll-height);
     background-image: none;
     background-color: rgb(from var(--black) rgb / 0.75);
     color: var(--color-blue-800);
     backdrop-filter: blur(1rem);
-    border-bottom: 1px solid var(--border);
 
     .menu-button {
       color: var(--btn-toggle);

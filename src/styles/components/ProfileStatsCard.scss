@@ -18,6 +18,11 @@
     padding: 1.6rem 0.8rem;
   }
 
+  &:hover {
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    transform: translateY(-1px);
+  }
+
   &__num {
     font-variant: tabular-nums;
     font-size: 2.4rem;
