@@ -10,7 +10,7 @@
     align-items: center;
     gap: 0.8rem;
 
-    text-transform: lowercase;
+    text-transform: capitalize;
     font-weight: 600;
     font-size: var(--fz-sm);
     padding: 0.5rem 0.75rem;
@@ -28,10 +28,15 @@
       color: currentColor;
     }
 
-    svg {
-      color: currentColor;
-      stroke: currentColor;
-      opacity: 0.85;
+    &--icon {
+      display: inline-flex;
+      align-items: center;
+
+      svg {
+        color: currentColor;
+        stroke: currentColor;
+        opacity: 0.85;
+      }
     }
 
     &:hover {

@@ -1,5 +1,7 @@
 'use client';
 
+import { useSession } from 'next-auth/react';
+
 import UserMenu from '../auth/UserMenu';
 import Logo from '../ui/Logo';
 import GithubLoginButton from '../auth/GithubLoginButton';
@@ -7,7 +9,7 @@ import GithubLoginButton from '../auth/GithubLoginButton';
 import '../../styles/components/landing/LandingHeader.scss';
 
 const LandingHeader = () => {
-  const status = 'authenticated';
+  const { status } = useSession();
 
   return (
     <header className='landing-header'>
