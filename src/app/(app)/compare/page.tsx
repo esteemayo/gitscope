@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import CompareUsers from '@/components/compare/CompareUsers';
+import CompareUsersClient from '@/components/compare/CompareUsersClient';
 
 export const metadata: Metadata = {
   title: 'Compare user profiles | GitScope',
 };
 
 const ComparePage = () => {
-  return <CompareUsers />;
+  return <CompareUsersClient />;
 };
 
 export default ComparePage;

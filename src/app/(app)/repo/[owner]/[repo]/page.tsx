@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import RepoDetails from '@/components/repo/RepoDetails';
+import RepoDetailsClient from '@/components/repo/RepoDetailsClient';
 
 interface IParams {
   params: Promise<{ owner: string; repo: string }>;
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const RepoDetailsPage = async ({ params }: IParams) => {
   const { repo } = await params;
 
-  return <RepoDetails repositoryName={repo} />;
+  return <RepoDetailsClient repo={repo} />;
 };
 
 export default RepoDetailsPage;
