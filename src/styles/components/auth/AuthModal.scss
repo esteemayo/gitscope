@@ -29,6 +29,8 @@
     border: 1px solid var(--border);
     border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
     border-radius: 100%;
+    user-select: none;
+    pointer-events: none;
     transition: var(--transition);
     margin-bottom: 1.5rem;
   }

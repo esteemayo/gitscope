@@ -46,3 +46,13 @@
     transform: rotate(10deg);
   }
 }
+
+@keyframes border-flow {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 100% 50%;
+  }
+}

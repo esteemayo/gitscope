@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { GitCompareIcon } from 'lucide-react';
 
 import AuthModal from '../auth/AuthModal';
 import CompareUsers from './CompareUsers';
@@ -13,6 +14,7 @@ const CompareUsersClient = () => {
     <Protected
       fallback={
         <AuthModal
+          icon={<GitCompareIcon size={28} />}
           title='Compare GitHub Profiles'
           description='Sign in with GitHub to compare repositories and developer activity.'
           features={[

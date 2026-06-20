@@ -1,43 +1,88 @@
-import { CheckCircle2, Lock } from 'lucide-react';
 import { signIn } from 'next-auth/react';
-import GitHubLogoIcon from '../icons/GitHubLogoIcon';
+import { motion } from 'framer-motion';
+import { CheckCircle2, Lock } from 'lucide-react';
 
+import GitHubLogoIcon from '../icons/GitHubLogoIcon';
 import { AuthModalProps } from '@/types/auth/auth.modal.type';
+
 import '../../styles/components/auth/AuthModal.scss';
 
+const containerVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  initial: {
+    opacity: 0,
+    y: 10,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.25,
+    },
+  },
+};
+
 const AuthModal = ({
+  icon,
   title,
   description,
   features,
   onBack,
 }: AuthModalProps) => {
   return (
-    <div className='auth-modal'>
+    <motion.div
+      variants={containerVariants}
+      initial='initial'
+      animate='animate'
+      className='auth-modal'
+    >
       <div className='auth-modal__container'>
-        <div className='auth-modal__icon'>
-          <Lock size={28} />
-        </div>
+        <motion.div variants={itemVariants} className='auth-modal__icon'>
+          {icon ?? <Lock size={28} />}
+        </motion.div>
 
         <div className='auth-modal__content'>
-          <h2 className='auth-modal__content--heading'>{title}</h2>
+          <motion.h2
+            variants={itemVariants}
+            className='auth-modal__content--heading'
+          >
+            {title}
+          </motion.h2>
 
-          <p className='auth-modal__content--description'>{description}</p>
+          <motion.p
+            variants={itemVariants}
+            className='auth-modal__content--description'
+          >
+            {description}
+          </motion.p>
         </div>
 
-        <div className='auth-modal__features'>
+        <motion.div variants={itemVariants} className='auth-modal__features'>
           {features?.map((feature) => (
-            <div key={feature} className='auth-modal__features--item'>
+            <motion.div
+              key={feature}
+              variants={itemVariants}
+              className='auth-modal__features--item'
+            >
               <CheckCircle2 size={18} />
 
               <span>{feature}</span>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className='auth-modal__footer'>
           <div className='auth-modal__actions'>
-            <button
+            <motion.button
               type='button'
+              variants={itemVariants}
               onClick={() =>
                 signIn('github', {
                   callbackUrl: window.location.href,
@@ -48,25 +93,29 @@ const AuthModal = ({
               <GitHubLogoIcon />
 
               <span>Continue with GitHub</span>
-            </button>
+            </motion.button>
 
             {onBack && (
-              <button
+              <motion.button
                 type='button'
+                variants={itemVariants}
                 onClick={onBack}
                 className='auth-modal__actions--back'
               >
                 Go Back
-              </button>
+              </motion.button>
             )}
           </div>
 
-          <small className='auth-modal__footer--info'>
+          <motion.small
+            variants={itemVariants}
+            className='auth-modal__footer--info'
+          >
             Secure OAuth authentication via GitHub
-          </small>
+          </motion.small>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
