@@ -1,0 +1,42 @@
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-top: 2rem;
+  padding: 1rem;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+
+  &__avatar {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    &--name {
+      max-width: 17rem;
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      line-height: 1.1;
+      overflow: hidden;
+    }
+
+    &--username {
+      font-size: var(--fz-sm);
+      color: var(--color-gray-400);
+    }
+  }
+}

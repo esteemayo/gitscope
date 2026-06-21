@@ -1,29 +1,23 @@
 'use client';
 
 import { useRef } from 'react';
-import Link from 'next/link';
 import { createPortal } from 'react-dom';
 
-import Logo from '../ui/Logo';
+import SidebarFooter from '../sidebar/SidebarFooter';
+import SidebarNav from '../sidebar/SidebarNav';
+import SidebarHeader from '../sidebar/SidebarHeader';
+import SidebarUser from '../sidebar/SidebarUser';
+import SidebarCompare from '../sidebar/SidebarCompare';
+import SidebarStats from '../sidebar/SidebarStats';
 
-import AnalyticsIcon from '../icons/AnalyticsIcon';
-import XmarkIcon from '../icons/XmarkIcon';
-import GitHubLogoIcon from '../icons/GitHubLogoIcon';
-import CompareIcon from '../icons/CompareIcon';
-import BookmarkIcon from '../icons/BookmarkOutlineIcon';
-
-import { usePortal } from '@/hooks/usePortal';
 import { useOverlay } from '@/hooks/useOverlay';
-
-import { useTheme } from '@/context/ThemeContext';
-import { THEMEBUTTONS } from '@/data/theme';
+import { usePortal } from '@/hooks/usePortal';
 import { useSidebar } from '@/context/SidebarContext';
 
 import '../../styles/components/Sidebar.scss';
 
 const Sidebar = () => {
   const { isOpen, onClose } = useSidebar();
-  const { theme, setTheme } = useTheme();
   const { portalId } = usePortal('overlay-root');
 
   const sidebarRef = useRef<HTMLElement | null>(null);
@@ -50,129 +44,17 @@ const Sidebar = () => {
         tabIndex={-1}
       >
         <div className='sidebar__container'>
-          <header className='sidebar__header'>
-            <div className='sidebar__branding'>
-              <Logo onClick={onClose} />
+          <SidebarHeader onClose={onClose} />
 
-              <div className='sidebar__text'>
-                <h2 className='sidebar__text--heading'>GitScope</h2>
-                <p className='sidebar__text--desc'>Developer analytics</p>
-              </div>
-            </div>
+          <SidebarUser />
 
-            <button
-              type='button'
-              onClick={onClose}
-              className='sidebar__close'
-              aria-label='Close sidebar'
-            >
-              <XmarkIcon />
-            </button>
-          </header>
+          <SidebarNav onClose={onClose} />
 
-          <nav className='sidebar__nav' aria-label='Sidebar navigation'>
-            <ul className='sidebar__list'>
-              <li onClick={onClose} className='sidebar__item'>
-                <a
-                  href='https://github.com/esteemayo'
-                  className='sidebar__item--link'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <span className='sidebar__item--icon'>
-                    <GitHubLogoIcon />
-                  </span>
+          <SidebarCompare onClose={onClose} />
 
-                  <span className='sidebar__item--label'>GitHub</span>
-                </a>
-              </li>
+          <SidebarStats />
 
-              <li onClick={onClose} className='sidebar__item'>
-                <Link href='/compare' className='sidebar__item--link'>
-                  <span className='sidebar__item--icon'>
-                    <CompareIcon />
-                  </span>
-
-                  <span className='sidebar__item--label'>Compare</span>
-                </Link>
-              </li>
-
-              <li onClick={onClose} className='sidebar__item'>
-                <Link href='/analytics' className='sidebar__item--link active'>
-                  <span className='sidebar__item--icon'>
-                    <AnalyticsIcon />
-                  </span>
-
-                  <span className='sidebar__item--label'>Analytics</span>
-                </Link>
-              </li>
-
-              <li onClick={onClose} className='sidebar__item'>
-                <Link href='/saved' className='sidebar__item--link'>
-                  <span className='sidebar__item--icon'>
-                    <BookmarkIcon />
-                  </span>
-
-                  <span className='sidebar__item--label'>Saved</span>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          <section className='sidebar__card'>
-            <article className='sidebar__card-item'>
-              <span className='sidebar__card-item--label'>
-                Repositories synced
-              </span>
-
-              <strong className='sidebar__card-item--value'>128</strong>
-            </article>
-
-            <div className='sidebar__divider' />
-
-            <article className='sidebar__card-item'>
-              <span className='sidebar__card-item--label'>Last update</span>
-
-              <time
-                dateTime={new Date().toISOString()}
-                className='sidebar__card-item--value'
-              >
-                2 mins ago
-              </time>
-            </article>
-          </section>
-
-          <footer className='sidebar__footer'>
-            <div className='sidebar__theme-toggle'>
-              {THEMEBUTTONS.map((item) => {
-                const { id, label, icons } = item;
-                const { default: DefaultIcon, mobile: MobileIcon } = icons;
-
-                const isActive = theme === id;
-
-                return (
-                  <button
-                    key={id}
-                    type='button'
-                    onClick={() => setTheme(id)}
-                    className={
-                      isActive
-                        ? 'sidebar__theme-toggle--btn active'
-                        : 'sidebar__theme-toggle--btn'
-                    }
-                    aria-label={`${label} mode`}
-                  >
-                    {DefaultIcon && <DefaultIcon />}
-                    {MobileIcon && <MobileIcon />}
-                  </button>
-                );
-              })}
-            </div>
-
-            <p className='sidebar__copyright'>
-              &copy; {new Date().getFullYear()} GitScope, Inc.
-            </p>
-          </footer>
+          <SidebarFooter />
         </div>
       </aside>
     </div>

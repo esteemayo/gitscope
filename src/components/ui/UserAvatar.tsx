@@ -74,6 +74,7 @@ const UserAvatar = ({
         className='user-avatar'
       >
         <Image
+          key={src}
           src={src}
           width={size}
           height={size}

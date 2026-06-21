@@ -1,0 +1,29 @@
+.sidebar-stat-item {
+  padding: 1.4rem;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  // background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+  transition: var(--transition);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+  }
+
+  &__label {
+    display: block;
+    text-transform: capitalize;
+    font-size: var(--fz-xxs);
+    color: var(--color-gray-400);
+  }
+
+  &__value {
+    font-weight: 600;
+    font-size: var(--fz-md);
+    color: currentColor;
+  }
+}

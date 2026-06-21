@@ -10,6 +10,13 @@ export type SortType =
   | 'name'
   | 'quality';
 
+export type SidebarNavLinkType = {
+  id: string;
+  url: string;
+  icon: () => React.JSX.Element;
+  label: string;
+};
+
 export type SortItemType = {
   id: SortType;
   label: string;

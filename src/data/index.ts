@@ -1,5 +1,30 @@
+import AnalyticsIcon from '@/components/icons/AnalyticsIcon';
+import BookmarkIcon from '@/components/icons/BookmarkIcon';
+import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
+
 import { Repository } from '@/types/repository.type';
-import { RepositoryType, SortItemType } from '@/types';
+import { RepositoryType, SidebarNavLinkType, SortItemType } from '@/types';
+
+export const sidebarLinks: SidebarNavLinkType[] = [
+  {
+    id: 'github',
+    url: '',
+    icon: GitHubLogoIcon,
+    label: 'GitHub',
+  },
+  {
+    id: 'analytics',
+    url: '/analytics',
+    icon: AnalyticsIcon,
+    label: 'Analytics',
+  },
+  {
+    id: 'saved',
+    url: '/saved',
+    icon: BookmarkIcon,
+    label: 'Saved',
+  },
+];
 
 export const SORT_ITEMS: SortItemType[] = [
   { id: 'stars', label: 'stars' },

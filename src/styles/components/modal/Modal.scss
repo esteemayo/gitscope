@@ -35,6 +35,7 @@
   }
 
   &__wrapper {
+    outline: none;
     width: min(42rem, 92vw);
     padding: 2rem;
     background-color: var(--bg-tertiary);

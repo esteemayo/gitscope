@@ -36,6 +36,7 @@ const Avatar = ({
     return (
       <div className='avatar'>
         <div
+          key={fallback}
           className='avatar__fallback'
           style={{
             width: size,
@@ -59,6 +60,7 @@ const Avatar = ({
     <div className='avatar'>
       <div className='avatar__container'>
         <Image
+          key={imgSrc}
           src={imgSrc}
           width={130}
           height={130}
