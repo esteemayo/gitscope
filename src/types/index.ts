@@ -66,3 +66,15 @@ export type RepositoryType = {
   status: string;
   size: number;
 };
+
+export interface GithubUser {
+  id: number;
+  name: string;
+  login: string;
+  avatar_url: string;
+  followers: number;
+  following: number;
+  public_repos: number;
+  created_at: string;
+  updated_at: string;
+}

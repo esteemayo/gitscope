@@ -5,10 +5,10 @@ import { createPortal } from 'react-dom';
 
 import SidebarFooter from '../sidebar/SidebarFooter';
 import SidebarNav from '../sidebar/SidebarNav';
-import SidebarHeader from '../sidebar/SidebarHeader';
-import SidebarUser from '../sidebar/SidebarUser';
 import SidebarCompare from '../sidebar/SidebarCompare';
 import SidebarStats from '../sidebar/SidebarStats';
+import SidebarUserCard from '../sidebar/SidebarUserCard';
+import SidebarHeader from '../sidebar/SidebarHeader';
 
 import { useOverlay } from '@/hooks/useOverlay';
 import { usePortal } from '@/hooks/usePortal';
@@ -46,7 +46,7 @@ const Sidebar = () => {
         <div className='sidebar__container'>
           <SidebarHeader onClose={onClose} />
 
-          <SidebarUser />
+          <SidebarUserCard />
 
           <SidebarNav onClose={onClose} />
 

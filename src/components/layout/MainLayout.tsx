@@ -9,6 +9,7 @@ import ThemeSelector from '../ui/ThemeSelector';
 import ToasterProvider from '@/providers/ToasterProvider';
 import AuthProvider from '@/providers/AuthProvider';
 import SkeletonProvider from '@/providers/SkeletonProvider';
+import QueryProvider from '@/providers/QueryProvider';
 
 import ThemeProvider from '@/context/ThemeContext';
 import { useNetworkStatus } from '@/hooks/useNetworkStatus';
@@ -19,19 +20,21 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <main className='main-container'>
-      <AuthProvider>
-        <ThemeProvider>
-          <ToasterProvider />
+      <QueryProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <ToasterProvider />
 
-          <ClientOnly>
-            {!isOnline && <OfflineBanner text='No internet connection.' />}
+            <ClientOnly>
+              {!isOnline && <OfflineBanner text='No internet connection.' />}
 
-            {pathname === '/' && <ThemeSelector />}
+              {pathname === '/' && <ThemeSelector />}
 
-            <SkeletonProvider>{children}</SkeletonProvider>
-          </ClientOnly>
-        </ThemeProvider>
-      </AuthProvider>
+              <SkeletonProvider>{children}</SkeletonProvider>
+            </ClientOnly>
+          </ThemeProvider>
+        </AuthProvider>
+      </QueryProvider>
     </main>
   );
 };
