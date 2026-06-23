@@ -1,0 +1,26 @@
+.achievements {
+  margin-top: 4rem;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    font-weight: 500;
+    font-size: var(--fz-xl);
+    color: inherit;
+    line-height: 1.1;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+
+    margin-top: 1.6rem;
+  }
+}

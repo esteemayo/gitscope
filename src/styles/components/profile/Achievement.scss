@@ -1,0 +1,17 @@
+.achievement {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  padding: 1rem 1.6rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 10rem;
+  transition: var(--transition);
+
+  &__icon {
+  }
+
+  &__title {
+  }
+}

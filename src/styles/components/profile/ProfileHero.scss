@@ -1,0 +1,107 @@
+@use '../../abstracts/responsive' as bp;
+
+.profile-hero {
+  text-align: center;
+  padding: 3rem;
+  // background-image: linear-gradient(
+  //   180deg,
+  //   rgba(255, 255, 255, 0.05),
+  //   rgba(255, 255, 255, 0.02)
+  // );
+  background-color: var(--bg-tertiary);
+  -webkit-backdrop-filter: blur(2rem);
+  backdrop-filter: blur(2rem);
+  border: 1px solid var(--border);
+  // box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  transition: var(--transition);
+
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   inset: -30%;
+  //   background-image: radial-gradient(
+  //     rgba(59, 130, 246, 0.15),
+  //     transparent 70%
+  //   );
+  //   z-index: -1;
+  // }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__avatar {
+    margin-top: 2rem;
+
+    img {
+      @include bp.md {
+        width: 9rem;
+        height: 9rem;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    &--name {
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      font-weight: 700;
+      font-size: 3rem;
+      color: inherit;
+      line-height: 1.1;
+
+      @include bp.md {
+        font-size: 2.4rem;
+      }
+    }
+
+    &--username {
+      // font-family: var(--font-mono);
+      font-weight: lighter;
+      font-size: 100%;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    &--bio {
+      max-width: 55rem;
+      color: var(--text-muted);
+      margin-inline: auto;
+      margin-top: 1.6rem;
+    }
+
+    &--joined {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+
+      width: fit-content;
+      padding: 0.8rem 1.4rem;
+      margin-inline: auto;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10rem;
+      transition: var(--transition);
+      margin-top: 2rem;
+
+      strong {
+        font-weight: 500;
+        color: inherit;
+      }
+
+      span {
+        color: var(--text-muted);
+      }
+    }
+  }
+}

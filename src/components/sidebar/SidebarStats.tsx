@@ -10,17 +10,12 @@ import '../../styles/components/sidebar/SidebarStats.scss';
 
 const SidebarStats = () => {
   const { status } = useSession();
-  const { data: githubUser, isLoading } = useGithubUser();
+  const { data: githubUser } = useGithubUser();
 
   if (status === 'unauthenticated') return null;
 
   return (
     <section className='sidebar-stats'>
-      {/* <SidebarStatItem
-        label='Repositories synced'
-        value={githubUser?.public_repos ?? 0}
-      /> */}
-
       <SidebarStatItem
         label='Public repositories'
         value={githubUser?.public_repos ?? 0}

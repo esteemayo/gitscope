@@ -8,10 +8,8 @@ import { useGithubUser } from '@/hooks/useGithubUser';
 import '../../styles/components/sidebar/SidebarUserCard.scss';
 
 const SidebarUserCard = () => {
-  const { data: githubUser } = useGithubUser();
   const { data: session } = useSession();
-
-  console.log(githubUser);
+  const { data: githubUser } = useGithubUser();
 
   if (!session) return null;
 
