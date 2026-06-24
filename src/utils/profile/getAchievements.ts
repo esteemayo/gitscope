@@ -3,12 +3,20 @@ import { AchievementType, GithubUser, RepositoryType } from '@/types/profile';
 export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
   const achievements: AchievementType[] = [];
 
+  const totalStars = repos.reduce(
+    (acc, repo) => acc + repo.stargazers_count,
+    0,
+  );
+
+  const accountAge =
+    new Date().getFullYear() - new Date(user.created_at).getFullYear();
+
   if (user.followers >= 100) {
     achievements.push({
       id: 'followers',
       icon: '',
       title: '100+ Followers',
-      description: 'Built a growing developer community.',
+      description: 'Built a growing developer audience.',
     });
   }
 
@@ -17,35 +25,27 @@ export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
       id: 'opensource',
       icon: '',
       title: 'Open Source Explorer',
-      description: 'Published 50+ repositories.',
+      description: 'Published over 50 repositories.',
     });
   }
 
-  const date = new Date();
-
-  const currentYear = date.getFullYear();
-  const accountCreatedDate = new Date(user.created_at).getFullYear();
-
-  if (user.created_at) {
+  if (accountAge >= 5) {
     achievements.push({
       id: 'veteran',
       icon: '',
       title: 'Veteran Developer',
-      description: 'GitHub member for more than 5 years.',
+      description: 'GitHub member for over 5 years.',
     });
   }
-
-  const totalStars = repos.reduce(
-    (acc, repo) => acc + repo.stargazers_count,
-    0,
-  );
 
   if (totalStars >= 100) {
     achievements.push({
-      id: 'popular',
+      id: 'stars',
       icon: '',
-      title: 'Popular Creator',
-      description: 'Collected over 100 stars.',
+      title: 'Star Collector',
+      description: 'Collected 100+ stars across repositories.',
     });
   }
+
+  return achievements;
 };

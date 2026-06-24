@@ -61,6 +61,7 @@
 
   &__value {
     display: block;
+    font-family: var(--font-mono);
     font-weight: 700;
     font-size: 3rem;
     color: var(--heading);
@@ -71,7 +72,7 @@
   &__label {
     display: block;
     text-transform: capitalize;
-    font-size: 1.4rem;
+    font-size: var(--fz-sm);
     color: var(--text-muted);
     margin-top: 0.6rem;
   }

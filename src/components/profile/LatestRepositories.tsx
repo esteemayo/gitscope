@@ -20,7 +20,7 @@ const LatestRepositories = ({ repositories }: LatestRepositoriesProps) => {
 
         <div className='latest-repositories__grid'>
           {repositories.map((repository) => (
-            <RepositoryCard key={repository.id} {...repository} />
+            <RepositoryCard key={repository.id} repository={repository} />
           ))}
         </div>
       </div>

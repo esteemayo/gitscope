@@ -24,7 +24,7 @@ const ProfileClient = ({
           <ProfileHero user={user} />
 
           <div className='profile-client__side'>
-            <CurrentTimeCard />
+            <CurrentTimeCard location={user.location} />
 
             <ProfileStats user={user} />
           </div>
@@ -38,7 +38,7 @@ const ProfileClient = ({
         </section>
 
         <section className='profile-client__achievements'>
-          <Achievements />
+          <Achievements achievements={achievements} />
         </section>
 
         <section className='profile-client__repositories'>
