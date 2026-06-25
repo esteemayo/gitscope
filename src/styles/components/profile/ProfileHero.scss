@@ -79,10 +79,12 @@
       font-size: var(--fz-sm);
       padding: 0.8rem 1.4rem;
       margin-inline: auto;
-      background-color: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+      border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
       border-radius: 10rem;
       transition: var(--transition);
+      user-select: none;
+      pointer-events: none;
       margin-top: 2rem;
 
       strong {

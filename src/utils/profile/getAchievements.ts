@@ -1,3 +1,4 @@
+import { FlameIcon, RocketIcon, StarIcon, TrophyIcon } from 'lucide-react';
 import { AchievementType, GithubUser, RepositoryType } from '@/types/profile';
 
 export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
@@ -14,7 +15,7 @@ export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
   if (user.followers >= 100) {
     achievements.push({
       id: 'followers',
-      icon: '',
+      icon: FlameIcon,
       title: '100+ Followers',
       description: 'Built a growing developer audience.',
     });
@@ -23,7 +24,7 @@ export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
   if (user.public_repos >= 50) {
     achievements.push({
       id: 'opensource',
-      icon: '',
+      icon: RocketIcon,
       title: 'Open Source Explorer',
       description: 'Published over 50 repositories.',
     });
@@ -32,7 +33,7 @@ export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
   if (accountAge >= 5) {
     achievements.push({
       id: 'veteran',
-      icon: '',
+      icon: TrophyIcon,
       title: 'Veteran Developer',
       description: 'GitHub member for over 5 years.',
     });
@@ -41,7 +42,7 @@ export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
   if (totalStars >= 100) {
     achievements.push({
       id: 'stars',
-      icon: '',
+      icon: StarIcon,
       title: 'Star Collector',
       description: 'Collected 100+ stars across repositories.',
     });

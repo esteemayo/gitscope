@@ -1,6 +1,6 @@
 export const getTimezone = (location?: string | null) => {
   if (!location) {
-    return 'UTC';
+    return 'UTC + 1';
   }
 
   const zones: Record<string, string> = {
@@ -20,5 +20,5 @@ export const getTimezone = (location?: string | null) => {
     location.includes(country),
   );
 
-  return found?.[1] ?? 'UTC';
+  return found?.[1] ?? 'UTC + 1';
 };

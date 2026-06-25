@@ -1,0 +1,22 @@
+.profile-heading {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 2rem;
+
+  &__title {
+    display: inline-block;
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    font-weight: 500;
+    font-size: var(--fz-xl);
+    color: inherit;
+    line-height: 1.1;
+  }
+
+  &__description {
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    margin-top: 0.6rem;
+  }
+}

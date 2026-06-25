@@ -1,17 +1,14 @@
 .latest-repositories {
-  margin-top: 3rem;
+  margin-top: 4rem;
 
   &__container {
-  }
-
-  &__heading {
+    display: flex;
+    flex-direction: column;
   }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
     gap: 2rem;
-
-    margin-top: 2rem;
   }
 }

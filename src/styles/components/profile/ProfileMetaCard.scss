@@ -1,20 +1,26 @@
-.achievement-card {
+@use '../../abstracts/responsive' as bp;
+
+.profile-meta-card {
   display: flex;
   align-items: center;
-  align-items: flex-start;
-  gap: 0.8rem;
   gap: 1.6rem;
 
   padding: 2rem;
   background-color: var(--bg-tertiary);
+  color: var(--text-muted);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   transition: var(--transition);
 
+  @include bp.md {
+    padding: 1.6rem;
+  }
+
   &:hover {
     border-color: color-mix(in srgb, var(--icon) 20%, transparent);
     box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 7%, transparent);
+    transform: translateY(-4px);
   }
 
   &__icon {
@@ -23,35 +29,35 @@
     display: grid;
     place-items: center;
 
-    width: 5rem;
-    height: 5rem;
-    font-size: 2.4rem;
+    width: 4.5rem;
+    height: 4.5rem;
     background-color: color-mix(in srgb, var(--icon) 7%, transparent);
     color: var(--icon);
     border-radius: var(--radius);
-    user-select: none;
-    pointer-events: none;
 
     svg {
-      width: 2.4rem;
-      height: 2.4rem;
+      width: 2rem;
+      height: 2rem;
       color: currentColor;
-      stroke: currentColor;
     }
   }
 
   &__content {
-    &--title {
+    display: flex;
+    flex-direction: column;
+
+    &--label {
       text-transform: capitalize;
-      text-rendering: optimizeLegibility;
-      font-weight: 500;
-      font-size: var(--fz-md);
-      color: inherit;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
     }
 
-    &--description {
-      font-size: var(--fz-xxs);
-      color: var(--text-muted);
+    &--value {
+      font-weight: 500;
+      font-size: var(--fz-md);
+      color: var(--text);
+      word-break: break-word;
+      margin-top: 0.5rem;
     }
   }
 }

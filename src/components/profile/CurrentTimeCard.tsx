@@ -5,11 +5,9 @@ import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 
 import { getTimezone } from '@/utils/profile/getTimezone';
-import '../../styles/components/profile/CurrentTimeCard.scss';
+import { CurrentTimeCardProps } from '@/types/profile/current.time.card.type';
 
-interface CurrentTimeCardProps {
-  location?: string | null;
-}
+import '../../styles/components/profile/CurrentTimeCard.scss';
 
 const CurrentTimeCard = ({ location }: CurrentTimeCardProps) => {
   const [time, setTime] = useState('');

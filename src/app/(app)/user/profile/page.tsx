@@ -1,14 +1,14 @@
+import type { Metadata } from 'next';
+
 import ProfileClient from '@/components/profile/ProfileClient';
-import { mockAchievement, mockRepositories, mockUser } from '@/data/profile';
+import { mockRepositories, mockUser } from '@/data/profile';
+
+export const metadata: Metadata = {
+  title: 'User profile | GitScope',
+};
 
 const ProfilePage = () => {
-  return (
-    <ProfileClient
-      user={mockUser}
-      achievements={mockAchievement}
-      repositories={mockRepositories}
-    />
-  );
+  return <ProfileClient user={mockUser} repositories={mockRepositories} />;
 };
 
 export default ProfilePage;

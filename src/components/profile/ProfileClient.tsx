@@ -1,3 +1,5 @@
+'use client';
+
 import Achievements from './Achievements';
 import ProfileHero from './ProfileHero';
 import CurrentTimeCard from './CurrentTimeCard';
@@ -5,14 +7,14 @@ import ProfileMeta from './ProfileMeta';
 import LatestRepositories from './LatestRepositories';
 import ProfileStats from './ProfileStats';
 
+import { getAchievements } from '@/utils/profile/getAchievements';
 import { ProfileClientProps } from '@/types/profile/profile.client.type';
+
 import '../../styles/components/profile/ProfileClient.scss';
 
-const ProfileClient = ({
-  user,
-  achievements,
-  repositories,
-}: ProfileClientProps) => {
+const ProfileClient = ({ user, repositories }: ProfileClientProps) => {
+  const achievements = getAchievements(user, repositories);
+
   return (
     <main className='profile-client' aria-labelledby='profile-client-title'>
       <div className='profile-client__container'>

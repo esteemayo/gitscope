@@ -1,14 +1,12 @@
-import {
-  BuildingIcon,
-  CalendarIcon,
-  LocateIcon,
-  Mail,
-  XIcon,
-} from 'lucide-react';
+import ProfileHeading from './ProfileHeading';
+import ProfileMetaCard from './ProfileMetaCard';
+
+import EnvelopeIcon from '../icons/EnvelopeIcon';
+import TwitterX from '../icons/TwitterX';
+import Building2Icon from '../icons/Building2Icon';
+import MapPinIcon from '../icons/MapPinIcon';
 
 import { GithubUser } from '@/types/profile';
-import { formatDate } from '@/utils/formatDate';
-
 import '../../styles/components/profile/ProfileMeta.scss';
 
 interface ProfileMetaProps {
@@ -19,67 +17,45 @@ const ProfileMeta = ({ user }: ProfileMetaProps) => {
   const items = [
     {
       id: 'location',
-      icon: LocateIcon,
+      icon: MapPinIcon,
       label: 'Location',
       value: user.location ?? 'Not specified',
     },
     {
       id: 'company',
-      icon: BuildingIcon,
+      icon: Building2Icon,
       label: 'Company',
       value: user.company ?? 'Independent',
     },
     {
       id: 'email',
-      icon: Mail,
+      icon: EnvelopeIcon,
       label: 'Email address',
       value: user.email,
     },
     {
       id: 'twitter',
-      icon: XIcon,
+      icon: TwitterX,
       label: 'Twitter',
       value: user.twitter_username
         ? `@${user.twitter_username}`
         : 'Not specified',
-    },
-    {
-      id: 'joined',
-      icon: CalendarIcon,
-      label: 'Joined GitHub',
-      value: formatDate(user.created_at, true),
     },
   ];
 
   return (
     <section className='profile-meta' aria-labelledby='profile-meta-title'>
       <div className='profile-meta__container'>
-        <h2 id='profile-meta-title' className='profile-meta__title'>
-          Profile information
-        </h2>
+        <ProfileHeading
+          id='profile-meta-title'
+          title='Profile information'
+          description='Personal information about you'
+        />
 
         <div className='profile-meta__grid'>
-          {items.map((item) => {
-            const { id, icon: Icon, label, value } = item;
-
-            return (
-              <article
-                key={id}
-                className='profile-meta__card'
-                aria-label={`${label}: ${value}`}
-              >
-                <div className='profile-meta__icon'>
-                  <Icon size={20} />
-                </div>
-
-                <div className='profile-meta__content'>
-                  <span className='profile-meta__label'>{label}</span>
-
-                  <strong className='profile-meta__value'>{value}</strong>
-                </div>
-              </article>
-            );
-          })}
+          {items.map((item) => (
+            <ProfileMetaCard key={item.id} {...item} />
+          ))}
         </div>
       </div>
     </section>

@@ -1,11 +1,10 @@
+import EmptyState from '../ui/EmptyState';
+
+import ProfileHeading from './ProfileHeading';
 import RepositoryCard from './RepositoryCard';
-import { RepositoryType } from '@/types/profile';
 
+import { LatestRepositoriesProps } from '@/types/profile/latest.prepositories.type';
 import '../../styles/components/profile/LatestRepositories.scss';
-
-interface LatestRepositoriesProps {
-  repositories: RepositoryType[];
-}
 
 const LatestRepositories = ({ repositories }: LatestRepositoriesProps) => {
   return (
@@ -14,15 +13,24 @@ const LatestRepositories = ({ repositories }: LatestRepositoriesProps) => {
       aria-labelledby='latest-repos-title'
     >
       <div className='latest-repositories__container'>
-        <h2 id='latest-repos-title' className='latest-repositories__heading'>
-          Latest repositories
-        </h2>
+        <ProfileHeading
+          id='latest-repos-title'
+          title='Latest repositories'
+          description='Recently updated projects'
+        />
 
-        <div className='latest-repositories__grid'>
-          {repositories.map((repository) => (
-            <RepositoryCard key={repository.id} repository={repository} />
-          ))}
-        </div>
+        {(repositories ?? []).length === 0 ? (
+          <EmptyState
+            title='No repositories found.'
+            description="You've not created any repository."
+          />
+        ) : (
+          <div className='latest-repositories__grid'>
+            {repositories.slice(0, 8).map((repository) => (
+              <RepositoryCard key={repository.id} repository={repository} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

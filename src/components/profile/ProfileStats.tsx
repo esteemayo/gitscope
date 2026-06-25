@@ -48,6 +48,7 @@ const ProfileStats = ({ user }: ProfileStatsProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08 }}
+              whileHover={{ y: -4 }}
               className='profile-stats__card'
             >
               <div className='profile-stats__icon' aria-hidden='true'>

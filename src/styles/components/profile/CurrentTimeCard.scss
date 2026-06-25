@@ -36,7 +36,7 @@
 
     width: 4.8rem;
     height: 4.8rem;
-    background-color: rgba(59, 130, 246, 0.12);
+    background-color: color-mix(in srgb, var(--icon) 7%, transparent);
     color: var(--icon);
     border-radius: var(--radius);
     user-select: none;
@@ -76,10 +76,12 @@
   &__time {
     display: block;
     font-family: var(--font-mono);
+    font-variant: tabular-nums;
     font-weight: 700;
     font-size: 3rem;
-    font-variant: tabular-nums;
     letter-spacing: -1px;
+    user-select: none;
+    pointer-events: none;
 
     @include bp.md {
       font-size: 2.5rem;

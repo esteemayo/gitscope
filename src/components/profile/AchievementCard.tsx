@@ -1,15 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { AchievementType } from '@/types/profile';
+import { AchievementCardProps } from '@/types/profile/achievement.card.type';
 
 import '../../styles/components/profile/AchievementCard.scss';
 
-interface AchievementCardProps {
-  achievement: AchievementType;
-}
-
 const AchievementCard = ({ achievement }: AchievementCardProps) => {
+  const { id, icon: Icon, title, description } = achievement ?? {};
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -18,20 +16,16 @@ const AchievementCard = ({ achievement }: AchievementCardProps) => {
       viewport={{ once: true }}
       whileHover={{ y: -5 }}
       className='achievement-card'
-      aria-labelledby={achievement.id}
+      aria-labelledby={id}
     >
       <div className='achievement-card__icon' aria-hidden='true'>
-        icon
+        <Icon />
       </div>
 
       <div className='achievement-card__content'>
-        <h3 className='achievement-card__content--title'>
-          {achievement.title}
-        </h3>
+        <h3 className='achievement-card__content--title'>{title}</h3>
 
-        <p className='achievement-card__content--description'>
-          {achievement.description}
-        </p>
+        <p className='achievement-card__content--description'>{description}</p>
       </div>
     </motion.article>
   );
