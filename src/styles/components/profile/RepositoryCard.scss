@@ -1,3 +1,5 @@
+@use '../../abstracts/mixins' as *;
+
 .repository-card {
   &__container {
     padding: 2rem;
@@ -49,16 +51,32 @@
         transition: var(--transition);
       }
 
-      &:hover {
-        background-color: rgba(59, 130, 246, 0.12);
-        background-color: color-mix(in srgb, var(--icon) 10%, transparent);
-      }
-
       svg {
         width: 2rem;
         height: 2rem;
         color: currentColor;
         stroke: currentColor;
+      }
+
+      &:hover {
+        background-color: rgba(59, 130, 246, 0.12);
+        background-color: color-mix(in srgb, var(--icon) 10%, transparent);
+      }
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+
+      &:focus-visible {
+        border-radius: 0;
+        @include focus-ring();
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        user-select: none;
+        pointer-events: none;
       }
     }
   }
@@ -93,7 +111,6 @@
     font-family: var(--font-mono);
     font-size: var(--fz-xxs);
     padding: 0.8rem 1.2rem;
-    background-color: rgba(255, 255, 255, 0.04);
     background-color: color-mix(in srgb, var(--icon) 7%, transparent);
     border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
     border-radius: 10rem;

@@ -86,5 +86,49 @@ export const mockRepositories: RepositoryType[] = [
     forks_count: 2500,
     updated_at: '2023-02-02T01:33:26Z',
     html_url: 'https://github.com/esteemayo/overlay-lab',
-  }
+  },
+  {
+    id: 5,
+    name: 'albumz-api',
+    description:
+      'User password authentication and email verification using passport and passport-local.',
+    language: 'JavaScript',
+    stargazers_count: 25,
+    forks_count: 300,
+    updated_at: '2024-10-29T15:34:58Z',
+    html_url: 'https://github.com/esteemayo/albumz-api',
+  },
+  {
+    id: 6,
+    name: 'ecommerce-store-client',
+    description:
+      'Odio maiores vel facilis molestias exercitationem reiciendis ad voluptatibus molestiae eligendi.',
+    language: 'TypeScript',
+    stargazers_count: 1500,
+    forks_count: 1300,
+    updated_at: '2021-05-12T21:32:19Z',
+    html_url: 'https://github.com/esteemayo/ecommerce-store-client',
+  },
+  {
+    id: 7,
+    name: 'burgers',
+    description:
+      'Et nesciunt, eaque est totam inventore illum laborum ullam deserunt cupiditate nisi eos reprehenderit.',
+    language: 'SCSS',
+    stargazers_count: 1167,
+    forks_count: 3120,
+    updated_at: '2025-03-06T16:35:41Z',
+    html_url: 'https://github.com/esteemayo/burgers',
+  },
+  {
+    id: 8,
+    name: 'react-3d-animation',
+    description:
+      'Incidunt omnis officiis est voluptas saepe, voluptate, provident molestiae quam iusto odit quo nam.',
+    language: 'TypeScript',
+    stargazers_count: 5000,
+    forks_count: 4500,
+    updated_at: '2026-01-04T01:30:28Z',
+    html_url: 'https://github.com/esteemayo/react-3d-animation',
+  },
 ];

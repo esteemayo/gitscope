@@ -1,3 +1,5 @@
+@use '../../abstracts/mixins' as *;
+
 .latest-repositories {
   margin-top: 4rem;
 
@@ -10,5 +12,64 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
     gap: 2rem;
+
+    list-style: none;
+  }
+
+  &__action {
+    display: grid;
+    place-items: center;
+
+    margin-top: 6rem;
+
+    &--btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+
+      text-align: center;
+      text-transform: capitalize;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      padding: 1rem 2rem;
+      background-color: var(--color-blue-800);
+      color: var(--color-white-50);
+      border: 1px solid var(--color-blue-800);
+      border-radius: 0.875rem;
+      cursor: pointer;
+      transition: var(--transition);
+
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        color: currentColor;
+        stroke: currentColor;
+        opacity: 0.85;
+      }
+
+      &:hover {
+        box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
+
+        svg {
+          opacity: 1;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        border-radius: 0;
+        @include focus-ring();
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
   }
 }

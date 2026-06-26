@@ -1,14 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Book, User, Users } from 'lucide-react';
 
-import { GithubUser } from '@/types/profile';
-import '../../styles/components/profile/ProfileStats.scss';
+import ProfileStatsCard from './ProfileStatsCard';
+import { ProfileStatsProps } from '@/types/profile/profile.stats.type';
 
-interface ProfileStatsProps {
-  user: GithubUser;
-}
+import '../../styles/components/profile/ProfileStats.scss';
 
 const ProfileStats = ({ user }: ProfileStatsProps) => {
   const stats = [
@@ -39,32 +36,9 @@ const ProfileStats = ({ user }: ProfileStatsProps) => {
           Profile statistics
         </h2>
 
-        {stats.map((item, index) => {
-          const { id, icon: Icon, label, value } = item;
-
-          return (
-            <motion.article
-              key={id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.08 }}
-              whileHover={{ y: -4 }}
-              className='profile-stats__card'
-            >
-              <div className='profile-stats__icon' aria-hidden='true'>
-                <Icon size={20} />
-              </div>
-
-              <div className='profile-stats__content'>
-                <strong className='profile-stats__value'>
-                  {value.toLocaleString()}
-                </strong>
-
-                <span className='profile-stats__label'>{label}</span>
-              </div>
-            </motion.article>
-          );
-        })}
+        {stats.map((item, index) => (
+          <ProfileStatsCard key={item.id} index={index} {...item} />
+        ))}
       </div>
     </section>
   );

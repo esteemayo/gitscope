@@ -6,12 +6,8 @@ import TwitterX from '../icons/TwitterX';
 import Building2Icon from '../icons/Building2Icon';
 import MapPinIcon from '../icons/MapPinIcon';
 
-import { GithubUser } from '@/types/profile';
+import { ProfileMetaProps } from '@/types/profile/profile.meta.type';
 import '../../styles/components/profile/ProfileMeta.scss';
-
-interface ProfileMetaProps {
-  user: GithubUser;
-}
 
 const ProfileMeta = ({ user }: ProfileMetaProps) => {
   const items = [
