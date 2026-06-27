@@ -1,11 +1,14 @@
 @use '../../abstracts/responsive' as bp;
 
 .profile-hero {
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
   text-align: center;
   padding: 3rem;
-  background-color: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  // background-color: var(--bg-tertiary);
+  // border: 1px solid var(--border);
+  // box-shadow: var(--shadow);
   border-radius: var(--radius);
   overflow: hidden;
   position: relative;

@@ -1,7 +1,16 @@
 @use '../../abstracts/responsive' as bp;
 
 .profile-stats {
+  flex: 3;
   width: 100%;
+
+  @media (max-width: 67.5em) {
+    flex: 2.5;
+  }
+
+  @include bp.md {
+    flex: 1.5;
+  }
 
   &__container {
     display: grid;

@@ -35,8 +35,8 @@ const itemsVariant = {
 const LatestRepositories = ({ repositories }: LatestRepositoriesProps) => {
   const { canExpand, isExpanded, showLess, showMore, visibleItems } =
     usePaginationSlice(repositories, {
-      step: 4,
-      initialCount: 4,
+      step: 6,
+      initialCount: 6,
     });
 
   return (

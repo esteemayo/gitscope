@@ -11,33 +11,33 @@ export const usePaginationSlice = <T>(
   items: T[] | undefined,
   options: UsePaginationSliceOptions,
 ) => {
-  const [isVisibleCount, setIsVisibleCount] = useState(4);
+  const [visibleCount, setVisibleCount] = useState(6);
 
-  const INITIAL_COUNT = options.initialCount ?? 4;
-  const STEPS = options.step ?? 4;
+  const INITIAL_COUNT = options.initialCount ?? 6;
+  const STEPS = options.step ?? 6;
 
   const total = items?.length ?? 0;
 
   const showMore = () => {
-    setIsVisibleCount((prev) => Math.min(total, prev + STEPS));
+    setVisibleCount((prev) => Math.min(total, prev + STEPS));
   };
 
   const showLess = () => {
-    setIsVisibleCount(INITIAL_COUNT);
+    setVisibleCount(INITIAL_COUNT);
   };
 
   const visibleItems = useMemo(() => {
     if (!items) return [];
-    return items.slice(0, isVisibleCount);
-  }, [isVisibleCount, items]);
+    return items.slice(0, visibleCount);
+  }, [visibleCount, items]);
 
-  const isExpanded = isVisibleCount >= total;
+  const isExpanded = visibleCount >= total;
   const canExpand = total > INITIAL_COUNT;
 
   return {
     canExpand,
     isExpanded,
-    isVisibleCount,
+    visibleCount,
     showLess,
     showMore,
     visibleItems,
