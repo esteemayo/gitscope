@@ -10,7 +10,7 @@ const Achievements = ({ achievements }: AchievementsProps) => {
   }
 
   return (
-    <section className='achievements' aria-labelledby='achievements-title'>
+    <div className='achievements' aria-labelledby='achievements-title'>
       <div className='achievements__container'>
         <ProfileHeading
           id='achievements-title'
@@ -24,7 +24,7 @@ const Achievements = ({ achievements }: AchievementsProps) => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

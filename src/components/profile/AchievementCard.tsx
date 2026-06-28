@@ -4,17 +4,17 @@ import { motion } from 'framer-motion';
 import { AchievementCardProps } from '@/types/profile/achievement.card.type';
 
 import '../../styles/components/profile/AchievementCard.scss';
+import { fadeUpVariants } from '@/animations/fade';
 
 const AchievementCard = ({ achievement }: AchievementCardProps) => {
   const { id, icon: Icon, title, description } = achievement ?? {};
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      variants={fadeUpVariants}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={{ y: -5 }}
+      whileHover={{ y: -4, scale: 1.01 }}
       className='achievement-card'
       aria-labelledby={id}
     >

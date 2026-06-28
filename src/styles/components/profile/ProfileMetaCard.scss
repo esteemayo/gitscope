@@ -5,22 +5,20 @@
   align-items: center;
   gap: 1.6rem;
 
-  padding: 2rem;
-  background-color: var(--bg-tertiary);
+  padding: 1.5rem 0;
   color: var(--text-muted);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  border-radius: var(--radius);
   transition: var(--transition);
 
-  @include bp.md {
-    padding: 1.6rem;
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--border);
   }
 
   &:hover {
-    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
-    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 7%, transparent);
     transform: translateY(-4px);
+
+    &:not(:last-child) {
+      border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    }
   }
 
   &__icon {

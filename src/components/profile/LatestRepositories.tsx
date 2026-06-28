@@ -40,10 +40,7 @@ const LatestRepositories = ({ repositories }: LatestRepositoriesProps) => {
     });
 
   return (
-    <section
-      className='latest-repositories'
-      aria-labelledby='latest-repos-title'
-    >
+    <div className='latest-repositories' aria-labelledby='latest-repos-title'>
       <div className='latest-repositories__container'>
         <ProfileHeading
           id='latest-repos-title'
@@ -106,7 +103,7 @@ const LatestRepositories = ({ repositories }: LatestRepositoriesProps) => {
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 

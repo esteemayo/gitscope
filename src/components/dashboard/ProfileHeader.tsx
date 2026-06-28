@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 import ShareProfile from './ShareProfile';
 import Avatar from './Avatar';
 import ProfileStatsCard from './ProfileStatsCard';
@@ -12,7 +16,14 @@ const ProfileHeader = ({ username }: { username: string }) => {
   return (
     <section className='profile-header'>
       <div className='profile-header__container'>
-        <Avatar imgSrc='/avatar-2.jpg' alt='avatar' name='Emmanuel Adebayo' />
+        <motion.div
+          initial={{ scale: 0.85, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.25, duration: 0.45 }}
+          className='profile-header__avatar'
+        >
+          <Avatar imgSrc='/avatar-2.jpg' alt='avatar' name='Emmanuel Adebayo' />
+        </motion.div>
 
         <h1 className='profile-header__name'>Emmanuel Adebayo</h1>
 

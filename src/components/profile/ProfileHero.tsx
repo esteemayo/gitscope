@@ -1,10 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+
 import Avatar from '../dashboard/Avatar';
 
-import { GithubUser } from '@/types/profile';
 import { formatDate } from '@/utils/formatDate';
+import { GithubUser } from '@/types/profile';
+import { fadeUpVariants } from '@/animations/fade';
 
 import '../../styles/components/profile/ProfileHero.scss';
 
@@ -15,20 +17,25 @@ interface ProfileHeroProps {
 const ProfileHero = ({ user }: ProfileHeroProps) => {
   return (
     <motion.header
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      variants={fadeUpVariants}
       transition={{ duration: 0.35 }}
       className='profile-hero'
       aria-labelledby='profile-name'
     >
       <div className='profile-hero__container'>
-        <div className='profile-hero__avatar'>
+        <motion.div
+          initial={{ scale: 0.85, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.25, duration: 0.45 }}
+          className='profile-hero__avatar'
+        >
           <Avatar
+            imgSrc={user.avatar_url}
             name={user.name}
-            size={120}
+            size={150}
             alt={`${user.login} github avatar`}
           />
-        </div>
+        </motion.div>
 
         <div className='profile-hero__content'>
           <h1 id='profile-name' className='profile-hero__content--name'>

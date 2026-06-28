@@ -6,7 +6,7 @@ export const mockUser: GithubUser = {
   login: 'esteemayo',
   name: 'Emmanuel Adebayo',
   email: 'eadebayo15@gmail.com',
-  avatar_url: '',
+  avatar_url: '/avatar-2.jpg',
   bio: 'Frontend developer building modern developer experiences.',
   location: 'Lagos, Nigeria',
   company: 'SwiftPay Nigeria',
@@ -48,7 +48,7 @@ export const mockAchievement: AchievementType[] = [
 export const mockRepositories: RepositoryType[] = [
   {
     id: 1,
-    name: 'GitScope',
+    name: 'gitscope',
     description: 'Modern GitHub analytics platform.',
     language: 'TypeScript',
     stargazers_count: 65,
@@ -58,7 +58,7 @@ export const mockRepositories: RepositoryType[] = [
   },
   {
     id: 2,
-    name: 'Veyra',
+    name: 'veyra',
     description: 'Gadget authenticity verification platform.',
     language: 'TypeScript',
     stargazers_count: 31,
@@ -68,7 +68,7 @@ export const mockRepositories: RepositoryType[] = [
   },
   {
     id: 3,
-    name: 'Porfolio',
+    name: 'porfolio',
     description: 'Personal developer portfolio',
     language: 'TypeScript',
     stargazers_count: 12,
@@ -130,5 +130,27 @@ export const mockRepositories: RepositoryType[] = [
     forks_count: 4500,
     updated_at: '2026-01-04T01:30:28Z',
     html_url: 'https://github.com/esteemayo/react-3d-animation',
+  },
+  {
+    id: 9,
+    name: 'fusion-hub-client',
+    description:
+      'Iusto velit aperiam, odit minima perspiciatis eligendi illo perferendis earum expedita cum, inventore necessitatibus debitis? Doloremque eveniet reprehenderit, dolorem labore vitae quo.',
+    language: 'TypeScript',
+    stargazers_count: 6000,
+    forks_count: 9000,
+    updated_at: '2025-12-14T01:27:08Z',
+    html_url: 'https://github.com/esteemayo/fusion-hub-client',
+  },
+  {
+    id: 10,
+    name: 'fusion-hub-server',
+    description:
+      'Quia, consequuntur mollitia ipsam rem ullam eveniet officia impedit debitis. Provident magnam est aspernatur deleniti ipsum deserunt itaque nulla omnis earum quidem.',
+    language: 'JavaScript',
+    stargazers_count: 5700,
+    forks_count: 8900,
+    updated_at: '2024-10-10T20:37:05Z',
+    html_url: 'https://github.com/esteemayo/fusion-hub-server',
   },
 ];

@@ -40,7 +40,7 @@ const ProfileMeta = ({ user }: ProfileMetaProps) => {
   ];
 
   return (
-    <section className='profile-meta' aria-labelledby='profile-meta-title'>
+    <div className='profile-meta' aria-labelledby='profile-meta-title'>
       <div className='profile-meta__container'>
         <ProfileHeading
           id='profile-meta-title'
@@ -54,7 +54,7 @@ const ProfileMeta = ({ user }: ProfileMetaProps) => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

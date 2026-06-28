@@ -1,19 +1,15 @@
 @use '../../abstracts/responsive' as bp;
 
 .profile-meta {
+  padding: 2rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+
   &__container {
-    width: 100%;
-    max-width: 80rem;
-    margin-inline: auto;
-  }
-
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.6rem;
-
-    @media (max-width: 62em) {
-      grid-template-columns: 1fr;
-    }
+    display: flex;
+    flex-direction: column;
   }
 }

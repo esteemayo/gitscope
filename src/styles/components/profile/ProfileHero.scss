@@ -23,13 +23,6 @@
 
   &__avatar {
     margin-top: 2rem;
-
-    img {
-      @include bp.md {
-        width: 9rem;
-        height: 9rem;
-      }
-    }
   }
 
   &__content {

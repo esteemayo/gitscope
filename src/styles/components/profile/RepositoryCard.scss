@@ -57,11 +57,16 @@
         height: 2rem;
         color: currentColor;
         stroke: currentColor;
+        opacity: 0.7;
       }
 
       &:hover {
         background-color: rgba(59, 130, 246, 0.12);
         background-color: color-mix(in srgb, var(--icon) 10%, transparent);
+
+        svg {
+          opacity: 1;
+        }
       }
 
       &:focus,
@@ -72,6 +77,10 @@
       &:focus-visible {
         border-radius: 0;
         @include focus-ring();
+
+        svg {
+          opacity: 1;
+        }
       }
 
       &:disabled {
