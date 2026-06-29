@@ -18,4 +18,7 @@ export const LANGUAGE_COLORS: Record<string, string> = {
   Dart: '#0175C2',
   Kotlin: '#7F52FF',
   Swift: '#FA7343',
+  Shell: '#89E051',
+  Markdown: '#083FA1',
+  Dockerfile: '#384D54'
 };

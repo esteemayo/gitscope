@@ -1,0 +1,14 @@
+.language-chart {
+  &__container {
+    display: grid;
+    place-items: center;
+
+    width: 18rem;
+    height: 18rem;
+    margin-inline: auto;
+    color: var(--icon);
+    border: 1px solid var(--border);
+    border-radius: 100%;
+    transition: var(--transition);
+  }
+}

@@ -1,0 +1,14 @@
+.profile-overview {
+  width: 100%;
+  max-width: 100rem;
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(28rem, 1fr);
+  align-items: stretch;
+  gap: 2rem;
+
+  @media (max-width: 62em) {
+    grid-template-columns: 1fr;
+  }
+}

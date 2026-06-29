@@ -18,7 +18,7 @@ const ProfileMetaSkeleton = () => {
               >
                 <Skeleton width={90} height={14} />
 
-                <Skeleton width='80%' height={20} />
+                <Skeleton width='60%' height={20} />
               </div>
             </article>
           ))}

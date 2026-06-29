@@ -3,19 +3,17 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-import Achievements from './Achievements';
+import ProfileOverview from './ProfileOverview';
 import ProfileHero from './ProfileHero';
-import CurrentTimeCard from './CurrentTimeCard';
-import ProfileMeta from './ProfileMeta';
 import LatestRepositories from './LatestRepositories';
+import Achievements from './Achievements';
+import LanguageDistribution from './languageDistribution/LanguageDistribution';
 import ProfileStats from './ProfileStats';
 
-import ProfileHeroSkeleton from '../skeletons/profile/ProfileHeroSkeleton';
-import CurrentTimeSkeleton from '../skeletons/profile/CurrentTimeSkeleton';
 import ProfileStatsSkeleton from '../skeletons/profile/ProfileStatsSkeleton';
-import ProfileMetaSkeleton from '../skeletons/profile/ProfileMetaSkeleton';
-import AchievementSkeleton from '../skeletons/profile/AchievementSkeleton';
+import ProfileHeroSkeleton from '../skeletons/profile/ProfileHeroSkeleton';
 import RepositoryCardSkeleton from '../skeletons/profile/RepositoryCardSkeleton';
+import AchievementSkeleton from '../skeletons/profile/AchievementSkeleton';
 
 import { pageVariants } from '@/animations/page';
 import { fadeUpVariants } from '@/animations/fade';
@@ -25,6 +23,7 @@ import { getTotalStars } from '@/utils/profile/getTotalStars';
 import { ProfileClientProps } from '@/types/profile/profile.client.type';
 
 import '../../styles/components/profile/ProfileClient.scss';
+import { mockLanguages } from '@/data/profile';
 
 const ProfileClient = ({ user, repositories }: ProfileClientProps) => {
   const achievements = getAchievements(user, repositories);
@@ -81,19 +80,15 @@ const ProfileClient = ({ user, repositories }: ProfileClientProps) => {
           className='profile-client__meta'
           aria-label='Profile Information'
         >
-          <div className='profile-client__side'>
-            {isLoadingUser ? (
-              <ProfileMetaSkeleton />
-            ) : (
-              <ProfileMeta user={user} />
-            )}
+          <ProfileOverview user={user} isLoading={isLoadingUser} />
+        </motion.section>
 
-            {isLoadingUser ? (
-              <CurrentTimeSkeleton />
-            ) : (
-              <CurrentTimeCard location={user.location} />
-            )}
-          </div>
+        <motion.section
+          variants={fadeUpVariants}
+          className='profile-client__meta'
+          aria-label='Profile Information'
+        >
+          <LanguageDistribution languages={mockLanguages} />
         </motion.section>
 
         <motion.section

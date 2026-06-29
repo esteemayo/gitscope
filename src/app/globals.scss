@@ -120,6 +120,8 @@
   --warning: var(--color-yellow-500);
   --offline-border: var(--color-red-800);
 
+  --bg-progress-bar: rgba(255, 255, 255, 0.06);
+
   --shadow: 0 2rem 5rem rgba(0, 0, 0, 0.6);
   --gradient: linear-gradient(135deg, #020617, #0f172a);
 }
@@ -178,6 +180,8 @@
   --danger: var(--color-red-800);
   --warning: var(--color-yellow-600);
   --offline-border: var(--color-red-600);
+
+  --bg-progress-bar: #f9f9f9;
 
   --shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08);
   --gradient: linear-gradient(135deg, #e0f2fe, #ffffff);

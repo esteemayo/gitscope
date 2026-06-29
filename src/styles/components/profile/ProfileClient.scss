@@ -36,30 +36,6 @@
     }
   }
 
-  &__side {
-    width: 100%;
-    max-width: 100rem;
-    margin-inline: auto;
-
-    // display: flex;
-    // flex-direction: row-reverse;
-    // justify-content: center;
-    // gap: 2rem;
-
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(28rem, 1fr);
-    align-items: stretch;
-    gap: 2rem;
-
-    @media (max-width: 62em) {
-      grid-template-columns: 1fr;
-    }
-
-    // @media (max-width: 36.25em) {
-    //   flex-direction: column;
-    // }
-  }
-
   &__meta,
   &__achievements,
   &__repositories {

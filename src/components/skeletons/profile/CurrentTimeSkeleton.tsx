@@ -17,12 +17,19 @@ const CurrentTimeSkeleton = () => {
         <div className='current-time-card__body'>
           <Skeleton width={180} height={36} />
 
-          <div className='current-time-card__timezone'>
-            <Skeleton circle width={16} height={16} />
-
-            <Skeleton width={80} height={18} />
-          </div>
+          <Skeleton
+            width={120}
+            height={36}
+            borderRadius={100}
+            style={{ marginTop: 24 }}
+          />
         </div>
+
+        <footer className='current-time-card__footer'>
+          <Skeleton width={80} height={18} />
+
+          <Skeleton width={60} height={18} />
+        </footer>
       </div>
     </aside>
   );

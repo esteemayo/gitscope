@@ -1,0 +1,66 @@
+@use '../../../abstracts/responsive' as bp;
+
+.language-distribution {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 2.4rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &__group {
+    width: 100%;
+  }
+
+  &__title {
+    display: inline-block;
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    font-weight: 600;
+    font-size: var(--fz-xl);
+    line-height: 1.1;
+  }
+
+  &__description {
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  &__count {
+    font-size: var(--fz-xxs);
+    white-space: nowrap;
+    padding: 0.6rem 1rem;
+    background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+    color: var(--icon);
+    border-radius: 10rem;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 18rem 1fr;
+    align-items: center;
+    gap: 4rem;
+
+    @include bp.md {
+      grid-template-columns: 1fr;
+    }
+  }
+}
