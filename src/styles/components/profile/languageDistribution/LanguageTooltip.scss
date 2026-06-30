@@ -1,0 +1,53 @@
+.language-tooltip {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 18rem;
+  padding: 1.4rem;
+  border-radius: var(--radius);
+  background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+  -webkit-backdrop-filter: blur(2rem);
+  backdrop-filter: blur(2rem);
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 2000;
+  transition: var(--transition);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    &--dot {
+      flex-shrink: 0;
+
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 100%;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    &--label {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    &--value {
+      font-weight: 600;
+      color: var(--icon);
+    }
+
+    &--size {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+    }
+  }
+}

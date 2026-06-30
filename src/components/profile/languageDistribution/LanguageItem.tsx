@@ -20,7 +20,7 @@ const LanguageItem = ({ language }: LanguageItemProps) => {
           </span>
 
           <small className='language-item__meta--size'>
-            {(language.bytes / 1024).toFixed(0)} KB
+            {(language.bytes / 1024).toFixed(0)} kb
           </small>
         </div>
       </div>

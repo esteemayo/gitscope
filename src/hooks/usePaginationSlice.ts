@@ -11,7 +11,7 @@ export const usePaginationSlice = <T>(
   items: T[] | undefined,
   options: UsePaginationSliceOptions,
 ) => {
-  const [visibleCount, setVisibleCount] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(options.initialCount ?? 6);
 
   const INITIAL_COUNT = options.initialCount ?? 6;
   const STEPS = options.step ?? 6;

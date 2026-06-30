@@ -45,6 +45,8 @@
     }
 
     &--size {
+      text-transform: uppercase;
+      font-variant: tabular-nums;
       font-size: var(--fz-xxs);
       color: currentColor;
     }

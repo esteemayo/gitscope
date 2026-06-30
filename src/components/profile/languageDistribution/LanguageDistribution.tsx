@@ -25,7 +25,8 @@ const LanguageDistribution = ({ languages }: LanguageDistributionProps) => {
             className='language-distribution__count'
             aria-label={`${languages?.length} languages`}
           >
-            {languages?.length} Languages
+            {languages?.length}{' '}
+            {languages?.length > 1 ? 'Languages' : 'Language'}
           </span>
         </header>
 

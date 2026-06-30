@@ -51,11 +51,18 @@
     border-radius: 10rem;
     user-select: none;
     pointer-events: none;
+
+    @media (max-width: 37.5em) {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+      z-index: -1;
+    }
   }
 
   &__content {
     display: grid;
-    grid-template-columns: 18rem 1fr;
+    grid-template-columns: 22rem 1fr;
     align-items: center;
     gap: 4rem;
 

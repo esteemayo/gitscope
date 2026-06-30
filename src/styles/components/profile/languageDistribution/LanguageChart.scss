@@ -1,14 +1,63 @@
 .language-chart {
   &__container {
+    flex-shrink: 0;
+
+    width: 22rem;
+    height: 22rem;
+    color: inherit;
+    margin-inline: auto;
+
+    position: relative;
+
+    svg {
+      outline: none;
+    }
+  }
+
+  &__center {
     display: grid;
     place-items: center;
 
-    width: 18rem;
-    height: 18rem;
-    margin-inline: auto;
-    color: var(--icon);
-    border: 1px solid var(--border);
-    border-radius: 100%;
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    user-select: none;
+    pointer-events: none;
     transition: var(--transition);
+
+    &.visible {
+      visibility: visible;
+      opacity: 1;
+      z-index: 1000;
+    }
+
+    &.hidden {
+      visibility: hidden;
+      opacity: 0;
+      z-index: -1;
+    }
+
+    &--count {
+      font-weight: 700;
+      font-size: 2.8rem;
+      line-height: 1.1;
+    }
+
+    &--label {
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    &--size {
+      text-transform: uppercase;
+      font-variant: tabular-nums;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      opacity: 0.7;
+      margin-top: 0.4rem;
+    }
   }
 }
