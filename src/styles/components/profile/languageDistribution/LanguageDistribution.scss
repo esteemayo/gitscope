@@ -27,22 +27,8 @@
     width: 100%;
   }
 
-  &__title {
-    display: inline-block;
-    text-transform: capitalize;
-    text-rendering: optimizeLegibility;
-    font-weight: 600;
-    font-size: var(--fz-xl);
-    line-height: 1.1;
-  }
-
-  &__description {
-    font-size: var(--fz-xs);
-    color: var(--text-muted);
-    margin-bottom: 0.5rem;
-  }
-
   &__count {
+    font-weight: 500;
     font-size: var(--fz-xxs);
     white-space: nowrap;
     padding: 0.6rem 1rem;

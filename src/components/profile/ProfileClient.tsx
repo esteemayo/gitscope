@@ -7,8 +7,9 @@ import ProfileOverview from './ProfileOverview';
 import ProfileHero from './ProfileHero';
 import LatestRepositories from './LatestRepositories';
 import Achievements from './Achievements';
-import LanguageDistribution from './languageDistribution/LanguageDistribution';
+import ContributionHeatmap from './contributionHeatmap/ContributionHeatmap';
 import ProfileStats from './ProfileStats';
+import LanguageDistribution from './languageDistribution/LanguageDistribution';
 
 import ProfileStatsSkeleton from '../skeletons/profile/ProfileStatsSkeleton';
 import ProfileHeroSkeleton from '../skeletons/profile/ProfileHeroSkeleton';
@@ -20,12 +21,17 @@ import { fadeUpVariants } from '@/animations/fade';
 
 import { getAchievements } from '@/utils/profile/getAchievements';
 import { getTotalStars } from '@/utils/profile/getTotalStars';
+
+import { mockContributions } from '@/data/profile/mockContributions';
 import { ProfileClientProps } from '@/types/profile/profile.client.type';
 
 import '../../styles/components/profile/ProfileClient.scss';
-import { mockLanguages } from '@/data/profile';
 
-const ProfileClient = ({ user, repositories }: ProfileClientProps) => {
+const ProfileClient = ({
+  user,
+  languages,
+  repositories,
+}: ProfileClientProps) => {
   const achievements = getAchievements(user, repositories);
 
   const [isLoadingUser, setIsLoadingUser] = useState(true);
@@ -85,10 +91,21 @@ const ProfileClient = ({ user, repositories }: ProfileClientProps) => {
 
         <motion.section
           variants={fadeUpVariants}
-          className='profile-client__meta'
-          aria-label='Profile Information'
+          className='profile-client__language'
+          aria-label='Language Distribution'
         >
-          <LanguageDistribution languages={mockLanguages} />
+          <LanguageDistribution languages={languages} />
+        </motion.section>
+
+        <motion.section
+          variants={fadeUpVariants}
+          className='profile-client__contributions'
+          aria-label='Contribution Heatmap'
+        >
+          <ContributionHeatmap
+            weeks={mockContributions}
+            totalContributions={1843}
+          />
         </motion.section>
 
         <motion.section

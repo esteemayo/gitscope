@@ -3,9 +3,25 @@
 .language-legend {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.6rem;
 
   list-style: none;
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    margin: 0.5rem 0;
+    background-color: var(--border);
+    transition: var(--transition);
+  }
+
+  &__hidden {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    overflow: hidden;
+  }
 
   &__action {
     align-self: flex-start;
@@ -76,11 +92,5 @@
         pointer-events: none;
       }
     }
-  }
-
-  &__hidden {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
   }
 }

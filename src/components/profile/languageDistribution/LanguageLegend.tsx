@@ -26,6 +26,10 @@ const LanguageLegend = ({ languages }: LanguageLegendProps) => {
         <LanguageItem key={language.name} language={language} />
       ))}
 
+      {hasHiddenLanguages && isExpanded && (
+        <div className='language-legend__divider' />
+      )}
+
       <AnimatePresence initial={false}>
         {isExpanded && (
           <motion.div
@@ -33,6 +37,7 @@ const LanguageLegend = ({ languages }: LanguageLegendProps) => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
+            id='hidden-languages'
             className='language-legend__hidden'
           >
             {hiddenLanguages?.map((language) => (
@@ -49,12 +54,16 @@ const LanguageLegend = ({ languages }: LanguageLegendProps) => {
             onClick={() => setIsExpanded((prev) => !prev)}
             className='language-legend__action--btn'
             aria-expanded={isExpanded}
+            aria-controls='hidden-languages'
           >
             <span>
               {!isExpanded ? `+${remainingCount} more languages` : 'Show less'}
             </span>
 
-            <motion.span animate={{ rotate: isExpanded ? 180 : 0 }}>
+            <motion.span
+              animate={{ rotate: isExpanded ? 180 : 0 }}
+              transition={{ duration: 0.25 }}
+            >
               <ChevronDownIcon size={16} />
             </motion.span>
           </button>
