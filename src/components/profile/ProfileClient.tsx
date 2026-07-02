@@ -7,9 +7,8 @@ import ProfileOverview from './ProfileOverview';
 import ProfileHero from './ProfileHero';
 import LatestRepositories from './LatestRepositories';
 import Achievements from './Achievements';
-import ContributionHeatmap from './contributionHeatmap/ContributionHeatmap';
-import ProfileStats from './ProfileStats';
 import LanguageDistribution from './languageDistribution/LanguageDistribution';
+import ProfileStats from './ProfileStats';
 
 import ProfileStatsSkeleton from '../skeletons/profile/ProfileStatsSkeleton';
 import ProfileHeroSkeleton from '../skeletons/profile/ProfileHeroSkeleton';
@@ -22,10 +21,11 @@ import { fadeUpVariants } from '@/animations/fade';
 import { getAchievements } from '@/utils/profile/getAchievements';
 import { getTotalStars } from '@/utils/profile/getTotalStars';
 
-import { mockContributions } from '@/data/profile/mockContributions';
 import { ProfileClientProps } from '@/types/profile/profile.client.type';
 
 import '../../styles/components/profile/ProfileClient.scss';
+import ActivitySummary from './activity/ActivitySummary';
+import { mockActivitySummary } from '@/data/profile/mockActivitySummary';
 
 const ProfileClient = ({
   user,
@@ -83,7 +83,7 @@ const ProfileClient = ({
 
         <motion.section
           variants={fadeUpVariants}
-          className='profile-client__meta'
+          className='profile-client__section'
           aria-label='Profile Information'
         >
           <ProfileOverview user={user} isLoading={isLoadingUser} />
@@ -91,7 +91,7 @@ const ProfileClient = ({
 
         <motion.section
           variants={fadeUpVariants}
-          className='profile-client__language'
+          className='profile-client__section'
           aria-label='Language Distribution'
         >
           <LanguageDistribution languages={languages} />
@@ -99,18 +99,14 @@ const ProfileClient = ({
 
         <motion.section
           variants={fadeUpVariants}
-          className='profile-client__contributions'
-          aria-label='Contribution Heatmap'
+          className='profile-client__section'
         >
-          <ContributionHeatmap
-            weeks={mockContributions}
-            totalContributions={1843}
-          />
+          <ActivitySummary metrics={mockActivitySummary} />
         </motion.section>
 
         <motion.section
           variants={fadeUpVariants}
-          className='profile-client__achievements'
+          className='profile-client__section'
         >
           {isLoadingUser ? (
             <AchievementSkeleton />
@@ -121,7 +117,7 @@ const ProfileClient = ({
 
         <motion.section
           variants={fadeUpVariants}
-          className='profile-client__repositories'
+          className='profile-client__section'
         >
           {isLoadingRepo ? (
             <RepositoryCardSkeleton />

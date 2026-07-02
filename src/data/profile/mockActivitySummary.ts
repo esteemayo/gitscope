@@ -1,0 +1,76 @@
+import {
+  BoltIcon,
+  Calendar,
+  Calendar1Icon,
+  ChartBarIcon,
+  ClockIcon,
+  FlameIcon,
+  SparkleIcon,
+  TrendingUpIcon,
+} from 'lucide-react';
+import { ActivityMetric } from '@/types/profile/activity';
+
+export const mockActivitySummary: ActivityMetric[] = [
+  {
+    id: 'contributions',
+    title: 'Contributions',
+    value: '2,438',
+    subtitle: 'Total contributions',
+    trend: 12,
+    trendLabel: 'vs last year',
+    trendDirection: 'up',
+    icon: BoltIcon,
+  },
+  {
+    id: 'current',
+    title: 'Current Streak',
+    value: '14 Days',
+    subtitle: 'Current coding streak',
+    icon: FlameIcon,
+  },
+  {
+    id: 'longest',
+    title: 'Longest Streak',
+    value: '81 Days',
+    subtitle: 'Personal best',
+    icon: SparkleIcon,
+  },
+  {
+    id: 'active',
+    title: 'Active Days',
+    value: 218,
+    subtitle: 'Days with activity',
+    icon: Calendar,
+  },
+  {
+    id: 'peak',
+    title: 'Peak Month',
+    value: 'October',
+    subtitle: 'Highest activity',
+    icon: TrendingUpIcon,
+  },
+  {
+    id: 'weekly',
+    title: 'Weekly Average',
+    value: 32,
+    subtitle: 'Contributions / week',
+    trend: -5,
+    trendLabel: 'vs last month',
+    trendDirection: 'down',
+    icon: Calendar1Icon,
+  },
+  {
+    id: 'daily',
+    title: 'Daily Average',
+    value: '4.3',
+    subtitle: 'Average per day',
+    icon: ClockIcon,
+  },
+  {
+    id: 'weekday',
+    title: 'Most Active Day',
+    value: 'Wednesday',
+    subtitle: 'Highest productivity',
+    icon: ChartBarIcon,
+  },
+];

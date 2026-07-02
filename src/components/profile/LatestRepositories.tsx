@@ -45,7 +45,7 @@ const LatestRepositories = ({ repositories }: LatestRepositoriesProps) => {
         <ProfileHeading
           id='latest-repos-title'
           title='Latest repositories'
-          description='Recently updated projects'
+          description='Recently updated projects.'
         />
 
         {(repositories ?? []).length === 0 ? (

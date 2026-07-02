@@ -1,24 +1,23 @@
 @use '../../../abstracts/responsive' as bp;
 
-.contribution-heatmap {
+.activity-summary {
   width: 100%;
   max-width: 100rem;
   margin-inline: auto;
-  padding: 2.4rem;
-  background-color: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transition: var(--transition);
+  // padding: 2.4rem;
+  // background-color: var(--bg-tertiary);
+  // border: 1px solid var(--border);
+  // border-radius: var(--radius);
+  // transition: var(--transition);
 
   &__container {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
   }
 
   &__header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 2rem;
   }
@@ -27,12 +26,11 @@
     width: 100%;
   }
 
-  &__count {
-    display: flex;
-    font-weight: 600;
-    font-size: var(--fz-xxs);
+  &__total {
+    font-weight: 500;
+    font-size: var(--fz-xs);
     white-space: nowrap;
-    padding: 0.6rem 1rem;
+    padding: 0.8rem 1.4rem;
     background-color: color-mix(in srgb, var(--icon) 7%, transparent);
     color: var(--icon);
     border-radius: 10rem;
@@ -47,10 +45,9 @@
     }
   }
 
-  &__calendar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    gap: 2rem;
   }
 }

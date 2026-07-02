@@ -1,0 +1,115 @@
+.activity-card {
+  padding: 2rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    box-shadow: 0 1.8rem 4rem rgba(0, 0, 0, 0.18);
+    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 7%, transparent);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+    color: var(--icon);
+    border-radius: var(--radius);
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__trend {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+
+    &--value {
+      font-weight: 700;
+      font-size: var(--fz-xs);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    &--label {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    &--up {
+      strong {
+        color: #22c55e;
+        color: var(--color-green-300);
+      }
+    }
+
+    &--down {
+      strong {
+        color: #ef4444;
+      }
+    }
+
+    &--neutral {
+      strong {
+        color: var(--text-muted);
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    &--title {
+      display: inline-block;
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      font-weight: 500;
+      font-size: var(--fz-sm);
+      color: var(--text-muted);
+      line-height: 1.1;
+    }
+
+    &--value {
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1.1;
+    }
+
+    &--subtitle {
+      font-family: var(--font-mono);
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+    }
+  }
+}

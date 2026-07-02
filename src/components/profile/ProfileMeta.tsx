@@ -45,7 +45,7 @@ const ProfileMeta = ({ user }: ProfileMetaProps) => {
         <ProfileHeading
           id='profile-meta-title'
           title='Profile information'
-          description='Personal information about you'
+          description='Personal information about you.'
         />
 
         <div className='profile-meta__grid'>

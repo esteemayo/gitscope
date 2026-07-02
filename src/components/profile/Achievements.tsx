@@ -15,7 +15,7 @@ const Achievements = ({ achievements }: AchievementsProps) => {
         <ProfileHeading
           id='achievements-title'
           title='Achievements'
-          description='Milestones earned from your GitHub activity'
+          description='Milestones earned from your GitHub activity.'
         />
 
         <div className='achievements__grid'>
