@@ -170,7 +170,7 @@
 
     &--value {
       font-family: var(--font-mono);
-      font-variant: tabular-nums;
+      font-variant-numeric: tabular-nums;
       font-size: var(--fz-xxs);
     }
   }

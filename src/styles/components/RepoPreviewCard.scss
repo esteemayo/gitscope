@@ -75,7 +75,7 @@
 
     &--stars,
     &--forks {
-      font-variant: tabular-nums;
+      font-variant-numeric: tabular-nums;
 
       svg {
         display: inline-block;

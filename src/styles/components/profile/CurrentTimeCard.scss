@@ -27,19 +27,6 @@
     display: flex;
     align-items: center;
     gap: 1.2rem;
-
-    @media (max-width: 67.5em) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    @include bp.md {
-      flex-direction: row;
-    }
-
-    @media (max-width: 36.25em) {
-      flex-direction: row;
-    }
   }
 
   &__icon {
@@ -92,18 +79,15 @@
   &__time {
     display: block;
     font-family: var(--font-mono);
-    font-variant: tabular-nums;
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
     font-weight: 700;
     font-size: 4rem;
     letter-spacing: -2px;
     line-height: 1.1;
 
-    @media (max-width: 68.75em) {
-      font-size: 2.5rem;
-    }
-
-    @include bp.md {
-      font-size: 2.5rem;
+    @include bp.sm {
+      font-size: 3rem;
     }
   }
 

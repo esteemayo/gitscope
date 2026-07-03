@@ -1,5 +1,15 @@
 import { LucideProps } from 'lucide-react';
 
+export type ActivityAccent =
+  | 'blue'
+  | 'orange'
+  | 'purple'
+  | 'green'
+  | 'pink'
+  | 'cyan'
+  | 'indigo'
+  | 'amber';
+
 export interface ActivityMetric {
   id: string;
   title: string;

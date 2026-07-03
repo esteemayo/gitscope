@@ -1,4 +1,4 @@
-import { ActionButtonProps } from '@/types/action.button.type';
+import { ActionButtonProps } from '@/types/ui/action.button.type';
 import '../../styles/components/ui/ActionButton.scss';
 
 const ActionButton = ({

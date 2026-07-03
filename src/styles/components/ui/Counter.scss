@@ -1,0 +1,10 @@
+.counter {
+  display: inline-flex;
+  align-items: center;
+
+  font: inherit;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: inherit;
+}

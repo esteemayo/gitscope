@@ -53,7 +53,7 @@
 
     &--size {
       text-transform: uppercase;
-      font-variant: tabular-nums;
+      font-variant-numeric: tabular-nums;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
       opacity: 0.7;

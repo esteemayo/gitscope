@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion';
 import { FolderSearch } from 'lucide-react';
 
-import { EmptyStateProps } from '@/types/empty.state.type';
-import '../../styles/components/EmptyState.scss';
+import { EmptyStateProps } from '@/types/ui/empty.state.type';
+import '../../styles/components/ui/EmptyState.scss';
 
 const EmptyState = ({ title, description }: EmptyStateProps) => {
   return (

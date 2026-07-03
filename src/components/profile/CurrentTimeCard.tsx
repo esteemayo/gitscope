@@ -53,7 +53,6 @@ const CurrentTimeCard = ({ location }: CurrentTimeCardProps) => {
     <motion.aside
       variants={fadeUpVariants}
       transition={{ duration: 0.3 }}
-      whileHover={{ y: -4 }}
       className='current-time-card'
       aria-labelledby='current-time-title'
     >

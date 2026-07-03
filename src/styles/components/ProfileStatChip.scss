@@ -11,7 +11,7 @@
   transition: var(--transition);
 
   &__value {
-    font-variant: tabular-nums;
+    font-variant-numeric: tabular-nums;
     font-weight: 700;
     font-size: 100%;
   }

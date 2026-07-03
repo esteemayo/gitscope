@@ -2,7 +2,7 @@ import {
   BoltIcon,
   Calendar,
   Calendar1Icon,
-  ChartBarIcon,
+  ChartLineIcon,
   ClockIcon,
   FlameIcon,
   SparkleIcon,
@@ -71,6 +71,6 @@ export const mockActivitySummary: ActivityMetric[] = [
     title: 'Most Active Day',
     value: 'Wednesday',
     subtitle: 'Highest productivity',
-    icon: ChartBarIcon,
+    icon: ChartLineIcon,
   },
 ];
