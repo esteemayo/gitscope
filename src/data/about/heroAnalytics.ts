@@ -21,7 +21,7 @@ export const heroAnalytics: HeroCardItem[] = [
     icon: Star,
     title: 'Stars Earned',
     value: '9.8K',
-    trend: 'Growing open-source impact',
+    trend: 'Growing community impact',
   },
   {
     id: '4',

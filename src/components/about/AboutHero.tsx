@@ -37,7 +37,6 @@ const AboutHero = ({
   secondaryButtonLabel,
   primaryButtonHref,
   secondaryButtonHref,
-  stats,
   analytics,
 }: AboutHeroProps) => {
   return (
@@ -95,19 +94,6 @@ const AboutHero = ({
 
                   {secondaryButtonLabel}
                 </a>
-              </motion.div>
-
-              <motion.div variants={itemVariants} className='about-hero__stats'>
-                {stats.map((stat) => {
-                  const { id, label, value } = stat;
-
-                  return (
-                    <div key={id} className='about-hero__stat'>
-                      <span className='about-hero__stat--value'>{value}</span>
-                      <small className='about-hero__stat--label'>{label}</small>
-                    </div>
-                  );
-                })}
               </motion.div>
             </div>
 

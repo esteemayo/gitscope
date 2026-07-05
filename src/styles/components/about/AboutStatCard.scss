@@ -1,0 +1,145 @@
+@use '../../abstracts/responsive' as bp;
+
+.about-stat-card {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  overflow: hidden;
+
+  min-height: 26rem;
+  padding: 2rem;
+  -webkit-backdrop-filter: blur(2rem);
+  backdrop-filter: blur(2rem);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  transition: var(--transition);
+
+  @include bp.md {
+    min-height: 22rem;
+  }
+
+  @include bp.sm {
+    padding: 1.5rem;
+    border-radius: 2.2rem;
+  }
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+    box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 10%, transparent);
+    transform: translateY(-1rem);
+
+    .about-stat-card__icon {
+      transform: rotate(-6deg) scale(1.08);
+    }
+
+    .about-stat-card__glow {
+      opacity: 1;
+    }
+  }
+
+  &__glow {
+    position: absolute;
+    top: -8rem;
+    right: -6rem;
+
+    width: 18rem;
+    height: 18rem;
+    border-radius: 100%;
+    background-color: rgba(91, 140, 255, 0.18);
+    filter: blur(5.5rem);
+    opacity: 0;
+    transition: var(--transition);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 7.2rem;
+    height: 7.2rem;
+    background-image: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-blue-400) 7%, transparent),
+      color-mix(in srgb, var(--color-blue-800) 20%, transparent)
+    );
+    color: var(--icon);
+    -webkit-backdrop-filter: blur(0.5rem);
+    backdrop-filter: blur(0.5rem);
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+
+    @include bp.md {
+      width: 6.4rem;
+      height: 6.4rem;
+    }
+
+    svg {
+      width: 3rem;
+      height: 3rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    &--metric {
+      color: var(--text);
+      font-weight: 700;
+      font-size: clamp(var(--fz-xl), 4vw, 3rem);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+
+      @include bp.sm {
+        font-size: 2.25rem;
+      }
+    }
+
+    &--label {
+      font-weight: 600;
+      font-size: var(--fz-xxs);
+      color: var(--text-label);
+      margin-bottom: auto;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 2rem;
+
+    &--trend {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #3ddc97;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+
+    &--trend-label {
+      display: block;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 0.65rem;
+    }
+  }
+}

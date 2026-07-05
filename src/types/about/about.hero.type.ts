@@ -1,4 +1,4 @@
-import { HeroCardItem, HeroStat } from './index';
+import { HeroCardItem } from './index';
 
 export interface AboutHeroProps {
   badge?: string;
@@ -8,6 +8,5 @@ export interface AboutHeroProps {
   secondaryButtonLabel: string;
   primaryButtonHref: string;
   secondaryButtonHref: string;
-  stats: HeroStat[];
   analytics: HeroCardItem[];
 }
