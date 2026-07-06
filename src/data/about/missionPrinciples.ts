@@ -8,6 +8,7 @@ export const missionPrinciples: MissionPrinciple[] = [
     title: 'Clarity',
     description:
       'Complex GitHub repositories are transformed into intuitive visual analytics that are easy to explore and understand.',
+    accentColor: '#3B82F6',
   },
   {
     id: 'performance',
@@ -15,6 +16,7 @@ export const missionPrinciples: MissionPrinciple[] = [
     title: 'Performance',
     description:
       'Every interaction is designed to feel responsive, from repository search to analytics rendering.',
+    accentColor: '#F59E0B',
   },
   {
     id: 'privacy',
@@ -22,5 +24,6 @@ export const missionPrinciples: MissionPrinciple[] = [
     title: 'Privacy First',
     description:
       'GitScope only analyzes publicly available GitHub information. Your credentials and private repositories remain private.',
+    accentColor: '#10B981',
   },
 ];

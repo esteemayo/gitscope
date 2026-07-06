@@ -28,6 +28,7 @@ export interface MissionPrinciple {
   >;
   title: string;
   description: string;
+  accentColor?: string;
 }
 
 export interface MissionTimelineStep {
@@ -37,4 +38,5 @@ export interface MissionTimelineStep {
   >;
   title: string;
   description: string;
+  accentColor?: string;
 }
