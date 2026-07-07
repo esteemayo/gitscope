@@ -40,3 +40,10 @@ export interface MissionTimelineStep {
   description: string;
   accentColor?: string;
 }
+
+export type MissionMetricType = {
+  id: string;
+  label: string;
+  value: number;
+  trendLabel: string;
+};

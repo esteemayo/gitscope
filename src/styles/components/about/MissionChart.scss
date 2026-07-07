@@ -1,0 +1,78 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.mission-chart {
+  display: flex;
+  align-items: flex-end;
+
+  justify-content: space-between;
+  gap: 0.75rem;
+
+  height: 16rem;
+  height: 30rem;
+
+  @include bp.md {
+    height: 14rem;
+    height: 25rem;
+  }
+
+  @media (max-width: 36em) {
+    gap: 0.45rem;
+  }
+
+  @media (max-width: 25em) {
+    height: 12rem;
+    height: 20rem;
+  }
+
+  &__bar {
+    flex: 1;
+
+    background-image: linear-gradient(180deg, #5b8cff, #7c4dff);
+    border-radius: 10rem 10rem 0 0;
+    transform-origin: bottom;
+    animation: growBar 1s ease forwards;
+
+    &:nth-child(1) {
+      height: 32%;
+      animation-delay: 0.05s;
+    }
+
+    &:nth-child(2) {
+      height: 55%;
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(3) {
+      height: 48%;
+      animation-delay: 0.15s;
+    }
+
+    &:nth-child(4) {
+      height: 76%;
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(5) {
+      height: 58%;
+      animation-delay: 0.25s;
+    }
+
+    &:nth-child(6) {
+      height: 94%;
+      background-image: linear-gradient(180deg, #10b981, #34b399);
+      animation-delay: 0.3s;
+    }
+
+    &:nth-child(7) {
+      height: 70%;
+      animation-delay: 0.35s;
+    }
+
+    &:nth-child(8) {
+      height: 80%;
+      animation-delay: 0.4s;
+    }
+  }
+}
