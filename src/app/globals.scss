@@ -234,6 +234,10 @@ a {
   transition: var(--transition);
 }
 
+button {
+  user-select: none;
+}
+
 button,
 input,
 textarea,

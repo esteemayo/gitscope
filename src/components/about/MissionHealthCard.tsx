@@ -1,3 +1,4 @@
+import { healthProgress } from '@/data/about/healthProgress';
 import '../../styles/components/about/MissionHealthCard.scss';
 
 const MissionHealthCard = () => {
@@ -10,29 +11,19 @@ const MissionHealthCard = () => {
       </div>
 
       <div className='mission-health-card__progress-group'>
-        <div className='mission-health-card__progress-item'>
-          <small>Code quality</small>
+        {healthProgress.map((progress) => {
+          const { id, label, percentage } = progress;
 
-          <div className='mission-health-card__progress'>
-            <span style={{ width: '92%' }} />
-          </div>
-        </div>
+          return (
+            <div key={id} className='mission-health-card__progress-item'>
+              <small>{label}</small>
 
-        <div className='mission-health-card__progress-item'>
-          <small>Documentation</small>
-
-          <div className='mission-health-card__progress'>
-            <span style={{ width: '84%' }} />
-          </div>
-        </div>
-
-        <div className='mission-health-card__progress-item'>
-          <small>Activity</small>
-
-          <div className='mission-health-card__progress'>
-            <span style={{ width: '97%' }} />
-          </div>
-        </div>
+              <div className='mission-health-card__progress'>
+                <span style={{ width: `${percentage}%` }} />
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       <div className='mission-health-card__live-chip'>

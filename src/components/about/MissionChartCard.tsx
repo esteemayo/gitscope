@@ -10,7 +10,7 @@ const MissionChartCard = () => {
         <h4>Contribution trend</h4>
       </div>
 
-      <span className='mission-dashboard__success-badge'>+24%</span>
+      <span className='mission-chart-card__success-badge'>+24%</span>
 
       <MissionChart />
     </div>

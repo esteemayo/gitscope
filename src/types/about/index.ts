@@ -47,3 +47,9 @@ export type MissionMetricType = {
   value: number;
   trendLabel: string;
 };
+
+export type HealthProgressType = {
+  id: string;
+  label: string;
+  percentage: number;
+};
