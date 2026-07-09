@@ -1,8 +1,8 @@
 'use client';
 
 import AboutStats from './AboutStats';
-import AboutHero from './AboutHero';
-import AboutMission from './AboutMission';
+import AboutHero from './hero/AboutHero';
+import AboutMission from './mission/AboutMission';
 
 import { missionTimeline } from '@/data/about/missionTimeline';
 import { aboutStats } from '@/data/about/aboutStats';

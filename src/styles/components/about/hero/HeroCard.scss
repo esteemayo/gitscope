@@ -1,0 +1,65 @@
+@use '../../../abstracts/responsive' as bp;
+
+.hero-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 5.2rem;
+    height: 5.2rem;
+    background-image: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-blue-400) 7%, transparent),
+      color-mix(in srgb, var(--color-blue-800) 20%, transparent)
+    );
+    color: var(--icon);
+    border-radius: 1.4rem;
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__group {
+    width: 100%;
+    line-height: 1.1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    &--title {
+      display: inline-block;
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      font-weight: 700;
+      font-size: var(--fz-sm);
+      font-size: 1.5rem;
+      color: var(--color-white-50);
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
+    }
+
+    &--value {
+      display: block;
+      font-weight: 500;
+      font-size: var(--fz-sm);
+      font-variant-numeric: tabular-nums;
+      color: var(--icon);
+    }
+
+    &--trend {
+      font-size: var(--fz-xs);
+      color: var(--color-gray-400);
+    }
+  }
+}

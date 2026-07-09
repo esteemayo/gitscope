@@ -1,0 +1,118 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.mission-dashboard {
+  position: relative;
+  width: 100%;
+  max-width: 56rem;
+  padding: 1.5rem;
+  background-color: var(--bg-tertiary);
+  -webkit-backdrop-filter: blur(2.4rem);
+  backdrop-filter: blur(2.4rem);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  margin-bottom: 2.5rem;
+  transition: var(--transition);
+  // overflow: hidden;
+
+  @include bp.xl {
+    max-width: 100%;
+  }
+
+  @media (max-width: 62em) {
+    max-width: 70rem;
+    margin-inline: auto;
+  }
+
+  @include bp.md {
+    padding: 1.25rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background-image: radial-gradient(
+      circle at top right,
+      rgba(91, 140, 255, 0.12),
+      transparent 40%
+    );
+    pointer-events: none;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 2rem;
+
+    @media (max-width: 36em) {
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+  }
+
+  &__window-controls {
+    display: flex;
+    gap: 0.5rem;
+
+    span {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 100%;
+
+      &:nth-child(1) {
+        background-color: #ef4444;
+      }
+
+      &:nth-child(2) {
+        background-color: #f59e0b;
+      }
+
+      &:nth-child(3) {
+        background-color: #22c55e;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: var(--fz-xs);
+    color: inherit;
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    padding: 0.45rem 0.85rem;
+    background-color: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border-radius: 10rem;
+    user-select: none;
+    pointer-events: none;
+
+    &::before {
+      content: '';
+      width: 0.8rem;
+      height: 0.8rem;
+      background-color: currentColor;
+      border-radius: 100%;
+      animation: pulse 2s infinite;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

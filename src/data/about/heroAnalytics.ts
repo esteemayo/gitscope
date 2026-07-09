@@ -1,4 +1,4 @@
-import { Activity, GitBranch, Star, Users } from 'lucide-react';
+import { Activity, GitBranch, Star, Users2 } from 'lucide-react';
 import { HeroCardItem } from '@/types/about';
 
 export const heroAnalytics: HeroCardItem[] = [
@@ -25,7 +25,7 @@ export const heroAnalytics: HeroCardItem[] = [
   },
   {
     id: '4',
-    icon: Users,
+    icon: Users2,
     title: 'Contributors',
     value: '124',
     trend: 'Across active repositories',
