@@ -53,3 +53,15 @@ export type HealthProgressType = {
   label: string;
   percentage: number;
 };
+
+export interface AboutFeature {
+  id: string;
+  icon: React.ForwardRefExoticComponent<
+    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
+  >;
+  title: string;
+  description: string;
+  accentColor: string;
+  preview: React.ReactNode;
+  isFeatured?: boolean;
+}

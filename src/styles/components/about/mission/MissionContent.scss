@@ -19,7 +19,7 @@
     padding: 0.6rem 1rem;
     background-color: color-mix(in srgb, var(--icon) 7%, transparent);
     color: var(--icon);
-    border: 1px solid rgba(91, 140, 255, 0.25);
+    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
     border-radius: 10rem;
     letter-spacing: 0.05em;
     user-select: none;

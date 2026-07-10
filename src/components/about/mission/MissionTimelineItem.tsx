@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MissionTimeItemProps } from '@/types/about/mission/mission.timeline.item.type';
+import { MissionTimelineItemProps } from '@/types/about/mission/mission.timeline.item.type';
 
 import '../../../styles/components/about/mission/MissionTimelineItem.scss';
 
@@ -10,7 +10,7 @@ const MissionTimelineItem = ({
   index,
   lastIndex,
   itemVariants,
-}: MissionTimeItemProps) => {
+}: MissionTimelineItemProps) => {
   return (
     <motion.div
       variants={itemVariants}

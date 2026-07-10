@@ -1,4 +1,4 @@
-import { AboutStat } from './index';
+import { AboutStat } from '../index';
 
 export interface AboutStatsProps {
   title: string;

@@ -1,7 +1,7 @@
 import { Variants } from 'framer-motion';
-import { MissionTimelineStep } from './index';
+import { MissionTimelineStep } from '../index';
 
-export interface MissionTimeItemProps {
+export interface MissionTimelineItemProps {
   step: MissionTimelineStep;
   index: number;
   lastIndex: number;

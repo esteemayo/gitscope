@@ -1,5 +1,5 @@
 import { Variants } from 'framer-motion';
-import { MissionPrinciple, MissionTimelineStep } from './index';
+import { MissionPrinciple, MissionTimelineStep } from '../index';
 
 export interface MissionContentProps {
   badge: string;

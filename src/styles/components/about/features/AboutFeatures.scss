@@ -1,0 +1,52 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.about-features {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 100rem;
+  margin-inline: auto;
+
+  background-image:
+    radial-gradient(
+      circle at top left,
+      rgba(91, 140, 255, 0.08),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(124, 77, 255, 0.08),
+      transparent 35%
+    );
+
+  overflow: hidden;
+
+  &__container {
+    padding: 7rem 8rem;
+
+    @media (max-width: 56.25em) {
+      padding: 7rem 3.2rem;
+    }
+
+    @include bp.md {
+      padding: 5rem 3.2rem;
+    }
+
+    @media (max-width: 36em) {
+      padding: 4rem 3.2rem;
+    }
+
+    @media (max-width: 25em) {
+      padding: 4rem 1.6rem;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+}

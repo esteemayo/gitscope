@@ -1,5 +1,5 @@
 import { Variants } from 'framer-motion';
-import { MissionPrinciple } from './index';
+import { MissionPrinciple } from '../index';
 
 export interface MissionPrincipleCardProps {
   principle: MissionPrinciple;

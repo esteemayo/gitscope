@@ -1,6 +1,6 @@
-import { HeroCardItem } from '../index';
+import { Variants } from 'framer-motion';
 
-export interface AboutHeroProps {
+export interface HeroContentProps {
   badge?: string;
   title: string;
   description: string;
@@ -8,5 +8,5 @@ export interface AboutHeroProps {
   secondaryButtonLabel: string;
   primaryButtonHref: string;
   secondaryButtonHref: string;
-  analytics: HeroCardItem[];
+  itemVariants: Variants;
 }

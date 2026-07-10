@@ -1,9 +1,9 @@
 import { motion, Variants } from 'framer-motion';
 
 import AboutStatCard from './AboutStatCard';
-import { AboutStatsProps } from '@/types/about/about.stats.type';
+import { AboutStatsProps } from '@/types/about/stats/about.stats.type';
 
-import '../../styles/components/about/AboutStats.scss';
+import '../../../styles/components/about/stats/AboutStats.scss';
 
 const containerVariants: Variants = {
   hidden: {},

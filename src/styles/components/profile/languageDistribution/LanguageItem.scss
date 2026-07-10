@@ -58,6 +58,7 @@
     background-color: var(--bg-progress-bar);
     border-radius: 10rem;
     overflow: hidden;
+    transition: var(--transition);
   }
 
   &__fill {

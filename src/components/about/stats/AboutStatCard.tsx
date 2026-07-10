@@ -3,8 +3,8 @@
 import { ArrowUpRight } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 
-import { AboutStatCardProps } from '@/types/about/about.stat.card.type';
-import '../../styles/components/about/AboutStatCard.scss';
+import { AboutStatCardProps } from '@/types/about/stats/about.stat.card.type';
+import '../../../styles/components/about/stats/AboutStatCard.scss';
 
 const cardVariants: Variants = {
   hidden: {
