@@ -20,19 +20,43 @@ export const aboutFeatures: AboutFeature[] = [
     accentColor: '#3B82F6',
     isFeatured: true,
     preview: (
-      <div className='about-features__preview-analytics'>
-        <span className='about-features__preview-bar' />
+      <>
+        <div className='about-features__preview-metrics'>
+          <div className='about-features__preview-metric'>
+            <small className='about-features__preview-metric--label'>
+              Stars
+            </small>
 
-        <span className='about-features__preview-bar' />
+            <strong className='about-features__preview-metric--value'>
+              12.4k
+            </strong>
+          </div>
 
-        <span className='about-features__preview-bar' />
+          <div className='about-features__preview-metric'>
+            <small className='about-features__preview-metric--label'>
+              Forks
+            </small>
 
-        <span className='about-features__preview-bar' />
+            <strong className='about-features__preview-metric--value'>
+              842
+            </strong>
+          </div>
+        </div>
 
-        <span className='about-features__preview-bar' />
+        <div className='about-features__preview-analytics'>
+          <span className='about-features__preview-bar' />
 
-        <span className='about-features__preview-bar' />
-      </div>
+          <span className='about-features__preview-bar' />
+
+          <span className='about-features__preview-bar' />
+
+          <span className='about-features__preview-bar' />
+
+          <span className='about-features__preview-bar' />
+
+          <span className='about-features__preview-bar' />
+        </div>
+      </>
     ),
   },
   {
