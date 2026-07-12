@@ -137,3 +137,19 @@
     transform: translateY(0) rotate(0deg);
   }
 }
+
+@keyframes progressGrow {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes progressShine {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(450%);
+  }
+}

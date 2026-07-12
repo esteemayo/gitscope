@@ -2,9 +2,10 @@
 
 import { motion, Variants } from 'framer-motion';
 
+import FeatureCard from './FeatureCard';
 import FeatureHeader from './FeatureHeader';
-import { AboutFeaturesProps } from '@/types/about/features/about.features.type';
 
+import { AboutFeaturesProps } from '@/types/about/features/about.features.type';
 import '../../../styles/components/about/features/AboutFeatures.scss';
 
 const containerVariants: Variants = {
@@ -41,8 +42,6 @@ const AboutFeatures = ({
 
   const featuredCards = features.filter((feature) => !feature.isFeatured);
 
-  const Icon = featuredFeature?.icon;
-
   return (
     <section className='about-features' aria-labelledby='about-features-title'>
       <div className='about-features__container'>
@@ -71,7 +70,7 @@ const AboutFeatures = ({
             >
               <div className='about-features__content'>
                 <div className='about-features__icon'>
-                  <Icon size={26} />
+                  {featuredFeature.icon}
                 </div>
 
                 <h3 className='about-features__title'>
@@ -127,6 +126,15 @@ const AboutFeatures = ({
               </div>
             </motion.article>
           )}
+
+          <motion.div
+            variants={containerVariants}
+            className='about-features__grid'
+          >
+            {featuredCards.map((feature) => (
+              <FeatureCard key={feature.id} feature={feature} />
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -41,9 +41,9 @@ const AboutClient = () => {
       />
 
       <AboutFeatures
-        badge='Powerful Features'
+        badge='Platform Features'
         title='Everything you need to understand GitHub repositories through modern analytics.'
-        description='GitScope combines repository intelligence, visual dashboards and developer insights into one seamless experience.'
+        description='Explore repositories through beautiful visualizations, developer insights, contribution history and repository intelligence.'
         features={aboutFeatures}
       />
     </main>

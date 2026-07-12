@@ -8,73 +8,35 @@ import {
   Share2,
   Sparkles,
 } from 'lucide-react';
+
+import HealthPreview from '@/components/about/features/previews/HealthPreview';
+import AnalyticsPreview from '@/components/about/features/previews/AnalyticsPreview';
+
 import { AboutFeature } from '@/types/about/index';
 
 export const aboutFeatures: AboutFeature[] = [
   {
     id: 'repository-analytics',
-    icon: BarChart3,
+    icon: <BarChart3 size={26} />,
     title: 'Repository Analytics',
     description:
       'Explore repositories through rich dashboards that surface stars, forks, contribution, activity trends, releases and repository performance in one place.',
     accentColor: '#3B82F6',
     isFeatured: true,
-    preview: (
-      <>
-        <div className='about-features__preview-metrics'>
-          <div className='about-features__preview-metric'>
-            <small className='about-features__preview-metric--label'>
-              Stars
-            </small>
-
-            <strong className='about-features__preview-metric--value'>
-              12.4k
-            </strong>
-          </div>
-
-          <div className='about-features__preview-metric'>
-            <small className='about-features__preview-metric--label'>
-              Forks
-            </small>
-
-            <strong className='about-features__preview-metric--value'>
-              842
-            </strong>
-          </div>
-        </div>
-
-        <div className='about-features__preview-analytics'>
-          <span className='about-features__preview-bar' />
-
-          <span className='about-features__preview-bar' />
-
-          <span className='about-features__preview-bar' />
-
-          <span className='about-features__preview-bar' />
-
-          <span className='about-features__preview-bar' />
-
-          <span className='about-features__preview-bar' />
-        </div>
-      </>
-    ),
+    preview: <AnalyticsPreview stars={12400} forks={842} />,
   },
   {
     id: 'repository-health',
-    icon: HeartPulse,
+    icon: <HeartPulse size={24} />,
     title: 'Repository Health',
     description:
       'Monitor repository quality using activity, maintenance, issue trends and contributor signals.',
     accentColor: '#10B981',
-    preview: (
-      <div className='about-features__preview-progress'>
-        <span />
-      </div>
-    ),
+    preview: <HealthPreview score={95} activeIssues={12} lastCommit='2h ago' />,
   },
   {
     id: 'profile-comparison',
-    icon: GitCompareArrows,
+    icon: <GitCompareArrows size={24} />,
     title: 'Profile Comparison',
     description:
       'Compare developers side by side using repositories, stars, followers, languages and contribution metrics.',
@@ -82,14 +44,14 @@ export const aboutFeatures: AboutFeature[] = [
     preview: (
       <div className='about-features__preview-compare'>
         <span />
-
+        Preview
         <span />
       </div>
     ),
   },
   {
     id: 'contribution-timeline',
-    icon: GitGraph,
+    icon: <GitGraph size={24} />,
     title: 'Contribution Timeline',
     description:
       'Visualize repository growth with commit history, milestones and activity over time.',
@@ -97,18 +59,16 @@ export const aboutFeatures: AboutFeature[] = [
     preview: (
       <div className='about-features__preview-timeline'>
         <span />
-
+        Preview
         <span />
-
         <span />
-
         <span />
       </div>
     ),
   },
   {
     id: 'language-insights',
-    icon: Sparkles,
+    icon: <Sparkles size={24} />,
     title: 'Language Insights',
     description:
       'Understand the technology behind every repository with language distribution, usage percentages and project composition.',
@@ -116,18 +76,16 @@ export const aboutFeatures: AboutFeature[] = [
     preview: (
       <div className='about-features__preview-languages'>
         <span />
-
+        Preview
         <span />
-
         <span />
-
         <span />
       </div>
     ),
   },
   {
     id: 'interactive-charts',
-    icon: Activity,
+    icon: <Activity size={24} />,
     title: 'Interactive Charts',
     description:
       'Navigate repository activity with responsive charts that highlight trends, growth and contribution patterns.',
@@ -135,33 +93,31 @@ export const aboutFeatures: AboutFeature[] = [
     preview: (
       <div className='about-features__preview-chart'>
         <span />
-
+        Preview
         <span />
-
         <span />
-
         <span />
-
         <span />
       </div>
     ),
   },
   {
     id: 'export-reports',
-    icon: Download,
+    icon: <Download size={24} />,
     title: 'Export Reports',
     description:
       'Download  repository insights for presentations, documentation or sharing with your teams.',
     accentColor: '#EC4899',
     preview: (
       <div className='about-features__preview-export'>
+        Preview
         <span />
       </div>
     ),
   },
   {
     id: 'shareable-profiles',
-    icon: Share2,
+    icon: <Share2 size={24} />,
     title: 'Shareable Profiles',
     description:
       'Generate beautiful public pages to showcase repositories, achievements and developer activity.',
@@ -169,9 +125,8 @@ export const aboutFeatures: AboutFeature[] = [
     preview: (
       <div className='about-features__preview-share'>
         <span />
-
+        Preview
         <span />
-
         <span />
       </div>
     ),

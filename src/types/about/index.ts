@@ -56,9 +56,7 @@ export type HealthProgressType = {
 
 export interface AboutFeature {
   id: string;
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: React.ReactNode;
   title: string;
   description: string;
   accentColor: string;
