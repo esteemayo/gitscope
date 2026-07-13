@@ -9,9 +9,22 @@ import {
   Sparkles,
 } from 'lucide-react';
 
-import HealthPreview from '@/components/about/features/previews/HealthPreview';
+import ComparePreview from '@/components/about/features/previews/ComparePreview';
+import SharePreview from '@/components/about/features/previews/SharePreview';
+import LanguagePreview from '@/components/about/features/previews/LanguagePreview';
+import ChartsPreview from '@/components/about/features/previews/ChartsPreview';
+import TimelinePreview from '@/components/about/features/previews/TimelinePreview';
+import ExportPreview from '@/components/about/features/previews/ExportPreview';
 import AnalyticsPreview from '@/components/about/features/previews/AnalyticsPreview';
+import HealthPreview from '@/components/about/features/previews/HealthPreview';
 
+import {
+  analyticsPreviewData,
+  comparePreviewData,
+  languagePreviewData,
+  repositoryHealthData,
+  timelineActivities,
+} from './previews';
 import { AboutFeature } from '@/types/about/index';
 
 export const aboutFeatures: AboutFeature[] = [
@@ -23,7 +36,7 @@ export const aboutFeatures: AboutFeature[] = [
       'Explore repositories through rich dashboards that surface stars, forks, contribution, activity trends, releases and repository performance in one place.',
     accentColor: '#3B82F6',
     isFeatured: true,
-    preview: <AnalyticsPreview stars={12400} forks={842} />,
+    preview: <AnalyticsPreview {...analyticsPreviewData} />,
   },
   {
     id: 'repository-health',
@@ -32,7 +45,7 @@ export const aboutFeatures: AboutFeature[] = [
     description:
       'Monitor repository quality using activity, maintenance, issue trends and contributor signals.',
     accentColor: '#10B981',
-    preview: <HealthPreview score={95} activeIssues={12} lastCommit='2h ago' />,
+    preview: <HealthPreview {...repositoryHealthData} />,
   },
   {
     id: 'profile-comparison',
@@ -41,13 +54,7 @@ export const aboutFeatures: AboutFeature[] = [
     description:
       'Compare developers side by side using repositories, stars, followers, languages and contribution metrics.',
     accentColor: '#8B5CF6',
-    preview: (
-      <div className='about-features__preview-compare'>
-        <span />
-        Preview
-        <span />
-      </div>
-    ),
+    preview: <ComparePreview {...comparePreviewData} />,
   },
   {
     id: 'contribution-timeline',
@@ -56,15 +63,7 @@ export const aboutFeatures: AboutFeature[] = [
     description:
       'Visualize repository growth with commit history, milestones and activity over time.',
     accentColor: '#F59E0B',
-    preview: (
-      <div className='about-features__preview-timeline'>
-        <span />
-        Preview
-        <span />
-        <span />
-        <span />
-      </div>
-    ),
+    preview: <TimelinePreview activities={timelineActivities} />,
   },
   {
     id: 'language-insights',
@@ -73,15 +72,7 @@ export const aboutFeatures: AboutFeature[] = [
     description:
       'Understand the technology behind every repository with language distribution, usage percentages and project composition.',
     accentColor: '#06B6D4',
-    preview: (
-      <div className='about-features__preview-languages'>
-        <span />
-        Preview
-        <span />
-        <span />
-        <span />
-      </div>
-    ),
+    preview: <LanguagePreview languages={languagePreviewData} />,
   },
   {
     id: 'interactive-charts',
@@ -90,16 +81,7 @@ export const aboutFeatures: AboutFeature[] = [
     description:
       'Navigate repository activity with responsive charts that highlight trends, growth and contribution patterns.',
     accentColor: '#F97316',
-    preview: (
-      <div className='about-features__preview-chart'>
-        <span />
-        Preview
-        <span />
-        <span />
-        <span />
-        <span />
-      </div>
-    ),
+    preview: <ChartsPreview />,
   },
   {
     id: 'export-reports',
@@ -108,12 +90,7 @@ export const aboutFeatures: AboutFeature[] = [
     description:
       'Download  repository insights for presentations, documentation or sharing with your teams.',
     accentColor: '#EC4899',
-    preview: (
-      <div className='about-features__preview-export'>
-        Preview
-        <span />
-      </div>
-    ),
+    preview: <ExportPreview />,
   },
   {
     id: 'shareable-profiles',
@@ -122,13 +99,6 @@ export const aboutFeatures: AboutFeature[] = [
     description:
       'Generate beautiful public pages to showcase repositories, achievements and developer activity.',
     accentColor: '#6366F1',
-    preview: (
-      <div className='about-features__preview-share'>
-        <span />
-        Preview
-        <span />
-        <span />
-      </div>
-    ),
+    preview: <SharePreview />,
   },
 ];
