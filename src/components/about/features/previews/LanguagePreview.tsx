@@ -25,13 +25,15 @@ const LanguagePreview = ({ languages }: LanguagePreviewProps) => {
           return (
             <div key={id} className='language-preview__item'>
               <span
-                className='language-preview__dot'
+                className='language-preview__item--dot'
                 style={{ backgroundColor: color }}
               />
 
-              <span className='language-preview__name'>{name}</span>
+              <span className='language-preview__item--name'>{name}</span>
 
-              <strong className='language-preview__value'>{percentage}</strong>
+              <strong className='language-preview__item--value'>
+                {percentage}
+              </strong>
             </div>
           );
         })}

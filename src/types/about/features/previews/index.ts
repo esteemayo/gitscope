@@ -11,3 +11,8 @@ export interface Language {
   percentage: number;
   color: string;
 }
+
+export interface ChartPoint {
+  id: number;
+  value: number;
+}

@@ -55,25 +55,25 @@
       transform: translateY(4px);
       border-color: rgba(255, 255, 255, 0.14);
     }
-  }
 
-  &__dot {
-    flex-shrink: 0;
+    &--dot {
+      flex-shrink: 0;
 
-    width: 1.2rem;
-    height: 1.2rem;
-    border-radius: 100%;
-  }
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 100%;
+    }
 
-  &__name {
-    font-weight: 500;
-    font-size: var(--fz-xxs);
-    color: #e2e8f0;
-  }
+    &--name {
+      font-weight: 500;
+      font-size: var(--fz-xxs);
+      color: #e2e8f0;
+    }
 
-  &__value {
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: var(--color-white-50);
+    &--value {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--color-white-50);
+    }
   }
 }

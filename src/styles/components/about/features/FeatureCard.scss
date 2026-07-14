@@ -127,7 +127,6 @@
     align-items: center;
     justify-content: center;
 
-    min-height: 22rem;
     padding: 1.5rem;
     margin-bottom: 2rem;
     background-image: linear-gradient(
@@ -137,6 +136,18 @@
     );
     border: 1px solid rgba(255, 2552, 255, 0.06);
     border-radius: 1.8rem;
+
+    &.small {
+      min-height: 14rem;
+    }
+
+    &.medium {
+      min-height: 19rem;
+    }
+
+    &.large {
+      mg: 25rem;
+    }
   }
 
   &__footer {

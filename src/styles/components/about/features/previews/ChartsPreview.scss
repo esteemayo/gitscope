@@ -3,4 +3,77 @@
 @use '../../../../abstracts/responsive' as bp;
 
 .charts-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  width: 100%;
+
+  &__chart {
+    width: 100%;
+    height: 18rem;
+    overflow: visible;
+  }
+
+  &__area {
+    fill: color-mix(in srgb, var(--icon) 10%, transparent);
+    animation: areaFade 0.8s ease forwards;
+  }
+
+  &__line {
+    fill: none;
+    stroke: var(--icon);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawLine 1.4s ease forwards;
+  }
+
+  &__point {
+    fill: var(--icon);
+    stroke: var(--color-white-50);
+    stroke-width: 1.2;
+    transition:
+      r 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  &__metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  &__metric {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    transition: var(--transition);
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent-color) 30%, transparent);
+    }
+
+    &--label {
+      display: block;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      color: var(--color-gray-400);
+      margin-bottom: 0.4rem;
+    }
+
+    &--value {
+      font-weight: 700;
+      font-size: var(--fz-xs);
+      color: var(--color-white-50);
+    }
+  }
 }

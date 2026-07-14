@@ -72,6 +72,10 @@
     overflow: hidden;
     transition: var(--transition);
 
+    @include bp.md {
+      grid-template-columns: 1fr;
+    }
+
     &::before {
       content: '';
       position: absolute;

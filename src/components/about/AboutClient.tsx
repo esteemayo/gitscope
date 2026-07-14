@@ -4,12 +4,15 @@ import AboutFeatures from './features/AboutFeatures';
 import AboutHero from './hero/AboutHero';
 import AboutMission from './mission/AboutMission';
 import AboutStats from './stats/AboutStats';
+import WhyGitScope from './whyGitScope/WhyGitScope';
 
 import { aboutFeatures } from '@/data/about/aboutFeatures';
 import { aboutStats } from '@/data/about/aboutStats';
 import { missionTimeline } from '@/data/about/missionTimeline';
 import { heroAnalytics } from '@/data/about/heroAnalytics';
 import { missionPrinciples } from '@/data/about/missionPrinciples';
+import { whyItems } from '@/data/about/whyItems';
+import { comparisonData } from '@/data/about/comparisonData';
 
 import '../../styles/components/about/AboutClient.scss';
 
@@ -45,6 +48,14 @@ const AboutClient = () => {
         title='Everything you need to understand GitHub repositories through modern analytics.'
         description='Explore repositories through beautiful visualizations, developer insights, contribution history and repository intelligence.'
         features={aboutFeatures}
+      />
+
+      <WhyGitScope
+        badge='why GitScope'
+        title=''
+        description=''
+        values={whyItems}
+        comparison={comparisonData}
       />
     </main>
   );

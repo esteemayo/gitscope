@@ -1,4 +1,9 @@
-import { Language, TimelineItem } from '@/types/about/features/previews';
+import {
+  ChartPoint,
+  Language,
+  TimelineItem,
+} from '@/types/about/features/previews';
+import { Download, Share2 } from 'lucide-react';
 
 export const timelineActivities: TimelineItem[] = [
   {
@@ -65,3 +70,50 @@ export const languagePreviewData: Language[] = [
     color: '#E34F26',
   },
 ];
+
+export const chartsPreviewData: ChartPoint[] = [
+  {
+    id: 1,
+    value: 42,
+  },
+  {
+    id: 2,
+    value: 58,
+  },
+  {
+    id: 3,
+    value: 39,
+  },
+  {
+    id: 4,
+    value: 78,
+  },
+  {
+    id: 5,
+    value: 66,
+  },
+  {
+    id: 6,
+    value: 91,
+  },
+  {
+    id: 7,
+    value: 74,
+  },
+];
+
+export const exportPreviewData = {
+  icon: Download,
+  title: 'Export Analytics',
+  subtitle: 'CSV • JSON • PDF',
+  accentColor: '#3B82F6',
+  buttonLabel: 'Export',
+};
+
+export const sharePreviewData = {
+  icon: Share2,
+  title: 'Share Dashboard',
+  subtitle: 'Public Link • QR Code • Embed',
+  accentColor: '#8B5CF6',
+  buttonLabel: 'Share',
+};

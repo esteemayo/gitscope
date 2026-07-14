@@ -1,4 +1,4 @@
-import { LucideProps } from 'lucide-react';
+import { LucideIcon, LucideProps } from 'lucide-react';
 
 export interface HeroCardItem {
   id: string;
@@ -61,5 +61,20 @@ export interface AboutFeature {
   description: string;
   accentColor: string;
   preview: React.ReactNode;
+  previewHeight?: 'small' | 'medium' | 'large';
   isFeatured?: boolean;
+}
+
+export interface WhyItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  accentColor: string;
+}
+
+export interface ComparisonItem {
+  id: string;
+  github: string;
+  gitScope: string;
 }

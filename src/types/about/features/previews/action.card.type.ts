@@ -1,6 +1,6 @@
 import { LucideProps } from 'lucide-react';
 
-export interface SharePreviewProps {
+export interface ActionCardProps {
   icon: React.ForwardRefExoticComponent<
     Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
   >;
