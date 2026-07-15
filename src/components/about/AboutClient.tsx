@@ -51,9 +51,9 @@ const AboutClient = () => {
       />
 
       <WhyGitScope
-        badge='why GitScope'
-        title=''
-        description=''
+        badge='Why GitScope'
+        title='Built to help developers understand repositories, not just browse them.'
+        description='GitScope transforms GitHub repository data into meaningful insights through modern analytics, intuitive visualization, repository health metrics, and developer-focused experiences.'
         values={whyItems}
         comparison={comparisonData}
       />

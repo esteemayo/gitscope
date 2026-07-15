@@ -25,10 +25,10 @@
   overflow: hidden;
 
   &__container {
-    padding: 7rem 8rem;
+    padding: 8rem;
 
     @media (max-width: 56.25em) {
-      padding: 7rem 3.2rem;
+      padding: 8rem 3.2rem;
     }
 
     @include bp.md {

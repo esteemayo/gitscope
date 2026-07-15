@@ -1,0 +1,160 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.value-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  padding: 2rem;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.02)
+  );
+  -webkit-backdrop-filter: blur(1.8rem);
+  backdrop-filter: blur(1.8rem);
+  border: 1px solid
+    color-mix(in srgb, var(--accent-color) 12%, rgba(255, 255, 255, 0.08));
+  border-radius: 2rem;
+  isolation: isolate;
+  transition: var(--transition);
+
+  @media (max-width: 62em) {
+    padding: 1.75rem;
+  }
+
+  @media (max-width: 40em) {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -12rem;
+    right: -12rem;
+
+    width: 24rem;
+    height: 24rem;
+    background-image: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--accent-color) 30%, transparent),
+      transparent 72%
+    );
+    opacity: 0.75;
+    z-index: -1;
+    transition: var(--transition);
+  }
+
+  &:hover::before {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+  &:hover {
+    transform: translateY(-0.8rem);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 30%, transparent);
+    box-shadow:
+      0 2.4rem 5rem rgba(0, 0, 0, 0.22),
+      0 0 0 1px color-mix(in srgb, var(--accent-color) 12%, transparent);
+
+    .value-card__icon {
+      transform: rotate(-8deg) scale(1.08);
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 18%,
+        transparent
+      );
+    }
+
+    .value-card__footer {
+      span {
+        width: 12rem;
+      }
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 7.2rem;
+    height: 7.2rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 22%, transparent);
+    border-radius: 2rem;
+    transition: var(--transition);
+
+    @media (max-width: 40em) {
+      width: 6rem;
+      height: 6rem;
+    }
+
+    svg {
+      width: 2.8rem;
+      height: 2.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+
+    &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      font-weight: 700;
+      font-size: var(--fz-sm);
+      color: var(--color-white-50);
+      color: inherit;
+      line-height: 1.1;
+
+      @media (max-width: 62em) {
+        font-size: 1.25rem;
+      }
+
+      @media (max-width: 40em) {
+        font-size: 1.15rem;
+      }
+    }
+
+    &--description {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.8;
+
+      font-size: 1.05rem;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      display: block;
+      width: 7.2rem;
+      height: 4px;
+      background-image: linear-gradient(
+        90deg,
+        var(--accent-color),
+        color-mix(in srgb, var(--accent-color) 25%, transparent)
+      );
+      transition: var(--transition);
+    }
+  }
+}
