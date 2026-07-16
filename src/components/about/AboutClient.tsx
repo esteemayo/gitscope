@@ -1,18 +1,20 @@
 'use client';
 
-import AboutFeatures from './features/AboutFeatures';
-import AboutHero from './hero/AboutHero';
-import AboutMission from './mission/AboutMission';
-import AboutStats from './stats/AboutStats';
 import WhyGitScope from './whyGitScope/WhyGitScope';
+import AboutHero from './hero/AboutHero';
+import AboutFeatures from './features/AboutFeatures';
+import AboutStats from './stats/AboutStats';
+import Architecture from './architecture/Architecture';
+import AboutMission from './mission/AboutMission';
 
-import { aboutFeatures } from '@/data/about/aboutFeatures';
-import { aboutStats } from '@/data/about/aboutStats';
-import { missionTimeline } from '@/data/about/missionTimeline';
-import { heroAnalytics } from '@/data/about/heroAnalytics';
-import { missionPrinciples } from '@/data/about/missionPrinciples';
-import { whyItems } from '@/data/about/whyItems';
 import { comparisonData } from '@/data/about/comparisonData';
+import { whyItems } from '@/data/about/whyItems';
+import { missionTimeline } from '@/data/about/missionTimeline';
+import { aboutStats } from '@/data/about/aboutStats';
+import { missionPrinciples } from '@/data/about/missionPrinciples';
+import { heroAnalytics } from '@/data/about/heroAnalytics';
+import { architectureFeatures } from '@/data/about/architectureFeatures';
+import { aboutFeatures } from '@/data/about/aboutFeatures';
 
 import '../../styles/components/about/AboutClient.scss';
 
@@ -56,6 +58,13 @@ const AboutClient = () => {
         description='GitScope transforms GitHub repository data into meaningful insights through modern analytics, intuitive visualization, repository health metrics, and developer-focused experiences.'
         values={whyItems}
         comparison={comparisonData}
+      />
+
+      <Architecture
+        badge='Architecture'
+        title='Engineered for speed, scalability and developer experience.'
+        description='GitScope combines modern frontend architecture, efficient data processing and secure authentication to deliver fast, reliable repository analytics.'
+        features={architectureFeatures}
       />
     </main>
   );

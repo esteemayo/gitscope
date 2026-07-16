@@ -78,3 +78,11 @@ export interface ComparisonItem {
   github: string;
   gitScope: string;
 }
+
+export interface ArchitectureFeature {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  accentColor: string;
+}

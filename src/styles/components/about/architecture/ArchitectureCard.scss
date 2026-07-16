@@ -1,0 +1,29 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.architecture-card {
+  &__header {
+    &--icon {
+      svg {
+        width: 2.8rem;
+        height: 2.8rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+  }
+
+  &__content {
+    &--title {
+    }
+
+    &--description {
+    }
+  }
+
+  &__footer {
+    span {
+    }
+  }
+}

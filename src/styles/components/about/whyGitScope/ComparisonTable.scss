@@ -5,15 +5,12 @@
 .comparison-table {
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.04),
-    rgba(255, 255, 255, 0.02)
-  );
+  background-color: var(--bg-tertiary);
   -webkit-backdrop-filter: blur(2rem);
   backdrop-filter: blur(2rem);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
   border-radius: 2rem;
+  transition: var(--transition);
 
   &__header {
     display: grid;
@@ -22,8 +19,13 @@
     gap: 2rem;
 
     padding: 1.5rem 2rem;
-    background-color: rgba(255, 255, 255, 0.02);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: color-mix(in srgb, var(--border) 15%, transparent);
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+
+    @include bp.md {
+      display: none;
+    }
 
     span {
       &:first-child,
@@ -41,7 +43,6 @@
       &:last-child {
         text-align: right;
         color: var(--icon);
-        color: var(--color-blue-800);
       }
     }
   }
@@ -60,12 +61,20 @@
     padding: 1.5rem 2rem;
     transition: var(--transition);
 
+    @include bp.md {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+
+      padding: 1.5rem;
+    }
+
     &:not(:last-child) {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
     }
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.025);
+      background-color: color-mix(in srgb, var(--border) 30%, transparent);
       transform: translateY(0.6rem);
 
       .comparison-table__arrow {
@@ -82,7 +91,7 @@
 
   &__github {
     font-weight: 500;
-    color: #cbd5e1;
+    color: var(--text-muted);
   }
 
   &__arrow {
@@ -93,11 +102,23 @@
 
     color: color-mix(in srgb, var(--icon) 70%, var(--color-white-50));
     transition: var(--transition);
+
+    @include bp.md {
+      justify-content: center;
+      rotate: 90deg;
+
+      width: 2rem;
+      height: 0;
+    }
   }
 
   &__gitscope {
     text-align: right;
     font-weight: 700;
     color: inherit;
+
+    @include bp.md {
+      text-align: left;
+    }
   }
 }
