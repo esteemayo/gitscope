@@ -7,14 +7,16 @@ import AboutStats from './stats/AboutStats';
 import Architecture from './architecture/Architecture';
 import AboutMission from './mission/AboutMission';
 
-import { comparisonData } from '@/data/about/comparisonData';
-import { whyItems } from '@/data/about/whyItems';
 import { missionTimeline } from '@/data/about/missionTimeline';
-import { aboutStats } from '@/data/about/aboutStats';
+import { whyItems } from '@/data/about/whyItems';
 import { missionPrinciples } from '@/data/about/missionPrinciples';
-import { heroAnalytics } from '@/data/about/heroAnalytics';
+import { aboutStats } from '@/data/about/aboutStats';
 import { architectureFeatures } from '@/data/about/architectureFeatures';
+import { heroAnalytics } from '@/data/about/heroAnalytics';
+import { architectureConnections } from '@/data/about/architectureConnections';
 import { aboutFeatures } from '@/data/about/aboutFeatures';
+import { architectureDiagramNodes } from '@/data/about/architectureDiagramNodes';
+import { comparisonData } from '@/data/about/comparisonData';
 
 import '../../styles/components/about/AboutClient.scss';
 
@@ -65,6 +67,8 @@ const AboutClient = () => {
         title='Engineered for speed, scalability and developer experience.'
         description='GitScope combines modern frontend architecture, efficient data processing and secure authentication to deliver fast, reliable repository analytics.'
         features={architectureFeatures}
+        diagramNodes={architectureDiagramNodes}
+        diagramConnections={architectureConnections}
       />
     </main>
   );

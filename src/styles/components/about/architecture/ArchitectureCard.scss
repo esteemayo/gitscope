@@ -3,8 +3,53 @@
 @use '../../../abstracts/responsive' as bp;
 
 .architecture-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid
+    color-mix(in srgb, var(--accent-color) 14%, rgba(255, 255, 255, 0.08));
+  border-radius: 2rem;
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateY(-0.6rem);
+    border-color: color-mix(in srgb, var(--accent-color) 32%, transparent);
+    box-shadow: 0 1.8rem 4rem rgba(0, 0, 0, 0.18);
+    box-shadow: var(--shadow);
+
+    .architecture-card__header--icon {
+      transform: scale(1.08);
+    }
+  }
+
   &__header {
+    display: flex;
+    align-items: center;
+
     &--icon {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 6.4rem;
+      height: 6.4rem;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 12%,
+        transparent
+      );
+      color: var(--accent-color);
+      border: 1px solid color-mix(in srgb, var(--accent-color) 22%, transparent);
+      border-radius: 1.8rem;
+      transition: var(--transition);
+
       svg {
         width: 2.8rem;
         height: 2.8rem;
@@ -15,15 +60,45 @@
   }
 
   &__content {
+    flex: 1;
+
     &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      font-weight: 700;
+      font-size: var(--fz-xs);
+      color: inherit;
+      line-height: 1.1;
     }
 
     &--description {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.75;
     }
   }
 
   &__footer {
+    display: flex;
+    align-items: center;
+
     span {
+      display: inline-flex;
+
+      text-transform: capitalize;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.45rem 0.85rem;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 12%,
+        transparent
+      );
+      color: var(--accent-color);
+      border-radius: 10rem;
+      user-select: none;
+      pointer-events: none;
     }
   }
 }

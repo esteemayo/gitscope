@@ -1,6 +1,7 @@
 import ArchitectureCard from './ArchitectureCard';
-import { ArchitectureProps } from '@/types/about/architecture/architecture.type';
+import ArchitectureDiagram from './ArchitectureDiagram';
 
+import { ArchitectureProps } from '@/types/about/architecture/architecture.type';
 import '../../../styles/components/about/architecture/Architecture.scss';
 
 const Architecture = ({
@@ -8,6 +9,8 @@ const Architecture = ({
   title,
   description,
   features,
+  diagramNodes,
+  diagramConnections,
 }: ArchitectureProps) => {
   return (
     <section className='architecture'>
@@ -26,7 +29,12 @@ const Architecture = ({
           ))}
         </div>
 
-        <div className='architecture__diagram'>Architecture Diagram</div>
+        <div className='architecture__diagram'>
+          <ArchitectureDiagram
+            nodes={diagramNodes}
+            connections={diagramConnections}
+          />
+        </div>
       </div>
     </section>
   );

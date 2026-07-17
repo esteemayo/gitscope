@@ -85,4 +85,16 @@ export interface ArchitectureFeature {
   description: string;
   icon: LucideIcon;
   accentColor: string;
+  layer: string;
+}
+
+export interface DiagramNode {
+  id: string;
+  label: string;
+  accentColor: string;
+}
+
+export interface DiagramConnection {
+  from: string;
+  to: string;
 }

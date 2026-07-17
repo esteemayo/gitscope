@@ -2,7 +2,7 @@ import { ArchitectureCardProps } from '@/types/about/architecture/architecture.c
 import '../../../styles/components/about/architecture/ArchitectureCard.scss';
 
 const ArchitectureCard = ({
-  feature: { id, icon: Icon, title, description, accentColor },
+  feature: { icon: Icon, title, description, accentColor, layer },
 }: ArchitectureCardProps) => {
   return (
     <article
@@ -26,7 +26,7 @@ const ArchitectureCard = ({
       </div>
 
       <footer className='architecture-card__footer'>
-        <span>{id.replace('-', ' ')}</span>
+        <span>{layer}</span>
       </footer>
     </article>
   );

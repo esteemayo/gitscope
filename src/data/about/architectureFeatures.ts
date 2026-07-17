@@ -16,6 +16,7 @@ export const architectureFeatures: ArchitectureFeature[] = [
       'Next.js App Router with React Server Components delivers fast page rendering and efficient data loading.',
     icon: Layers3,
     accentColor: '#3B82F6',
+    layer: 'Presentation Layer',
   },
   {
     id: 'api',
@@ -24,6 +25,7 @@ export const architectureFeatures: ArchitectureFeature[] = [
       'GitHub API requests are organized to reduce unnecessary network calls and improve responsiveness.',
     icon: Activity,
     accentColor: '#10B981',
+    layer: 'API Layer',
   },
   {
     id: 'data',
@@ -32,6 +34,7 @@ export const architectureFeatures: ArchitectureFeature[] = [
       'Repository data is transformed into meaningful analytics before reaching the user interface.',
     icon: Database,
     accentColor: '#F59E0B',
+    layer: 'Data Layer',
   },
   {
     id: 'performance',
@@ -40,6 +43,7 @@ export const architectureFeatures: ArchitectureFeature[] = [
       'Streaming, lazy loading and efficient rendering keep dashboards smooth, even with large datasets.',
     icon: Zap,
     accentColor: '#8B5CF6',
+    layer: 'Performance Layer',
   },
   {
     id: 'security',
@@ -47,7 +51,8 @@ export const architectureFeatures: ArchitectureFeature[] = [
     description:
       'GitHub OAuth and secure session management protect user accounts and repository access.',
     icon: ShieldCheck,
-    accentColor: '#3B82F6',
+    accentColor: '#EF4444',
+    layer: 'Security Layer',
   },
   {
     id: 'ux',
@@ -55,6 +60,7 @@ export const architectureFeatures: ArchitectureFeature[] = [
     description:
       'Accessibility, keyboard navigation and thoughtful interactions are built into every screen.',
     icon: Sparkles,
-    accentColor: '#3B82F6',
+    accentColor: '#06B6D4',
+    layer: 'Experience Layer',
   },
 ];
