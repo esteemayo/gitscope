@@ -92,6 +92,8 @@ export interface DiagramNode {
   id: string;
   label: string;
   accentColor: string;
+  column: number;
+  row: number;
 }
 
 export interface DiagramConnection {

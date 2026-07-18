@@ -1,10 +1,19 @@
+'use client';
+
+import { useRef, useState } from 'react';
 import { ArchitectureDiagramProps } from '@/types/about/architecture/architecture.diagram.type';
+
 import '../../../styles/components/about/architecture/ArchitectureDiagram.scss';
 
 const ArchitectureDiagram = ({
   nodes,
   connections,
 }: ArchitectureDiagramProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const nodeRefs = useRef<Record<string, HTMLDivElement>>({});
+
+  const [paths, setPaths] = useState<string[]>([]);
+
   return (
     <div className='architecture-diagram'>
       <svg
@@ -19,14 +28,19 @@ const ArchitectureDiagram = ({
         })}
       </svg>
 
-      <div className='architecture-diagram__nodes'>
+      <div className='architecture-diagram__grid'>
         {nodes.map((node) => {
           const { id, label, accentColor } = node;
 
           return (
             <div
               key={id}
-              className='architecture-diagram__node'
+              ref={(element) => {
+                if (element) {
+                  nodeRefs.current[id] = element;
+                }
+              }}
+              className={`architecture-diagram__node ${id}`}
               style={
                 {
                   '--accent-color': accentColor,
