@@ -1,10 +1,9 @@
-import { ArchitectureFeature, DiagramConnection, DiagramNode } from '../index';
+import { ArchitectureFeature, PipelineStage } from '../index';
 
 export interface ArchitectureProps {
   badge: string;
   title: string;
   description: string;
   features: ArchitectureFeature[];
-  diagramNodes: DiagramNode[];
-  diagramConnections: DiagramConnection[];
+  stages: PipelineStage[];
 }

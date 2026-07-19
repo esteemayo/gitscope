@@ -92,11 +92,23 @@ export interface DiagramNode {
   id: string;
   label: string;
   accentColor: string;
-  column: number;
-  row: number;
 }
 
 export interface DiagramConnection {
   from: string;
   to: string;
+}
+
+export interface PipelineItem {
+  id: string;
+  label: string;
+}
+
+export interface PipelineStage {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  accentColor: string;
+  items: PipelineItem[];
 }

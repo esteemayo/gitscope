@@ -82,8 +82,6 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2rem;
 
-    margin-bottom: 6rem;
-
     @media (max-width: 62em) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -93,27 +91,58 @@
     }
   }
 
-  &__diagram {
-    position: relative;
-    overflow: hidden;
-    min-height: 52rem;
-    padding: 3rem;
-    // background-image: linear-gradient(
-    //   180deg,
-    //   rgba(255, 255, 255, 0.03),
-    //   rgba(255, 255, 255, 0.015)
-    // );
-    background-color: var(--bg-tertiary);
-    -webkit-backdrop-filter: blur(2rem);
-    backdrop-filter: blur(2rem);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--border);
-    border-radius: 3.2rem;
-    transition: var(--transition);
+  &__pipeline-section {
+    margin-top: 7rem;
+  }
 
-    @include bp.md {
-      min-height: 42rem;
-      padding: 2rem;
-    }
+  &__pipeline-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    max-width: 72rem;
+    text-align: center;
+    margin: 0 auto 4rem;
+  }
+
+  &__pipeline-badge {
+    align-self: center;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+    color: var(--icon);
+    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    border-radius: 10rem;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  &__pipeline-title {
+    display: inline-block;
+    text-transform: initial;
+    text-rendering: optimizeLegibility;
+    font-weight: 700;
+    font-size: clamp(var(--fz-xl), 4vw, 2.8rem);
+    color: inherit;
+    line-height: 1.1;
+  }
+
+  &__pipeline-description {
+    display: inline-flex;
+    max-width: 64rem;
+    text-align: center;
+    margin-inline: auto;
+    font-size: var(--fz-xxs);
+    color: var(--text-muted);
+    line-height: 1.8;
   }
 }

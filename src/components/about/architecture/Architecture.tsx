@@ -1,5 +1,5 @@
+import Pipeline from './Pipeline';
 import ArchitectureCard from './ArchitectureCard';
-import ArchitectureDiagram from './ArchitectureDiagram';
 
 import { ArchitectureProps } from '@/types/about/architecture/architecture.type';
 import '../../../styles/components/about/architecture/Architecture.scss';
@@ -9,8 +9,7 @@ const Architecture = ({
   title,
   description,
   features,
-  diagramNodes,
-  diagramConnections,
+  stages,
 }: ArchitectureProps) => {
   return (
     <section className='architecture'>
@@ -29,11 +28,24 @@ const Architecture = ({
           ))}
         </div>
 
-        <div className='architecture__diagram'>
-          <ArchitectureDiagram
-            nodes={diagramNodes}
-            connections={diagramConnections}
-          />
+        <div className='architecture__pipeline-section'>
+          <div className='architecture__pipeline-header'>
+            <span className='architecture__pipeline-badge'>
+              System pipeline
+            </span>
+
+            <h3 className='architecture__pipeline-title'>
+              How GitScope transforms GitHub data
+            </h3>
+
+            <p className='architecture__pipeline-description'>
+              Every request follows a streamlined pipeline, from data collection
+              to interactive visualizations, ensuring fast, reliable and
+              meaningful insights.
+            </p>
+          </div>
+
+          <Pipeline stages={stages} />
         </div>
       </div>
     </section>

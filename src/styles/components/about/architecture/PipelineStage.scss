@@ -1,0 +1,190 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.pipeline-stage {
+  position: relative;
+  overflow: hidden;
+  width: min(68rem, 100%);
+  padding: 2rem;
+  // background-image: linear-gradient(
+  //   180deg,
+  //   color-mix(in srgb, var(--accent-color) 7%, rgba(255, 255, 255, 0.08)),
+  //   color-mix(in srgb, var(--accent-color) 20%, rgba(255, 255, 255, 0.08))
+  // );
+  background-color: var(--bg-tertiary);
+  -webkit-backdrop-filter: blur(2rem);
+  backdrop-filter: blur(2rem);
+  border: 1px solid
+    color-mix(in srgb, var(--accent-color) 20%, rgba(255, 255, 255, 0.08));
+  border-radius: 2rem;
+  transition: var(--transition);
+
+  &.active {
+    width: min(76rem, 100%);
+    border: none;
+    box-shadow: 0 0 6rem
+      color-mix(in srgb, var(--accent-color) 16%, transparent);
+    isolation: isolate;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+    }
+
+    &::before {
+      inset: -1px;
+
+      padding: 3px;
+      background-image: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--accent-color) 70%, transparent),
+        color-mix(in srgb, var(--accent-color) 20%, transparent)
+      );
+      border-radius: inherit;
+
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: exor;
+      mask-composite: exclude;
+
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    &::after {
+      inset: -8rem;
+
+      background-image: radial-gradient(
+        circle,
+        color-mix(in srgb, var(--accent-color) 12%, transparent),
+        transparent 70%
+      );
+
+      filter: blur(4rem);
+      z-index: -1;
+
+      animation: breathe 5s ease-in-out infinite;
+    }
+  }
+
+  &:nth-child(even) {
+    .pipeline-stage__header {
+      flex-direction: row-reverse;
+    }
+
+    .pipeline-stage__content {
+      text-align: right;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-0.6rem);
+    border-color: color-mix(in srgb, var(--accent-color) 45%, transparent);
+    box-shadow: 0 2.4rem 5rem rgba(0, 0, 0, 0.2);
+  }
+
+  &__header {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 6.4rem;
+    height: 6.4rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border-radius: 1.8rem;
+
+    svg {
+      width: 2.8rem;
+      height: 2.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &--title {
+      display: inline-block;
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      font-weight: 700;
+      font-size: var(--fz-sm);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    background-color: var(--bg-progress-bar);
+    margin: 2rem 0;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    gap: 1rem;
+
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    &--check {
+      flex-shrink: 0;
+
+      width: 1.6rem;
+      height: 1.6rem;
+      color: var(--accent-color);
+      stroke: currentColor;
+    }
+
+    &--label {
+      font-size: var(--fz-sm);
+      color: var(--text-muted);
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+
+    width: 1.8rem;
+    height: 1.8rem;
+    color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    stroke: currentColor;
+    opacity: 0.35;
+
+    @include bp.md {
+      display: none;
+    }
+  }
+}

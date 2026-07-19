@@ -3,10 +3,28 @@
 @use '../../../abstracts/responsive' as bp;
 
 .architecture-diagram {
-  width: 100%;
-  height: 62rem;
-  min-height: 70rem;
   position: relative;
+  width: 100%;
+  height: 70rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background-image:
+      linear-gradient(
+        color-mix(in srgb, var(--color-gray-500) 10%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--color-gray-500) 10%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 4.8rem 4.8rem;
+    transition: var(--transition);
+  }
 
   &__connections {
     position: absolute;
@@ -16,6 +34,23 @@
     height: 100%;
     pointer-events: none;
     z-index: 1000;
+  }
+
+  &__glow {
+    fill: none;
+    stroke: color-mix(in srgb, var(--icon) 20%, transparent);
+    stroke-width: 8;
+    filter: blur(0.6rem);
+    opacity: 0.6;
+  }
+
+  &__path {
+    fill: none;
+    stroke: color-mix(in srgb, var(--icon) 55%, transparent);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 10 8;
+    animation: dashFlow 18s linear infinite;
   }
 
   &__grid {
@@ -37,6 +72,7 @@
     justify-content: center;
 
     min-width: 15rem;
+    min-width: 10rem;
     padding: 1rem 1.5rem;
     background-image: linear-gradient(
       180deg,
@@ -78,6 +114,36 @@
     &.core {
       grid-column: 3;
       grid-row: 4;
+
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+      }
+
+      &::before {
+        inset: -2.8rem;
+
+        background-image: radial-gradient(
+          circle,
+          color-mix(in srgb, var(--accent-color) 10%, transparent),
+          transparent 72%
+        );
+
+        filter: blur(2.8rem);
+        z-index: -1;
+      }
+
+      &::after {
+        inset: -1rem;
+
+        border: 2px solid
+          color-mix(in srgb, var(--accent-color) 35%, transparent);
+        border-radius: inherit;
+        animation: corePulse 2.8s ease-in-out infinite;
+      }
     }
 
     &.analytics {

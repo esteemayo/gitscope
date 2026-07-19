@@ -7,16 +7,15 @@ import AboutStats from './stats/AboutStats';
 import Architecture from './architecture/Architecture';
 import AboutMission from './mission/AboutMission';
 
-import { missionTimeline } from '@/data/about/missionTimeline';
-import { whyItems } from '@/data/about/whyItems';
-import { missionPrinciples } from '@/data/about/missionPrinciples';
-import { aboutStats } from '@/data/about/aboutStats';
-import { architectureFeatures } from '@/data/about/architectureFeatures';
-import { heroAnalytics } from '@/data/about/heroAnalytics';
-import { architectureConnections } from '@/data/about/architectureConnections';
 import { aboutFeatures } from '@/data/about/aboutFeatures';
-import { architectureDiagramNodes } from '@/data/about/architectureDiagramNodes';
+import { whyItems } from '@/data/about/whyItems';
 import { comparisonData } from '@/data/about/comparisonData';
+import { aboutStats } from '@/data/about/aboutStats';
+import { missionTimeline } from '@/data/about/missionTimeline';
+import { heroAnalytics } from '@/data/about/heroAnalytics';
+import { missionPrinciples } from '@/data/about/missionPrinciples';
+import { pipelineStages } from '@/data/about/pipelineStages';
+import { architectureFeatures } from '@/data/about/architectureFeatures';
 
 import '../../styles/components/about/AboutClient.scss';
 
@@ -67,8 +66,7 @@ const AboutClient = () => {
         title='Engineered for speed, scalability and developer experience.'
         description='GitScope combines modern frontend architecture, efficient data processing and secure authentication to deliver fast, reliable repository analytics.'
         features={architectureFeatures}
-        diagramNodes={architectureDiagramNodes}
-        diagramConnections={architectureConnections}
+        stages={pipelineStages}
       />
     </main>
   );
