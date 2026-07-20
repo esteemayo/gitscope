@@ -1,21 +1,23 @@
 'use client';
 
-import WhyGitScope from './whyGitScope/WhyGitScope';
-import AboutHero from './hero/AboutHero';
-import AboutFeatures from './features/AboutFeatures';
-import AboutStats from './stats/AboutStats';
-import Architecture from './architecture/Architecture';
 import AboutMission from './mission/AboutMission';
+import AboutHero from './hero/AboutHero';
+import WhyGitScope from './whyGitScope/WhyGitScope';
+import AboutStats from './stats/AboutStats';
+import AboutFeatures from './features/AboutFeatures';
+import WhoItsFor from './whoItsFor/WhoItsFor';
+import Architecture from './architecture/Architecture';
 
-import { aboutFeatures } from '@/data/about/aboutFeatures';
-import { whyItems } from '@/data/about/whyItems';
 import { comparisonData } from '@/data/about/comparisonData';
+import { whyItems } from '@/data/about/whyItems';
+import { pipelineStages } from '@/data/about/pipelineStages';
 import { aboutStats } from '@/data/about/aboutStats';
 import { missionTimeline } from '@/data/about/missionTimeline';
-import { heroAnalytics } from '@/data/about/heroAnalytics';
+import { audiences } from '@/data/about/whoItsForData';
 import { missionPrinciples } from '@/data/about/missionPrinciples';
-import { pipelineStages } from '@/data/about/pipelineStages';
+import { aboutFeatures } from '@/data/about/aboutFeatures';
 import { architectureFeatures } from '@/data/about/architectureFeatures';
+import { heroAnalytics } from '@/data/about/heroAnalytics';
 
 import '../../styles/components/about/AboutClient.scss';
 
@@ -33,7 +35,7 @@ const AboutClient = () => {
       />
 
       <AboutStats
-        title='Trusted by thousands of developers worldwide'
+        title='Trusted by thousands of developers worldwide.'
         description='GitScope transforms millions of GitHub events into actionable insights. Our platform helps developers and teams better understand repositories, contribution trends, and project health.'
         stats={aboutStats}
       />
@@ -67,6 +69,13 @@ const AboutClient = () => {
         description='GitScope combines modern frontend architecture, efficient data processing and secure authentication to deliver fast, reliable repository analytics.'
         features={architectureFeatures}
         stages={pipelineStages}
+      />
+
+      <WhoItsFor
+        badge="Who It's For"
+        title='Built for every stage of your GitHub journey.'
+        description="Whether you're building personal projects, maintaining open-source software, evaluating developers or leading engineering teams, GitScope helps you understand repository activity with confidence."
+        audiences={audiences}
       />
     </main>
   );

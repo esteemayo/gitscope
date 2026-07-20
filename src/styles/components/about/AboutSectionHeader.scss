@@ -1,0 +1,50 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.about-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  max-width: 76rem;
+  text-align: center;
+  margin-inline: auto;
+
+  &__badge {
+    align-self: center;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    letter-spacing: 0.05em;
+    padding: 0.6rem 1rem;
+    background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+    color: var(--icon);
+    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    border-radius: 10rem;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  &__title {
+    display: inline-block;
+    text-transform: initial;
+    text-rendering: optimizeLegibility;
+    font-weight: 700;
+    font-size: clamp(var(--fz-xxl), 5vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  &__description {
+    max-width: 68rem;
+    font-size: var(--fz-xxs);
+    color: var(--text-muted);
+    line-height: 1.9;
+  }
+}

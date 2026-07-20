@@ -19,6 +19,7 @@ export const pipelineStages: PipelineStage[] = [
       { id: 'commits', label: 'Commits' },
       { id: 'language', label: 'Language' },
     ],
+    cardWidth: 'sm',
   },
   {
     id: 'acquisition',
@@ -31,6 +32,7 @@ export const pipelineStages: PipelineStage[] = [
       { id: 'rest', label: 'REST API' },
       { id: 'auth', label: 'OAuth Authentication' },
     ],
+    cardWidth: 'md',
   },
   {
     id: 'engine',
@@ -45,6 +47,7 @@ export const pipelineStages: PipelineStage[] = [
       { id: 'compare', label: 'Profile Comparison' },
       { id: 'timeline', label: 'Timeline Generation' },
     ],
+    cardWidth: 'lg',
   },
   {
     id: 'visualization',
@@ -58,6 +61,7 @@ export const pipelineStages: PipelineStage[] = [
       { id: 'timeline-ui', label: 'Timeline' },
       { id: 'compare-ui', label: 'Compare' },
     ],
+    cardWidth: 'sm',
   },
   {
     id: 'dashboard',
@@ -70,5 +74,6 @@ export const pipelineStages: PipelineStage[] = [
       { id: 'insights', label: 'Insights' },
       { id: 'charts', label: 'Charts' },
     ],
+    cardWidth: 'sm',
   },
 ];

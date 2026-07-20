@@ -2,8 +2,9 @@
 
 import { motion, Variants } from 'framer-motion';
 
-import Connector from './Connector';
 import PipelineStage from './PipelineStage';
+import Connector from './Connector';
+import PipelineSummary from './PipelineSummary';
 
 import { PipelineProps } from '@/types/about/architecture/pipeline.type';
 import '../../../styles/components/about/architecture/Pipeline.scss';
@@ -50,12 +51,15 @@ const Pipeline = ({ stages }: PipelineProps) => {
           <PipelineStage
             key={stage.id}
             stage={stage}
+            index={index}
             isActive={stage.id === 'engine'}
           />
 
-          {index !== stages.length - 1 && <Connector />}
+          <Connector isAnimated={true} />
         </motion.div>
       ))}
+
+      <PipelineSummary itemVariants={itemVariants} />
     </motion.div>
   );
 };

@@ -1,8 +1,36 @@
+'use client';
+
+import { motion, Variants } from 'framer-motion';
+
 import Pipeline from './Pipeline';
 import ArchitectureCard from './ArchitectureCard';
 
 import { ArchitectureProps } from '@/types/about/architecture/architecture.type';
 import '../../../styles/components/about/architecture/Architecture.scss';
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: 'easeOut',
+    },
+  },
+};
 
 const Architecture = ({
   badge,
@@ -22,11 +50,21 @@ const Architecture = ({
           <p className='architecture__header--description'>{description}</p>
         </header>
 
-        <div className='architecture__grid'>
+        <motion.div
+          variants={containerVariants}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true, amount: 0.25 }}
+          className='architecture__grid'
+        >
           {features.map((feature) => (
-            <ArchitectureCard key={feature.id} feature={feature} />
+            <ArchitectureCard
+              key={feature.id}
+              feature={feature}
+              itemVariants={itemVariants}
+            />
           ))}
-        </div>
+        </motion.div>
 
         <div className='architecture__pipeline-section'>
           <div className='architecture__pipeline-header'>
@@ -35,7 +73,7 @@ const Architecture = ({
             </span>
 
             <h3 className='architecture__pipeline-title'>
-              How GitScope transforms GitHub data
+              How GitScope transforms GitHub data.
             </h3>
 
             <p className='architecture__pipeline-description'>

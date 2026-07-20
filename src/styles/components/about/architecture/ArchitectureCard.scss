@@ -83,7 +83,7 @@
     display: flex;
     align-items: center;
 
-    span {
+    &--label {
       display: inline-flex;
 
       text-transform: capitalize;

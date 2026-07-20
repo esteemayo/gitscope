@@ -88,17 +88,6 @@ export interface ArchitectureFeature {
   layer: string;
 }
 
-export interface DiagramNode {
-  id: string;
-  label: string;
-  accentColor: string;
-}
-
-export interface DiagramConnection {
-  from: string;
-  to: string;
-}
-
 export interface PipelineItem {
   id: string;
   label: string;
@@ -111,4 +100,15 @@ export interface PipelineStage {
   icon: LucideIcon;
   accentColor: string;
   items: PipelineItem[];
+  cardWidth?: 'sm' | 'md' | 'lg';
+}
+
+export interface Audience {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  benefits: string[];
+  useCase: string;
+  accentColor: string;
 }
