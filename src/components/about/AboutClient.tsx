@@ -1,25 +1,29 @@
 'use client';
 
-import AboutMission from './mission/AboutMission';
-import AboutHero from './hero/AboutHero';
 import WhyGitScope from './whyGitScope/WhyGitScope';
-import AboutStats from './stats/AboutStats';
+import AboutHero from './hero/AboutHero';
 import AboutFeatures from './features/AboutFeatures';
-import WhoItsFor from './whoItsFor/WhoItsFor';
+import AboutStats from './stats/AboutStats';
 import Architecture from './architecture/Architecture';
+import WhoItsFor from './whoItsFor/WhoItsFor';
+import TechnologyStack from './technologyStack/TechnologyStack';
+import AboutMission from './mission/AboutMission';
 
-import { comparisonData } from '@/data/about/comparisonData';
+import { comparisonData } from '@/data/about/comparison.data';
 import { whyItems } from '@/data/about/whyItems';
 import { pipelineStages } from '@/data/about/pipelineStages';
 import { aboutStats } from '@/data/about/aboutStats';
 import { missionTimeline } from '@/data/about/missionTimeline';
-import { audiences } from '@/data/about/whoItsForData';
-import { missionPrinciples } from '@/data/about/missionPrinciples';
+import { audiences } from '@/data/about/whoItsFor.data';
+import { technologyStack } from '@/data/about/technologyStack.data';
 import { aboutFeatures } from '@/data/about/aboutFeatures';
-import { architectureFeatures } from '@/data/about/architectureFeatures';
+import { missionPrinciples } from '@/data/about/missionPrinciples';
 import { heroAnalytics } from '@/data/about/heroAnalytics';
+import { architectureFeatures } from '@/data/about/architectureFeatures';
 
 import '../../styles/components/about/AboutClient.scss';
+import PrivacySecurity from './privacySecurity/PrivacySecurity';
+import { securityFeatures } from '@/data/about/privacySecurity.data';
 
 const AboutClient = () => {
   return (
@@ -76,6 +80,20 @@ const AboutClient = () => {
         title='Built for every stage of your GitHub journey.'
         description="Whether you're building personal projects, maintaining open-source software, evaluating developers or leading engineering teams, GitScope helps you understand repository activity with confidence."
         audiences={audiences}
+      />
+
+      <TechnologyStack
+        badge='Technology Stack'
+        title='Built with modern technologies.'
+        description='GitScope combines proven frameworks, developer tools and GitHub services to deliver a fast, reliable and scalable experience.'
+        stacks={technologyStack}
+      />
+
+      <PrivacySecurity
+        badge='Privacy & Security'
+        title='Designed with security and trust in mind.'
+        description='GitScope follows a privacy-first approach with secure GitHub authentication, minimal permissions and transparent access to public repository data.'
+        features={securityFeatures}
       />
     </main>
   );

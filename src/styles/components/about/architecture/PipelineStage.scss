@@ -208,7 +208,7 @@
 
   &__divider {
     height: 1px;
-    background-color: var(--border);
+    background-color: color-mix(in srgb, var(--border) 60%, transparent);
     margin: 2rem 0;
     transition: var(--transition);
   }
@@ -269,7 +269,7 @@
     text-align: center;
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     transition: var(--transition);
   }
 

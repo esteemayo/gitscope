@@ -1,13 +1,27 @@
-import { Check } from 'lucide-react';
-import { AudienceCardProps } from '@/types/about/whoItsFor/audience.card.type';
+'use client';
 
+import { Check } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+import { AudienceCardProps } from '@/types/about/whoItsFor/audience.card.type';
 import '../../../styles/components/about/whoItsFor/AudienceCard.scss';
 
 const AudienceCard = ({
-  audience: { icon: Icon, title, description, benefits, useCase, accentColor },
+  audience: {
+    icon: Icon,
+    title,
+    description,
+    benefits,
+    useCase,
+    accentColor,
+    previewIcon: PreviewIcon,
+    previewLabel,
+  },
+  variants,
 }: AudienceCardProps) => {
   return (
-    <article
+    <motion.article
+      variants={variants}
       className='audience-card'
       style={
         {
@@ -15,6 +29,12 @@ const AudienceCard = ({
         } as React.CSSProperties
       }
     >
+      <div className='audience-card__preview'>
+        <PreviewIcon size={14} className='audience-card__preview--icon' />
+
+        <span className='audience-card__preview--label'>{previewLabel}</span>
+      </div>
+
       <div className='audience-card__icon'>
         <Icon size={28} />
       </div>
@@ -42,7 +62,7 @@ const AudienceCard = ({
 
         <strong className='audience-card__footer--value'>{useCase}</strong>
       </footer>
-    </article>
+    </motion.article>
   );
 };
 

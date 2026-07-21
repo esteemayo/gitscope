@@ -1,7 +1,7 @@
 import { AboutSectionHeaderProps } from '@/types/about/about.section.header.type';
 import '../../styles/components/about/AboutSectionHeader.scss';
 
-const SectionHeader = ({
+const AboutSectionHeader = ({
   id,
   badge,
   title,
@@ -20,4 +20,4 @@ const SectionHeader = ({
   );
 };
 
-export default SectionHeader;
+export default AboutSectionHeader;

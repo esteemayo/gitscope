@@ -2,11 +2,11 @@
 
 import { motion, Variants } from 'framer-motion';
 
-import AudienceCard from './AudienceCard';
+import StackCard from './StackCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
-import { WhoItsForProps } from '@/types/about/whoItsFor/who.its.for.type';
-import '../../../styles/components/about/whoItsFor/WhoItsFor.scss';
+import { TechnologyStackProps } from '@/types/about/technologyStack/technology.stack.type';
+import '../../../styles/components/about/technologyStack/TechnologyStack.scss';
 
 const containerVariants: Variants = {
   hidden: {
@@ -18,22 +18,26 @@ const containerVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.55,
+      ease: 'easeOut',
       staggerChildren: 0.3,
     },
   },
 };
 
-const WhoItsFor = ({
+const TechnologyStack = ({
   badge,
   title,
   description,
-  audiences,
-}: WhoItsForProps) => {
+  stacks,
+}: TechnologyStackProps) => {
   return (
-    <section className='who-its-for' aria-describedby='who-its-for-title'>
-      <div className='who-its-for__container'>
+    <section
+      className='technology-stack'
+      aria-describedby='technology-stack-title'
+    >
+      <div className='technology-stack__container'>
         <AboutSectionHeader
-          id='who-its-for-title'
+          id='technology-stack-title'
           badge={badge}
           title={title}
           description={description}
@@ -44,12 +48,12 @@ const WhoItsFor = ({
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, amount: 0.25 }}
-          className='who-its-for__grid'
+          className='technology-stack__grid'
         >
-          {audiences.map((audience) => (
-            <AudienceCard
-              key={audience.id}
-              audience={audience}
+          {stacks.map((stack) => (
+            <StackCard
+              key={stack.id}
+              stack={stack}
               variants={containerVariants}
             />
           ))}
@@ -59,4 +63,4 @@ const WhoItsFor = ({
   );
 };
 
-export default WhoItsFor;
+export default TechnologyStack;

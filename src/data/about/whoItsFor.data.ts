@@ -1,4 +1,13 @@
-import { BriefcaseBusiness, Code2, GitBranchPlus, Users2 } from 'lucide-react';
+import {
+  BarChart3,
+  BriefcaseBusiness,
+  Code2,
+  GitBranchPlus,
+  GitCompareArrows,
+  Sparkles,
+  TrendingUp,
+  Users2,
+} from 'lucide-react';
 import { Audience } from '@/types/about';
 
 export const audiences: Audience[] = [
@@ -11,6 +20,8 @@ export const audiences: Audience[] = [
     benefits: ['Repository analytics', 'Health insights', 'Activity timeline'],
     useCase: 'Personal Projects',
     accentColor: '#3B82F6',
+    previewIcon: TrendingUp,
+    previewLabel: 'Analytics',
   },
   {
     id: 'opensource',
@@ -25,6 +36,8 @@ export const audiences: Audience[] = [
     ],
     useCase: 'Community Projects',
     accentColor: '#10B981',
+    previewIcon: Sparkles,
+    previewLabel: 'Growth',
   },
   {
     id: 'recruiters',
@@ -39,6 +52,8 @@ export const audiences: Audience[] = [
     ],
     useCase: 'Technical Evaluation',
     accentColor: '#F59E0B',
+    previewIcon: GitCompareArrows,
+    previewLabel: 'Compare',
   },
   {
     id: 'teams',
@@ -49,5 +64,7 @@ export const audiences: Audience[] = [
     benefits: ['Team analytics', 'Repository health', 'Development trends'],
     useCase: 'Team Collaboration',
     accentColor: '#8B5CF6',
+    previewIcon: BarChart3,
+    previewLabel: 'Insights',
   },
 ];

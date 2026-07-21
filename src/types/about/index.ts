@@ -111,4 +111,25 @@ export interface Audience {
   benefits: string[];
   useCase: string;
   accentColor: string;
+  previewIcon: LucideIcon;
+  previewLabel: string;
+}
+
+export interface StackCategory {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  accentColor: string;
+  technologies: string[];
+}
+
+export interface SecurityFeature {
+  id: string;
+  badge: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  accentColor: string;
+  highlights: string[];
 }
