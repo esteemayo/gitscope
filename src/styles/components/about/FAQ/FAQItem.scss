@@ -1,0 +1,84 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.faq-item {
+  background-color: var(--bg-tertiary);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--icon) 25%, transparent);
+    box-shadow: 0 1.8rem 4rem color-mix(in srgb, var(--icon) 8%, transparent);
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    width: 100%;
+    border: none;
+    text-align: left;
+    padding: 1.5rem 2rem;
+    background-color: transparent;
+    color: inherit;
+
+    @include bp.md {
+      padding: 1.25rem 1.5rem;
+    }
+
+    &--question {
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: currentColor;
+
+      @include bp.md {
+        font-size: 1.35rem;
+      }
+    }
+
+    &--icon {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 2.25rem;
+      height: 2.25rem;
+      background-color: color-mix(in srgb, var(--icon) 10%, transparent);
+      color: var(--icon);
+      border-radius: 100%;
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+
+    &:focus-within {
+      outline: 2px solid var(--color-blue-800);
+      outline-offset: -2px;
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+
+    &--answer {
+      font-size: var(--fz-sm);
+      padding: 0 2rem 2rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+
+      @include bp.md {
+        padding: 0 1.5rem 1.5rem;
+      }
+    }
+  }
+}

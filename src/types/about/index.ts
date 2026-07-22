@@ -133,3 +133,22 @@ export interface SecurityFeature {
   accentColor: string;
   highlights: string[];
 }
+
+export interface RoadmapPhase {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  accentColor: string;
+  status: {
+    label: 'Completed' | 'In Progress' | 'Planned';
+    progress: number;
+  };
+  items: string[];
+}
+
+export interface FAQItemData {
+  id: string;
+  question: string;
+  answer: string;
+}

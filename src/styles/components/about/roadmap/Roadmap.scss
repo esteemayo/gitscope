@@ -1,0 +1,43 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.roadmap {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: 100%;
+    max-width: 100rem;
+    margin-inline: auto;
+    padding: 8rem;
+
+    @media (max-width: 56.25em) {
+      padding: 8rem 3.2rem;
+    }
+
+    @include bp.md {
+      padding: 5rem 3.2rem;
+    }
+
+    @media (max-width: 36em) {
+      padding: 4rem 3.2rem;
+    }
+
+    @media (max-width: 25em) {
+      padding: 4rem 1.6rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+
+    margin-top: 4rem;
+
+    @media (max-width: 62em) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

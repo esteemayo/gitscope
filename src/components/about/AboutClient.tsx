@@ -1,29 +1,33 @@
 'use client';
 
-import WhyGitScope from './whyGitScope/WhyGitScope';
-import AboutHero from './hero/AboutHero';
-import AboutFeatures from './features/AboutFeatures';
-import AboutStats from './stats/AboutStats';
-import Architecture from './architecture/Architecture';
-import WhoItsFor from './whoItsFor/WhoItsFor';
-import TechnologyStack from './technologyStack/TechnologyStack';
 import AboutMission from './mission/AboutMission';
+import FAQ from './FAQ/FAQ';
+import WhyGitScope from './whyGitScope/WhyGitScope';
+import Roadmap from './roadmap/Roadmap';
+import AboutFeatures from './features/AboutFeatures';
+import AboutHero from './hero/AboutHero';
+import Architecture from './architecture/Architecture';
+import AboutStats from './stats/AboutStats';
+import TechnologyStack from './technologyStack/TechnologyStack';
+import WhoItsFor from './whoItsFor/WhoItsFor';
+import PrivacySecurity from './privacySecurity/PrivacySecurity';
 
-import { comparisonData } from '@/data/about/comparison.data';
-import { whyItems } from '@/data/about/whyItems';
 import { pipelineStages } from '@/data/about/pipelineStages';
-import { aboutStats } from '@/data/about/aboutStats';
+import { whyItems } from '@/data/about/whyItems';
+import { comparisonData } from '@/data/about/comparison.data';
+import { faqItems } from '@/data/about/faq.data';
 import { missionTimeline } from '@/data/about/missionTimeline';
+import { aboutStats } from '@/data/about/aboutStats';
+import { securityFeatures } from '@/data/about/privacySecurity.data';
 import { audiences } from '@/data/about/whoItsFor.data';
+import { missionPrinciples } from '@/data/about/missionPrinciples';
+import { roadmapPhases } from '@/data/about/roadmap.data';
 import { technologyStack } from '@/data/about/technologyStack.data';
 import { aboutFeatures } from '@/data/about/aboutFeatures';
-import { missionPrinciples } from '@/data/about/missionPrinciples';
-import { heroAnalytics } from '@/data/about/heroAnalytics';
 import { architectureFeatures } from '@/data/about/architectureFeatures';
+import { heroAnalytics } from '@/data/about/heroAnalytics';
 
 import '../../styles/components/about/AboutClient.scss';
-import PrivacySecurity from './privacySecurity/PrivacySecurity';
-import { securityFeatures } from '@/data/about/privacySecurity.data';
 
 const AboutClient = () => {
   return (
@@ -94,6 +98,20 @@ const AboutClient = () => {
         title='Designed with security and trust in mind.'
         description='GitScope follows a privacy-first approach with secure GitHub authentication, minimal permissions and transparent access to public repository data.'
         features={securityFeatures}
+      />
+
+      <Roadmap
+        badge='Roadmap'
+        title='Building the future of GitHub analytics.'
+        description='GitScope is continuously evolving with new capabilities designed to help developers, teams and recruiters gain deeper insights into software projects.'
+        phases={roadmapPhases}
+      />
+
+      <FAQ
+        badge='Frequently Asked Question'
+        title='Answers to common questions.'
+        description='Everything you need to know about GitScope, from authentication and privacy to repository analytics and future plans.'
+        items={faqItems}
       />
     </main>
   );
