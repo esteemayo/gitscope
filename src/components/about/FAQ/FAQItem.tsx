@@ -1,22 +1,25 @@
 'use client';
 
 import { ChevronDown } from 'lucide-react';
-import { useId, useState } from 'react';
+import { useId } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { FAQItemProps } from '@/types/about/faq/faq.item.type';
 import '../../../styles/components/about/FAQ/FAQItem.scss';
 
-const FAQItem = ({ item: { answer, question }, variants }: FAQItemProps) => {
+const FAQItem = ({
+  isOpen,
+  item: { id, answer, question },
+  variants,
+  onToggle,
+}: FAQItemProps) => {
   const panelId = useId();
-
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.article variants={variants} className='faq-item'>
       <button
         type='button'
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => onToggle(id)}
         className='faq-item__trigger'
         aria-expanded={isOpen}
         aria-controls={panelId}

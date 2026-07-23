@@ -152,3 +152,21 @@ export interface FAQItemData {
   question: string;
   answer: string;
 }
+
+export interface CTAButton {
+  label: string;
+  href: string;
+  variant: 'primary' | 'secondary';
+}
+
+export interface FloatingMetric {
+  id: string;
+  label: string;
+  icon: LucideIcon;
+}
+
+export interface Highlight {
+  id: string;
+  label: string;
+  icon: LucideIcon;
+}

@@ -7,15 +7,18 @@ import Roadmap from './roadmap/Roadmap';
 import AboutFeatures from './features/AboutFeatures';
 import AboutHero from './hero/AboutHero';
 import Architecture from './architecture/Architecture';
-import AboutStats from './stats/AboutStats';
+import CallToAction from './CallToAction';
 import TechnologyStack from './technologyStack/TechnologyStack';
-import WhoItsFor from './whoItsFor/WhoItsFor';
+import AboutStats from './stats/AboutStats';
 import PrivacySecurity from './privacySecurity/PrivacySecurity';
+import WhoItsFor from './whoItsFor/WhoItsFor';
 
-import { pipelineStages } from '@/data/about/pipelineStages';
+import { aboutFeatures } from '@/data/about/aboutFeatures';
 import { whyItems } from '@/data/about/whyItems';
-import { comparisonData } from '@/data/about/comparison.data';
+import { pipelineStages } from '@/data/about/pipelineStages';
 import { faqItems } from '@/data/about/faq.data';
+import { comparisonData } from '@/data/about/comparison.data';
+import { ctaContent } from '@/data/about/cta.data';
 import { missionTimeline } from '@/data/about/missionTimeline';
 import { aboutStats } from '@/data/about/aboutStats';
 import { securityFeatures } from '@/data/about/privacySecurity.data';
@@ -23,9 +26,8 @@ import { audiences } from '@/data/about/whoItsFor.data';
 import { missionPrinciples } from '@/data/about/missionPrinciples';
 import { roadmapPhases } from '@/data/about/roadmap.data';
 import { technologyStack } from '@/data/about/technologyStack.data';
-import { aboutFeatures } from '@/data/about/aboutFeatures';
-import { architectureFeatures } from '@/data/about/architectureFeatures';
 import { heroAnalytics } from '@/data/about/heroAnalytics';
+import { architectureFeatures } from '@/data/about/architectureFeatures';
 
 import '../../styles/components/about/AboutClient.scss';
 
@@ -113,6 +115,8 @@ const AboutClient = () => {
         description='Everything you need to know about GitScope, from authentication and privacy to repository analytics and future plans.'
         items={faqItems}
       />
+
+      <CallToAction {...ctaContent} />
     </main>
   );
 };
