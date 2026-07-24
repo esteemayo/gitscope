@@ -9,15 +9,6 @@ import { AboutMissionProps } from '@/types/about/mission/about.mission.type';
 import '../../../styles/components/about/mission/AboutMission.scss';
 
 const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
-
-const itemVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 24,
@@ -26,8 +17,9 @@ const itemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.45,
+      duration: 0.55,
       ease: 'easeOut',
+      staggerChildren: 0.3,
     },
   },
 };
@@ -40,17 +32,21 @@ const AboutMission = ({
   timeline,
 }: AboutMissionProps) => {
   return (
-    <section className='about-mission' aria-labelledby='about-mission-title'>
+    <motion.section
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, amount: 0.2, margin: '-50px' }}
+      className='about-mission'
+      aria-labelledby='about-mission-title'
+    >
       <div className='about-mission__container'>
         <motion.div
           variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, amount: 0.2 }}
           className='about-mission__wrapper'
         >
           <motion.div
-            variants={itemVariants}
+            variants={containerVariants}
             className='about-mission__illustration'
           >
             <MissionDashboard />
@@ -62,11 +58,11 @@ const AboutMission = ({
             description={description}
             principles={principles}
             timeline={timeline}
-            itemVariants={itemVariants}
+            variants={containerVariants}
           />
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

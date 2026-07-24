@@ -1,31 +1,27 @@
-import { LucideIcon, LucideProps } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
 export interface HeroCardItem {
   id: string;
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: LucideIcon;
   title: string;
   value: string;
   trend: string;
+  accentColor: string;
 }
 
 export interface AboutStat {
   id: string;
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: LucideIcon;
   value: string;
   label: string;
   trend: string;
   trendLabel: string;
+  accentColor: string;
 }
 
 export interface MissionPrinciple {
   id: string;
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: LucideIcon;
   title: string;
   description: string;
   accentColor?: string;
@@ -33,9 +29,7 @@ export interface MissionPrinciple {
 
 export interface MissionTimelineStep {
   id: string;
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: LucideIcon;
   title: string;
   description: string;
   accentColor?: string;

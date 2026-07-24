@@ -8,7 +8,7 @@ import AboutSectionHeader from '../AboutSectionHeader';
 import { PrivacySecurityProps } from '@/types/about/privacySecurity/privacy.security.type';
 import '../../../styles/components/about/privacySecurity/PrivacySecurity.scss';
 
-const gridVariants: Variants = {
+const containerVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 10,
@@ -31,7 +31,11 @@ const PrivacySecurity = ({
   features,
 }: PrivacySecurityProps) => {
   return (
-    <section
+    <motion.section
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, amount: 0.25, margin: '-50px' }}
       className='privacy-security'
       aria-labelledby='privacy-security-title'
     >
@@ -41,25 +45,20 @@ const PrivacySecurity = ({
           badge={badge}
           title={title}
           description={description}
+          variants={containerVariants}
         />
 
-        <motion.div
-          variants={gridVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, amount: 0.25 }}
-          className='privacy-security__grid'
-        >
+        <div className='privacy-security__grid'>
           {features.map((feature) => (
             <SecurityCard
               key={feature.id}
               feature={feature}
-              variants={gridVariants}
+              variants={containerVariants}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

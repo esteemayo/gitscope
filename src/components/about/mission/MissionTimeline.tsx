@@ -3,7 +3,7 @@ import { MissionTimelineProps } from '@/types/about/mission/mission.timeline.typ
 
 import '../../../styles/components/about/mission/MissionTimeline.scss';
 
-const MissionTimeline = ({ timeline, itemVariants }: MissionTimelineProps) => {
+const MissionTimeline = ({ timeline, variants }: MissionTimelineProps) => {
   return (
     <div className='mission-timeline'>
       {timeline.map((step, index) => (
@@ -12,7 +12,7 @@ const MissionTimeline = ({ timeline, itemVariants }: MissionTimelineProps) => {
           step={step}
           index={index}
           lastIndex={timeline.length - 1}
-          itemVariants={itemVariants}
+          variants={variants}
         />
       ))}
     </div>

@@ -14,19 +14,19 @@ import PrivacySecurity from './privacySecurity/PrivacySecurity';
 import WhoItsFor from './whoItsFor/WhoItsFor';
 
 import { aboutFeatures } from '@/data/about/aboutFeatures';
-import { whyItems } from '@/data/about/whyItems';
-import { pipelineStages } from '@/data/about/pipelineStages';
 import { faqItems } from '@/data/about/faq.data';
+import { pipelineStages } from '@/data/about/pipelineStages';
+import { whyItems } from '@/data/about/whyItems';
 import { comparisonData } from '@/data/about/comparison.data';
 import { ctaContent } from '@/data/about/cta.data';
 import { missionTimeline } from '@/data/about/missionTimeline';
-import { aboutStats } from '@/data/about/aboutStats';
+import { heroContent } from '@/data/about/hero.data';
 import { securityFeatures } from '@/data/about/privacySecurity.data';
 import { audiences } from '@/data/about/whoItsFor.data';
 import { missionPrinciples } from '@/data/about/missionPrinciples';
-import { roadmapPhases } from '@/data/about/roadmap.data';
+import { aboutStats } from '@/data/about/aboutStats.data';
 import { technologyStack } from '@/data/about/technologyStack.data';
-import { heroAnalytics } from '@/data/about/heroAnalytics';
+import { roadmapPhases } from '@/data/about/roadmap.data';
 import { architectureFeatures } from '@/data/about/architectureFeatures';
 
 import '../../styles/components/about/AboutClient.scss';
@@ -34,17 +34,10 @@ import '../../styles/components/about/AboutClient.scss';
 const AboutClient = () => {
   return (
     <main className='about-client'>
-      <AboutHero
-        title='Understand GitHub Like Never Before.'
-        description='GitScope transforms GitHub repositories into beautiful analytics. Explore contributor activity, repository health, language usage, trends and performance through an elegant interface built for developers.'
-        primaryButtonLabel='Explore dashboard'
-        secondaryButtonLabel='View repository'
-        primaryButtonHref='/'
-        secondaryButtonHref='https://github.com'
-        analytics={heroAnalytics}
-      />
+      <AboutHero {...heroContent} />
 
       <AboutStats
+        badge='Trusted by Developers'
         title='Trusted by thousands of developers worldwide.'
         description='GitScope transforms millions of GitHub events into actionable insights. Our platform helps developers and teams better understand repositories, contribution trends, and project health.'
         stats={aboutStats}

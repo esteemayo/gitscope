@@ -30,22 +30,24 @@ const WhoItsFor = ({
   audiences,
 }: WhoItsForProps) => {
   return (
-    <section className='who-its-for' aria-describedby='who-its-for-title'>
+    <motion.section
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, amount: 0.25 }}
+      className='who-its-for'
+      aria-describedby='who-its-for-title'
+    >
       <div className='who-its-for__container'>
         <AboutSectionHeader
           id='who-its-for-title'
           badge={badge}
           title={title}
           description={description}
+          variants={containerVariants}
         />
 
-        <motion.div
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, amount: 0.25 }}
-          className='who-its-for__grid'
-        >
+        <div className='who-its-for__grid'>
           {audiences.map((audience) => (
             <AudienceCard
               key={audience.id}
@@ -53,9 +55,9 @@ const WhoItsFor = ({
               variants={containerVariants}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

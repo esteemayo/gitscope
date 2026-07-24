@@ -1,11 +1,30 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { HeroCardProps } from '@/types/about/hero/hero.card.type';
+
 import '../../../styles/components/about/hero/HeroCard.scss';
 
-const HeroCard = ({ icon: Icon, title, value, trend }: HeroCardProps) => {
+const HeroCard = ({
+  icon: Icon,
+  title,
+  value,
+  trend,
+  accentColor,
+  variants,
+}: HeroCardProps) => {
   return (
-    <article className='hero-card'>
+    <motion.article
+      variants={variants}
+      className='hero-card'
+      style={
+        {
+          '--accent-color': accentColor,
+        } as React.CSSProperties
+      }
+    >
       <div className='hero-card__icon'>
-        <Icon size={22} />
+        <Icon size={28} />
       </div>
 
       <div className='hero-card__group'>
@@ -15,7 +34,7 @@ const HeroCard = ({ icon: Icon, title, value, trend }: HeroCardProps) => {
 
         <small className='hero-card__group--trend'>{trend}</small>
       </div>
-    </article>
+    </motion.article>
   );
 };
 

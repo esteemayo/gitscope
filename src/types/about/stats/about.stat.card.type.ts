@@ -1,12 +1,11 @@
-import { LucideProps } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
 export interface AboutStatCardProps {
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: LucideIcon;
   value: string;
   label: string;
   trend: string;
   trendLabel: string;
+  accentColor: string;
   index: number;
 }

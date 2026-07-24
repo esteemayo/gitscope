@@ -263,15 +263,15 @@
       border-radius: 100%;
 
       &:nth-child(1) {
-        background-color: #ef4444;
+        background-color: var(--color-red-700);
       }
 
       &:nth-child(2) {
-        background-color: #f59e0b;
+        background-color: var(--color-yellow-700);
       }
 
       &:nth-child(3) {
-        background-color: #22c55e;
+        background-color: var(--color-green-500);
       }
     }
   }

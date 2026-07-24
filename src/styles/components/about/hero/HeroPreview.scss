@@ -1,11 +1,14 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
 .hero-preview {
   padding: 2rem;
   background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--color-black-300);
   -webkit-backdrop-filter: blur(1.8rem);
   backdrop-filter: blur(1.8rem);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-gray-600);
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.6);
   border-radius: var(--radius);
   border-radius: 2.8rem;
@@ -24,7 +27,7 @@
     p {
       text-transform: capitalize;
       font-weight: 600;
-      font-size: 100%;
+      font-size: var(--fz-sm);
       color: var(--color-white-50);
     }
   }
@@ -39,6 +42,18 @@
       height: 1.2rem;
       background-color: #64748b;
       border-radius: 100%;
+
+      &:nth-child(1) {
+        background-color: var(--color-red-700);
+      }
+
+      &:nth-child(2) {
+        background-color: var(--color-yellow-700);
+      }
+
+      &:nth-child(3) {
+        background-color: var(--color-green-500);
+      }
     }
   }
 

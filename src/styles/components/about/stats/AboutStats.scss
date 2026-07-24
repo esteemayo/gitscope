@@ -1,90 +1,30 @@
 @use '../../../abstracts/responsive' as bp;
 
 .about-stats {
-  width: 100%;
-  max-width: 120rem;
-  margin-inline: auto;
-  padding: 8rem;
-  background-image:
-    radial-gradient(
-      circle at top left,
-      rgba(91, 140, 255, 0.08),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(124, 77, 255, 0.08),
-      transparent 35%
-    );
+  display: flex;
+  justify-content: center;
 
   overflow: hidden;
-
-  @media (max-width: 56.25em) {
-    padding: 8rem 3.2rem;
-  }
-
-  @include bp.md {
-    padding: 5rem 3.2rem;
-  }
-
-  @media (max-width: 25em) {
-    padding: 5rem 1.6rem;
-  }
 
   &__container {
     display: flex;
     flex-direction: column;
-  }
 
-  &__header {
-    position: relative;
-    max-width: 76rem;
-    text-align: center;
-    margin: 0 auto 4rem;
-    z-index: 2000;
+    width: 100%;
+    max-width: 120rem;
+    margin-inline: auto;
+    padding: 8rem;
+
+    @media (max-width: 56.25em) {
+      padding: 8rem 3.2rem;
+    }
 
     @include bp.md {
-      margin-bottom: 3rem;
+      padding: 5rem 3.2rem;
     }
 
-    &--eyebrow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      text-transform: initial;
-      font-weight: 600;
-      font-size: var(--fz-xxs);
-      padding: 0.55rem 1rem;
-      background-color: rgba(91, 140, 255, 0.08);
-      background-color: color-mix(in srgb, var(--icon) 7%, transparent);
-      color: var(--icon);
-      border: 1px solid var(--border);
-      border-radius: 10rem;
-      letter-spacing: 0.04em;
-      user-select: none;
-      pointer-events: none;
-      transition: var(--transition);
-    }
-
-    &--title {
-      text-transform: initial;
-      text-rendering: optimizeLegibility;
-      font-weight: 700;
-      font-size: clamp(var(--fz-xl), 4vw, var(--fz-heading));
-      color: inherit;
-      line-height: 1.1;
-      margin-top: 1.25rem;
-    }
-
-    &--description {
-      font-size: var(--fz-xs);
-      color: var(--text-muted);
-      margin-top: 1.25rem;
-
-      @include bp.sm {
-        font-size: 1.1rem;
-      }
+    @media (max-width: 25em) {
+      padding: 5rem 1.6rem;
     }
   }
 
@@ -94,6 +34,7 @@
     gap: 1.5rem;
 
     position: relative;
+    margin-top: 4rem;
     z-index: 2000;
 
     @include bp.xl {

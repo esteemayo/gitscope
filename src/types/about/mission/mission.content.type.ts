@@ -7,5 +7,5 @@ export interface MissionContentProps {
   description: string;
   principles: MissionPrinciple[];
   timeline: MissionTimelineStep[];
-  itemVariants: Variants;
+  variants: Variants;
 }

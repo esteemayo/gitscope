@@ -10,19 +10,19 @@ export const timelineActivities: TimelineItem[] = [
     id: 1,
     title: 'Initial Commit',
     time: '2m ago',
-    color: '#3b82f6',
+    color: '#3B82F6',
   },
   {
     id: 2,
     title: 'Issue Closed',
     time: '15m ago',
-    color: '#10b981',
+    color: '#10B981',
   },
   {
     id: 3,
     title: 'Release v2.1',
     time: '1d ago',
-    color: '#f59e0b',
+    color: '#f59E0B',
   },
 ];
 

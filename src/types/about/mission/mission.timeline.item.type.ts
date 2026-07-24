@@ -5,5 +5,5 @@ export interface MissionTimelineItemProps {
   step: MissionTimelineStep;
   index: number;
   lastIndex: number;
-  itemVariants: Variants;
+  variants: Variants;
 }

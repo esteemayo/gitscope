@@ -9,11 +9,11 @@ const MissionTimelineItem = ({
   step: { icon: Icon, title, description, accentColor },
   index,
   lastIndex,
-  itemVariants,
+  variants,
 }: MissionTimelineItemProps) => {
   return (
     <motion.div
-      variants={itemVariants}
+      variants={variants}
       className='mission-timeline-item'
       style={
         {

@@ -42,14 +42,13 @@ const FAQ = ({ badge, title, description, items }: FAQProps) => {
       aria-labelledby='faq-title'
     >
       <div className='faq__container'>
-        <motion.div variants={containerVariants}>
-          <AboutSectionHeader
-            id='faq-title'
-            badge={badge}
-            title={title}
-            description={description}
-          />
-        </motion.div>
+        <AboutSectionHeader
+          id='faq-title'
+          badge={badge}
+          title={title}
+          description={description}
+          variants={containerVariants}
+        />
 
         <div className='faq__list'>
           {items.map((item) => (

@@ -42,14 +42,13 @@ const CallToAction = ({
       aria-labelledby='call-to-action-title'
     >
       <div className='call-to-action__container'>
-        <motion.div variants={containerVariants}>
-          <AboutSectionHeader
-            id='call-to-action-title'
-            badge={badge}
-            title={title}
-            description={description}
-          />
-        </motion.div>
+        <AboutSectionHeader
+          id='call-to-action-title'
+          badge={badge}
+          title={title}
+          description={description}
+          variants={containerVariants}
+        />
 
         <motion.div
           variants={containerVariants}

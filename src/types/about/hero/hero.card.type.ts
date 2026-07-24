@@ -1,10 +1,11 @@
-import { LucideProps } from 'lucide-react';
+import { Variants } from 'framer-motion';
+import { LucideIcon } from 'lucide-react';
 
 export interface HeroCardProps {
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: LucideIcon;
   title: string;
   value: string;
   trend: string;
+  accentColor: string;
+  variants: Variants;
 }

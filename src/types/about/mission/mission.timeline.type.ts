@@ -3,5 +3,5 @@ import { MissionTimelineStep } from '../index';
 
 export interface MissionTimelineProps {
   timeline: MissionTimelineStep[];
-  itemVariants: Variants;
+  variants: Variants;
 }

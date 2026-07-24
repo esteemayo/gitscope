@@ -8,5 +8,5 @@ export interface HeroContentProps {
   secondaryButtonLabel: string;
   primaryButtonHref: string;
   secondaryButtonHref: string;
-  itemVariants: Variants;
+  variants: Variants;
 }

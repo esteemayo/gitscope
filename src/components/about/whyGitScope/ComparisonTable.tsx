@@ -1,11 +1,14 @@
-import { ArrowRight } from 'lucide-react';
-import { ComparisonTableProps } from '@/types/about/whyGitScope/comparison.table.type';
+'use client';
 
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+
+import { ComparisonTableProps } from '@/types/about/whyGitScope/comparison.table.type';
 import '../../../styles/components/about/whyGitScope/ComparisonTable.scss';
 
-const ComparisonTable = ({ items }: ComparisonTableProps) => {
+const ComparisonTable = ({ items, variants }: ComparisonTableProps) => {
   return (
-    <div className='comparison-table'>
+    <motion.div variants={variants} className='comparison-table'>
       <div className='comparison-table__header'>
         <span>GitHub</span>
 
@@ -19,7 +22,11 @@ const ComparisonTable = ({ items }: ComparisonTableProps) => {
           const { id, github, gitScope } = item;
 
           return (
-            <article key={id} className='comparison-table__row'>
+            <motion.article
+              key={id}
+              variants={variants}
+              className='comparison-table__row'
+            >
               <div className='comparison-table__github'>{github}</div>
 
               <div className='comparison-table__arrow'>
@@ -27,11 +34,11 @@ const ComparisonTable = ({ items }: ComparisonTableProps) => {
               </div>
 
               <div className='comparison-table__gitscope'>{gitScope}</div>
-            </article>
+            </motion.article>
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

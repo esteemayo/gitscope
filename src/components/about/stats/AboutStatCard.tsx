@@ -16,7 +16,7 @@ const cardVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.45,
-      ease: 'easeOut',
+      ease: [0.645, 0.045, 0.355, 1] as const,
     },
   },
 };
@@ -27,17 +27,19 @@ const AboutStatCard = ({
   label,
   trend,
   trendLabel,
+  accentColor,
   index,
 }: AboutStatCardProps) => {
   return (
     <motion.article
       variants={cardVariants}
       whileHover={{ y: index * -10 }}
-      transition={{
-        duration: 0.25,
-        ease: [0.645, 0.045, 0.355, 1] as const,
-      }}
       className='about-stat-card'
+      style={
+        {
+          '--accent-color': accentColor,
+        } as React.CSSProperties
+      }
     >
       <div className='about-stat-card__glow' />
 

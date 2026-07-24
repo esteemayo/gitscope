@@ -5,7 +5,7 @@ import '../../../styles/components/about/mission/MissionPrinciples.scss';
 
 const MissionPrinciples = ({
   principles,
-  itemVariants,
+  variants,
 }: MissionPrinciplesProps) => {
   return (
     <div className='mission-principle'>
@@ -13,7 +13,7 @@ const MissionPrinciples = ({
         <MissionPrincipleCard
           key={principle.id}
           principle={principle}
-          itemVariants={itemVariants}
+          itemVariants={variants}
         />
       ))}
     </div>

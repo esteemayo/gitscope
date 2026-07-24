@@ -1,8 +1,11 @@
+'use client';
+
+import { motion, Variants } from 'framer-motion';
 import '../../../styles/components/about/mission/MissionHighlight.scss';
 
-const MissionHighlight = () => {
+const MissionHighlight = ({ variants }: { variants: Variants }) => {
   return (
-    <div className='mission-hightlight'>
+    <motion.div variants={variants} className='mission-hightlight'>
       <div className='mission-hightlight__indicator' />
 
       <div className='mission-hightlight__content'>
@@ -16,7 +19,7 @@ const MissionHighlight = () => {
           informed decisions with confidence.
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

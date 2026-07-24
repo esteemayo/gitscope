@@ -1,9 +1,16 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
 .hero-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @include bp.lg {
+    align-items: center;
+    text-align: center;
+  }
 
   &__badge {
     align-self: start;
@@ -25,6 +32,10 @@
     user-select: none;
     pointer-events: none;
     margin-bottom: 2rem;
+
+    @include bp.lg {
+      align-self: center;
+    }
   }
 
   &__title {
@@ -44,9 +55,7 @@
 
   &__description {
     max-width: 62rem;
-    font-size: 1.1rem;
-    font-size: var(--fz-xxs);
-    color: #9fb2ca;
+    font-size: var(--fz-xs);
     color: var(--color-gray-400);
     line-height: 1.9;
     margin-top: 1.75rem;
@@ -69,14 +78,18 @@
       &:visited {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 0.8rem;
 
+        min-width: 19.25rem;
+        min-height: 5rem;
         text-transform: capitalize;
         font-weight: 600;
         font-size: var(--fz-sm);
         padding: 1rem 1.5rem;
         color: var(--color-white-50);
         border-radius: 0.875rem;
+        border-radius: 100rem;
         transition: var(--transition);
         user-select: none;
       }
@@ -88,12 +101,8 @@
         opacity: 0.7;
       }
 
-      &:hover {
-        transform: translateY(-4px);
-
-        svg {
-          opacity: 1;
-        }
+      &:focus {
+        outline: none;
       }
 
       &:disabled {
@@ -108,14 +117,37 @@
       &:visited {
         background-color: var(--color-blue-800);
       }
+
+      &:hover,
+      &:focus-visible {
+        transform: translateY(-4px);
+        box-shadow: 0 1rem 4rem
+          color-mix(in srgb, var(--color-blue-800) 20%, transparent);
+
+        svg {
+          opacity: 1;
+        }
+      }
     }
 
     &--btn-secondary {
       &:link,
       &:visited {
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border: 1px solid var(--color-gray-600);
         -webkit-backdrop-filter: blur(1.8rem);
         backdrop-filter: blur(1.8rem);
+      }
+
+      &:hover {
+        border-color: var(--color-blue-800);
+
+        svg {
+          opacity: 1;
+        }
+      }
+
+      &:focus-visible {
+        @include focus-ring();
       }
     }
   }

@@ -17,24 +17,24 @@ const HeroContent = ({
   secondaryButtonLabel,
   primaryButtonHref,
   secondaryButtonHref,
-  itemVariants,
+  variants,
 }: HeroContentProps) => {
   return (
     <div className='hero-content'>
-      <motion.div variants={itemVariants} className='hero-content__badge'>
+      <motion.div variants={variants} className='hero-content__badge'>
         <Sparkles size={16} />
         {badge}
       </motion.div>
 
-      <motion.h1 variants={itemVariants} className='hero-content__title'>
+      <motion.h1 variants={variants} className='hero-content__title'>
         {title}
       </motion.h1>
 
-      <motion.p variants={itemVariants} className='hero-content__description'>
+      <motion.p variants={variants} className='hero-content__description'>
         {description}
       </motion.p>
 
-      <motion.div variants={itemVariants} className='hero-content__actions'>
+      <motion.div variants={variants} className='hero-content__actions'>
         <Link
           href={primaryButtonHref}
           className='hero-content__actions--btn-primary'

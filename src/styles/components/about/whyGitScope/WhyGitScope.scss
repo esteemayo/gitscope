@@ -56,7 +56,7 @@
     background-color: color-mix(in srgb, var(--icon) 7%, transparent);
     color: var(--icon);
     border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
-    border-radius: 10rem;
+    border-radius: 100rem;
     user-select: none;
     pointer-events: none;
   }
@@ -82,7 +82,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
 
-    margin-bottom: 5rem;
+    margin: 4rem 0 5rem;
   }
 
   &__comparison {

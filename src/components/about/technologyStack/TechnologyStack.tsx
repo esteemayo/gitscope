@@ -31,7 +31,11 @@ const TechnologyStack = ({
   stacks,
 }: TechnologyStackProps) => {
   return (
-    <section
+    <motion.section
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, amount: 0.25, margin: '-50px' }}
       className='technology-stack'
       aria-describedby='technology-stack-title'
     >
@@ -41,15 +45,10 @@ const TechnologyStack = ({
           badge={badge}
           title={title}
           description={description}
+          variants={containerVariants}
         />
 
-        <motion.div
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, amount: 0.25 }}
-          className='technology-stack__grid'
-        >
+        <div className='technology-stack__grid'>
           {stacks.map((stack) => (
             <StackCard
               key={stack.id}
@@ -57,9 +56,9 @@ const TechnologyStack = ({
               variants={containerVariants}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

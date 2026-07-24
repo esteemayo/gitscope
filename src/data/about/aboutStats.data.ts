@@ -10,6 +10,7 @@ export const aboutStats: AboutStat[] = [
     trend: 'Real-time',
     trendLabel:
       'Track stars, forks, commits, contributors, issues and repository health.',
+    accentColor: '#3B82F6',
   },
   {
     id: 'languages',
@@ -19,6 +20,7 @@ export const aboutStats: AboutStat[] = [
     trend: 'Auto-detected',
     trendLabel:
       'Visualize language distribution and technology usage across repositories.',
+    accentColor: '#10B981',
   },
   {
     id: 'visualizations',
@@ -28,6 +30,7 @@ export const aboutStats: AboutStat[] = [
     trend: 'Insight-driven',
     trendLabel:
       'Explore charts, timelines, activity trends and contribution analytics.',
+    accentColor: '#8B5CF6',
   },
   {
     id: 'github-data',
@@ -37,5 +40,6 @@ export const aboutStats: AboutStat[] = [
     trend: 'Continuously Updated',
     trendLabel:
       'Powered by the GitHub API to provide accurate and up-to-date repository insights.',
+    accentColor: '#F97316',
   },
 ];

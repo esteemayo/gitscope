@@ -7,9 +7,9 @@ import { HeroPreviewProps } from '@/types/about/hero/hero.preview.type';
 
 import '../../../styles/components/about/hero/HeroPreview.scss';
 
-const HeroPreview = ({ analytics, itemVariants }: HeroPreviewProps) => {
+const HeroPreview = ({ analytics, variants }: HeroPreviewProps) => {
   return (
-    <motion.div variants={itemVariants} className='hero-preview'>
+    <motion.div variants={variants} className='hero-preview'>
       <div className='hero-preview__header'>
         <div className='hero-preview__window-buttons'>
           <span />
@@ -22,7 +22,7 @@ const HeroPreview = ({ analytics, itemVariants }: HeroPreviewProps) => {
 
       <div className='hero-preview__analytics'>
         {analytics.map((analytic) => (
-          <HeroCard key={analytic.id} {...analytic} />
+          <HeroCard key={analytic.id} {...analytic} variants={variants} />
         ))}
       </div>
     </motion.div>
