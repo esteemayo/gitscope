@@ -1,15 +1,18 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { FeatureCardProps } from '@/types/about/features/feature.card.type';
 
+import { FeatureCardProps } from '@/types/about/features/feature.card.type';
 import '../../../styles/components/about/features/FeatureCard.scss';
 
 const FeatureCard = ({
   feature: { icon, title, description, accentColor, preview, previewHeight },
+  variants,
 }: FeatureCardProps) => {
   return (
-    <article
+    <motion.article
+      variants={variants}
       className='feature-card'
       style={
         {
@@ -40,7 +43,7 @@ const FeatureCard = ({
 
         <ArrowUpRight size={18} />
       </div>
-    </article>
+    </motion.article>
   );
 };
 
