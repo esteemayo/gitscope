@@ -1,29 +1,15 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import ArchitectureCard from './ArchitectureCard';
 import Pipeline from './Pipeline';
 import AboutSectionHeader from '../AboutSectionHeader';
 
+import { containerVariants } from '@/animations/about';
 import { ArchitectureProps } from '@/types/about/architecture/architecture.type';
-import '../../../styles/components/about/architecture/Architecture.scss';
 
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
+import '../../../styles/components/about/architecture/Architecture.scss';
 
 const Architecture = ({
   badge,
@@ -34,9 +20,10 @@ const Architecture = ({
 }: ArchitectureProps) => {
   return (
     <motion.section
+      variants={containerVariants}
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.25, margin: '-50px' }}
+      viewport={{ once: true }}
       className='architecture'
       aria-labelledby='architecture-title'
     >
@@ -54,7 +41,7 @@ const Architecture = ({
             <ArchitectureCard
               key={feature.id}
               feature={feature}
-              itemVariants={containerVariants}
+              variants={containerVariants}
             />
           ))}
         </div>
@@ -91,7 +78,7 @@ const Architecture = ({
             </motion.p>
           </motion.div>
 
-          <Pipeline stages={stages} />
+          <Pipeline stages={stages} variants={containerVariants} />
         </motion.div>
       </div>
     </motion.section>

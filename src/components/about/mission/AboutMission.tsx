@@ -1,28 +1,14 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import MissionContent from './MissionContent';
 import MissionDashboard from './MissionDashboard';
 
+import { containerVariants } from '@/animations/about';
 import { AboutMissionProps } from '@/types/about/mission/about.mission.type';
-import '../../../styles/components/about/mission/AboutMission.scss';
 
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
+import '../../../styles/components/about/mission/AboutMission.scss';
 
 const AboutMission = ({
   badge,
@@ -36,7 +22,7 @@ const AboutMission = ({
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.2, margin: '-50px' }}
+      viewport={{ once: true, amount: 0.25, margin: '-50px' }}
       className='about-mission'
       aria-labelledby='about-mission-title'
     >

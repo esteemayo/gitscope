@@ -18,7 +18,7 @@ import ExportPreview from '@/components/about/features/previews/ExportPreview';
 import AnalyticsPreview from '@/components/about/features/previews/AnalyticsPreview';
 import HealthPreview from '@/components/about/features/previews/HealthPreview';
 
-import * as previewData from './previews';
+import * as previewData from './previews.data';
 import { AboutFeature } from '@/types/about/index';
 
 export const aboutFeatures: AboutFeature[] = [

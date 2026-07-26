@@ -65,7 +65,11 @@
 
     &:nth-child(6) {
       height: 94%;
-      background-image: linear-gradient(180deg, #10b981, #34b399);
+      background-image: linear-gradient(
+        180deg,
+        var(--color-green-300),
+        var(--color-green-400)
+      );
       animation-delay: 0.3s;
     }
 

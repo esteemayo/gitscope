@@ -1,29 +1,15 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import ComparisonTable from './ComparisonTable';
 import ValueCard from './ValueCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
+import { containerVariants } from '@/animations/about';
 import { WhyGitScopeProps } from '@/types/about/whyGitScope/why.gitscope.type';
-import '../../../styles/components/about/whyGitScope/WhyGitScope.scss';
 
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
+import '../../../styles/components/about/whyGitScope/WhyGitScope.scss';
 
 const WhyGitScope = ({
   badge,

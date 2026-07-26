@@ -13,21 +13,21 @@ import AboutStats from './stats/AboutStats';
 import PrivacySecurity from './privacySecurity/PrivacySecurity';
 import WhoItsFor from './whoItsFor/WhoItsFor';
 
-import { aboutFeatures } from '@/data/about/aboutFeatures';
-import { faqItems } from '@/data/about/faq.data';
-import { pipelineStages } from '@/data/about/pipelineStages';
-import { whyItems } from '@/data/about/whyItems';
 import { comparisonData } from '@/data/about/comparison.data';
+import { faqItems } from '@/data/about/faq.data';
+import { aboutFeatures } from '@/data/about/aboutFeatures.data';
 import { ctaContent } from '@/data/about/cta.data';
-import { missionTimeline } from '@/data/about/missionTimeline';
+import { pipelineStages } from '@/data/about/pipelineStages.data';
 import { heroContent } from '@/data/about/hero.data';
-import { securityFeatures } from '@/data/about/privacySecurity.data';
-import { audiences } from '@/data/about/whoItsFor.data';
-import { missionPrinciples } from '@/data/about/missionPrinciples';
-import { aboutStats } from '@/data/about/aboutStats.data';
+import { missionTimeline } from '@/data/about/missionTimeline.data';
+import { whyItems } from '@/data/about/whyItems.data';
 import { technologyStack } from '@/data/about/technologyStack.data';
+import { audiences } from '@/data/about/whoItsFor.data';
+import { securityFeatures } from '@/data/about/privacySecurity.data';
+import { aboutStats } from '@/data/about/aboutStats.data';
+import { missionPrinciples } from '@/data/about/missionPrinciples.data';
 import { roadmapPhases } from '@/data/about/roadmap.data';
-import { architectureFeatures } from '@/data/about/architectureFeatures';
+import { architectureFeatures } from '@/data/about/architectureFeatures.data';
 
 import '../../styles/components/about/AboutClient.scss';
 

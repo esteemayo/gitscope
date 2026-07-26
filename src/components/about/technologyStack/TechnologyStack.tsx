@@ -1,28 +1,14 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import StackCard from './StackCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
+import { containerVariants } from '@/animations/about';
 import { TechnologyStackProps } from '@/types/about/technologyStack/technology.stack.type';
-import '../../../styles/components/about/technologyStack/TechnologyStack.scss';
 
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
+import '../../../styles/components/about/technologyStack/TechnologyStack.scss';
 
 const TechnologyStack = ({
   badge,

@@ -20,6 +20,7 @@ const PipelineStage = ({
           }
         >
           <span className='pipeline-stage__number--label'>step</span>
+
           <strong className='pipeline-stage__number--value'>
             {String(index + 1).padStart(2, '0')}
           </strong>

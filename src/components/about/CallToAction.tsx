@@ -1,27 +1,13 @@
-import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { motion, Variants } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 import AboutSectionHeader from './AboutSectionHeader';
+
+import { containerVariants } from '@/animations/about';
 import { CallToActionProps } from '@/types/about/call.to.action.type';
 
 import '../../styles/components/about/CallToAction.scss';
-
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
 
 const CallToAction = ({
   badge,
@@ -112,6 +98,7 @@ const CallToAction = ({
           className='call-to-action__footer'
         >
           <span>Built with accessiblity in mind</span>
+
           <span>•</span>
 
           <span>Privacy First</span>

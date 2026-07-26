@@ -1,29 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import FAQItem from './FAQItem';
 import AboutSectionHeader from '../AboutSectionHeader';
 
 import { FAQProps } from '@/types/about/faq/faq.type';
-import '../../../styles/components/about/FAQ/FAQ.scss';
+import { containerVariants } from '@/animations/about';
 
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
+import '../../../styles/components/about/FAQ/FAQ.scss';
 
 const FAQ = ({ badge, title, description, items }: FAQProps) => {
   const [activeId, setActiveId] = useState<string | null>(items[0].id);

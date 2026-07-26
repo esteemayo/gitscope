@@ -1,28 +1,14 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import AboutStatCard from './AboutStatCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
+import { containerVariants } from '@/animations/about';
 import { AboutStatsProps } from '@/types/about/stats/about.stats.type';
-import '../../../styles/components/about/stats/AboutStats.scss';
 
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
+import '../../../styles/components/about/stats/AboutStats.scss';
 
 const AboutStats = ({ badge, title, description, stats }: AboutStatsProps) => {
   return (

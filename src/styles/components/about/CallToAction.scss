@@ -3,10 +3,24 @@
 @use '../../abstracts/responsive' as bp;
 
 .call-to-action {
-  display: flex;
-  justify-content: center;
-
   position: relative;
+  padding: 8rem;
+
+  @media (max-width: 56.25em) {
+    padding: 8rem 3.2rem;
+  }
+
+  @include bp.md {
+    padding: 5rem 3.2rem;
+  }
+
+  @media (max-width: 36em) {
+    padding: 4rem 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 4rem 1.6rem;
+  }
 
   &::before {
     content: '';
@@ -31,9 +45,8 @@
 
   &__container {
     width: 100%;
-    max-width: 120rem;
+    max-width: 100rem;
     margin-inline: auto;
-    padding: 8rem;
     position: relative;
 
     &::before,
@@ -59,22 +72,6 @@
       bottom: 0;
       right: -8rem;
       opacity: 0.25;
-    }
-
-    @media (max-width: 56.25em) {
-      padding: 8rem 3.2rem;
-    }
-
-    @include bp.md {
-      padding: 5rem 3.2rem;
-    }
-
-    @media (max-width: 36em) {
-      padding: 4rem 3.2rem;
-    }
-
-    @media (max-width: 25em) {
-      padding: 4rem 1.6rem;
     }
   }
 
@@ -111,13 +108,13 @@
       justify-content: center;
     }
 
-    &--icon {
+    &--icon,
+    svg {
       flex-shrink: 0;
 
       width: 1.6rem;
       height: 1.6rem;
       color: var(--icon);
-      stroke: currentColor;
     }
 
     &--label {

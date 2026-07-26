@@ -1,4 +1,4 @@
-import { heroAnalytics } from './heroAnalytics';
+import { heroAnalytics } from './heroAnalytics.data';
 import { AboutHeroProps } from '@/types/about/hero/about.hero.type';
 
 export const heroContent: AboutHeroProps = {

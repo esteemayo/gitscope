@@ -1,28 +1,14 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import RoadmapCard from './RoadmapCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
+import { containerVariants } from '@/animations/about';
 import { RoadmapProps } from '@/types/about/roadmap/roadmap.type';
-import '../../../styles/components/about/roadmap/Roadmap.scss';
 
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
+import '../../../styles/components/about/roadmap/Roadmap.scss';
 
 const Roadmap = ({ badge, title, description, phases }: RoadmapProps) => {
   return (

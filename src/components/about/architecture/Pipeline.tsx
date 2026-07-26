@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import PipelineStage from './PipelineStage';
 import Connector from './Connector';
@@ -9,43 +9,13 @@ import PipelineSummary from './PipelineSummary';
 import { PipelineProps } from '@/types/about/architecture/pipeline.type';
 import '../../../styles/components/about/architecture/Pipeline.scss';
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-    },
-  },
-};
-
-const Pipeline = ({ stages }: PipelineProps) => {
+const Pipeline = ({ stages, variants }: PipelineProps) => {
   return (
-    <motion.div
-      variants={containerVariants}
-      initial='hidden'
-      whileInView='visible'
-      viewport={{ once: true, amount: 0.25 }}
-      className='pipeline'
-    >
+    <motion.div variants={variants} className='pipeline'>
       {stages.map((stage, index) => (
         <motion.div
           key={stage.id}
-          variants={itemVariants}
+          variants={variants}
           className='pipeline__item'
         >
           <PipelineStage
@@ -59,7 +29,7 @@ const Pipeline = ({ stages }: PipelineProps) => {
         </motion.div>
       ))}
 
-      <PipelineSummary itemVariants={itemVariants} />
+      <PipelineSummary variants={variants} />
     </motion.div>
   );
 };

@@ -1,4 +1,4 @@
-import { healthProgress } from '@/data/about/healthProgress';
+import { healthProgress } from '@/data/about/healthProgress.data';
 import '../../../styles/components/about/mission/MissionHealthCard.scss';
 
 const MissionHealthCard = () => {

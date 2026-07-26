@@ -2,7 +2,6 @@ import {
   Accessibility,
   BarChart3,
   Clock3,
-  FolderGit2,
   GitCompareArrows,
   GitPullRequestDraft,
   Search,
@@ -10,6 +9,8 @@ import {
   Sparkles,
   Zap,
 } from 'lucide-react';
+
+import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
 import { CallToActionProps } from '@/types/about/call.to.action.type';
 
 export const ctaContent: CallToActionProps = {
@@ -63,7 +64,7 @@ export const ctaContent: CallToActionProps = {
     {
       id: 'repositories',
       label: 'Repository Explorer',
-      icon: FolderGit2,
+      icon: GitHubLogoIcon,
     },
     {
       id: 'search',

@@ -1,5 +1,5 @@
 import millify from 'millify';
-import { missionMetrics } from '@/data/about/missionMetrics';
+import { missionMetrics } from '@/data/about/missionMetrics.data';
 
 import '../../../styles/components/about/mission/MissionMetrics.scss';
 

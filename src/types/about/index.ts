@@ -91,7 +91,7 @@ export interface PipelineStage {
   id: string;
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: LucideIcon | React.ComponentType;
   accentColor: string;
   items: PipelineItem[];
   cardWidth?: 'sm' | 'md' | 'lg';
@@ -101,7 +101,7 @@ export interface Audience {
   id: string;
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: LucideIcon | React.ComponentType;
   benefits: string[];
   useCase: string;
   accentColor: string;
@@ -123,7 +123,7 @@ export interface SecurityFeature {
   badge: string;
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: LucideIcon | React.ComponentType;
   accentColor: string;
   highlights: string[];
 }
@@ -156,7 +156,7 @@ export interface CTAButton {
 export interface FloatingMetric {
   id: string;
   label: string;
-  icon: LucideIcon;
+  icon: LucideIcon | React.ComponentType;
 }
 
 export interface Highlight {

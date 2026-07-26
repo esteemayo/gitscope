@@ -18,6 +18,7 @@
   &__area {
     fill: color-mix(in srgb, var(--icon) 10%, transparent);
     animation: areaFade 0.8s ease forwards;
+    transition: var(--transition);
   }
 
   &__line {
@@ -29,6 +30,7 @@
     stroke-dasharray: 300;
     stroke-dashoffset: 300;
     animation: drawLine 1.4s ease forwards;
+    transition: var(--transition);
   }
 
   &__point {
@@ -51,8 +53,7 @@
     flex-direction: column;
 
     padding: 0.9rem;
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     border-radius: var(--radius);
     transition: var(--transition);
 
@@ -66,14 +67,17 @@
       text-transform: uppercase;
       font-size: 1rem;
       letter-spacing: 0.05em;
-      color: var(--color-gray-400);
+      color: var(--text-muted);
       margin-bottom: 0.4rem;
+      transition: var(--transition);
     }
 
     &--value {
       font-weight: 700;
       font-size: var(--fz-xs);
-      color: var(--color-white-50);
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum';
+      color: inherit;
     }
   }
 }

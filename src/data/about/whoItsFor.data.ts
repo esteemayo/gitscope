@@ -2,13 +2,14 @@ import {
   BarChart3,
   BriefcaseBusiness,
   Code2,
-  GitBranchPlus,
   GitCompareArrows,
   Sparkles,
   TrendingUp,
   Users2,
 } from 'lucide-react';
+
 import { Audience } from '@/types/about';
+import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
 
 export const audiences: Audience[] = [
   {
@@ -28,7 +29,7 @@ export const audiences: Audience[] = [
     title: 'Open Source Maintainers',
     description:
       'Monitor community contributions and repository growth from one dashboard.',
-    icon: GitBranchPlus,
+    icon: GitHubLogoIcon,
     benefits: [
       'Contribution tracking',
       'Repository insights',

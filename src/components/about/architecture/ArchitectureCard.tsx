@@ -7,11 +7,11 @@ import '../../../styles/components/about/architecture/ArchitectureCard.scss';
 
 const ArchitectureCard = ({
   feature: { icon: Icon, title, description, accentColor, layer },
-  itemVariants,
+  variants,
 }: ArchitectureCardProps) => {
   return (
     <motion.article
-      variants={itemVariants}
+      variants={variants}
       className='architecture-card'
       style={
         {

@@ -1,6 +1,7 @@
-// import GitHubIcon from '@/components/icons/GitHubIcon';
+import { EyeOff, Lock, ShieldCheck } from 'lucide-react';
+
 import { SecurityFeature } from '@/types/about';
-import { EyeOff, GitGraph, Lock, ShieldCheck } from 'lucide-react';
+import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
 
 export const securityFeatures: SecurityFeature[] = [
   {
@@ -9,7 +10,7 @@ export const securityFeatures: SecurityFeature[] = [
     title: 'GitHub Authentication',
     description:
       'Sign in securely using GitHub OAuth without creating another password.',
-    icon: GitGraph,
+    icon: GitHubLogoIcon,
     accentColor: '#3B82F6',
     highlights: [
       'Official GitHub OAuth',

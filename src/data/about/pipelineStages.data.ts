@@ -1,18 +1,14 @@
-import {
-  BarChart3,
-  Database,
-  GitBranchPlus,
-  LayoutDashboard,
-  Settings2,
-} from 'lucide-react';
+import { BarChart3, Database, LayoutDashboard, Settings2 } from 'lucide-react';
+
 import { PipelineStage } from '@/types/about';
+import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
 
 export const pipelineStages: PipelineStage[] = [
   {
     id: 'github',
     title: 'GitHub',
     description: 'Connect repositories and retrieve developer activity.',
-    icon: GitBranchPlus,
+    icon: GitHubLogoIcon,
     accentColor: '#8B5CF6',
     items: [
       { id: 'repositories', label: 'Repositories' },

@@ -1,8 +1,6 @@
 import ActionCard from './ActionCard';
 import { SharePreviewProps } from '@/types/about/features/previews/share.preview.type';
 
-import '../../../../styles/components/about/features/previews/SharePreview.scss';
-
 const SharePreview = ({
   icon,
   title,

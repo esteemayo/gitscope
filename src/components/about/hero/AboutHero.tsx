@@ -1,28 +1,14 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import HeroContent from './HeroContent';
 import HeroPreview from './HeroPreview';
 
+import { containerVariants } from '@/animations/about';
 import { AboutHeroProps } from '@/types/about/hero/about.hero.type';
-import '../../../styles/components/about/hero/AboutHero.scss';
 
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
+import '../../../styles/components/about/hero/AboutHero.scss';
 
 const AboutHero = ({
   badge = 'About GitScope',

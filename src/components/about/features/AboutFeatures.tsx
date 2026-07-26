@@ -1,29 +1,15 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import FeaturedFeature from './FeaturedFeature';
 import FeatureCard from './FeatureCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
+import { containerVariants } from '@/animations/about';
 import { AboutFeaturesProps } from '@/types/about/features/about.features.type';
-import '../../../styles/components/about/features/AboutFeatures.scss';
 
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeInOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
+import '../../../styles/components/about/features/AboutFeatures.scss';
 
 const AboutFeatures = ({
   badge,
