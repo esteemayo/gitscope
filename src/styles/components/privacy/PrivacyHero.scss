@@ -1,0 +1,270 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.privacy-hero {
+  padding: 8rem;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  // padding-block: clamp(6rem, 10vw, 9rem);
+  background-image:
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--color-blue-800) 14%, transparent),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--border) 12%, transparent),
+      transparent 45%
+    ),
+    var(--bg-tertiary);
+
+  &__background {
+  }
+
+  &__noise,
+  &__grid {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__noise {
+    background-image:
+      radial-gradient(
+        circle at 20% 30%,
+        var(--color-white-50) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 70% 60%,
+        var(--color-white-50) 1px,
+        transparent 1px
+      );
+    background-size: 2.8rem 2.8rem;
+
+    opacity: 0.04;
+  }
+
+  &__grid {
+    background-image:
+      linear-gradient(
+        color-mix(in srgb, var(--border) 30%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--border) 30%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 5rem 5rem;
+    -webkit-mask-image: radial-gradient(circle, black 55%, transparent 100%);
+    mask-image: radial-gradient(circle, black 55%, transparent 100%);
+    transition: var(--transition);
+    z-index: -1;
+  }
+
+  &__glow {
+    position: absolute;
+
+    filter: blur(9rem);
+    border-radius: 100rem;
+    opacity: 0.65;
+
+    &--primary {
+      top: -12rem;
+      left: -8rem;
+
+      width: 42rem;
+      height: 42rem;
+
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800) 22%,
+        transparent
+      );
+    }
+
+    &--secondary {
+      right: -8rem;
+      bottom: -10rem;
+
+      width: 38rem;
+      height: 38rem;
+
+      background-color: color-mix(in srgb, var(--text-muted) 20%, transparent);
+    }
+
+    &--tertiary {
+      left: 45%;
+      top: 15%;
+
+      width: 22rem;
+      height: 22rem;
+
+      background-color: color-mix(
+        in srgb,
+        var(--color-green-300) 16%,
+        transparent
+      );
+    }
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 120rem;
+    margin-inline: auto;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(32rem, 42rem);
+    align-items: center;
+    gap: clamp(3rem, 6vw, 5rem);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__badge {
+    &--icon {
+    }
+
+    &--label {
+    }
+  }
+
+  &__header {
+    &--title {
+    }
+
+    &--subtitle {
+    }
+
+    &--description {
+    }
+  }
+
+  &__actions {
+  }
+
+  &__button {
+    &--primary,
+    &--secondary {
+      svg {
+        flex-shrink: 0;
+
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+
+    &--primary {
+    }
+
+    &--secondary {
+    }
+  }
+
+  &__stats {
+  }
+
+  &__stat {
+    &--value {
+    }
+
+    &--label {
+    }
+  }
+
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__illustration {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    width: 24rem;
+    height: 24rem;
+  }
+
+  &__shield {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 12rem;
+    height: 12rem;
+    -webkit-backdrop-filter: blur(1.8rem);
+    backdrop-filter: blur(1.8rem);
+
+    svg {
+      width: 8rem;
+      height: 8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__ring {
+    &--one {
+    }
+
+    &--two {
+    }
+
+    &--three {
+    }
+  }
+
+  &__card {
+  }
+
+  &__card-header {
+  }
+
+  &__card-icon {
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__card-content {
+  }
+
+  &__card-title {
+  }
+
+  &__card-description {
+  }
+
+  &__divider {
+  }
+
+  &__meta {
+  }
+
+  &__meta-item {
+    &--label {
+      text-transform: capitalize;
+    }
+
+    &--value {
+    }
+  }
+}
