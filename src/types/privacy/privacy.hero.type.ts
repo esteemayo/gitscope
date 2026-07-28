@@ -1,12 +1,12 @@
-import { PrivacyHeroStat } from './index';
+import { LucideIcon } from 'lucide-react';
+import { PrivacyHeroAction, PrivacyHeroCard, PrivacyHeroStat } from './index';
 
 export interface PrivacyHeroProps {
   badge: string;
   title: string;
   subtitle: string;
-  lastUpdated: string;
-  version?: string;
-  summaryLink?: string;
-  policyLink?: string;
+  actions: PrivacyHeroAction[];
   stats: PrivacyHeroStat[];
+  card: PrivacyHeroCard;
+  illustration: LucideIcon;
 }

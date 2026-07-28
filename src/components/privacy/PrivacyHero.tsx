@@ -1,21 +1,24 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { ShieldCheck } from 'lucide-react';
 
 import { PrivacyHeroProps } from '@/types/privacy/privacy.hero.type';
 import '../../styles/components/privacy/PrivacyHero.scss';
-import { ArrowRight, FileText, ShieldCheck } from 'lucide-react';
 
 const PrivacyHero = ({
   badge,
   title,
   subtitle,
-  lastUpdated,
-  version = 'v1.0',
-  summaryLink,
-  policyLink,
+  actions,
   stats,
+  card,
+  illustration,
 }: PrivacyHeroProps) => {
+  const CardIcon = card.icon;
+  const IllustrationIcon = illustration;
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -81,8 +84,6 @@ const PrivacyHero = ({
               </h1>
 
               <p className='privacy-hero__header--subtitle'>{subtitle}</p>
-
-              
             </motion.header>
 
             <motion.nav
@@ -92,23 +93,27 @@ const PrivacyHero = ({
               className='privacy-hero__actions'
               aria-label='Privacy policy actions'
             >
-              <a
-                href={summaryLink}
-                className='privacy-hero__button privacy-hero__button--primary'
-              >
-                <span>Read summary</span>
+              {actions.map((action) => {
+                const { id, href, label, icon: Icon, variant } = action;
 
-                <ArrowRight size={18} aria-hidden='true' focusable='false' />
-              </a>
+                return (
+                  <Link
+                    key={id}
+                    href={href}
+                    className={`privacy-hero__button privacy-hero__button--${variant}`}
+                  >
+                    {variant === 'secondary' && (
+                      <Icon size={18} aria-hidden='true' focusable='false' />
+                    )}
 
-              <a
-                href={policyLink}
-                className='privacy-hero__button privacy-hero__button--secondary'
-              >
-                <FileText size={18} aria-hidden='true' focusable='false' />
+                    <span>{label}</span>
 
-                <span>View full policy</span>
-              </a>
+                    {variant === 'primary' && (
+                      <Icon size={18} aria-hidden='true' focusable='false' />
+                    )}
+                  </Link>
+                );
+              })}
             </motion.nav>
 
             <motion.ul
@@ -143,7 +148,11 @@ const PrivacyHero = ({
               aria-hidden='true'
             >
               <div className='privacy-hero__shield'>
-                <ShieldCheck size={80} aria-hidden='true' focusable='false' />
+                <IllustrationIcon
+                  size={80}
+                  aria-hidden='true'
+                  focusable='false'
+                />
               </div>
 
               <span className='privacy-hero__ring privacy-hero__ring--one' />
@@ -161,17 +170,14 @@ const PrivacyHero = ({
             >
               <div className='privacy-hero__card-header'>
                 <div className='privacy-hero__card-icon'>
-                  <ShieldCheck size={22} aria-hidden='true' focusable='false' />
+                  <CardIcon size={22} aria-hidden='true' focusable='false' />
                 </div>
 
                 <div className='privacy-hero__card-content'>
-                  <h2 className='privacy-hero__card-title'>
-                    Your Privacy Matters
-                  </h2>
+                  <h2 className='privacy-hero__card-title'>{card.title}</h2>
 
                   <p className='privacy-hero__card-description'>
-                    GitScope only requests the minimum GitHub permissions
-                    required to generate analytics.
+                    {card.description}
                   </p>
                 </div>
               </div>
@@ -179,37 +185,29 @@ const PrivacyHero = ({
               <div className='privacy-hero__divider' />
 
               <dl className='privacy-hero__meta'>
-                <div className='privacy-hero__meta-item'>
-                  <dt className='privacy-hero__meta-item--label'>
-                    Last updated
-                  </dt>
+                {card.items.map((item) => {
+                  const { id, label, value, status } = item;
 
-                  <dd className='privacy-hero__meta-item--value'>
-                    {lastUpdated}
-                  </dd>
-                </div>
+                  return (
+                    <div key={id} className='privacy-hero__meta-item'>
+                      <dt className='privacy-hero__meta-item--label'>
+                        {label}
+                      </dt>
 
-                <div className='privacy-hero__meta-item'>
-                  <dt className='privacy-hero__meta-item--label'>
-                    Policy version
-                  </dt>
-
-                  <dd className='privacy-hero__meta-item--value'>{version}</dd>
-                </div>
-
-                <div className='privacy-hero__meta-item'>
-                  <dt className='privacy-hero__meta-item--label'>
-                    GitHub access
-                  </dt>
-
-                  <dd className='privacy-hero__meta-item--value'>Read only</dd>
-                </div>
-
-                <div className='privacy-hero__meta-item'>
-                  <dt className='privacy-hero__meta-item--label'>Data sales</dt>
-
-                  <dd className='privacy-hero__meta-item--value'>Never</dd>
-                </div>
+                      <dd className='privacy-hero__meta-item--value'>
+                        {status ? (
+                          <span
+                            className={`privacy-hero__status privacy-hero__status--${status}`}
+                          >
+                            {status}
+                          </span>
+                        ) : (
+                          value
+                        )}
+                      </dd>
+                    </div>
+                  );
+                })}
               </dl>
             </motion.article>
           </aside>

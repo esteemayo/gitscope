@@ -1,20 +1,22 @@
-import PrivacyHero from './PrivacyHero';
+'use client';
 
-import { privacyHeroStats } from '@/data/privacy/privacyHeroStats.data';
+import PrivacyHero from './PrivacyHero';
+import PrivacySummary from './privacySummary/PrivacySummary';
+
+import { privacyHeroContent } from '@/data/privacy/privacyHeroContent.data';
+import { privacySumaryItems } from '@/data/privacy/privacySummaryItems.data';
 
 import '../../styles/components/privacy/PrivacyClient.scss';
 
 const PrivacyClient = () => {
   return (
     <main className='privacy-client'>
-      <PrivacyHero
-        badge='Privacy First'
-        title='Privacy Policy'
-        subtitle='Your GitHub data belongs to you. GitScope only accesses the information required to generate accurate analytics while keeping your information secure.'
-        lastUpdated='July 2026'
-        summaryLink=''
-        policyLink=''
-        stats={privacyHeroStats}
+      <PrivacyHero {...privacyHeroContent} />
+
+      <PrivacySummary
+        title='Privacy at a Glance'
+        subtitle='A quick overview of how GitScope protects your information.'
+        items={privacySumaryItems}
       />
     </main>
   );
