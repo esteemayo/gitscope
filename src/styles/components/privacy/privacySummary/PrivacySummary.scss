@@ -3,4 +3,97 @@
 @use '../../../abstracts/responsive' as bp;
 
 .privacy-summary {
+  padding: 8rem;
+
+  @media (max-width: 56.25em) {
+    padding: 8rem 3.2rem;
+  }
+
+  @include bp.md {
+    padding: 5rem 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 5rem 1.6rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 5vw, 4rem);
+
+    width: 100%;
+    max-width: 100rem;
+    margin-inline: auto;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    max-width: 76rem;
+    margin-inline: auto;
+    text-align: center;
+
+    &--badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: fit-content;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: var(--fz-xxs);
+      letter-spacing: 0.05em;
+      padding: 0.6rem 1rem;
+      background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+      color: var(--icon);
+      border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+      border-radius: 100rem;
+      user-select: none;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 700;
+      font-size: clamp(var(--fz-xxl), 5vw, 3.5rem);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--subtitle {
+      max-width: 68rem;
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    gap: 2rem;
+
+    perspective: 120rem;
+
+    @media (max-width: 62em) {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
+    @media (max-width: 40em) {
+      grid-template-columns: 1fr;
+    }
+
+    & > * {
+      height: 100%;
+    }
+  }
 }

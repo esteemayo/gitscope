@@ -3,4 +3,170 @@
 @use '../../../abstracts/responsive' as bp;
 
 .privacy-summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  padding: 2rem;
+  background-color: var(--bg-tertiary);
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 4%,
+    var(--bg-tertiary)
+  );
+  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+  box-shadow: var(--shadow);
+  border-radius: 1.8rem;
+  isolation: isolate;
+  transition: var(--transition);
+
+  @include bp.md {
+    padding: 1.5rem;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    inset: 0 auto auto 0;
+
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 100rem;
+    transform: scaleX(0.25);
+    transform-origin: left;
+    transition: transform 0.75s ease;
+  }
+
+  &::after {
+    top: -5rem;
+    right: -5rem;
+
+    width: 14rem;
+    height: 14rem;
+    background-color: color-mix(in srgb, var(--accent-color) 18%, transparent);
+    filter: blur(4rem);
+    border-radius: 100%;
+    opacity: 0.45;
+    z-index: -1;
+    transition: var(--transition);
+  }
+
+  &:hover {
+    transform: translateY(-0.8rem);
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color) 7%,
+      var(--bg-tertiary)
+    );
+    border-color: color-mix(in srgb, var(--accent-color) 28%, transparent);
+    box-shadow: 0 2.4rem 6rem
+      color-mix(in srgb, var(--accent-color) 14%, transparent);
+
+    .privacy-summary-card__icon {
+      transform: rotate(-8deg) scale(1.08);
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 18%,
+        transparent
+      );
+    }
+
+    .privacy-summary-card__action {
+      svg {
+        transform: rotate(-45deg) translateX(4px);
+      }
+    }
+
+    &::before {
+      transform: scale(1);
+    }
+
+    &::after {
+      opacity: 0.75;
+      transform: scale(1.15);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    @include focus-ring(
+      $color: color-mix(in srgb, var(--accent-color) 45%, var(--color-white-50))
+    );
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 6.4rem;
+    height: 6.4rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border-radius: 1.8rem;
+    transition: var(--transition);
+
+    @include bp.md {
+      width: 6rem;
+      height: 6rem;
+    }
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      color: currentColor;
+    }
+  }
+
+  &__content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      font-weight: 700;
+      font-size: var(--fz-xs);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      font-size: var(--fz-xxs);
+      line-height: 1.75;
+    }
+  }
+
+  &__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    margin-top: auto;
+    color: var(--accent-color);
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+      transition: var(--transition);
+    }
+  }
 }

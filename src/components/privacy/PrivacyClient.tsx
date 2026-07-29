@@ -14,8 +14,9 @@ const PrivacyClient = () => {
       <PrivacyHero {...privacyHeroContent} />
 
       <PrivacySummary
+        badge='Privacy Overview'
         title='Privacy at a Glance'
-        subtitle='A quick overview of how GitScope protects your information.'
+        subtitle='Understand how GitScope handles your data before exploring the complete privacy policy.'
         items={privacySumaryItems}
       />
     </main>
