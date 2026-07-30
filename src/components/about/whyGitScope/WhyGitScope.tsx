@@ -6,7 +6,7 @@ import ComparisonTable from './ComparisonTable';
 import ValueCard from './ValueCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 import { WhyGitScopeProps } from '@/types/about/whyGitScope/why.gitscope.type';
 
 import '../../../styles/components/about/whyGitScope/WhyGitScope.scss';

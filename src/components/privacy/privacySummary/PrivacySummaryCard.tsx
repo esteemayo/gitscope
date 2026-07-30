@@ -26,7 +26,7 @@ const PrivacySummaryCard = ({
       }
     >
       <div className='privacy-summary-card__icon' aria-hidden='true'>
-        <Icon size={24} aria-hidden='true' focusable='false' />
+        <Icon size={24} role='img' aria-hidden='true' focusable='false' />
       </div>
 
       <div className='privacy-summary-card__content'>
@@ -39,7 +39,12 @@ const PrivacySummaryCard = ({
 
       {href && (
         <div className='privacy-summary-card__action' aria-hidden='true'>
-          <ArrowRight size={18} aria-hidden='true' focusable='false' />
+          <ArrowRight
+            size={18}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
         </div>
       )}
     </Component>

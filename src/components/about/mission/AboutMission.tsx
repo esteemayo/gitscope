@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import MissionContent from './MissionContent';
 import MissionDashboard from './MissionDashboard';
 
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 import { AboutMissionProps } from '@/types/about/mission/about.mission.type';
 
 import '../../../styles/components/about/mission/AboutMission.scss';

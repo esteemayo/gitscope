@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import RoadmapCard from './RoadmapCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 import { RoadmapProps } from '@/types/about/roadmap/roadmap.type';
 
 import '../../../styles/components/about/roadmap/Roadmap.scss';

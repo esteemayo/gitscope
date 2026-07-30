@@ -6,7 +6,7 @@ import ArchitectureCard from './ArchitectureCard';
 import Pipeline from './Pipeline';
 import AboutSectionHeader from '../AboutSectionHeader';
 
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 import { ArchitectureProps } from '@/types/about/architecture/architecture.type';
 
 import '../../../styles/components/about/architecture/Architecture.scss';

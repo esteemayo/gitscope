@@ -2,7 +2,7 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.privacy-summary {
+.privacy-principles {
   padding: 8rem;
 
   @media (max-width: 56.25em) {
@@ -23,27 +23,13 @@
     gap: clamp(3rem, 5vw, 4rem);
 
     width: 100%;
-    max-width: 100rem;
+    max-width: 80rem;
     margin-inline: auto;
   }
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(min-content, 1fr));
-    gap: 2rem;
-
-    perspective: 120rem;
-
-    @media (max-width: 62em) {
-      grid-template-columns: repeat(2, minmax(min-content, 1fr));
-    }
-
-    @media (max-width: 40em) {
-      grid-template-columns: 1fr;
-    }
-
-    & > * {
-      height: 100%;
-    }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
   }
 }

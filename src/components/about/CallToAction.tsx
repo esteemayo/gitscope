@@ -1,10 +1,12 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 import AboutSectionHeader from './AboutSectionHeader';
 
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 import { CallToActionProps } from '@/types/about/call.to.action.type';
 
 import '../../styles/components/about/CallToAction.scss';

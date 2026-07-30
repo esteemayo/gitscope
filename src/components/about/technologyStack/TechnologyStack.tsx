@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import StackCard from './StackCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 import { TechnologyStackProps } from '@/types/about/technologyStack/technology.stack.type';
 
 import '../../../styles/components/about/technologyStack/TechnologyStack.scss';

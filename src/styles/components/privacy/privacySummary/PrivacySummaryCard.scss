@@ -141,6 +141,7 @@
       display: inline-block;
       text-transform: initial;
       text-rendering: optimizeLegibility;
+      text-wrap: balance;
       font-weight: 700;
       font-size: var(--fz-xs);
       color: inherit;
@@ -148,7 +149,9 @@
     }
 
     &--description {
+      text-wrap: pretty;
       font-size: var(--fz-xxs);
+      color: var(--text-muted);
       line-height: 1.75;
     }
   }

@@ -7,7 +7,7 @@ import FAQItem from './FAQItem';
 import AboutSectionHeader from '../AboutSectionHeader';
 
 import { FAQProps } from '@/types/about/faq/faq.type';
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 
 import '../../../styles/components/about/FAQ/FAQ.scss';
 

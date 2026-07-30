@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import AudienceCard from './AudienceCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 import { WhoItsForProps } from '@/types/about/whoItsFor/who.its.for.type';
 
 import '../../../styles/components/about/whoItsFor/WhoItsFor.scss';

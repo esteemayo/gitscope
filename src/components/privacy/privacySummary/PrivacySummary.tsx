@@ -1,28 +1,14 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import PrivacySummaryCard from './PrivacySummaryCard';
+import PrivacySectionHeader from '../PrivacySectionHeader';
+
+import { containerVariants } from '@/animations/page';
 import { PrivacySummaryProps } from '@/types/privacy/privacySummary/privacy.summary.type';
 
 import '../../../styles/components/privacy/privacySummary/PrivacySummary.scss';
-
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-      delay: 0.1,
-    },
-  },
-};
 
 const PrivacySummary = ({
   badge,
@@ -40,18 +26,13 @@ const PrivacySummary = ({
       aria-labelledby='privacy-summary-title'
     >
       <div className='privacy-summary__container'>
-        <header className='privacy-summary__header'>
-          <span className='privacy-summary__header--badge'>{badge}</span>
-
-          <h2
-            id='privacy-summary-title'
-            className='privacy-summary__header--title'
-          >
-            {title}
-          </h2>
-
-          <p className='privacy-summary__header--subtitle'>{subtitle}</p>
-        </header>
+        <PrivacySectionHeader
+          id='privacy-summary-title'
+          badge={badge}
+          title={title}
+          subtitle={subtitle}
+          variants={containerVariants}
+        />
 
         <div className='privacy-summary__grid'>
           {items.map((item) => (

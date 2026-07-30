@@ -6,7 +6,7 @@ import FeaturedFeature from './FeaturedFeature';
 import FeatureCard from './FeatureCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 import { AboutFeaturesProps } from '@/types/about/features/about.features.type';
 
 import '../../../styles/components/about/features/AboutFeatures.scss';

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import AboutStatCard from './AboutStatCard';
 import AboutSectionHeader from '../AboutSectionHeader';
 
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 import { AboutStatsProps } from '@/types/about/stats/about.stats.type';
 
 import '../../../styles/components/about/stats/AboutStats.scss';

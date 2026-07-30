@@ -1,0 +1,363 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.privacy-principle {
+  display: grid;
+  grid-template-columns: 22rem minmax(min-content, 1fr);
+  align-items: stretch;
+  gap: 2.5rem;
+
+  position: relative;
+  isolation: isolate;
+
+  @media (max-width: 62em) {
+    grid-template-columns: 16rem minmax(min-content, 1fr);
+    gap: 2rem;
+  }
+
+  @include bp.md {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  & > * {
+    @media (prefers-reduced-motion: reduce) {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  &--reverse {
+    grid-template-columns: minmax(min-content, 1fr) 22rem;
+
+    @media (max-width: 62em) {
+      grid-template-columns: minmax(min-content, 1fr) 16rem;
+    }
+
+    @include bp.md {
+      grid-template-columns: 1fr;
+    }
+
+    .privacy-principle__icon-panel {
+      order: 2;
+
+      @include bp.md {
+        order: initial;
+      }
+    }
+
+    .privacy-principle__body {
+      order: 1;
+
+      @include bp.md {
+        order: initial;
+      }
+    }
+  }
+
+  &:hover {
+    .privacy-principle__icon-panel,
+    .privacy-principle__body {
+      border-color: color-mix(in srgb, var(--accent-color) 30%, transparent);
+      box-shadow: 0 2.4rem 6rem
+        color-mix(in srgb, var(--accent-color) 12%, transparent);
+    }
+
+    .privacy-principle__icon {
+      transform: rotate(-8deg) scale(1.08);
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 20%,
+        transparent
+      );
+    }
+
+    .privacy-principle__body {
+      background-color: color-mix(in srgb, var(--accent-color) 5%, transparent);
+    }
+
+    .privacy-principle__cta {
+      &:link,
+      &:visited {
+        gap: 1rem;
+      }
+
+      &--icon {
+        transform: translateX(4px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transform: none;
+    }
+  }
+
+  &__icon-panel {
+    display: grid;
+    place-items: center;
+
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+    background-color: color-mix(in srgb, var(--accent-color) 7%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
+    border-radius: 2rem;
+
+    @include bp.md {
+      min-height: 18rem;
+    }
+
+    @include bp.sm {
+      min-height: 15rem;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+    }
+
+    &::before {
+      width: 22rem;
+      height: 22rem;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 20%,
+        transparent
+      );
+      filter: blur(7rem);
+      border-radius: 100%;
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    &::after {
+      inset: auto 0 0;
+
+      height: 4px;
+      background-color: var(--accent-color);
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    position: relative;
+    width: 11rem;
+    height: 11rem;
+
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border-radius: 2.8rem;
+    z-index: 1000;
+    transition: var(--transition);
+
+    @media (max-width: 62em) {
+      width: 8.8rem;
+      height: 8.8rem;
+    }
+
+    @include bp.sm {
+      width: 7.2rem;
+      height: 7.2rem;
+
+      border-radius: 2rem;
+    }
+
+    svg {
+      width: 5.6rem;
+      height: 5.6rem;
+      color: currentColor;
+      stroke: currentColor;
+
+      @media (max-width: 62em) {
+        width: 4.4rem;
+        height: 4.4rem;
+      }
+
+      @include bp.sm {
+        width: 3.6rem;
+        height: 3.6rem;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+
+    position: relative;
+    overflow: hidden;
+    padding: 2.5rem;
+    background-color: color-mix(in srgb, var(--accent-color) 3%, transparent);
+    -webkit-backdrop-filter: blur(2rem);
+    backdrop-filter: blur(2rem);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 12%, var(--border));
+    border-radius: 2rem;
+    transition: var(--transition);
+
+    @media (max-width: 62em) {
+      padding: 2rem;
+    }
+
+    @include bp.md {
+      padding: 1.75rem;
+    }
+
+    @include bp.sm {
+      padding: 1.5rem;
+    }
+
+    & > * {
+      position: relative;
+      z-index: 1000;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      background-image: radial-gradient(
+        circle at top right,
+        color-mix(in srgb, var(--accent-color) 8%, transparent),
+        transparent 45%
+      );
+
+      pointer-events: none;
+      opacity: 0.8;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &--eyebrow {
+      display: inline-flex;
+      align-items: center;
+
+      width: fit-content;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      padding: 0.5rem 0.875rem;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 10%,
+        transparent
+      );
+      color: var(--accent-color);
+      border-radius: 100rem;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-size: clamp(var(--fz-lg), 3vw, 2.5rem);
+      color: inherit;
+      line-height: 1.1;
+
+      @include bp.md {
+        font-size: clamp(var(--fz-md), 6vw, var(--fz-xl));
+      }
+    }
+
+    &--description {
+      max-width: 52.3rem;
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+  }
+
+  &__highlights {
+    display: grid;
+    gap: 1rem;
+
+    list-style: none;
+
+    @include bp.sm {
+      gap: 0.875rem;
+    }
+  }
+
+  &__highlight {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+
+    &--icon {
+      flex-shrink: 0;
+
+      width: 1.8rem;
+      height: 1.8rem;
+      color: var(--accent-color);
+      stroke: currentColor;
+    }
+
+    &--label {
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+  }
+
+  &__cta {
+    &:link,
+    &:visited {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      width: fit-content;
+      margin-top: auto;
+      text-transform: initial;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: var(--accent-color);
+      transition: var(--transition);
+      user-select: none;
+
+      @include animated-underline($color: var(--accent-color));
+    }
+
+    &--label {
+      font-weight: inherit;
+      font-size: inherit;
+      color: currentColor;
+    }
+
+    &--icon {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+      transition: var(--transition);
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+}

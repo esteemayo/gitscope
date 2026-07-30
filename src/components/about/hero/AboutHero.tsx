@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import HeroContent from './HeroContent';
 import HeroPreview from './HeroPreview';
 
-import { containerVariants } from '@/animations/about';
+import { containerVariants } from '@/animations/page';
 import { AboutHeroProps } from '@/types/about/hero/about.hero.type';
 
 import '../../../styles/components/about/hero/AboutHero.scss';
