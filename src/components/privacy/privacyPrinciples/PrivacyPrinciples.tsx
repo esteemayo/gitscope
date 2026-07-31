@@ -36,11 +36,9 @@ const PrivacyPrinciples = ({
 
         <div className='privacy-principles__wrapper'>
           {principles.map((principle, index) => (
-            <PrivacyPrinciple
-              key={principle.id}
-              {...principle}
-              reverse={index % 2 !== 0}
-            />
+            <motion.div key={principle.id} variants={containerVariants}>
+              <PrivacyPrinciple {...principle} reverse={index % 2 !== 0} />
+            </motion.div>
           ))}
         </div>
       </div>

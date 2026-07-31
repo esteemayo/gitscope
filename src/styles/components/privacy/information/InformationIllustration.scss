@@ -1,0 +1,103 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.information-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  height: 22rem;
+
+  --color-github: #4f46e5;
+  --color-database: #22c55e;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: auto;
+
+    width: 15rem;
+    height: 15rem;
+    border: 1px dashed color-mix(in srgb, var(--border) 70%, transparent);
+    border-radius: 100%;
+    transition: var(--transition);
+  }
+
+  &__hub {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 9rem;
+    height: 9rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800) 15%,
+      transparent
+    );
+    color: var(--color-blue-800);
+    border-radius: 100%;
+
+    svg {
+      width: 4.2rem;
+      height: 4.2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__node {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    position: absolute;
+    width: 6.4rem;
+    height: 6.4rem;
+    border-radius: var(--radius);
+    transition: var(--transition);
+
+    &--github,
+    &--database {
+      svg {
+        width: 2.8rem;
+        height: 2.8rem;
+        color: currentColor;
+      }
+    }
+
+    &--github {
+      top: 10%;
+      left: 18%;
+
+      background-color: color-mix(
+        in srgb,
+        var(--color-github) 10%,
+        transparent
+      );
+      color: var(--color-github);
+      border: 1px solid color-mix(in srgb, var(--color-github) 8%, transparent);
+    }
+
+    &--database {
+      right: 16%;
+      bottom: 12%;
+      right: 17.5%;
+      bottom: 10%;
+
+      background-color: color-mix(
+        in srgb,
+        var(--color-database) 10%,
+        transparent
+      );
+      color: var(--color-database);
+      border: 1px solid
+        color-mix(in srgb, var(--color-database) 8%, transparent);
+    }
+  }
+}

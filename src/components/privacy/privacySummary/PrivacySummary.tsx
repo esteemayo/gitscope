@@ -21,7 +21,7 @@ const PrivacySummary = ({
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true }}
       className='privacy-summary'
       aria-labelledby='privacy-summary-title'
     >
@@ -36,7 +36,9 @@ const PrivacySummary = ({
 
         <div className='privacy-summary__grid'>
           {items.map((item) => (
-            <PrivacySummaryCard key={item.id} item={item} />
+            <motion.div key={item.id} variants={containerVariants}>
+              <PrivacySummaryCard item={item} />
+            </motion.div>
           ))}
         </div>
       </div>
