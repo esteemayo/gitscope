@@ -71,3 +71,17 @@ export interface CollectionCategoryItem {
   items: string[];
   optional?: boolean;
 }
+
+export interface UsageStepItem {
+  id: string;
+  step: number;
+  title: string;
+  description: string;
+  icon: LucideIcon | React.ComponentType;
+  accentColor: string;
+  features: string[];
+  documentation?: {
+    label: string;
+    href: string;
+  };
+}

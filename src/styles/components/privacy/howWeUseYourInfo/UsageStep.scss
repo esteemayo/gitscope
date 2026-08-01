@@ -1,0 +1,98 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.usage-step {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+
+  position: relative;
+  width: 100%;
+  text-align: left;
+  padding: 1.5rem;
+  background-color: var(--bg-tertiary);
+  color: inherit;
+  -webkit-backdrop-filter: blur(2rem);
+  backdrop-filter: blur(2rem);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 12%, var(--border));
+  border-radius: 1.8rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: var(--transition);
+
+  @media (prefers-reduced-motion: reduce) {
+    & > * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  &--active {
+    border-color: color-mix(in srgb, var(--accent-color) 35%, transparent);
+    box-shadow: 0 2rem 4rem
+      color-mix(in srgb, var(--accent-color) 10%, transparent);
+
+    .usage-step__arrow {
+      color: var(--accent-color);
+      transform: translateY(0.6rem);
+    }
+  }
+
+  &:hover {
+    transform: translateY(-4px) scale(0.98);
+    border-color: color-mix(in srgb, var(--accent-color) 25%, transparent);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 6.4rem;
+    height: 6.4rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border-radius: 2rem;
+
+    svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    min-width: 0;
+    min-height: 8rem;
+
+    &--number {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: var(--fz-xxs);
+      letter-spacing: 0.04em;
+      color: var(--accent-color);
+    }
+
+    &--title {
+      font-size: var(--fz-xs);
+      color: inherit;
+      line-height: 1.4;
+    }
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+
+    width: 1.8rem;
+    height: 1.8rem;
+    color: var(--text-muted);
+    margin-left: auto;
+    opacity: 0.7;
+    transition: var(--transition);
+  }
+}

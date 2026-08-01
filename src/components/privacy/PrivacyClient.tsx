@@ -4,11 +4,13 @@ import InformationCollected from './information/InformationCollected';
 import PrivacyHero from './PrivacyHero';
 import PrivacyPrinciples from './privacyPrinciples/PrivacyPrinciples';
 import PrivacySummary from './privacySummary/PrivacySummary';
+import HowWeUseYourInformation from './howWeUseYourInfo/HowWeUseYourInformation';
 
+import { privacyPrinciples } from '@/data/privacy/privacyPrinciples.data';
+import { usageSteps } from '@/data/privacy/howWeUseInformation.data';
 import { privacyHeroContent } from '@/data/privacy/privacyHeroContent.data';
 import * as information from '@/data/privacy/informationCollected.data';
 import { privacySumaryItems } from '@/data/privacy/privacySummaryItems.data';
-import { privacyPrinciples } from '@/data/privacy/privacyPrinciples.data';
 
 import '../../styles/components/privacy/PrivacyClient.scss';
 
@@ -37,6 +39,14 @@ const PrivacyClient = () => {
         subtitle='GitScope only collects information required to authenticate your account, generate repository analytics, and improve your experience. We never request unnecessary access to your GutHub account.'
         stats={information.informationCollectedStats}
         categories={information.informationCollected}
+      />
+
+      <HowWeUseYourInformation
+        badge='How We Use Your Information'
+        title='A Transparent Journey From Data to Insights.'
+        subtitle='Every piece of information processed by GitScope serves a clear purpose. From public GitHub data to personalized analytics, each step is designed to deliver valuable insights while respecting your privacy and maintaining strong security practices.'
+        steps={usageSteps}
+        defaultActiveStep='access'
       />
     </main>
   );
