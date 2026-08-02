@@ -12,7 +12,7 @@
   text-align: left;
   padding: 1.5rem;
   background-color: var(--bg-tertiary);
-  color: inherit;
+  color: var(--accent-color);
   -webkit-backdrop-filter: blur(2rem);
   backdrop-filter: blur(2rem);
   border: 1px solid color-mix(in srgb, var(--accent-color) 12%, var(--border));
@@ -42,6 +42,20 @@
   &:hover {
     transform: translateY(-4px) scale(0.98);
     border-color: color-mix(in srgb, var(--accent-color) 25%, transparent);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px dashed var(--accent-color);
+    outline-offset: 3px;
+  }
+
+  &:disabled {
+    opacity: 0.75;
+    pointer-events: none;
   }
 
   &__icon {
@@ -80,8 +94,9 @@
 
     &--title {
       font-size: var(--fz-xs);
-      color: inherit;
+      color: var(--text);
       line-height: 1.4;
+      transition: var(--transition);
     }
   }
 

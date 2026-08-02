@@ -1,5 +1,7 @@
 'use client';
 
+import { motion } from 'framer-motion';
+
 import PrivacySectionHeader from '../PrivacySectionHeader';
 import CollectionCategory from './CollectionCategory';
 import InformationIllustration from './InformationIllustration';
@@ -17,7 +19,11 @@ const InformationCollected = ({
   categories,
 }: InformationCollectedProps) => {
   return (
-    <section
+    <motion.section
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true }}
       className='information-collected'
       aria-labelledby='information-collected-title'
     >
@@ -64,7 +70,7 @@ const InformationCollected = ({
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

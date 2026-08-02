@@ -1,5 +1,5 @@
-import StatsCard from './StatsCard';
 import ForkIcon from '../icons/ForkIcon';
+import StatsCard from './StatsCard';
 import ChartBarIcon from '../icons/ChartBarIcon';
 import StarIcon from '../icons/StarIcon';
 

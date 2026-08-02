@@ -5,11 +5,14 @@ import PrivacyHero from './PrivacyHero';
 import PrivacyPrinciples from './privacyPrinciples/PrivacyPrinciples';
 import PrivacySummary from './privacySummary/PrivacySummary';
 import HowWeUseYourInformation from './howWeUseYourInfo/HowWeUseYourInformation';
+import GitHubPermissions from './permissions/GitHubPermissions';
 
 import { privacyPrinciples } from '@/data/privacy/privacyPrinciples.data';
 import { usageSteps } from '@/data/privacy/howWeUseInformation.data';
 import { privacyHeroContent } from '@/data/privacy/privacyHeroContent.data';
 import * as information from '@/data/privacy/informationCollected.data';
+import { permissionOverview } from '@/data/privacy/permissionOverview.data';
+import { githubPermissions } from '@/data/privacy/githubPermissions.data';
 import { privacySumaryItems } from '@/data/privacy/privacySummaryItems.data';
 
 import '../../styles/components/privacy/PrivacyClient.scss';
@@ -47,6 +50,14 @@ const PrivacyClient = () => {
         subtitle='Every piece of information processed by GitScope serves a clear purpose. From public GitHub data to personalized analytics, each step is designed to deliver valuable insights while respecting your privacy and maintaining strong security practices.'
         steps={usageSteps}
         defaultActiveStep='access'
+      />
+
+      <GitHubPermissions
+        badge='GitHub Permissions'
+        title='Understand What GitScope Can Access.'
+        subtitle='GitScope only requests the minimum GitHub permissions needed to provide analytics and personalized features. You remain in control, and authentication is optional unless you choose to access account-specific functionality.'
+        overview={permissionOverview}
+        permissions={githubPermissions}
       />
     </main>
   );

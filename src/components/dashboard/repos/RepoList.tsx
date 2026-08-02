@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 
 import EmptyState from '@/components/ui/EmptyState';
 import RepoCard from './RepoCard';
@@ -10,7 +10,7 @@ import RepoCardSkeleton from './RepoCardSkeleton';
 import { RepoListProps } from '@/types/repo.list.type';
 import '../../../styles/components/RepoList.scss';
 
-const variants = {
+const variants: Variants = {
   initial: {
     opacity: 0,
     y: 10,

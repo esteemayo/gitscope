@@ -85,3 +85,24 @@ export interface UsageStepItem {
     href: string;
   };
 }
+
+export type PermisssionStatus = 'required' | 'optional' | 'never';
+
+export interface PermissionItem {
+  id: string;
+  title: string;
+  description: string;
+  whyWeNeedIt: string;
+  icon: LucideIcon | React.ComponentType;
+  accentColor: string;
+  status: PermisssionStatus;
+  grantedAccess: string[];
+}
+
+export interface PermissionOverviewItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon | React.ComponentType;
+  accentColor: string;
+}

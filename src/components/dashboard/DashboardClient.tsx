@@ -3,9 +3,9 @@
 import { useState } from 'react';
 
 import ChartSection from './ChartSection';
-import RepoLists from './repos/RepoLists';
-import ProfileHeader from './ProfileHeader';
 import StatsCards from './StatsCards';
+import ProfileHeader from './ProfileHeader';
+import RepoLists from './repos/RepoLists';
 
 import { REPOSITORIES } from '@/data';
 import { SortType, ViewType } from '@/types';

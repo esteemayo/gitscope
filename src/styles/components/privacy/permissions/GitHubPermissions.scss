@@ -1,0 +1,101 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.github-permissions {
+  position: relative;
+  overflow: hidden;
+  padding: 8rem;
+
+  @media (max-width: 56.25em) {
+    padding: 8rem 3.2rem;
+  }
+
+  @include bp.md {
+    padding: 5rem 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 5rem 1.6rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    & > * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 5vw, 4rem);
+
+    width: 100%;
+    max-width: 100rem;
+    margin-inline: auto;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(min-content, 1fr));
+    align-items: start;
+    gap: 2rem;
+
+    @media (max-width: 68.75em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__grid {
+    grid-column: span 8;
+    grid-column: 5 / -1;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    gap: 1.5rem;
+
+    @media (max-width: 68.75em) {
+      grid-column: auto;
+    }
+
+    @include bp.md {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__footer {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 1.8rem;
+    isolation: isolate;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      background-image: radial-gradient(
+        circle at top,
+        rgba(34, 197, 94, 0.08),
+        transparent 60%
+      );
+
+      pointer-events: none;
+    }
+
+    &--text {
+      position: relative;
+      font-size: var(--fz-sm);
+      color: var(--text-muted);
+      line-height: 1.8;
+      transition: var(--transition);
+    }
+  }
+}

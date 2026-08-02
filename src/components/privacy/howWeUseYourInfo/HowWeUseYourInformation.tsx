@@ -1,9 +1,9 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
+import InformationPanel from './InformationPanel';
 import UsageStep from './UsageStep';
 import PrivacySectionHeader from '../PrivacySectionHeader';
 
@@ -11,7 +11,6 @@ import { containerVariants } from '@/animations/page';
 import { HowWeUseYourInformationProps } from '@/types/privacy/howWeUseYourInfo/how.we.use.your.information.type';
 
 import '../../../styles/components/privacy/howWeUseYourInfo/HowWeUseYourInformation.scss';
-import Link from 'next/link';
 
 const HowWeUseYourInformation = ({
   badge,
@@ -34,6 +33,20 @@ const HowWeUseYourInformation = ({
 
   const [activeStepId, setActiveStepId] = useState(initialStepId);
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const currentIndex = steps.findIndex((step) => step.id === activeStepId);
+
+    if (e.key === 'ArrowDown') {
+      const next = Math.min(currentIndex + 1, steps.length - 1);
+      setActiveStepId(steps[next].id);
+    }
+
+    if (e.key === 'ArrowUp') {
+      const prev = Math.max(currentIndex - 1, 0);
+      setActiveStepId(steps[prev].id);
+    }
+  };
+
   const activeStep = useMemo(() => {
     return steps.find((step) => step.id === activeStepId) ?? steps[0];
   }, [activeStepId, steps]);
@@ -41,8 +54,6 @@ const HowWeUseYourInformation = ({
   if (!activeStep) {
     return null;
   }
-
-  const ActiveIcon = activeStep.icon;
 
   return (
     <motion.section
@@ -63,6 +74,7 @@ const HowWeUseYourInformation = ({
         />
 
         <div
+          onKeyDown={handleKeyDown}
           className='how-we-use-your-information__timeline'
           role='tablist'
           aria-label='How GitScope uses your information'
@@ -78,106 +90,7 @@ const HowWeUseYourInformation = ({
           ))}
         </div>
 
-        <AnimatePresence mode='wait'>
-          <motion.article
-            key={activeStep.id}
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -24 }}
-            transition={{ duration: 0.3 }}
-            className='how-we-use-your-information__panel'
-            style={
-              {
-                '--accent-color': activeStep.accentColor,
-              } as React.CSSProperties
-            }
-          >
-            <div className='how-we-use-your-information__panel-sidebar'>
-              <div className='how-we-use-your-information__panel-icon'>
-                <ActiveIcon
-                  size={60}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-              </div>
-
-              <span className='how-we-use-your-information__panel-step'>
-                Step {activeStep.step.toString().padStart(2, '0')}
-              </span>
-
-              <h3 className='how-we-use-your-information__panel-label'>
-                {activeStep.title}
-              </h3>
-
-              <div className='how-we-use-your-information__progress'>
-                <div className='how-we-use-your-information__progress-track'>
-                  <span
-                    style={{
-                      width: `${(Number(activeStep.step) / steps.length) * 100}%`,
-                    }}
-                  />
-                </div>
-
-                <small>
-                  Step {activeStep.step} of {steps.length}
-                </small>
-              </div>
-            </div>
-
-            <div className='how-we-use-your-information__body'>
-              <div className='how-we-use-your-information__content'>
-                <h3 className='how-we-use-your-information__content--title'>
-                  {activeStep.title}
-                </h3>
-
-                <p className='how-we-use-your-information__content--description'>
-                  {activeStep.description}
-                </p>
-              </div>
-
-              <ul className='how-we-use-your-information__features'>
-                {activeStep.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className='how-we-use-your-information__feature'
-                  >
-                    <CheckCircle2
-                      size={18}
-                      className='how-we-use-your-information__feature--icon'
-                      role='img'
-                      aria-hidden='true'
-                      focusable='false'
-                    />
-
-                    <span className='how-we-use-your-information__feature--item'>
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              {activeStep.documentation && (
-                <Link
-                  href={activeStep.documentation.href}
-                  className='how-we-use-your-information__cta'
-                >
-                  <span className='how-we-use-your-information__cta--label'>
-                    {activeStep.documentation.label}
-                  </span>
-
-                  <ArrowRight
-                    size={18}
-                    className='how-we-use-your-information__cta--arrow'
-                    role='img'
-                    aria-hidden='true'
-                    focusable='false'
-                  />
-                </Link>
-              )}
-            </div>
-          </motion.article>
-        </AnimatePresence>
+        <InformationPanel {...activeStep} totalSteps={steps.length} />
       </div>
     </motion.section>
   );
