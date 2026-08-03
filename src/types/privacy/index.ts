@@ -88,6 +88,11 @@ export interface UsageStepItem {
 
 export type PermisssionStatus = 'required' | 'optional' | 'never';
 
+export interface GrantedAccessItem {
+  id: string;
+  label: string;
+}
+
 export interface PermissionItem {
   id: string;
   title: string;
@@ -96,7 +101,8 @@ export interface PermissionItem {
   icon: LucideIcon | React.ComponentType;
   accentColor: string;
   status: PermisssionStatus;
-  grantedAccess: string[];
+  grantedAccess: GrantedAccessItem[];
+  summary: string;
 }
 
 export interface PermissionOverviewItem {

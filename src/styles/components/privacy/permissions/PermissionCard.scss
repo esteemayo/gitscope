@@ -3,4 +3,211 @@
 @use '../../../abstracts/responsive' as bp;
 
 .permission-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 15%, var(--border));
+  border-radius: 1.8rem;
+  isolation: isolate;
+  // transition: var(--transition);
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background-image: radial-gradient(
+      circle at top right,
+      color-mix(in srgb, var(--accent-color) 10%, transparent),
+      transparent 55%
+    );
+
+    pointer-events: none;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    position: relative;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 6.4rem;
+    height: 6.4rem;
+    background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
+    color: var(--accent-color);
+    border-radius: var(--radius);
+
+    svg {
+      width: 3rem;
+      height: 3rem;
+      color: currentColor;
+    }
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    width: fit-content;
+    height: fit-content;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 0.875rem;
+    border-radius: 100rem;
+    user-select: none;
+    pointer-events: none;
+
+    &--required {
+      background-color: color-mix(in srgb, #2563eb 12%, transparent);
+      color: #2563eb;
+    }
+
+    &--optional {
+      background-color: color-mix(in srgb, #d97706 12%, transparent);
+      color: #d97706;
+    }
+
+    &--never {
+      background-color: color-mix(in srgb, #16a34a 12%, transparent);
+      color: #16a34a;
+    }
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &--title {
+      display: inline-block;
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.8;
+      transition: var(--transition);
+    }
+  }
+
+  &__reason {
+    &--heading {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-size: var(--fz-sm);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--subheading {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.8;
+      transition: var(--transition);
+    }
+  }
+
+  &__access {
+    &--heading {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-size: var(--fz-sm);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--list {
+      display: grid;
+      gap: 0.875rem;
+
+      margin: 1rem 0;
+      list-style: none;
+    }
+
+    &--item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      svg {
+        flex-shrink: 0;
+
+        width: 1.8rem;
+        height: 1.8rem;
+        color: var(--accent-color);
+        stroke: currentColor;
+      }
+
+      span {
+        font-size: var(--fz-xs);
+      }
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
+    padding: 1rem 1.25rem;
+    background-color: color-mix(in srgb, var(--accent-color) 6%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 12%, transparent);
+    border-radius: var(--radius);
+  }
+
+  &__summary {
+    display: flex;
+    gap: 1rem;
+
+    &--icon {
+      flex-shrink: 0;
+
+      width: 2rem;
+      height: 2rem;
+      color: var(--accent-color);
+      margin-top: 0.15rem;
+    }
+
+    &--text {
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.7;
+      transition: var(--transition);
+    }
+  }
 }

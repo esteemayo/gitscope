@@ -3,8 +3,6 @@
 @use '../../../abstracts/responsive' as bp;
 
 .github-permissions {
-  position: relative;
-  overflow: hidden;
   padding: 8rem;
 
   @media (max-width: 56.25em) {
@@ -32,7 +30,7 @@
     gap: clamp(3rem, 5vw, 4rem);
 
     width: 100%;
-    max-width: 100rem;
+    max-width: 120rem;
     margin-inline: auto;
   }
 
@@ -45,22 +43,28 @@
     @media (max-width: 68.75em) {
       grid-template-columns: 1fr;
     }
-  }
 
-  &__grid {
-    grid-column: span 8;
-    grid-column: 5 / -1;
+    &--overview {
+      grid-column: span 4;
 
-    display: grid;
-    grid-template-columns: repeat(2, minmax(min-content, 1fr));
-    gap: 1.5rem;
-
-    @media (max-width: 68.75em) {
-      grid-column: auto;
+      position: sticky;
+      top: 6rem;
     }
 
-    @include bp.md {
-      grid-template-columns: 1fr;
+    &--grid {
+      grid-column: span 8;
+
+      display: grid;
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+      gap: 1.5rem;
+
+      @media (max-width: 68.75em) {
+        grid-column: auto;
+      }
+
+      @include bp.md {
+        grid-template-columns: 1fr;
+      }
     }
   }
 

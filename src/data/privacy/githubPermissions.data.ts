@@ -14,7 +14,15 @@ export const githubPermissions: PermissionItem[] = [
     icon: GitHubLogoIcon,
     accentColor: '#4F46E5',
     status: 'required',
-    grantedAccess: ['Username', 'Display name', 'Avatar', 'Bio', 'Profile URL'],
+    grantedAccess: [
+      { id: 'username', label: 'Username' },
+      { id: 'name', label: 'Display name' },
+      { id: 'avatar', label: 'Avatar' },
+      { id: 'bio', label: 'Bio' },
+      { id: 'url', label: 'Profile URL' },
+    ],
+    summary:
+      'Used to personalize your GitScope experience after you choose to sign in.',
   },
   {
     id: 'repository-data',
@@ -27,13 +35,15 @@ export const githubPermissions: PermissionItem[] = [
     accentColor: '#0EA5E9',
     status: 'required',
     grantedAccess: [
-      'Repository names',
-      'Stars',
-      'Forks',
-      'Languages',
-      'Topics',
-      'Contributors',
+      { id: 'repo-names', label: 'Repository names' },
+      { id: 'stars', label: 'Stars' },
+      { id: 'forks', label: 'Forks' },
+      { id: 'languages', label: 'Languages' },
+      { id: 'topics', label: 'Topics' },
+      { id: 'contributors', label: 'Contributors' },
     ],
+    summary:
+      'Read-only repository information powers analytics, charts, and insights.',
   },
   {
     id: 'email',
@@ -45,7 +55,9 @@ export const githubPermissions: PermissionItem[] = [
     icon: Mail,
     accentColor: '#F59E0B',
     status: 'optional',
-    grantedAccess: ['Primary email address'],
+    grantedAccess: [{ id: 'email', label: 'Primary email address' }],
+    summary:
+      'Accessed only when available and only when needed for account identification.',
   },
   {
     id: 'repository-write',
@@ -58,10 +70,12 @@ export const githubPermissions: PermissionItem[] = [
     accentColor: '#22C55E',
     status: 'never',
     grantedAccess: [
-      'No repository write access',
-      'No issue creation',
-      'No pull request creation',
-      'No repository deletion',
+      { id: 'write-access', label: 'No repository write access' },
+      { id: 'issue', label: 'No issue creation' },
+      { id: 'pull-request', label: 'No pull request creation' },
+      { id: 'deletion', label: 'No repository deletion' },
     ],
+    summary:
+      'GitScope never requests permission to modify your repositories or GitHub content.',
   },
 ];

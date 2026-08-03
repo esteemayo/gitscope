@@ -38,9 +38,11 @@ const GitHubPermissions = ({
         />
 
         <div className='github-permissions__content'>
-          <PermissionOverview items={overview} />
+          <div className='github-permissions__content--overview'>
+            <PermissionOverview items={overview} />
+          </div>
 
-          <div className='github-permissions__grid'>
+          <div className='github-permissions__content--grid'>
             {permissions.map((permission) => (
               <PermissionCard key={permission.id} {...permission} />
             ))}
