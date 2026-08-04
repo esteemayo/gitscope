@@ -1,0 +1,15 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.security-layer {
+  &__icon {
+    flex-shrink: 0;
+
+    svg {
+      width: 3rem;
+      height: 3rem;
+      color: currentColor;
+    }
+  }
+}

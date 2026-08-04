@@ -49,6 +49,15 @@
 
       position: sticky;
       top: 6rem;
+
+      @media (max-width: 68.75em) {
+        grid-column: auto;
+        position: static;
+      }
+
+      @include bp.md {
+        grid-template-columns: 1fr;
+      }
     }
 
     &--grid {

@@ -7,12 +7,18 @@ import PrivacySummary from './privacySummary/PrivacySummary';
 import HowWeUseYourInformation from './howWeUseYourInfo/HowWeUseYourInformation';
 import GitHubPermissions from './permissions/GitHubPermissions';
 
+import * as information from '@/data/privacy/informationCollected.data';
+import DataStorageSecurity from './dataStorage/DataStorageSecurity';
+import { securityOverview } from '@/data/privacy/securityOverview.data';
+import { securityLayers } from '@/data/privacy/securityLayers.data';
+import { githubPermissions } from '@/data/privacy/githubPermissions.data';
+import { securityBanner } from '@/data/privacy/securityBanner.data';
 import { privacyPrinciples } from '@/data/privacy/privacyPrinciples.data';
 import { usageSteps } from '@/data/privacy/howWeUseInformation.data';
-import { privacyHeroContent } from '@/data/privacy/privacyHeroContent.data';
-import * as information from '@/data/privacy/informationCollected.data';
 import { permissionOverview } from '@/data/privacy/permissionOverview.data';
-import { githubPermissions } from '@/data/privacy/githubPermissions.data';
+import { securityFeatures } from '@/data/privacy/securityFeatures.data';
+import { privacyHeroContent } from '@/data/privacy/privacyHeroContent.data';
+import { securityTrustItems } from '@/data/privacy/securityTrust.data';
 import { privacySumaryItems } from '@/data/privacy/privacySummaryItems.data';
 
 import '../../styles/components/privacy/PrivacyClient.scss';
@@ -58,6 +64,20 @@ const PrivacyClient = () => {
         subtitle='GitScope only requests the minimum GitHub permissions needed to provide analytics and personalized features. You remain in control, and authentication is optional unless you choose to access account-specific functionality.'
         overview={permissionOverview}
         permissions={githubPermissions}
+      />
+
+      <DataStorageSecurity
+        badge='Data Storage & Security'
+        title='How GitScope Protects Your Information.'
+        subtitle='Security is built into every layer of GitScope, from GitHub authentication to encrypted communication and read-only access.'
+        overview={securityOverview}
+        trustItems={securityTrustItems}
+        features={securityFeatures}
+        securityLayersBadge='Security Architecture'
+        securityLayersTitle='Multiple Layers Working Together.'
+        securityLayersSubtitle='Every authenticated request passes through multiple security measures before analytics are generated.'
+        layers={securityLayers}
+        trustBanner={securityBanner}
       />
     </main>
   );

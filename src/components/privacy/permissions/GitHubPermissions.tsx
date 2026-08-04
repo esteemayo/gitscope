@@ -2,14 +2,14 @@
 
 import { motion } from 'framer-motion';
 
+import PermissionOverview from './PermissionOverview';
+import PermissionCard from './PermissionCard';
 import PrivacySectionHeader from '../PrivacySectionHeader';
 
 import { containerVariants } from '@/animations/page';
 import { GitHubPermissionsProps } from '@/types/privacy/permissions/github.permissions.type';
 
 import '../../../styles/components/privacy/permissions/GitHubPermissions.scss';
-import PermissionCard from './PermissionCard';
-import PermissionOverview from './PermissionOverview';
 
 const GitHubPermissions = ({
   badge,
@@ -44,7 +44,9 @@ const GitHubPermissions = ({
 
           <div className='github-permissions__content--grid'>
             {permissions.map((permission) => (
-              <PermissionCard key={permission.id} {...permission} />
+              <motion.div key={permission.id} variants={containerVariants}>
+                <PermissionCard {...permission} />
+              </motion.div>
             ))}
           </div>
         </div>
