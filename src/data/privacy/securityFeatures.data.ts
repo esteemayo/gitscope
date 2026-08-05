@@ -1,4 +1,4 @@
-import { Database, Eye, Lock, Server, ShieldCheck } from 'lucide-react';
+import { Database, Eye, LockKeyhole, Server, ShieldCheck } from 'lucide-react';
 import { SecurityFeature } from '@/types/privacy/dataStorageSecurity';
 
 export const securityFeatures: SecurityFeature[] = [
@@ -7,7 +7,7 @@ export const securityFeatures: SecurityFeature[] = [
     title: 'HTTPS Encryption',
     description:
       'Data exchanged between your browser, GitScope, and GitHub is protected using encrypted HTTS connections.',
-    icon: Lock,
+    icon: LockKeyhole,
     accentColor: '#4F46E5',
     category: 'Encryption',
     highlightsTitle: 'Protected By',

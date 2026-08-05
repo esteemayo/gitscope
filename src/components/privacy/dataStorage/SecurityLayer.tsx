@@ -9,7 +9,6 @@ const SecurityLayer = ({
   title,
   description,
   icon: Icon,
-  isLast,
   accentColor,
   className,
   style,

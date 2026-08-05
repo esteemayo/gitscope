@@ -1,4 +1,4 @@
-import { Lock, ShieldCheck } from 'lucide-react';
+import { LockKeyhole, ShieldCheck } from 'lucide-react';
 
 import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
 import { SecurityOverviewItem } from '@/types/privacy/dataStorageSecurity';
@@ -17,7 +17,7 @@ export const securityOverview: SecurityOverviewItem[] = [
     title: 'Encrypted Communication',
     description:
       'Every request between your browser, GitScope, and GitHub is transmitted using HTTPS encryption.',
-    icon: Lock,
+    icon: LockKeyhole,
     accentColor: '#0EA5E9',
   },
   {

@@ -78,6 +78,7 @@
   --nav-height: 7.2rem;
   --nav-scroll-height: 5.7rem;
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --transition: all 0.25s ease-in-out;
 }
 
 [data-theme='dark'] {

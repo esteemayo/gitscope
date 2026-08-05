@@ -3,4 +3,204 @@
 @use '../../../abstracts/responsive' as bp;
 
 .trust-banner {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+
+  position: relative;
+  margin-top: 4rem;
+  padding: 3rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 18%, var(--border));
+  border-radius: 2rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition: border 0.25s ease;
+
+  @media (max-width: 62em) {
+    flex-direction: column;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background-image: radial-gradient(
+      circle at top right,
+      color-mix(in srgb, var(--accent-color) 10%, transparent),
+      transparent 70%
+    );
+
+    pointer-events: none;
+  }
+
+  &__content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__badge {
+    align-self: start;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.625rem 1rem;
+    background-color: color-mix(in srgb, var(--accent-color) 7%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+    border-radius: 100rem;
+    user-select: none;
+  }
+
+  &__heading {
+    display: flex;
+    gap: 1.5rem;
+
+    @media (max-width: 40em) {
+      gap: 1rem;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 7.2rem;
+    height: 7.2rem;
+    background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
+    color: var(--accent-color);
+    border-radius: 100%;
+
+    @media (max-width: 40em) {
+      width: 5.6rem;
+      height: 5.6rem;
+    }
+
+    svg {
+      width: 3.6rem;
+      height: 3.6rem;
+      color: currentColor;
+      stroke: currentColor;
+
+      @media (max-width: 40em) {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-size: var(--fz-xl);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-sm);
+      color: var(--text-muted);
+      line-height: 1.8;
+      transition: var(--transition);
+    }
+  }
+
+  &__highlights {
+    flex-shrink: 0;
+
+    display: grid;
+    gap: 1rem;
+
+    width: 36rem;
+
+    @media (max-width: 62em) {
+      width: 100%;
+    }
+  }
+
+  &__panel {
+    display: flex;
+    gap: 1rem;
+
+    padding: 1.25rem;
+    background-color: color-mix(
+      in srgb,
+      var(--highlight-color) 5%,
+      transparent
+    );
+    border: 1px solid
+      color-mix(in srgb, var(--highlight-color) 12%, transparent);
+    border-radius: var(--radius);
+  }
+
+  &__panel-icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 4.8rem;
+    height: 4.8rem;
+    background-color: color-mix(
+      in srgb,
+      var(--highlight-color) 12%,
+      transparent
+    );
+    color: var(--highlight-color);
+    border-radius: var(--radius);
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      color: var(--highlight-color);
+      stroke: currentColor;
+      margin-top: 3px;
+    }
+  }
+
+  &__panel-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  &__panel-heading {
+    display: inline-block;
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    text-wrap: balance;
+    font-weight: 600;
+    font-size: var(--fz-md);
+    color: inherit;
+    line-height: 1.1;
+  }
+
+  &__panel-description {
+    text-wrap: pretty;
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    line-height: 1.7;
+    transition: var(--transition);
+  }
 }

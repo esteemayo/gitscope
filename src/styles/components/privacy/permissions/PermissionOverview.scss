@@ -13,7 +13,7 @@
   border-radius: 2rem;
   overflow: hidden;
   isolation: isolate;
-  // transition: var(--transition);
+  transition: border 0.25s ease;
 
   &::before {
     content: '';
@@ -47,8 +47,9 @@
 
     &--badge {
       width: fit-content;
+      text-transform: uppercase;
       font-weight: 700;
-      font-size: var(--fz-xxs);
+      font-size: 1.1rem;
       letter-spacing: 0.04em;
       padding: 0.5rem 0.9rem;
       background-color: color-mix(

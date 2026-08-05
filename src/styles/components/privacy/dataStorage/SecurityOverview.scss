@@ -16,7 +16,11 @@
   border-radius: 2rem;
   overflow: hidden;
   isolation: isolate;
-  // transition: var(--transition);
+  transition: border 0.25s ease;
+
+  @media (max-width: 68.75em) {
+    position: static;
+  }
 
   &::before {
     content: '';
@@ -42,19 +46,14 @@
 
     &--badge {
       width: fit-content;
-      text-transform: capitalize;
+      text-transform: uppercase;
       font-weight: 700;
-      font-size: var(--fz-xxs);
+      font-size: 1.1rem;
       letter-spacing: 0.04em;
       padding: 0.55rem 1rem;
-      background-color: color-mix(
-        in srgb,
-        var(--color-blue-800) 7%,
-        transparent
-      );
-      color: var(--color-blue-800);
-      border: 1px solid
-        color-mix(in srgb, var(--color-blue-800) 15%, transparent);
+      background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+      color: var(--icon);
+      border: 1px solid color-mix(in srgb, var(--icon) 15%, transparent);
       border-radius: 100rem;
       user-select: none;
     }

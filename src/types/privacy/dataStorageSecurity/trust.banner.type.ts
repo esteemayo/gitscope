@@ -1,8 +1,6 @@
-import { LucideIcon } from 'lucide-react';
+import { TrustBanner } from './index';
 
-export interface TrustBannerProps {
-  title: string;
-  description: string;
-  icon: LucideIcon | React.ComponentType;
-  accentColor: string;
+export interface TrustBannerProps extends TrustBanner {
+  className?: string;
+  style?: React.CSSProperties;
 }

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 
 import SecurityLayer from './SecurityLayer';
+import SecurityOutcome from './SecurityOutcome';
 
 import { containerVariants } from '@/animations/page';
 import { SecurityLayersProps } from '@/types/privacy/dataStorageSecurity/security.layers.type';
@@ -14,6 +15,7 @@ const SecurityLayers = ({
   title,
   subtitle,
   items,
+  outcome,
 }: SecurityLayersProps) => {
   return (
     <section className='security-layers'>
@@ -24,19 +26,21 @@ const SecurityLayers = ({
         viewport={{ once: true }}
         className='security-layers__header'
       >
-        <span className='security-layers__badge'>{badge}</span>
+        <span className='security-layers__header--badge'>{badge}</span>
 
-        <h3 className='security-layers__title'>{title}</h3>
+        <h3 className='security-layers__header--title'>{title}</h3>
 
-        <p className='security-layers__subtitle'>{subtitle}</p>
+        <p className='security-layers__header--subtitle'>{subtitle}</p>
       </motion.header>
 
       <div className='security-layers__pipeline'>
-        {items.map((item, index) => (
-          <motion.div key={item.id}>
-            <SecurityLayer {...item} isLast={index === items.length - 1} />
+        {items.map((item) => (
+          <motion.div key={item.id} variants={containerVariants}>
+            <SecurityLayer {...item} />
           </motion.div>
         ))}
+
+        <SecurityOutcome {...outcome} />
       </div>
     </section>
   );

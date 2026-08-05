@@ -43,9 +43,32 @@ export interface SecurityLayerItem {
   accentColor: string;
 }
 
-export interface TrustBanner {
+export interface SecurityOutcomeItem {
+  id: string;
+  label: string;
+}
+
+export interface SecurityOutcome {
+  badge: string;
+  title: string;
+  description: string;
+  accentColor: string;
+  items: SecurityOutcomeItem[];
+}
+
+export interface TrustBannerHighlight {
+  id: string;
   title: string;
   description: string;
   icon: LucideIcon | React.ComponentType;
   accentColor: string;
+}
+
+export interface TrustBanner {
+  badge: string;
+  title: string;
+  description: string;
+  icon: LucideIcon | React.ComponentType;
+  accentColor: string;
+  highlights: TrustBannerHighlight[];
 }

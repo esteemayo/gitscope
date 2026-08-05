@@ -24,6 +24,7 @@ const DataStorageSecurity = ({
   securityLayersTitle,
   securityLayersSubtitle,
   layers,
+  securityOutcome,
   trustBanner,
 }: DataStorageSecurityProps) => {
   return (
@@ -66,6 +67,7 @@ const DataStorageSecurity = ({
               title={securityLayersTitle}
               subtitle={securityLayersSubtitle}
               items={layers}
+              outcome={securityOutcome}
             />
           </div>
         </div>

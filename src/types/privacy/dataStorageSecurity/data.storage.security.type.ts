@@ -4,6 +4,7 @@ import {
   SecurityLayerItem,
   TrustBanner,
   SecurityTrustItem,
+  SecurityOutcome,
 } from './index';
 
 export interface DataStorageSecurityProps {
@@ -17,5 +18,6 @@ export interface DataStorageSecurityProps {
   securityLayersTitle: string;
   securityLayersSubtitle: string;
   layers: SecurityLayerItem[];
+  securityOutcome: SecurityOutcome;
   trustBanner: TrustBanner;
 }

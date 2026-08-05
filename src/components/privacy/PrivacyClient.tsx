@@ -20,6 +20,7 @@ import { securityFeatures } from '@/data/privacy/securityFeatures.data';
 import { privacyHeroContent } from '@/data/privacy/privacyHeroContent.data';
 import { securityTrustItems } from '@/data/privacy/securityTrust.data';
 import { privacySumaryItems } from '@/data/privacy/privacySummaryItems.data';
+import { securityOutcome } from '@/data/privacy/securityOutcome.data';
 
 import '../../styles/components/privacy/PrivacyClient.scss';
 
@@ -77,6 +78,7 @@ const PrivacyClient = () => {
         securityLayersTitle='Multiple Layers Working Together.'
         securityLayersSubtitle='Every authenticated request passes through multiple security measures before analytics are generated.'
         layers={securityLayers}
+        securityOutcome={securityOutcome}
         trustBanner={securityBanner}
       />
     </main>
