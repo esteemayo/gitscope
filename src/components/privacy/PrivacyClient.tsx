@@ -4,23 +4,27 @@ import InformationCollected from './information/InformationCollected';
 import PrivacyHero from './PrivacyHero';
 import PrivacyPrinciples from './privacyPrinciples/PrivacyPrinciples';
 import PrivacySummary from './privacySummary/PrivacySummary';
-import HowWeUseYourInformation from './howWeUseYourInfo/HowWeUseYourInformation';
+import CookiesLocalStorage from './cookiesLocalStorage/CookiesLocalStorage';
 import GitHubPermissions from './permissions/GitHubPermissions';
+import HowWeUseYourInformation from './howWeUseYourInfo/HowWeUseYourInformation';
 
 import * as information from '@/data/privacy/informationCollected.data';
+import { storageNotice } from '@/data/privacy/storageNotice.data';
+import { securityFeatures } from '@/data/privacy/securityFeatures.data';
 import DataStorageSecurity from './dataStorage/DataStorageSecurity';
 import { securityOverview } from '@/data/privacy/securityOverview.data';
 import { securityLayers } from '@/data/privacy/securityLayers.data';
 import { githubPermissions } from '@/data/privacy/githubPermissions.data';
 import { securityBanner } from '@/data/privacy/securityBanner.data';
 import { privacyPrinciples } from '@/data/privacy/privacyPrinciples.data';
-import { usageSteps } from '@/data/privacy/howWeUseInformation.data';
+import { storageSummary } from '@/data/privacy/storageSummary.data';
 import { permissionOverview } from '@/data/privacy/permissionOverview.data';
-import { securityFeatures } from '@/data/privacy/securityFeatures.data';
+import { usageSteps } from '@/data/privacy/howWeUseInformation.data';
 import { privacyHeroContent } from '@/data/privacy/privacyHeroContent.data';
-import { securityTrustItems } from '@/data/privacy/securityTrust.data';
-import { privacySumaryItems } from '@/data/privacy/privacySummaryItems.data';
 import { securityOutcome } from '@/data/privacy/securityOutcome.data';
+import { privacySumaryItems } from '@/data/privacy/privacySummaryItems.data';
+import { securityTrustItems } from '@/data/privacy/securityTrust.data';
+import { browserStorageItems } from '@/data/privacy/browserStorageItems.data';
 
 import '../../styles/components/privacy/PrivacyClient.scss';
 
@@ -80,6 +84,15 @@ const PrivacyClient = () => {
         layers={securityLayers}
         securityOutcome={securityOutcome}
         trustBanner={securityBanner}
+      />
+
+      <CookiesLocalStorage
+        badge='Cookies & Local Storage'
+        title='How GitScope Uses Browser Storage.'
+        subtitle='GitScope uses browser storage responsibly to remember your preferences, maintain secure authentication, and improve performance while keeping you in control.'
+        summary={storageSummary}
+        items={browserStorageItems}
+        notice={storageNotice}
       />
     </main>
   );
