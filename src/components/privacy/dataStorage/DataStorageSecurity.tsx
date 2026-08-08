@@ -39,7 +39,7 @@ const DataStorageSecurity = ({
     >
       <div className='data-storage-security__container'>
         <p id='data-storage-security-description' className='sr-only'>
-          Learen how GitScope protects your information through secure
+          Learn how GitScope protects your information through secure
           authentication, encrypted communication, read-only access, and
           privacy-focused storage practices.
         </p>
@@ -58,7 +58,9 @@ const DataStorageSecurity = ({
           <div className='data-storage-security__content'>
             <div className='data-storage-security__content--grid'>
               {features.map((feature) => (
-                <SecurityCard key={feature.id} {...feature} />
+                <motion.div key={feature.id} variants={containerVariants}>
+                  <SecurityCard {...feature} />
+                </motion.div>
               ))}
             </div>
 

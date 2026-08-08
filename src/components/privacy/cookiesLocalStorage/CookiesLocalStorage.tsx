@@ -17,7 +17,7 @@ const CookiesLocalStorage = ({
   title,
   subtitle,
   summary,
-  items,
+  overview,
   notice,
 }: CookieLocalStorageProps) => {
   return (
@@ -41,7 +41,7 @@ const CookiesLocalStorage = ({
         <div className='cookies-local-storage__body'>
           <StorageSummary {...summary} />
 
-          <BrowserStorageOverview items={items} />
+          <BrowserStorageOverview {...overview} />
         </div>
 
         <StorageNotice {...notice} />

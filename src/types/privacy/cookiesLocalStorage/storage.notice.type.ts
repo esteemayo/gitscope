@@ -1,6 +1,6 @@
-import { StorageNotice } from './index';
+import { StorageNoticeData } from './index';
 
-export interface StorageNoticeProps extends StorageNotice {
+export interface StorageNoticeProps extends StorageNoticeData {
   className?: string;
   style?: React.CSSProperties;
 }

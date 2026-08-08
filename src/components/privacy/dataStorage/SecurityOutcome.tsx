@@ -4,7 +4,9 @@ import { motion } from 'framer-motion';
 import clsx from 'clsx';
 import { CheckCircle, ShieldCheck } from 'lucide-react';
 
+import { containerVariants } from '@/animations/page';
 import { SecurityOutcomeProps } from '@/types/privacy/dataStorageSecurity/security.outcome.type';
+
 import '../../../styles/components/privacy/dataStorage/SecurityOutcome.scss';
 
 const SecurityOutcome = ({
@@ -18,8 +20,9 @@ const SecurityOutcome = ({
 }: SecurityOutcomeProps) => {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
       viewport={{ once: true }}
       className={clsx('security-outcome', className)}
       style={

@@ -1,5 +1,6 @@
-import { BrowserStorageItem } from './index';
+import { BrowserStorageOverview } from './index';
 
-export interface BrowserStorageOverviewProps {
-  items: BrowserStorageItem[];
+export interface BrowserStorageOverviewProps extends BrowserStorageOverview {
+  className?: string;
+  style?: React.CSSProperties;
 }

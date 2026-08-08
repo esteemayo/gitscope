@@ -36,7 +36,7 @@
 
   &__body {
     display: grid;
-    grid-template-columns: 36rem minmax(min-content, 1fr);
+    grid-template-columns: minmax(30rem, 36rem) minmax(min-content, 1fr);
     align-items: start;
     gap: 2rem;
 

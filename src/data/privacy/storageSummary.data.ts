@@ -23,6 +23,10 @@ export const storageSummary: StorageSummary = {
         'Stores preferences and non-sensitive information directly in your browser.',
       icon: HardDrive,
       accentColor: '#4F46E5',
+      status: {
+        label: 'Always Available',
+        accentColor: '#22C55E',
+      },
     },
     {
       id: 'session-storage',
@@ -31,6 +35,10 @@ export const storageSummary: StorageSummary = {
         'Temporary information available only while your browser tab is open.',
       icon: Timer,
       accentColor: '#0EA5E9',
+      status: {
+        label: 'Temporary',
+        accentColor: '#F59E0B',
+      },
     },
     {
       id: 'cookies',
@@ -39,6 +47,10 @@ export const storageSummary: StorageSummary = {
         'Maintain authenticated GitHub sessions after you choose to sign in.',
       icon: KeyRound,
       accentColor: '#22C55E',
+      status: {
+        label: 'Authenticated Users',
+        accentColor: '#4F46E5',
+      },
     },
     {
       id: 'cache',
@@ -47,6 +59,10 @@ export const storageSummary: StorageSummary = {
         'Allows previously loaded resources to be reused for better performance.',
       icon: Database,
       accentColor: '#F59E0B',
+      status: {
+        label: 'Browser Managed',
+        accentColor: '#0EA5E9',
+      },
     },
   ],
   commitments: [

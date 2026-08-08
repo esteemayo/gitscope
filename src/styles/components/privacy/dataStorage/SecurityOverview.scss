@@ -45,6 +45,10 @@
     position: relative;
 
     &--badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
       width: fit-content;
       text-transform: uppercase;
       font-weight: 700;

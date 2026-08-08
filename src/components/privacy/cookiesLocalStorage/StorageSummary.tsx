@@ -47,7 +47,7 @@ const StorageSummary = ({
           {commitmentsTitle}
         </h4>
 
-        <ul className='storage-summary__item'>
+        <ul className='storage-summary__list'>
           {commitments.map((item) => {
             const { id, title, icon: Icon, accentColor } = item;
 
@@ -62,7 +62,7 @@ const StorageSummary = ({
                 }
               >
                 <Icon
-                  size={18}
+                  size={16}
                   className='storage-summary__item--icon'
                   role='img'
                   aria-hidden='true'

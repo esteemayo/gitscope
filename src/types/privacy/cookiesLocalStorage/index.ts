@@ -1,11 +1,17 @@
 import { LucideIcon } from 'lucide-react';
 
+export interface StorageTechnologyStatus {
+  label: string;
+  accentColor: string;
+}
+
 export interface StorageTechnology {
   id: string;
   title: string;
   description: string;
   icon: LucideIcon | React.ComponentType;
   accentColor: string;
+  status: StorageTechnologyStatus;
 }
 
 export interface StorageCommitment {
@@ -24,7 +30,10 @@ export interface StorageSummary {
   commitments: StorageCommitment[];
 }
 
-export type StorageType = 'Cookie' | 'Local Storage' | 'Session Storage';
+export interface StorageType {
+  label: string;
+  accentColor: string;
+}
 
 export interface BrowserStorageItem {
   id: string;
@@ -36,10 +45,26 @@ export interface BrowserStorageItem {
   accentColor: string;
 }
 
-export interface StorageNotice {
+export interface BrowserStorageOverview {
+  badge: string;
+  title: string;
+  description: string;
+  items: BrowserStorageItem[];
+}
+
+export interface StorageControlAction {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon | React.ComponentType;
+  accentColor: string;
+}
+
+export interface StorageNoticeData {
   badge: string;
   title: string;
   description: string;
   icon: LucideIcon | React.ComponentType;
   accentColor: string;
+  controlOptions: StorageControlAction[];
 }
