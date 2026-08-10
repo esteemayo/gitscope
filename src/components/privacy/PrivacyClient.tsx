@@ -3,12 +3,13 @@
 import InformationCollected from './information/InformationCollected';
 import PrivacyHero from './PrivacyHero';
 import PrivacyPrinciples from './privacyPrinciples/PrivacyPrinciples';
-import '../../styles/components/privacy/PrivacyClient.scss';
+import YourRights from './yourRights/YourRights';
+import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
+import DataRetention from './dataRetention/DataRetention';
 import CookiesLocalStorage from './cookiesLocalStorage/CookiesLocalStorage';
 import PrivacySummary from './privacySummary/PrivacySummary';
 import HowWeUseYourInformation from './howWeUseYourInfo/HowWeUseYourInformation';
 import GitHubPermissions from './permissions/GitHubPermissions';
-import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
 
 import * as information from '@/data/privacy/informationCollected.data';
 import DataStorageSecurity from './dataStorage/DataStorageSecurity';
@@ -25,10 +26,11 @@ import { permissionOverview } from '@/data/privacy/permissionOverview.data';
 import { securityTrustItems } from '@/data/privacy/securityTrust.data';
 import { cookiesLocalStorageData } from '@/data/privacy/cookiesLocalStorage.data';
 import { privacySumaryItems } from '@/data/privacy/privacySummaryItems.data';
-import { thirdPartyServicesContent } from '@/data/privacy/thirdPartyServicesContent.data';
+import { dataRetentionData } from '@/data/privacy/dataRetention/dataRentionData.data';
 import { yourRightsData } from '@/data/privacy/yourRights/yourRightsData.data';
+import { thirdPartyServicesContent } from '@/data/privacy/thirdPartyServicesContent.data';
 
-import YourRights from './yourRights/YourRights';
+import '../../styles/components/privacy/PrivacyClient.scss';
 
 const PrivacyClient = () => {
   return (
@@ -93,6 +95,8 @@ const PrivacyClient = () => {
       <ThirdPartyServices {...thirdPartyServicesContent} />
 
       <YourRights {...yourRightsData} />
+
+      <DataRetention {...dataRetentionData} />
     </main>
   );
 };

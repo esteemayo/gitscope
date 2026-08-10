@@ -48,7 +48,9 @@ const YourRights = ({
           ))}
         </div>
 
-        <RightsNotice {...notice} />
+        <motion.div variants={containerVariants}>
+          <RightsNotice {...notice} />
+        </motion.div>
       </div>
     </motion.section>
   );

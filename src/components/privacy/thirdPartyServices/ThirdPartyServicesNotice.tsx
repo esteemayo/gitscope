@@ -1,9 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { motion } from 'framer-motion';
-
-import { containerVariants } from '@/animations/page';
 import { ThirdPartyServicesNoticeProps } from '@/types/privacy/thirdPartyServices/third.party.services.notice.type';
 
 import '../../../styles/components/privacy/thirdPartyServices/ThirdPartyServicesNotice.scss';
@@ -19,11 +16,7 @@ const ThirdPartyServicesNotice = ({
   style,
 }: ThirdPartyServicesNoticeProps) => {
   return (
-    <motion.aside
-      variants={containerVariants}
-      initial='hidden'
-      whileInView='visible'
-      viewport={{ once: true }}
+    <aside
       className={clsx('third-party-services-notice', className)}
       style={
         {
@@ -66,7 +59,7 @@ const ThirdPartyServicesNotice = ({
           ))}
         </ul>
       </div>
-    </motion.aside>
+    </aside>
   );
 };
 

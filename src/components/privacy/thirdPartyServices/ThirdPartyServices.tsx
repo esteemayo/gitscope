@@ -50,9 +50,13 @@ const ThirdPartyServices = ({
           ))}
         </div>
 
-        <ThirdPartyDataFlow {...dataFlow} />
+        <motion.div variants={containerVariants}>
+          <ThirdPartyDataFlow {...dataFlow} />
+        </motion.div>
 
-        <ThirdPartyServicesNotice {...notice} />
+        <motion.div variants={containerVariants}>
+          <ThirdPartyServicesNotice {...notice} />
+        </motion.div>
       </div>
     </motion.section>
   );

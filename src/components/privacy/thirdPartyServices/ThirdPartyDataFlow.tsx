@@ -3,9 +3,7 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import { containerVariants } from '@/animations/page';
 import { ThirdPartyDataFlowProps } from '@/types/privacy/thirdPartyServices/third.party.data.flow.type';
-
 import '../../../styles/components/privacy/thirdPartyServices/ThirdPartyDataFlow.scss';
 
 const ThirdPartyDataFlow = ({
@@ -17,14 +15,7 @@ const ThirdPartyDataFlow = ({
   style,
 }: ThirdPartyDataFlowProps) => {
   return (
-    <motion.section
-      variants={containerVariants}
-      initial='hidden'
-      whileInView='visible'
-      viewport={{ once: true }}
-      className={clsx('third-party-data-flow', className)}
-      style={style}
-    >
+    <section className={clsx('third-party-data-flow', className)} style={style}>
       <header className='third-party-data-flow__header'>
         <span className='third-party-data-flow__header--badge'>{badge}</span>
 
@@ -89,7 +80,7 @@ const ThirdPartyDataFlow = ({
           );
         })}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

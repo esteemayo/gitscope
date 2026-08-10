@@ -2,7 +2,7 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.rights-notice {
+.retention-notice {
   display: grid;
   grid-template-columns: auto minmax(min-content, 1fr);
   align-items: center;
@@ -38,7 +38,7 @@
     inset: 0;
 
     background-image: radial-gradient(
-      circle at left center,
+      circle at top right,
       color-mix(in srgb, var(--accent-color) 10%, transparent),
       transparent 65%
     );

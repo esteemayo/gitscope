@@ -1,9 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { motion } from 'framer-motion';
-
-import { containerVariants } from '@/animations/page';
 import { RightsNoticeProps } from '@/types/privacy/yourRights/rights.notice.type';
 
 import '../../../styles/components/privacy/yourRights/RightsNotice.scss';
@@ -18,11 +15,7 @@ const RightsNotice = ({
   style,
 }: RightsNoticeProps) => {
   return (
-    <motion.aside
-      variants={containerVariants}
-      initial='hidden'
-      whileInView='visible'
-      viewport={{ once: true }}
+    <aside
       className={clsx('rights-notice', className)}
       style={
         {
@@ -42,7 +35,7 @@ const RightsNotice = ({
 
         <p className='rights-notice__content--description'>{description}</p>
       </div>
-    </motion.aside>
+    </aside>
   );
 };
 
