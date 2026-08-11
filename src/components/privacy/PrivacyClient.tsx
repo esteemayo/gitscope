@@ -4,31 +4,35 @@ import InformationCollected from './information/InformationCollected';
 import PrivacyHero from './PrivacyHero';
 import PrivacyPrinciples from './privacyPrinciples/PrivacyPrinciples';
 import YourRights from './yourRights/YourRights';
-import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
+import InternationalUsers from './internationalUsers/InternationalUsers';
 import DataRetention from './dataRetention/DataRetention';
-import CookiesLocalStorage from './cookiesLocalStorage/CookiesLocalStorage';
+import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
 import PrivacySummary from './privacySummary/PrivacySummary';
+import CookiesLocalStorage from './cookiesLocalStorage/CookiesLocalStorage';
+import ChildrenPrivacy from './childrenPrivacy/ChildrenPrivacy';
 import HowWeUseYourInformation from './howWeUseYourInfo/HowWeUseYourInformation';
 import GitHubPermissions from './permissions/GitHubPermissions';
 
-import * as information from '@/data/privacy/informationCollected.data';
-import DataStorageSecurity from './dataStorage/DataStorageSecurity';
-import { securityOverview } from '@/data/privacy/securityOverview.data';
-import { securityFeatures } from '@/data/privacy/securityFeatures.data';
-import { securityLayers } from '@/data/privacy/securityLayers.data';
 import { githubPermissions } from '@/data/privacy/githubPermissions.data';
-import { securityBanner } from '@/data/privacy/securityBanner.data';
-import { privacyPrinciples } from '@/data/privacy/privacyPrinciples.data';
-import { usageSteps } from '@/data/privacy/howWeUseInformation.data';
+import DataStorageSecurity from './dataStorage/DataStorageSecurity';
 import { privacyHeroContent } from '@/data/privacy/privacyHeroContent.data';
-import { securityOutcome } from '@/data/privacy/securityOutcome.data';
+import { privacyPrinciples } from '@/data/privacy/privacyPrinciples.data';
+import { securityLayers } from '@/data/privacy/securityLayers.data';
+import { securityBanner } from '@/data/privacy/securityBanner.data';
 import { permissionOverview } from '@/data/privacy/permissionOverview.data';
-import { securityTrustItems } from '@/data/privacy/securityTrust.data';
-import { cookiesLocalStorageData } from '@/data/privacy/cookiesLocalStorage.data';
+import { usageSteps } from '@/data/privacy/howWeUseInformation.data';
 import { privacySumaryItems } from '@/data/privacy/privacySummaryItems.data';
-import { dataRetentionData } from '@/data/privacy/dataRetention/dataRentionData.data';
+import { securityOutcome } from '@/data/privacy/securityOutcome.data';
+import { cookiesLocalStorageData } from '@/data/privacy/cookiesLocalStorage.data';
+import { securityTrustItems } from '@/data/privacy/securityTrust.data';
 import { yourRightsData } from '@/data/privacy/yourRights/yourRightsData.data';
+import * as information from '@/data/privacy/informationCollected.data';
+import { dataRetentionData } from '@/data/privacy/dataRetention/dataRentionData.data';
+import { securityOverview } from '@/data/privacy/securityOverview.data';
 import { thirdPartyServicesContent } from '@/data/privacy/thirdPartyServicesContent.data';
+import { securityFeatures } from '@/data/privacy/securityFeatures.data';
+import { childrenPrivacyData } from '@/data/privacy/childrenPrivacy/childrenPrivacyData.data';
+import { internationalUsersData } from '@/data/privacy/internationalUsers/internationalUsersData.data';
 
 import '../../styles/components/privacy/PrivacyClient.scss';
 
@@ -97,6 +101,10 @@ const PrivacyClient = () => {
       <YourRights {...yourRightsData} />
 
       <DataRetention {...dataRetentionData} />
+
+      <ChildrenPrivacy {...childrenPrivacyData} />
+
+      <InternationalUsers {...internationalUsersData} />
     </main>
   );
 };
