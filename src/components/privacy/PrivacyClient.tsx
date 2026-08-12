@@ -5,12 +5,14 @@ import PrivacyHero from './PrivacyHero';
 import PrivacyPrinciples from './privacyPrinciples/PrivacyPrinciples';
 import YourRights from './yourRights/YourRights';
 import InternationalUsers from './internationalUsers/InternationalUsers';
-import DataRetention from './dataRetention/DataRetention';
+import PrivacyFAQ from './privacyFAQ/PrivacyFAQ';
 import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
-import PrivacySummary from './privacySummary/PrivacySummary';
+import DataRetention from './dataRetention/DataRetention';
 import CookiesLocalStorage from './cookiesLocalStorage/CookiesLocalStorage';
-import ChildrenPrivacy from './childrenPrivacy/ChildrenPrivacy';
+import PrivacySummary from './privacySummary/PrivacySummary';
 import HowWeUseYourInformation from './howWeUseYourInfo/HowWeUseYourInformation';
+import ChildrenPrivacy from './childrenPrivacy/ChildrenPrivacy';
+import PolicyUpdatesTimeline from './policyUpdatesTimeline/PolicyUpdatesTimeline';
 import GitHubPermissions from './permissions/GitHubPermissions';
 
 import { githubPermissions } from '@/data/privacy/githubPermissions.data';
@@ -32,7 +34,9 @@ import { securityOverview } from '@/data/privacy/securityOverview.data';
 import { thirdPartyServicesContent } from '@/data/privacy/thirdPartyServicesContent.data';
 import { securityFeatures } from '@/data/privacy/securityFeatures.data';
 import { childrenPrivacyData } from '@/data/privacy/childrenPrivacy/childrenPrivacyData.data';
+import { privacyFAQData } from '@/data/privacy/privacyFAQ/privacyFAQData.data';
 import { internationalUsersData } from '@/data/privacy/internationalUsers/internationalUsersData.data';
+import { policyUpdatesTimelineData } from '@/data/privacy/policyUpdatesTimeline/policyUpdatesTimelineData.data';
 
 import '../../styles/components/privacy/PrivacyClient.scss';
 
@@ -105,6 +109,10 @@ const PrivacyClient = () => {
       <ChildrenPrivacy {...childrenPrivacyData} />
 
       <InternationalUsers {...internationalUsersData} />
+
+      <PolicyUpdatesTimeline {...policyUpdatesTimelineData} />
+
+      <PrivacyFAQ {...privacyFAQData} />
     </main>
   );
 };

@@ -1,0 +1,85 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.policy-updates-timeline {
+  padding: 8rem;
+
+  @media (max-width: 56.25em) {
+    padding: 8rem 3.2rem;
+  }
+
+  @include bp.md {
+    padding: 5rem 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 5rem 1.6rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    & > * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 5vw, 4rem);
+
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    min-width: 0;
+  }
+
+  &__track {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    width: min(100%, 60rem);
+    margin-inline: auto;
+
+    @media (max-width: 40em) {
+      width: 100%;
+    }
+
+    & > * + * {
+      margin-top: 1.5rem;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 2.8rem;
+      bottom: 2.8rem;
+      left: 2.4rem;
+
+      width: 1px;
+      background-image: linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--icon) 25%, var(--border)),
+        var(--border)
+      );
+
+      transition: background-image 0.25s ease;
+
+      @media (max-width: 40em) {
+        top: 2.2rem;
+        bottom: 2.2rem;
+        left: 1.8rem;
+      }
+    }
+  }
+}

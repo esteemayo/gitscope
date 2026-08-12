@@ -105,7 +105,7 @@
       text-transform: initial;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
-      font-size: var(--fz-xl);
+      font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       color: inherit;
       line-height: 1.1;
     }
