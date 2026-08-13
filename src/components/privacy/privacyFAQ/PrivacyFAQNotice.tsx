@@ -24,7 +24,7 @@ const PrivacyFAQNotice = ({
         } as React.CSSProperties
       }
     >
-      <div className='privacy-faq-notice__icon'>
+      <div className='privacy-faq-notice__icon' aria-hidden='true'>
         <Icon size={22} role='img' aria-hidden='true' focusable='false' />
       </div>
 

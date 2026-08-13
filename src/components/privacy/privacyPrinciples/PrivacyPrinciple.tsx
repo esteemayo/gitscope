@@ -73,7 +73,7 @@ const PrivacyPrinciple = ({
             <span className='privacy-principle__cta--label'>{cta.label}</span>
 
             <ArrowRight
-              size={18}
+              size={16}
               role='img'
               aria-hidden='true'
               focusable='false'

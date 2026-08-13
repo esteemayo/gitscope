@@ -1,5 +1,6 @@
 @mixin animated-underline(
   $color: currentColor,
+  $hoverColor: $color,
   $bottom: 3px,
   $height: 1px,
   $duration1: 0.35s,
@@ -33,20 +34,29 @@
     opacity: 1;
   }
 
+  &:hover {
+    color: $hoverColor;
+
+    &::after {
+      background-color: $hoverColor;
+    }
+  }
+
   &:focus {
     outline: none;
   }
 
   &:focus-visible {
-    outline: 3px dashed $color;
-    outline-offset: 3px;
+    outline: 4px dashed $color;
+    outline-offset: 4px;
+    border-radius: 0.25rem;
   }
 }
 
 @mixin focus-ring(
   $color: var(--color-blue-800),
-  $offset: 3px,
-  $width: 3px,
+  $offset: 4px,
+  $width: 4px,
   $style: dashed
 ) {
   outline: $width $style $color;
@@ -55,8 +65,8 @@
 
 @mixin focus-ring-box(
   $color: var(--color-blue-800),
-  $offset: 3px,
-  $width: 3px,
+  $offset: 4px,
+  $width: 4px,
   $style: dashed,
   $ring-size: 4px,
   $ring-color: rgba(99, 102, 241, 0.15)

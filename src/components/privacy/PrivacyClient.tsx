@@ -1,19 +1,20 @@
 'use client';
 
-import InformationCollected from './information/InformationCollected';
+import ChildrenPrivacy from './childrenPrivacy/ChildrenPrivacy';
 import PrivacyHero from './PrivacyHero';
-import PrivacyPrinciples from './privacyPrinciples/PrivacyPrinciples';
+import InformationCollected from './information/InformationCollected';
 import YourRights from './yourRights/YourRights';
-import InternationalUsers from './internationalUsers/InternationalUsers';
+import PrivacyPrinciples from './privacyPrinciples/PrivacyPrinciples';
 import PrivacyFAQ from './privacyFAQ/PrivacyFAQ';
-import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
+import InternationalUsers from './internationalUsers/InternationalUsers';
 import DataRetention from './dataRetention/DataRetention';
+import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
+import PrivacyContact from './privacyContact/PrivacyContact';
 import CookiesLocalStorage from './cookiesLocalStorage/CookiesLocalStorage';
 import PrivacySummary from './privacySummary/PrivacySummary';
 import HowWeUseYourInformation from './howWeUseYourInfo/HowWeUseYourInformation';
-import ChildrenPrivacy from './childrenPrivacy/ChildrenPrivacy';
-import PolicyUpdatesTimeline from './policyUpdatesTimeline/PolicyUpdatesTimeline';
 import GitHubPermissions from './permissions/GitHubPermissions';
+import PolicyUpdatesTimeline from './policyUpdatesTimeline/PolicyUpdatesTimeline';
 
 import { githubPermissions } from '@/data/privacy/githubPermissions.data';
 import DataStorageSecurity from './dataStorage/DataStorageSecurity';
@@ -36,6 +37,7 @@ import { securityFeatures } from '@/data/privacy/securityFeatures.data';
 import { childrenPrivacyData } from '@/data/privacy/childrenPrivacy/childrenPrivacyData.data';
 import { privacyFAQData } from '@/data/privacy/privacyFAQ/privacyFAQData.data';
 import { internationalUsersData } from '@/data/privacy/internationalUsers/internationalUsersData.data';
+import { privacyContactData } from '@/data/privacy/privacyContact/privacyContactData.data';
 import { policyUpdatesTimelineData } from '@/data/privacy/policyUpdatesTimeline/policyUpdatesTimelineData.data';
 
 import '../../styles/components/privacy/PrivacyClient.scss';
@@ -113,6 +115,8 @@ const PrivacyClient = () => {
       <PolicyUpdatesTimeline {...policyUpdatesTimelineData} />
 
       <PrivacyFAQ {...privacyFAQData} />
+
+      <PrivacyContact {...privacyContactData} />
     </main>
   );
 };
