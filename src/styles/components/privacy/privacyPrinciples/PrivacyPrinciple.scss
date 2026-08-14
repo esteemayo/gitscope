@@ -243,11 +243,14 @@
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 
     &--eyebrow {
+      flex-shrink: 0;
+
       display: inline-flex;
       align-items: center;
+      justify-content: center;
 
       width: fit-content;
       text-transform: uppercase;
@@ -255,7 +258,7 @@
       font-size: 1.1rem;
       white-space: nowrap;
       letter-spacing: 0.04em;
-      padding: 0.5rem 0.875rem;
+      padding: 0.55rem 0.875rem;
       background-color: color-mix(
         in srgb,
         var(--accent-color) 10%,
@@ -277,6 +280,7 @@
       text-transform: initial;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: clamp(var(--fz-lg), 3vw, 2.5rem);
       color: inherit;
       line-height: 1.1;
@@ -314,8 +318,8 @@
     &--icon {
       flex-shrink: 0;
 
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 1.6rem;
+      height: 1.6rem;
       color: var(--accent-color);
       stroke: currentColor;
     }
@@ -364,7 +368,6 @@
 
     &:disabled {
       opacity: 0.75;
-      user-select: none;
       pointer-events: none;
     }
   }

@@ -54,7 +54,7 @@ const PrivacyPrinciple = ({
           {highlights.map((highlight) => (
             <li key={highlight} className='privacy-principle__highlight'>
               <CheckCircle2
-                size={18}
+                size={16}
                 role='img'
                 aria-hidden='true'
                 focusable='false'

@@ -65,6 +65,10 @@
     overflow: hidden;
     transition: var(--transition);
 
+    @media (max-width: 40em) {
+      padding: 1.5rem;
+    }
+
     &::before {
       content: '';
 
@@ -112,7 +116,7 @@
     }
 
     &--value {
-      font-weight: 700;
+      font-weight: 600;
       font-size: var(--fz-xs);
       color: inherit;
     }

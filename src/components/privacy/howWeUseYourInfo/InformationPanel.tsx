@@ -74,7 +74,7 @@ const InformationPanel = ({
             {features.map((feature) => (
               <li key={feature} className='information-panel__feature'>
                 <CheckCircle2
-                  size={18}
+                  size={16}
                   className='information-panel__feature--icon'
                   role='img'
                   aria-hidden='true'
@@ -95,7 +95,7 @@ const InformationPanel = ({
               </span>
 
               <ArrowRight
-                size={18}
+                size={16}
                 className='information-panel__cta--arrow'
                 role='img'
                 aria-hidden='true'

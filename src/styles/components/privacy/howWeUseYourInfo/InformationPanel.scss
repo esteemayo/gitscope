@@ -62,6 +62,10 @@
 
       text-align: left;
     }
+
+    @media (max-width: 40em) {
+      padding: 1.5rem;
+    }
   }
 
   &__icon {
@@ -116,11 +120,16 @@
     font-size: var(--fz-xs);
     letter-spacing: 0.04em;
     color: var(--accent-color);
+    line-height: 1.1;
   }
 
   &__label {
     display: inline-block;
     text-align: center;
+    text-transform: initial;
+    text-rendering: optimizeLegibility;
+    text-wrap: balance;
+    font-weight: 600;
     font-size: var(--fz-md);
     color: inherit;
     line-height: 1.1;
@@ -182,6 +191,7 @@
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: clamp(var(--fz-xl), 3vw, 2.75rem);
       color: inherit;
       line-height: 1.1;
@@ -216,8 +226,8 @@
     &--icon {
       flex-shrink: 0;
 
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 1.6rem;
+      height: 1.6rem;
       color: var(--accent-color);
       stroke: currentColor;
     }
@@ -253,8 +263,8 @@
     }
 
     svg {
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 1.6rem;
+      height: 1.6rem;
       color: currentColor;
     }
 

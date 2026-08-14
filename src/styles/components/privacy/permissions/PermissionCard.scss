@@ -19,6 +19,10 @@
     background-color 0.25s ease,
     border-color 0.25s ease;
 
+  @media (max-width: 40em) {
+    padding: 1.5rem;
+  }
+
   &::before {
     content: '';
 
@@ -77,6 +81,7 @@
     letter-spacing: 0.04em;
     padding: 0.5rem 0.875rem;
     border-radius: 100rem;
+    line-height: 1.4;
     user-select: none;
     pointer-events: none;
 
@@ -121,6 +126,7 @@
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-md);
       color: inherit;
       line-height: 1.1;
@@ -141,6 +147,7 @@
       text-transform: initial;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
@@ -161,6 +168,7 @@
       text-transform: initial;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
@@ -182,8 +190,8 @@
       svg {
         flex-shrink: 0;
 
-        width: 1.8rem;
-        height: 1.8rem;
+        width: 1.6rem;
+        height: 1.6rem;
         color: var(--accent-color);
         stroke: currentColor;
       }

@@ -70,6 +70,7 @@ const CollectionCategory = ({
         {items.map((item) => (
           <li key={item} className='collection-category__item'>
             <CheckCircle2
+              size={16}
               className='collection-category__item--icon'
               role='img'
               aria-hidden='true'

@@ -88,6 +88,10 @@
     border-radius: 1.8rem;
     isolation: isolate;
 
+    @media (max-width: 40em) {
+      padding: 1.5rem;
+    }
+
     &::before {
       content: '';
 

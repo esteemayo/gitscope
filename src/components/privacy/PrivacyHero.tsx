@@ -103,7 +103,7 @@ const PrivacyHero = ({
                     className={`privacy-hero__button privacy-hero__button--${variant}`}
                   >
                     {variant === 'secondary' && (
-                      <Icon size={18} aria-hidden='true' focusable='false' />
+                      <Icon size={16} aria-hidden='true' focusable='false' />
                     )}
 
                     <span>{label}</span>

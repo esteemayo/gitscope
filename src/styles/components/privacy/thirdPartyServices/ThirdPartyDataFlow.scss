@@ -14,6 +14,10 @@
     background-color 0.25s ease,
     border-color 0.25s ease;
 
+  @media (max-width: 40em) {
+    padding: 1.5rem;
+  }
+
   &::before {
     content: '';
 
@@ -54,6 +58,7 @@
       color: var(--icon);
       border: 1px solid color-mix(in srgb, var(--icon) 12%, transparent);
       border-radius: 100rem;
+      line-height: 1.4;
       user-select: none;
     }
 
@@ -62,6 +67,7 @@
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: clamp(var(--fz-xl), 4vw, 3rem);
       color: inherit;
       line-height: 1.1;

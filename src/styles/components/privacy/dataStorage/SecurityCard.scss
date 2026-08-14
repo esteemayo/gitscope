@@ -19,6 +19,10 @@
     background-color 0.25s ease,
     border-color 0.25s ease;
 
+  @media (max-width: 40em) {
+    padding: 1.5rem;
+  }
+
   &::before {
     content: '';
 
@@ -83,6 +87,7 @@
       color: var(--accent-color);
       border: 1px solid color-mix(in srgb, var(--accent-color) 12%, transparent);
       border-radius: 100rem;
+      line-height: 1.4;
       margin-bottom: 0.5rem;
       user-select: none;
     }
@@ -92,6 +97,7 @@
       text-transform: initial;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-md);
       color: inherit;
       line-height: 1.1;
@@ -118,6 +124,7 @@
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
@@ -182,6 +189,7 @@
       text-transform: initial;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-xs);
       color: inherit;
       line-height: 1.1;

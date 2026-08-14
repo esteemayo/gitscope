@@ -45,7 +45,13 @@ const PermissionCard = ({
             `permission-card__status--${status}`,
           )}
         >
-          <ShieldCheck size={18} />
+          <ShieldCheck
+            size={18}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
+
           {statusLabel}
         </span>
       </header>
@@ -71,7 +77,12 @@ const PermissionCard = ({
 
             return (
               <li key={id} className='permission-card__access--item'>
-                <CheckCircle2 size={18} />
+                <CheckCircle2
+                  size={16}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
 
                 <span>{label}</span>
               </li>

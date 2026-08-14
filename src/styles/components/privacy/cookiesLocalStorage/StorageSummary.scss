@@ -22,6 +22,10 @@
     position: static;
   }
 
+  @media (max-width: 40em) {
+    padding: 1.5rem;
+  }
+
   &__header {
     display: flex;
     flex-direction: column;
@@ -42,6 +46,7 @@
       color: var(--icon);
       border: 1px solid color-mix(in srgb, var(--icon) 15%, transparent);
       border-radius: 100rem;
+      line-height: 1.4;
       user-select: none;
     }
 
@@ -49,6 +54,8 @@
       display: inline-block;
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-lg);
       color: inherit;
       text-wrap: balance;
@@ -85,6 +92,8 @@
       display: inline-block;
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-md);
       color: inherit;
       text-wrap: balance;

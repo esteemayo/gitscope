@@ -10,6 +10,8 @@ import RateLimit from '../ui/RateLimit';
 import SidebarProvider from '@/context/SidebarContext';
 import ToasterProvider from '@/providers/ToasterProvider';
 
+import { footerData } from '@/data/footer/footerData.data';
+
 const SharedLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main>
@@ -20,7 +22,7 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
         <RateLimit />
         <Corner />
         {children}
-        <Footer />
+        <Footer {...footerData} />
       </SidebarProvider>
     </main>
   );

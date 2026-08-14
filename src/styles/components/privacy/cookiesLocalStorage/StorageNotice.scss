@@ -18,6 +18,10 @@
     background-color 0.25s ease,
     border-color 0.25s ease;
 
+  @media (max-width: 40em) {
+    padding: 1.5rem;
+  }
+
   &::before {
     content: '';
 
@@ -60,6 +64,7 @@
     color: var(--accent-color);
     border: 1px solid color-mix(in srgb, var(--accent-color) 12%, transparent);
     border-radius: 100rem;
+    line-height: 1.4;
     user-select: none;
   }
 
@@ -88,6 +93,7 @@
     text-transform: capitalize;
     text-rendering: optimizeLegibility;
     text-wrap: balance;
+    font-weight: 600;
     font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
     color: inherit;
     line-height: 1.1;
@@ -120,6 +126,11 @@
     background-color: color-mix(in srgb, var(--control-color) 6%, transparent);
     border: 1px solid color-mix(in srgb, var(--control-color) 15%, transparent);
     border-radius: var(--radius);
+
+    @media (max-width: 40em) {
+      gap: 0.75rem;
+      padding: 1rem;
+    }
 
     &--icon {
       flex-shrink: 0;
@@ -159,6 +170,7 @@
       text-rendering: optimizeLegibility;
       text-wrap: balance;
       font-weight: 600;
+      font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
     }

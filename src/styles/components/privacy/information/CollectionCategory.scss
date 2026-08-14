@@ -16,6 +16,11 @@
   transition: var(--transition);
   isolation: isolate;
 
+  @media (max-width: 40em) {
+    padding: 1.5rem;
+    border-radius: 1.8rem;
+  }
+
   &::before {
     content: '';
 
@@ -91,19 +96,24 @@
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-md);
       color: inherit;
       line-height: 1.1;
     }
 
     &--badge {
+      flex-shrink: 0;
+
       display: inline-flex;
       align-items: center;
+      justify-content: center;
 
       width: fit-content;
       text-transform: uppercase;
       font-weight: 700;
       font-size: 1.1rem;
+      white-space: nowrap;
       letter-spacing: 0.04em;
       padding: 0.35rem 0.75rem;
       background-color: color-mix(
@@ -112,6 +122,8 @@
         transparent
       );
       color: var(--accent-color);
+      line-height: 1.4;
+      user-select: none;
     }
   }
 
@@ -143,8 +155,8 @@
     &--icon {
       flex-shrink: 0;
 
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 1.6rem;
+      height: 1.6rem;
       color: var(--accent-color);
       stroke: currentColor;
     }

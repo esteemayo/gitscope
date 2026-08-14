@@ -15,6 +15,10 @@
   isolation: isolate;
   transition: border 0.25s ease;
 
+  @media (max-width: 40em) {
+    padding: 1.5rem;
+  }
+
   &::before {
     content: '';
 
@@ -46,10 +50,17 @@
     position: relative;
 
     &--badge {
+      flex-shrink: 0;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
       width: fit-content;
       text-transform: uppercase;
       font-weight: 700;
       font-size: 1.1rem;
+      white-space: nowrap;
       letter-spacing: 0.04em;
       padding: 0.5rem 0.9rem;
       background-color: color-mix(
@@ -59,6 +70,7 @@
       );
       color: var(--color-blue-800);
       border-radius: 100rem;
+      line-height: 1.4;
       user-select: none;
       pointer-events: none;
     }
@@ -68,6 +80,7 @@
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-lg);
       color: inherit;
       line-height: 1.1;
@@ -129,6 +142,7 @@
       text-transform: initial;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-md);
       color: inherit;
       line-height: 1.1;

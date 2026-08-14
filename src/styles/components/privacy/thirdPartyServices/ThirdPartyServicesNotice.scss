@@ -65,7 +65,7 @@
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
 
     min-width: 0;
   }
@@ -90,6 +90,7 @@
       color: var(--accent-color);
       border: 1px solid color-mix(in srgb, var(--accent-color) 12%, transparent);
       border-radius: 100rem;
+      line-height: 1.4;
       user-select: none;
     }
 
@@ -98,6 +99,7 @@
       text-transform: initial;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       color: inherit;
       line-height: 1.1;

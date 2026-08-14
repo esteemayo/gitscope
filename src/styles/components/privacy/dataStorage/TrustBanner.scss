@@ -21,6 +21,10 @@
     flex-direction: column;
   }
 
+  @media (max-width: 40em) {
+    padding: 1.5rem;
+  }
+
   &::before {
     content: '';
 
@@ -45,6 +49,7 @@
   }
 
   &__badge {
+    flex-shrink: 0;
     align-self: start;
 
     display: inline-flex;
@@ -62,6 +67,7 @@
     color: var(--accent-color);
     border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
     border-radius: 100rem;
+    line-height: 1.4;
     user-select: none;
   }
 
@@ -98,13 +104,14 @@
   &__body {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
 
     &--title {
       display: inline-block;
       text-transform: initial;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
+      font-weight: 600;
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       color: inherit;
       line-height: 1.1;
@@ -188,7 +195,7 @@
     text-rendering: optimizeLegibility;
     text-wrap: balance;
     font-weight: 600;
-    font-size: var(--fz-md);
+    font-size: var(--fz-sm);
     color: inherit;
     line-height: 1.1;
   }

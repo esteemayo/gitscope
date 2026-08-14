@@ -21,7 +21,11 @@
   box-shadow: var(--shadow);
   border-radius: 1.8rem;
   isolation: isolate;
-  transition: var(--transition);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 
   @include bp.md {
     padding: 1.5rem;
@@ -142,17 +146,18 @@
       text-transform: initial;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
-      font-weight: 700;
-      font-size: var(--fz-xs);
+      font-weight: 600;
+      font-size: var(--fz-md);
       color: inherit;
       line-height: 1.1;
     }
 
     &--description {
       text-wrap: pretty;
-      font-size: var(--fz-xxs);
+      font-size: var(--fz-xs);
       color: var(--text-muted);
       line-height: 1.75;
+      transition: var(--transition);
     }
   }
 
