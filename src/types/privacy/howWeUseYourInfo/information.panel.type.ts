@@ -1,16 +1,5 @@
-import { LucideIcon } from 'lucide-react';
+import { UsageStepItem } from './index';
 
-export interface InformationPanelProps {
-  id: string;
-  step: number;
-  title: string;
-  description: string;
-  icon: LucideIcon | React.ComponentType;
-  accentColor: string;
-  features: string[];
-  documentation?: {
-    label: string;
-    href: string;
-  };
+export interface InformationPanelProps extends UsageStepItem {
   totalSteps: number;
 }

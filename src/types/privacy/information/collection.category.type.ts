@@ -1,12 +1,6 @@
-import { LucideIcon } from 'lucide-react';
+import { CollectionCategoryItem } from './index';
 
-export interface CollectionCategoryProps {
-  title: string;
-  description: string;
-  icon: LucideIcon | React.ComponentType;
-  accentColor: string;
-  items: string[];
-  optional?: boolean;
+export interface CollectionCategoryProps extends CollectionCategoryItem {
   className?: string;
   style?: React.CSSProperties;
 }

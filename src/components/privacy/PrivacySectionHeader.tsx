@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { PrivacySectionHeaderProps } from '@/data/privacy/privacy.section.header.type';
+import { PrivacySectionHeaderProps } from '@/types/privacy';
 
 import '../../styles/components/privacy/PrivacySectionHeader.scss';
 

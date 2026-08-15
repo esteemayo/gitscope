@@ -1,4 +1,4 @@
-import { PermissionItem } from '../index';
+import { PermissionItem } from './index';
 
 export interface PermissionCardProps extends PermissionItem {
   className?: string;

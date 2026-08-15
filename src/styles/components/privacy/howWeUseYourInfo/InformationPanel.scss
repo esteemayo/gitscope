@@ -66,6 +66,10 @@
     @media (max-width: 40em) {
       padding: 1.5rem;
     }
+
+    @include bp.sm {
+      padding: 1.25rem;
+    }
   }
 
   &__icon {

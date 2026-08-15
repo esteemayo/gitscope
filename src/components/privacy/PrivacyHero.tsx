@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ShieldCheck } from 'lucide-react';
 
-import { PrivacyHeroProps } from '@/types/privacy/privacy.hero.type';
+import { PrivacyHeroProps } from '@/types/privacy/privacyHero/privacy.hero.type';
 import '../../styles/components/privacy/PrivacyHero.scss';
 
 const PrivacyHero = ({

@@ -45,11 +45,11 @@ const SecurityOverview = ({ items, trustItems }: SecurityOverviewProps) => {
           return (
             <div key={id} className='security-overview__trust'>
               <ShieldCheck
-                size={18}
+                size={16}
+                className='security-overview__trust--icon'
                 role='img'
                 aria-hidden='true'
                 focusable='false'
-                className='security-overview__trust--icon'
               />
 
               <span className='security-overview__trust--label'>{label}</span>

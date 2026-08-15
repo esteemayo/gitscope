@@ -1,4 +1,4 @@
-import { CollectionCategoryItem, InformationCollectedStats } from '../index';
+import { CollectionCategoryItem, InformationCollectedStats } from './index';
 
 export interface InformationCollectedProps {
   badge: string;

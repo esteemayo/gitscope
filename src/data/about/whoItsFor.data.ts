@@ -44,7 +44,7 @@ export const audiences: Audience[] = [
     id: 'recruiters',
     title: 'Recruiters',
     description:
-      'Review public GutHub activity with meaningful metrics instead of raw repository lists.',
+      'Review public GitHub activity with meaningful metrics instead of raw repository lists.',
     icon: BriefcaseBusiness,
     benefits: [
       'Developer comparison',

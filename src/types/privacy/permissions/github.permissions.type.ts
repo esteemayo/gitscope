@@ -1,4 +1,4 @@
-import { PermissionItem, PermissionOverviewItem } from '../index';
+import { PermissionItem, PermissionOverviewItem } from './index';
 
 export interface GitHubPermissionsProps {
   badge: string;

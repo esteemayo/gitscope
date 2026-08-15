@@ -1,4 +1,4 @@
-import { PrivacyPrincipleItem } from '../index';
+import { PrivacyPrincipleItem } from './index';
 
 export interface PrivacyPrinciplesProps {
   badge: string;

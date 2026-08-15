@@ -37,7 +37,7 @@ const PrivacySummary = ({
         <div className='privacy-summary__grid'>
           {items.map((item) => (
             <motion.div key={item.id} variants={containerVariants}>
-              <PrivacySummaryCard item={item} />
+              <PrivacySummaryCard {...item} />
             </motion.div>
           ))}
         </div>

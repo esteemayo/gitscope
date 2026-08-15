@@ -1,0 +1,29 @@
+import { LucideIcon } from 'lucide-react';
+
+export interface PrivacyHeroStat {
+  id: number;
+  value: string;
+  label: string;
+}
+
+export interface PrivacyHeroAction {
+  id: string;
+  label: string;
+  href: string;
+  icon: LucideIcon;
+  variant: 'primary' | 'secondary';
+}
+
+export interface PrivacyHeroMetaItem {
+  id: string;
+  label: string;
+  value: string;
+  status?: 'success' | 'info' | 'warning';
+}
+
+export interface PrivacyHeroCard {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  items: PrivacyHeroMetaItem[];
+}

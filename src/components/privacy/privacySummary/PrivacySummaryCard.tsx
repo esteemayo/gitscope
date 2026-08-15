@@ -8,7 +8,11 @@ import { PrivacySummaryCardProps } from '@/types/privacy/privacySummary/privacy.
 import '../../../styles/components/privacy/privacySummary/PrivacySummaryCard.scss';
 
 const PrivacySummaryCard = ({
-  item: { icon: Icon, title, description, accentColor, href },
+  icon: Icon,
+  title,
+  description,
+  accentColor,
+  href,
   className,
   style,
 }: PrivacySummaryCardProps) => {

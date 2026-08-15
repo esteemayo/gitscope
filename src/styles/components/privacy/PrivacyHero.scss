@@ -3,15 +3,13 @@
 @use '../../abstracts/responsive' as bp;
 
 .privacy-hero {
+  width: 100%;
   height: 100%;
   padding: 6rem 8rem;
+  background-color: var(--color-dark-blue);
   position: relative;
   overflow: hidden;
   isolation: isolate;
-
-  // padding-block: clamp(6rem, 10vw, 9rem);
-  background-color: #08111f;
-  background-color: var(--color-black-400);
 
   @media (max-width: 56.25em) {
     padding: 6rem 3.2rem;
@@ -407,10 +405,6 @@
 
       .privacy-hero__stat--value {
         transform: scale(1.08);
-      }
-
-      @media (max-width: 40em) {
-        transform: none;
       }
 
       @media (prefers-reduced-motion: reduce) {

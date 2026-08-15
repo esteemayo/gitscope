@@ -1,7 +1,6 @@
-import { PrivacySummaryItem } from '../index';
+import { PrivacySummaryItem } from './index';
 
-export interface PrivacySummaryCardProps {
-  item: PrivacySummaryItem;
+export interface PrivacySummaryCardProps extends PrivacySummaryItem {
   className?: string;
   style?: React.CSSProperties;
 }

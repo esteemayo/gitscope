@@ -56,7 +56,7 @@ const SecurityOutcome = ({
           return (
             <li key={id} className='security-outcome__item'>
               <CheckCircle
-                size={18}
+                size={16}
                 className='security-outcome__item--icon'
                 role='img'
                 aria-hidden='true'

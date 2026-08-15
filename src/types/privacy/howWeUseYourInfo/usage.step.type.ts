@@ -1,4 +1,4 @@
-import { UsageStepItem } from '../index';
+import { UsageStepItem } from './index';
 
 export interface UsageStepProps extends UsageStepItem {
   active: boolean;
