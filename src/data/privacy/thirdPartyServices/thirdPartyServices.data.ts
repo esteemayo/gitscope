@@ -1,8 +1,18 @@
-import { BarChart3, CheckCircle2, Database, LockKeyhole, Server, ShieldCheck } from 'lucide-react';
+import {
+  BarChart3,
+  CheckCircle2,
+  Database,
+  LockKeyhole,
+  Server,
+  ShieldCheck,
+} from 'lucide-react';
 
 import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
-import { ThirdPartyDataFlow, ThirdPartyService } from '@/types/privacy/thirdPartyServices';
-import { ThirdPartyServicesNoticeProps } from '@/types/privacy/thirdPartyServices/third.party.services.notice.type';
+import {
+  ThirdPartyDataFlow,
+  ThirdPartyNoticeData,
+  ThirdPartyService,
+} from '@/types/privacy/thirdPartyServices';
 
 export const thirdPartyServices: ThirdPartyService[] = [
   {
@@ -89,7 +99,7 @@ export const thirdPartyDataFlow: ThirdPartyDataFlow = {
   ],
 };
 
-export const thirdPartyServicesNotice: ThirdPartyServicesNoticeProps = {
+export const thirdPartyServicesNotice: ThirdPartyNoticeData = {
   badge: 'Your Data Stays Controlled',
   title: 'Third-party Access Is Limited.',
   description:

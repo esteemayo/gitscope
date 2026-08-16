@@ -58,5 +58,6 @@
     font-size: var(--fz-xs);
     color: var(--text-muted);
     line-height: 1.9;
+    transition: color 0.25s ease;
   }
 }

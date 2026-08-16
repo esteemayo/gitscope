@@ -1,14 +1,18 @@
 'use client';
 
-import { ChevronDown } from 'lucide-react';
+import { useId, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { useId, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
+import { useClickOutside } from '@/hooks/useClickOutside';
 import { PrivacyFAQItemProps } from '@/types/privacy/privacyPolicy/privacy.faq.item.type';
+
 import '../../../styles/components/privacy/privacyFAQ/PrivacyFAQItem.scss';
 
 const PrivacyFAQItem = ({ question, answer }: PrivacyFAQItemProps) => {
+  const ref = useRef<HTMLElement | null>(null);
+
   const [isOpen, setIsOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
@@ -18,8 +22,11 @@ const PrivacyFAQItem = ({ question, answer }: PrivacyFAQItemProps) => {
 
   const answerId = `faq-answer-${generatedId}`;
 
+  useClickOutside(ref, isOpen, () => setIsOpen(false));
+
   return (
     <article
+      ref={ref}
       className={clsx('privacy-faq-item', {
         'privacy-faq-item--open': isOpen,
       })}
