@@ -1,0 +1,102 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.terms-summary-card {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  min-height: 25rem;
+  padding: 1.5rem;
+  background-image: linear-gradient(
+    color-mix(in srgb, var(--accent-color) 4%, transparent),
+    color-mix(in srgb, var(--color-blue-800) 2.5%, transparent)
+  );
+  border: 1px solid color-mix(in srgb, var(--accent-color) 14%, transparent);
+  border-radius: 1.8rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-image 0.25s ease;
+
+  @media (max-width: 40em) {
+    min-height: 22rem;
+  }
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    border-color: color-mix(in srgb, var(--accent-color) 25%, transparent);
+    background-image: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--accent-color) 7%, transparent),
+      color-mix(in srgb, var(--color-blue-800) 3%, transparent)
+    );
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 2rem;
+
+    &--icon {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 4.4rem;
+      height: 4.4rem;
+      background-image: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--accent-color) 10%, transparent),
+        color-mix(in srgb, var(--accent-color) 70%, transparent)
+      );
+      color: var(--accent-color);
+      border: 1px solidcolor-mix(in srgb, var(--accent-color) 18%, transparent);
+      border-radius: var(--radius);
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+        color: currentColor;
+      }
+    }
+
+    &--number {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: var(--fz-xs);
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum';
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      transition: var(--transition);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    margin-top: auto;
+    z-index: 1000;
+
+    &--title {
+    }
+
+    &--description {
+    }
+  }
+
+  &__accent {
+  }
+}

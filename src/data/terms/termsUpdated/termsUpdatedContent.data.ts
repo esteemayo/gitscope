@@ -2,9 +2,7 @@ import { TermsUpdatedContent } from '@/types/terms/termsUpdated';
 
 export const termsUpdatedContent: TermsUpdatedContent = {
   badge: 'Document Status',
-  title: 'Terms of Services.',
+  title: 'Terms of Services Updates.',
   description:
-    "The latest version of GitScope's Terms of Service. Review the information below before using the platform.",
-  changeLogLabel: 'View change log',
-  changeLogHref: '#terms-changelog',
+    'Review the current version of the GitScope Terms of Service, including when the document was updated and how long it takes to read.',
 };

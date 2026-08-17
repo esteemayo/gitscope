@@ -1,14 +1,15 @@
 import { LucideIcon } from 'lucide-react';
 
-export interface TermsUpdatedContent {
+export interface TermsSummaryContent {
   badge: string;
   title: string;
   description: string;
 }
 
-export interface TermsUpdatedItemData {
-  label: string;
-  value: string;
+export interface TermsSummaryCardData {
+  id: string;
+  title: string;
+  description: string;
   icon: LucideIcon | React.ComponentType;
   accentColor: string;
 }

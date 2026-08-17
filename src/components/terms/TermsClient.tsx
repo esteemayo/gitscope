@@ -1,5 +1,6 @@
 'use client';
 
+import TermsSummary from './summary/TermsSummary';
 import TermsHero from './hero/TermsHero';
 import TermsUpdated from './termsUpdated/TermsUpdated';
 
@@ -12,6 +13,8 @@ const TermsClient = () => {
       <TermsHero {...termsPageData.hero} />
 
       <TermsUpdated {...termsPageData.termsUpdated} />
+
+      <TermsSummary {...termsPageData.summary} />
     </main>
   );
 };

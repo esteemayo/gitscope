@@ -2,7 +2,7 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.term-updated {
+.terms-summary {
   padding: 8rem;
 
   @media (max-width: 56.25em) {
@@ -30,16 +30,20 @@
     gap: clamp(3rem, 5vw, 4rem);
 
     width: 100%;
-    max-width: 80rem;
+    max-width: 100rem;
     margin-inline: auto;
   }
 
-  &__body {
+  &__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(min-content, 1fr));
     gap: 1rem;
 
-    @include bp.md {
+    @media (max-width: 59.375em) {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
+    @media (max-width: 40em) {
       grid-template-columns: 1fr;
     }
   }

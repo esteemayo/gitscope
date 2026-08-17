@@ -1,8 +1,10 @@
 'use client';
 
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
+import clsx from 'clsx';
+import { CalendarDays } from 'lucide-react';
 
+import TermsUpdatedItem from './TermsUpdatedItem';
 import TermsSectionHeader from '../TermsSectionHeader';
 
 import { containerVariants } from '@/animations/page';
@@ -14,8 +16,6 @@ const TermsUpdated = ({
   badge,
   title,
   description,
-  changeLogLabel,
-  changeLogHref,
   items,
   className,
   style,
@@ -36,8 +36,17 @@ const TermsUpdated = ({
           badge={badge}
           title={title}
           description={description}
+          icon={CalendarDays}
           variants={containerVariants}
         />
+
+        <div className='term-updated__body'>
+          {items.map((item) => (
+            <motion.div key={item.label} variants={containerVariants}>
+              <TermsUpdatedItem {...item} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.section>
   );

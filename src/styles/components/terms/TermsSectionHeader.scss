@@ -5,17 +5,33 @@
 .terms-section-header {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1.5rem;
 
   max-width: 76rem;
-  margin-inline: auto;
-  text-align: center;
 
-  &--badge {
+  &--left {
+    align-items: flex-start;
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  &--center {
+    align-items: center;
+    margin-inline: auto;
+    text-align: center;
+
+    .terms-section-header__description {
+      text-align: center;
+    }
+  }
+
+  &__badge {
+    flex-shrink: 0;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
 
     width: fit-content;
     text-transform: uppercase;
@@ -30,9 +46,22 @@
     user-select: none;
     pointer-events: none;
     transition: var(--transition);
+
+    &--icon {
+      width: 1.4rem;
+      height: 1.4rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
+    &--text {
+      font-weight: inherit;
+      font-size: inherit;
+      color: currentColor;
+    }
   }
 
-  &--title {
+  &__title {
     display: inline-block;
     text-transform: initial;
     text-rendering: optimizeLegibility;
@@ -43,7 +72,7 @@
     line-height: 1.1;
   }
 
-  &--description {
+  &__description {
     max-width: 68rem;
     text-wrap: pretty;
     font-size: var(--fz-xs);
