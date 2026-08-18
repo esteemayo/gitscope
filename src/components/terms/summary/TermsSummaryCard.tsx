@@ -27,7 +27,7 @@ const TermsSummaryCard = ({
       <header className='terms-summary-card__header'>
         <div className='terms-summary-card__header--icon'>
           <Icon
-            size={20}
+            size={24}
             strokeWidth={1.8}
             role='img'
             aria-hidden='true'

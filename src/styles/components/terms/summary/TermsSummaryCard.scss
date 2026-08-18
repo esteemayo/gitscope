@@ -9,11 +9,8 @@
   position: relative;
   min-height: 25rem;
   padding: 1.5rem;
-  background-image: linear-gradient(
-    color-mix(in srgb, var(--accent-color) 4%, transparent),
-    color-mix(in srgb, var(--color-blue-800) 2.5%, transparent)
-  );
-  border: 1px solid color-mix(in srgb, var(--accent-color) 14%, transparent);
+  background-color: var(--bg-tertiary);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
   border-radius: 1.8rem;
   overflow: hidden;
   isolation: isolate;
@@ -26,14 +23,25 @@
     min-height: 22rem;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
   &:hover {
     transform: translateY(-0.5rem);
     border-color: color-mix(in srgb, var(--accent-color) 25%, transparent);
-    background-image: linear-gradient(
-      145deg,
-      color-mix(in srgb, var(--accent-color) 7%, transparent),
-      color-mix(in srgb, var(--color-blue-800) 3%, transparent)
-    );
+
+    .terms-summary-card__header {
+      &--icon {
+        transform: translateY(-2px);
+        border-color: color-mix(in srgb, var(--accent-color) 30%, transparent);
+      }
+    }
+
+    .terms-summary-card__accent {
+      transform: scaleX(1);
+      opacity: 1;
+    }
   }
 
   &__header {
@@ -49,23 +57,32 @@
       display: grid;
       place-items: center;
 
-      width: 4.4rem;
-      height: 4.4rem;
-      background-image: linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--accent-color) 10%, transparent),
-        color-mix(in srgb, var(--accent-color) 70%, transparent)
+      width: 6.4rem;
+      height: 6.4rem;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 12%,
+        transparent
       );
       color: var(--accent-color);
-      border: 1px solidcolor-mix(in srgb, var(--accent-color) 18%, transparent);
-      border-radius: var(--radius);
+      border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+      border-radius: 1.8rem;
       transition:
         transform 0.25s ease,
         border-color 0.25s ease;
 
+      @include bp.md {
+        width: 6rem;
+        height: 6rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+
       svg {
-        width: 2rem;
-        height: 2rem;
+        width: 2.4rem;
+        height: 2.4rem;
         color: currentColor;
       }
     }
@@ -85,18 +102,49 @@
   &__content {
     display: flex;
     flex-direction: column;
+    gap: 0.35rem;
 
     position: relative;
     margin-top: auto;
     z-index: 1000;
 
     &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
     }
 
     &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.75;
+      transition: color 0.25s ease;
     }
   }
 
   &__accent {
+    position: absolute;
+    right: -3.5rem;
+    bottom: -3.5rem;
+
+    width: 8rem;
+    height: 8rem;
+    background-color: var(--accent-color);
+    filter: blur(5rem);
+    opacity: 0.08;
+    transform: scaleX(0.6);
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 }

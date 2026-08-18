@@ -1,0 +1,227 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.terms-acceptance {
+  padding: 8rem;
+
+  @media (max-width: 56.25em) {
+    padding: 8rem 3.2rem;
+  }
+
+  @include bp.md {
+    padding: 5rem 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 5rem 1.6rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    & > * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 5vw, 4rem);
+
+    width: 100%;
+    max-width: 100rem;
+    margin-inline: auto;
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: minmax(min-content, 1.05fr) minmax(36rem, 0.9fr);
+    gap: 1rem;
+
+    @media (max-width: 53.125em) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  &__intro,
+  &__agreement {
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800) 2.5%,
+      transparent
+    );
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  &__intro {
+    grid-row: span 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width: 53.125em) {
+      grid-row: auto;
+    }
+
+    @media (max-width: 37.5em) {
+      padding: 1.5rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      background-image: radial-gradient(
+        circle at top right,
+        color-mix(in srgb, var(--color-blue-800) 8%, transparent),
+        transparent 70%
+      );
+
+      pointer-events: none;
+    }
+
+    &--label {
+      display: inline-flex;
+      align-items: center;
+
+      width: fit-content;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+      font-size: var(--fz-xxs);
+      color: inherit;
+
+      &::before {
+        content: '';
+
+        width: 1.2rem;
+        height: 1.2rem;
+        background-color: var(--color-blue-800);
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+    }
+
+    &--description {
+      max-width: 65rem;
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.9;
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__agreement {
+    display: flex;
+    gap: 1rem;
+
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width: 37.5em) {
+      padding: 1.25rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: -7rem;
+      right: -4rem;
+
+      width: 12rem;
+      height: 12rem;
+      background-color: var(--agreement-accent);
+      opacity: 0.07;
+      filter: blur(2.5rem);
+    }
+  }
+
+  &__agreement-icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 4rem;
+    height: 4rem;
+    background-color: color-mix(
+      in srgb,
+      var(--agreement-accent) 12%,
+      transparent
+    );
+    color: var(--agreement-accent);
+    border: 1px solid
+      color-mix(in srgb, var(--agreement-accent) 18%, transparent);
+    border-radius: var(--radius);
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__agreement-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.7;
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__points {
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    overflow: hidden;
+    transition: border-color 0.25s ease;
+  }
+}

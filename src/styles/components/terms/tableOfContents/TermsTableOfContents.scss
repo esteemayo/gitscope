@@ -1,0 +1,62 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.terms-table-of-contents {
+  padding: 8rem;
+
+  @media (max-width: 56.25em) {
+    padding: 8rem 3.2rem;
+  }
+
+  @include bp.md {
+    padding: 5rem 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 5rem 1.6rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    & > * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 5vw, 4rem);
+
+    width: 100%;
+    max-width: 100rem;
+    margin-inline: auto;
+  }
+
+  &__navigation {
+    position: relative;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    gap: 0;
+
+    list-style: none;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    transition: border-color 0.25s ease;
+
+    @media (max-width: 53.125em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    min-width: 0;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.25s ease;
+  }
+}

@@ -15,6 +15,7 @@ const TermsSummary = ({
   badge,
   title,
   description,
+  headerIcon,
   cards,
   className,
   style,
@@ -27,7 +28,7 @@ const TermsSummary = ({
       viewport={{ once: true }}
       className={clsx('terms-summary', className)}
       style={style}
-      aria-describedby='term-summary-title'
+      aria-labelledby='term-summary-title'
     >
       <div className='terms-summary__container'>
         <TermsSectionHeader
@@ -35,6 +36,7 @@ const TermsSummary = ({
           badge={badge}
           title={title}
           description={description}
+          icon={headerIcon}
           variants={containerVariants}
         />
 
