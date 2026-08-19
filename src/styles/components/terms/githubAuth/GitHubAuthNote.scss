@@ -2,36 +2,15 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.terms-acceptance-point {
+.github-auth-note {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
 
-  padding: 1.2rem 1.4rem;
-  background-color: var(--bg-tertiary);
-  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
-  transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
-
-  @media (max-width: 37.5em) {
-    padding: 1rem;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
-
-  &:nth-child(3) {
-    border-bottom: none;
-  }
-
-  &:hover {
-    background-color: color-mix(in srgb, var(--accent-color) 3%, transparent);
-  }
+  padding: 1.25rem;
+  background-color: color-mix(in srgb, var(--accent-color) 2.5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+  border-radius: 1.8rem;
 
   &__icon {
     flex-shrink: 0;
@@ -56,18 +35,8 @@
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
 
     min-width: 0;
-
-    &--count {
-      display: block;
-      font-family: var(--font-mono);
-      font-weight: 600;
-      font-size: var(--fz-xs);
-      color: color-mix(in srgb, var(--text-muted) 75%, transparent);
-      transition: color 0.25s ease;
-    }
 
     &--title {
       display: inline-block;
@@ -84,6 +53,7 @@
       text-wrap: pretty;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
+      line-height: 1.7;
       transition: color 0.25s ease;
     }
   }

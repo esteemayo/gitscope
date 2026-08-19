@@ -4,7 +4,7 @@ import { TermsAcceptancePointData } from '@/types/terms/acceptance';
 export const termsAcceptancePoints: TermsAcceptancePointData[] = [
   {
     id: 'read',
-    title: 'Read before using',
+    title: 'Read Before Using',
     description:
       'Review these Terms and our Privacy Policy before using GitScope.',
     icon: Info,
@@ -13,7 +13,7 @@ export const termsAcceptancePoints: TermsAcceptancePointData[] = [
 
   {
     id: 'agreement',
-    title: 'Using GitScope means agreement',
+    title: 'Using GitScope Means Agreement',
     description:
       'Accessing or using the service indicates your acceptance of these Terms.',
     icon: CheckCircle2,
@@ -22,7 +22,7 @@ export const termsAcceptancePoints: TermsAcceptancePointData[] = [
 
   {
     id: 'legal',
-    title: 'The Terms apply to your use',
+    title: 'The Terms Apply to Your Use',
     description:
       'These conditions govern your relationship with GitScope while you use the platform.',
     icon: Scale,

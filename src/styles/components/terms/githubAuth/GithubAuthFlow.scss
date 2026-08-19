@@ -1,0 +1,53 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.github-auth-flow {
+  &__header {
+  }
+
+  &__eyebrow {
+    flex-shrink: 0;
+  }
+
+  &__title {
+  }
+
+  &__description {
+  }
+
+  &__steps {
+  }
+
+  &__step {
+  }
+
+  &__step-marker {
+  }
+
+  &__step-icon {
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__step-content {
+    &--title {
+    }
+
+    &--description {
+    }
+  }
+
+  &__connector {
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+}

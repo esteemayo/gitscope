@@ -25,7 +25,13 @@ const TermsAcceptancePoint = ({
       }
     >
       <div className='terms-acceptance-point__icon'>
-        <Icon size={18} strokeWidth={1.8} aria-hidden='true' />
+        <Icon
+          size={18}
+          strokeWidth={1.8}
+          role='img'
+          aria-hidden='true'
+          focusable='false'
+        />
       </div>
 
       <div className='terms-acceptance-point__content'>

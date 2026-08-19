@@ -1,0 +1,62 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.github-auth-notes {
+  padding: 2rem;
+  background-color: color-mix(in srgb, var(--color-blue-800) 2%, transparent);
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  @media (max-width: 40em) {
+    border-radius: 1.8rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    max-width: 70rem;
+    margin-bottom: 1.5rem;
+
+    &--eyebrow {
+      flex-shrink: 0;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: fit-content;
+    }
+
+    &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.7;
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    gap: 0.75rem;
+  }
+}
