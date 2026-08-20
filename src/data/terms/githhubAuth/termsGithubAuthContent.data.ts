@@ -3,7 +3,7 @@ import { GithubAuthContent } from '@/types/terms/githubAuth';
 
 export const termsGitHubAuthenticationContent: GithubAuthContent = {
   badge: '03 · Authentication',
-  title: 'GitHub Authentication',
+  title: 'GitHub Authentication.',
   description:
     'GitScope uses GitHub authentication to securely connect your account and retrieve the GitHub data required to provide analytics.',
   headerIcon: GitHubLogoIcon,

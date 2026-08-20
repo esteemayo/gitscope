@@ -13,7 +13,7 @@ const GitHubAuthNotes = ({
   return (
     <div className='github-auth-notes'>
       <header className='github-auth-notes__header'>
-        <span className='github-auth-notes__header--eyebrow'>
+        <span className='github-auth-notes__header--label'>
           Access & security
         </span>
 

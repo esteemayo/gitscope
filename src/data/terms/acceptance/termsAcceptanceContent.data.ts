@@ -13,4 +13,5 @@ export const termsAcceptanceContent: TermsAcceptanceContent = {
   agreementDescription:
     'By accessing or using GitScope, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree with these Terms, you should not use the platform.',
   agreementAccentColor: '#A78BFA',
+  accentColor: '#4F46E5',
 };

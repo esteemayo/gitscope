@@ -1,12 +1,13 @@
 'use client';
 
-import TermsAcceptance from './acceptance/TermsAcceptance';
-import TermsHero from './hero/TermsHero';
 import TermsEligibility from './eligibility/TermsEligibility';
+import TermsHero from './hero/TermsHero';
 import TermsSummary from './summary/TermsSummary';
 import TermsTableOfContents from './tableOfContents/TermsTableOfContents';
 import TermsUpdated from './termsUpdated/TermsUpdated';
 import TermsGithubAuthentication from './githubAuth/TermsGithubAuthentication';
+import TermsAcceptance from './acceptance/TermsAcceptance';
+import TermsUserResponsibilities from './userResponsibilities/TermsUserResponsibilities';
 
 import { termsPageData } from '@/data/terms/termsPageData.data';
 import '../../styles/components/terms/TermsClient.scss';
@@ -27,6 +28,8 @@ const TermsClient = () => {
       <TermsEligibility {...termsPageData.eligibility} />
 
       <TermsGithubAuthentication {...termsPageData.githubAuthentication} />
+
+      <TermsUserResponsibilities {...termsPageData.userResponsibilities} />
     </main>
   );
 };

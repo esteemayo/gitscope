@@ -65,7 +65,7 @@
       font-family: var(--font-mono);
       font-weight: 600;
       font-size: var(--fz-xs);
-      color: color-mix(in srgb, var(--text-muted) 75%, transparent);
+      color: color-mix(in srgb, var(--accent-color) 75%, transparent);
       transition: color 0.25s ease;
     }
 

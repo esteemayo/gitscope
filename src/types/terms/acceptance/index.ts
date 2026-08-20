@@ -9,6 +9,7 @@ export interface TermsAcceptanceContent {
   agreementTitle: string;
   agreementDescription: string;
   agreementAccentColor: string;
+  accentColor: string;
 }
 
 export interface TermsAcceptancePointData {

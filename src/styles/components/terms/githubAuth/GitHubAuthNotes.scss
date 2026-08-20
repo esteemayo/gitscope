@@ -4,7 +4,6 @@
 
 .github-auth-notes {
   padding: 2rem;
-  background-color: color-mix(in srgb, var(--color-blue-800) 2%, transparent);
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border);
   border-radius: 2rem;
@@ -12,31 +11,30 @@
     background-color 0.25s ease,
     border-color 0.25s ease;
 
-  @media (max-width: 40em) {
+  @media (max-width: 40.625em) {
+    padding: 1.4rem;
     border-radius: 1.8rem;
   }
 
   &__header {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
 
     max-width: 70rem;
     margin-bottom: 1.5rem;
 
-    &--eyebrow {
-      flex-shrink: 0;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      width: fit-content;
+    &--label {
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: color-mix(in srgb, var(--accent-color) 85%, transparent);
     }
 
     &--title {
       display: inline-block;
-      text-transform: initial;
+      text-transform: capitalize;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
       font-weight: 600;
@@ -50,6 +48,7 @@
       font-size: var(--fz-xs);
       color: var(--text-muted);
       line-height: 1.7;
+      margin-top: 0.5rem;
       transition: color 0.25s ease;
     }
   }
@@ -58,5 +57,9 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(min-content, 1fr));
     gap: 0.75rem;
+
+    @media (max-width: 40.625em) {
+      grid-template-columns: 1fr;
+    }
   }
 }

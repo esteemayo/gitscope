@@ -21,18 +21,25 @@ const TermsAcceptance = ({
   agreementTitle,
   agreementDescription,
   agreementAccentColor,
+  accentColor,
   points,
   className,
   style,
 }: TermsAcceptanceProps) => {
   return (
     <motion.section
+      id='acceptance-of-terms'
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
       viewport={{ once: true }}
       className={clsx('terms-acceptance', className)}
-      style={style}
+      style={
+        {
+          '--accent-color': accentColor,
+          ...style,
+        } as React.CSSProperties
+      }
       aria-labelledby='terms-acceptance-title'
     >
       <div className='terms-acceptance__container'>

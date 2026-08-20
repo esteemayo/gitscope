@@ -47,11 +47,11 @@
     pointer-events: none;
     transition: var(--transition);
 
-    &--icon {
+    &--icon,
+    svg {
       width: 1.4rem;
       height: 1.4rem;
       color: currentColor;
-      stroke: currentColor;
     }
 
     &--text {

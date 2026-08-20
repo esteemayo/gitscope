@@ -24,6 +24,7 @@ const TermsEligibility = ({
 }: TermsEligibilityProps) => {
   return (
     <motion.section
+      id='eligibility'
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'

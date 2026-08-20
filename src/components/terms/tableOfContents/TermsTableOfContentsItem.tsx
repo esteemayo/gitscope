@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import clsx from 'clsx';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -17,7 +16,7 @@ const TermsTableOfContentItem = ({
   style,
 }: TermsTableOfContentsItemProps) => {
   return (
-    <Link
+    <a
       href={`#${id}`}
       className={clsx('terms-table-of-contents-item', className)}
       style={style}
@@ -47,9 +46,15 @@ const TermsTableOfContentItem = ({
       </div>
 
       <span className='terms-table-of-contents-item__arrow'>
-        <ArrowUpRight size={17} strokeWidth={1.8} aria-hidden='true' />
+        <ArrowUpRight
+          size={17}
+          strokeWidth={1.8}
+          role='img'
+          aria-hidden='true'
+          focusable='false'
+        />
       </span>
-    </Link>
+    </a>
   );
 };
 

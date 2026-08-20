@@ -16,15 +16,17 @@ const GithubAuthFlow = ({
 }: GithubAuthFlowProps) => {
   return (
     <div className='github-auth-flow'>
-      <div className='github-auth-flow__header'>
-        <div>
-          <span className='github-auth-flow__eyebrow'>Authentication flow</span>
+      <header className='github-auth-flow__header'>
+        <div className='github-auth-flow__wrapper'>
+          <span className='github-auth-flow__wrapper--label'>
+            Authentication flow
+          </span>
 
-          <h3 className='github-auth-flow__title'>{title}</h3>
+          <h3 className='github-auth-flow__wrapper--title'>{title}</h3>
         </div>
 
         <p className='github-auth-flow__description'>{description}</p>
-      </div>
+      </header>
 
       <ol className='github-auth-flow__steps'>
         {steps.map((step, index) => {
@@ -44,7 +46,7 @@ const GithubAuthFlow = ({
               className={clsx('github-auth-flow__step', className)}
               style={
                 {
-                  '--step-accent': accentColor,
+                  '--accent-color': accentColor,
                   ...style,
                 } as React.CSSProperties
               }

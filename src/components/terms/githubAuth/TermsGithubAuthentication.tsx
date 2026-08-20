@@ -30,6 +30,7 @@ const TermsGithubAuthentication = ({
 }: TermsGithubAuthenticationProps) => {
   return (
     <motion.section
+      id='github-authentication'
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
@@ -53,17 +54,21 @@ const TermsGithubAuthentication = ({
           variants={containerVariants}
         />
 
-        <div className='terms-github-auth__body'>
+        <div className='terms-github-authentication__body'>
           <motion.div
-            className='terms-github-auth__intro'
+            className='terms-github-authentication__intro'
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span>Authentication</span>
+            <span className='terms-github-authentication__intro--label'>
+              Authentication
+            </span>
 
-            <p>{intro}</p>
+            <p className='terms-github-authentication__intro--description'>
+              {intro}
+            </p>
           </motion.div>
 
           <GithubAuthFlow
