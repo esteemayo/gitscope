@@ -42,9 +42,7 @@ const TermsSummary = ({
 
         <div className='terms-summary__grid'>
           {cards.map((card, index) => (
-            <motion.div key={card.id} variants={containerVariants}>
-              <TermsSummaryCard {...card} count={index + 1} />
-            </motion.div>
+            <TermsSummaryCard key={card.id} {...card} index={index} />
           ))}
         </div>
       </div>

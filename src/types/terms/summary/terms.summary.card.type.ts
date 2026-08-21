@@ -1,7 +1,7 @@
 import { TermsSummaryCardData } from './index';
 
 export interface TermsSummaryCardProps extends TermsSummaryCardData {
-  count: number;
+  index: number;
   className?: string;
   style?: React.CSSProperties;
 }

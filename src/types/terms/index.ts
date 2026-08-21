@@ -1,5 +1,5 @@
 import { Variants } from 'framer-motion';
-import { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 export interface TermsSectionHeaderProps {
   id: string;

@@ -1,6 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 
-export interface UserResponsibilityContent {
+export interface AcceptableUseContent {
   badge: string;
   title: string;
   description: string;
@@ -9,7 +9,7 @@ export interface UserResponsibilityContent {
   accentColor?: string;
 }
 
-export interface UserResponsibilityItemType {
+export interface AcceptableUseItemType {
   id: string;
   title: string;
   description: string;
@@ -17,7 +17,16 @@ export interface UserResponsibilityItemType {
   accentColor: string;
 }
 
-export interface UserResponsibilityNoticeType {
+export interface AcceptableUseGroupType {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  items: AcceptableUseItemType[];
+  accentColor: string;
+}
+
+export interface AcceptableUseNoticeType {
   title: string;
   description: string;
   icon: LucideIcon | React.ComponentType;

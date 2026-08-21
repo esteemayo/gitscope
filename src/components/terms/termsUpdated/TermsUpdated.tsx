@@ -41,10 +41,8 @@ const TermsUpdated = ({
         />
 
         <div className='term-updated__body'>
-          {items.map((item) => (
-            <motion.div key={item.label} variants={containerVariants}>
-              <TermsUpdatedItem {...item} />
-            </motion.div>
+          {items.map((item, index) => (
+            <TermsUpdatedItem key={item.label} {...item} index={index} />
           ))}
         </div>
       </div>

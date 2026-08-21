@@ -59,8 +59,9 @@
     font-size: 1.25rem;
     font-variant-numeric: tabular-nums;
     font-feature-settings: 'tnum';
-    color: var(--text-muted);
+    color: color-mix(in srgb, var(--text-muted) 75%, transparent);
     letter-spacing: 0.04em;
+    transition: color 0.25s ease;
   }
 
   &__icon {
@@ -130,7 +131,7 @@
   &__arrow {
     justify-self: end;
 
-    color: color-mix(in srgb, var(--text-muted) 70%, transparent);
+    color: color-mix(in srgb, var(--text-muted) 75%, transparent);
     transition:
       color 0.25s ease,
       transform 0.25s ease;

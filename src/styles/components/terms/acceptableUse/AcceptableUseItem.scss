@@ -2,24 +2,19 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.user-responsibility-item {
+.acceptable-use-item {
   display: flex;
   flex-direction: column;
 
-  min-height: 22.5rem;
+  min-height: 21.5rem;
   padding: 1.4rem;
   background-color: color-mix(in srgb, var(--accent-color) 2.5%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
-  border-radius: 1.8rem;
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+  transition: background-color 0.25s ease;
 
-  @media (max-width: 59.375em) {
+  @media (max-width: 40.625em) {
     min-height: auto;
     padding: 1.25rem;
   }
@@ -32,8 +27,8 @@
     content: '';
 
     position: absolute;
-    right: -6rem;
-    bottom: -6rem;
+    right: -5.5rem;
+    bottom: -5.5rem;
 
     width: 11rem;
     height: 11rem;
@@ -45,16 +40,14 @@
   }
 
   &:hover {
-    transform: translateY(-3px) !important;
     background-color: color-mix(in srgb, var(--accent-color) 5%, transparent);
-    border-color: color-mix(in srgb, var(--accent-color) 28%, transparent);
 
     @media (prefers-reduced-motion: reduce) {
       transform: none;
     }
   }
 
-  &__top {
+  &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -62,35 +55,40 @@
     margin-bottom: 2rem;
     position: relative;
     z-index: 1000;
-  }
 
-  &__number {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-size: var(--fz-xs);
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: 'tnum';
-    color: color-mix(in srgb, var(--accent-color) 75%, transparent);
-    letter-spacing: 0.04em;
-  }
+    &--number {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: var(--fz-xs);
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum';
+      color: color-mix(in srgb, var(--accent-color) 75%, transparent);
+      letter-spacing: 0.04em;
+    }
 
-  &__icon {
-    flex-shrink: 0;
+    &--icon {
+      flex-shrink: 0;
 
-    display: grid;
-    place-items: center;
+      display: grid;
+      place-items: center;
 
-    width: 4rem;
-    height: 4rem;
-    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
-    color: var(--accent-color);
-    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
-    border-radius: var(--radius);
+      width: 4rem;
+      height: 4rem;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 12%,
+        transparent
+      );
+      color: var(--accent-color);
+      border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+      border-radius: var(--radius);
 
-    svg {
-      width: 1.8rem;
-      height: 1.8rem;
-      color: currentColor;
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
     }
   }
 

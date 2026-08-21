@@ -3,10 +3,10 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import { TermsSummaryCardProps } from '@/types/terms/summary/terms.summary.card.type';
-import '../../../styles/components/terms/summary/TermsSummaryCard.scss';
+import { AcceptableUseItemProps } from '@/types/terms/acceptableUse/acceptable.use.item.type';
+import '../../../styles/components/terms/acceptableUse/AcceptableUseItem.scss';
 
-const TermsSummaryCard = ({
+const AcceptableUseItem = ({
   title,
   description,
   icon: Icon,
@@ -14,7 +14,7 @@ const TermsSummaryCard = ({
   index,
   className,
   style,
-}: TermsSummaryCardProps) => {
+}: AcceptableUseItemProps) => {
   return (
     <motion.article
       initial={{ opacity: 0, y: 18 }}
@@ -25,7 +25,7 @@ const TermsSummaryCard = ({
         delay: index * 0.05,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={clsx('terms-summary-card', className)}
+      className={clsx('acceptable-use-item', className)}
       style={
         {
           '--accent-color': accentColor,
@@ -33,33 +33,31 @@ const TermsSummaryCard = ({
         } as React.CSSProperties
       }
     >
-      <header className='terms-summary-card__header'>
-        <div className='terms-summary-card__header--icon'>
+      <header className='acceptable-use-item__header'>
+        <span className='acceptable-use-item__header--number'>
+          {String(index + 1).padStart(2, '0')}
+        </span>
+
+        <div className='acceptable-use-item__header--icon'>
           <Icon
-            size={20}
+            size={18}
             strokeWidth={1.8}
             role='img'
             aria-hidden='true'
             focusable='false'
           />
         </div>
-
-        <span className='terms-summary-card__header--number'>
-          {String(index + 1).padStart(2, '0')}
-        </span>
       </header>
 
-      <div className='terms-summary-card__content'>
-        <h3 className='terms-summary-card__content--title'>{title}</h3>
+      <div className='acceptable-use-item__content'>
+        <h3 className='acceptable-use-item__content--title'>{title}</h3>
 
-        <p className='terms-summary-card__content--description'>
+        <p className='acceptable-use-item__content--description'>
           {description}
         </p>
       </div>
-
-      <div className='terms-summary-card__accent' />
     </motion.article>
   );
 };
 
-export default TermsSummaryCard;
+export default AcceptableUseItem;

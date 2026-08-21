@@ -64,8 +64,10 @@
       font-family: var(--font-mono);
       font-weight: 600;
       font-size: var(--fz-xs);
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum';
       color: color-mix(in srgb, var(--accent-color) 75%, transparent);
-      transition: color 0.25s ease;
+      letter-spacing: 0.04em;
     }
 
     &--icon {

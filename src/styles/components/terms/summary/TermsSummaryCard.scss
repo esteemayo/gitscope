@@ -7,7 +7,7 @@
   flex-direction: column;
 
   position: relative;
-  min-height: 25rem;
+  min-height: 22.5rem;
   padding: 1.5rem;
   background-color: var(--bg-tertiary);
   border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
@@ -20,7 +20,7 @@
     background-image 0.25s ease;
 
   @media (max-width: 40em) {
-    min-height: 22rem;
+    min-height: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -57,8 +57,8 @@
       display: grid;
       place-items: center;
 
-      width: 6.4rem;
-      height: 6.4rem;
+      width: 4.4rem;
+      height: 4.4rem;
       background-color: color-mix(
         in srgb,
         var(--accent-color) 12%,
@@ -66,23 +66,18 @@
       );
       color: var(--accent-color);
       border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
-      border-radius: 1.8rem;
+      border-radius: var(--radius);
       transition:
         transform 0.25s ease,
         border-color 0.25s ease;
-
-      @include bp.md {
-        width: 6rem;
-        height: 6rem;
-      }
 
       @media (prefers-reduced-motion: reduce) {
         transition: none;
       }
 
       svg {
-        width: 2.4rem;
-        height: 2.4rem;
+        width: 2rem;
+        height: 2rem;
         color: currentColor;
       }
     }
@@ -93,9 +88,8 @@
       font-size: var(--fz-xs);
       font-variant-numeric: tabular-nums;
       font-feature-settings: 'tnum';
-      color: var(--text-muted);
+      color: color-mix(in srgb, var(--accent-color) 75%, transparent);
       letter-spacing: 0.04em;
-      transition: var(--transition);
     }
   }
 
@@ -110,11 +104,11 @@
 
     &--title {
       display: inline-block;
-      text-transform: initial;
+      text-transform: capitalize;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
       font-weight: 600;
-      font-size: var(--fz-md);
+      font-size: 1.45rem;
       color: inherit;
       line-height: 1.1;
     }
@@ -136,7 +130,7 @@
     width: 8rem;
     height: 8rem;
     background-color: var(--accent-color);
-    filter: blur(5rem);
+    filter: blur(10rem);
     opacity: 0.08;
     transform: scaleX(0.6);
     transition:

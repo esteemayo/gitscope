@@ -2,6 +2,7 @@
 
 import TermsEligibility from './eligibility/TermsEligibility';
 import TermsHero from './hero/TermsHero';
+import TermsAcceptableUse from './acceptableUse/TermsAcceptableUse';
 import TermsSummary from './summary/TermsSummary';
 import TermsTableOfContents from './tableOfContents/TermsTableOfContents';
 import TermsUpdated from './termsUpdated/TermsUpdated';
@@ -30,6 +31,8 @@ const TermsClient = () => {
       <TermsGithubAuthentication {...termsPageData.githubAuthentication} />
 
       <TermsUserResponsibilities {...termsPageData.userResponsibilities} />
+
+      <TermsAcceptableUse {...termsPageData.acceptableUse} />
     </main>
   );
 };

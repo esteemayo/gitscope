@@ -109,18 +109,9 @@ const TermsAcceptance = ({
             {points.map((point, index) => (
               <motion.div
                 key={point.id}
-                initial={{
-                  opacity: 0,
-                  y: 18,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.15,
-                }}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{
                   duration: 0.4,
                   delay: index * 0.06,
