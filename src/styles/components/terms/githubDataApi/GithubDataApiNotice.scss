@@ -2,7 +2,7 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.acceptable-use-notice {
+.github-data-api-notice {
   display: flex;
   gap: 1rem;
 
@@ -30,7 +30,7 @@
     inset: 0;
 
     background-image: radial-gradient(
-      circle at top right,
+      circle at top left,
       color-mix(in srgb, var(--accent-color) 10%, transparent),
       transparent 45%
     );
@@ -67,7 +67,6 @@
     min-width: 0;
 
     &--label {
-      display: block;
       text-transform: uppercase;
       font-weight: 600;
       font-size: 1.1rem;

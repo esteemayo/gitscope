@@ -3,16 +3,16 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
+import GithubDataApiNotice from './GithubDataApiNotice';
 import TermsSectionHeader from '../TermsSectionHeader';
-import AcceptableUseGroup from './AcceptableUseGroup';
-import AcceptableUseNotice from './AcceptableUseNotice';
+import GithubDataAccessGroup from './GithubDataAccessGroup';
 
 import { containerVariants } from '@/animations/page';
-import { TermsAcceptableUseProps } from '@/types/terms/acceptableUse/terms.acceptable.use.type';
+import { TermsGithubDataApiProps } from '@/types/terms/githubDataApi/terms.github.data.api.type';
 
-import '../../../styles/components/terms/acceptableUse/TermsAcceptableUse.scss';
+import '../../../styles/components/terms/githubDataApi/TermsGithubDataApi.scss';
 
-const TermsAcceptableUse = ({
+const TermsGithubDataApi = ({
   badge,
   title,
   description,
@@ -23,26 +23,26 @@ const TermsAcceptableUse = ({
   accentColor,
   className,
   style,
-}: TermsAcceptableUseProps) => {
+}: TermsGithubDataApiProps) => {
   return (
     <motion.section
-      id='acceptable-use'
+      id='github-data'
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
       viewport={{ once: true }}
-      className={clsx('terms-acceptable-use', className)}
+      className={clsx('terms-github-data-api', className)}
       style={
         {
           '--accent-color': accentColor,
           ...style,
         } as React.CSSProperties
       }
-      aria-labelledby='terms-acceptable-use-title'
+      aria-labelledby='terms-github-data-api-title'
     >
-      <div className='terms-acceptable-use__container'>
+      <div className='terms-github-data-api__container'>
         <TermsSectionHeader
-          id='terms-acceptable-use-title'
+          id='terms-github-data-api-title'
           badge={badge}
           title={title}
           description={description}
@@ -50,24 +50,24 @@ const TermsAcceptableUse = ({
           variants={containerVariants}
         />
 
-        <div className='terms-acceptable-use__body'>
+        <div className='terms-github-data-api__body'>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className='terms-acceptable-use__intro'
+            className='terms-github-data-api__intro'
           >
-            <span className='terms-acceptable-use__intro--label'>
-              Usage guidelines
+            <span className='terms-github-data-api__intro--label'>
+              Data & API processing
             </span>
 
-            <p className='terms-acceptable-use__intro--description'>{intro}</p>
+            <p className='terms-github-data-api__intro--description'>{intro}</p>
           </motion.div>
 
-          <div className='terms-acceptable-use__groups'>
+          <div className='terms-github-data-api__groups'>
             {groups.map((group, index) => (
-              <AcceptableUseGroup
+              <GithubDataAccessGroup
                 key={group.id}
                 {...group}
                 groupIndex={index}
@@ -75,11 +75,11 @@ const TermsAcceptableUse = ({
             ))}
           </div>
 
-          <AcceptableUseNotice {...notice} />
+          <GithubDataApiNotice {...notice} />
         </div>
       </div>
     </motion.section>
   );
 };
 
-export default TermsAcceptableUse;
+export default TermsGithubDataApi;

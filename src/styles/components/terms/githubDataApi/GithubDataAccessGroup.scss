@@ -2,7 +2,7 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.acceptable-use-group {
+.github-data-access-group {
   background-color: var(--bg-tertiary);
   border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
   border-radius: 2rem;
@@ -29,6 +29,35 @@
   }
 
   &__heading {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+
+    min-width: 0;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 4.2rem;
+    height: 4.2rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+    border-radius: var(--radius);
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__wrapper {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;

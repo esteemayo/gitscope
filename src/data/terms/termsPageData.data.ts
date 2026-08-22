@@ -7,6 +7,7 @@ import { termsUpdatedData } from './termsUpdated/termsUpdatedData.data';
 import { termsTableOfContentsData } from './termsTableOfContents/termsTableOfContentsData.data';
 import { acceptableUseData } from './acceptableUse/acceptableUseData.data';
 import { termsUserResponsibilitiesData } from './userResponsibilities/termsUserResponsibilitiesData.data';
+import { githubDataApiData } from './githubDataApi/githubDataApiData.data';
 
 export const termsPageData = {
   hero: termsHeroData,
@@ -18,4 +19,5 @@ export const termsPageData = {
   githubAuthentication: termsGitHubAuthenticationData,
   userResponsibilities: termsUserResponsibilitiesData,
   acceptableUse: acceptableUseData,
+  githubDataApi: githubDataApiData,
 };
