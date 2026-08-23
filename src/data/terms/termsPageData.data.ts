@@ -4,10 +4,11 @@ import { termsEligibilityData } from './eligibility/termsEligibilityData.data';
 import { termsSummaryData } from './summary/termsSummaryData.data';
 import { termsGitHubAuthenticationData } from './githhubAuth/termsGithubAuthData.data';
 import { termsUpdatedData } from './termsUpdated/termsUpdatedData.data';
-import { termsTableOfContentsData } from './termsTableOfContents/termsTableOfContentsData.data';
+import { analyticsAccuracyData } from './analyticsAccuracy/analyticsAccuracyData.data';
 import { acceptableUseData } from './acceptableUse/acceptableUseData.data';
-import { termsUserResponsibilitiesData } from './userResponsibilities/termsUserResponsibilitiesData.data';
+import { termsTableOfContentsData } from './termsTableOfContents/termsTableOfContentsData.data';
 import { githubDataApiData } from './githubDataApi/githubDataApiData.data';
+import { termsUserResponsibilitiesData } from './userResponsibilities/termsUserResponsibilitiesData.data';
 
 export const termsPageData = {
   hero: termsHeroData,
@@ -20,4 +21,5 @@ export const termsPageData = {
   userResponsibilities: termsUserResponsibilitiesData,
   acceptableUse: acceptableUseData,
   githubDataApi: githubDataApiData,
+  analyticsAccuracy: analyticsAccuracyData,
 };

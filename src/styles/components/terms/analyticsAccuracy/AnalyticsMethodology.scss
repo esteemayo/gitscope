@@ -1,0 +1,88 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.analytics-methodology {
+  padding: 2rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+  border-radius: 2rem;
+  transition: background-color 0.25s ease;
+
+  @media (max-width: 40em) {
+    border-radius: 1.8rem;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: minmax(25rem, 0.8fr) minmax(min-content, 1.2fr);
+    gap: 2rem;
+
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    min-width: 0;
+  }
+
+  &__label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: color-mix(in srgb, var(--accent-color) 85%, transparent);
+    letter-spacing: 0.04em;
+    user-select: none;
+  }
+
+  &__title {
+    display: inline-block;
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    text-wrap: balance;
+    font-weight: 600;
+    font-size: var(--fz-md);
+    color: inherit;
+    line-height: 1.1;
+  }
+
+  &__description {
+    max-width: 60rem;
+    text-wrap: pretty;
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    line-height: 1.7;
+    transition: color 0.25s ease;
+  }
+
+  &__table {
+    margin-top: 1rem;
+  }
+
+  &__table-header {
+    display: grid;
+    grid-template-columns: minmax(17rem, 0.8fr) 15rem minmax(min-content, 1.5fr);
+    gap: 1rem;
+
+    & > span {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0 1rem 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__table-rows {
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    border-radius: 1.4rem;
+    overflow: hidden;
+    transition: border-color 0.25s ease;
+  }
+}

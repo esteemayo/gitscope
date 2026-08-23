@@ -8,8 +8,9 @@ import TermsTableOfContents from './tableOfContents/TermsTableOfContents';
 import TermsUpdated from './termsUpdated/TermsUpdated';
 import TermsGithubAuthentication from './githubAuth/TermsGithubAuthentication';
 import TermsEligibility from './eligibility/TermsEligibility';
-import TermsUserResponsibilities from './userResponsibilities/TermsUserResponsibilities';
+import TermsAnalyticsAccuracy from './analyticsAccuracy/TermsAnalyticsAccuracy';
 import TermsAcceptance from './acceptance/TermsAcceptance';
+import TermsUserResponsibilities from './userResponsibilities/TermsUserResponsibilities';
 
 import { termsPageData } from '@/data/terms/termsPageData.data';
 import '../../styles/components/terms/TermsClient.scss';
@@ -36,6 +37,8 @@ const TermsClient = () => {
       <TermsAcceptableUse {...termsPageData.acceptableUse} />
 
       <TermsGithubDataApi {...termsPageData.githubDataApi} />
+
+      <TermsAnalyticsAccuracy {...termsPageData.analyticsAccuracy} />
     </main>
   );
 };

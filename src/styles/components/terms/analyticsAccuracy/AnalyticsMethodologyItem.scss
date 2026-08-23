@@ -1,0 +1,81 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.analytics-methodology-item {
+  display: grid;
+  grid-template-columns: 4.2rem minmax(min-content, 1fr);
+  gap: 1rem;
+
+  padding: 1rem;
+  transition: border-color 0.25s ease;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.4rem;
+    height: 3.4rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+    border-radius: 0.625rem;
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    min-width: 0;
+  }
+
+  &__heading {
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.5fr) minmax(10rem, 0.35fr);
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__label {
+    display: inline-block;
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    text-wrap: balance;
+    font-weight: 600;
+    font-size: var(--fz-sm);
+    color: inherit;
+    line-height: 1.1;
+  }
+
+  &__value {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    letter-spacing: 0.04em;
+    user-select: none;
+  }
+
+  &__description {
+    max-width: 75rem;
+    text-wrap: pretty;
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    line-height: 1.65;
+    transition: color 0.25s ease;
+  }
+}
