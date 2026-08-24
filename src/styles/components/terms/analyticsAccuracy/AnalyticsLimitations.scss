@@ -11,7 +11,12 @@
   background-color: color-mix(in srgb, var(--accent-color) 3%, transparent);
   border-radius: 2rem;
 
-  @media (max-width: 40em) {
+  @media (max-width: 59.375em) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 40.625em) {
+    padding: 1.25rem;
     border-radius: 1.8rem;
   }
 
@@ -48,5 +53,9 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(min-content, 1fr));
     gap: 0.65rem;
+
+    @media (max-width: 40.625em) {
+      grid-template-columns: 1fr;
+    }
   }
 }

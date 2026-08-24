@@ -9,7 +9,8 @@
   border-radius: 2rem;
   transition: background-color 0.25s ease;
 
-  @media (max-width: 40em) {
+  @media (max-width: 40.625em) {
+    padding: 1.25rem;
     border-radius: 1.8rem;
   }
 
@@ -20,6 +21,14 @@
 
     padding-bottom: 1.5rem;
     border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+
+    @media (max-width: 59.375em) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 40.625em) {
+      padding-bottom: 1.25rem;
+    }
   }
 
   &__heading {
@@ -41,7 +50,7 @@
 
   &__title {
     display: inline-block;
-    text-transform: capitalize;
+    text-transform: initial;
     text-rendering: optimizeLegibility;
     text-wrap: balance;
     font-weight: 600;
@@ -67,6 +76,10 @@
     display: grid;
     grid-template-columns: minmax(17rem, 0.8fr) 15rem minmax(min-content, 1.5fr);
     gap: 1rem;
+
+    @media (max-width: 40.625em) {
+      display: none;
+    }
 
     & > span {
       text-transform: uppercase;

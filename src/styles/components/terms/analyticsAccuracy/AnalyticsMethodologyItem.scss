@@ -10,11 +10,19 @@
   padding: 1rem;
   transition: border-color 0.25s ease;
 
+  @media (max-width: 40.625em) {
+    grid-template-columns: 3.4rem minmax(min-content, 1fr);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
   &:not(:last-child) {
     border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
   }
 
-  &__icon {
+  &__indicator {
     flex-shrink: 0;
 
     display: grid;
@@ -48,6 +56,11 @@
     grid-template-columns: minmax(13rem, 0.5fr) minmax(10rem, 0.35fr);
     align-items: center;
     gap: 1rem;
+
+    @media (max-width: 40.625em) {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
   }
 
   &__label {

@@ -55,6 +55,13 @@
     position: relative;
     overflow: hidden;
 
+    @media (max-width: 40.625em) {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+
+      padding: 1.4rem;
+    }
+
     &--label {
       display: flex;
       align-items: center;

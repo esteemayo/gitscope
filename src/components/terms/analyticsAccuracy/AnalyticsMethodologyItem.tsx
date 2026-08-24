@@ -34,7 +34,7 @@ const AnalyticsMethodologyItem = ({
         } as React.CSSProperties
       }
     >
-      <div className='analytics-methodology-item__icon'>
+      <div className='analytics-methodology-item__indicator'>
         <Icon
           size={18}
           strokeWidth={1.8}
