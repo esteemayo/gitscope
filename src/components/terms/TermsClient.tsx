@@ -2,16 +2,17 @@
 
 import TermsGithubDataApi from './githubDataApi/TermsGithubDataApi';
 import TermsHero from './hero/TermsHero';
-import TermsTableOfContents from './tableOfContents/TermsTableOfContents';
+import TermsAcceptableUse from './acceptableUse/TermsAcceptableUse';
 import TermsSummary from './summary/TermsSummary';
-import TermsGithubAuthentication from './githubAuth/TermsGithubAuthentication';
+import TermsTableOfContents from './tableOfContents/TermsTableOfContents';
 import TermsUpdated from './termsUpdated/TermsUpdated';
+import TermsGithubAuthentication from './githubAuth/TermsGithubAuthentication';
+import TermsAcceptance from './acceptance/TermsAcceptance';
 import TermsAnalyticsAccuracy from './analyticsAccuracy/TermsAnalyticsAccuracy';
+import TermsUserContent from './userContent/TermsUserContent';
+import TermsIntellectualProperty from './intellectualProperty/TermsIntellectualProperty';
 import TermsEligibility from './eligibility/TermsEligibility';
 import TermsUserResponsibilities from './userResponsibilities/TermsUserResponsibilities';
-import TermsAcceptance from './acceptance/TermsAcceptance';
-import TermsIntellectualProperty from './intellectualProperty/TermsIntellectualProperty';
-import TermsAcceptableUse from './acceptableUse/TermsAcceptableUse';
 
 import { termsPageData } from '@/data/terms/termsPageData.data';
 import '../../styles/components/terms/TermsClient.scss';
@@ -42,6 +43,8 @@ const TermsClient = () => {
       <TermsAnalyticsAccuracy {...termsPageData.analyticsAccuracy} />
 
       <TermsIntellectualProperty {...termsPageData.intellectualProperty} />
+
+      <TermsUserContent />
     </main>
   );
 };

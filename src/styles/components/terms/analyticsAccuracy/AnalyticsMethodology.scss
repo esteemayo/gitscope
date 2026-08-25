@@ -21,6 +21,7 @@
 
     padding-bottom: 1.5rem;
     border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    transition: border-color 0.25s ease;
 
     @media (max-width: 59.375em) {
       grid-template-columns: 1fr;

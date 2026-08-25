@@ -81,7 +81,7 @@ export const intellectualPropertyRules: IntellectualPropertyRuleType[] = [
 ];
 
 export const intellectualPropertyNotices: IntellectualPropertyNoticeType = {
-  title: 'Third-party rights remain seaparate',
+  title: 'Third-party rights remain separate',
   description:
     'Using GitSCope does not give you ownership of GitHub or other third-party services, content, trademarks, software, or materials displayed through or connected to the application.',
   icon: Copyright,

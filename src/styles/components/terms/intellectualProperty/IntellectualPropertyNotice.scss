@@ -3,4 +3,98 @@
 @use '../../../abstracts/responsive' as bp;
 
 .intellectual-property-notice {
+  display: flex;
+  gap: 1rem;
+
+  padding: 1.5rem;
+  background-color: var(--bg-tertiary);
+  border-left: 2px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background-color 0.25s ease;
+
+  @media (max-width: 59.375em) {
+    padding: 1.25rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    transition: none;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: -11rem;
+    right: -11rem;
+
+    width: 50rem;
+    height: 50rem;
+    background-image: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--accent-color) 10%, transparent),
+      transparent 75%
+    );
+
+    pointer-events: none;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 4.2rem;
+    height: 4.2rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+    border-radius: var(--radius);
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    min-width: 0;
+
+    &--label {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: var(--accent-color);
+      user-select: none;
+    }
+
+    &--title {
+      display: inline-block;
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.7;
+      transition: color 0.25s ease;
+    }
+  }
 }
