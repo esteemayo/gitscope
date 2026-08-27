@@ -13,6 +13,7 @@ import TermsUserContent from './userContent/TermsUserContent';
 import TermsIntellectualProperty from './intellectualProperty/TermsIntellectualProperty';
 import TermsEligibility from './eligibility/TermsEligibility';
 import TermsUserResponsibilities from './userResponsibilities/TermsUserResponsibilities';
+import TermsPrivacyData from './privacyData/TermsPrivacyData';
 
 import { termsPageData } from '@/data/terms/termsPageData.data';
 import '../../styles/components/terms/TermsClient.scss';
@@ -44,7 +45,9 @@ const TermsClient = () => {
 
       <TermsIntellectualProperty {...termsPageData.intellectualProperty} />
 
-      <TermsUserContent />
+      <TermsUserContent {...termsPageData.userContent} />
+
+      <TermsPrivacyData />
     </main>
   );
 };
