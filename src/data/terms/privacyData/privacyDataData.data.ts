@@ -1,7 +1,9 @@
 import * as data from './privacyData.data';
 import { privacyDataContent } from './privacyDataContent.data';
 
-export const privacyDataData = {
+import { TermsPrivacyDataProps } from '@/types/terms/privacyData/terms.privacy.data.type';
+
+export const privacyDataData: TermsPrivacyDataProps = {
   ...privacyDataContent,
   controls: data.privacyDataControls,
   principles: data.privacyDataPrinciples,

@@ -47,7 +47,7 @@ const TermsClient = () => {
 
       <TermsUserContent {...termsPageData.userContent} />
 
-      <TermsPrivacyData />
+      <TermsPrivacyData {...termsPageData.privacyData} />
     </main>
   );
 };

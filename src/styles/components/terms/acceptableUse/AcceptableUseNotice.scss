@@ -78,7 +78,7 @@
 
     &--title {
       display: inline-block;
-      text-transform: capitalize;
+      text-transform: initial;
       text-rendering: optimizeLegibility;
       font-weight: 600;
       font-size: var(--fz-md);

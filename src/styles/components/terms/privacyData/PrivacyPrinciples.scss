@@ -3,4 +3,52 @@
 @use '../../../abstracts/responsive' as bp;
 
 .privacy-principles {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 3rem;
+
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.25s ease;
+
+  @media (max-width: 62.5em) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 43.75em) {
+    padding: 1.25rem;
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    &--label {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: color-mix(in srgb, var(--accent-color) 85%, transparent);
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+
+    &--title {
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
 }

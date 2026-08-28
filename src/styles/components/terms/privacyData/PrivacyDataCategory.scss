@@ -1,0 +1,107 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.privacy-data-category {
+  min-height: 19rem;
+  padding: 1.3rem;
+  transition: border-color 0.25s ease;
+
+  @media (max-width: 43.75em) {
+    min-height: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    transition: none;
+  }
+
+  &:not(:last-child) {
+    border-right: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+
+    @media (max-width: 43.75em) {
+      border-right: none;
+      border-bottom: 1px solid
+        color-mix(in srgb, var(--border) 60%, transparent);
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border-radius: 0.875rem;
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__number {
+    font-weight: 600;
+    font-size: var(--fz-xs);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+    color: color-mix(in srgb, var(--accent-color) 75%, transparent);
+    letter-spacing: 0.04em;
+  }
+
+  &__category {
+    display: inline-block;
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    text-wrap: balance;
+    font-weight: 600;
+    font-size: var(--fz-sm);
+    color: inherit;
+    margin-top: 1.6rem;
+    line-height: 1.1;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    margin: 0.65rem 0 0;
+    list-style: none;
+
+    &--item {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+
+      &::before {
+        content: '';
+
+        flex-shrink: 0;
+
+        width: 0.8rem;
+        height: 0.8rem;
+        background-color: var(--accent-color);
+        box-shadow: 0 0 0 4px
+          color-mix(in srgb, var(--accent-color) 10%, transparent);
+        border-radius: 100%;
+      }
+    }
+  }
+}

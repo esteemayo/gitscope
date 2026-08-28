@@ -1,0 +1,127 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.privacy-statement {
+  display: grid;
+  grid-template-columns: 14rem minmax(min-content, 1fr);
+
+  min-height: 17rem;
+  padding: 1.75rem 2rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+  border-radius: 2rem;
+  transition: background-color 0.25s ease;
+
+  @media (max-width: 43.75em) {
+    grid-template-columns: 1fr;
+
+    padding: 1.4rem;
+  }
+
+  @media (max-width: 40.625em) {
+    border-radius: 1.8rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    transition: none;
+  }
+
+  &__visual {
+    display: grid;
+    place-items: center;
+
+    background-color: color-mix(in srgb, var(--accent-color) 5%, transparent);
+    border-right: 1px solid
+      color-mix(in srgb, var(--accent-color) 10%, transparent);
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width: 43.75em) {
+      min-height: 13rem;
+      border-right: none;
+      border-bottom: 1px solid
+        color-mix(in srgb, var(--accent-color) 10%, transparent);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+
+      width: 8rem;
+      height: 8rem;
+      border: 1px solid color-mix(in srgb, var(--accent-color) 15%, transparent);
+      border-radius: 100%;
+    }
+
+    &::after {
+      width: 12rem;
+      height: 12rem;
+
+      @media (max-width: 43.75em) {
+        width: 10.75rem;
+        height: 10.75rem;
+      }
+    }
+  }
+
+  &__pulse {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 5.2rem;
+    height: 5.2rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
+    box-shadow: 0 0 3.5rem
+      color-mix(in srgb, var(--accent-color) 14%, transparent);
+    border-radius: 100%;
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.45rem;
+
+    min-width: 0;
+    padding: 2rem 2.25rem;
+
+    @media (max-width: 43.75em) {
+      padding: 1.4rem;
+    }
+
+    &--label {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      letter-spacing: 0.04em;
+      color: var(--accent-color);
+      position: relative;
+      user-select: none;
+    }
+
+    &--description {
+      max-width: 90rem;
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.85;
+      position: relative;
+      transition: color 0.25s ease;
+    }
+  }
+}
