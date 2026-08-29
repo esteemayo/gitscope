@@ -1,0 +1,41 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.third-party-service-intro {
+  display: grid;
+  grid-template-columns: 0.35fr minmax(min-content, 1fr);
+  gap: 2rem;
+
+  padding: 1.75rem 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--accent-color) 8%, transparent);
+
+  @media (max-width: 43.75em) {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+
+    padding: 1.4rem;
+  }
+
+  &__label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--fz-sm);
+    letter-spacing: 0.04em;
+    color: var(--accent-color);
+    position: relative;
+    user-select: none;
+  }
+
+  &__description {
+    max-width: 85rem;
+    text-wrap: pretty;
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    line-height: 1.8;
+    position: relative;
+    transition: color 0.25s ease;
+  }
+}

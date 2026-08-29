@@ -6,12 +6,13 @@ import { termsGitHubAuthenticationData } from './githhubAuth/termsGithubAuthData
 import { userContentData } from './userContent/userContentData.data';
 import { analyticsAccuracyData } from './analyticsAccuracy/analyticsAccuracyData.data';
 import { privacyDataData } from './privacyData/privacyDataData.data';
-import { termsTableOfContentsData } from './termsTableOfContents/termsTableOfContentsData.data';
+import { thirdPartyServicesData } from './thirdPartyServices/thirdPartyServicesData.data';
 import { termsUpdatedData } from './termsUpdated/termsUpdatedData.data';
-import { intellectualPropertyData } from './intellectualProperty/intellectualPropertyData.data';
+import { termsTableOfContentsData } from './termsTableOfContents/termsTableOfContentsData.data';
 import { githubDataApiData } from './githubDataApi/githubDataApiData.data';
-import { termsUserResponsibilitiesData } from './userResponsibilities/termsUserResponsibilitiesData.data';
+import { intellectualPropertyData } from './intellectualProperty/intellectualPropertyData.data';
 import { termsAcceptanceData } from './acceptance/termsAcceptanceData.data';
+import { termsUserResponsibilitiesData } from './userResponsibilities/termsUserResponsibilitiesData.data';
 
 export const termsPageData = {
   hero: termsHeroData,
@@ -28,4 +29,5 @@ export const termsPageData = {
   intellectualProperty: intellectualPropertyData,
   userContent: userContentData,
   privacyData: privacyDataData,
+  thirdPartyServices: thirdPartyServicesData,
 };

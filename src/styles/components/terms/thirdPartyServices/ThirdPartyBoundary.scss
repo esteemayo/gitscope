@@ -1,0 +1,110 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.third-party-boundary {
+  display: grid;
+  grid-template-columns: 0.55fr minmax(min-content, 1fr);
+  column-gap: 3rem;
+
+  padding: 2rem;
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 3%,
+    var(--bg-tertiary)
+  );
+  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+  border-radius: 2rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  @media (max-width: 56.25em) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 43.75em) {
+    padding: 1.25rem;
+  }
+
+  @media (max-width: 40.625em) {
+    border-radius: 1.8rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &--label {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: color-mix(in srgb, var(--accent-color) 85%, transparent);
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+
+    &--title {
+      display: inline-block;
+      max-width: 52rem;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+  }
+
+  &__line {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    margin: 2rem 0 1.25rem;
+
+    @media (max-width: 43.75em) {
+      margin-top: 1.5rem;
+    }
+
+    &--endpoint {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: color-mix(in srgb, var(--accent-color) 85%, transparent);
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+
+    &--rule {
+      flex: 1;
+
+      height: 1px;
+      background-image: repeating-linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--accent-color) 25%, transparent) 0,
+        color-mix(in srgb, var(--accent-color) 25%, transparent) 4px,
+        transparent 4px,
+        transparent 0.8rem
+      );
+    }
+  }
+
+  &__items {
+    grid-column: 2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    @media (max-width: 56.25em) {
+      grid-column: 1;
+    }
+  }
+}

@@ -1,11 +1,24 @@
+'use client';
+
 import { ExternalLink } from 'lucide-react';
+
+import { getLanguageColor } from '@/utils/getLanguageColor';
 import { RepoHeroProps } from '@/types/repo/repo.hero.type';
 
 import '../../styles/components/repo/RepoHero.scss';
 
 const RepoHero = ({ repo }: RepoHeroProps) => {
+  const accentColor = getLanguageColor(repo.language);
+
   return (
-    <section className='repo-hero'>
+    <section
+      className='repo-hero'
+      style={
+        {
+          '--accent-color': accentColor,
+        } as React.CSSProperties
+      }
+    >
       <div className='repo-hero__avatar'>
         {(repo.language ?? repo.name).slice(0, 2).toUpperCase()}
       </div>

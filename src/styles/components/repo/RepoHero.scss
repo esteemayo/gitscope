@@ -26,9 +26,9 @@
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1.25rem;
-    background-color: color-mix(in srgb, var(--icon) 12%, transparent);
-    color: var(--icon);
-    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
     border-radius: 2rem;
     user-select: none;
     pointer-events: none;
