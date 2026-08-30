@@ -12,8 +12,10 @@ import TermsGithubAuthentication from './githubAuth/TermsGithubAuthentication';
 import TermsUserContent from './userContent/TermsUserContent';
 import TermsAnalyticsAccuracy from './analyticsAccuracy/TermsAnalyticsAccuracy';
 import TermsEligibility from './eligibility/TermsEligibility';
-import TermsIntellectualProperty from './intellectualProperty/TermsIntellectualProperty';
+import LimitationOfLiability from './limitationOfLiability/LimitationOfLiability';
 import TermsPrivacyData from './privacyData/TermsPrivacyData';
+import TermsIntellectualProperty from './intellectualProperty/TermsIntellectualProperty';
+import ServiceAvailability from './serviceAvailability/ServiceAvailability';
 import TermsUserResponsibilities from './userResponsibilities/TermsUserResponsibilities';
 
 import { termsPageData } from '@/data/terms/termsPageData.data';
@@ -51,6 +53,10 @@ const TermsClient = () => {
       <TermsPrivacyData {...termsPageData.privacyData} />
 
       <ThirdPartyServices {...termsPageData.thirdPartyServices} />
+
+      <ServiceAvailability {...termsPageData.serviceAvailability} />
+
+      <LimitationOfLiability {...termsPageData.limitationOfLiability} />
     </main>
   );
 };

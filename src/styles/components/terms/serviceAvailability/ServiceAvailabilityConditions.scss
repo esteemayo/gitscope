@@ -1,0 +1,79 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.service-availability-conditions {
+  display: grid;
+  grid-template-columns: 0.65fr 1.35fr;
+  gap: 3rem;
+
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 0.25s ease;
+
+  @media (max-width: 56.25em) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (max-width: 43.75em) {
+    padding: 1.25rem;
+    gap: 1.5rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+
+    min-width: 0;
+
+    &--label {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: color-mix(in srgb, var(--accent-color) 85%, transparent);
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+
+    &--title {
+      display: inline-block;
+      max-width: 30rem;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+  }
+
+  &__track {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    position: relative;
+  }
+
+  &__line {
+    position: absolute;
+
+    top: 1.2rem;
+    bottom: 1.2rem;
+    left: 1.5rem;
+
+    width: 1px;
+    background-image: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--accent-color) 30%, transparent),
+      color-mix(in srgb, var(--bg-tertiary) 5%, transparent)
+    );
+    transition: background-image 0.25s ease;
+  }
+}

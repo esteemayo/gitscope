@@ -1,16 +1,18 @@
-import { acceptableUseData } from './acceptableUse/acceptableUseData.data';
-import { termsHeroData } from './termsHero/termsHeroData.data';
 import { termsEligibilityData } from './eligibility/termsEligibilityData.data';
-import { termsSummaryData } from './summary/termsSummaryData.data';
+import { termsHeroData } from './termsHero/termsHeroData.data';
 import { termsGitHubAuthenticationData } from './githhubAuth/termsGithubAuthData.data';
-import { userContentData } from './userContent/userContentData.data';
+import { termsSummaryData } from './summary/termsSummaryData.data';
 import { analyticsAccuracyData } from './analyticsAccuracy/analyticsAccuracyData.data';
-import { privacyDataData } from './privacyData/privacyDataData.data';
+import { userContentData } from './userContent/userContentData.data';
 import { thirdPartyServicesData } from './thirdPartyServices/thirdPartyServicesData.data';
+import { privacyDataData } from './privacyData/privacyDataData.data';
+import { serviceAvailabilityData } from './serviceAvailability/serviceAvailabilityData.data';
 import { termsUpdatedData } from './termsUpdated/termsUpdatedData.data';
 import { termsTableOfContentsData } from './termsTableOfContents/termsTableOfContentsData.data';
-import { githubDataApiData } from './githubDataApi/githubDataApiData.data';
+import { acceptableUseData } from './acceptableUse/acceptableUseData.data';
 import { intellectualPropertyData } from './intellectualProperty/intellectualPropertyData.data';
+import { githubDataApiData } from './githubDataApi/githubDataApiData.data';
+import { limitationOfLiabilityData } from './limitationOfLiability/limitationOfLiabilityData.data';
 import { termsAcceptanceData } from './acceptance/termsAcceptanceData.data';
 import { termsUserResponsibilitiesData } from './userResponsibilities/termsUserResponsibilitiesData.data';
 
@@ -30,4 +32,6 @@ export const termsPageData = {
   userContent: userContentData,
   privacyData: privacyDataData,
   thirdPartyServices: thirdPartyServicesData,
+  serviceAvailability: serviceAvailabilityData,
+  limitationOfLiability: limitationOfLiabilityData,
 };
