@@ -25,11 +25,12 @@ const LiabilityExclusionItem = ({
       transition={{
         duration: 0.35,
         delay: index * 0.06,
+        ease: [0.22, 1, 0.36, 1],
       }}
       className={clsx('liability-exclusion-item', className)}
       style={
         {
-          '--exclusion-accent': accentColor,
+          '--accent-color': accentColor,
           ...style,
         } as React.CSSProperties
       }
@@ -37,7 +38,10 @@ const LiabilityExclusionItem = ({
       <div className='liability-exclusion-item__rail'>
         <span className='liability-exclusion-item__rail--label'>{label}</span>
 
-        <i className='liability-exclusion-item__rail--dot' aria-hidden='true' />
+        <i
+          className='liability-exclusion-item__rail--underline'
+          aria-hidden='true'
+        />
       </div>
 
       <div className='liability-exclusion-item__icon'>

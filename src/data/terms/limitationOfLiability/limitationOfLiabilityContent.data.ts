@@ -12,5 +12,5 @@ export const limitationOfLiabilityContent: LimitationOfLiabilityContent = {
   boundaryTitle: 'Liability has defined limits',
   boundaryDescription:
     'GitScope provides analytics and related functionality as a software service. You remain responsible for how you use the information, decisions, actions, and outcomes associated with the service.',
-  accentColor: 'var(--accent-color)',
+  accentColor: '#0175C2',
 };

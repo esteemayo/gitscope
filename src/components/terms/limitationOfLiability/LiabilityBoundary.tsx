@@ -25,32 +25,30 @@ const LiabilityBoundary = ({ title, description }: LiabilityBoundaryProps) => {
           </div>
         </div>
 
-        <span>Scope boundary</span>
+        <span className='liability-boundary__signal-label'>Scope boundary</span>
       </div>
 
       <motion.div
         className='liability-boundary__content'
-        initial={{
-          opacity: 0,
-          y: 12,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        viewport={{
-          once: true,
-          amount: 0.2,
-        }}
-        transition={{
-          duration: 0.35,
-        }}
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
-        <span>Important limitation</span>
+        <span className='liability-boundary__content--label'>
+          Important limitation
+        </span>
 
-        <h3 id='liability-boundary-title'>{title}</h3>
+        <h3
+          id='liability-boundary-title'
+          className='liability-boundary__content--title'
+        >
+          {title}
+        </h3>
 
-        <p>{description}</p>
+        <p className='liability-boundary__content--description'>
+          {description}
+        </p>
       </motion.div>
 
       <div className='liability-boundary__scope'>

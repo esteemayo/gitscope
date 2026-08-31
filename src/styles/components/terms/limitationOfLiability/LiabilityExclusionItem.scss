@@ -3,4 +3,118 @@
 @use '../../../abstracts/responsive' as bp;
 
 .liability-exclusion-item {
+  display: grid;
+  grid-template-columns: 9.5rem 4.4rem minmax(min-content, 1fr) 2.4rem;
+  align-items: start;
+  gap: 1rem;
+
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.25s ease;
+
+  @media (max-width: 43.75em) {
+    grid-template-columns: 3.6rem minmax(min-content, 1fr);
+    gap: 0.35rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &__rail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    padding-top: 0.2rem;
+    color: var(--accent-color);
+
+    @media (max-width: 43.75em) {
+      grid-column: 1 /-1;
+
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &--label {
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+    }
+
+    &--underline {
+      display: block;
+      width: 2.8rem;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border-radius: 0.875rem;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    min-width: 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.65;
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__end {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    padding-top: 0.35rem;
+    color: color-mix(in srgb, var(--accent-color) 65%, transparent);
+
+    @media (max-width: 43.75em) {
+      display: none;
+    }
+
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
 }

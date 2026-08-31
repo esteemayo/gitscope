@@ -3,10 +3,11 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import TermsSectionHeader from '../TermsSectionHeader';
-import LiabilityCap from './LiabilityCap';
-import LiabilityExclusions from './LiabilityExclusions';
 import LiabilityBoundary from './LiabilityBoundary';
+import LiabilityCap from './LiabilityCap';
+import TermsSectionHeader from '../TermsSectionHeader';
+import LiabilityIntro from './LiabilityIntro';
+import LiabilityExclusions from './LiabilityExclusions';
 
 import { containerVariants } from '@/animations/page';
 import { LimitationOfLiabilityProps } from '@/types/terms/limitationOfLiability/limitation.of.liability.type';
@@ -54,11 +55,7 @@ const LimitationOfLiability = ({
         />
 
         <div className='terms-liability__body'>
-          <div className='terms-liability__intro'>
-            <span>Legal responsibility</span>
-
-            <p>{intro}</p>
-          </div>
+          <LiabilityIntro intro={intro} />
 
           <LiabilityBoundary
             title={boundaryTitle}

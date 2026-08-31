@@ -15,8 +15,9 @@ import TermsEligibility from './eligibility/TermsEligibility';
 import LimitationOfLiability from './limitationOfLiability/LimitationOfLiability';
 import TermsPrivacyData from './privacyData/TermsPrivacyData';
 import TermsIntellectualProperty from './intellectualProperty/TermsIntellectualProperty';
-import ServiceAvailability from './serviceAvailability/ServiceAvailability';
+import AccountSuspension from './accountSuspension/AccountSuspension';
 import TermsUserResponsibilities from './userResponsibilities/TermsUserResponsibilities';
+import ServiceAvailability from './serviceAvailability/ServiceAvailability';
 
 import { termsPageData } from '@/data/terms/termsPageData.data';
 import '../../styles/components/terms/TermsClient.scss';
@@ -57,6 +58,8 @@ const TermsClient = () => {
       <ServiceAvailability {...termsPageData.serviceAvailability} />
 
       <LimitationOfLiability {...termsPageData.limitationOfLiability} />
+
+      <AccountSuspension />
     </main>
   );
 };

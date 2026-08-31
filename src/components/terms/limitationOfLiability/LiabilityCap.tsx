@@ -20,7 +20,7 @@ const LiabilityCap = ({
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.35 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       className={clsx('liability-cap', className)}
       style={
         {
@@ -35,11 +35,11 @@ const LiabilityCap = ({
       </div>
 
       <div className='liability-cap__content'>
-        <span>{label}</span>
+        <span className='liability-cap__content--label'>{label}</span>
 
-        <h3>{title}</h3>
+        <h3 className='liability-cap__content--title'>{title}</h3>
 
-        <p>{description}</p>
+        <p className='liability-cap__content--description'>{description}</p>
       </div>
 
       <div className='liability-cap__marker' aria-hidden='true'>
