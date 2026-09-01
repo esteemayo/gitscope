@@ -3,11 +3,10 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import { SuspensionReasonItemProps } from '@/types/terms/accountSuspension/suspension.reason.item.type';
-import '../../../styles/components/terms/accountSuspension/SuspensionReasonItem.scss';
+import { AccountStatusStepProps } from '@/types/terms/accountSuspension/account.status.step.type';
+import '../../../styles/components/terms/accountSuspension/AccountStatusStep.scss';
 
-const SuspensionReasonItem = ({
-  label,
+const AccountStatusStep = ({
   title,
   description,
   icon: Icon,
@@ -15,7 +14,7 @@ const SuspensionReasonItem = ({
   index,
   className,
   style,
-}: SuspensionReasonItemProps) => {
+}: AccountStatusStepProps) => {
   return (
     <motion.article
       initial={{ opacity: 0, y: 12 }}
@@ -26,7 +25,7 @@ const SuspensionReasonItem = ({
         delay: index * 0.06,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={clsx('suspension-reason-item', className)}
+      className={clsx('account-status-step', className)}
       style={
         {
           '--accent-color': accentColor,
@@ -34,11 +33,11 @@ const SuspensionReasonItem = ({
         } as React.CSSProperties
       }
     >
-      <div className='suspension-reason-item__marker'>
-        <span className='suspension-reason-item__marker--label'>{label}</span>
+      <div className='account-status-step__number'>
+        {String(index + 1).padStart(2, '0')}
       </div>
 
-      <div className='suspension-reason-item__icon'>
+      <div className='account-status-step__icon'>
         <Icon
           size={18}
           strokeWidth={1.8}
@@ -48,10 +47,10 @@ const SuspensionReasonItem = ({
         />
       </div>
 
-      <div className='suspension-reason-item__content'>
-        <h4 className='suspension-reason-item__content--title'>{title}</h4>
+      <div className='account-status-step__content'>
+        <h4 className='account-status-step__content--title'>{title}</h4>
 
-        <p className='suspension-reason-item__content--description'>
+        <p className='account-status-step__content--description'>
           {description}
         </p>
       </div>
@@ -59,4 +58,4 @@ const SuspensionReasonItem = ({
   );
 };
 
-export default SuspensionReasonItem;
+export default AccountStatusStep;

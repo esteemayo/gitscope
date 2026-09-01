@@ -1,0 +1,28 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.termination-effects {
+  &__header {
+  }
+
+  &__heading {
+    &--label {
+    }
+
+    &--title {
+    }
+  }
+
+  &__description {
+  }
+
+  &__timeline {
+  }
+
+  &__item-wrapper {
+  }
+
+  &__connector {
+  }
+}

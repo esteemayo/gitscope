@@ -1,0 +1,19 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.surviving-obligations {
+  &__header {
+    &--label {
+    }
+
+    &--title {
+    }
+
+    &--description {
+    }
+  }
+
+  &__list {
+  }
+}

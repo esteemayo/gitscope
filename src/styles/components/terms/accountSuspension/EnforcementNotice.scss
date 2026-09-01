@@ -3,4 +3,148 @@
 @use '../../../abstracts/responsive' as bp;
 
 .enforcement-notice {
+  display: grid;
+  grid-template-columns: 14rem minmax(min-content, 1fr);
+  gap: 2rem;
+
+  padding: 2rem;
+  background-image: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent-color) 7%, transparent),
+    var(--bg-tertiary) 45%
+  );
+  border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+  border-radius: 2rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background-image 0.25s ease;
+
+  @media (max-width: 56.25em) {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 43.75em) {
+    padding: 1.25rem;
+  }
+
+  @media (max-width: 40.625em) {
+    border-radius: 1.8rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &__side {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    color: var(--accent-color);
+
+    &--icon {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 4.8rem;
+      height: 4.8rem;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 12%,
+        transparent
+      );
+      color: currentColor;
+      border-radius: var(--radius);
+    }
+
+    &--label {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: color-mix(in srgb, var(--accent-color) 85%, transparent);
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    min-width: 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      max-width: 78rem;
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.7;
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+
+    margin: 1.25rem 0 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    line-height: 1.55;
+
+    @media (max-width: 43.75em) {
+      align-items: flex-start;
+    }
+
+    &--icon {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 1.8rem;
+      height: 1.8rem;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 12%,
+        transparent
+      );
+      color: var(--accent-color);
+      border-radius: 100%;
+
+      svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+
+    &--point {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
 }

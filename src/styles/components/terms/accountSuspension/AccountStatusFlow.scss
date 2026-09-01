@@ -3,4 +3,109 @@
 @use '../../../abstracts/responsive' as bp;
 
 .account-status-flow {
+  padding: 2rem;
+  background-image: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--accent-color) 4%, transparent),
+    var(--bg-tertiary) 45%
+  );
+  border: 1px solid color-mix(in srgb, var(--accent-color) 12%, transparent);
+  border-radius: 2rem;
+  transition: background-image 0.25s ease;
+
+  @media (max-width: 40.625em) {
+    border-radius: 1.8rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+
+    @media (max-width: 56.25em) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+
+    min-width: 0;
+
+    &--label {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: color-mix(in srgb, var(--accent-color) 85%, transparent);
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+
+    &--title {
+      display: inline-block;
+      max-width: 30rem;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+  }
+
+  &__description {
+    max-width: 60rem;
+    text-wrap: pretty;
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    line-height: 1.7;
+    position: relative;
+    transition: color 0.25s ease;
+  }
+
+  &__timeline {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 2rem;
+  }
+
+  &__step-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 3.6rem;
+    color: color-mix(in srgb, var(--accent-color) 60%, transparent);
+
+    span {
+      flex: 1;
+
+      width: 1px;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 20%,
+        transparent
+      );
+    }
+
+    svg {
+      flex-shrink: 0;
+
+      width: 1.4rem;
+      height: 1.4rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
 }

@@ -1,0 +1,27 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.termination-effect-item {
+  &__step {
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    &--title {
+    }
+
+    &--description {
+    }
+  }
+}

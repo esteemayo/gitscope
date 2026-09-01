@@ -4,8 +4,10 @@ import { termsGitHubAuthenticationData } from './githhubAuth/termsGithubAuthData
 import { termsSummaryData } from './summary/termsSummaryData.data';
 import { analyticsAccuracyData } from './analyticsAccuracy/analyticsAccuracyData.data';
 import { userContentData } from './userContent/userContentData.data';
-import { thirdPartyServicesData } from './thirdPartyServices/thirdPartyServicesData.data';
+import { accountSuspensionData } from './accountSuspension/accountSuspensionData.data';
 import { privacyDataData } from './privacyData/privacyDataData.data';
+import { thirdPartyServicesData } from './thirdPartyServices/thirdPartyServicesData.data';
+import { terminationData } from './termination/terminationData.data';
 import { serviceAvailabilityData } from './serviceAvailability/serviceAvailabilityData.data';
 import { termsUpdatedData } from './termsUpdated/termsUpdatedData.data';
 import { termsTableOfContentsData } from './termsTableOfContents/termsTableOfContentsData.data';
@@ -34,4 +36,6 @@ export const termsPageData = {
   thirdPartyServices: thirdPartyServicesData,
   serviceAvailability: serviceAvailabilityData,
   limitationOfLiability: limitationOfLiabilityData,
+  accountSuspension: accountSuspensionData,
+  termination: terminationData,
 };

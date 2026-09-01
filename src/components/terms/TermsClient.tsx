@@ -5,8 +5,10 @@ import TermsHero from './hero/TermsHero';
 import TermsAcceptableUse from './acceptableUse/TermsAcceptableUse';
 import TermsSummary from './summary/TermsSummary';
 import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
-import TermsUpdated from './termsUpdated/TermsUpdated';
+import Termination from './termination/Termination';
 import TermsTableOfContents from './tableOfContents/TermsTableOfContents';
+import TermsUpdated from './termsUpdated/TermsUpdated';
+import ServiceAvailability from './serviceAvailability/ServiceAvailability';
 import TermsAcceptance from './acceptance/TermsAcceptance';
 import TermsGithubAuthentication from './githubAuth/TermsGithubAuthentication';
 import TermsUserContent from './userContent/TermsUserContent';
@@ -17,7 +19,6 @@ import TermsPrivacyData from './privacyData/TermsPrivacyData';
 import TermsIntellectualProperty from './intellectualProperty/TermsIntellectualProperty';
 import AccountSuspension from './accountSuspension/AccountSuspension';
 import TermsUserResponsibilities from './userResponsibilities/TermsUserResponsibilities';
-import ServiceAvailability from './serviceAvailability/ServiceAvailability';
 
 import { termsPageData } from '@/data/terms/termsPageData.data';
 import '../../styles/components/terms/TermsClient.scss';
@@ -59,7 +60,9 @@ const TermsClient = () => {
 
       <LimitationOfLiability {...termsPageData.limitationOfLiability} />
 
-      <AccountSuspension />
+      <AccountSuspension {...termsPageData.accountSuspension} />
+
+      <Termination {...termsPageData.termination} />
     </main>
   );
 };

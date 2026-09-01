@@ -1,0 +1,24 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.surviving-obligation-item {
+  &__check {
+    flex-shrink: 0;
+
+    svg {
+      width: 1.4rem;
+      height: 1.4rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    &--title {
+    }
+
+    &--description {
+    }
+  }
+}
