@@ -7,18 +7,20 @@ import TermsSummary from './summary/TermsSummary';
 import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
 import Termination from './termination/Termination';
 import TermsTableOfContents from './tableOfContents/TermsTableOfContents';
-import TermsUpdated from './termsUpdated/TermsUpdated';
+import GoverningLaw from './governingLaw/GoverningLaw';
 import ServiceAvailability from './serviceAvailability/ServiceAvailability';
-import TermsAcceptance from './acceptance/TermsAcceptance';
+import TermsUpdated from './termsUpdated/TermsUpdated';
 import TermsGithubAuthentication from './githubAuth/TermsGithubAuthentication';
-import TermsUserContent from './userContent/TermsUserContent';
+import TermsAcceptance from './acceptance/TermsAcceptance';
 import TermsAnalyticsAccuracy from './analyticsAccuracy/TermsAnalyticsAccuracy';
-import TermsEligibility from './eligibility/TermsEligibility';
+import ChangesToTerms from './changesToTerms/ChangesToTerms';
 import LimitationOfLiability from './limitationOfLiability/LimitationOfLiability';
-import TermsPrivacyData from './privacyData/TermsPrivacyData';
+import TermsUserContent from './userContent/TermsUserContent';
 import TermsIntellectualProperty from './intellectualProperty/TermsIntellectualProperty';
-import AccountSuspension from './accountSuspension/AccountSuspension';
+import TermsEligibility from './eligibility/TermsEligibility';
 import TermsUserResponsibilities from './userResponsibilities/TermsUserResponsibilities';
+import TermsPrivacyData from './privacyData/TermsPrivacyData';
+import AccountSuspension from './accountSuspension/AccountSuspension';
 
 import { termsPageData } from '@/data/terms/termsPageData.data';
 import '../../styles/components/terms/TermsClient.scss';
@@ -63,6 +65,10 @@ const TermsClient = () => {
       <AccountSuspension {...termsPageData.accountSuspension} />
 
       <Termination {...termsPageData.termination} />
+
+      <ChangesToTerms {...termsPageData.changesToTerms} />
+
+      <GoverningLaw {...termsPageData.governingLaw} />
     </main>
   );
 };

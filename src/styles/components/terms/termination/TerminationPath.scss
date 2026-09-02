@@ -13,6 +13,10 @@
   border-radius: 2rem;
   transition: background-image 0.25s ease;
 
+  @media (max-width: 43.75em) {
+    padding: 1.25rem;
+  }
+
   @media (max-width: 40.625em) {
     border-radius: 1.8rem;
   }
@@ -52,5 +56,9 @@
     gap: 1rem;
 
     margin-top: 1.75rem;
+
+    @media (max-width: 43.75em) {
+      grid-template-columns: 1fr;
+    }
   }
 }

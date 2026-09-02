@@ -2,13 +2,22 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.surviving-obligations {
+.change-reasons {
   display: grid;
   grid-template-columns: 0.4fr 1fr;
   gap: 3rem;
 
   padding: 2rem;
-  border-top: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 2%,
+    var(--bg-tertiary)
+  );
+  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+  border-radius: 2rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background-image 0.25s ease;
 
   @media (max-width: 56.25em) {
     grid-template-columns: 1fr;
@@ -17,6 +26,10 @@
 
   @media (max-width: 43.75em) {
     padding: 1.25rem;
+  }
+
+  @media (max-width: 40.625em) {
+    border-radius: 1.8rem;
   }
 
   &__header {
@@ -37,7 +50,7 @@
 
     &--title {
       display: inline-block;
-      text-transform: initial;
+      text-transform: none;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
       font-weight: 600;
@@ -46,11 +59,11 @@
       line-height: 1.1;
     }
 
-    &--description {
+    &--paragraph {
       text-wrap: pretty;
       font-size: var(--fz-xs);
       color: var(--text-muted);
-      margin-top: 0.3rem;
+      margin-top: 0.35rem;
       line-height: 1.7;
       transition: color 0.25s ease;
     }
@@ -59,8 +72,5 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-
-    list-style: none;
   }
 }

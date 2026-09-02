@@ -2,27 +2,58 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.termination-effect-item {
-  display: grid;
-  grid-template-columns: 4.6rem 4.4rem minmax(min-content, 1fr);
-  gap: 1rem;
+.change-lifecycle-step-wrapper {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 62.5em) {
+    flex: 0 0 calc(50% - 0.5rem);
+  }
 
   @media (max-width: 43.75em) {
-    grid-template-columns: 3.2rem 4rem minmax(min-content, 1fr);
-    gap: 0.7rem;
+    flex: 0 0 100%;
+  }
+}
+
+.change-lifecycle-step {
+  flex: 1;
+
+  min-height: 19rem;
+  padding: 1.25rem;
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 3%,
+    var(--bg-tertiary)
+  );
+  border: 1px solid color-mix(in srgb, var(--accent-color) 14%, transparent);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background-color 0.25s ease;
+
+  @media (max-width: 43.75em) {
+    min-height: 16rem;
   }
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
 
-  &__step {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  &__number {
     font-family: var(--font-mono);
     font-weight: 600;
     font-size: var(--fz-xs);
     font-variant-numeric: tabular-nums;
     font-feature-settings: 'tnum';
-    padding-top: 0.75rem;
     color: color-mix(in srgb, var(--accent-color) 75%, transparent);
     letter-spacing: 0.04em;
   }
@@ -33,17 +64,11 @@
     display: grid;
     place-items: center;
 
-    width: 4.6rem;
-    height: 4.6rem;
+    width: 3.4rem;
+    height: 3.4rem;
     background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
     color: var(--accent-color);
-    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
-    border-radius: 100%;
-
-    @media (max-width: 43.75em) {
-      width: 4rem;
-      height: 4rem;
-    }
+    border-radius: 0.625rem;
 
     svg {
       width: 1.8rem;
@@ -59,6 +84,7 @@
     gap: 0.45rem;
 
     min-width: 0;
+    margin-top: 2rem;
 
     &--title {
       display: inline-block;
@@ -77,6 +103,18 @@
       color: var(--text-muted);
       line-height: 1.65;
       transition: color 0.25s ease;
+    }
+  }
+
+  &__connector {
+    flex-shrink: 0;
+
+    width: 2.4rem;
+    height: 1px;
+    background-color: color-mix(in srgb, var(--accent-color) 25%, transparent);
+
+    @media (max-width: 62.5em) {
+      display: none;
     }
   }
 }

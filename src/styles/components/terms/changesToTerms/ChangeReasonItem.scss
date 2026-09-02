@@ -2,29 +2,30 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.termination-effect-item {
+.change-reason-item {
   display: grid;
-  grid-template-columns: 4.6rem 4.4rem minmax(min-content, 1fr);
+  grid-template-columns: 4.4rem minmax(min-content, 1fr) 2.8rem;
+  align-items: center;
   gap: 1rem;
 
+  padding: 1.25rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+
   @media (max-width: 43.75em) {
-    grid-template-columns: 3.2rem 4rem minmax(min-content, 1fr);
-    gap: 0.7rem;
+    grid-template-columns: 4rem minmax(min-content, 1fr);
   }
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
 
-  &__step {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-size: var(--fz-xs);
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: 'tnum';
-    padding-top: 0.75rem;
-    color: color-mix(in srgb, var(--accent-color) 75%, transparent);
-    letter-spacing: 0.04em;
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
   }
 
   &__icon {
@@ -33,17 +34,11 @@
     display: grid;
     place-items: center;
 
-    width: 4.6rem;
-    height: 4.6rem;
+    width: 4rem;
+    height: 4rem;
     background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
     color: var(--accent-color);
-    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
-    border-radius: 100%;
-
-    @media (max-width: 43.75em) {
-      width: 4rem;
-      height: 4rem;
-    }
+    border-radius: 0.875rem;
 
     svg {
       width: 1.8rem;
@@ -77,6 +72,20 @@
       color: var(--text-muted);
       line-height: 1.65;
       transition: color 0.25s ease;
+    }
+  }
+
+  &__index {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: var(--fz-xs);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+    color: color-mix(in srgb, var(--accent-color) 75%, transparent);
+    letter-spacing: 0.04em;
+
+    @media (max-width: 43.75em) {
+      display: none;
     }
   }
 }

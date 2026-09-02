@@ -2,29 +2,19 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.termination-effect-item {
-  display: grid;
-  grid-template-columns: 4.6rem 4.4rem minmax(min-content, 1fr);
-  gap: 1rem;
-
-  @media (max-width: 43.75em) {
-    grid-template-columns: 3.2rem 4rem minmax(min-content, 1fr);
-    gap: 0.7rem;
-  }
+.user-option {
+  padding: 1.5rem;
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 3%,
+    var(--bg-tertiary)
+  );
+  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+  border-radius: 1.4rem;
+  transition: background-color 0.25s ease;
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
-  }
-
-  &__step {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-size: var(--fz-xs);
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: 'tnum';
-    padding-top: 0.75rem;
-    color: color-mix(in srgb, var(--accent-color) 75%, transparent);
-    letter-spacing: 0.04em;
   }
 
   &__icon {
@@ -33,32 +23,27 @@
     display: grid;
     place-items: center;
 
-    width: 4.6rem;
-    height: 4.6rem;
+    width: 4.2rem;
+    height: 4.2rem;
     background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
     color: var(--accent-color);
-    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
-    border-radius: 100%;
-
-    @media (max-width: 43.75em) {
-      width: 4rem;
-      height: 4rem;
-    }
+    border-radius: 1rem;
 
     svg {
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 2rem;
+      height: 2rem;
       color: currentColor;
       stroke: currentColor;
     }
   }
 
-  &__content {
+  &__body {
     display: flex;
     flex-direction: column;
     gap: 0.45rem;
 
     min-width: 0;
+    margin-top: 1.25rem;
 
     &--title {
       display: inline-block;
@@ -77,6 +62,34 @@
       color: var(--text-muted);
       line-height: 1.65;
       transition: color 0.25s ease;
+    }
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    color: var(--accent-color);
+    border-top: 1px solid
+      color-mix(in srgb, var(--accent-color) 12%, transparent);
+
+    span {
+      font-weight: 500;
+      font-size: var(--fz-sm);
+      color: currentColor;
+    }
+
+    svg {
+      flex-shrink: 0;
+
+      width: 1.6rem;
+      height: 1.6rem;
+      color: currentColor;
+      stroke: currentColor;
     }
   }
 }

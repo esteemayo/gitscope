@@ -3,8 +3,39 @@
 @use '../../../abstracts/responsive' as bp;
 
 .surviving-obligation-item {
+  display: grid;
+  grid-template-columns: 3.6rem minmax(min-content, 1fr);
+  gap: 0.85rem;
+
+  padding: 1rem;
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 3%,
+    var(--bg-tertiary)
+  );
+  border-left: 2px solid
+    color-mix(in srgb, var(--accent-color) 70%, transparent);
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  overflow: hidden;
+  isolation: isolate;
+  transition: background-color 0.25s ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
   &__check {
     flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 2.8rem;
+    height: 2.8rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border-radius: 100%;
 
     svg {
       width: 1.4rem;
@@ -15,10 +46,29 @@
   }
 
   &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+
+    min-width: 0;
+
     &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: inherit;
+      line-height: 1.1;
     }
 
     &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.65;
+      transition: color 0.25s ease;
     }
   }
 }
