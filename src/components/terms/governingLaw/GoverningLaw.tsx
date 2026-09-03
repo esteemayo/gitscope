@@ -53,7 +53,7 @@ const GoverningLaw = ({
           variants={containerVariants}
         />
 
-        <div className='terms-governing-law__body'>
+        <div className='governing-law__body'>
           <GoverningLawIntro intro={intro} />
 
           <JurisdictionPanel {...jurisdiction} />

@@ -2,51 +2,25 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.legal-principle-item {
-  min-height: 23.5rem;
-  padding: 1.5rem;
+.contact-topic-item {
+  display: grid;
+  grid-template-columns: 4.6rem minmax(min-content, 1fr);
+  gap: 1rem;
+
+  padding: 1rem;
   background-color: color-mix(
     in srgb,
-    var(--accent-color) 5%,
+    var(--accent-color) 3%,
     var(--bg-tertiary)
   );
+  border-left: 2px solid
+    color-mix(in srgb, var(--accent-color) 75%, transparent);
   overflow: hidden;
   isolation: isolate;
   transition: background-color 0.25s ease;
 
-  @media (max-width: 43.75em) {
-    min-height: 19rem;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     transition: none;
-  }
-
-  &:last-child {
-    @media (max-width: 56.25em) {
-      grid-column: 1 / -1;
-    }
-
-    @media (max-width: 43.75em) {
-      grid-column: auto;
-    }
-  }
-
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  &__number {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-size: var(--fz-xs);
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: 'tnum';
-    color: color-mix(in srgb, var(--accent-color) 75%, transparent);
-    letter-spacing: 0.04em;
   }
 
   &__icon {
@@ -55,7 +29,7 @@
     display: grid;
     place-items: center;
 
-    width: 4rem;
+    width: 3.8rem;
     aspect-ratio: 1;
     background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
     color: var(--accent-color);
@@ -75,18 +49,13 @@
     gap: 0.45rem;
 
     min-width: 0;
-    margin-top: 3rem;
-
-    @media (max-width: 43.75em) {
-      margin-top: 2rem;
-    }
 
     &--title {
       display: inline-block;
       text-transform: none;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
-      font-weight: 600;
+      font-weight: 500;
       font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
@@ -96,7 +65,7 @@
       text-wrap: pretty;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.65;
       transition: color 0.25s ease;
     }
   }

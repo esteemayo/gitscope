@@ -3,8 +3,9 @@
 import TermsGithubDataApi from './githubDataApi/TermsGithubDataApi';
 import TermsHero from './hero/TermsHero';
 import TermsAcceptableUse from './acceptableUse/TermsAcceptableUse';
-import TermsSummary from './summary/TermsSummary';
+import Contact from './contact/Contact';
 import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
+import TermsSummary from './summary/TermsSummary';
 import Termination from './termination/Termination';
 import TermsTableOfContents from './tableOfContents/TermsTableOfContents';
 import GoverningLaw from './governingLaw/GoverningLaw';
@@ -69,6 +70,8 @@ const TermsClient = () => {
       <ChangesToTerms {...termsPageData.changesToTerms} />
 
       <GoverningLaw {...termsPageData.governingLaw} />
+
+      <Contact {...termsPageData.contact} />
     </main>
   );
 };

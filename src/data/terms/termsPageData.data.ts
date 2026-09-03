@@ -1,24 +1,25 @@
 import { changesToTermsData } from './changesToTerms/changesToTermsData.data';
-import { termsHeroData } from './termsHero/termsHeroData.data';
+import { contactData } from './contact/contactData.data';
 import { termsEligibilityData } from './eligibility/termsEligibilityData.data';
-import { termsSummaryData } from './summary/termsSummaryData.data';
+import { termsHeroData } from './termsHero/termsHeroData.data';
 import { termsGitHubAuthenticationData } from './githhubAuth/termsGithubAuthData.data';
-import { userContentData } from './userContent/userContentData.data';
+import { termsSummaryData } from './summary/termsSummaryData.data';
 import { analyticsAccuracyData } from './analyticsAccuracy/analyticsAccuracyData.data';
-import { privacyDataData } from './privacyData/privacyDataData.data';
+import { userContentData } from './userContent/userContentData.data';
 import { accountSuspensionData } from './accountSuspension/accountSuspensionData.data';
-import { terminationData } from './termination/terminationData.data';
+import { privacyDataData } from './privacyData/privacyDataData.data';
 import { thirdPartyServicesData } from './thirdPartyServices/thirdPartyServicesData.data';
-import { termsUpdatedData } from './termsUpdated/termsUpdatedData.data';
+import { terminationData } from './termination/terminationData.data';
 import { serviceAvailabilityData } from './serviceAvailability/serviceAvailabilityData.data';
-import { governingLawData } from './governingLaw/governingLawData.data';
+import { termsUpdatedData } from './termsUpdated/termsUpdatedData.data';
 import { termsTableOfContentsData } from './termsTableOfContents/termsTableOfContentsData.data';
-import { acceptableUseData } from './acceptableUse/acceptableUseData.data';
+import { governingLawData } from './governingLaw/governingLawData.data';
 import { intellectualPropertyData } from './intellectualProperty/intellectualPropertyData.data';
-import { githubDataApiData } from './githubDataApi/githubDataApiData.data';
+import { acceptableUseData } from './acceptableUse/acceptableUseData.data';
 import { limitationOfLiabilityData } from './limitationOfLiability/limitationOfLiabilityData.data';
-import { termsAcceptanceData } from './acceptance/termsAcceptanceData.data';
+import { githubDataApiData } from './githubDataApi/githubDataApiData.data';
 import { termsUserResponsibilitiesData } from './userResponsibilities/termsUserResponsibilitiesData.data';
+import { termsAcceptanceData } from './acceptance/termsAcceptanceData.data';
 
 export const termsPageData = {
   hero: termsHeroData,
@@ -42,4 +43,5 @@ export const termsPageData = {
   termination: terminationData,
   changesToTerms: changesToTermsData,
   governingLaw: governingLawData,
+  contact: contactData,
 };

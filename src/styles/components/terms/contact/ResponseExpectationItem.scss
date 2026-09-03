@@ -2,8 +2,8 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.legal-principle-item {
-  min-height: 23.5rem;
+.response-expectation-item {
+  min-height: 21rem;
   padding: 1.5rem;
   background-color: color-mix(
     in srgb,
@@ -15,21 +15,11 @@
   transition: background-color 0.25s ease;
 
   @media (max-width: 43.75em) {
-    min-height: 19rem;
+    min-height: 17rem;
   }
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
-  }
-
-  &:last-child {
-    @media (max-width: 56.25em) {
-      grid-column: 1 / -1;
-    }
-
-    @media (max-width: 43.75em) {
-      grid-column: auto;
-    }
   }
 
   &__top {
@@ -39,14 +29,14 @@
     gap: 1rem;
   }
 
-  &__number {
+  &__label {
+    text-transform: uppercase;
     font-family: var(--font-mono);
     font-weight: 600;
-    font-size: var(--fz-xs);
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: 'tnum';
-    color: color-mix(in srgb, var(--accent-color) 75%, transparent);
+    font-size: 1.05rem;
+    color: color-mix(in srgb, var(--accent-color) 85%, transparent);
     letter-spacing: 0.04em;
+    user-select: none;
   }
 
   &__icon {
@@ -55,11 +45,11 @@
     display: grid;
     place-items: center;
 
-    width: 4rem;
+    width: 3.6rem;
     aspect-ratio: 1;
     background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
     color: var(--accent-color);
-    border-radius: 0.875rem;
+    border-radius: 100%;
 
     svg {
       width: 1.8rem;
@@ -69,16 +59,16 @@
     }
   }
 
-  &__content {
+  &__body {
     display: flex;
     flex-direction: column;
     gap: 0.45rem;
 
     min-width: 0;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
 
     @media (max-width: 43.75em) {
-      margin-top: 2rem;
+      margin-top: 1.75rem;
     }
 
     &--title {
@@ -86,7 +76,7 @@
       text-transform: none;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
-      font-weight: 600;
+      font-weight: 500;
       font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
@@ -96,7 +86,7 @@
       text-wrap: pretty;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.65;
       transition: color 0.25s ease;
     }
   }

@@ -59,7 +59,7 @@ const JurisdictionPanel = ({
             focusable='false'
           />
 
-          <span className='jurisdiction-panel__location--label'>
+          <span className='jurisdiction-panel__location--text'>
             {jurisdiction}
           </span>
         </div>

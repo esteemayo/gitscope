@@ -3,4 +3,172 @@
 @use '../../../abstracts/responsive' as bp;
 
 .jurisdiction-panel {
+  display: grid;
+  grid-template-columns: 0.32fr 1fr;
+  gap: 3rem;
+
+  padding: 2.5rem;
+  background-image: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent-color) 7%, transparent),
+    var(--bg-tertiary) 55%
+  );
+  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: background-image 0.25s ease;
+
+  @media (max-width: 56.25em) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (max-width: 43.75em) {
+    padding: 1.25rem;
+  }
+
+  @media (max-width: 40.625em) {
+    border-radius: 1.8rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &__visual {
+    display: grid;
+    place-items: center;
+
+    position: relative;
+    min-height: 26rem;
+
+    @media (max-width: 56.25em) {
+      min-height: 18rem;
+    }
+
+    @media (max-width: 43.75em) {
+      min-height: 15rem;
+    }
+  }
+
+  &__rings {
+    position: absolute;
+
+    width: 21rem;
+    aspect-ratio: 1;
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
+    box-shadow:
+      0 0 0 3.5rem color-mix(in srgb, var(--accent-color) 3%, transparent),
+      0 0 0 7rem color-mix(in srgb, var(--accent-color) 2%, transparent);
+    border-radius: 100%;
+
+    @media (max-width: 43.75em) {
+      width: 15rem;
+      box-shadow:
+        0 0 0 2.5rem color-mix(in srgb, var(--accent-color) 3%, transparent),
+        0 0 0 5rem color-mix(in srgb, var(--accent-color) 2%, transparent);
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 7.8rem;
+    aspect-ratio: 1;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 22%, transparent);
+    border-radius: 100%;
+    position: relative;
+    z-index: 1000;
+
+    svg {
+      width: 2.8rem;
+      height: 2.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    min-width: 0;
+  }
+
+  &__label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: color-mix(in srgb, var(--accent-color) 85%, transparent);
+    letter-spacing: 0.04em;
+    user-select: none;
+  }
+
+  &__location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    color: var(--accent-color);
+
+    svg {
+      width: 1.4rem;
+      height: 1.4rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
+    &--text {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: currentColor;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    min-width: 0;
+
+    &--title {
+      max-width: 65rem;
+      display: inline-block;
+      text-transform: initial;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      max-width: 72rem;
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.7;
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__notice {
+    text-wrap: pretty;
+    font-size: var(--fz-xxs);
+    margin-top: 0.5rem;
+    padding: 0.85rem 1rem;
+    background-color: color-mix(in srgb, var(--accent-color) 5%, transparent);
+    color: color-mix(in srgb, var(--accent-color) 75%, var(--text-muted));
+    border-left: 2px solid var(--accent-color);
+    line-height: 1.65;
+    transition: color 0.25s ease;
+  }
 }

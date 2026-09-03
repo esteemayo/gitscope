@@ -2,12 +2,13 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.governing-law-intro {
+.contact-intro {
   display: grid;
   grid-template-columns: 0.35fr 1fr;
   gap: 2rem;
 
   padding: 1.5rem 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--accent-color) 14%, transparent);
   border-bottom: 1px solid var(--border);
   transition: border-color 0.25s ease;
 
