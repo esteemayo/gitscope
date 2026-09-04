@@ -5,23 +5,24 @@ import TermsHero from './hero/TermsHero';
 import TermsAcceptableUse from './acceptableUse/TermsAcceptableUse';
 import Contact from './contact/Contact';
 import ThirdPartyServices from './thirdPartyServices/ThirdPartyServices';
-import TermsSummary from './summary/TermsSummary';
-import Termination from './termination/Termination';
+import AboutTeam from './aboutTeam/AboutTeam';
 import TermsTableOfContents from './tableOfContents/TermsTableOfContents';
-import GoverningLaw from './governingLaw/GoverningLaw';
+import TermsSummary from './summary/TermsSummary';
 import ServiceAvailability from './serviceAvailability/ServiceAvailability';
-import TermsUpdated from './termsUpdated/TermsUpdated';
+import Termination from './termination/Termination';
 import TermsGithubAuthentication from './githubAuth/TermsGithubAuthentication';
-import TermsAcceptance from './acceptance/TermsAcceptance';
+import GoverningLaw from './governingLaw/GoverningLaw';
 import TermsAnalyticsAccuracy from './analyticsAccuracy/TermsAnalyticsAccuracy';
-import ChangesToTerms from './changesToTerms/ChangesToTerms';
+import TermsUpdated from './termsUpdated/TermsUpdated';
 import LimitationOfLiability from './limitationOfLiability/LimitationOfLiability';
-import TermsUserContent from './userContent/TermsUserContent';
+import TermsAcceptance from './acceptance/TermsAcceptance';
 import TermsIntellectualProperty from './intellectualProperty/TermsIntellectualProperty';
-import TermsEligibility from './eligibility/TermsEligibility';
+import ChangesToTerms from './changesToTerms/ChangesToTerms';
 import TermsUserResponsibilities from './userResponsibilities/TermsUserResponsibilities';
-import TermsPrivacyData from './privacyData/TermsPrivacyData';
+import TermsUserContent from './userContent/TermsUserContent';
 import AccountSuspension from './accountSuspension/AccountSuspension';
+import TermsEligibility from './eligibility/TermsEligibility';
+import TermsPrivacyData from './privacyData/TermsPrivacyData';
 
 import { termsPageData } from '@/data/terms/termsPageData.data';
 import '../../styles/components/terms/TermsClient.scss';
@@ -72,6 +73,8 @@ const TermsClient = () => {
       <GoverningLaw {...termsPageData.governingLaw} />
 
       <Contact {...termsPageData.contact} />
+
+      <AboutTeam {...termsPageData.aboutTeam} />
     </main>
   );
 };

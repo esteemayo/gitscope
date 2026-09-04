@@ -11,7 +11,7 @@ const ContactChannels = ({ channels }: ContactChannelsProps) => {
       className='contact-channels'
       aria-labelledby='contact-channels-title'
     >
-      <div className='contact-channels__header'>
+      <header className='contact-channels__header'>
         <span className='contact-channels__header--label'>
           Direct communication
         </span>
@@ -22,7 +22,7 @@ const ContactChannels = ({ channels }: ContactChannelsProps) => {
         >
           Choose the right contact channel
         </h3>
-      </div>
+      </header>
 
       <div className='contact-channels__grid'>
         {channels.map((channel, index) => (
