@@ -2,25 +2,49 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.contact-topic-item {
-  display: grid;
-  grid-template-columns: 4.6rem minmax(min-content, 1fr);
+.acceptance-agreement {
+  display: flex;
   gap: 1rem;
 
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: color-mix(
     in srgb,
     var(--accent-color) 3%,
     var(--bg-tertiary)
   );
-  border-left: 2px solid
-    color-mix(in srgb, var(--accent-color) 75%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  position: relative;
   overflow: hidden;
   isolation: isolate;
-  transition: background-color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  @media (max-width: 40.625em) {
+    border-radius: 1.8rem;
+  }
+
+  @media (max-width: 37.5em) {
+    padding: 1.25rem;
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    transition: none;
+    animation: none;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: -7rem;
+    right: -4rem;
+
+    width: 12rem;
+    height: 12rem;
+    background-color: var(--accent-color);
+    opacity: 0.07;
+    filter: blur(2.5rem);
   }
 
   &__icon {
@@ -29,15 +53,16 @@
     display: grid;
     place-items: center;
 
-    width: 3.8rem;
-    aspect-ratio: 1;
+    width: 4rem;
+    height: 4rem;
     background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
     color: var(--accent-color);
-    border-radius: 0.875rem;
+    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+    border-radius: var(--radius);
 
     svg {
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 2rem;
+      height: 2rem;
       color: currentColor;
       stroke: currentColor;
     }
@@ -46,26 +71,24 @@
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 0.45rem;
-
-    min-width: 0;
+    gap: 0.5rem;
 
     &--title {
       display: inline-block;
-      text-transform: none;
+      text-transform: capitalize;
       text-rendering: optimizeLegibility;
       text-wrap: balance;
       font-weight: 600;
-      font-size: var(--fz-sm);
+      font-size: var(--fz-md);
       color: inherit;
       line-height: 1.1;
     }
 
     &--description {
       text-wrap: pretty;
-      font-size: var(--fz-xxs);
+      font-size: var(--fz-xs);
       color: var(--text-muted);
-      line-height: 1.65;
+      line-height: 1.7;
       transition: color 0.25s ease;
     }
   }

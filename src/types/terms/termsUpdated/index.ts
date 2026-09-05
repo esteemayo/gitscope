@@ -4,6 +4,7 @@ export interface TermsUpdatedContent {
   badge: string;
   title: string;
   description: string;
+  accentColor?: string;
 }
 
 export interface TermsUpdatedItemData {

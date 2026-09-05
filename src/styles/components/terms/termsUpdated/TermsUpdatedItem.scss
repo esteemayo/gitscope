@@ -9,17 +9,34 @@
 
   position: relative;
   min-width: 0;
+  min-height: 20rem;
   padding: 1.5rem;
-  background-color: var(--bg-tertiary);
-  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
-  border-radius: 1.8rem;
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 5%,
+    var(--bg-tertiary)
+  );
   overflow: hidden;
   isolation: isolate;
-  transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: background-color 0.25s ease;
+
+  @media (max-width: 43.75em) {
+    min-height: 17rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &:last-child {
+    @media (max-width: 56.25em) {
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 43.75em) {
+      grid-column: auto;
+    }
+  }
 
   &::before {
     content: '';
@@ -38,16 +55,9 @@
     transition: transform 0.25s ease;
   }
 
-  &:hover {
-    transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--accent-color) 28%, transparent);
-    box-shadow: 0 2.4rem 6rem
-      color-mix(in srgb, var(--accent-color) 14%, transparent);
-
-    &::after {
-      opacity: 0.75;
-      transform: scale(1.15);
-    }
+  &:hover::after {
+    opacity: 0.75;
+    transform: scale(1.15);
   }
 
   &__icon {
@@ -75,8 +85,11 @@
     flex-direction: column;
     gap: 0.3rem;
 
+    min-width: 0;
+    margin-top: 3rem;
+
     @media (max-width: 43.75em) {
-      gap: 0.2rem;
+      margin-top: 2rem;
     }
 
     &--label {

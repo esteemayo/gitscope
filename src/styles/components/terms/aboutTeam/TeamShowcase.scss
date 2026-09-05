@@ -2,7 +2,7 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.about-team-showcase {
+.team-showcase {
   display: grid;
   grid-template-columns: minmax(min-content, 0.95fr) minmax(min-content, 1fr);
   align-items: center;

@@ -1,0 +1,43 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.team-closing {
+  display: grid;
+  grid-template-columns: minmax(min-content, 1fr) auto minmax(min-content, 1fr);
+  align-items: center;
+  gap: 1.25rem;
+
+  padding: 2rem 0 0;
+
+  @media (max-width: 37.5em) {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+
+    padding-top: 1.5rem;
+  }
+
+  &__line {
+    height: 1px;
+    background-image: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent-color) 20%, transparent)
+    );
+
+    &:last-child {
+      transform: scaleX(-1);
+    }
+
+    @media (max-width: 37.5em) {
+      display: none;
+    }
+  }
+
+  &__paragraph {
+    text-align: center;
+    text-wrap: pretty;
+    font-size: var(--fz-xxs);
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+  }
+}

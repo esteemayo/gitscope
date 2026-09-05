@@ -5,4 +5,5 @@ export const termsUpdatedContent: TermsUpdatedContent = {
   title: 'Terms of Services Updates.',
   description:
     'Review the current version of the GitScope Terms of Service, including when the document was updated and how long it takes to read.',
+  accentColor: '#8B5CF6',
 };

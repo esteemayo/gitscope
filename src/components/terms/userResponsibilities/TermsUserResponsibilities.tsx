@@ -3,9 +3,10 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import UserResponsibilityItem from './UserResponsibilityItem';
+import UserResponsibilityIntro from './UserResponsibilityIntro';
 import TermsSectionHeader from '../TermsSectionHeader';
 import UserResponsibilityNotice from './UserResponsibilityNotice';
+import UserResponsibilityItem from './UserResponsibilityItem';
 
 import { containerVariants } from '@/animations/page';
 import { TermsUserResponsibilitiesProps } from './../../../types/terms/userResponsibilities/terms.user.responsibilities.type';
@@ -51,21 +52,7 @@ const TermsUserResponsibilities = ({
         />
 
         <div className='terms-user-responsibilities__body'>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className='terms-user-responsibilities__intro'
-          >
-            <span className='terms-user-responsibilities__intro--label'>
-              Responsible use
-            </span>
-
-            <p className='terms-user-responsibilities__intro--description'>
-              {intro}
-            </p>
-          </motion.div>
+          <UserResponsibilityIntro intro={intro} />
 
           <div className='terms-user-responsibilities__grid'>
             {items.map((item, index) => (

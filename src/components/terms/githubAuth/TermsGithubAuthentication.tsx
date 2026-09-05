@@ -3,9 +3,10 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import GitHubAuthNotes from './GitHubAuthNotes';
+import GithubAuthIntro from './GithubAuthIntro';
 import GithubAuthFlow from './GithubAuthFlow';
 import TermsSectionHeader from '../TermsSectionHeader';
+import GitHubAuthNotes from './GitHubAuthNotes';
 
 import { containerVariants } from '@/animations/page';
 import { TermsGithubAuthenticationProps } from '@/types/terms/githubAuth/terms.github.authentication.type';
@@ -55,21 +56,7 @@ const TermsGithubAuthentication = ({
         />
 
         <div className='terms-github-authentication__body'>
-          <motion.div
-            className='terms-github-authentication__intro'
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className='terms-github-authentication__intro--label'>
-              Authentication
-            </span>
-
-            <p className='terms-github-authentication__intro--description'>
-              {intro}
-            </p>
-          </motion.div>
+          <GithubAuthIntro intro={intro} />
 
           <GithubAuthFlow
             title={flowTitle}

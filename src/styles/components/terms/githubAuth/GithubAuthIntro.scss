@@ -2,21 +2,19 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.liability-intro {
-  display: grid;
-  grid-template-columns: 0.35fr 1fr;
-  align-items: start;
-  gap: 2rem;
+.github-auth-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid
-    color-mix(in srgb, var(--accent-color) 8%, transparent);
+  padding: 1.75rem 2rem;
+  background-color: color-mix(in srgb, var(--accent-color) 3%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+  border-radius: 1.8rem;
+  position: relative;
 
-  @media (max-width: 43.75em) {
-    grid-template-columns: 1fr;
-    gap: 0.7rem;
-
-    padding: 1.25rem;
+  @media (max-width: 40.625em) {
+    padding: 1.4rem;
   }
 
   &__label {
@@ -29,7 +27,6 @@
     font-size: var(--fz-sm);
     letter-spacing: 0.04em;
     color: var(--accent-color);
-    position: relative;
     user-select: none;
 
     &::before {
@@ -45,12 +42,10 @@
   }
 
   &__description {
-    max-width: 85rem;
     text-wrap: pretty;
     font-size: var(--fz-xs);
     color: var(--text-muted);
-    line-height: 1.8;
-    position: relative;
+    line-height: 1.85;
     transition: color 0.25s ease;
   }
 }

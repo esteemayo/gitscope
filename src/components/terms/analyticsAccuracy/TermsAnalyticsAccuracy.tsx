@@ -1,14 +1,14 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
-import { Activity } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 import AnalyticsLimitations from './AnalyticsLimitations';
 import AnalyticsProcess from './AnalyticsProcess';
-import AnalyticsMethodology from './AnalyticsMethodology';
+import AnalyticsAccuracyIntro from './AnalyticsAccuracyIntro';
 import TermsSectionHeader from '../TermsSectionHeader';
 import AnalyticsAccuracyNotice from './AnalyticsAccuracyNotice';
+import AnalyticsMethodology from './AnalyticsMethodology';
 
 import { containerVariants } from '@/animations/page';
 import { TermsAnalyticsAccuracyProps } from '@/types/terms/analyticsAccuracy/terms.analytics.accuracy.type';
@@ -56,29 +56,7 @@ const TermsAnalyticsAccuracy = ({
         />
 
         <div className='terms-analytics-accuracy__body'>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className='terms-analytics-accuracy__intro'
-          >
-            <div className='terms-analytics-accuracy__intro--label'>
-              <Activity
-                size={16}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-
-              <span>Accuracy statement</span>
-            </div>
-
-            <p className='terms-analytics-accuracy__intro--description'>
-              {intro}
-            </p>
-          </motion.div>
+          <AnalyticsAccuracyIntro intro={intro} />
 
           <AnalyticsMethodology methodology={methodology} />
 

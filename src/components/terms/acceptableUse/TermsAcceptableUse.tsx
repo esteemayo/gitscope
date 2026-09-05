@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import TermsSectionHeader from '../TermsSectionHeader';
 import AcceptableUseGroup from './AcceptableUseGroup';
 import AcceptableUseNotice from './AcceptableUseNotice';
+import AcceptableUseIntro from './AcceptableUseIntro';
 
 import { containerVariants } from '@/animations/page';
 import { TermsAcceptableUseProps } from '@/types/terms/acceptableUse/terms.acceptable.use.type';
@@ -51,19 +52,7 @@ const TermsAcceptableUse = ({
         />
 
         <div className='terms-acceptable-use__body'>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className='terms-acceptable-use__intro'
-          >
-            <span className='terms-acceptable-use__intro--label'>
-              Usage guidelines
-            </span>
-
-            <p className='terms-acceptable-use__intro--description'>{intro}</p>
-          </motion.div>
+          <AcceptableUseIntro intro={intro} />
 
           <div className='terms-acceptable-use__groups'>
             {groups.map((group, index) => (

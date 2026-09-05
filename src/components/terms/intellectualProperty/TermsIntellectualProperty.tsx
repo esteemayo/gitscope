@@ -1,13 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
-import { Copyright } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-import IntellectualPropertyRules from './IntellectualPropertyRules';
+import IntellectualPropertyIntro from './IntellectualPropertyIntro';
 import TermsSectionHeader from '../TermsSectionHeader';
-import IntellectualPropertyNotice from './IntellectualPropertyNotice';
+import IntellectualPropertyRules from './IntellectualPropertyRules';
 import IntellectualPropertyMap from './IntellectualPropertyMap';
+import IntellectualPropertyNotice from './IntellectualPropertyNotice';
 
 import { containerVariants } from '@/animations/page';
 import { TermsIntellectualPropertyProps } from '@/types/terms/intellectualProperty/terms.intellectual.property.type';
@@ -54,33 +54,7 @@ const TermsIntellectualProperty = ({
         />
 
         <div className='terms-intellectual-property__body'>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className='terms-intellectual-property__intro'
-          >
-            <div className='terms-intellectual-property__intro--mark'>
-              <Copyright
-                size={16}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </div>
-
-            <div className='terms-intellectual-property__content'>
-              <span className='terms-intellectual-property__content--label'>
-                Ownership framework
-              </span>
-
-              <p className='terms-intellectual-property__content--description'>
-                {intro}
-              </p>
-            </div>
-          </motion.div>
+          <IntellectualPropertyIntro intro={intro} />
 
           <IntellectualPropertyMap layers={layers} />
 

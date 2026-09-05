@@ -1,14 +1,14 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
-import { FileText } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 import UserContentLifecycle from './UserContentLifecycle';
-import UserContentNotice from './UserContentNotice';
+import UserContentIntro from './UserContentIntro';
 import UserContentBoundaries from './UserContentBoundaries';
-import TermsSectionHeader from '../TermsSectionHeader';
+import UserContentNotice from './UserContentNotice';
 import UserContentPermissions from './UserContentPermissions';
+import TermsSectionHeader from '../TermsSectionHeader';
 
 import { containerVariants } from '@/animations/page';
 import { TermsUserContentProps } from '@/types/terms/userContent/terms.user.content.type';
@@ -56,33 +56,7 @@ const TermsUserContent = ({
         />
 
         <div className='terms-user-content__body'>
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className='terms-user-content__intro'
-          >
-            <div className='terms-user-content__intro-icon'>
-              <FileText
-                size={20}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </div>
-
-            <div className='terms-user-content__intro-content'>
-              <span className='terms-user-content__intro-content--label'>
-                Your content
-              </span>
-
-              <p className='terms-user-content__intro-content--description'>
-                {intro}
-              </p>
-            </div>
-          </motion.div>
+          <UserContentIntro intro={intro} />
 
           <UserContentLifecycle steps={lifecycle} />
 

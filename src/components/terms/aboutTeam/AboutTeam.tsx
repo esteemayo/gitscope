@@ -3,11 +3,12 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import AboutTeamIntro from './AboutTeamIntro';
+import TeamClosing from './TeamClosing';
 import TeamFocus from './TeamFocus';
-import AboutTeamShowcase from './AboutTeamShowcase';
-import TeamMembers from './TeamMembers';
+import TeamShowcase from './TeamShowcase';
+import TeamIntro from './TeamIntro';
 import TermsSectionHeader from '../TermsSectionHeader';
+import TeamMembers from './TeamMembers';
 
 import { containerVariants } from '@/animations/page';
 import { AboutTeamProps } from '@/types/terms/aboutTeam/about.team.type';
@@ -54,13 +55,15 @@ const AboutTeam = ({
         />
 
         <div className='about-team__body'>
-          <AboutTeamIntro intro={intro} />
+          <TeamIntro intro={intro} />
 
-          <AboutTeamShowcase teamVisual={teamVisual} />
+          <TeamShowcase teamVisual={teamVisual} />
 
           <TeamFocus items={focusItems} />
 
           <TeamMembers members={members} />
+
+          <TeamClosing />
         </div>
       </div>
     </motion.section>

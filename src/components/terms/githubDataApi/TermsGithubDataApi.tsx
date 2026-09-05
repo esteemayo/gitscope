@@ -4,8 +4,9 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import GithubDataApiNotice from './GithubDataApiNotice';
-import TermsSectionHeader from '../TermsSectionHeader';
+import GithubDataIntro from './GithubDataIntro';
 import GithubDataAccessGroup from './GithubDataAccessGroup';
+import TermsSectionHeader from '../TermsSectionHeader';
 
 import { containerVariants } from '@/animations/page';
 import { TermsGithubDataApiProps } from '@/types/terms/githubDataApi/terms.github.data.api.type';
@@ -51,19 +52,7 @@ const TermsGithubDataApi = ({
         />
 
         <div className='terms-github-data-api__body'>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className='terms-github-data-api__intro'
-          >
-            <span className='terms-github-data-api__intro--label'>
-              Data & API processing
-            </span>
-
-            <p className='terms-github-data-api__intro--description'>{intro}</p>
-          </motion.div>
+          <GithubDataIntro intro={intro} />
 
           <div className='terms-github-data-api__groups'>
             {groups.map((group, index) => (

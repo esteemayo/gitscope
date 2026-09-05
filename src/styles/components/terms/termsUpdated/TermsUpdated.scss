@@ -37,9 +37,18 @@
   &__body {
     display: grid;
     grid-template-columns: repeat(3, minmax(min-content, 1fr));
-    gap: 1rem;
+    gap: 1px;
 
-    @include bp.md {
+    background-color: color-mix(in srgb, var(--accent-color) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 8%, transparent);
+    border-radius: 1.8rem;
+    overflow: hidden;
+
+    @media (max-width: 56.25em) {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
+    @media (max-width: 43.75em) {
       grid-template-columns: 1fr;
     }
   }

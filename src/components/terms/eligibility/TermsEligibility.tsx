@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import TermsSectionHeader from '../TermsSectionHeader';
+import EligibilityIntro from './EligibilityIntro';
 import TermsEligibilityItem from './TermsEligibilityItem';
 
 import { containerVariants } from '@/animations/page';
@@ -49,17 +50,7 @@ const TermsEligibility = ({
         />
 
         <div className='terms-eligibility__body'>
-          <motion.div
-            className='terms-eligibility__intro'
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className='terms-eligibility__intro--label'>Eligibility</span>
-
-            <p className='terms-eligibility__intro--description'>{intro}</p>
-          </motion.div>
+          <EligibilityIntro intro={intro} />
 
           <div className='terms-eligibility__items'>
             {items.map((item, index) => (

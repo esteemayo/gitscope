@@ -17,6 +17,7 @@ const TermsUpdated = ({
   title,
   description,
   items,
+  accentColor,
   className,
   style,
 }: TermsUpdatedProps) => {
@@ -27,7 +28,12 @@ const TermsUpdated = ({
       whileInView='visible'
       viewport={{ once: true }}
       className={clsx('term-updated', className)}
-      style={style}
+      style={
+        {
+          '--accent-color': accentColor,
+          ...style,
+        } as React.CSSProperties
+      }
       aria-labelledby='term-updated-title'
     >
       <div className='term-updated__container'>

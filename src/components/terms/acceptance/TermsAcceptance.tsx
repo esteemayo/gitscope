@@ -1,11 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
-import { ArrowDownRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-import TermsSectionHeader from '../TermsSectionHeader';
+import AcceptanceAgreement from './AcceptanceAgreement';
+import AcceptanceIntro from './AcceptanceIntro';
 import TermsAcceptancePoint from './TermsAcceptancePoint';
+import TermsSectionHeader from '../TermsSectionHeader';
 
 import { containerVariants } from '@/animations/page';
 import { TermsAcceptanceProps } from '@/types/terms/acceptance/terms.acceptance.type';
@@ -53,57 +54,13 @@ const TermsAcceptance = ({
         />
 
         <div className='terms-acceptance__body'>
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className='terms-acceptance__intro'
-          >
-            <span className='terms-acceptance__intro--label'>Agreement</span>
+          <AcceptanceIntro intro={intro} />
 
-            <p className='terms-acceptance__intro--description'>{intro}</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.5,
-              delay: 0.08,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className='terms-acceptance__agreement'
-            style={
-              {
-                '--agreement-accent': agreementAccentColor,
-              } as React.CSSProperties
-            }
-          >
-            <div className='terms-acceptance__agreement-icon'>
-              <ArrowDownRight
-                size={20}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </div>
-
-            <div className='terms-acceptance__agreement-content'>
-              <h3 className='terms-acceptance__agreement-content--title'>
-                {agreementTitle}
-              </h3>
-
-              <p className='terms-acceptance__agreement-content--description'>
-                {agreementDescription}
-              </p>
-            </div>
-          </motion.div>
+          <AcceptanceAgreement
+            title={agreementTitle}
+            description={agreementDescription}
+            accentColor={agreementAccentColor}
+          />
 
           <div className='terms-acceptance__points'>
             {points.map((point, index) => (
