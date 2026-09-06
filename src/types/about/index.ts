@@ -1,144 +1,12 @@
-import { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 export interface HeroCardItem {
   id: string;
-  icon: LucideIcon;
+  icon: LucideIcon | React.ComponentType;
   title: string;
   value: string;
   trend: string;
   accentColor: string;
-}
-
-export interface AboutStat {
-  id: string;
-  icon: LucideIcon;
-  value: string;
-  label: string;
-  trend: string;
-  trendLabel: string;
-  accentColor: string;
-}
-
-export interface MissionPrinciple {
-  id: string;
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  accentColor?: string;
-}
-
-export interface MissionTimelineStep {
-  id: string;
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  accentColor?: string;
-}
-
-export type MissionMetricType = {
-  id: string;
-  label: string;
-  value: number;
-  trendLabel: string;
-};
-
-export type HealthProgressType = {
-  id: string;
-  label: string;
-  percentage: number;
-};
-
-export interface AboutFeature {
-  id: string;
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  accentColor: string;
-  preview: React.ReactNode;
-  previewHeight?: 'small' | 'medium' | 'large';
-  isFeatured?: boolean;
-}
-
-export interface WhyItem {
-  id: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  accentColor: string;
-}
-
-export interface ComparisonItem {
-  id: string;
-  github: string;
-  gitScope: string;
-}
-
-export interface ArchitectureFeature {
-  id: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  accentColor: string;
-  layer: string;
-}
-
-export interface PipelineItem {
-  id: string;
-  label: string;
-}
-
-export interface PipelineStage {
-  id: string;
-  title: string;
-  description: string;
-  icon: LucideIcon | React.ComponentType;
-  accentColor: string;
-  items: PipelineItem[];
-  cardWidth?: 'sm' | 'md' | 'lg';
-}
-
-export interface Audience {
-  id: string;
-  title: string;
-  description: string;
-  icon: LucideIcon | React.ComponentType;
-  benefits: string[];
-  useCase: string;
-  accentColor: string;
-  previewIcon: LucideIcon;
-  previewLabel: string;
-}
-
-export interface StackCategory {
-  id: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  accentColor: string;
-  technologies: string[];
-}
-
-export interface SecurityFeature {
-  id: string;
-  badge: string;
-  title: string;
-  description: string;
-  icon: LucideIcon | React.ComponentType;
-  accentColor: string;
-  highlights: string[];
-}
-
-export interface RoadmapPhase {
-  id: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  accentColor: string;
-  status: {
-    label: 'Completed' | 'In Progress' | 'Planned';
-    progress: number;
-  };
-  items: string[];
 }
 
 export interface FAQItemData {
@@ -162,5 +30,5 @@ export interface FloatingMetric {
 export interface Highlight {
   id: string;
   label: string;
-  icon: LucideIcon;
+  icon: LucideIcon | React.ComponentType;
 }

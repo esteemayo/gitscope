@@ -23,7 +23,13 @@ const MissionTimelineItem = ({
     >
       <div className='mission-timeline-item__node'>
         <div className='mission-timeline-item__node--icon'>
-          <Icon size={22} />
+          <Icon
+            size={22}
+            strokeWidth={1.8}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
         </div>
 
         {index < lastIndex && (

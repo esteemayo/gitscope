@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import FAQItem from './FAQItem';
-import AboutSectionHeader from '../AboutSectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { FAQProps } from '@/types/about/faq/faq.type';
 import { containerVariants } from '@/animations/page';
@@ -23,12 +23,12 @@ const FAQ = ({ badge, title, description, items }: FAQProps) => {
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.25, margin: '-50px' }}
+      viewport={{ once: true }}
       className='faq'
       aria-labelledby='faq-title'
     >
       <div className='faq__container'>
-        <AboutSectionHeader
+        <SectionIntro
           id='faq-title'
           badge={badge}
           title={title}

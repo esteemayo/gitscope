@@ -1,10 +1,11 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import FeaturedFeature from './FeaturedFeature';
 import FeatureCard from './FeatureCard';
-import AboutSectionHeader from '../AboutSectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { AboutFeaturesProps } from '@/types/about/features/about.features.type';
@@ -16,6 +17,9 @@ const AboutFeatures = ({
   title,
   description,
   features,
+  accentColor,
+  className,
+  style,
 }: AboutFeaturesProps) => {
   const featuredFeature = features.find((feature) => feature.isFeatured);
 
@@ -26,17 +30,24 @@ const AboutFeatures = ({
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.25 }}
-      className='about-features'
+      viewport={{ once: true }}
+      className={clsx('about-features', className)}
+      style={
+        {
+          '--accent-color': accentColor,
+          ...style,
+        } as React.CSSProperties
+      }
       aria-labelledby='about-features-title'
     >
       <div className='about-features__container'>
         <div className='about-features__wrapper'>
-          <AboutSectionHeader
+          <SectionIntro
             id='about-features-title'
             badge={badge}
             title={title}
             description={description}
+            accentColor={accentColor}
             variants={containerVariants}
           />
 

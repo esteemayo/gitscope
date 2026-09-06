@@ -3,11 +3,11 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import TermsSectionHeader from '../TermsSectionHeader';
 import AccountStatusFlow from './AccountStatusFlow';
+import SectionIntro from '../../ui/SectionIntro';
 import EnforcementNotice from './EnforcementNotice';
-import SuspensionReasons from './SuspensionReasons';
 import AccountSuspensionIntro from './AccountSuspensionIntro';
+import SuspensionReasons from './SuspensionReasons';
 
 import { containerVariants } from '@/animations/page';
 import { AccountSuspensionProps } from '@/types/terms/accountSuspension/account.suspension.type';
@@ -44,7 +44,7 @@ const AccountSuspension = ({
       aria-labelledby='account-suspension-title'
     >
       <div className='account-suspension__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='account-suspension-title'
           badge={badge}
           title={title}

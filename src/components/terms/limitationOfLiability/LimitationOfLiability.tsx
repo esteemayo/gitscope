@@ -3,9 +3,9 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import LiabilityBoundary from './LiabilityBoundary';
+import SectionIntro from '../../ui/SectionIntro';
 import LiabilityCap from './LiabilityCap';
-import TermsSectionHeader from '../TermsSectionHeader';
+import LiabilityBoundary from './LiabilityBoundary';
 import LiabilityIntro from './LiabilityIntro';
 import LiabilityExclusions from './LiabilityExclusions';
 
@@ -45,7 +45,7 @@ const LimitationOfLiability = ({
       aria-labelledby='limitation-of-liability-title'
     >
       <div className='limitation-of-liability__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='limitation-of-liability-title'
           badge={badge}
           title={title}

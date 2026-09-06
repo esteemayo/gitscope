@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
+import SectionIntro from '../../ui/SectionIntro';
 import TermsSummaryCard from './TermsSummaryCard';
-import TermsSectionHeader from '../TermsSectionHeader';
 
 import { containerVariants } from '@/animations/page';
 import { TermsSummaryProps } from '@/types/terms/summary/terms.summary.type';
@@ -31,7 +31,7 @@ const TermsSummary = ({
       aria-labelledby='term-summary-title'
     >
       <div className='terms-summary__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='term-summary-title'
           badge={badge}
           title={title}

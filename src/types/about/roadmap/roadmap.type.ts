@@ -1,8 +1,7 @@
-import { RoadmapPhase } from '../index';
+import { RoadmapContent, RoadmapPhase } from './index';
 
-export interface RoadmapProps {
-  badge: string;
-  title: string;
-  description: string;
+export interface RoadmapProps extends RoadmapContent {
   phases: RoadmapPhase[];
+  className?: string;
+  style?: React.CSSProperties;
 }

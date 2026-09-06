@@ -45,7 +45,7 @@
 
     &--value {
       font-family: var(--font-mono);
-      font-weight: 700;
+      font-weight: 600;
       font-size: var(--fz-xxs);
       font-variant-numeric: tabular-nums;
       font-feature-settings: 'tnum';
@@ -192,16 +192,19 @@
       display: inline-block;
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
-      font-weight: 700;
+      text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
     }
 
     &--description {
+      text-wrap: pretty;
       font-size: var(--fz-xs);
       color: var(--text-muted);
       line-height: 1.75;
+      transition: color 0.25s ease;
     }
   }
 
@@ -241,6 +244,7 @@
     &--label {
       font-size: var(--fz-xs);
       color: var(--text-muted);
+      transition: color 0.25s ease;
     }
   }
 
@@ -278,7 +282,7 @@
 
     &--value {
       display: block;
-      font-weight: 700;
+      font-weight: 600;
       font-size: var(--fz-sm);
       color: inherit;
     }
@@ -287,6 +291,7 @@
       text-transform: initial;
       font-size: 1.1rem;
       color: var(--text-muted);
+      transition: color 0.25s ease;
     }
   }
 }

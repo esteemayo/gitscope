@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import TermsSectionHeader from '../TermsSectionHeader';
 import EligibilityIntro from './EligibilityIntro';
+import SectionIntro from '../../ui/SectionIntro';
 import TermsEligibilityItem from './TermsEligibilityItem';
 
 import { containerVariants } from '@/animations/page';
@@ -40,7 +40,7 @@ const TermsEligibility = ({
       aria-labelledby='terms-eligibility-title'
     >
       <div className='terms-eligibility__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='terms-eligibility-title'
           badge={badge}
           title={title}

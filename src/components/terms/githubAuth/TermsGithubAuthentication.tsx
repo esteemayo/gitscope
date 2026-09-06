@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 import GithubAuthIntro from './GithubAuthIntro';
 import GithubAuthFlow from './GithubAuthFlow';
-import TermsSectionHeader from '../TermsSectionHeader';
+import SectionIntro from '../../ui/SectionIntro';
 import GitHubAuthNotes from './GitHubAuthNotes';
 
 import { containerVariants } from '@/animations/page';
@@ -46,7 +46,7 @@ const TermsGithubAuthentication = ({
       aria-labelledby='terms-github-authentication-title'
     >
       <div className='terms-github-authentication__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='terms-github-authentication-title'
           badge={badge}
           title={title}

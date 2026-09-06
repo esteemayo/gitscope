@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import PrivacySectionHeader from '../PrivacySectionHeader';
 import ChildrenPrivacyPanel from './ChildrenPrivacyPanel';
+import SectionIntro from '@/components/ui/SectionIntro';
 import ChildrenPrivacyNotice from './ChildrenPrivacyNotice';
 
 import { containerVariants } from '@/animations/page';
@@ -32,11 +32,11 @@ const ChildrenPrivacy = ({
       aria-labelledby='children-privacy-title'
     >
       <div className='children-privacy__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='children-privacy-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

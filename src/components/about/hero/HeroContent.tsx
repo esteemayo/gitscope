@@ -22,7 +22,13 @@ const HeroContent = ({
   return (
     <div className='hero-content'>
       <motion.div variants={variants} className='hero-content__badge'>
-        <Sparkles size={16} />
+        <Sparkles
+          size={16}
+          strokeWidth={1.8}
+          role='img'
+          aria-hidden='true'
+          focusable='false'
+        />
         {badge}
       </motion.div>
 
@@ -41,7 +47,13 @@ const HeroContent = ({
         >
           {primaryButtonLabel}
 
-          <ArrowRight size={18} />
+          <ArrowRight
+            size={18}
+            strokeWidth={1.8}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
         </Link>
 
         <a

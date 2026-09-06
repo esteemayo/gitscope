@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import PermissionOverview from './PermissionOverview';
 import PermissionCard from './PermissionCard';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { GitHubPermissionsProps } from '@/types/privacy/permissions/github.permissions.type';
@@ -29,11 +29,11 @@ const GitHubPermissions = ({
       aria-labelledby='github-permissions-title'
     >
       <div className='github-permissions__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='github-permissions-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

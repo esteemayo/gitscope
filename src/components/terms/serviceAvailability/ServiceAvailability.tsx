@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import ServiceLimitationNotice from './ServiceLimitationNotice';
-import TermsSectionHeader from '../TermsSectionHeader';
+import SectionIntro from '../../ui/SectionIntro';
 import ServiceAvailabilityIntro from './ServiceAvailabilityIntro';
 import ServiceStatusOverview from './ServiceStatusOverview';
 import ServiceAvailabilityConditions from './ServiceAvailabilityConditions';
@@ -44,7 +44,7 @@ const ServiceAvailability = ({
       aria-labelledby='service-availability-title'
     >
       <div className='service-availability__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='service-availability-title'
           badge={badge}
           title={title}

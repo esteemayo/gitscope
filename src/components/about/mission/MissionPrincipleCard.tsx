@@ -25,7 +25,13 @@ const MissionPrincipleCard = ({
       }
     >
       <div className='mission-principle-card__icon'>
-        <Icon size={24} />
+        <Icon
+          size={24}
+          strokeWidth={1.8}
+          role='img'
+          aria-hidden='true'
+          focusable='false'
+        />
       </div>
 
       <div className='mission-principle-card__content'>

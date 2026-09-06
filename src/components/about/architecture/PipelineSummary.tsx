@@ -14,7 +14,13 @@ const PipelineSummary = ({
   return (
     <motion.article variants={variants} className='pipeline-summary'>
       <div className='pipeline-summary__icon'>
-        <Sparkles size={30} />
+        <Sparkles
+          size={30}
+          strokeWidth={1.8}
+          role='img'
+          aria-hidden='true'
+          focusable='false'
+        />
       </div>
 
       <div className='pipeline-summary__content'>
@@ -25,19 +31,40 @@ const PipelineSummary = ({
 
       <div className='pipeline-summary__pillars'>
         <div className='pipeline-summary__group'>
-          <Zap size={16} className='pipeline-summary__group--icon' />
+          <Zap
+            size={16}
+            strokeWidth={1.8}
+            className='pipeline-summary__group--icon'
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
 
           <span className='pipeline-summary__group--label'>Fast</span>
         </div>
 
         <div className='pipeline-summary__group'>
-          <Lock size={16} className='pipeline-summary__group--icon' />
+          <Lock
+            size={16}
+            strokeWidth={1.8}
+            className='pipeline-summary__group--icon'
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
 
           <span className='pipeline-summary__group--label'>Reliable</span>
         </div>
 
         <div className='pipeline-summary__group'>
-          <TrendingUp size={16} className='pipeline-summary__group--icon' />
+          <TrendingUp
+            size={16}
+            strokeWidth={1.8}
+            className='pipeline-summary__group--icon'
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
 
           <span className='pipeline-summary__group--label'>Scalable</span>
         </div>

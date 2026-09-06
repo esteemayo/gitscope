@@ -1,9 +1,8 @@
-import { ComparisonItem, WhyItem } from '../index';
+import { ComparisonItem, WhyGitScopeContent, WhyItem } from './index';
 
-export interface WhyGitScopeProps {
-  badge: string;
-  title: string;
-  description: string;
+export interface WhyGitScopeProps extends WhyGitScopeContent {
   values: WhyItem[];
   comparison: ComparisonItem[];
+  className?: string;
+  style?: React.CSSProperties;
 }

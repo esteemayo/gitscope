@@ -1,22 +1,31 @@
 'use client';
 
 import { Check } from 'lucide-react';
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import { RoadmapCardProps } from '@/types/about/roadmap/roadmap.card.type';
 import '../../../styles/components/about/roadmap/RoadmapCard.scss';
 
 const RoadmapCard = ({
-  phase: { icon: Icon, title, description, accentColor, status, items },
+  icon: Icon,
+  title,
+  description,
+  accentColor,
+  status,
+  items,
   variants,
+  className,
+  style,
 }: RoadmapCardProps) => {
   return (
     <motion.article
       variants={variants}
-      className='roadmap-card'
+      className={clsx('roadmap-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >
@@ -24,7 +33,13 @@ const RoadmapCard = ({
 
       <header className='roadmap-card__header'>
         <div className='roadmap-card__icon'>
-          <Icon size={28} />
+          <Icon
+            size={28}
+            strokeWidth={1.8}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
         </div>
 
         <div className='roadmap-card__content'>
@@ -46,7 +61,14 @@ const RoadmapCard = ({
       <ul className='roadmap-card__list'>
         {items.map((item) => (
           <li key={item} className='roadmap-card__item'>
-            <Check size={16} className='roadmap-card__item--check' />
+            <Check
+              size={14}
+              strokeWidth={1.8}
+              className='roadmap-card__item--check'
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
 
             <span className='roadmap-card__item--value'>{item}</span>
           </li>

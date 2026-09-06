@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 import PrivacyFAQCategory from './PrivacyFAQCategory';
 import PrivacyFAQNotice from './PrivacyFAQNotice';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { PrivacyFAQProps } from '@/types/privacy/privacyPolicy/privacy.faq.type';
@@ -32,11 +32,11 @@ const PrivacyFAQ = ({
       aria-labelledby='privacy-faq-title'
     >
       <div className='privacy-faq__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='privacy-faq-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

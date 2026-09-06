@@ -1,4 +1,4 @@
-import { ChartPoint } from './index';
+import { ChartPoint } from '../index';
 
 export interface ChartsPreviewProps {
   points: ChartPoint[];

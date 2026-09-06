@@ -1,11 +1,7 @@
-import { LucideIcon } from 'lucide-react';
+import { AboutStat } from './index';
 
-export interface AboutStatCardProps {
-  icon: LucideIcon;
-  value: string;
-  label: string;
-  trend: string;
-  trendLabel: string;
-  accentColor: string;
+export interface AboutStatCardProps extends AboutStat {
   index: number;
+  className?: string;
+  style?: React.CSSProperties;
 }

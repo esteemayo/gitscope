@@ -1,8 +1,7 @@
-import { StackCategory } from '../index';
+import { StackCategory, StackContent } from './index';
 
-export interface TechnologyStackProps {
-  badge: string;
-  title: string;
-  description: string;
+export interface TechnologyStackProps extends StackContent {
   stacks: StackCategory[];
+  className?: string;
+  style?: React.CSSProperties;
 }

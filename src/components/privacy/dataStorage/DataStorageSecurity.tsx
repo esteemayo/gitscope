@@ -6,7 +6,7 @@ import SecurityLayers from './SecurityLayers';
 import TrustBanner from './TrustBanner';
 import SecurityOverview from './SecurityOverview';
 import SecurityCard from './SecurityCard';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { DataStorageSecurityProps } from '@/types/privacy/dataStorageSecurity/data.storage.security.type';
@@ -44,11 +44,11 @@ const DataStorageSecurity = ({
           privacy-focused storage practices.
         </p>
 
-        <PrivacySectionHeader
+        <SectionIntro
           id='data-storage-security-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

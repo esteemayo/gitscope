@@ -30,7 +30,13 @@ const ComparisonTable = ({ items, variants }: ComparisonTableProps) => {
               <div className='comparison-table__github'>{github}</div>
 
               <div className='comparison-table__arrow'>
-                <ArrowRight size={18} />
+                <ArrowRight
+                  size={18}
+                  strokeWidth={1.8}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
               </div>
 
               <div className='comparison-table__gitscope'>{gitScope}</div>

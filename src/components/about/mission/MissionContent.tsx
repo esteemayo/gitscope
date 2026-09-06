@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-import AboutSectionHeader from '../AboutSectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 import MissionHighlight from './MissionHighlight';
 import MissionTimelineSection from './MissionTimelineSection';
 import MissionPrinciples from './MissionPrinciples';
@@ -16,6 +16,7 @@ const MissionContent = ({
   description,
   principles,
   timeline,
+  accentColor,
   variants,
 }: MissionContentProps) => {
   return (
@@ -24,12 +25,13 @@ const MissionContent = ({
       className='mission-content'
       aria-labelledby='mission-content-title'
     >
-      <AboutSectionHeader
+      <SectionIntro
         id='mission-content-title'
         badge={badge}
         title={title}
         description={description}
-        centered={false}
+        accentColor={accentColor}
+        align='left'
         variants={variants}
       />
 

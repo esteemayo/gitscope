@@ -24,7 +24,13 @@ const HeroCard = ({
       }
     >
       <div className='hero-card__icon'>
-        <Icon size={28} />
+        <Icon
+          size={28}
+          strokeWidth={1.8}
+          role='img'
+          aria-hidden='true'
+          focusable='false'
+        />
       </div>
 
       <div className='hero-card__group'>

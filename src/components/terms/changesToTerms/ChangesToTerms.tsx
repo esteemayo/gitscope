@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 import ChangeLifecycle from './ChangeLifecycle';
 import UserOptions from './UserOptions';
-import TermsSectionHeader from '../TermsSectionHeader';
+import SectionIntro from '../../ui/SectionIntro';
 import ChangeReasons from './ChangeReasons';
 import ChangesToTermsIntro from './ChangesToTermsIntro';
 
@@ -44,7 +44,7 @@ const ChangesToTerms = ({
       aria-labelledby='changes-to-terms-title'
     >
       <div className='changes-to-terms__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='changes-to-terms-title'
           badge={badge}
           title={title}

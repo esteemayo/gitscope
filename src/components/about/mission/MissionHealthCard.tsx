@@ -1,7 +1,7 @@
-import { healthProgress } from '@/data/about/healthProgress.data';
+import { MissionHealthCardProps } from '@/types/about/mission/mission.health.card.type';
 import '../../../styles/components/about/mission/MissionHealthCard.scss';
 
-const MissionHealthCard = () => {
+const MissionHealthCard = ({ healthProgress }: MissionHealthCardProps) => {
   return (
     <div className='mission-health-card'>
       <div className='mission-health-card__header'>

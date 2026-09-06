@@ -1,8 +1,7 @@
-import { Audience } from '../index';
+import { Audience, AudienceContent } from './index';
 
-export interface WhoItsForProps {
-  badge: string;
-  title: string;
-  description: string;
+export interface WhoItsForProps extends AudienceContent {
   audiences: Audience[];
+  className?: string;
+  style?: React.CSSProperties;
 }

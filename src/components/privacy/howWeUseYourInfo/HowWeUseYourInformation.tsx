@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react';
 
 import InformationPanel from './InformationPanel';
 import UsageStep from './UsageStep';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { HowWeUseYourInformationProps } from '@/types/privacy/howWeUseYourInfo/how.we.use.your.information.type';
@@ -65,11 +65,11 @@ const HowWeUseYourInformation = ({
       aria-labelledby='how-we-use-your-information-title'
     >
       <div className='how-we-use-your-information__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='how-we-use-your-information-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

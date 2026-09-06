@@ -3,10 +3,10 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import TerminationEffects from './TerminationEffects';
-import TerminationPath from './TerminationPath';
-import TermsSectionHeader from '../TermsSectionHeader';
 import TerminationIntro from './TerminationIntro';
+import TerminationPath from './TerminationPath';
+import TerminationEffects from './TerminationEffects';
+import SectionIntro from '../../ui/SectionIntro';
 import SurvivingObligations from './SurvivingObligations';
 
 import { containerVariants } from '@/animations/page';
@@ -44,7 +44,7 @@ const Termination = ({
       aria-labelledby='termination-title'
     >
       <div className='termination__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='termination-title'
           badge={badge}
           title={title}

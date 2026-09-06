@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import GithubDataApiNotice from './GithubDataApiNotice';
 import GithubDataIntro from './GithubDataIntro';
 import GithubDataAccessGroup from './GithubDataAccessGroup';
-import TermsSectionHeader from '../TermsSectionHeader';
+import SectionIntro from '../../ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { TermsGithubDataApiProps } from '@/types/terms/githubDataApi/terms.github.data.api.type';
@@ -42,7 +42,7 @@ const TermsGithubDataApi = ({
       aria-labelledby='terms-github-data-api-title'
     >
       <div className='terms-github-data-api__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='terms-github-data-api-title'
           badge={badge}
           title={title}

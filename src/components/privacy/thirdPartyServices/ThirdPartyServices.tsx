@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import ThirdPartyServiceCard from './ThirdPartyServiceCard';
 import ThirdPartyDataFlow from './ThirdPartyDataFlow';
 import ThirdPartyServicesNotice from './ThirdPartyServicesNotice';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { ThirdPartyServicesProps } from '@/types/privacy/thirdPartyServices/third.party.services.type';
@@ -34,11 +34,11 @@ const ThirdPartyServices = ({
       aria-labelledby='third-party-services-title'
     >
       <div className='third-party-services__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='cookies-local-storage-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

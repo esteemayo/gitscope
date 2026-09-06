@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import AnalyticsLimitations from './AnalyticsLimitations';
-import AnalyticsProcess from './AnalyticsProcess';
+import SectionIntro from '../../ui/SectionIntro';
 import AnalyticsAccuracyIntro from './AnalyticsAccuracyIntro';
-import TermsSectionHeader from '../TermsSectionHeader';
+import AnalyticsProcess from './AnalyticsProcess';
 import AnalyticsAccuracyNotice from './AnalyticsAccuracyNotice';
 import AnalyticsMethodology from './AnalyticsMethodology';
 
@@ -46,7 +46,7 @@ const TermsAnalyticsAccuracy = ({
       aria-labelledby='terms-analytics-accuracy-title'
     >
       <div className='terms-analytics-accuracy__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='terms-analytics-accuracy-title'
           badge={badge}
           title={title}

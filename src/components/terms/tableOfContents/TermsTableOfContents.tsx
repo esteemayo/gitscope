@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import TermsSectionHeader from '../TermsSectionHeader';
+import SectionIntro from '../../ui/SectionIntro';
 import TermsTableOfContentItem from './TermsTableOfContentsItem';
 
 import { containerVariants } from '@/animations/page';
@@ -31,7 +31,7 @@ const TermsTableOfContents = ({
       aria-labelledby='acceptance-of-terms'
     >
       <div className='terms-table-of-contents__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='acceptance-of-terms'
           badge={badge}
           title={title}

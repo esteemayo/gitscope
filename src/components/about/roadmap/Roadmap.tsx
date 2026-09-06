@@ -1,31 +1,47 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import RoadmapCard from './RoadmapCard';
-import AboutSectionHeader from '../AboutSectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { RoadmapProps } from '@/types/about/roadmap/roadmap.type';
 
 import '../../../styles/components/about/roadmap/Roadmap.scss';
 
-const Roadmap = ({ badge, title, description, phases }: RoadmapProps) => {
+const Roadmap = ({
+  badge,
+  title,
+  description,
+  phases,
+  accentColor,
+  className,
+  style,
+}: RoadmapProps) => {
   return (
     <motion.section
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.25, margin: '-50px' }}
-      className='roadmap'
+      viewport={{ once: true }}
+      className={clsx('roadmap', className)}
+      style={
+        {
+          '--accent-color': accentColor,
+          ...style,
+        } as React.CSSProperties
+      }
       aria-describedby='roadmap-title'
     >
       <div className='roadmap__container'>
-        <AboutSectionHeader
+        <SectionIntro
           id='roadmap-title'
           badge={badge}
           title={title}
           description={description}
+          accentColor={accentColor}
           variants={containerVariants}
         />
 
@@ -33,7 +49,7 @@ const Roadmap = ({ badge, title, description, phases }: RoadmapProps) => {
           {phases.map((phase) => (
             <RoadmapCard
               key={phase.id}
-              phase={phase}
+              {...phase}
               variants={containerVariants}
             />
           ))}

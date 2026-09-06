@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 import PolicyUpdatesNotice from './PolicyUpdatesNotice';
 import PolicyUpdateItem from './PolicyUpdateItem';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { PolicyUpdatesTimelineProps } from '@/types/privacy/policyUpdatesTimeline/policy.updates.timeline.type';
@@ -32,11 +32,11 @@ const PolicyUpdatesTimeline = ({
       aria-labelledby='policy-updates-timeline-title'
     >
       <div className='policy-updates-timeline__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='policy-updates-timeline-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

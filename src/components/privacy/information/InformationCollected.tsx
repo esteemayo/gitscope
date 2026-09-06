@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 import CollectionCategory from './CollectionCategory';
 import InformationIllustration from './InformationIllustration';
 
@@ -28,11 +28,11 @@ const InformationCollected = ({
       aria-labelledby='information-collected-title'
     >
       <div className='information-collected__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='information-collected-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

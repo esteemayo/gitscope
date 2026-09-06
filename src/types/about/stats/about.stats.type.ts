@@ -1,8 +1,7 @@
-import { AboutStat } from '../index';
+import { AboutStat, AboutStatContent } from './index';
 
-export interface AboutStatsProps {
-  badge: string;
-  title: string;
-  description: string;
+export interface AboutStatsProps extends AboutStatContent {
   stats: AboutStat[];
+  className?: string;
+  style?: React.CSSProperties;
 }

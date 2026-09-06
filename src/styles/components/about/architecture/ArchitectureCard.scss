@@ -64,15 +64,17 @@
 
     &--title {
       display: inline-block;
-      text-transform: initial;
+      text-transform: none;
       text-rendering: optimizeLegibility;
-      font-weight: 700;
-      font-size: var(--fz-xs);
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
     }
 
     &--description {
+      text-wrap: pretty;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
       line-height: 1.75;
@@ -84,8 +86,14 @@
     align-items: center;
 
     &--label {
-      display: inline-flex;
+      flex-shrink: 0;
 
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: fit-content;
+      height: fit-content;
       text-transform: capitalize;
       font-weight: 700;
       font-size: 1rem;
@@ -97,6 +105,7 @@
       );
       color: var(--accent-color);
       border-radius: 10rem;
+      line-height: 1.4;
       user-select: none;
       pointer-events: none;
     }

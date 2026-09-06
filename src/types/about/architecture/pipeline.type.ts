@@ -1,5 +1,5 @@
 import { Variants } from 'framer-motion';
-import { PipelineStage } from '../index';
+import { PipelineStage } from './index';
 
 export interface PipelineProps {
   stages: PipelineStage[];

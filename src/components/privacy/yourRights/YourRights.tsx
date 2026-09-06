@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 import YourRightCard from './YourRightCard';
 import RightsNotice from './RightsNotice';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { YourRightsProps } from '@/types/privacy/yourRights/your.rights.type';
@@ -32,11 +32,11 @@ const YourRights = ({
       aria-labelledby='your-rights-title'
     >
       <div className='your-rights__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='your-rights-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

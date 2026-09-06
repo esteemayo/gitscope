@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 import ContactChannels from './ContactChannels';
 import ContactIntro from './ContactIntro';
-import TermsSectionHeader from '../TermsSectionHeader';
+import SectionIntro from '../../ui/SectionIntro';
 import ContactTopics from './ContactTopics';
 import ResponseExpectations from './ResponseExpectations';
 
@@ -44,7 +44,7 @@ const Contact = ({
       aria-labelledby='contact-title'
     >
       <div className='contact__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='contact-title'
           badge={badge}
           title={title}

@@ -3,9 +3,9 @@
 import clsx from 'clsx';
 import { motion, useReducedMotion } from 'framer-motion';
 
-import PrivacyContactNotice from './PrivacyContactNotice';
+import SectionIntro from '@/components/ui/SectionIntro';
 import PrivacyContactCard from './PrivacyContactCard';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import PrivacyContactNotice from './PrivacyContactNotice';
 
 import { containerVariants } from '@/animations/page';
 import { PrivacyContactProps } from '@/types/privacy/privacyContact/privacy.contact.type';
@@ -34,11 +34,11 @@ const PrivacyContact = ({
       aria-labelledby='privacy-contact-title'
     >
       <div className='privacy-contact__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='privacy-contact-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

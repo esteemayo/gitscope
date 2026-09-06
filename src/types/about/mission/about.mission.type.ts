@@ -1,9 +1,16 @@
-import { MissionPrinciple, MissionTimelineStep } from '../index';
+import {
+  HealthProgressType,
+  MissionContent,
+  MissionMetricType,
+  MissionPrinciple,
+  MissionTimelineStep,
+} from './index';
 
-export interface AboutMissionProps {
-  badge: string;
-  title: string;
-  description: string;
+export interface AboutMissionProps extends MissionContent {
   principles: MissionPrinciple[];
   timeline: MissionTimelineStep[];
+  metrics: MissionMetricType[];
+  healthProgress: HealthProgressType[];
+  className?: string;
+  style?: React.CSSProperties;
 }

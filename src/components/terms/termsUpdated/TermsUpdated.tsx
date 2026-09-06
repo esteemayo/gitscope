@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import clsx from 'clsx';
 import { CalendarDays } from 'lucide-react';
 
+import SectionIntro from '../../ui/SectionIntro';
 import TermsUpdatedItem from './TermsUpdatedItem';
-import TermsSectionHeader from '../TermsSectionHeader';
 
 import { containerVariants } from '@/animations/page';
 import { TermsUpdatedProps } from '@/types/terms/termsUpdated/terms.updated.type';
@@ -37,7 +37,7 @@ const TermsUpdated = ({
       aria-labelledby='term-updated-title'
     >
       <div className='term-updated__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='term-updated-title'
           badge={badge}
           title={title}

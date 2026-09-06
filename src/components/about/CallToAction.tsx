@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-import AboutSectionHeader from './AboutSectionHeader';
+import SectionIntro from '../ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { CallToActionProps } from '@/types/about/call.to.action.type';
@@ -25,12 +25,12 @@ const CallToAction = ({
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.25, margin: '-50px' }}
+      viewport={{ once: true }}
       className='call-to-action'
       aria-labelledby='call-to-action-title'
     >
       <div className='call-to-action__container'>
-        <AboutSectionHeader
+        <SectionIntro
           id='call-to-action-title'
           badge={badge}
           title={title}
@@ -47,7 +47,14 @@ const CallToAction = ({
 
             return (
               <div key={id} className='call-to-action__metric'>
-                <Icon size={16} className='call-to-action__metric--icon' />
+                <Icon
+                  size={16}
+                  strokeWidth={1.8}
+                  className='call-to-action__metric--icon'
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
 
                 <span className='call-to-action__metric--label'>{label}</span>
               </div>
@@ -87,7 +94,14 @@ const CallToAction = ({
 
             return (
               <div key={id} className='call-to-action__highlight'>
-                <Icon size={16} className='call-to-action__highlight--icon' />
+                <Icon
+                  size={16}
+                  strokeWidth={1.8}
+                  className='call-to-action__highlight--icon'
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
 
                 <span className='call-to-action__highlight--item'>{label}</span>
               </div>

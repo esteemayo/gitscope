@@ -3,10 +3,10 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import TermsSectionHeader from '../TermsSectionHeader';
-import PrivacyStatement from './PrivacyStatement';
-import PrivacyControlCenter from './PrivacyControlCenter';
 import PrivacyDataNotice from './PrivacyDataNotice';
+import SectionIntro from '../../ui/SectionIntro';
+import PrivacyControlCenter from './PrivacyControlCenter';
+import PrivacyStatement from './PrivacyStatement';
 import PrivacyDataCategories from './PrivacyDataCategories';
 import PrivacyPrinciples from './PrivacyPrinciples';
 
@@ -46,7 +46,7 @@ const TermsPrivacyData = ({
       aria-labelledby='terms-privacy-data-title'
     >
       <div className='terms-privacy-data__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='terms-privacy-data-title'
           badge={badge}
           title={title}

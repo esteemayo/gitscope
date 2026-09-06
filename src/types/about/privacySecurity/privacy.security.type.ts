@@ -1,8 +1,7 @@
-import { SecurityFeature } from '../index';
+import { SecurityContent, SecurityFeature } from './index';
 
-export interface PrivacySecurityProps {
-  badge: string;
-  title: string;
-  description: string;
+export interface PrivacySecurityProps extends SecurityContent {
   features: SecurityFeature[];
+  className?: string;
+  style?: React.CSSProperties;
 }

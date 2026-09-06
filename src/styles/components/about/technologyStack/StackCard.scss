@@ -13,7 +13,9 @@
   background-color: var(--bg-tertiary);
   border: 1px solid color-mix(in srgb, var(--accent-color) 20%, var(--border));
   border-radius: 2rem;
-  transition: var(--transition);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 
   &::after {
     content: '';
@@ -87,16 +89,19 @@
       display: inline-block;
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
-      font-weight: 700;
-      font-size: var(--fz-xs);
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
     }
 
     &--description {
+      text-wrap: pretty;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
       line-height: 1.75;
+      transition: color 0.25s ease;
     }
   }
 
@@ -104,7 +109,7 @@
     height: 1px;
     background-color: color-mix(in srgb, var(--border) 60%, transparent);
     margin-bottom: 1.75rem;
-    transition: var(--transition);
+    transition: border-color 0.25s ease;
   }
 
   &__chips {
@@ -114,19 +119,21 @@
   }
 
   &__chip {
+    flex-shrink: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-family: var(--font-mono);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.05rem;
     letter-spacing: 0.05em;
     padding: 0.65rem 1rem;
     background-color: color-mix(in srgb, var(--accent-color) 8%, transparent);
     color: inherit;
     border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
     border-radius: 10rem;
+    line-height: 1.4;
     transition: var(--transition);
     user-select: none;
 

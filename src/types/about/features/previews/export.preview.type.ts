@@ -1,9 +1,7 @@
-import { LucideProps } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 export interface ExportPreviewProps {
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: LucideIcon | React.ComponentType;
   title: string;
   subtitle: string;
   accentColor: string;

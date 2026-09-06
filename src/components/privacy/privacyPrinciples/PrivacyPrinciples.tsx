@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 import PrivacyPrinciple from './PrivacyPrinciple';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { PrivacyPrinciplesProps } from '@/types/privacy/privacyPrinciples/privacy.principles.type';
@@ -26,11 +26,11 @@ const PrivacyPrinciples = ({
       aria-labelledby='privacy-principles-title'
     >
       <div className='privacy-principles__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='privacy-principles-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

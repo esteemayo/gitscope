@@ -1,21 +1,30 @@
+import clsx from 'clsx';
 import { ArrowRight, Check } from 'lucide-react';
-import { PipelineStageProps } from '@/types/about/architecture/pipeline.stage.type';
 
+import { PipelineStageProps } from '@/types/about/architecture/pipeline.stage.type';
 import '../../../styles/components/about/architecture/PipelineStage.scss';
 
 const PipelineStage = ({
-  stage: { icon: Icon, title, description, accentColor, items, cardWidth },
+  icon: Icon,
+  title,
+  description,
+  accentColor,
+  items,
+  cardWidth,
   index,
   isActive = false,
+  className,
+  style,
 }: PipelineStageProps) => {
   return (
     <div className='pipeline-stage'>
       <div className='pipeline-stage__marker'>
         <div
-          className='pipeline-stage__number'
+          className={clsx('pipeline-stage__number', className)}
           style={
             {
               '--accent-color': accentColor,
+              ...style,
             } as React.CSSProperties
           }
         >
@@ -43,7 +52,13 @@ const PipelineStage = ({
       >
         <div className='pipeline-stage__header'>
           <div className='pipeline-stage__icon'>
-            <Icon size={28} />
+            <Icon
+              size={28}
+              strokeWidth={1.8}
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
           </div>
 
           <div className='pipeline-stage__content'>
@@ -67,6 +82,9 @@ const PipelineStage = ({
                   size={16}
                   strokeWidth={2.5}
                   className='pipeline-stage__item--check'
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
                 />
 
                 <span className='pipeline-stage__item--label'>{label}</span>
@@ -75,7 +93,14 @@ const PipelineStage = ({
           })}
         </ul>
 
-        <ArrowRight size={18} className='pipeline-stage__arrow' />
+        <ArrowRight
+          size={18}
+          strokeWidth={1.8}
+          className='pipeline-stage__arrow'
+          role='img'
+          aria-hidden='true'
+          focusable='false'
+        />
 
         {isActive && (
           <footer className='pipeline-stage__footer'>

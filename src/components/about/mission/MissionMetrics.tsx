@@ -1,12 +1,12 @@
 import millify from 'millify';
-import { missionMetrics } from '@/data/about/missionMetrics.data';
+import { MissionMetricsProps } from '@/types/about/mission/mission.metrics.type';
 
 import '../../../styles/components/about/mission/MissionMetrics.scss';
 
-const MissionMetrics = () => {
+const MissionMetrics = ({ metrics }: MissionMetricsProps) => {
   return (
     <div className='mission-metric'>
-      {missionMetrics.map((metric) => {
+      {metrics.map((metric) => {
         const { id, label, value, trendLabel } = metric;
 
         return (

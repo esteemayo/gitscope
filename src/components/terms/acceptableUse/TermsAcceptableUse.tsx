@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import TermsSectionHeader from '../TermsSectionHeader';
 import AcceptableUseGroup from './AcceptableUseGroup';
+import SectionIntro from '../../ui/SectionIntro';
 import AcceptableUseNotice from './AcceptableUseNotice';
 import AcceptableUseIntro from './AcceptableUseIntro';
 
@@ -42,10 +42,10 @@ const TermsAcceptableUse = ({
       aria-labelledby='terms-acceptable-use-title'
     >
       <div className='terms-acceptable-use__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='terms-acceptable-use-title'
-          badge={badge}
           title={title}
+          badge={badge}
           description={description}
           icon={headerIcon}
           variants={containerVariants}

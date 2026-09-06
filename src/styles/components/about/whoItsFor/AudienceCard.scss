@@ -15,7 +15,10 @@
   border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
   border-radius: 1.8rem;
   overflow: hidden;
-  transition: var(--transition);
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 
   @media (max-width: 40em) {
     padding: 1.5rem;
@@ -73,10 +76,14 @@
     top: 1.5rem;
     right: 1.5rem;
 
+    flex-shrink: 0;
+
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
 
+    width: fit-content;
+    height: fit-content;
     text-transform: capitalize;
     font-weight: 600;
     font-size: 1.1rem;
@@ -86,6 +93,7 @@
     border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
     border-radius: 10rem;
     letter-spacing: 0.05em;
+    line-height: 1.4;
     user-select: none;
     pointer-events: none;
 
@@ -154,16 +162,19 @@
       display: inline-block;
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
-      font-weight: 700;
+      text-wrap: balance;
+      font-weight: 600;
       font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
     }
 
     &--description {
+      text-wrap: pretty;
       font-size: var(--fz-xs);
       color: var(--text-muted);
       line-height: 1.8;
+      transition: color 0.25s ease;
     }
   }
 
@@ -202,6 +213,7 @@
       text-transform: capitalize;
       font-size: var(--fz-xs);
       color: var(--text-muted);
+      transition: color 0.25s ease;
     }
   }
 
@@ -228,6 +240,14 @@
     }
 
     &--badge {
+      flex-shrink: 0;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: fit-content;
+      height: fit-content;
       padding: 0.55rem 1rem;
       background-color: color-mix(
         in srgb,
@@ -237,13 +257,14 @@
       color: var(--accent-color);
       border: 1px solid color-mix(in srgb, var(--accent-color) 25%, transparent);
       border-radius: 10rem;
+      line-height: 1.4;
       user-select: none;
       pointer-events: none;
     }
 
     &--value {
       text-transform: capitalize;
-      font-family: var(--font-mono);
+      letter-spacing: 0.01em;
     }
   }
 }

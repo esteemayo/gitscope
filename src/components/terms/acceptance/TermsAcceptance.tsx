@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import AcceptanceAgreement from './AcceptanceAgreement';
 import AcceptanceIntro from './AcceptanceIntro';
 import TermsAcceptancePoint from './TermsAcceptancePoint';
-import TermsSectionHeader from '../TermsSectionHeader';
+import SectionIntro from '../../ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { TermsAcceptanceProps } from '@/types/terms/acceptance/terms.acceptance.type';
@@ -44,7 +44,7 @@ const TermsAcceptance = ({
       aria-labelledby='terms-acceptance-title'
     >
       <div className='terms-acceptance__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='terms-acceptance-title'
           badge={badge}
           title={title}

@@ -1,27 +1,41 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { StackCardProps } from '@/types/about/technologyStack/stack.card.type';
 
+import { StackCardProps } from '@/types/about/technologyStack/stack.card.type';
 import '../../../styles/components/about/technologyStack/StackCard.scss';
 
 const StackCard = ({
-  stack: { icon: Icon, title, description, accentColor, technologies },
+  icon: Icon,
+  title,
+  description,
+  accentColor,
+  technologies,
   variants,
+  className,
+  style,
 }: StackCardProps) => {
   return (
     <motion.article
       variants={variants}
-      className='stack-card'
+      className={clsx('stack-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >
       <header className='header stack-card__header'>
         <div className='stack-card__icon'>
-          <Icon size={28} />
+          <Icon
+            size={28}
+            strokeWidth={1.8}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
         </div>
 
         <div className='stack-card__content'>

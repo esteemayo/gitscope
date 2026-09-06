@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 
 import DisputeResolution from './DisputeResolution';
 import LegalPrinciples from './LegalPrinciples';
-import TermsSectionHeader from '../TermsSectionHeader';
 import JurisdictionPanel from './JurisdictionPanel';
+import SectionIntro from '../../ui/SectionIntro';
 import GoverningLawIntro from './GoverningLawIntro';
 
 import { containerVariants } from '@/animations/page';
@@ -44,7 +44,7 @@ const GoverningLaw = ({
       aria-labelledby='governing-law-title'
     >
       <div className='governing-law__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='governing-law-title'
           badge={badge}
           title={title}

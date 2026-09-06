@@ -1,22 +1,31 @@
 'use client';
 
 import { Check } from 'lucide-react';
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import { SecurityCardProps } from '@/types/about/privacySecurity/security.card.type';
 import '../../../styles/components/about/privacySecurity/SecurityCard.scss';
 
 const SecurityCard = ({
-  feature: { icon: Icon, badge, title, description, accentColor, highlights },
+  icon: Icon,
+  badge,
+  title,
+  description,
+  accentColor,
+  highlights,
   variants,
+  className,
+  style,
 }: SecurityCardProps) => {
   return (
     <motion.article
       variants={variants}
-      className='security-card'
+      className={clsx('security-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >
@@ -24,7 +33,13 @@ const SecurityCard = ({
 
       <header className='security-card__header'>
         <div className='security-card__icon'>
-          <Icon size={28} />
+          <Icon
+            size={28}
+            strokeWidth={1.8}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
         </div>
 
         <div className='security-card__content'>
@@ -39,7 +54,14 @@ const SecurityCard = ({
       <ul className='security-card__list'>
         {highlights.map((highlight) => (
           <li key={highlight} className='security-card__item'>
-            <Check size={16} className='security-card__item--check' />
+            <Check
+              size={14}
+              strokeWidth={1.8}
+              className='security-card__item--check'
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
 
             <span className='security-card__item--highlight'>{highlight}</span>
           </li>

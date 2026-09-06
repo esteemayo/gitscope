@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 import RetentionStatCard from './RetentionStatCard';
 import RetentionCard from './RetentionCard';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 import RetentionNotice from './RetentionNotice';
 
 import { containerVariants } from '@/animations/page';
@@ -34,11 +34,11 @@ const DataRetention = ({
       aria-labelledby='data-retention-title'
     >
       <div className='data-retention__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='data-retention-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

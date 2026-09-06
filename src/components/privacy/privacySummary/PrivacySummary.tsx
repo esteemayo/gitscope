@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 import PrivacySummaryCard from './PrivacySummaryCard';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { PrivacySummaryProps } from '@/types/privacy/privacySummary/privacy.summary.type';
@@ -26,11 +26,11 @@ const PrivacySummary = ({
       aria-labelledby='privacy-summary-title'
     >
       <div className='privacy-summary__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='privacy-summary-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

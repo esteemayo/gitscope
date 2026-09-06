@@ -41,7 +41,13 @@ const FeatureCard = ({
       <div className='feature-card__footer'>
         <span className='feature-card__footer--label'>Explore feature</span>
 
-        <ArrowUpRight size={18} />
+        <ArrowUpRight
+          size={18}
+          strokeWidth={1.8}
+          role='img'
+          aria-hidden='true'
+          focusable='false'
+        />
       </div>
     </motion.article>
   );

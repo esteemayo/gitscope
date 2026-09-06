@@ -25,7 +25,7 @@ const AboutHero = ({
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true }}
       className='about-hero'
     >
       <div className='about-hero__container'>

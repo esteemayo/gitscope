@@ -1,5 +1,5 @@
 import { Variants } from 'framer-motion';
-import { ComparisonItem } from '../index';
+import { ComparisonItem } from './index';
 
 export interface ComparisonTableProps {
   items: ComparisonItem[];

@@ -1,10 +1,11 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import ArchitectureCard from './ArchitectureCard';
 import Pipeline from './Pipeline';
-import AboutSectionHeader from '../AboutSectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 
 import { containerVariants } from '@/animations/page';
 import { ArchitectureProps } from '@/types/about/architecture/architecture.type';
@@ -17,6 +18,9 @@ const Architecture = ({
   description,
   features,
   stages,
+  accentColor,
+  className,
+  style,
 }: ArchitectureProps) => {
   return (
     <motion.section
@@ -24,15 +28,22 @@ const Architecture = ({
       initial='hidden'
       whileInView='visible'
       viewport={{ once: true }}
-      className='architecture'
+      className={clsx('architecture', className)}
+      style={
+        {
+          '--accent-color': accentColor,
+          ...style,
+        } as React.CSSProperties
+      }
       aria-labelledby='architecture-title'
     >
       <div className='architecture__container'>
-        <AboutSectionHeader
+        <SectionIntro
           id='architecture-title'
           badge={badge}
           title={title}
           description={description}
+          accentColor={accentColor}
           variants={containerVariants}
         />
 
@@ -40,7 +51,7 @@ const Architecture = ({
           {features.map((feature) => (
             <ArchitectureCard
               key={feature.id}
-              feature={feature}
+              {...feature}
               variants={containerVariants}
             />
           ))}

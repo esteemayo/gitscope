@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import MissionContent from './MissionContent';
@@ -16,14 +17,25 @@ const AboutMission = ({
   description,
   principles,
   timeline,
+  metrics,
+  healthProgress,
+  accentColor,
+  className,
+  style,
 }: AboutMissionProps) => {
   return (
     <motion.section
       variants={containerVariants}
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.25, margin: '-50px' }}
-      className='about-mission'
+      viewport={{ once: true }}
+      className={clsx('about-mission', className)}
+      style={
+        {
+          '--accent-color': accentColor,
+          ...style,
+        } as React.CSSProperties
+      }
       aria-labelledby='about-mission-title'
     >
       <div className='about-mission__container'>
@@ -35,7 +47,10 @@ const AboutMission = ({
             variants={containerVariants}
             className='about-mission__illustration'
           >
-            <MissionDashboard />
+            <MissionDashboard
+              metrics={metrics}
+              healthProgress={healthProgress}
+            />
           </motion.div>
 
           <MissionContent
@@ -44,6 +59,7 @@ const AboutMission = ({
             description={description}
             principles={principles}
             timeline={timeline}
+            accentColor={accentColor}
             variants={containerVariants}
           />
         </motion.div>

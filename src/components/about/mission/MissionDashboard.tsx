@@ -2,9 +2,13 @@ import MissionChartCard from './MissionChartCard';
 import MissionMetrics from './MissionMetrics';
 import MissionHealthCard from './MissionHealthCard';
 
+import { MissionDashboardProps } from '@/types/about/mission/mission.dashboard.type';
 import '../../../styles/components/about/mission/MissionDashboard.scss';
 
-const MissionDashboard = () => {
+const MissionDashboard = ({
+  metrics,
+  healthProgress,
+}: MissionDashboardProps) => {
   return (
     <div className='mission-dashboard'>
       <div className='mission-dashboard__header'>
@@ -22,9 +26,9 @@ const MissionDashboard = () => {
       <div className='mission-dashboard__body'>
         <MissionChartCard />
 
-        <MissionMetrics />
+        <MissionMetrics metrics={metrics} />
 
-        <MissionHealthCard />
+        <MissionHealthCard healthProgress={healthProgress} />
       </div>
     </div>
   );

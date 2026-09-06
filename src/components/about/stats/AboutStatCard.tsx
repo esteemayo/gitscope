@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowUpRight } from 'lucide-react';
+import clsx from 'clsx';
 import { motion, Variants } from 'framer-motion';
 
 import { AboutStatCardProps } from '@/types/about/stats/about.stat.card.type';
@@ -29,22 +30,31 @@ const AboutStatCard = ({
   trendLabel,
   accentColor,
   index,
+  className,
+  style,
 }: AboutStatCardProps) => {
   return (
     <motion.article
       variants={cardVariants}
       whileHover={{ y: index * -10 }}
-      className='about-stat-card'
+      className={clsx('about-stat-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >
       <div className='about-stat-card__glow' />
 
       <div className='about-stat-card__icon'>
-        <Icon size={30} />
+        <Icon
+          size={30}
+          strokeWidth={1.8}
+          role='img'
+          aria-hidden='true'
+          focusable='false'
+        />
       </div>
 
       <div className='about-stat-card__content'>
@@ -55,7 +65,13 @@ const AboutStatCard = ({
 
       <footer className='about-stat-card__footer'>
         <span className='about-stat-card__footer--trend'>
-          <ArrowUpRight size={15} />
+          <ArrowUpRight
+            size={15}
+            strokeWidth={1.8}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
           {trend}
         </span>
 

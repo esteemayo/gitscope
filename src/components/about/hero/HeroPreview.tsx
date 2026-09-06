@@ -12,9 +12,9 @@ const HeroPreview = ({ analytics, variants }: HeroPreviewProps) => {
     <motion.div variants={variants} className='hero-preview'>
       <div className='hero-preview__header'>
         <div className='hero-preview__window-buttons'>
-          <span />
-          <span />
-          <span />
+          {[...Array(3)].map((_, index) => (
+            <span key={index} />
+          ))}
         </div>
 
         <p>GitScope Analytics</p>

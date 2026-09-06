@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import UserResponsibilityIntro from './UserResponsibilityIntro';
-import TermsSectionHeader from '../TermsSectionHeader';
+import SectionIntro from '../../ui/SectionIntro';
 import UserResponsibilityNotice from './UserResponsibilityNotice';
 import UserResponsibilityItem from './UserResponsibilityItem';
 
@@ -42,7 +42,7 @@ const TermsUserResponsibilities = ({
       aria-labelledby='terms-user-responsibilities-title'
     >
       <div className='terms-user-responsibilities__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='terms-user-responsibilities-title'
           badge={badge}
           title={title}

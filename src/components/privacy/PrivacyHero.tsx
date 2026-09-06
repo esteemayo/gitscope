@@ -62,7 +62,9 @@ const PrivacyHero = ({
             >
               <ShieldCheck
                 size={18}
+                strokeWidth={1.8}
                 className='privacy-hero__badge--icon'
+                role='img'
                 aria-hidden='true'
                 focusable='false'
               />
@@ -103,13 +105,25 @@ const PrivacyHero = ({
                     className={`privacy-hero__button privacy-hero__button--${variant}`}
                   >
                     {variant === 'secondary' && (
-                      <Icon size={16} aria-hidden='true' focusable='false' />
+                      <Icon
+                        size={16}
+                        strokeWidth={1.8}
+                        role='img'
+                        aria-hidden='true'
+                        focusable='false'
+                      />
                     )}
 
                     <span>{label}</span>
 
                     {variant === 'primary' && (
-                      <Icon size={18} aria-hidden='true' focusable='false' />
+                      <Icon
+                        size={18}
+                        strokeWidth={1.8}
+                        role='img'
+                        aria-hidden='true'
+                        focusable='false'
+                      />
                     )}
                   </Link>
                 );
@@ -150,6 +164,8 @@ const PrivacyHero = ({
               <div className='privacy-hero__shield'>
                 <IllustrationIcon
                   size={80}
+                  strokeWidth={1.8}
+                  role='img'
                   aria-hidden='true'
                   focusable='false'
                 />
@@ -170,7 +186,13 @@ const PrivacyHero = ({
             >
               <div className='privacy-hero__card-header'>
                 <div className='privacy-hero__card-icon'>
-                  <CardIcon size={22} aria-hidden='true' focusable='false' />
+                  <CardIcon
+                    size={22}
+                    strokeWidth={1.8}
+                    role='img'
+                    aria-hidden='true'
+                    focusable='false'
+                  />
                 </div>
 
                 <div className='privacy-hero__card-content'>

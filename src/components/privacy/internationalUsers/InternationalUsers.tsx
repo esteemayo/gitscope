@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import InternationalUsersPanel from './InternationalUsersPanel';
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 import InternationalUsersNotice from './InternationalUsersNotice';
 
 import { containerVariants } from '@/animations/page';
@@ -32,11 +32,11 @@ const InternationalUsers = ({
       aria-labelledby='international-users-title'
     >
       <div className='international-users__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='international-users-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 

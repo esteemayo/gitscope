@@ -1,27 +1,40 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { ArchitectureCardProps } from '@/types/about/architecture/architecture.card.type';
 
+import { ArchitectureCardProps } from '@/types/about/architecture/architecture.card.type';
 import '../../../styles/components/about/architecture/ArchitectureCard.scss';
 
 const ArchitectureCard = ({
-  feature: { icon: Icon, title, description, accentColor, layer },
+  icon: Icon,
+  title,
+  description,
+  accentColor,
+  layer,
   variants,
+  className,
+  style,
 }: ArchitectureCardProps) => {
   return (
     <motion.article
       variants={variants}
-      className='architecture-card'
+      className={clsx('architecture-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >
       <header className='architecture-card__header'>
         <div className='architecture-card__header--icon'>
-          <Icon />
+          <Icon
+            strokeWidth={1.8}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
         </div>
       </header>
 

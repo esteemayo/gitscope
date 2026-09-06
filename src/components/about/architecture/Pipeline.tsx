@@ -20,7 +20,7 @@ const Pipeline = ({ stages, variants }: PipelineProps) => {
         >
           <PipelineStage
             key={stage.id}
-            stage={stage}
+            {...stage}
             index={index}
             isActive={stage.id === 'engine'}
           />

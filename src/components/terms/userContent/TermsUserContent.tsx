@@ -4,11 +4,11 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import UserContentLifecycle from './UserContentLifecycle';
-import UserContentIntro from './UserContentIntro';
+import SectionIntro from '../../ui/SectionIntro';
 import UserContentBoundaries from './UserContentBoundaries';
-import UserContentNotice from './UserContentNotice';
+import UserContentIntro from './UserContentIntro';
 import UserContentPermissions from './UserContentPermissions';
-import TermsSectionHeader from '../TermsSectionHeader';
+import UserContentNotice from './UserContentNotice';
 
 import { containerVariants } from '@/animations/page';
 import { TermsUserContentProps } from '@/types/terms/userContent/terms.user.content.type';
@@ -46,7 +46,7 @@ const TermsUserContent = ({
       aria-labelledby='terms-user-content-title'
     >
       <div className='terms-user-content__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='terms-user-content-title'
           badge={badge}
           title={title}

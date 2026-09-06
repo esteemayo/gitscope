@@ -1,9 +1,8 @@
-import { ArchitectureFeature, PipelineStage } from '../index';
+import { ArchitectureContent, ArchitectureFeature, PipelineStage } from './index';
 
-export interface ArchitectureProps {
-  badge: string;
-  title: string;
-  description: string;
+export interface ArchitectureProps extends ArchitectureContent {
   features: ArchitectureFeature[];
   stages: PipelineStage[];
+  className?: string;
+  style?: React.CSSProperties;
 }

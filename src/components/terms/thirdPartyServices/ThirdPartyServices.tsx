@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import ThirdPartyServiceMap from './ThirdPartyServiceMap';
-import ThirdPartyBoundary from './ThirdPartyBoundary';
+import SectionIntro from '../../ui/SectionIntro';
 import ThirdPartyServiceIntro from './ThirdPartyServiceIntro';
-import TermsSectionHeader from '../TermsSectionHeader';
+import ThirdPartyBoundary from './ThirdPartyBoundary';
 
 import { containerVariants } from '@/animations/page';
 import { ThirdPartyServicesProps } from '@/types/terms/thirdPartyServices/third.party.services.type';
@@ -42,7 +42,7 @@ const ThirdPartyServices = ({
       aria-labelledby='third-party-services-title'
     >
       <div className='third-party-services__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='third-party-services-title'
           badge={badge}
           title={title}

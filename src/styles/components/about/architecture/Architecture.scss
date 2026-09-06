@@ -72,9 +72,9 @@
     font-size: 1rem;
     letter-spacing: 0.05em;
     padding: 0.5rem 1rem;
-    background-color: color-mix(in srgb, var(--icon) 7%, transparent);
-    color: var(--icon);
-    border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
+    background-color: color-mix(in srgb, var(--accent-color) 7%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
     border-radius: 100rem;
     user-select: none;
     pointer-events: none;
@@ -84,6 +84,7 @@
     display: inline-block;
     text-transform: initial;
     text-rendering: optimizeLegibility;
+    text-wrap: balance;
     font-weight: 700;
     font-size: clamp(var(--fz-xl), 4vw, 2.8rem);
     color: inherit;
@@ -94,9 +95,11 @@
     display: inline-flex;
     max-width: 64rem;
     text-align: center;
+    text-wrap: pretty;
     margin-inline: auto;
     font-size: var(--fz-xxs);
     color: var(--text-muted);
     line-height: 1.8;
+    transition: color 0.25s ease;
   }
 }

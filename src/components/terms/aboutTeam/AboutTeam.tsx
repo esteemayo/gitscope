@@ -7,7 +7,7 @@ import TeamClosing from './TeamClosing';
 import TeamFocus from './TeamFocus';
 import TeamShowcase from './TeamShowcase';
 import TeamIntro from './TeamIntro';
-import TermsSectionHeader from '../TermsSectionHeader';
+import SectionIntro from '../../ui/SectionIntro';
 import TeamMembers from './TeamMembers';
 
 import { containerVariants } from '@/animations/page';
@@ -45,7 +45,7 @@ const AboutTeam = ({
       aria-labelledby='about-team-title'
     >
       <div className='about-team__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='about-team-title'
           badge={badge}
           title={title}

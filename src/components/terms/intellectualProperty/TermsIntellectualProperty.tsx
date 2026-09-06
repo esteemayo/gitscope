@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import IntellectualPropertyIntro from './IntellectualPropertyIntro';
-import TermsSectionHeader from '../TermsSectionHeader';
+import SectionIntro from '../../ui/SectionIntro';
 import IntellectualPropertyRules from './IntellectualPropertyRules';
 import IntellectualPropertyMap from './IntellectualPropertyMap';
 import IntellectualPropertyNotice from './IntellectualPropertyNotice';
@@ -44,7 +44,7 @@ const TermsIntellectualProperty = ({
       aria-labelledby='terms-intellectual-property-title'
     >
       <div className='terms-intellectual-property__container'>
-        <TermsSectionHeader
+        <SectionIntro
           id='terms-intellectual-property-title'
           badge={badge}
           title={title}

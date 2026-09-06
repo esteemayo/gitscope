@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-import PrivacySectionHeader from '../PrivacySectionHeader';
+import SectionIntro from '@/components/ui/SectionIntro';
 import StorageNotice from './StorageNotice';
 import BrowserStorageOverview from './BrowserStorageOverview';
 import StorageSummary from './StorageSummary';
@@ -30,11 +30,11 @@ const CookiesLocalStorage = ({
       aria-labelledby='cookies-local-storage-title'
     >
       <div className='cookies-local-storage__container'>
-        <PrivacySectionHeader
+        <SectionIntro
           id='cookies-local-storage-title'
           badge={badge}
           title={title}
-          subtitle={subtitle}
+          description={subtitle}
           variants={containerVariants}
         />
 
