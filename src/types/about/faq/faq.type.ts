@@ -1,8 +1,7 @@
-import { FAQItemData } from '../index';
+import { FAQContent, FAQItemData } from './index';
 
-export interface FAQProps {
-  badge: string;
-  title: string;
-  description: string;
+export interface FAQProps extends FAQContent {
   items: FAQItemData[];
+  className?: string;
+  style?: React.CSSProperties;
 }

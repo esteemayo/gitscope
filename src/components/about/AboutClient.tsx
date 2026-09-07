@@ -7,14 +7,11 @@ import Roadmap from './roadmap/Roadmap';
 import AboutFeatures from './features/AboutFeatures';
 import AboutHero from './hero/AboutHero';
 import Architecture from './architecture/Architecture';
-import CallToAction from './CallToAction';
+import CallToAction from './cta/CallToAction';
 import TechnologyStack from './technologyStack/TechnologyStack';
 import AboutStats from './stats/AboutStats';
 import PrivacySecurity from './privacySecurity/PrivacySecurity';
 import WhoItsFor from './whoItsFor/WhoItsFor';
-
-import { faqItems } from '@/data/about/faq.data';
-import { ctaContent } from '@/data/about/cta.data';
 
 import { aboutPageData } from '@/data/about/aboutPageData';
 import '../../styles/components/about/AboutClient.scss';
@@ -42,14 +39,9 @@ const AboutClient = () => {
 
       <Roadmap {...aboutPageData.roadmap} />
 
-      <FAQ
-        badge='Frequently Asked Question'
-        title='Answers to common questions.'
-        description='Everything you need to know about GitScope, from authentication and privacy to repository analytics and future plans.'
-        items={faqItems}
-      />
+      <FAQ {...aboutPageData.faq} />
 
-      <CallToAction {...ctaContent} />
+      <CallToAction {...aboutPageData.cta} />
     </main>
   );
 };

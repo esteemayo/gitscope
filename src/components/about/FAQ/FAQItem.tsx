@@ -9,7 +9,9 @@ import '../../../styles/components/about/FAQ/FAQItem.scss';
 
 const FAQItem = ({
   isOpen,
-  item: { id, answer, question },
+  id,
+  answer,
+  question,
   variants,
   onToggle,
 }: FAQItemProps) => {
@@ -31,7 +33,13 @@ const FAQItem = ({
           transition={{ duration: 0.25 }}
           className='faq-item__trigger--icon'
         >
-          <ChevronDown size={20} />
+          <ChevronDown
+            size={16}
+            strokeWidth={1.8}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
         </motion.span>
       </button>
 

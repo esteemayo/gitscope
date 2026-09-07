@@ -40,7 +40,7 @@
     background-size: 4.2rem 4.2rem;
     opacity: 0.55;
     z-index: -3;
-    transition: var(--transition);
+    transition: background-image 0.25s ease;
   }
 
   &__container {
@@ -57,6 +57,7 @@
       width: 36rem;
       height: 36rem;
       filter: blur(20rem);
+      z-index: -1;
     }
 
     &::before {
@@ -93,14 +94,20 @@
     align-items: center;
     gap: 0.65rem;
 
+    width: fit-content;
+    height: fit-content;
     padding: 0.85rem 1.2rem;
     background-color: var(--bg-tertiary);
     -webkit-backdrop-filter: blur(2rem);
     backdrop-filter: blur(2rem);
-    border: 1px solid color-mix(in srgb, var(--icon) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 12%, transparent);
     border-radius: 100rem;
+    line-height: 1.4;
     user-select: none;
-    transition: var(--transition);
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
 
     @include bp.md {
       width: 100%;
@@ -114,11 +121,11 @@
 
       width: 1.6rem;
       height: 1.6rem;
-      color: var(--icon);
+      color: var(--accent-color);
     }
 
     &--label {
-      font-weight: 600;
+      font-weight: 500;
       font-size: var(--fz-xs);
       white-space: nowrap;
       color: inherit;
@@ -128,10 +135,10 @@
       transform: translateY(-4px);
       background-color: color-mix(
         in srgb,
-        var(--icon) 8%,
+        var(--accent-color) 4%,
         rgba(255, 255, 255, 0.08)
       );
-      border-color: color-mix(in srgb, var(--icon) 35%, transparent);
+      border-color: color-mix(in srgb, var(--accent-color) 35%, transparent);
     }
   }
 
@@ -224,12 +231,15 @@
     align-items: center;
     gap: 0.65rem;
 
+    width: fit-content;
+    height: fit-content;
     padding: 0.9rem 1.25rem;
     background-color: var(--bg-tertiary);
     -webkit-backdrop-filter: blur(2rem);
     backdrop-filter: blur(2rem);
     border: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
     border-radius: 100rem;
+    line-height: 1.4;
     user-select: none;
     transition: var(--transition);
 
@@ -249,7 +259,7 @@
     }
 
     &--item {
-      font-weight: 600;
+      font-weight: 500;
       font-size: var(--fz-xs);
       white-space: nowrap;
       color: inherit;
@@ -259,27 +269,10 @@
       transform: translateY(-2px);
       background-color: color-mix(
         in srgb,
-        var(--icon) 6%,
+        var(--accent-color) 3%,
         rgba(255, 255, 255, 0.08)
       );
-      border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+      border-color: color-mix(in srgb, var(--accent-color) 20%, transparent);
     }
-  }
-
-  &__footer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-
-    font-family: var(--font-mono);
-    margin-top: 3rem;
-    padding-top: 2rem;
-    font-size: var(--fz-xxs);
-    color: var(--text-muted);
-    border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
-    border-top: 1px solid var(--border);
-    transition: var(--transition);
   }
 }

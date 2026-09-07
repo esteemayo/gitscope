@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import FAQItem from './FAQItem';
@@ -11,7 +12,15 @@ import { containerVariants } from '@/animations/page';
 
 import '../../../styles/components/about/FAQ/FAQ.scss';
 
-const FAQ = ({ badge, title, description, items }: FAQProps) => {
+const FAQ = ({
+  badge,
+  title,
+  description,
+  items,
+  accentColor,
+  className,
+  style,
+}: FAQProps) => {
   const [activeId, setActiveId] = useState<string | null>(items[0].id);
 
   const handleToggle = (itemId: string) => {
@@ -24,7 +33,13 @@ const FAQ = ({ badge, title, description, items }: FAQProps) => {
       initial='hidden'
       whileInView='visible'
       viewport={{ once: true }}
-      className='faq'
+      className={clsx('faq', className)}
+      style={
+        {
+          '--accent-color': accentColor,
+          ...style,
+        } as React.CSSProperties
+      }
       aria-labelledby='faq-title'
     >
       <div className='faq__container'>
@@ -33,6 +48,7 @@ const FAQ = ({ badge, title, description, items }: FAQProps) => {
           badge={badge}
           title={title}
           description={description}
+          accentColor={accentColor}
           variants={containerVariants}
         />
 
@@ -41,7 +57,7 @@ const FAQ = ({ badge, title, description, items }: FAQProps) => {
             <FAQItem
               key={item.id}
               isOpen={activeId === item.id}
-              item={item}
+              {...item}
               variants={containerVariants}
               onToggle={handleToggle}
             />

@@ -3,11 +3,14 @@
 @use '../../../abstracts/responsive' as bp;
 
 .faq-item {
-  background-color: var(--bg-tertiary);
+  background-color: color-mix(in srgb, var(--icon) 2.5%, var(--bg-tertiary));
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: var(--transition);
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 
   &:hover {
     border-color: color-mix(in srgb, var(--icon) 25%, transparent);
@@ -27,13 +30,14 @@
     background-color: transparent;
     color: inherit;
     cursor: pointer;
+    transition: color 0.25s ease;
 
     @include bp.md {
       padding: 1.25rem 1.5rem;
     }
 
     &--question {
-      font-weight: 600;
+      font-weight: 500;
       font-size: var(--fz-md);
       color: currentColor;
 
@@ -50,13 +54,13 @@
 
       width: 2.25rem;
       height: 2.25rem;
-      background-color: color-mix(in srgb, var(--icon) 10%, transparent);
+      background-color: color-mix(in srgb, var(--icon) 5%, transparent);
       color: var(--icon);
       border-radius: 100%;
 
       svg {
-        width: 2rem;
-        height: 2rem;
+        width: 1.6rem;
+        height: 1.6rem;
         color: currentColor;
         stroke: currentColor;
       }
@@ -85,6 +89,7 @@
       padding: 0 2rem 2rem;
       color: var(--text-muted);
       line-height: 1.9;
+      transition: color 0.25s ease;
 
       @include bp.md {
         padding: 0 1.5rem 1.5rem;

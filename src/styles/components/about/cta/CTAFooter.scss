@@ -1,0 +1,23 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.cta-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  border-top: 1px solid var(--border);
+  transition: border-color 0.25s ease;
+
+  > * {
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+  }
+}
