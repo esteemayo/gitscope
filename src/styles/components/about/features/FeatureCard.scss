@@ -14,8 +14,10 @@
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   border-radius: 2rem;
-  transition: var(--transition);
   isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
   cursor: pointer;
 
   &::before {
@@ -72,8 +74,8 @@
     width: 6.4rem;
     height: 6.4rem;
     color: var(--accent-color);
-    background-color: color-mix(in srgb, var(--accent-color) 16%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-color) 30%, transparent);
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
     border-radius: 1.8rem;
     transition: var(--transition);
 
@@ -94,19 +96,21 @@
 
   &__title {
     display: inline-block;
-    font-weight: 700;
+    text-wrap: balance;
+    font-weight: 600;
     font-size: var(--fz-sm);
     color: var(--text);
     line-height: 1.3;
-    transition: var(--transition);
+    transition: color 0.25s ease;
   }
 
   &__description {
+    text-wrap: pretty;
     font-size: var(--fz-xxs);
     color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 2rem;
-    transition: var(--transition);
+    transition: color 0.25s ease;
   }
 
   &__preview {
@@ -120,7 +124,7 @@
     margin-bottom: 2rem;
     border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     border-radius: 1.8rem;
-    transition: var(--transition);
+    transition: border-color 0.25s ease;
 
     &.small {
       min-height: 14rem;
@@ -142,11 +146,11 @@
 
     padding-top: 1.5rem;
     border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
-    transition: var(--transition);
+    transition: border-color 0.25s ease;
 
     &--label {
       text-transform: capitalize;
-      font-weight: 600;
+      font-weight: 500;
       font-size: var(--fz-xxs);
     }
 

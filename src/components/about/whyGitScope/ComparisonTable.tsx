@@ -6,9 +6,9 @@ import { ArrowRight } from 'lucide-react';
 import { ComparisonTableProps } from '@/types/about/whyGitScope/comparison.table.type';
 import '../../../styles/components/about/whyGitScope/ComparisonTable.scss';
 
-const ComparisonTable = ({ items, variants }: ComparisonTableProps) => {
+const ComparisonTable = ({ items }: ComparisonTableProps) => {
   return (
-    <motion.div variants={variants} className='comparison-table'>
+    <div className='comparison-table'>
       <div className='comparison-table__header'>
         <span>GitHub</span>
 
@@ -18,13 +18,20 @@ const ComparisonTable = ({ items, variants }: ComparisonTableProps) => {
       </div>
 
       <div className='comparison-table__body'>
-        {items.map((item) => {
+        {items.map((item, index) => {
           const { id, github, gitScope } = item;
 
           return (
             <motion.article
               key={id}
-              variants={variants}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.07,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className='comparison-table__row'
             >
               <div className='comparison-table__github'>{github}</div>
@@ -44,7 +51,7 @@ const ComparisonTable = ({ items, variants }: ComparisonTableProps) => {
           );
         })}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

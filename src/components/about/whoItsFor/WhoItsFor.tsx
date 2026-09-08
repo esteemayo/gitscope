@@ -46,12 +46,8 @@ const WhoItsFor = ({
         />
 
         <div className='who-its-for__grid'>
-          {audiences.map((audience) => (
-            <AudienceCard
-              key={audience.id}
-              {...audience}
-              variants={containerVariants}
-            />
+          {audiences.map((audience, index) => (
+            <AudienceCard key={audience.id} {...audience} index={index} />
           ))}
         </div>
       </div>

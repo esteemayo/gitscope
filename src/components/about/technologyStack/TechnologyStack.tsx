@@ -46,8 +46,8 @@ const TechnologyStack = ({
         />
 
         <div className='technology-stack__grid'>
-          {stacks.map((stack) => (
-            <StackCard key={stack.id} {...stack} variants={containerVariants} />
+          {stacks.map((stack, index) => (
+            <StackCard key={stack.id} {...stack} index={index} />
           ))}
         </div>
       </div>

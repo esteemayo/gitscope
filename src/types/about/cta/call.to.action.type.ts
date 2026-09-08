@@ -1,8 +1,8 @@
-import { CTAContent, CTAFloatingMetric, CTAHighlight } from './index';
+import { CTAContent, CTAFloatingMetricType, CTAHighlightType } from './index';
 
 export interface CallToActionProps extends CTAContent {
-  highlights: CTAHighlight[];
-  metrics: CTAFloatingMetric[];
+  highlights: CTAHighlightType[];
+  metrics: CTAFloatingMetricType[];
   className?: string;
   style?: React.CSSProperties;
 }

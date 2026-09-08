@@ -9,10 +9,15 @@ import '../../../styles/components/about/architecture/PipelineSummary.scss';
 const PipelineSummary = ({
   title = 'Actionable Developer Insights',
   description = 'GitScope transforms raw GitHub data into meaningful analytics, helping developers understand repository health, activity trands and overall project performance.',
-  variants,
 }: PipelineSummaryProps) => {
   return (
-    <motion.article variants={variants} className='pipeline-summary'>
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className='pipeline-summary'
+    >
       <div className='pipeline-summary__icon'>
         <Sparkles
           size={30}

@@ -1,4 +1,4 @@
-import { HeroCardItem } from '../index';
+import { HeroCardItem } from './index';
 
 export interface AboutHeroProps {
   badge?: string;

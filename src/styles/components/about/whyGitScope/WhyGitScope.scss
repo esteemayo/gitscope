@@ -81,6 +81,10 @@
     gap: 2rem;
 
     margin: 4rem 0 5rem;
+
+    @include bp.sm {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__comparison {

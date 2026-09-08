@@ -1,8 +1,7 @@
-import { Variants } from 'framer-motion';
 import { ArchitectureFeature } from './index';
 
 export interface ArchitectureCardProps extends ArchitectureFeature {
-  variants: Variants;
+  index: number;
   className?: string;
   style?: React.CSSProperties;
 }

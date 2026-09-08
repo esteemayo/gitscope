@@ -16,13 +16,13 @@ export interface CTAContent {
   accentColor?: string;
 }
 
-export interface CTAHighlight {
+export interface CTAHighlightType {
   id: string;
   label: string;
   icon: LucideIcon | React.ComponentType;
 }
 
-export interface CTAFloatingMetric {
+export interface CTAFloatingMetricType {
   id: string;
   label: string;
   icon: LucideIcon | React.ComponentType;

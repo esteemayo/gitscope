@@ -1,0 +1,53 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.cta-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  width: fit-content;
+  height: fit-content;
+  padding: 0.9rem 1.25rem;
+  background-color: var(--bg-tertiary);
+  -webkit-backdrop-filter: blur(2rem);
+  backdrop-filter: blur(2rem);
+  border: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+  border-radius: 100rem;
+  line-height: 1.4;
+  user-select: none;
+  transition: var(--transition);
+
+  @include bp.md {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--color-green-300);
+    stroke: currentColor;
+  }
+
+  &__item {
+    font-weight: 500;
+    font-size: var(--fz-xs);
+    white-space: nowrap;
+    color: inherit;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color) 3%,
+      rgba(255, 255, 255, 0.08)
+    );
+    border-color: color-mix(in srgb, var(--accent-color) 20%, transparent);
+  }
+}

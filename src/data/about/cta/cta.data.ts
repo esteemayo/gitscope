@@ -11,9 +11,9 @@ import {
 } from 'lucide-react';
 
 import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
-import { CTAFloatingMetric, CTAHighlight } from '@/types/about/cta';
+import { CTAFloatingMetricType, CTAHighlightType } from '@/types/about/cta';
 
-export const ctaHighlights: CTAHighlight[] = [
+export const ctaHighlights: CTAHighlightType[] = [
   {
     id: 'free',
     label: 'Free to Explore',
@@ -36,7 +36,7 @@ export const ctaHighlights: CTAHighlight[] = [
   },
 ];
 
-export const ctaMetrics: CTAFloatingMetric[] = [
+export const ctaMetrics: CTAFloatingMetricType[] = [
   {
     id: 'analytics',
     label: 'Repository Analytics',

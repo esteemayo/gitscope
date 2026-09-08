@@ -1,22 +1,38 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import clsx from 'clsx';
 import { ArrowUpRight } from 'lucide-react';
 
 import { FeatureCardProps } from '@/types/about/features/feature.card.type';
 import '../../../styles/components/about/features/FeatureCard.scss';
 
 const FeatureCard = ({
-  feature: { icon, title, description, accentColor, preview, previewHeight },
-  variants,
+  icon,
+  title,
+  description,
+  accentColor,
+  preview,
+  previewHeight,
+  index,
+  className,
+  style,
 }: FeatureCardProps) => {
   return (
     <motion.article
-      variants={variants}
-      className='feature-card'
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.4,
+        delay: index * 0.07,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className={clsx('feature-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >

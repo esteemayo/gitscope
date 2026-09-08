@@ -16,13 +16,20 @@ const AudienceCard = ({
   accentColor,
   previewIcon: PreviewIcon,
   previewLabel,
-  variants,
+  index,
   className,
   style,
 }: AudienceCardProps) => {
   return (
     <motion.article
-      variants={variants}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.4,
+        delay: index * 0.06,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className={clsx('audience-card', className)}
       style={
         {

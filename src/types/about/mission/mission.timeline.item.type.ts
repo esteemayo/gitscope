@@ -1,5 +1,5 @@
 import { Variants } from 'framer-motion';
-import { MissionTimelineStep } from '../index';
+import { MissionTimelineStep } from '../hero/index';
 
 export interface MissionTimelineItemProps {
   step: MissionTimelineStep;

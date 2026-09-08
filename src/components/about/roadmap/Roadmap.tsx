@@ -46,12 +46,8 @@ const Roadmap = ({
         />
 
         <div className='roadmap__grid'>
-          {phases.map((phase) => (
-            <RoadmapCard
-              key={phase.id}
-              {...phase}
-              variants={containerVariants}
-            />
+          {phases.map((phase, index) => (
+            <RoadmapCard key={phase.id} {...phase} index={index} />
           ))}
         </div>
       </div>

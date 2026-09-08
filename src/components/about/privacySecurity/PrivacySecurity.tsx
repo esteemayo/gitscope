@@ -46,12 +46,8 @@ const PrivacySecurity = ({
         />
 
         <div className='privacy-security__grid'>
-          {features.map((feature) => (
-            <SecurityCard
-              key={feature.id}
-              {...feature}
-              variants={containerVariants}
-            />
+          {features.map((feature, index) => (
+            <SecurityCard key={feature.id} {...feature} index={index} />
           ))}
         </div>
       </div>

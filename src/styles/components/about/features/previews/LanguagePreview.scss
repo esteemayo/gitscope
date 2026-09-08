@@ -24,9 +24,9 @@
     width: 100%;
     height: 1.2rem;
     background-color: color-mix(in srgb, var(--border) 70%, transparent);
-    border-radius: 10rem;
+    border-radius: 100rem;
     overflow: hidden;
-    transition: var(--transition);
+    transition: background-color 0.25s ease;
   }
 
   &__segment {
@@ -48,8 +48,10 @@
 
     padding: 0.75rem 1rem;
     border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
-    border-radius: var(--radius);
-    transition: var(--transition);
+    border-radius: 0.875rem;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease;
 
     &:hover {
       transform: translateY(4px);
@@ -68,11 +70,11 @@
       font-weight: 500;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
-      transition: var(--transition);
+      transition: color 0.25s ease;
     }
 
     &--value {
-      font-weight: 700;
+      font-weight: 600;
       font-size: 1.15rem;
       font-variant-numeric: tabular-nums;
       font-feature-settings: 'tnum';

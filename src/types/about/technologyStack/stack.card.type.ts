@@ -1,8 +1,7 @@
-import { Variants } from 'framer-motion';
 import { StackCategory } from './index';
 
 export interface StackCardProps extends StackCategory {
-  variants: Variants;
+  index: number;
   className?: string;
   style?: React.CSSProperties;
 }

@@ -12,13 +12,20 @@ const StackCard = ({
   description,
   accentColor,
   technologies,
-  variants,
+  index,
   className,
   style,
 }: StackCardProps) => {
   return (
     <motion.article
-      variants={variants}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.45,
+        delay: index * 0.06,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className={clsx('stack-card', className)}
       style={
         {

@@ -1,26 +1,11 @@
 'use client';
 
-import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import clsx from 'clsx';
-import { motion, Variants } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 
 import { AboutStatCardProps } from '@/types/about/stats/about.stat.card.type';
 import '../../../styles/components/about/stats/AboutStatCard.scss';
-
-const cardVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.45,
-      ease: [0.645, 0.045, 0.355, 1] as const,
-    },
-  },
-};
 
 const AboutStatCard = ({
   icon: Icon,
@@ -35,8 +20,14 @@ const AboutStatCard = ({
 }: AboutStatCardProps) => {
   return (
     <motion.article
-      variants={cardVariants}
-      whileHover={{ y: index * -10 }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.45,
+        delay: index * 0.06,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className={clsx('about-stat-card', className)}
       style={
         {
@@ -66,7 +57,7 @@ const AboutStatCard = ({
       <footer className='about-stat-card__footer'>
         <span className='about-stat-card__footer--trend'>
           <ArrowUpRight
-            size={15}
+            size={14}
             strokeWidth={1.8}
             role='img'
             aria-hidden='true'

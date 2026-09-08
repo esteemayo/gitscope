@@ -1,21 +1,31 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 import { FeaturedFeatureProps } from '@/types/about/features/featured.feature.type';
 import '../../../styles/components/about/features/FeaturedFeature.scss';
 
 const FeaturedFeature = ({
-  feature: { icon, title, description, accentColor, preview },
-  variants,
+  icon,
+  title,
+  description,
+  accentColor,
+  preview,
+  className,
+  style,
 }: FeaturedFeatureProps) => {
   return (
     <motion.article
-      variants={variants}
-      className='featured-feature'
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className={clsx('featured-feature', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >

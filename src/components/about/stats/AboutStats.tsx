@@ -22,9 +22,9 @@ const AboutStats = ({
 }: AboutStatsProps) => {
   return (
     <motion.section
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45 }}
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
       viewport={{ once: true }}
       className={clsx('about-stats', className)}
       style={
@@ -44,17 +44,11 @@ const AboutStats = ({
           variants={containerVariants}
         />
 
-        <motion.div
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true }}
-          className='about-stats__grid'
-        >
+        <div className='about-stats__grid'>
           {stats.map((stat, index) => (
             <AboutStatCard key={stat.id} {...stat} index={index} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </motion.section>
   );

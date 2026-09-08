@@ -50,13 +50,13 @@ const WhyGitScope = ({
         />
 
         <div className='why-gitscope__values'>
-          {values.map((value) => (
-            <ValueCard key={value.id} {...value} variants={containerVariants} />
+          {values.map((value, index) => (
+            <ValueCard key={value.id} {...value} index={index} />
           ))}
         </div>
 
         <div className='why-gitscope__comparison'>
-          <ComparisonTable items={comparison} variants={containerVariants} />
+          <ComparisonTable items={comparison} />
         </div>
       </div>
     </motion.section>

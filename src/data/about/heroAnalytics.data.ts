@@ -1,5 +1,5 @@
 import { Activity, GitBranch, Star, Users2 } from 'lucide-react';
-import { HeroCardItem } from '@/types/about';
+import { HeroCardItem } from '@/types/about/hero';
 
 export const heroAnalytics: HeroCardItem[] = [
   {

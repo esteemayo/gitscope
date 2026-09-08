@@ -1,8 +1,7 @@
-import { Variants } from 'framer-motion';
 import { WhyItem } from './index';
 
 export interface ValueCardProps extends WhyItem {
-  variants: Variants;
+  index: number;
   className?: string;
   style?: React.CSSProperties;
 }

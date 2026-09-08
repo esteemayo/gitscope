@@ -10,7 +10,9 @@
   padding: 1rem;
   border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
   border-radius: 1.8rem;
-  transition: var(--transition);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
 
   &:hover {
     transform: translateY(-3px);
@@ -40,7 +42,7 @@
 
     &--title {
       display: block;
-      font-weight: 700;
+      font-weight: 600;
       font-size: var(--fz-xxs);
       color: inherit;
     }
@@ -48,7 +50,7 @@
     &--subtitle {
       font-size: 1.1rem;
       color: var(--text-muted);
-      transition: var(--transition);
+      transition: color 0.25s ease;
     }
   }
 
@@ -60,9 +62,11 @@
     padding: 0.55rem 0.9rem;
     background-color: color-mix(in srgb, var(--accent-color) 16%, transparent);
     color: var(--accent-color);
-    border-radius: 1rem;
+    border-radius: 0.875rem;
     cursor: pointer;
-    transition: var(--transition);
+    transition:
+      background-color 0.25s ease,
+      transform 0.25s ease;
 
     &:focus {
       outline: none;

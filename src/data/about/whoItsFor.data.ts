@@ -8,7 +8,7 @@ import {
   Users2,
 } from 'lucide-react';
 
-import { Audience } from '@/types/about';
+import { Audience } from '@/types/about/hero';
 import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
 
 export const audiences: Audience[] = [

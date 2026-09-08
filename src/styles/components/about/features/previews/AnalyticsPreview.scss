@@ -63,7 +63,7 @@
     &--label {
       display: block;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 1rem;
       letter-spacing: 0.05em;
       color: #64748b;
@@ -71,7 +71,7 @@
     }
 
     &--value {
-      font-weight: 700;
+      font-weight: 600;
       font-size: var(--fz-xxs);
       font-variant-numeric: tabular-nums;
       font-feature-settings: 'tnum';

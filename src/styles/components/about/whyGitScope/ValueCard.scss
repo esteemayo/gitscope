@@ -108,11 +108,13 @@
     flex-direction: column;
     gap: 0.9rem;
 
+    min-width: 0;
+
     &--title {
       display: inline-block;
       text-transform: initial;
       text-rendering: optimizeLegibility;
-      font-weight: 700;
+      font-weight: 600;
       font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
@@ -127,11 +129,10 @@
     }
 
     &--description {
-      font-size: var(--fz-xxs) !important;
+      font-size: var(--fz-xxs);
       color: var(--text-muted);
       line-height: 1.8;
-
-      font-size: 1.05rem;
+      transition: color 0.25s ease;
     }
   }
 

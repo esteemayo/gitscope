@@ -1,8 +1,7 @@
-import { Variants } from 'framer-motion';
 import { SecurityFeature } from './index';
 
 export interface SecurityCardProps extends SecurityFeature {
-  variants: Variants;
+  index: number;
   className?: string;
   style?: React.CSSProperties;
 }

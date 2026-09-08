@@ -1,8 +1,7 @@
-import { Variants } from 'framer-motion';
 import { RoadmapPhase } from './index';
 
 export interface RoadmapCardProps extends RoadmapPhase {
-  variants: Variants;
+  index: number;
   className?: string;
   style?: React.CSSProperties;
 }

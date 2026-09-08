@@ -14,13 +14,20 @@ const RoadmapCard = ({
   accentColor,
   status,
   items,
-  variants,
+  index,
   className,
   style,
 }: RoadmapCardProps) => {
   return (
     <motion.article
-      variants={variants}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.4,
+        delay: index * 0.07,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className={clsx('roadmap-card', className)}
       style={
         {

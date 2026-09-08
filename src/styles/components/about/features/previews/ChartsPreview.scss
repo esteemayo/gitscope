@@ -55,7 +55,7 @@
     padding: 0.9rem;
     border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     border-radius: var(--radius);
-    transition: var(--transition);
+    transition: border-color 0.25s ease;
 
     &:hover {
       transform: translateY(-2px);
@@ -69,11 +69,11 @@
       letter-spacing: 0.05em;
       color: var(--text-muted);
       margin-bottom: 0.4rem;
-      transition: var(--transition);
+      transition: color 0.25s ease;
     }
 
     &--value {
-      font-weight: 700;
+      font-weight: 600;
       font-size: var(--fz-xs);
       font-variant-numeric: tabular-nums;
       font-feature-settings: 'tnum';

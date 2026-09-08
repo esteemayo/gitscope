@@ -1,7 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
 import PipelineStage from './PipelineStage';
 import Connector from './Connector';
 import PipelineSummary from './PipelineSummary';
@@ -9,13 +7,12 @@ import PipelineSummary from './PipelineSummary';
 import { PipelineProps } from '@/types/about/architecture/pipeline.type';
 import '../../../styles/components/about/architecture/Pipeline.scss';
 
-const Pipeline = ({ stages, variants }: PipelineProps) => {
+const Pipeline = ({ stages }: PipelineProps) => {
   return (
-    <motion.div variants={variants} className='pipeline'>
+    <div className='pipeline'>
       {stages.map((stage, index) => (
-        <motion.div
+        <div
           key={stage.id}
-          variants={variants}
           className='pipeline__item'
         >
           <PipelineStage
@@ -26,11 +23,11 @@ const Pipeline = ({ stages, variants }: PipelineProps) => {
           />
 
           <Connector isAnimated={true} />
-        </motion.div>
+        </div>
       ))}
 
-      <PipelineSummary variants={variants} />
-    </motion.div>
+      <PipelineSummary  />
+    </div>
   );
 };
 

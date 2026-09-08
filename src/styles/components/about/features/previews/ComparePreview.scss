@@ -25,7 +25,9 @@
     padding: 1rem;
     border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     border-radius: var(--radius);
-    transition: var(--transition);
+    transition:
+      border-color 0.25s ease,
+      transform 0.25s ease;
 
     &.winner {
       transform: translateY(-2px);
@@ -64,15 +66,15 @@
 
   &__username {
     text-transform: initial;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.1rem;
     font-size: var(--fz-xxs);
     color: var(--text-muted);
-    transition: var(--transition);
+    transition: color 0.25s ease;
   }
 
   &__metric {
-    font-weight: 700;
+    font-weight: 600;
     font-size: var(--fz-xs);
     color: inherit;
   }
@@ -90,13 +92,14 @@
     font-size: 1rem;
     background-color: color-mix(in srgb, var(--icon) 7%, transparent);
     color: var(--icon);
-    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     border: 1px solid color-mix(in srgb, var(--icon) 20%, transparent);
     border-radius: 100%;
     letter-spacing: 0.05em;
     animation: comparePulse 2.5s infinite;
-    transition: var(--transition);
     user-select: none;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
   }
 
   &__comparison-bar {
@@ -112,7 +115,7 @@
     background-color: color-mix(in srgb, var(--border) 70%, transparent);
     border-radius: 10rem;
     overflow: hidden;
-    transition: var(--transition);
+    transition: background-color 0.25s ease;
   }
 
   &__left-track {
@@ -158,11 +161,15 @@
     height: 1.8rem;
     background-color: var(--border);
     border-radius: 10rem;
-    transition: var(--transition);
+    transition: background-color 0.25s ease;
   }
 
   &__right-bar {
-    background-image: linear-gradient(90deg, #8b5cf6, #c084fc);
+    background-image: linear-gradient(
+      90deg,
+      var(--color-purple-500),
+      var(--color-purple-100)
+    );
 
     &::after {
       right: -30%;

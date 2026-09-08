@@ -14,13 +14,20 @@ const SecurityCard = ({
   description,
   accentColor,
   highlights,
-  variants,
+  index,
   className,
   style,
 }: SecurityCardProps) => {
   return (
     <motion.article
-      variants={variants}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.4,
+        delay: index * 0.07,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className={clsx('security-card', className)}
       style={
         {

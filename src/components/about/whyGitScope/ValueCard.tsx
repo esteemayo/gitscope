@@ -11,13 +11,20 @@ const ValueCard = ({
   title,
   description,
   accentColor,
-  variants,
+  index,
   className,
   style,
 }: ValueCardProps) => {
   return (
     <motion.article
-      variants={variants}
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.4,
+        delay: index * 0.06,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className={clsx('value-card', className)}
       style={
         {

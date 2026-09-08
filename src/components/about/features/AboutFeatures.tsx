@@ -51,20 +51,11 @@ const AboutFeatures = ({
             variants={containerVariants}
           />
 
-          {featuredFeature && (
-            <FeaturedFeature
-              feature={featuredFeature}
-              variants={containerVariants}
-            />
-          )}
+          {featuredFeature && <FeaturedFeature {...featuredFeature} />}
 
           <div className='about-features__grid'>
-            {featuredCards.map((feature) => (
-              <FeatureCard
-                key={feature.id}
-                feature={feature}
-                variants={containerVariants}
-              />
+            {featuredCards.map((feature, index) => (
+              <FeatureCard key={feature.id} {...feature} index={index} />
             ))}
           </div>
         </div>

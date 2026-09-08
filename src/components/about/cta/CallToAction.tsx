@@ -5,13 +5,15 @@ import clsx from 'clsx';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
+import CTAHighlight from './CTAHighlight';
 import CTAFooter from './CTAFooter';
 import SectionIntro from '@/components/ui/SectionIntro';
+import CTAMetric from './CTAMetric';
 
 import { containerVariants } from '@/animations/page';
 import { CallToActionProps } from '@/types/about/cta/call.to.action.type';
 
-import '../../../styles/components/about/CallToAction.scss';
+import '../../../styles/components/about/cta/CallToAction.scss';
 
 const CallToAction = ({
   badge,
@@ -50,32 +52,17 @@ const CallToAction = ({
           variants={containerVariants}
         />
 
-        <motion.div
-          variants={containerVariants}
-          className='call-to-action__metrics'
-        >
-          {metrics.map((metric) => {
-            const { id, icon: Icon, label } = metric;
-
-            return (
-              <div key={id} className='call-to-action__metric'>
-                <Icon
-                  size={16}
-                  strokeWidth={1.8}
-                  className='call-to-action__metric--icon'
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-
-                <span className='call-to-action__metric--label'>{label}</span>
-              </div>
-            );
-          })}
-        </motion.div>
+        <div className='call-to-action__metrics'>
+          {metrics.map((metric, index) => (
+            <CTAMetric key={metric.id} {...metric} index={index} />
+          ))}
+        </div>
 
         <motion.div
-          variants={containerVariants}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className='call-to-action__actions'
         >
           <Link
@@ -97,29 +84,11 @@ const CallToAction = ({
           </a>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          className='call-to-action__highlights'
-        >
-          {highlights.map((highlight) => {
-            const { id, icon: Icon, label } = highlight;
-
-            return (
-              <div key={id} className='call-to-action__highlight'>
-                <Icon
-                  size={16}
-                  strokeWidth={1.8}
-                  className='call-to-action__highlight--icon'
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-
-                <span className='call-to-action__highlight--item'>{label}</span>
-              </div>
-            );
-          })}
-        </motion.div>
+        <div className='call-to-action__highlights'>
+          {highlights.map((highlight, index) => (
+            <CTAHighlight key={highlight.id} {...highlight} index={index} />
+          ))}
+        </div>
 
         <CTAFooter />
       </div>

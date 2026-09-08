@@ -39,19 +39,13 @@ const AboutMission = ({
       aria-labelledby='about-mission-title'
     >
       <div className='about-mission__container'>
-        <motion.div
-          variants={containerVariants}
-          className='about-mission__wrapper'
-        >
-          <motion.div
-            variants={containerVariants}
-            className='about-mission__illustration'
-          >
+        <div className='about-mission__wrapper'>
+          <div className='about-mission__illustration'>
             <MissionDashboard
               metrics={metrics}
               healthProgress={healthProgress}
             />
-          </motion.div>
+          </div>
 
           <MissionContent
             badge={badge}
@@ -62,7 +56,7 @@ const AboutMission = ({
             accentColor={accentColor}
             variants={containerVariants}
           />
-        </motion.div>
+        </div>
       </div>
     </motion.section>
   );

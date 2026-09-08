@@ -48,12 +48,8 @@ const Architecture = ({
         />
 
         <div className='architecture__grid'>
-          {features.map((feature) => (
-            <ArchitectureCard
-              key={feature.id}
-              {...feature}
-              variants={containerVariants}
-            />
+          {features.map((feature, index) => (
+            <ArchitectureCard key={feature.id} {...feature} index={index} />
           ))}
         </div>
 
@@ -89,7 +85,7 @@ const Architecture = ({
             </motion.p>
           </motion.div>
 
-          <Pipeline stages={stages} variants={containerVariants} />
+          <Pipeline stages={stages} />
         </motion.div>
       </div>
     </motion.section>
