@@ -1,7 +1,7 @@
-import { Variants } from 'framer-motion';
-import { MissionPrinciple } from '../hero/index';
+import { MissionPrinciple } from './index';
 
-export interface MissionPrincipleCardProps {
-  principle: MissionPrinciple;
-  itemVariants: Variants;
+export interface MissionPrincipleCardProps extends MissionPrinciple {
+  index: number;
+  className?: string;
+  style?: React.CSSProperties;
 }

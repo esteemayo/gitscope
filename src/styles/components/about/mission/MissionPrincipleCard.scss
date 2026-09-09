@@ -10,18 +10,19 @@
   gap: 1.25rem;
 
   padding: 1.5rem;
-  // background-image: linear-gradient(
-  //   180deg,
-  //   rgba(255, 255, 255, 0.05),
-  //   rgba(255, 255, 255, 0.03)
-  // );
   background-color: var(--bg-tertiary);
   -webkit-backdrop-filter: blur(2rem);
   backdrop-filter: blur(2rem);
   border: 1px solid var(--border);
   border-radius: 2rem;
   overflow: hidden;
-  transition: var(--transition);
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease,
+    border-color 0.25s ease;
 
   @include bp.md {
     padding: 1.25rem;
@@ -43,21 +44,21 @@
     filter: blur(6rem);
     border-radius: 100%;
     opacity: 0;
-    transition: var(--transition);
-  }
-
-  &:hover::before {
-    opacity: 1;
+    transition: opacity 0.25s ease;
   }
 
   &:hover {
-    transform: translateY(-0.6rem);
+    transform: translateY(-0.6rem) !important;
     border-color: var(--accent-color);
     box-shadow: 0 0 2rem
       color-mix(in srgb, var(--accent-color) 25%, transparent);
 
     .mission-principle-card__icon {
       transform: rotate(-8deg) scale(1.08);
+    }
+
+    &::before {
+      opacity: 1;
     }
   }
 
@@ -75,11 +76,11 @@
 
     width: 6.4rem;
     height: 6.4rem;
-    background-color: color-mix(in srgb, var(--accent-color) 16%, transparent);
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
     color: var(--accent-color);
-    border: 1px solid color-mix(in srgb, var(--accent-color) 30%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
     border-radius: 1.8rem;
-    transition: var(--transition);
+    transition: transform 0.25s ease;
 
     @include bp.md {
       width: 5.6rem;
@@ -101,20 +102,27 @@
   &__content {
     display: flex;
     flex-direction: column;
+    gap: 0.45rem;
+
+    min-width: 0;
 
     &--title {
       display: inline-block;
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
-      font-weight: 700;
-      font-size: var(--fz-xs);
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-sm);
       color: inherit;
+      line-height: 1.1;
     }
 
     &--description {
+      text-wrap: pretty;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
       line-height: 1.8;
+      transition: color 0.25s ease;
     }
   }
 }

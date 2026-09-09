@@ -1,26 +1,35 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { MissionPrincipleCardProps } from '@/types/about/mission/mission.principle.card.type';
 
+import { MissionPrincipleCardProps } from '@/types/about/mission/mission.principle.card.type';
 import '../../../styles/components/about/mission/MissionPrincipleCard.scss';
 
 const MissionPrincipleCard = ({
-  principle: { icon: Icon, title, description, accentColor },
-  itemVariants,
+  icon: Icon,
+  title,
+  description,
+  accentColor,
+  index,
+  className,
+  style,
 }: MissionPrincipleCardProps) => {
   return (
     <motion.article
-      variants={itemVariants}
-      whileHover={{ y: -6 }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{
-        duration: 0.25,
-        ease: [0.645, 0.045, 0.355, 1] as const,
+        duration: 0.4,
+        delay: index * 0.07,
+        ease: [0.22, 1, 0.36, 1],
       }}
-      className='mission-principle-card'
+      className={clsx('mission-principle-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >

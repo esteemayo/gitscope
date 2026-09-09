@@ -24,6 +24,10 @@
     grid-template-columns: 1fr;
   }
 
+  @media (max-width: 40em) {
+    padding: 1.5rem;
+  }
+
   &::before {
     content: '';
     position: absolute;

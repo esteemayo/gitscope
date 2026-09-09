@@ -1,11 +1,17 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import '../../../styles/components/about/mission/MissionHighlight.scss';
 
-const MissionHighlight = ({ variants }: { variants: Variants }) => {
+const MissionHighlight = () => {
   return (
-    <motion.div variants={variants} className='mission-hightlight'>
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className='mission-hightlight'
+    >
       <div className='mission-hightlight__indicator' />
 
       <div className='mission-hightlight__content'>

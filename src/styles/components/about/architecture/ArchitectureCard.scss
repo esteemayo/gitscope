@@ -17,6 +17,10 @@
   border-radius: 2rem;
   transition: var(--transition);
 
+  @media (max-width: 40em) {
+    padding: 1.5rem;
+  }
+
   &:hover {
     transform: translateY(-0.6rem);
     border-color: color-mix(in srgb, var(--accent-color) 32%, transparent);

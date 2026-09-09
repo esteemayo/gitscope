@@ -7,7 +7,11 @@
   background-color: var(--bg-card-secondary);
   border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
   border-radius: 2rem;
-  transition: var(--transition);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 
   @media (max-width: 36em) {
     padding: 1.25rem;
@@ -21,7 +25,7 @@
       display: inline-block;
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
-      font-weight: 700;
+      font-weight: 600;
       font-size: var(--fz-xs);
       color: inherit;
       line-height: 1.1;
@@ -31,7 +35,7 @@
       text-transform: capitalize;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
-      transition: var(--transition);
+      transition: color 0.25s ease;
     }
   }
 
@@ -53,7 +57,7 @@
       font-weight: 500;
       font-size: 1.1rem;
       color: var(--text-muted);
-      transition: var(--transition);
+      transition: color 0.25s ease;
     }
   }
 
@@ -64,7 +68,7 @@
     background-color: color-mix(in srgb, var(--border) 70%, transparent);
     border-radius: 100rem;
     overflow: hidden;
-    transition: var(--transition);
+    transition: background-color 0.25s ease;
 
     span {
       display: block;
@@ -86,12 +90,13 @@
     align-items: center;
     gap: 0.5em;
 
+    width: fit-content;
+    height: fit-content;
     position: absolute;
     text-transform: capitalize;
     font-weight: 600;
     font-size: 1.1rem;
     padding: 0.65rem 1rem;
-    background-color: rgba(15, 23, 42, 0.85);
     background-color: var(--bg-card-secondary);
     color: var(--text);
     -webkit-backdrop-filter: blur(1.8rem);
@@ -103,9 +108,13 @@
     will-change: transform;
     border-radius: 10rem;
     animation: floatingChip 6s ease-in-out infinite;
+    line-height: 1.4;
     user-select: none;
     pointer-events: none;
-    transition: var(--transition);
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
 
     @include bp.md {
       transform: scale(0.9);

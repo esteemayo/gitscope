@@ -4,7 +4,6 @@
 
 .hero-preview {
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.08);
   background-color: var(--color-black-300);
   -webkit-backdrop-filter: blur(1.8rem);
   backdrop-filter: blur(1.8rem);
@@ -12,6 +11,8 @@
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.6);
   border-radius: var(--radius);
   border-radius: 2.8rem;
+  overflow: hidden;
+  isolation: isolate;
 
   @include bp.lg {
     box-shadow: none;
@@ -23,11 +24,14 @@
     justify-content: space-between;
 
     margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-gray-600) 60%, transparent);
 
     p {
       text-transform: capitalize;
       font-weight: 600;
-      font-size: var(--fz-sm);
+      font-size: var(--fz-xs);
       color: var(--color-white-50);
     }
   }

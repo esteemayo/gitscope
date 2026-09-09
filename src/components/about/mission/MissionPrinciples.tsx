@@ -3,18 +3,11 @@ import { MissionPrinciplesProps } from '@/types/about/mission/mission.principles
 
 import '../../../styles/components/about/mission/MissionPrinciples.scss';
 
-const MissionPrinciples = ({
-  principles,
-  variants,
-}: MissionPrinciplesProps) => {
+const MissionPrinciples = ({ principles }: MissionPrinciplesProps) => {
   return (
     <div className='mission-principle'>
-      {principles.map((principle) => (
-        <MissionPrincipleCard
-          key={principle.id}
-          principle={principle}
-          itemVariants={variants}
-        />
+      {principles.map((principle, index) => (
+        <MissionPrincipleCard key={principle.id} {...principle} index={index} />
       ))}
     </div>
   );

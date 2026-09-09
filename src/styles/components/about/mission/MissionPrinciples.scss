@@ -1,3 +1,7 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
 .mission-principle {
   display: grid;
   gap: 1.25rem;

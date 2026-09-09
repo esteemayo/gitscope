@@ -1,23 +1,36 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { MissionTimelineItemProps } from '@/types/about/mission/mission.timeline.item.type';
 
+import { MissionTimelineItemProps } from '@/types/about/mission/mission.timeline.item.type';
 import '../../../styles/components/about/mission/MissionTimelineItem.scss';
 
 const MissionTimelineItem = ({
-  step: { icon: Icon, title, description, accentColor },
+  icon: Icon,
+  title,
+  description,
+  accentColor,
   index,
   lastIndex,
-  variants,
+  className,
+  style,
 }: MissionTimelineItemProps) => {
   return (
     <motion.div
-      variants={variants}
-      className='mission-timeline-item'
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.4,
+        delay: index * 0.06,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className={clsx('mission-timeline-item', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >

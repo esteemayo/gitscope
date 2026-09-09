@@ -1,11 +1,8 @@
 import { Variants } from 'framer-motion';
-import { LucideIcon } from 'lucide-react';
+import { HeroCardItem } from './index';
 
-export interface HeroCardProps {
-  icon: LucideIcon;
-  title: string;
-  value: string;
-  trend: string;
-  accentColor: string;
+export interface HeroCardProps extends HeroCardItem {
   variants: Variants;
+  className?: string;
+  style?: React.CSSProperties;
 }

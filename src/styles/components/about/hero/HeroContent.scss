@@ -19,9 +19,11 @@
     align-items: center;
     gap: 0.6rem;
 
-    font-family: var(--font-mono);
+    width: fit-content;
+    height: fit-content;
     font-weight: 600;
     font-size: var(--fz-sm);
+    white-space: nowrap;
     padding: 0.7rem 1rem;
     background-color: rgba(255, 255, 255, 0.05);
     color: var(--color-white-50);
@@ -43,6 +45,7 @@
     max-width: 70rem;
     text-transform: capitalize;
     text-rendering: optimizeLegibility;
+    font-weight: 700;
     font-size: 4rem;
     color: var(--color-white-50);
     letter-spacing: 1px;
@@ -139,7 +142,11 @@
       }
 
       &:hover {
-        border-color: var(--color-blue-800);
+        border-color: color-mix(
+          in srgb,
+          var(--color-blue-800) 25%,
+          transparent
+        );
 
         svg {
           opacity: 1;

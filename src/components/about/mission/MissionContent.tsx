@@ -35,9 +35,9 @@ const MissionContent = ({
         variants={variants}
       />
 
-      <MissionHighlight variants={variants} />
+      <MissionHighlight />
 
-      <MissionPrinciples principles={principles} variants={variants} />
+      <MissionPrinciples principles={principles} />
 
       <MissionTimelineSection timeline={timeline} variants={variants} />
     </motion.div>

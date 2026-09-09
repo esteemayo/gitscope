@@ -117,7 +117,7 @@
     &--primary {
       &:link,
       &:visited {
-        background-color: var(--color-blue-800);
+        background-color: var(--accent-color);
         color: var(--color-white-50);
 
         span {
@@ -137,7 +137,7 @@
       &:hover {
         transform: translateY(-3px);
         box-shadow: 0 0rem 2rem
-          color-mix(in srgb, var(--color-blue-800) 20%, transparent);
+          color-mix(in srgb, var(--accent-color) 20%, transparent);
 
         svg {
           opacity: 1;
@@ -152,10 +152,14 @@
         border: 1px solid var(--border);
         -webkit-backdrop-filter: blur(2rem);
         backdrop-filter: blur(2rem);
+        transition:
+          color 0.25s ease,
+          border-color 0.25s ease;
       }
 
       &:hover {
-        border-color: var(--color-blue-800);
+        color: var(--accent-color);
+        border-color: var(--accent-color);
       }
     }
   }

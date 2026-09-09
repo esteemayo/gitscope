@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 import MissionChartCard from './MissionChartCard';
 import MissionMetrics from './MissionMetrics';
 import MissionHealthCard from './MissionHealthCard';
@@ -10,7 +14,16 @@ const MissionDashboard = ({
   healthProgress,
 }: MissionDashboardProps) => {
   return (
-    <div className='mission-dashboard'>
+    <motion.div
+      initial={{ opacity: 0, x: -12 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className='mission-dashboard'
+    >
       <div className='mission-dashboard__header'>
         <div className='mission-dashboard__window-controls'>
           {[...Array(3)].map((_, index) => (
@@ -30,7 +43,7 @@ const MissionDashboard = ({
 
         <MissionHealthCard healthProgress={healthProgress} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

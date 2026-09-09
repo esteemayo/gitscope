@@ -1,9 +1,8 @@
-import { Variants } from 'framer-motion';
-import { MissionTimelineStep } from '../hero/index';
+import { MissionTimelineStep } from './index';
 
-export interface MissionTimelineItemProps {
-  step: MissionTimelineStep;
+export interface MissionTimelineItemProps extends MissionTimelineStep {
   index: number;
   lastIndex: number;
-  variants: Variants;
+  className?: string
+  style?: React.CSSProperties
 }

@@ -7,7 +7,9 @@
   background-color: var(--bg-card-secondary);
   border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
   border-radius: 2rem;
-  transition: var(--transition);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 
   &__header {
     display: flex;
@@ -27,7 +29,7 @@
     h4 {
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
-      font-weight: 700;
+      font-weight: 600;
       font-size: var(--fz-xxs);
       color: inherit;
       line-height: 1.1;
@@ -35,11 +37,11 @@
   }
 
   &__success-badge {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.1rem;
     padding: 0.35rem 0.75rem;
     background-color: rgba(16, 185, 129, 0.12);
-    color: #10b981;
+    color: var(--color-green-300);
     border-radius: 10rem;
     user-select: none;
     pointer-events: none;

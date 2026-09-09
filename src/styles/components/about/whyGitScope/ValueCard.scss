@@ -118,14 +118,6 @@
       font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
-
-      @media (max-width: 62em) {
-        font-size: 1.25rem;
-      }
-
-      @media (max-width: 40em) {
-        font-size: 1.15rem;
-      }
     }
 
     &--description {

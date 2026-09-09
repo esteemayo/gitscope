@@ -41,7 +41,7 @@ const MissionTimelineSection = ({
         </motion.p>
       </motion.header>
 
-      <MissionTimeline timeline={timeline} variants={variants} />
+      <MissionTimeline timeline={timeline} />
     </motion.div>
   );
 };

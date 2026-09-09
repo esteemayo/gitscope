@@ -1,8 +1,9 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { HeroCardProps } from '@/types/about/hero/hero.card.type';
 
+import { HeroCardProps } from '@/types/about/hero/hero.card.type';
 import '../../../styles/components/about/hero/HeroCard.scss';
 
 const HeroCard = ({
@@ -12,14 +13,17 @@ const HeroCard = ({
   trend,
   accentColor,
   variants,
+  className,
+  style,
 }: HeroCardProps) => {
   return (
     <motion.article
       variants={variants}
-      className='hero-card'
+      className={clsx('hero-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >

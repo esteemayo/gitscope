@@ -39,8 +39,8 @@
   &:hover {
     .mission-timeline-item__node {
       transform: scale(1.08);
-      box-shadow: 0 0 2.4rem rgba(91, 140, 255, 0.3);
-      box-shadow: 0 0 2.4rem var(--accent-color);
+      box-shadow: 0 0 2.4rem
+        color-mix(in srgb, var(--accent-color) 25%, transparent);
 
       &--connector-pulse {
         animation-play-state: paused;
@@ -64,16 +64,11 @@
     position: relative;
     width: 5.6rem;
     height: 5.6rem;
-    // background-image: linear-gradient(
-    //   135deg,
-    //   rgba(91, 140, 255, 0.18),
-    //   rgba(124, 77, 255, 0.12)
-    // );
-    background-color: color-mix(in srgb, var(--accent-color) 16%, transparent);
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
     color: var(--accent-color);
     -webkit-backdrop-filter: blur(2rem);
     backdrop-filter: blur(2rem);
-    border: 1px solid color-mix(in srgb, var(--accent-color) 30%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
     border-radius: 100%;
     transition: var(--transition);
 
@@ -109,7 +104,7 @@
         rgba(91, 140, 255, 0.35),
         rgba(91, 140, 255, 0.08)
       );
-      border-radius: 10rem;
+      border-radius: 100rem;
       overflow: hidden;
     }
 
@@ -130,7 +125,7 @@
         rgba(255, 255, 255, 0)
       );
       filter: blur(1px);
-      border-radius: 10rem;
+      border-radius: 100rem;
 
       animation: flowDown 2.6s linear infinite;
     }
@@ -139,27 +134,35 @@
   &__content {
     flex: 1;
 
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    min-width: 0;
+
     &--title {
       display: inline-block;
       text-transform: capitalize;
       text-rendering: optimizeLegibility;
+      text-wrap: balance;
       font-weight: 600;
-      font-size: var(--fz-xs);
+      font-size: var(--fz-sm);
       color: inherit;
       line-height: 1.1;
-      margin-bottom: 0.5rem;
 
       @media (max-width: 36em) {
-        font-size: var(--fz-xxs);
+        font-size: var(--fz-xs);
       }
     }
 
     &--description {
+      text-wrap: pretty;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
+      transition: color 0.25s ease;
 
       @media (max-width: 36em) {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
       }
     }
   }
