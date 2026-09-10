@@ -1,0 +1,97 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.docs-layout {
+  min-height: 100vh;
+
+  &__body {
+    display: grid;
+    grid-template-columns: 24.8rem minmax(min-content, 1fr) 22rem;
+
+    width: min(100%, 168rem);
+    margin-inline: auto;
+
+    @include bp.xl {
+      grid-template-columns: 24.8rem minmax(min-content, 1fr) 19rem;
+    }
+
+    @include bp.lg {
+      grid-template-columns: 24.8rem minmax(min-content, 1fr);
+    }
+
+    @include bp.md {
+      display: block;
+    }
+  }
+
+  &__main {
+    min-width: 0;
+    padding: 5.6rem clamp(2.4rem, 4vw, 7.2rem) 9.6rem;
+
+    @include bp.xl {
+      padding-inline: 4rem;
+    }
+
+    @include bp.md {
+      padding: 3.2rem 2rem 7.2rem;
+    }
+  }
+
+  &__toc {
+    position: relative;
+    padding: 5.6rem 2.4rem 0 0;
+
+    @include bp.lg {
+      display: none;
+    }
+  }
+
+  &__toc-inner {
+    position: sticky;
+    top: calc(6.8rem + 3.2rem);
+  }
+
+  &__toc-label {
+    display: block;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: inherit;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.4rem;
+  }
+
+  &__toc-nav {
+    display: grid;
+    gap: 0.8rem;
+
+    a {
+      &:link,
+      &:visited {
+        position: relative;
+        font-weight: 600;
+        font-size: var(--fz-sm);
+        padding: 4px 0 4px 1.2rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+        transition:
+          color 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      &:hover {
+        color: var(--icon);
+        transform: translateX(2px);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        @include focus-ring();
+      }
+    }
+  }
+}

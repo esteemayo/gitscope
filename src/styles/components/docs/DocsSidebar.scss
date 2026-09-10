@@ -1,0 +1,74 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.docs-sidebar {
+  position: relative;
+  border-right: 1px solid var(--border);
+  transition: border-color 0.25s ease;
+
+  @include bp.lg {
+    display: none;
+  }
+
+  &__nav {
+    position: sticky;
+    top: 6.8rem;
+
+    height: calc(100vh - 6.8rem);
+    padding: 3.2rem 1.6rem;
+    overflow-y: auto;
+  }
+
+  &__section {
+  }
+
+  &__title {
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--fz-sm);
+    padding: 0 1rem 0.8rem;
+  }
+
+  &__items {
+    display: grid;
+    gap: 2px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+
+    position: relative;
+    min-height: 3.4rem;
+    font-weight: 500;
+    font-size: var(--fz-sm);
+    padding: 1rem;
+    color: var(--text-muted);
+    border-radius: 0.8rem;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+
+    svg {
+      flex: 0 0 auto;
+
+      width: 1.5rem;
+      height: 1.5rem;
+      color: currentColor;
+      stroke: currentColor;
+      opacity: 0.7;
+    }
+
+    svg {
+      flex: 0 0 auto;
+    }
+
+    &:hover {
+      color: var(--text);
+      background-color: color-mix(in srgb, var(--border) 25%, transparent);
+    }
+  }
+}
