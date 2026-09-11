@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import { DocsFooterProps } from '@/types/docs/docsFooter/docs.footer.type';
+
 import '../../styles/components/docs/DocsFooter.scss';
 
-const DocsFooter = () => {
+const DocsFooter = ({ navItems }: DocsFooterProps) => {
   const year = new Date().getFullYear();
 
   return (
@@ -21,42 +23,30 @@ const DocsFooter = () => {
           </div>
 
           <div className='docs-footer__links'>
-            <div className='docs-footer__group'>
-              <span>Documentation</span>
+            {navItems.map((item) => {
+              const { title, links } = item;
 
-              <Link href='/documentation'>Getting Started</Link>
+              return (
+                <div key={title} className='docs-footer__group'>
+                  <span>{title}</span>
 
-              <Link href='/documentation/features/guthub-analytics'>
-                Features
-              </Link>
+                  {links.map((link) => {
+                    const { href, label } = link;
 
-              <Link href='/documentation/api'>API</Link>
-            </div>
-
-            <div className='docs-footer__group'>
-              <span>Product</span>
-
-              <Link href='/'>Dashboard</Link>
-
-              <Link href='/about'>About</Link>
-
-              <Link href='/privacy'>Privacy</Link>
-            </div>
-
-            <div className='docs-footer__group'>
-              <span>Resources</span>
-
-              <Link href='/documentation/resources/faq'>FAQ</Link>
-
-              <Link href='/documentation/resources/changelog'>Changelog</Link>
-
-              <Link href='/documentation/resources/roadmap'>Roadmap</Link>
-            </div>
+                    return (
+                      <Link key={href} href={href}>
+                        {label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              );
+            })}
           </div>
         </div>
 
         <div className='docs-footer__bottom'>
-          <span>© {year} GitScope</span>
+          <span>© {year} GitScope Inc.</span>
 
           <span>Designed with ❤ for developers</span>
         </div>

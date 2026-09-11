@@ -13,14 +13,17 @@
 
   &__nav {
     position: sticky;
-    top: 6.8rem;
+    top: var(--docs-header-height);
 
-    height: calc(100vh - 6.8rem);
+    height: calc(100vh - var(--docs-header-height));
     padding: 3.2rem 1.6rem;
     overflow-y: auto;
   }
 
   &__section {
+    & + & {
+      margin-top: 2.8rem;
+    }
   }
 
   &__title {
@@ -28,12 +31,13 @@
     text-transform: uppercase;
     font-weight: 600;
     font-size: var(--fz-sm);
-    padding: 0 1rem 0.8rem;
+    letter-spacing: 0.05em;
+    margin: 0 1rem 0.8rem;
   }
 
   &__items {
     display: grid;
-    gap: 2px;
+    gap: 0.2rem;
   }
 
   &__item {
@@ -44,10 +48,12 @@
     position: relative;
     min-height: 3.4rem;
     font-weight: 500;
-    font-size: var(--fz-sm);
+    font-size: var(--fz-xs);
     padding: 1rem;
     color: var(--text-muted);
     border-radius: 0.8rem;
+    overflow: hidden;
+    user-select: none;
     transition:
       background-color 0.25s ease,
       color 0.25s ease;
@@ -55,20 +61,51 @@
     svg {
       flex: 0 0 auto;
 
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.6rem;
+      height: 1.6rem;
       color: currentColor;
       stroke: currentColor;
       opacity: 0.7;
     }
 
-    svg {
-      flex: 0 0 auto;
+    &:hover {
+      color: var(--icon);
+      background-color: color-mix(in srgb, var(--border) 25%, transparent);
     }
 
-    &:hover {
-      color: var(--text);
-      background-color: color-mix(in srgb, var(--border) 25%, transparent);
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring($width: 3px, $offset: 3px);
+    }
+
+    &--active {
+      font-weight: 600;
+      background-color: color-mix(in srgb, var(--icon) 8%, transparent);
+      color: var(--icon);
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 3px;
+        height: 100%;
+        background-color: var(--icon);
+        border-radius: 100rem;
+      }
+
+      svg {
+        opacity: 1;
+      }
+
+      &:hover {
+        background-color: color-mix(in srgb, currentColor 5%, transparent);
+      }
     }
   }
 }

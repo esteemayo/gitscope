@@ -7,12 +7,16 @@
   top: 0;
   z-index: 5000;
 
-  height: 6.8rem;
+  height: var(--docs-header-height);
   background-color: color-mix(in srgb, #010409 88%, transparent);
   border-bottom: 1px solid var(--border);
   -webkit-backdrop-filter: blur(1.8rem);
   backdrop-filter: blur(1.8rem);
   transition: border-color 0.25s ease;
+
+  > * {
+    user-select: none;
+  }
 
   &__inner {
     display: flex;

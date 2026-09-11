@@ -6,7 +6,9 @@ import DocsFooter from '../docs/DocsFooter';
 import DocsHeader from '../docs/DocsHeader';
 import DocsSidebar from '../docs/DocsSidebar';
 
+import { docsLink } from '@/data/docs/docs-footer.data';
 import { docsNavigation } from '@/data/docs/docs-navigation.data';
+
 import '../../styles/components/docs/DocsLayout.scss';
 
 const DocsLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
@@ -36,7 +38,7 @@ const DocsLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
         </aside>
       </div>
 
-      <DocsFooter />
+      <DocsFooter navItems={docsLink} />
     </div>
   );
 };

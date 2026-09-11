@@ -1,0 +1,136 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.docs-card {
+  display: flex;
+  gap: 1.6rem;
+
+  position: relative;
+  padding: 2rem;
+  background-color: var(--bg-tertiary);
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 2.5%,
+    var(--bg-tertiary)
+  );
+  border: 1px solid var(--border);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color) 5%,
+      var(--bg-tertiary)
+    );
+    border-color: color-mix(in srgb, var(--accent-color) 35%, var(--border));
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    @include focus-ring($width: 3px, $color: var(--accent-color), $offset: 3px);
+  }
+
+  &__rail {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 3px;
+    height: 100%;
+    background-color: var(--accent-color);
+    opacity: 0.7;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.8rem;
+    height: 3.8rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+    border-radius: 0.875rem;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    min-width: 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: var(--text);
+      line-height: 1.1;
+      transition: color 0.25s ease;
+    }
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+      transition: color 0.25s ease;
+    }
+
+    &--link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      width: fit-content;
+      text-transform: none;
+      font-weight: 500;
+      font-size: var(--fz-xxs);
+      color: var(--accent-color);
+      position: relative;
+      transition: color 0.25s ease;
+
+      svg {
+        flex-shrink: 0;
+
+        width: 1.4rem;
+        height: 1.4rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+
+      @include animated-underline($color: var(--accent-color));
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+  }
+}

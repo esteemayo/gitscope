@@ -34,7 +34,7 @@ const DocsSidebar = ({ navigation }: DocsSidebarProps) => {
                     >
                       {Icon && (
                         <Icon
-                          size={15}
+                          size={16}
                           strokeWidth={1.8}
                           role='img'
                           aria-hidden='true'

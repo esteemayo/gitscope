@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import DocsClient from '@/components/docs/DocsClient';
+import DocsHome from '@/components/docs/DocsHome';
 
 export const metadata: Metadata = {
   title: 'Documentation | GitScope',
 };
 
-const page = () => {
-  return <DocsClient />;
+const DocsPage = () => {
+  return <DocsHome />;
 };
 
-export default page;
+export default DocsPage;
