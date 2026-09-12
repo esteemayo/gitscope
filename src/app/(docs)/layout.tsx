@@ -1,9 +1,9 @@
-import DocsLayout from '@/components/layout/DocsLayout';
+import DocsRootLayout from '@/components/layout/DocsRootLayout';
 
 const DocumentLayout = ({
   children,
 }: Readonly<{ children: React.ReactNode }>) => {
-  return <DocsLayout>{children}</DocsLayout>;
+  return <DocsRootLayout>{children}</DocsRootLayout>;
 };
 
 export default DocumentLayout;

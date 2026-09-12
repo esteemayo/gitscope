@@ -2,7 +2,7 @@
 @use '../../abstracts/animation';
 @use '../../abstracts/responsive' as bp;
 
-.docs-layout {
+.docs-root-layout {
   min-height: 100vh;
 
   &__body {

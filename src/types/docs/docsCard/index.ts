@@ -8,3 +8,10 @@ export interface DocsCardType {
   icon: LucideIcon | React.ComponentType;
   accentColor: string;
 }
+
+export interface DocsStepType {
+  id: string;
+  label: string;
+  description: string;
+  accentColor: string;
+}

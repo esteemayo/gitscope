@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 import DocsCard from './DocsCard';
-import { quickStartCards } from '@/data/docs/docs-card.data';
+import DocsStep from './DocsStep';
 
-import '../../styles/components/docs/DocsHome.scss';
+import { docsSteps, quickStartCards } from '@/data/docs/docs-home.data';
+import '../../../styles/components/docs/home/DocsHome.scss';
 
 const DocsHome = () => {
   return (
@@ -40,6 +41,7 @@ const DocsHome = () => {
 
           <button type='button'>
             <span>Search Documentation</span>
+
             <kbd> K</kbd>
           </button>
         </div>
@@ -89,45 +91,9 @@ const DocsHome = () => {
         </div>
 
         <div className='docs-home__pipeline'>
-          <div className='docs-home__step'>
-            <span className='docs-home__step--number'>01</span>
-
-            <strong className='docs-home__step--label'>GitHub</strong>
-
-            <p className='docs-home__step--description'>
-              Connect your GitHub profile.
-            </p>
-          </div>
-
-          <div className='docs-home__step'>
-            <span className='docs-home__step--number'>02</span>
-
-            <strong className='docs-home__step--label'>Data</strong>
-
-            <p className='docs-home__step--description'>
-              Retrieve and organize relevant data.
-            </p>
-          </div>
-
-          <div className='docs-home__step'>
-            <span className='docs-home__step--number'>03</span>
-
-            <strong className='docs-home__step--label'>Analytics</strong>
-
-            <p className='docs-home__step--description'>
-              Transform data into useful metrics.
-            </p>
-          </div>
-
-          <div className='docs-home__step'>
-            <span className='docs-home__step--number'>04</span>
-
-            <strong className='docs-home__step--label'>Insights</strong>
-
-            <p className='docs-home__step--description'>
-              Explore your developer profile.
-            </p>
-          </div>
+          {docsSteps.map((step, index) => (
+            <DocsStep key={step.id} {...step} index={index} />
+          ))}
         </div>
       </section>
 

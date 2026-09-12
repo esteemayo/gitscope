@@ -1,6 +1,6 @@
-@use '../../abstracts/mixins' as *;
-@use '../../abstracts/animation';
-@use '../../abstracts/responsive' as bp;
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
 
 .docs-card {
   display: flex;

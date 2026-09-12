@@ -1,6 +1,6 @@
 import { BarChart3, BookOpen, Code2, Rocket, ShieldCheck } from 'lucide-react';
 
-import { DocsCardType } from '@/types/docs/docsCard';
+import { DocsCardType, DocsStepType } from '@/types/docs/docsCard';
 import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
 
 export const quickStartCards: DocsCardType[] = [
@@ -57,5 +57,32 @@ export const quickStartCards: DocsCardType[] = [
     href: '/documentation/api',
     icon: Code2,
     accentColor: '#3B82F6',
+  },
+];
+
+export const docsSteps: DocsStepType[] = [
+  {
+    id: 'github',
+    label: 'GitHub',
+    description: 'Connect your GitHub profile.',
+    accentColor: '#4F46E5',
+  },
+  {
+    id: 'data',
+    label: 'Data',
+    description: 'Retrieve and organize relevant data.',
+    accentColor: '#22C55E',
+  },
+  {
+    id: 'analytics',
+    label: 'Analytics',
+    description: 'Transform data into useful metrics.',
+    accentColor: '#8B5CF6',
+  },
+  {
+    id: 'insights',
+    label: 'Insights',
+    description: 'Explore your developer profile.',
+    accentColor: '#EF4444',
   },
 ];

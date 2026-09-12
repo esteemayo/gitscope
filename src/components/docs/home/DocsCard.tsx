@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { ArrowUpRight } from 'lucide-react';
 
 import { DocsCardProps } from '@/types/docs/docsCard/docs.card.type';
-import '../../styles/components/docs/DocsCard.scss';
+import '../../../styles/components/docs/home/DocsCard.scss';
 
 const DocsCard = ({
   title,

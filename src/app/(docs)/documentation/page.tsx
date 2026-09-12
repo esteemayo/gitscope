@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import DocsHome from '@/components/docs/DocsHome';
+import DocsHome from '@/components/docs/home/DocsHome';
 
 export const metadata: Metadata = {
   title: 'Documentation | GitScope',

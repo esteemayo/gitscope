@@ -11,23 +11,28 @@ import { docsNavigation } from '@/data/docs/docs-navigation.data';
 
 import '../../styles/components/docs/DocsLayout.scss';
 
-const DocsLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const DocsRootLayout = ({
+  children,
+}: Readonly<{ children: React.ReactNode }>) => {
   return (
-    <div className='docs-layout'>
+    <div className='docs-root-layout'>
       <DocsHeader />
 
-      <div className='docs-layout__body'>
+      <div className='docs-root-layout__body'>
         <DocsSidebar navigation={docsNavigation} />
 
-        <main id='docs-content' className='docs-layout__main'>
+        <main id='docs-content' className='docs-root-layout__main'>
           {children}
         </main>
 
-        <aside className='docs-layout__toc'>
-          <div className='docs-layout__toc-inner'>
-            <span className='docs-layout__toc-label'>On this page</span>
+        <aside className='docs-root-layout__toc'>
+          <div className='docs-root-layout__toc-inner'>
+            <span className='docs-root-layout__toc-label'>On this page</span>
 
-            <nav className='docs-layout__toc-nav' aria-label='On this page'>
+            <nav
+              className='docs-root-layout__toc-nav'
+              aria-label='On this page'
+            >
               <Link href='#introduction'>Introduction</Link>
 
               <Link href='#how-it-works'>How GitScope works</Link>
@@ -43,4 +48,4 @@ const DocsLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   );
 };
 
-export default DocsLayout;
+export default DocsRootLayout;

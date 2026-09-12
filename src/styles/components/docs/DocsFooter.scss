@@ -7,7 +7,6 @@
   transition: border-color 0.25s ease;
 
   &__container {
-    width: min(100%, 120rem);
     width: min(100%, 168rem);
     margin-inline: auto;
   }
@@ -17,8 +16,28 @@
     grid-template-columns: 1fr auto;
     gap: 8rem;
 
-    padding: 6.4rem 2.4rem;
     padding: 6.4rem 8rem;
+
+    @media (max-width: 56.25em) {
+      padding: 6.4rem 3.2rem;
+    }
+
+    @media (max-width: 50em) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+
+      padding: 4rem 3.2rem;
+    }
+
+    @media (max-width: 35em) {
+      gap: 2.5rem;
+
+      padding: 3rem 3.2rem;
+    }
+
+    @media (max-width: 25em) {
+      padding: 4rem 1.6rem;
+    }
   }
 
   &__brand {
@@ -88,10 +107,17 @@
     justify-content: space-between;
     gap: 2rem;
 
-    padding: 1.8rem 0;
     padding: 1.8rem 8rem;
     border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     transition: border-color 0.25s ease;
+
+    @media (max-width: 56.25em) {
+      padding: 1.8rem 3.2rem;
+    }
+
+    @media (max-width: 25em) {
+      padding: 1.8rem 1.6rem;
+    }
 
     > span {
       font-size: var(--fz-xs);
@@ -101,6 +127,7 @@
 
     @media (max-width: 43.75em) {
       flex-direction: column;
+      gap: 1.25rem;
     }
   }
 }
