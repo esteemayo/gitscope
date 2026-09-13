@@ -21,7 +21,7 @@ const DocsSearch = () => {
 
       <span className='docs-search__placeholder'>Search documentation</span>
 
-      <kbd>K</kbd>
+      <kbd>⌘ K</kbd>
     </button>
   );
 };

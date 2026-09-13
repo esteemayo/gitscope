@@ -1,0 +1,52 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.docs-home-section {
+  --accent: #8b5cf6;
+
+  padding: 7.6rem 0;
+  border-top: 1px solid var(--border);
+  transition: border-color 0.25s ease;
+
+  &__compact {
+    padding-bottom: 6rem;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    max-width: 65rem;
+    margin-bottom: 3rem;
+
+    &--label {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: color-mix(in srgb, var(--accent) 85%, transparent);
+      user-select: none;
+    }
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-size: clamp(var(--fz-md), 3vw, var(--fz-xxl));
+      letter-spacing: -0.035em;
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.7;
+      transition: color 0.25s ease;
+    }
+  }
+}

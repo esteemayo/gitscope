@@ -48,10 +48,22 @@
     min-width: 0;
 
     &--logo {
-      font-weight: 500;
-      font-size: clamp(var(--fz-xxl), 5vw, 2.4rem);
-      color: #395075;
-      user-select: none;
+      &:link,
+      &:visited {
+        width: fit-content;
+        font-weight: 500;
+        font-size: clamp(var(--fz-xxl), 5vw, 2.4rem);
+        color: #395075;
+        user-select: none;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        @include focus-ring($color: currentColor);
+      }
     }
 
     &--label {
@@ -89,14 +101,20 @@
     a {
       &:link,
       &:visited {
+        width: fit-content;
         font-size: var(--fz-sm);
         color: var(--text-muted);
         user-select: none;
         transition: color 0.25s ease;
-      }
 
-      &:hover {
-        color: var(--icon);
+        @include animated-underline(
+          $color: var(--text-muted),
+          $hoverColor: var(--color-blue-800)
+        );
+
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
       }
     }
   }
