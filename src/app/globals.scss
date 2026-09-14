@@ -2,6 +2,7 @@
   --color-white-50: #ffffff;
   --color-white-100: #f0f6fc;
 
+  --color-black-100: #000000;
   --color-black-200: #1518202f;
   --color-black-300: #2528332f;
   --color-black-400: #010409;
@@ -243,7 +244,6 @@ a {
 }
 
 button {
-  font: inherit;
   user-select: none;
 }
 
@@ -251,6 +251,7 @@ button,
 input,
 textarea,
 select {
+  font: inherit;
   font-family: inherit;
 }
 

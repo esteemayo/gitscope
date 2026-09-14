@@ -94,10 +94,10 @@
       border-radius: 0.875rem;
       transition: border-color 0.25s ease;
 
-      @media (max-width: 26.3125em) {
+      @include bp.sm {
         justify-content: space-between;
 
-        width: min(100%, 22.6rem);
+        width: 100%;
       }
 
       &:focus {
@@ -111,6 +111,7 @@
         font: inherit;
         background-color: var(--color-blue-800);
         color: var(--color-white-50);
+        user-select: none;
         transition: opacity 0.25s ease;
       }
 

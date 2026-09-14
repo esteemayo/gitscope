@@ -9,6 +9,7 @@ import '../../styles/components/docs/DocsSidebar.scss';
 
 const DocsSidebar = ({ navigation }: DocsSidebarProps) => {
   const pathname = usePathname();
+
   return (
     <aside className='docs-sidebar'>
       <nav className='docs-sidebar__nav' aria-label='Documentation'>

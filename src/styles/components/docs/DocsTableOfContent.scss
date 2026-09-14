@@ -1,0 +1,62 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.docs-table-of-content {
+  position: relative;
+  padding-top: 5.6rem;
+
+  @include bp.lg {
+    display: none;
+  }
+
+  &__inner {
+    position: sticky;
+    top: calc(var(--docs-header-height) + 3.2rem);
+  }
+
+  &__label {
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: inherit;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.4rem;
+  }
+
+  &__nav {
+    display: grid;
+    gap: 0.8rem;
+
+    &--item {
+      &:link,
+      &:visited {
+        position: relative;
+        text-transform: none;
+        font-weight: 500;
+        font-size: var(--fz-sm);
+        padding: 4px 0 4px 1.2rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+        transition:
+          color 0.25s ease,
+          transform 0.25s ease;
+        user-select: none;
+      }
+
+      &:hover {
+        color: var(--icon);
+        transform: translateX(2px);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        @include focus-ring();
+      }
+    }
+  }
+}
