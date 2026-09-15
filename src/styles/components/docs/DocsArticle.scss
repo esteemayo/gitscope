@@ -1,0 +1,19 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.docs-article {
+  &__header {
+    &--category {
+    }
+
+    &--title {
+    }
+
+    &--description {
+    }
+  }
+
+  &__content {
+  }
+}

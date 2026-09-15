@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Menu } from 'lucide-react';
 
+import DocsMobileNav from './DocsMobileNav';
 import DocsSearch from './DocsSearch';
 import GitHubLogoIcon from '../icons/GitHubLogoIcon';
 
@@ -13,13 +13,7 @@ const DocsHeader = () => {
     <header className='docs-header'>
       <div className='docs-header__inner'>
         <div className='docs-header__left'>
-          <button
-            type='button'
-            className='docs-header__menu'
-            aria-label='Open documentation navigation'
-          >
-            <Menu size={20} />
-          </button>
+          <DocsMobileNav />
 
           <Link href='/' className='docs-header__brand'>
             <span className='docs-header__brand--logo'>G</span>

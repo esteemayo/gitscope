@@ -69,8 +69,8 @@
     }
 
     &:hover {
-      color: var(--icon);
       background-color: color-mix(in srgb, var(--border) 25%, transparent);
+      color: var(--icon);
     }
 
     &:focus {

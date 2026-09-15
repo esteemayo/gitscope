@@ -1,0 +1,70 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.docs-pagination {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+
+  margin-top: 7.2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  transition: border-color 0.25s ease;
+
+  @media (max-width: 37.5em) {
+    grid-template-columns: 1fr;
+  }
+
+  &__item {
+    &:link,
+    &:visited {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      min-height: 8.2rem;
+      padding: 1.4rem;
+      border: 1px solid var(--border);
+      border-radius: 0.875rem;
+      transition:
+        border-color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+
+      svg {
+        flex-shrink: 0;
+
+        width: 1.4rem;
+        height: 1.4rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+
+    strong {
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: var(--text);
+      transition: color 0.25s ease;
+    }
+
+    &--next {
+      &:link,
+      &:visited {
+        align-items: flex-end;
+
+        text-align: right;
+      }
+    }
+  }
+}
