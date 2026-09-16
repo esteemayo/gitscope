@@ -3,22 +3,49 @@
 @use '../../abstracts/responsive' as bp;
 
 .docs-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+
+  font-size: var(--fz-sm);
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+
   &__link {
     &:link,
     &:visited {
+      font-size: inherit;
+      color: currentColor;
+      transition: color 0.25s ease;
+    }
+
+    &:hover {
+      color: var(--icon);
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 
   svg {
+    flex-shrink: 0;
+
     width: 1.4rem;
     height: 1.4rem;
     color: currentColor;
     stroke: currentColor;
+    opacity: 0.5;
   }
 
-  &__category {
+  &__category,
+  &__title {
+    font-size: inherit;
   }
 
   &__title {
+    color: var(--text);
+    transition: color 0.25s ease;
   }
 }

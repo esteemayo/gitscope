@@ -3,17 +3,125 @@
 @use '../../abstracts/responsive' as bp;
 
 .docs-article {
+  --accent: #8b5cf6;
+
+  position: relative;
+  width: min(100%, 76rem);
+  margin-inline: auto;
+
   &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    padding: 3.8rem 0 4.8rem;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.25s ease;
+
+    @include bp.md {
+      padding: 2rem 0 3.6rem;
+    }
+
     &--category {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: color-mix(in srgb, var(--accent) 85%, transparent);
+      user-select: none;
     }
 
     &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 700;
+      font-size: clamp(var(--fz-xl), 3vw, 3.2rem);
+      letter-spacing: -0.05em;
+      color: inherit;
+      line-height: 1.1;
+      margin-bottom: 2px;
     }
 
     &--description {
+      max-width: 65rem;
+      text-wrap: pretty;
+      font-size: var(--fz-sm);
+      color: var(--text-muted);
+      line-height: 1.75;
+      transition: color 0.25s ease;
     }
   }
 
   &__content {
+    font-size: var(--fz-sm);
+    padding-top: 4.6rem;
+    color: inherit;
+    line-height: 1.8;
+
+    @include bp.md {
+      padding-top: 3.4rem;
+    }
+
+    h2 {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      margin: 5.2rem 0 1.5rem;
+      font-weight: 600;
+      font-size: var(--fz-lg);
+      letter-spacing: -0.02em;
+      scroll-margin-top: 10rem;
+      line-height: 1.1;
+    }
+
+    p {
+      text-wrap: pretty;
+      margin: 0 0 1.8rem;
+      font-size: inherit;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 2.2rem;
+      padding-left: 2.2rem;
+
+      li {
+        color: var(--text-muted);
+        transition: color 0.25s ease;
+
+        & + li {
+          margin-top: 0.7rem;
+        }
+      }
+    }
+
+    a {
+      &:link,
+      &:visited {
+        position: relative;
+        color: var(--accent);
+
+        @include animated-underline(
+          $color: color-mix(in srgb, var(--accent) 35%, transparent),
+          $hoverColor: var(--accent)
+        );
+      }
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    hr {
+      margin: 4.8rem 0;
+      border: none;
+      border-top: 1px solid var(--border);
+      transition: border-color 0.25s ease;
+    }
   }
 }

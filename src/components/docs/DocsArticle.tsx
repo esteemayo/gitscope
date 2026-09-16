@@ -17,6 +17,7 @@ const DocsArticle = ({
   return (
     <article className='docs-article'>
       <DocsBreadcrumbs category={category} title={title} />
+
       <header className='docs-article__header'>
         <span className='docs-article__header--category'>{category}</span>
 
@@ -24,8 +25,11 @@ const DocsArticle = ({
 
         <p className='docs-article__header--description'>{description}</p>
       </header>
-      DocsTableOfContents
+
+      {/* DocsTableOfContents */}
+
       <div className='docs-article__content'>{children}</div>
+
       <DocsPagination previous={previous} next={next} />
     </article>
   );

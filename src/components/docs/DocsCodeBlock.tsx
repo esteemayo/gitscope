@@ -10,7 +10,7 @@ const DocsCodeBlock = ({ code, language }: DocsCodeBlockProps) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = async () => {
-    await window.navigator.clipboard.writeText('');
+    await window.navigator.clipboard.writeText(code);
 
     setIsCopied(true);
 

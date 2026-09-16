@@ -13,25 +13,33 @@ const icons = {
   danger: ShieldAlert,
 };
 
+const accents = {
+  note: '#8B5CF6',
+  tip: '#22C55E',
+  warning: '#F59E0B',
+  danger: '#EF4444',
+};
+
 const DocsCallout = ({
   type = 'note',
   title,
-  accentColor = '#22C55E',
   children,
   className,
   style,
 }: DocsCalloutProps) => {
   const Icon = icons[type];
+  const accentColor = accents[type];
 
   return (
     <aside
-      className={clsx('docs-callout', className)}
+      className={clsx(`docs-callout docs-callout--${type}`, { className })}
       style={
         {
           '--accent-color': accentColor,
           ...style,
         } as React.CSSProperties
       }
+      role={type === 'danger' ? 'alert' : undefined}
     >
       <div className='docs-callout__icon'>
         <Icon

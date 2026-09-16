@@ -3,6 +3,8 @@
 @use '../../abstracts/responsive' as bp;
 
 .docs-callout {
+  --accent-color: '#8B5CF6';
+
   display: flex;
   gap: 1.3rem;
 
@@ -20,6 +22,22 @@
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease;
+
+  &--note {
+    --accent-color: '#8B5CF6';
+  }
+
+  &--tip {
+    --accent-color: '#22C55E';
+  }
+
+  &--warning {
+    --accent-color: '#F59E0B';
+  }
+
+  &--danger {
+    --accent-color: '#EF4444';
+  }
 
   &__icon {
     flex-shrink: 0;
@@ -57,7 +75,7 @@
   }
 
   &__content {
-    font-size: var(--fz-sm);
+    font-size: var(--fz-xs);
     color: var(--text-muted);
     line-height: 1.65;
     transition: color 0.25s ease;
