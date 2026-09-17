@@ -34,7 +34,7 @@ export const docsNavigation: DocsNavSection[] = [
       },
       {
         title: 'Key Concepts',
-        href: '/documentation/introduction/concepts',
+        href: '/documentation/introduction/key-concepts',
         icon: BookOpen,
         description: 'Learn the core concepts behind GitScope.',
       },

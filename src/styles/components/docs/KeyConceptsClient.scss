@@ -1,0 +1,24 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.key-concepts-client {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    gap: 1.2rem;
+
+    margin: 2.8rem 0;
+
+    @media (max-width: 40em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__flow {
+    display: grid;
+    gap: 1.2rem;
+
+    margin-top: 2.8rem;
+  }
+}

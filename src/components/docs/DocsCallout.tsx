@@ -43,7 +43,7 @@ const DocsCallout = ({
     >
       <div className='docs-callout__icon'>
         <Icon
-          size={18}
+          size={16}
           strokeWidth={1.8}
           role='img'
           aria-hidden='true'

@@ -15,7 +15,7 @@
     var(--accent-color) 6%,
     var(--bg-tertiary)
   );
-  border: 1px solid color-mix(in srgb, var(--accent-color) 24%, var(--border));
+  border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
   border-radius: var(--radius);
   overflow: hidden;
   isolation: isolate;
@@ -52,8 +52,8 @@
     border-radius: 0.625rem;
 
     svg {
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 1.6rem;
+      height: 1.6rem;
       color: currentColor;
       stroke: currentColor;
     }
