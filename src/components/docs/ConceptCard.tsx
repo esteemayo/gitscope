@@ -1,26 +1,25 @@
 'use client';
 
-import '../../styles/components/docs/ConceptCard.scss';
+import clsx from 'clsx';
+import { ConceptCardProps } from '@/types/docs/keyConcepts/concept.card.type';
 
-interface ConceptCardProps {
-  title: string;
-  description: string;
-  accentColor: string;
-  children?: React.ReactNode;
-}
+import '../../styles/components/docs/ConceptCard.scss';
 
 const ConceptCard = ({
   title,
   description,
   accentColor,
   children,
+  className,
+  style,
 }: ConceptCardProps) => {
   return (
     <article
-      className='concept-card'
+      className={clsx('concept-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >

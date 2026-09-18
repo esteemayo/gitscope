@@ -1,138 +1,149 @@
 'use client';
 
-import DocsHomeHero from './DocsHomeHero';
-import DocsCard from './DocsCard';
-import DocsHomeNext from './DocsHomeNext';
-import DocsStep from './DocsStep';
-import DocsHomeSection from './DocsHomeSection';
-
 import DocsArticle from '../DocsArticle';
+import DocsHero from '../DocsHero';
 import DocsCallout from '../DocsCallout';
+import DocsFeature from './DocsFeature';
 import DocsCodeBlock from '../DocsCodeBlock';
 
-import { docsHomePage } from '@/data/docs/docsHomePage';
+import { docsFeatures } from '@/data/docs/docs-features.data';
 import '../../../styles/components/docs/home/DocsHome.scss';
-
-const usernameExample = 'esteemayo';
 
 const DocsHome = () => {
   return (
-    <DocsArticle
-      category='Introduction'
-      title='Getting Started'
-      description='Learn what GitScope does, how the core experience works, and how to start exploring GitHub analytics.'
-      next={{
-        title: 'How GitScope Works',
-        href: '/documentation/introduction/how-it-works',
-      }}
-    >
-      <h2>What is GitScope</h2>
+    <div className='docs-home'>
+      <DocsHero
+        title='GitScope Documentation'
+        description='Learn how GitScope turns GitHub data into clear, useful insights about developers, repositories, contributions, and activity.'
+      />
 
-      <p>
-        GitScope is a GitHub analytics platform built to turn GitHub activity
-        and repository data into structured, useful insights.
-      </p>
+      <DocsArticle
+        category='Introduction'
+        title='Getting Started'
+        description="Everything you need to start exploring GitHub profiles and understanding GitScope's analytics."
+        next={{
+          title: 'How GitScope Works',
+          href: '/documentation/introduction/how-it-works',
+        }}
+      >
+        <section id='what-is-gitscope'>
+          <h2>What is GitScope</h2>
 
-      <p>
-        Instead of browsing multiple GitHub pages to understand a developer
-        profile, GitScope brings relevant metrics into a single analytics
-        experience.
-      </p>
+          <p>
+            GitScope is a GitHub analytics platform that transforms public
+            GitHub data into structured insights. Instead of browsing
+            repositories and contribution activity manually, you can explore
+            that information through a single analytics interface.
+          </p>
 
-      <DocsCallout type='note' title='Public data'>
-        GitScope uses GitHub data according to the access available to the
-        current experience.
-      </DocsCallout>
+          <p>
+            Search for a GitHub username to view profile information, repository
+            metrics, contribution activity, language usage, and other developer
+            insights.
+          </p>
+        </section>
 
-      <h2>What you can explore</h2>
+        <section id='what-you-can-explore'>
+          <h2>What you can explore</h2>
 
-      <p>GitScope organizes GitHub information into several areas.</p>
+          <div className='docs-home__feature'>
+            {docsFeatures.map((feature) => (
+              <DocsFeature key={feature.id} {...feature} />
+            ))}
+          </div>
+        </section>
 
-      <ul>
-        <li>Repository activity and metrics</li>
+        <section id='analyze-a-profile'>
+          <h2>Analyze a GitHub profile</h2>
 
-        <li>Programming language distribution</li>
+          <p>
+            GitScope starts with a GitHub username. Enter a public username on
+            the landing page and GitScope retrieves the data required to build
+            the analytics dashboard.
+          </p>
 
-        <li>Contribution activity</li>
+          <DocsCodeBlock
+            language='text'
+            code='https://gitscope-analytics.vercel.app/username'
+          />
 
-        <li>Stars and forks</li>
+          <DocsCallout type='note'>
+            Replace <code>username</code> with the GitHub username you want to
+            analyze.
+          </DocsCallout>
+        </section>
 
-        <li>Developer profile information</li>
+        <section id='understanding-the-dashboard'>
+          <h2>Understanding the dashboard</h2>
 
-        <li>Comparisons between GitHub users</li>
-      </ul>
+          <p>
+            The dashboard organizes GitHub information into focused sections.
+            Profile information provides identity and account context, while
+            repository and contribution sections focus on activity and
+            development patterns.
+          </p>
 
-      <h2>Analyze a GitHub profile</h2>
+          <p>
+            Charts make larger datasets easier to interpret, allowing you to
+            identify repository distribution, language usage, contribution
+            trends, and other patterns without manually inspecting GitHub.
+          </p>
+        </section>
 
-      <p>
-        Start from the GitScope search experience. Enter a public GitHub
-        username and open the resulting analytics profile.
-      </p>
+        <section id='authenticated-features'>
+          <h2>Authenticated features</h2>
 
-      <DocsCodeBlock language='text' code={usernameExample} />
+          <p>
+            GitScope can be used without authentication for public profile
+            exploration. Authentication unlocks features that require a
+            personalized GitHub experience.
+          </p>
 
-      <p>
-        GitScope then organizes the available data into an analytics dashboard.
-      </p>
+          <ul>
+            <li>Compare GitHub profiles.</li>
 
-      <h2>Understanding the dashboard</h2>
+            <li>Open detailed repository information.</li>
 
-      <h3>Profile information</h3>
+            <li>View your fully visualized profile.</li>
+          </ul>
 
-      <p>
-        The profile area provides essential information about the GitHub
-        account, including the username, profile details and account statistics.
-      </p>
+          <DocsCallout type='tip'>
+            You can explore public GitHub profiles before deciding whether
+            authentication is necessary.
+          </DocsCallout>
+        </section>
 
-      <h3>Contribution analytics</h3>
+        <section id='next-steps'>
+          <h2>Next steps</h2>
 
-      <p>
-        Contribution visualizations provide a clearer view of activity patterns
-        over time.
-      </p>
+          <p>
+            Now that you understand the basic GitScope workflow, continue with
+            the documentation to learn how the platform processes GitHub data
+            and how each feature works.
+          </p>
 
-      <h2>Authenticated features</h2>
+          <ul>
+            <li>
+              Learn <strong>How GitScope Works</strong> to understand the
+              underlying data flow.
+            </li>
 
-      <p>
-        GitScope supports an authenticated experience for features requiring
-        additional GitHub access.
-      </p>
+            <li>
+              Explore <strong>GitHub Analytics</strong> and repository insights.
+            </li>
 
-      <DocsCallout type='warning' title='Authentication'>
-        Authentication is only required for features where GitScope needs
-        authenticated GitHub access.
-      </DocsCallout>
+            <li>
+              Learn how <strong>Compare Profiles</strong> works.
+            </li>
 
-      <h2>Next steps</h2>
-
-      <p>
-        Once you understand the basic GitScope experience, continue with the
-        architecture guide to understand how GitHub data moves through the
-        platform.
-      </p>
-    </DocsArticle>
-
-    // <article className='docs-home'>
-    //   <DocsHomeHero />
-
-    //   <DocsHomeSection {...docsHomePage.quickStart.content}>
-    //     <div className='docs-home__grid'>
-    //       {docsHomePage.quickStart.cards.map((card) => (
-    //         <DocsCard key={card.id} {...card} />
-    //       ))}
-    //     </div>
-    //   </DocsHomeSection>
-
-    //   <DocsHomeSection {...docsHomePage.howItWorks.content}>
-    //     <div className='docs-home__pipeline'>
-    //       {docsHomePage.howItWorks.steps.map((step, index) => (
-    //         <DocsStep key={step.id} {...step} index={index} />
-    //       ))}
-    //     </div>
-    //   </DocsHomeSection>
-
-    //   <DocsHomeNext {...docsHomePage.nextSteps} />
-    // </article>
+            <li>
+              Read the <strong>Authentication</strong> documentation for
+              account-specific features.
+            </li>
+          </ul>
+        </section>
+      </DocsArticle>
+    </div>
   );
 };
 

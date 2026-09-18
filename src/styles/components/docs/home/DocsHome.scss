@@ -5,28 +5,17 @@
 .docs-home {
   --accent: #8b5cf6;
 
-  width: min(100%, 90rem);
-  margin-inline: auto;
+  // width: min(100%, 90rem);
+  // margin-inline: auto;
 
-  &__grid {
+  &__feature {
     display: grid;
     grid-template-columns: repeat(2, minmax(min-content, 1fr));
     gap: 1.2rem;
-  }
 
-  &__pipeline {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(min-content, 1fr));
+    margin-top: 2.8rem;
 
-    border: 1px solid var(--border);
-    border-radius: 1.4rem;
-    overflow: hidden;
-    transition: border-color 0.25s ease;
-  }
-
-  &__grid,
-  &__pipeline {
-    @include bp.md {
+    @media (max-width: 40em) {
       grid-template-columns: 1fr;
     }
   }

@@ -2,10 +2,9 @@
 
 import DocsSidebar from '../docs/DocsSidebar';
 import DocsFooter from '../docs/DocsFooter';
-import DocsTableOfContent from '../docs/DocsTableOfContent';
+import DocsTableOfContents from '../docs/DocsTableOfContents';
 import DocsHeader from '../docs/DocsHeader';
 
-import { docsTocNavigation } from '@/data/docs/docs-toc.data';
 import { docsLink } from '@/data/docs/docs-footer.data';
 import { docsNavigation } from '@/data/docs/docs-navigation.data';
 
@@ -25,7 +24,7 @@ const DocsRootLayout = ({
           {children}
         </main>
 
-        <DocsTableOfContent links={docsTocNavigation} />
+        <DocsTableOfContents />
       </div>
 
       <DocsFooter navItems={docsLink} />

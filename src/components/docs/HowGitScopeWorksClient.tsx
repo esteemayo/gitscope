@@ -3,6 +3,7 @@
 import DocsArticle from './DocsArticle';
 import DocsCallout from './DocsCallout';
 
+import { docsFlow } from '@/data/docs/docs-flow.data';
 import '../../styles/components/docs/HowGitScopeWorksClient.scss';
 
 const HowGitScopeWorksClient = () => {
@@ -30,73 +31,29 @@ const HowGitScopeWorksClient = () => {
         </p>
 
         <div className='docs-flow'>
-          <div
-            className='docs-flow__wrapper'
-            style={
-              {
-                '--accent-color': '#8b5cf6',
-              } as React.CSSProperties
-            }
-          >
-            <span className='docs-flow__wrapper--number'>01</span>
+          {docsFlow.map((flow, index) => {
+            const { id, title, description, accentColor } = flow;
 
-            <strong className='docs-flow__wrapper--title'>GitHub</strong>
+            return (
+              <div
+                key={id}
+                className='docs-flow__wrapper'
+                style={
+                  {
+                    '--accent-color': accentColor,
+                  } as React.CSSProperties
+                }
+              >
+                <span className='docs-flow__wrapper--number'>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
 
-            <p className='docs-flow__wrapper--description'>
-              Source profile, repository and activity data.
-            </p>
-          </div>
+                <strong className='docs-flow__wrapper--title'>{title}</strong>
 
-          <div
-            className='docs-flow__wrapper'
-            style={
-              {
-                '--accent-color': '#06B6D4',
-              } as React.CSSProperties
-            }
-          >
-            <span className='docs-flow__wrapper--number'>02</span>
-
-            <strong className='docs-flow__wrapper--title'>Data layer</strong>
-
-            <p className='docs-flow__wrapper--description'>
-              Retrieve and organize the required data.
-            </p>
-          </div>
-
-          <div
-            className='docs-flow__wrapper'
-            style={
-              {
-                '--accent-color': '#F59E0B',
-              } as React.CSSProperties
-            }
-          >
-            <span className='docs-flow__wrapper--number'>03</span>
-
-            <strong className='docs-flow__wrapper--title'>Analytics</strong>
-
-            <p className='docs-flow__wrapper--description'>
-              Transform raw information into useful metrics.
-            </p>
-          </div>
-
-          <div
-            className='docs-flow__wrapper'
-            style={
-              {
-                '--accent-color': '#22C55E',
-              } as React.CSSProperties
-            }
-          >
-            <span className='docs-flow__wrapper--number'>04</span>
-
-            <strong className='docs-flow__wrapper--title'>Interface</strong>
-
-            <p className='docs-flow__wrapper--description'>
-              Present the results through the GitScope UI.
-            </p>
-          </div>
+                <p className='docs-flow__wrapper--description'>{description}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 

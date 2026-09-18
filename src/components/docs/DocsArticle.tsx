@@ -26,8 +26,6 @@ const DocsArticle = ({
         <p className='docs-article__header--description'>{description}</p>
       </header>
 
-      {/* DocsTableOfContents */}
-
       <div className='docs-article__content'>{children}</div>
 
       <DocsPagination previous={previous} next={next} />
