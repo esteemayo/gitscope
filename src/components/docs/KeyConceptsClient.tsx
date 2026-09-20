@@ -9,7 +9,7 @@ import '../../styles/components/docs/KeyConceptsClient.scss';
 
 const KeyConceptsClient = () => {
   return (
-    <div className='key-concepts-client'>
+    <main className='key-concepts-client'>
       <DocsArticle
         category='Introduction'
         title='Key Concepts'
@@ -250,7 +250,7 @@ const KeyConceptsClient = () => {
           </ul>
         </section>
       </DocsArticle>
-    </div>
+    </main>
   );
 };
 

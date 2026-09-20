@@ -3,65 +3,122 @@
 @use '../../abstracts/responsive' as bp;
 
 .docs-table-of-contents {
-  position: relative;
-  padding-top: 5.6rem;
+  position: sticky;
+  top: 9.6rem;
+
+  align-self: start;
+
+  width: 100%;
+  max-width: 22rem;
 
   @include bp.lg {
-    display: none;
+    position: static;
+
+    max-width: none;
+    padding: 1.6rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
   }
 
-  &__inner {
-    position: sticky;
-    top: calc(var(--docs-header-height) + 3.2rem);
-  }
-
-  &__label {
+  &__title {
     display: block;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 1.1rem;
     color: inherit;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.02em;
     margin-bottom: 1.4rem;
   }
 
   &__nav {
+    border-left: 1px solid var(--border);
+    transition: border-color 0.25s ease;
+
+    @include bp.lg {
+      border-left: none;
+    }
+  }
+
+  &__list {
     display: grid;
-    gap: 0.5rem;
+    gap: 2px;
 
-    &--item {
-      &:link,
-      &:visited {
-        position: relative;
-        text-transform: none;
-        font-weight: 500;
-        font-size: var(--fz-xs);
-        padding: 4px 0 4px 1.2rem;
-        color: var(--text-muted);
-        border-radius: var(--border-radius);
-        line-height: 1.4;
-        transition:
-          color 0.25s ease,
-          transform 0.25s ease;
-        user-select: none;
+    list-style: none;
+
+    @include bp.lg {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+      gap: 4px 1.6rem;
+    }
+
+    @media (max-width: 40em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    &--nested {
+      padding-left: 1.2rem;
+
+      @include bp.lg {
+        padding-left: 1rem;
       }
+    }
+  }
 
-      &:hover {
-        color: var(--icon);
-        transform: translateX(2px);
+  &__link {
+    &:link,
+    &:visited {
+      position: relative;
+      display: block;
+      text-transform: none;
+      font-weight: 500;
+      font-size: var(--fz-xs);
+      padding: 0.5rem 1.2rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+      user-select: none;
+
+      @include bp.lg {
+        padding: 0.5rem 0;
       }
+    }
 
-      &:focus {
-        outline: none;
-      }
+    &:hover {
+      color: var(--icon);
+      transform: translateX(2px);
+    }
 
-      &:focus-visible {
-        @include focus-ring();
-      }
+    &:focus {
+      outline: none;
+    }
 
-      &.is-active {
-        background-color: color-mix(in srgb, var(--accent) 8%, transparent);
-        color: var(--accent);
+    &:focus-visible {
+      @include focus-ring($width: 2px, $offset: 2px);
+    }
+
+    &.is-active {
+      font-weight: 600;
+      color: var(--icon);
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        left: -1px;
+        top: 0;
+        bottom: 0;
+
+        width: 2px;
+        background-color: var(--icon);
+
+        @include bp.lg {
+          display: none;
+        }
       }
     }
   }

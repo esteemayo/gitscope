@@ -11,7 +11,7 @@ import '../../../styles/components/docs/home/DocsHome.scss';
 
 const DocsHome = () => {
   return (
-    <div className='docs-home'>
+    <main className='docs-home'>
       <DocsHero
         title='GitScope Documentation'
         description='Learn how GitScope turns GitHub data into clear, useful insights about developers, repositories, contributions, and activity.'
@@ -143,7 +143,7 @@ const DocsHome = () => {
           </ul>
         </section>
       </DocsArticle>
-    </div>
+    </main>
   );
 };
 

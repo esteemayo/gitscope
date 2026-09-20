@@ -1,64 +1,21 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { DocsHeading, useDocsHeadings } from '@/hooks/useDocsHeadings';
 
 import '../../styles/components/docs/DocsTableOfContents.scss';
 
-interface Heading {
-  id: string;
-  text: string;
+interface DocsTableOfContentsProps {
+  headings?: DocsHeading[];
 }
 
-const DocsTableOfContentss = () => {
-  const [activeId, setActiveId] = useState('#introduction');
-  const [headings, setHeadings] = useState<Heading[]>([]);
+const DocsTableOfContents = ({
+  headings: providedHeadings,
+}: DocsTableOfContentsProps) => {
+  const detected = useDocsHeadings();
 
-  useEffect(() => {
-    const article = document.querySelector('.docs-article__contents');
-
-    if (!article) return;
-
-    const elements = Array.from(article.querySelectorAll('h2, h3'));
-
-    const mapped = elements.map((element) => {
-      const id =
-        element.id ||
-        element.textContent
-          ?.toLowerCase()
-          .replace(/[^a-z0-9]+/g, '-')
-          .replace(/(^-|-$)/g, '') ||
-        '';
-
-      element.id = id;
-
-      return {
-        id,
-        text: element.textContent || '',
-      };
-    });
-
-    setHeadings(mapped);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-        if (visible[0]) {
-          setActiveId(visible[0].target.id);
-        }
-      },
-      {
-        rootMargin: '-100px 0px -65% 0px',
-      },
-    );
-
-    elements.forEach((element) => observer.observe(element));
-
-    return () => observer.disconnect();
-  }, []);
+  const activeId = detected.activeId;
+  const headings = providedHeadings ?? detected.headings;
 
   if (!headings.length) {
     return null;
@@ -66,31 +23,37 @@ const DocsTableOfContentss = () => {
 
   return (
     <aside className='docs-table-of-contents' aria-label='On this page'>
-      <div className='docs-table-of-contents__inner'>
-        <span className='docs-table-of-contents__label'>On this page</span>
+      <p className='docs-table-of-contents__title'>On this page</p>
 
-        <nav className='docs-table-of-contents__nav'>
+      <nav className='docs-table-of-contents__nav'>
+        <ul className='docs-table-of-contents__list'>
           {headings.map((link) => {
-            const { id, text } = link;
+            const { id, text, level } = link;
 
             return (
-              <a
+              <li
                 key={id}
-                href={`#${id}`}
-                className={clsx('docs-table-of-contents__nav--item', {
-                  'docs-table-of-contents__nav--item is-active':
-                    activeId === id,
+                className={clsx('docs-table-of-contents__item', {
+                  'docs-table-of-contents__item docs-table-of-contents__item--nested':
+                    level === 3,
                 })}
-                aria-current={activeId === id ? 'location' : undefined}
               >
-                {text}
-              </a>
+                <a
+                  href={`#${id}`}
+                  className={clsx('docs-table-of-contents__link', {
+                    'docs-table-of-contents__link is-active': activeId === id,
+                  })}
+                  aria-current={activeId === id ? 'location' : undefined}
+                >
+                  {text}
+                </a>
+              </li>
             );
           })}
-        </nav>
-      </div>
+        </ul>
+      </nav>
     </aside>
   );
 };
 
-export default DocsTableOfContentss;
+export default DocsTableOfContents;
