@@ -27,12 +27,12 @@ const DocsTableOfContents = ({
 
       <nav className='docs-table-of-contents__nav'>
         <ul className='docs-table-of-contents__list'>
-          {headings.map((link) => {
+          {headings.map((link, index) => {
             const { id, text, level } = link;
 
             return (
               <li
-                key={id}
+                key={`${id}-${index}`}
                 className={clsx('docs-table-of-contents__item', {
                   'docs-table-of-contents__item docs-table-of-contents__item--nested':
                     level === 3,

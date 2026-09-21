@@ -124,7 +124,7 @@ const KeyConceptsClient = () => {
           <ConceptCard
             title='Language Distribution'
             description='A representation of the programming languages present across analyzed repositories.'
-            accentColor='#FA5A7A'
+            accentColor='var(--color-pink)'
           >
             <p>
               GitScope uses language information to help users understand the

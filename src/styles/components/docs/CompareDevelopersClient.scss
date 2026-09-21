@@ -1,0 +1,305 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.compare-developers-client {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    gap: 1.2rem;
+
+    margin: 2.8rem 0;
+
+    @media (max-width: 40em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__metric-list {
+    display: grid;
+    gap: 0.8rem;
+    margin: 2.8rem 0 0.8rem;
+  }
+
+  &__caption {
+    margin-top: 0.8rem !important;
+    font-size: var(--fz-xs) !important;
+    color: var(--text-muted) !important;
+    transition: color 0.25s ease;
+  }
+
+  &__flow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(min-content, 1fr));
+    gap: 1.2rem;
+
+    margin-top: 2.8rem;
+
+    @media (max-width: 56.25em) {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
+    @media (max-width: 40em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__flow-card {
+    min-width: 0;
+    padding: 1.8rem;
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color) 2.5%,
+      var(--bg-tertiary)
+    );
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    span {
+      display: block;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: inherit;
+      margin-bottom: 0.7rem;
+    }
+
+    p {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__timeline {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    gap: 1.2rem;
+
+    margin-top: 2.8rem;
+
+    @media (max-width: 56.25em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__timeline-item {
+    min-width: 0;
+    padding: 1.8rem;
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color) 2.5%,
+      var(--bg-tertiary)
+    );
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    span {
+      display: block;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: var(--accent-color);
+      margin-bottom: 0.7rem;
+    }
+
+    p {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__language-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    gap: 1.2rem;
+
+    margin: 2.8rem 0;
+
+    @media (max-width: 40em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__language-card {
+    display: grid;
+    gap: 0.5rem;
+
+    min-width: 0;
+    padding: 2rem;
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color) 2.5%,
+      var(--bg-tertiary)
+    );
+    border: 1px solid var(--border);
+    box-shadow: inset 3px 0 0 var(--accent-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+
+    span,
+    small {
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+
+    strong {
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: inherit;
+    }
+  }
+
+  &__formula {
+    display: grid;
+    gap: 1.2rem;
+
+    margin: 2.8rem 0;
+    padding: 2rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    @media (max-width: 40em) {
+      padding: 1.8rem;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: var(--fz-xs);
+      color: inherit;
+      overflow-x: auto;
+    }
+  }
+
+  &__highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    gap: 1.2rem;
+
+    margin-top: 2.8rem;
+
+    @media (max-width: 40em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__highlight {
+    display: grid;
+    gap: 0.6rem;
+
+    min-width: 0;
+    padding: 2rem;
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color) 2.5%,
+      var(--bg-tertiary)
+    );
+    border: 1px solid var(--border);
+    box-shadow: inset 3px 0 0 var(--accent-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+
+    @media (max-width: 40em) {
+      padding: 1.8rem;
+    }
+
+    span {
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+
+    strong {
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: inherit;
+    }
+
+    p {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__steps {
+    display: grid;
+    gap: 1.2rem;
+
+    margin-top: 2.8rem;
+    list-style: none;
+    counter-reset: comparison-step;
+
+    li {
+      display: grid;
+      grid-template-columns: 3.2rem 1fr;
+      column-gap: 1.2rem;
+      counter-increment: comparison-step;
+
+      &::before {
+        content: counter(comparison-step);
+
+        display: grid;
+        place-items: center;
+
+        width: 3.2rem;
+        height: 3.2rem;
+        font-size: var(--fz-xxs);
+        color: var(--text-muted);
+        border: 1px solid var(--border);
+        border-radius: 100%;
+        transition: color 0.25s ease;
+      }
+
+      strong {
+        display: block;
+        font-weight: 600;
+        font-size: var(--fz-sm);
+        color: var(--text);
+        margin-bottom: 3px;
+        transition: color 0.25s ease;
+      }
+
+      span {
+        display: block;
+        font-size: var(--fz-xs);
+        color: var(--text-muted);
+        transition: color 0.25s ease;
+      }
+    }
+  }
+}
