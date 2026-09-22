@@ -3,6 +3,8 @@
 @use '../../abstracts/responsive' as bp;
 
 .metric-row {
+  position: relative;
+  min-width: 0;
   padding: 1.6rem;
   background-color: color-mix(
     in srgb,
@@ -10,17 +12,25 @@
     var(--bg-tertiary)
   );
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent-color);
   border-radius: var(--radius);
   overflow: hidden;
   isolation: isolate;
   transition:
     background-color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+    border-color 0.25s ease;
 
   @media (max-width: 40em) {
     padding: 1.5rem;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0 auto 0 0;
+
+    width: 3px;
+    background-color: var(--accent-color);
   }
 
   &__label,

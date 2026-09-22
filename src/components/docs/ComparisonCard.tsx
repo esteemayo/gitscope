@@ -1,26 +1,25 @@
 'use client';
 
-import '../../styles/components/docs/ComparisonCard.scss';
+import clsx from 'clsx';
+import { ComparisonCardProps } from '@/types/docs/compare/comparison.card.type';
 
-type ComparisonCardProps = {
-  title: string;
-  description: string;
-  accentColor: string;
-  items: string[];
-};
+import '../../styles/components/docs/ComparisonCard.scss';
 
 const ComparisonCard = ({
   title,
   description,
   accentColor,
   items,
+  className,
+  style,
 }: ComparisonCardProps) => {
   return (
     <article
-      className='comparison-card'
+      className={clsx('comparison-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >

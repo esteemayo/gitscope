@@ -1,14 +1,9 @@
 'use client';
 
-import '../../styles/components/docs/MetricRow.scss';
+import clsx from 'clsx';
+import { MetricRowProps } from '@/types/docs/compare/metric.row.type';
 
-type MetricRowProps = {
-  label: string;
-  firstValue: string;
-  secondValue: string;
-  difference: string;
-  accentColor: string;
-};
+import '../../styles/components/docs/MetricRow.scss';
 
 const MetricRow = ({
   label,
@@ -16,13 +11,16 @@ const MetricRow = ({
   secondValue,
   difference,
   accentColor,
+  className,
+  style,
 }: MetricRowProps) => {
   return (
     <div
-      className='metric-row'
+      className={clsx('metric-row', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >

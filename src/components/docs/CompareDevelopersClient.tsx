@@ -5,6 +5,7 @@ import MetricRow from './MetricRow';
 import ComparisonCard from './ComparisonCard';
 import DocsCallout from './DocsCallout';
 
+import * as data from '@/data/docs/compare-developers.data';
 import '../../styles/components/docs/CompareDevelopersClient.scss';
 
 const CompareDevelopersClient = () => {
@@ -55,53 +56,9 @@ const CompareDevelopersClient = () => {
           </p>
 
           <div className='compare-developers-client__grid'>
-            <ComparisonCard
-              title='Profile metrics'
-              description='Compare high-level account activity and repository presence.'
-              accentColor='#8B5CF6'
-              items={[
-                'Followers and following',
-                'Public repositories',
-                'Repository stars',
-                'Account activity',
-              ]}
-            />
-
-            <ComparisonCard
-              title='Repository activity'
-              description='Examine the repositories associated with each profile.'
-              accentColor='#06B6D4'
-              items={[
-                'Repository count',
-                'Stars and forks',
-                'Popular repositories',
-                'Recent repository activity',
-              ]}
-            />
-
-            <ComparisonCard
-              title='Contributions'
-              description='Compare contribution patterns across the available activity data.'
-              accentColor='#22C55E'
-              items={[
-                'Contribution totals',
-                'Activity over time',
-                'Peak activity periods',
-                'Consistency patterns',
-              ]}
-            />
-
-            <ComparisonCard
-              title='Languages'
-              description='Understand the technologies represented across each profile.'
-              accentColor='#F59E0B'
-              items={[
-                'Programming languages',
-                'Language distribution',
-                'Repository language usage',
-                'Technology patterns',
-              ]}
-            />
+            {data.compareDevelopersCard.map((card) => (
+              <ComparisonCard key={card.id} {...card} />
+            ))}
           </div>
         </section>
 
@@ -115,29 +72,9 @@ const CompareDevelopersClient = () => {
           </p>
 
           <div className='compare-developers-client__metric-list'>
-            <MetricRow
-              label='Repositories'
-              firstValue='42'
-              secondValue='27'
-              difference='+55.6%'
-              accentColor='#8B5CF6'
-            />
-
-            <MetricRow
-              label='Followers'
-              firstValue='180'
-              secondValue='120'
-              difference='+50%'
-              accentColor='#06B6D4'
-            />
-
-            <MetricRow
-              label='Stars'
-              firstValue='640'
-              secondValue='410'
-              difference='+56.1%'
-              accentColor='#F59E0B'
-            />
+            {data.compareDevelopersMetric.map((metric) => (
+              <MetricRow key={metric.id} {...metric} />
+            ))}
           </div>
 
           <p className='compare-developers-client__caption'>
@@ -155,30 +92,9 @@ const CompareDevelopersClient = () => {
           </p>
 
           <div className='compare-developers-client__flow'>
-            {[
-              {
-                title: 'Repository count',
-                text: 'Compare the number of public repositories.',
-                accentColor: '#8B5CF6',
-              },
-              {
-                title: 'Stars',
-                text: 'Compare accumulated repository stars.',
-                accentColor: '#F59E0B',
-              },
-              {
-                title: 'Forks',
-                text: 'Compare how often repositories have been forked.',
-                accentColor: '#06B6D4',
-              },
-              {
-                title: 'Activity',
-                text: 'Inspect recent repository activity and updates.',
-                accentColor: '#22C55E',
-              },
-            ].map((item) => (
+            {data.repositoryComparison.map((item) => (
               <article
-                key={item.title}
+                key={item.id}
                 className='compare-developers-client__flow-card'
                 style={
                   {
@@ -204,49 +120,25 @@ const CompareDevelopersClient = () => {
           </p>
 
           <div className='compare-developers-client__timeline'>
-            <div
-              className='compare-developers-client__timeline-item'
-              style={
-                {
-                  '--accent-color': '#22C55E',
-                } as React.CSSProperties
-              }
-            >
-              <span>Consistency</span>
+            {data.developersTimeline.map((timeline) => {
+              const { id, title, description, accentColor } = timeline;
 
-              <p>
-                Shows how regularly activity appears across the comparison
-                period.
-              </p>
-            </div>
+              return (
+                <div
+                  key={id}
+                  className='compare-developers-client__timeline-item'
+                  style={
+                    {
+                      '--accent-color': accentColor,
+                    } as React.CSSProperties
+                  }
+                >
+                  <span>{title}</span>
 
-            <div
-              className='compare-developers-client__timeline-item'
-              style={
-                {
-                  '--accent-color': '#06B6D4',
-                } as React.CSSProperties
-              }
-            >
-              <span>Peak month</span>
-
-              <p>
-                Identifies the period with the highest contribution activity.
-              </p>
-            </div>
-
-            <div
-              className='compare-developers-client__timeline-item'
-              style={
-                {
-                  '--accent-color': '#8B5CF6',
-                } as React.CSSProperties
-              }
-            >
-              <span>Timeline</span>
-
-              <p>Provides a broader view of how activity changes over time.</p>
-            </div>
+                  <p>{description}</p>
+                </div>
+              );
+            })}
           </div>
         </section>
 
@@ -261,35 +153,27 @@ const CompareDevelopersClient = () => {
           </p>
 
           <div className='compare-developers-client__language-grid'>
-            <div
-              className='compare-developers-client__language-card'
-              style={
-                {
-                  '--accent-color': '#F59E0B',
-                } as React.CSSProperties
-              }
-            >
-              <span>Developer A</span>
+            {data.languageComparisons.map((item) => {
+              const { id, label, language, remark, accentColor } = item;
 
-              <strong>TypeScript</strong>
+              return (
+                <div
+                  key={id}
+                  className='compare-developers-client__language-card'
+                  style={
+                    {
+                      '--accent-color': accentColor,
+                    } as React.CSSProperties
+                  }
+                >
+                  <span>{label}</span>
 
-              <small>Primary language</small>
-            </div>
+                  <strong>{language}</strong>
 
-            <div
-              className='compare-developers-client__language-card'
-              style={
-                {
-                  '--accent-color': '#06B6D4',
-                } as React.CSSProperties
-              }
-            >
-              <span>Developer B</span>
-
-              <strong>Python</strong>
-
-              <small>Primary language</small>
-            </div>
+                  <small>{remark}</small>
+                </div>
+              );
+            })}
           </div>
 
           <p>
@@ -331,35 +215,27 @@ const CompareDevelopersClient = () => {
           </p>
 
           <div className='compare-developers-client__highlight-grid'>
-            <article
-              className='compare-developers-client__highlight'
-              style={
-                {
-                  '--accent-color': '#22C55E',
-                } as React.CSSProperties
-              }
-            >
-              <span>Higher contributions</span>
+            {data.comparisonHighlights.map((highlight) => {
+              const { id, title, label, description, accentColor } = highlight;
 
-              <strong>Profile A</strong>
+              return (
+                <article
+                  key={id}
+                  className='compare-developers-client__highlight'
+                  style={
+                    {
+                      '--accent-color': accentColor,
+                    } as React.CSSProperties
+                  }
+                >
+                  <span>{title}</span>
 
-              <p>Based on the contribution metric being displayed.</p>
-            </article>
+                  <strong>{label}</strong>
 
-            <article
-              className='compare-developers-client__highlight'
-              style={
-                {
-                  '--accent-color': '#8B5CF6',
-                } as React.CSSProperties
-              }
-            >
-              <span>More repositories</span>
-
-              <strong>Profile B</strong>
-
-              <p>Based on the repository count available for comparison.</p>
-            </article>
+                  <p>{description}</p>
+                </article>
+              );
+            })}
           </div>
         </section>
 
@@ -372,45 +248,19 @@ const CompareDevelopersClient = () => {
           </p>
 
           <ol className='compare-developers-client__steps'>
-            <li>
-              <div>
-                <strong>Check the metric.</strong>
+            {data.compareSteps.map((step) => {
+              const { title, description } = step;
 
-                <span>Identify exactly what the comparison is measuring.</span>
-              </div>
-            </li>
+              return (
+                <li key={title}>
+                  <div>
+                    <strong>{title}</strong>
 
-            <li>
-              <div>
-                <strong>Review both values.</strong>
-
-                <span>
-                  Look at the underlying numbers before considering the
-                  percentage difference.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <div>
-                <strong>Inspect the timeline.</strong>
-
-                <span>
-                  Contribution patterns can provide context that a total cannot.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <div>
-                <strong>Check repository context.</strong>
-
-                <span>
-                  Stars, forks, languages, and repository activity describe
-                  different aspects of a profile.
-                </span>
-              </div>
-            </li>
+                    <span>{description}</span>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </section>
 

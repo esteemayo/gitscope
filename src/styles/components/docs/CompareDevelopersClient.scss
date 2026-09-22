@@ -45,6 +45,7 @@
   }
 
   &__flow-card {
+    position: relative;
     min-width: 0;
     padding: 1.8rem;
     background-color: color-mix(
@@ -53,13 +54,23 @@
       var(--bg-tertiary)
     );
     border: 1px solid var(--border);
-    border-top: 2px solid var(--accent-color);
     border-radius: var(--radius);
     overflow: hidden;
     isolation: isolate;
     transition:
       background-color 0.25s ease,
       border-color 0.25s ease;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 3px;
+      background-color: var(--accent-color);
+    }
 
     span {
       display: block;
@@ -137,6 +148,7 @@
     display: grid;
     gap: 0.5rem;
 
+    position: relative;
     min-width: 0;
     padding: 2rem;
     background-color: color-mix(
@@ -145,14 +157,22 @@
       var(--bg-tertiary)
     );
     border: 1px solid var(--border);
-    box-shadow: inset 3px 0 0 var(--accent-color);
     border-radius: var(--radius);
     overflow: hidden;
     isolation: isolate;
     transition:
       background-color 0.25s ease,
-      border-color 0.25s ease,
-      transform 0.25s ease;
+      border-color 0.25s ease;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0 auto 0 0;
+
+      width: 3px;
+      background-color: var(--accent-color);
+    }
 
     span,
     small {
@@ -189,6 +209,7 @@
       font-weight: 600;
       font-size: var(--fz-xxs);
       color: var(--text-muted);
+      transition: color 0.25s ease;
     }
 
     code {
@@ -215,6 +236,7 @@
     display: grid;
     gap: 0.6rem;
 
+    position: relative;
     min-width: 0;
     padding: 2rem;
     background-color: color-mix(
@@ -223,17 +245,25 @@
       var(--bg-tertiary)
     );
     border: 1px solid var(--border);
-    box-shadow: inset 3px 0 0 var(--accent-color);
     border-radius: var(--radius);
     overflow: hidden;
     isolation: isolate;
     transition:
       background-color 0.25s ease,
-      border-color 0.25s ease,
-      transform 0.25s ease;
+      border-color 0.25s ease;
 
     @media (max-width: 40em) {
       padding: 1.8rem;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0 auto 0 0;
+
+      width: 3px;
+      background-color: var(--accent-color);
     }
 
     span {
@@ -285,12 +315,17 @@
         transition: color 0.25s ease;
       }
 
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
       strong {
         display: block;
         font-weight: 600;
         font-size: var(--fz-sm);
         color: var(--text);
-        margin-bottom: 3px;
         transition: color 0.25s ease;
       }
 
