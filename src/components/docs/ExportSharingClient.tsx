@@ -5,6 +5,7 @@ import ShareStep from './ShareStep';
 import DocsCallout from './DocsCallout';
 import ExportCard from './ExportCard';
 
+import * as data from '@/data/docs/export-sharing.data';
 import '../../styles/components/docs/ExportSharingClient.scss';
 
 const ExportSharingClient = () => {
@@ -14,6 +15,14 @@ const ExportSharingClient = () => {
         category='Features'
         title='Export & Sharing'
         description='Capture GitScope analytics in a form that is easier to save, reference, present, or share with others.'
+        previous={{
+          title: 'Contributions',
+          href: '/documentation/features/contributions',
+        }}
+        next={{
+          title: 'Overview',
+          href: '/documentation/analytics',
+        }}
       >
         <section id='overview'>
           <h2>Overview</h2>
@@ -45,49 +54,9 @@ const ExportSharingClient = () => {
           </p>
 
           <div className='export-sharing-client__grid'>
-            <ExportCard
-              title='Analytics export'
-              description='Capture relevant analytics from the current view for later reference.'
-              accentColor='#8b5cf6'
-              items={[
-                'Profile analytics',
-                'Repository metrics',
-                'Contribution data',
-              ]}
-            />
-
-            <ExportCard
-              title='Comparison export'
-              description='Preserve information from a developer comparison for review or reference.'
-              accentColor='#06b6d4'
-              items={[
-                'Compared profiles',
-                'Metric differences',
-                'Comparison context',
-              ]}
-            />
-
-            <ExportCard
-              title='Repository data'
-              description='Keep useful repository-level information outside the live dashboard.'
-              accentColor='#f59e0b'
-              items={[
-                'Repository metrics',
-                'Language information',
-                'Activity context',
-              ]}
-            />
-
-            <ExportCard
-              title='Shared analytics'
-              description='Share a useful analytics view without requiring the recipient to recreate the analysis.'
-              accentColor='#22c55e'
-              items={[
-                'Profile context',
-                'Relevant metrics',
-                'Analytics snapshot',
-              ]}
-            />
+            {data.exportOptions.map((option) => (
+              <ExportCard key={option.id} {...option} />
+            ))}
           </div>
         </section>
 
@@ -100,26 +69,9 @@ const ExportSharingClient = () => {
           </p>
 
           <div className='export-sharing-client__share-flow'>
-            <ShareStep
-              number='01'
-              title='Analyze'
-              description='Open the GitHub profile, repository, or comparison you want to share.'
-              accentColor='#8b5cf6'
-            />
-
-            <ShareStep
-              number='02'
-              title='Review'
-              description='Check that the visible analytics provide the context you want other people to see.'
-              accentColor='#06b6d4'
-            />
-
-            <ShareStep
-              number='03'
-              title='Share'
-              description='Use the available sharing mechanism to make the analytics accessible to the recipient.'
-              accentColor='#22c55e'
-            />
+            {data.sharingAnalytics.map((analytic, index) => (
+              <ShareStep key={analytic.title} {...analytic} index={index} />
+            ))}
           </div>
         </section>
 
@@ -133,44 +85,25 @@ const ExportSharingClient = () => {
           </p>
 
           <div className='export-sharing-client__context'>
-            <div
-              className='export-sharing-client__context-item'
-              style={
-                {
-                  '--accent-color': '#8b5cf6',
-                } as React.CSSProperties
-              }
-            >
-              <span>Subject</span>
+            {data.sharedContexts.map((context) => {
+              const { title, description, accentColor } = context;
 
-              <strong>Who or what is being analyzed?</strong>
-            </div>
+              return (
+                <div
+                  key={title.toLowerCase()}
+                  className='export-sharing-client__context-item'
+                  style={
+                    {
+                      '--accent-color': accentColor,
+                    } as React.CSSProperties
+                  }
+                >
+                  <span>{title}</span>
 
-            <div
-              className='export-sharing-client__context-item'
-              style={
-                {
-                  '--accent-color': '#06b6d4',
-                } as React.CSSProperties
-              }
-            >
-              <span>Metrics</span>
-
-              <strong>Which analytics are being presented?</strong>
-            </div>
-
-            <div
-              className='export-sharing-client__context-item'
-              style={
-                {
-                  '--accent-color': '#f59e0b',
-                } as React.CSSProperties
-              }
-            >
-              <span>Time</span>
-
-              <strong>When was the data generated or viewed?</strong>
-            </div>
+                  <strong>{description}</strong>
+                </div>
+              );
+            })}
           </div>
         </section>
 
@@ -184,43 +117,29 @@ const ExportSharingClient = () => {
           </p>
 
           <div className='export-sharing-client__comparison'>
-            <article
-              className='export-sharing-client__comparison-card'
-              style={
-                {
-                  '--accent-color': '#06b6d4',
-                } as React.CSSProperties
-              }
-            >
-              <span>Live analytics</span>
+            {data.exportComparisons.map((comparison) => {
+              const { id, label, items, accentColor } = comparison;
 
-              <ul>
-                <li>Reflects currently available data</li>
+              return (
+                <article
+                  key={id}
+                  className='export-sharing-client__comparison-card'
+                  style={
+                    {
+                      '--accent-color': accentColor,
+                    } as React.CSSProperties
+                  }
+                >
+                  <span>{label}</span>
 
-                <li>Can change as GitHub activity changes</li>
-
-                <li>Provides the interactive GitScope experience</li>
-              </ul>
-            </article>
-
-            <article
-              className='export-sharing-client__comparison-card'
-              style={
-                {
-                  '--accent-color': '#8b5cf6',
-                } as React.CSSProperties
-              }
-            >
-              <span>Exported information</span>
-
-              <ul>
-                <li>Represents data captured at a point in time</li>
-
-                <li>Can be stored or referenced separately</li>
-
-                <li>May become outdated as source data changes</li>
-              </ul>
-            </article>
+                  <ul>
+                    {items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            })}
           </div>
 
           <DocsCallout type='warning'>
@@ -251,49 +170,19 @@ const ExportSharingClient = () => {
           <h2>Sharing best practices</h2>
 
           <ol className='export-sharing-client__steps'>
-            <li>
-              <div>
-                <strong>Review before sharing.</strong>
+            {data.sharingSteps.map((step) => {
+              const { id, title, description } = step;
 
-                <span>
-                  Confirm that the analytics and profile are the ones you intend
-                  to share.
-                </span>
-              </div>
-            </li>
+              return (
+                <li key={id}>
+                  <div>
+                    <strong>{title}</strong>
 
-            <li>
-              <div>
-                <strong>Include context.</strong>
-
-                <span>
-                  Explain what the metrics represent and when the data was
-                  captured.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <div>
-                <strong>Check freshness.</strong>
-
-                <span>
-                  Revisit the source when the accuracy of current activity
-                  matters.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <div>
-                <strong>Share intentionally.</strong>
-
-                <span>
-                  Consider who can access the shared information and why they
-                  need it.
-                </span>
-              </div>
-            </li>
+                    <span>{description}</span>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </section>
 

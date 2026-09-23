@@ -1,23 +1,15 @@
 'use client';
 
 import clsx from 'clsx';
+import { ShareStepProps } from '@/types/docs/exportSharing/share.step.type';
 
 import '../../styles/components/docs/ShareStep.scss';
 
-interface ShareStepProps {
-  number: string;
-  title: string;
-  description: string;
-  accentColor: string;
-  className?: string;
-  style?: React.CSSProperties;
-}
-
 const ShareStep = ({
-  number,
   title,
   description,
   accentColor,
+  index,
   className,
   style,
 }: ShareStepProps) => {
@@ -31,7 +23,9 @@ const ShareStep = ({
         } as React.CSSProperties
       }
     >
-      <span className='share-step__number'>{number}</span>
+      <span className='share-step__number'>
+        {String(index + 1).padStart(2, '0')}
+      </span>
 
       <div className='share-step__body'>
         <h3 className='share-step__body--title'>{title}</h3>

@@ -1,0 +1,72 @@
+@use '../../../../abstracts/mixins' as *;
+@use '../../../../abstracts/animation';
+@use '../../../../abstracts/responsive' as bp;
+
+.analytics-step {
+  position: relative;
+  min-width: 0;
+  padding: 1.8rem;
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 2.5%,
+    var(--bg-tertiary)
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    height: 3px;
+    background-color: var(--accent-color);
+  }
+
+  &__number {
+    display: grid;
+    place-items: center;
+
+    width: 3.4rem;
+    height: 3.4rem;
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 35%, var(--border));
+    border-radius: 0.875rem;
+    margin-bottom: 1.6rem;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    min-width: 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      text-wrap: pretty !important;
+      font-size: var(--fz-xs) !important;
+      color: var(--text-muted);
+      line-height: 1.65;
+      transition: color 0.25s ease;
+    }
+  }
+}

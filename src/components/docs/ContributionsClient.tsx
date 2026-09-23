@@ -5,6 +5,7 @@ import DocsArticle from './DocsArticle';
 import ContributionCard from './ContributionCard';
 import DocsCallout from './DocsCallout';
 
+import * as data from '@/data/docs/contributions.data';
 import '../../styles/components/docs/ContributionsClient.scss';
 
 export default function ContributionsClient() {
@@ -53,29 +54,9 @@ export default function ContributionsClient() {
           </p>
 
           <div className='contributions-client__grid'>
-            <ContributionCard
-              title='Contribution total'
-              description='Provides the total contribution activity represented by the available GitHub data.'
-              accentColor='#22C55E'
-            />
-
-            <ContributionCard
-              title='Activity timeline'
-              description='Shows how contribution activity changes across the available period.'
-              accentColor='#06B6D4'
-            />
-
-            <ContributionCard
-              title='Consistency'
-              description='Helps identify whether activity is distributed regularly or concentrated in specific periods.'
-              accentColor='#8B5CF6'
-            />
-
-            <ContributionCard
-              title='Peak activity'
-              description='Highlights periods where contribution activity reaches its highest level.'
-              accentColor='#F59E0B'
-            />
+            {data.contributionData.map((data) => (
+              <ContributionCard key={data.id} {...data} />
+            ))}
           </div>
         </section>
 
@@ -95,53 +76,32 @@ export default function ContributionsClient() {
             </div>
 
             <div className='contributions-client__timeline-bars'>
-              {[
-                {
-                  label: 'Jan',
-                  value: '34',
-                  width: '42%',
-                  accentColor: '#8B5CF6',
-                },
-                {
-                  label: 'Feb',
-                  value: '52',
-                  width: '65%',
-                  accentColor: '#06B6D4',
-                },
-                {
-                  label: 'Mar',
-                  value: '71',
-                  width: '84%',
-                  accentColor: '#22C55E',
-                },
-                {
-                  label: 'Apr',
-                  value: '43',
-                  width: '54%',
-                  accentColor: '#F59E0B',
-                },
-              ].map((item) => (
-                <div
-                  className='contributions-client__timeline-row'
-                  key={item.label}
-                >
-                  <span>{item.label}</span>
+              {data.contributionTimeline.map((item) => {
+                const { label, value, width, accentColor } = item;
 
-                  <div className='contributions-client__timeline-track'>
-                    <span
-                      className='contributions-client__timeline-bar'
-                      style={
-                        {
-                          '--accent-color': item.accentColor,
-                          '--bar-width': item.width,
-                        } as React.CSSProperties
-                      }
-                    />
+                return (
+                  <div
+                    className='contributions-client__timeline-row'
+                    key={label}
+                  >
+                    <span>{label}</span>
+
+                    <div className='contributions-client__timeline-track'>
+                      <span
+                        className='contributions-client__timeline-bar'
+                        style={
+                          {
+                            '--accent-color': accentColor,
+                            '--bar-width': width,
+                          } as React.CSSProperties
+                        }
+                      />
+                    </div>
+
+                    <strong>{value}</strong>
                   </div>
-
-                  <strong>{item.value}</strong>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -161,23 +121,9 @@ export default function ContributionsClient() {
           </p>
 
           <div className='contributions-client__activity'>
-            <ActivityItem
-              label='Regular activity'
-              description='Contributions appear across many periods with fewer large gaps.'
-              accentColor='#22C55E'
-            />
-
-            <ActivityItem
-              label='Concentrated activity'
-              description='A larger portion of contributions appears within a smaller number of periods.'
-              accentColor='#F59E0B'
-            />
-
-            <ActivityItem
-              label='Variable activity'
-              description='Activity levels fluctuate significantly between periods.'
-              accentColor='#8B5CF6'
-            />
+            {data.contributionActivities.map((activity) => (
+              <ActivityItem key={activity.id} {...activity} />
+            ))}
           </div>
 
           <DocsCallout type='tip'>
@@ -223,53 +169,25 @@ export default function ContributionsClient() {
           </p>
 
           <div className='contributions-client__reading-grid'>
-            <article
-              className='contributions-client__reading-card'
-              style={
-                {
-                  '--accent-color': '#22C55E',
-                } as React.CSSProperties
-              }
-            >
-              <span>Density</span>
+            {data.contributionReadings.map((reading) => {
+              const { label, description, accentColor } = reading;
 
-              <p>
-                Areas with more activity indicate periods with a higher
-                concentration of contributions.
-              </p>
-            </article>
+              return (
+                <article
+                  key={label}
+                  className='contributions-client__reading-card'
+                  style={
+                    {
+                      '--accent-color': accentColor,
+                    } as React.CSSProperties
+                  }
+                >
+                  <span>{label}</span>
 
-            <article
-              className='contributions-client__reading-card'
-              style={
-                {
-                  '--accent-color': '#8B5CF6',
-                } as React.CSSProperties
-              }
-            >
-              <span>Gaps</span>
-
-              <p>
-                Empty or quieter periods can indicate breaks or changes in
-                activity.
-              </p>
-            </article>
-
-            <article
-              className='contributions-client__reading-card'
-              style={
-                {
-                  '--accent-color': '#F59E0B',
-                } as React.CSSProperties
-              }
-            >
-              <span>Patterns</span>
-
-              <p>
-                Repeated activity across periods can reveal recurring
-                contribution patterns.
-              </p>
-            </article>
+                  <p>{description}</p>
+                </article>
+              );
+            })}
           </div>
         </section>
 
@@ -283,48 +201,19 @@ export default function ContributionsClient() {
           </p>
 
           <ol className='contributions-client__steps'>
-            <li>
-              <div>
-                <strong>Start with the total.</strong>
+            {data.contributionSteps.map((step) => {
+              const { id, title, description } = step;
 
-                <span>
-                  Use the total to understand the overall amount of activity
-                  represented by the data.
-                </span>
-              </div>
-            </li>
+              return (
+                <li key={id}>
+                  <div>
+                    <strong>{title}</strong>
 
-            <li>
-              <div>
-                <strong>Check the timeline.</strong>
-
-                <span>
-                  Look at when the activity occurred instead of relying only on
-                  the aggregate number.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <div>
-                <strong>Look for patterns.</strong>
-
-                <span>
-                  Compare periods of high, low, and consistent activity.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <div>
-                <strong>Consider the context.</strong>
-
-                <span>
-                  Repository work, private activity, and other factors can
-                  affect what is visible on a public profile.
-                </span>
-              </div>
-            </li>
+                    <span>{description}</span>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </section>
 

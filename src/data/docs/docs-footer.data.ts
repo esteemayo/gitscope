@@ -9,7 +9,7 @@ export const docsLink: DocsFooterSection[] = [
         label: 'Getting Started',
       },
       {
-        href: '/documentation/features/guthub-analytics',
+        href: '/documentation/features/github-analytics',
         label: 'Features',
       },
       {

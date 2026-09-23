@@ -1,17 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
+import { ExportCardProps } from '@/types/docs/exportSharing/export.card.type';
 
 import '../../styles/components/docs/ExportCard.scss';
-
-interface ExportCardProps {
-  title: string;
-  description: string;
-  accentColor: string;
-  items: string[];
-  className?: string;
-  style?: React.CSSProperties;
-}
 
 const ExportCard = ({
   title,

@@ -1,15 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
-import '../../styles/components/docs/ContributionCard.scss';
+import { ContributionCardProps } from '@/types/docs/contributions/contribution.card.type';
 
-interface ContributionCardProps {
-  title: string;
-  description: string;
-  accentColor: string;
-  className?: string;
-  style?: React.CSSProperties;
-}
+import '../../styles/components/docs/ContributionCard.scss';
 
 const ContributionCard = ({
   title,

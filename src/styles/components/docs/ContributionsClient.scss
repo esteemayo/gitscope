@@ -182,8 +182,8 @@
 
   &__reading-card {
     position: relative;
-    padding: 1.8rem;
     min-width: 0;
+    padding: 1.8rem;
     background-color: color-mix(
       in srgb,
       var(--accent-color) 2.5%,
@@ -216,6 +216,7 @@
     }
 
     p {
+      text-wrap: pretty !important;
       font-size: var(--fz-xs) !important;
       color: var(--text-muted) !important;
       transition: color 0.25s ease !important;

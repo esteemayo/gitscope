@@ -1,15 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
-import '../../styles/components/docs/ActivityItem.scss';
+import { ActivityItemProps } from '@/types/docs/contributions/activity.item.type';
 
-interface ActivityItemProps {
-  label: string;
-  description: string;
-  accentColor: string;
-  className?: string;
-  style?: React.CSSProperties;
-}
+import '../../styles/components/docs/ActivityItem.scss';
 
 const ActivityItem = ({
   label,
