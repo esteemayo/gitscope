@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import RepositoryMetricsClient from '@/components/docs/analytics/repositoryMetrics/RepositoryMetricsClient';
 
 export const metadata: Metadata = {
   title: 'Repository Metrics | GitScope',
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const RepositoryMetricsPage = () => {
-  return <div>RepositoryMetricsPage</div>;
+  return <RepositoryMetricsClient />;
 };
 
 export default RepositoryMetricsPage;

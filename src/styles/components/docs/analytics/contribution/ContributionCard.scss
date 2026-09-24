@@ -1,0 +1,87 @@
+@use '../../../../abstracts/mixins' as *;
+@use '../../../../abstracts/animation';
+@use '../../../../abstracts/responsive' as bp;
+
+.contribution-card {
+  display: flex;
+  gap: 1.6rem;
+
+  position: relative;
+  min-width: 0;
+  padding: 2rem;
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 2.5%,
+    var(--bg-tertiary, transparent)
+  );
+  border: 1px solid
+    color-mix(in srgb, var(--accent-color) 16%, var(--border, currentColor));
+  border-radius: 1.4rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  @media (max-width: 43.75em) {
+    padding: 1.8rem;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0 auto 0 0;
+
+    width: 3px;
+    background-color: var(--accent-color);
+    opacity: 0.8;
+  }
+
+  &__icon {
+    flex: 0 0 4rem;
+
+    display: grid;
+    place-items: center;
+
+    width: 4rem;
+    height: 4rem;
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+    border-radius: 0.875rem;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description,
+    p {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted, currentColor);
+      line-height: 1.65;
+      transition: color 0.25s ease;
+    }
+  }
+}

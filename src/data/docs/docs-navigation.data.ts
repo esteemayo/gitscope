@@ -92,13 +92,13 @@ export const docsNavigation: DocsNavSection[] = [
       },
       {
         title: 'Language Analytics',
-        href: '/documentation/analytics/language',
+        href: '/documentation/analytics/language-analytics',
         icon: Code2,
         description: 'Explore language usage across repositories.',
       },
       {
         title: 'Contribution Analytics',
-        href: '/documentation/analytics/contributions',
+        href: '/documentation/analytics/contribution-analytics',
         icon: Users,
         description: 'Analyze contribution activity.',
       },
