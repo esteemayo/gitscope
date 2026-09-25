@@ -1,35 +1,31 @@
+import { DocsFeatureCardType } from '@/types/docs/featureCard';
 import {
   ActivityItemType,
-  ContributionItem,
   contributionStepType,
   ContributionTimelineType,
   ReadingType,
 } from '@/types/docs/contributions';
 
-export const contributionData: ContributionItem[] = [
+export const contributionData: DocsFeatureCardType[] = [
   {
-    id: 'contribution-total',
     title: 'Contribution total',
     description:
       'Provides the total contribution activity represented by the available GitHub data.',
     accentColor: '#22C55E',
   },
   {
-    id: 'activity-timeline',
     title: 'Activity timeline',
     description:
       'Shows how contribution activity changes across the available period.',
     accentColor: '#06B6D4',
   },
   {
-    id: 'consistency',
     title: 'Consistency',
     description:
       'Helps identify whether activity is distributed regularly or concentrated in specific periods.',
     accentColor: '#8B5CF6',
   },
   {
-    id: 'peak-activity',
     title: 'Peak activity',
     description:
       'Highlights periods where contribution activity reaches its highest level.',

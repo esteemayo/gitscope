@@ -1,12 +1,13 @@
 'use client';
 
 import DocsArticle from '../../DocsArticle';
-import LanguageCard from './LanguageCard';
-import LanguageItem from './LanguageItem';
+
 import DocsCallout from '../../DocsCallout';
 
 import * as data from '@/data/docs/analytics/language.data';
 import '../../../../styles/components/docs/analytics/language/LanguageAnalyticsClient.scss';
+import DocsFeatureCard from '../../DocsFeatureCard';
+import DocsFeatureItem from '../../DocsFeatureItem';
 
 const LanguageAnalyticsClient = () => {
   return (
@@ -44,7 +45,7 @@ const LanguageAnalyticsClient = () => {
 
           <div className='language-analytics-client__grid'>
             {data.languageAnalyticsArea.map((analytic) => (
-              <LanguageCard key={analytic.id} {...analytic} />
+              <DocsFeatureCard key={analytic.title} {...analytic} />
             ))}
           </div>
         </section>
@@ -74,7 +75,7 @@ const LanguageAnalyticsClient = () => {
 
           <div className='language-analytics-client__items'>
             {data.languageCompositions.map((composition) => (
-              <LanguageItem key={composition.id} {...composition} />
+              <DocsFeatureItem key={composition.title} {...composition} />
             ))}
           </div>
         </section>
@@ -110,7 +111,7 @@ const LanguageAnalyticsClient = () => {
 
           <div className='language-analytics-client__items'>
             {data.languageComparison.map((comparison) => (
-              <LanguageItem key={comparison.id} {...comparison} />
+              <DocsFeatureItem key={comparison.title} {...comparison} />
             ))}
           </div>
         </section>
@@ -126,7 +127,7 @@ const LanguageAnalyticsClient = () => {
 
           <div className='language-analytics-client__steps'>
             {data.languageSteps.map((step) => (
-              <LanguageItem key={step.id} {...step} />
+              <DocsFeatureItem key={step.title} {...step} />
             ))}
           </div>
         </section>
@@ -157,7 +158,7 @@ const LanguageAnalyticsClient = () => {
 
           <div className='language-analytics-client__grid language-analytics-client__grid--compact'>
             {data.readingLanguageAnalytics.map((analytic) => (
-              <LanguageCard key={analytic.id} {...analytic} />
+              <DocsFeatureCard key={analytic.title} {...analytic} />
             ))}
           </div>
         </section>

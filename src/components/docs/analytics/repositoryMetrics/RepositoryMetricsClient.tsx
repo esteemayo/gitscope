@@ -1,9 +1,9 @@
 'use client';
 
+import DocsFeatureCard from '../../DocsFeatureCard';
 import DocsArticle from '../../DocsArticle';
-import MetricCard from './MetricCard';
+import DocsFeatureItem from '../../DocsFeatureItem';
 import DocsCallout from '../../DocsCallout';
-import MetricItem from './MetricItem';
 
 import * as data from '@/data/docs/analytics/repository-metrics.data';
 import '../../../../styles/components/docs/analytics/repositoryMetric/RepositoryMetricsClient.scss';
@@ -45,7 +45,7 @@ const RepositoryMetricsClient = () => {
 
           <div className='repository-metrics-client__grid'>
             {data.repositoryMetrics.map((metric) => (
-              <MetricCard key={metric.id} {...metric} />
+              <DocsFeatureCard key={metric.title} {...metric} />
             ))}
           </div>
         </section>
@@ -70,7 +70,7 @@ const RepositoryMetricsClient = () => {
 
           <div className='repository-metrics-client__items'>
             {data.repositoryCombinedContext.map((item) => (
-              <MetricItem key={item.label.toLowerCase()} {...item} />
+              <DocsFeatureItem key={item.title.toLowerCase()} {...item} />
             ))}
           </div>
         </section>
@@ -105,8 +105,8 @@ const RepositoryMetricsClient = () => {
 
           <div className='repository-metrics-client__items'>
             {data.popularRepositories.map((repository) => (
-              <MetricItem
-                key={repository.label.toLowerCase()}
+              <DocsFeatureItem
+                key={repository.title.toLowerCase()}
                 {...repository}
               />
             ))}
@@ -138,7 +138,7 @@ const RepositoryMetricsClient = () => {
 
           <div className='repository-metrics-client__items'>
             {data.repositoryHealth.map((health) => (
-              <MetricItem key={health.label.toLowerCase()} {...health} />
+              <DocsFeatureItem key={health.title.toLowerCase()} {...health} />
             ))}
           </div>
         </section>

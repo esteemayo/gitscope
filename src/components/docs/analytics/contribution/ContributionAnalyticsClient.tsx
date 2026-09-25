@@ -1,8 +1,8 @@
 'use client';
 
-import ContributionCard from './ContributionCard';
+import DocsFeatureCard from '../../DocsFeatureCard';
 import DocsArticle from '../../DocsArticle';
-import ContributionItem from './ContributionItem';
+import DocsFeatureItem from '../../DocsFeatureItem';
 import DocsCallout from '../../DocsCallout';
 
 import * as data from '@/data/docs/analytics/contribution.data';
@@ -45,7 +45,7 @@ const ContributionAnalyticsClient = () => {
 
           <div className='contribution-analytics-client__grid'>
             {data.contributionAnalytics.map((analytic) => (
-              <ContributionCard key={analytic.id} {...analytic} />
+              <DocsFeatureCard key={analytic.title} {...analytic} />
             ))}
           </div>
         </section>
@@ -81,7 +81,7 @@ const ContributionAnalyticsClient = () => {
 
           <div className='contribution-analytics-client__items'>
             {data.contributionTimeline.map((timeline) => (
-              <ContributionItem key={timeline.id} {...timeline} />
+              <DocsFeatureItem key={timeline.title} {...timeline} />
             ))}
           </div>
         </section>
@@ -102,7 +102,7 @@ const ContributionAnalyticsClient = () => {
 
           <div className='contribution-analytics-client__items'>
             {data.contributionConsistencies.map((consistency) => (
-              <ContributionItem key={consistency.id} {...consistency} />
+              <DocsFeatureItem key={consistency.title} {...consistency} />
             ))}
           </div>
         </section>
@@ -121,7 +121,7 @@ const ContributionAnalyticsClient = () => {
             than a complete picture of development work.
           </p>
 
-          <ContributionCard {...data.contributionPeakActivity} />
+          <DocsFeatureCard {...data.contributionPeakActivity} />
         </section>
 
         <section id='reading-contribution-activity'>
@@ -134,7 +134,7 @@ const ContributionAnalyticsClient = () => {
 
           <div className='contribution-analytics-client__grid contribution-analytics-client__grid--compact'>
             {data.contributionActivities.map((activity) => (
-              <ContributionCard key={activity.id} {...activity} />
+              <DocsFeatureCard key={activity.title} {...activity} />
             ))}
           </div>
         </section>

@@ -1,14 +1,13 @@
+import { DocsFeatureCardType } from '@/types/docs/featureCard';
 import {
-  ExportCardType,
   ExportComparisonType,
   ShareContextType,
   ShareStepType,
   SharingStepItem,
 } from '@/types/docs/exportSharing';
 
-export const exportOptions: ExportCardType[] = [
+export const exportOptions: DocsFeatureCardType[] = [
   {
-    id: 'analytics',
     title: 'Analytics export',
     description:
       'Capture relevant analytics from the current view for later reference.',
@@ -16,7 +15,6 @@ export const exportOptions: ExportCardType[] = [
     accentColor: '#8B5CF6',
   },
   {
-    id: 'comparison',
     title: 'Comparison export',
     description:
       'Preserve information from a developer comparison for review or reference.',
@@ -24,7 +22,6 @@ export const exportOptions: ExportCardType[] = [
     accentColor: '#06B6D4',
   },
   {
-    id: 'repository',
     title: 'Repository data',
     description:
       'Keep useful repository-level information outside the live dashboard.',
@@ -32,7 +29,6 @@ export const exportOptions: ExportCardType[] = [
     accentColor: '#F59E0B',
   },
   {
-    id: 'shared',
     title: 'Shared analytics',
     description:
       'Share a useful analytics view without requiring the recipient to recreate the analysis.',

@@ -2,7 +2,7 @@
 
 import ActivityItem from './ActivityItem';
 import DocsArticle from './DocsArticle';
-import ContributionCard from './ContributionCard';
+import DocsFeatureCard from './DocsFeatureCard';
 import DocsCallout from './DocsCallout';
 
 import * as data from '@/data/docs/contributions.data';
@@ -55,7 +55,7 @@ export default function ContributionsClient() {
 
           <div className='contributions-client__grid'>
             {data.contributionData.map((data) => (
-              <ContributionCard key={data.id} {...data} />
+              <DocsFeatureCard key={data.title} {...data} />
             ))}
           </div>
         </section>

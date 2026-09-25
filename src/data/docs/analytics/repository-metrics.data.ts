@@ -7,14 +7,11 @@ import {
   Star,
 } from 'lucide-react';
 
-import {
-  MetricCardType,
-  MetricItemType,
-} from '@/types/docs/analytics/repositoryMetrics';
+import { DocsFeatureCardType } from '@/types/docs/featureCard';
+import { DocsFeatureItemType } from '@/types/docs/featureItem';
 
-export const repositoryMetrics: MetricCardType[] = [
+export const repositoryMetrics: DocsFeatureCardType[] = [
   {
-    id: 'count',
     title: 'Repository count',
     description:
       'Shows the number of repositories available in the analyzed GitHub profile data.',
@@ -22,7 +19,6 @@ export const repositoryMetrics: MetricCardType[] = [
     accentColor: '#6366F1',
   },
   {
-    id: 'stars',
     title: 'Stars',
     description:
       'Shows the stars associated with repositories and helps identify projects that have attracted GitHub users.',
@@ -30,7 +26,6 @@ export const repositoryMetrics: MetricCardType[] = [
     accentColor: '#F59E0B',
   },
   {
-    id: 'forks',
     title: 'Forks',
     description:
       'Shows repository forks and provides additional context around how projects have been copied or extended.',
@@ -38,7 +33,6 @@ export const repositoryMetrics: MetricCardType[] = [
     accentColor: '#14B8A6',
   },
   {
-    id: 'activity',
     title: 'Activity',
     description:
       'Provides context about repository activity using the available GitHub activity data.',
@@ -46,7 +40,6 @@ export const repositoryMetrics: MetricCardType[] = [
     accentColor: '#EC4899',
   },
   {
-    id: 'languages',
     title: 'Languages',
     description:
       'Shows the programming languages associated with repositories and their relative distribution.',
@@ -54,7 +47,6 @@ export const repositoryMetrics: MetricCardType[] = [
     accentColor: '#8B5CF6',
   },
   {
-    id: 'ranking',
     title: 'Repository ranking',
     description:
       'Allows repositories to be sorted and explored using supported metrics such as stars or forks.',
@@ -63,61 +55,61 @@ export const repositoryMetrics: MetricCardType[] = [
   },
 ];
 
-export const repositoryCombinedContext: MetricItemType[] = [
+export const repositoryCombinedContext: DocsFeatureItemType[] = [
   {
-    label: 'Stars',
+    title: 'Stars',
     description:
       'Stars indicate that GitHub users have marked a repository as interesting or useful.',
     accentColor: '#F59E0B',
   },
   {
-    label: 'Forks',
+    title: 'Forks',
     description:
       "Forks represent copies of repositories created through GitHub's fork mechanism.",
     accentColor: '#14B8A6',
   },
   {
-    label: 'Combined context',
+    title: 'Combined context',
     description:
       'Viewing stars and forks together provides more context than relying on either metric independently.',
     accentColor: '#6366F1',
   },
 ];
 
-export const popularRepositories: MetricItemType[] = [
+export const popularRepositories: DocsFeatureItemType[] = [
   {
-    label: 'Sort by stars',
+    title: 'Sort by stars',
     description: 'Surface repositories with higher star counts.',
     accentColor: '#F59E0B',
   },
   {
-    label: 'Sort by forks',
+    title: 'Sort by forks',
     description: 'Surface repositories with higher fork counts.',
     accentColor: '#14B8A6',
   },
   {
-    label: 'Explore individually',
+    title: 'Explore individually',
     description:
       'Open a repository to inspect its available details and metrics.',
     accentColor: '#8B5CF6',
   },
 ];
 
-export const repositoryHealth: MetricItemType[] = [
+export const repositoryHealth: DocsFeatureItemType[] = [
   {
-    label: 'Popularity',
+    title: 'Popularity',
     description:
       'Stars and forks provide observable signals of repository interest and reuse.',
     accentColor: '#F59E0B',
   },
   {
-    label: 'Activity',
+    title: 'Activity',
     description:
       'Available activity information provides context about repository development.',
     accentColor: '#EC4899',
   },
   {
-    label: 'Composition',
+    title: 'Composition',
     description:
       'Language information shows the technologies represented across projects.',
     accentColor: '#6366F1',

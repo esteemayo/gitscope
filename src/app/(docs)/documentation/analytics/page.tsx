@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import AnalyticsOverviewClient from '@/components/docs/analytics/overview/AnalyticsOverviewClient';
 
 export const metadata: Metadata = {
-  title: 'Analytics Overview | GitScope',
+  title: 'Analytics Overview | GitScope Documentation',
   description:
     'Understand how GitScope organizes GitHub data into profile, repository, language, and contribution analytics.',
 };

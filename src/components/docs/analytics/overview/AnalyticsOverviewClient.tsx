@@ -1,9 +1,9 @@
 'use client';
 
+import AnalyticsStep from './AnalyticsStep';
 import DocsArticle from '../../DocsArticle';
 import DocsCallout from '../../DocsCallout';
-import AnalyticsCard from './AnalyticsCard';
-import AnalyticsStep from './AnalyticsStep';
+import DocsFeatureCard from '../../DocsFeatureCard';
 
 import * as data from '@/data/docs/analytics/overview.data';
 import '../../../../styles/components/docs/analytics/overview/AnalyticsOverviewClient.scss';
@@ -54,7 +54,7 @@ const AnalyticsOverviewClient = () => {
 
           <div className='analytics-overview-client__grid'>
             {data.analyticsAreas.map((analytic) => (
-              <AnalyticsCard key={analytic.id} {...analytic} />
+              <DocsFeatureCard key={analytic.title} {...analytic} />
             ))}
           </div>
         </section>
@@ -159,11 +159,11 @@ const AnalyticsOverviewClient = () => {
 
           <div className='analytics-overview-client__reading'>
             {data.analyticsReadings.map((reading) => {
-              const { id, title, description, accentColor } = reading;
+              const { title, description, accentColor } = reading;
 
               return (
                 <div
-                  key={id}
+                  key={title}
                   className='analytics-overview-client__reading-item'
                   style={
                     {

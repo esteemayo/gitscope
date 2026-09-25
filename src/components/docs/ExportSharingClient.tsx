@@ -2,8 +2,8 @@
 
 import DocsArticle from './DocsArticle';
 import ShareStep from './ShareStep';
+import DocsFeatureCard from './DocsFeatureCard';
 import DocsCallout from './DocsCallout';
-import ExportCard from './ExportCard';
 
 import * as data from '@/data/docs/export-sharing.data';
 import '../../styles/components/docs/ExportSharingClient.scss';
@@ -55,7 +55,7 @@ const ExportSharingClient = () => {
 
           <div className='export-sharing-client__grid'>
             {data.exportOptions.map((option) => (
-              <ExportCard key={option.id} {...option} />
+              <DocsFeatureCard key={option.title} {...option} />
             ))}
           </div>
         </section>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import CompareDevelopersClient from '@/components/docs/CompareDevelopersClient';
 
 export const metadata: Metadata = {
-  title: 'Compare Developers | GitScope',
+  title: 'Compare Developers | GitScope Documentation',
 };
 
 const CompareDevelopersPage = () => {

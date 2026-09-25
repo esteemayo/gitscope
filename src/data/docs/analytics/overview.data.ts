@@ -1,52 +1,46 @@
-import {
-  AnalyticsItemType,
-  AnalyticsReadingType,
-  AnalyticsStepType,
-} from '@/types/docs/analytics/overview';
+import { DocsFeatureCardType } from '@/types/docs/featureCard';
+import { DocsFeatureItemType } from '@/types/docs/featureItem';
+import { AnalyticsStepType } from '@/types/docs/analytics/overview';
 
-export const analyticsAreas: AnalyticsItemType[] = [
+export const analyticsAreas: DocsFeatureCardType[] = [
   {
-    id: 'profile-analytics',
     title: 'Profile analytics',
     description:
       'Understand the high-level characteristics of a GitHub profile.',
-    accentColor: '#8B5CF6',
     items: [
       'Profile statistics',
       'Repository presence',
       'Followers and activity',
     ],
+    accentColor: '#8B5CF6',
   },
   {
-    id: 'repository-metrics',
     title: 'Repository metrics',
     description: 'Examine projects and the activity associated with them.',
-    accentColor: '#06B6D4',
     items: ['Repository count', 'Stars and forks', 'Recent activity'],
+    accentColor: '#06B6D4',
   },
   {
-    id: 'language-analytics',
     title: 'Language analytics',
     description:
       'Explore the programming languages represented across repositories.',
-    accentColor: '#F59E0B',
     items: [
       'Language distribution',
       'Repository languages',
       'Technology patterns',
     ],
+    accentColor: '#F59E0B',
   },
   {
-    id: 'contribution-analytics',
     title: 'Contribution analytics',
     description:
       'Understand how GitHub contribution activity changes over time.',
-    accentColor: '#22C55E',
     items: [
       'Contribution totals',
       'Activity timeline',
       'Consistency and peaks',
     ],
+    accentColor: '#22C55E',
   },
 ];
 
@@ -77,22 +71,19 @@ export const analyticsStep: AnalyticsStepType[] = [
   },
 ];
 
-export const analyticsReadings: AnalyticsReadingType[] = [
+export const analyticsReadings: DocsFeatureItemType[] = [
   {
-    id: 'start-broad',
     title: 'Start broad',
     description: 'Begin with profile-level information to establish context.',
     accentColor: '#8B5CF6',
   },
   {
-    id: 'go-deeper',
     title: 'Go deeper',
     description:
       'Inspect repositories, languages, and contribution individually.',
     accentColor: '#06B6D4',
   },
   {
-    id: 'compare-context',
     title: 'Compare context',
     description: 'Use timelines and related metrics to understand the numbers.',
     accentColor: '#22C55E',
