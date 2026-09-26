@@ -143,17 +143,17 @@ export const docsNavigation: DocsNavSection[] = [
       },
       {
         title: 'Compare Developers',
-        href: '/documentation/guides/compare',
+        href: '/documentation/guides/compare-developers',
         description: 'Learn how to compare developers.',
       },
       {
         title: 'Export Analytics',
-        href: '/documentation/guides/export',
+        href: '/documentation/guides/export-analytics',
         description: 'Learn how to export analytics.',
       },
       {
         title: 'Share a Profile',
-        href: '/documentation/guides/share',
+        href: '/documentation/guides/share-profile',
         description: 'Learn how to share profile analytics.',
       },
     ],
