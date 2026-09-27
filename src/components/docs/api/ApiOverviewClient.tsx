@@ -1,36 +1,29 @@
 'use client';
 
-import {
-  BarChart3,
-  Database,
-  GitBranch,
-  ShieldCheck,
-  Workflow,
-} from 'lucide-react';
-
 import DocsFeatureCard from '../DocsFeatureCard';
 import DocsArticle from '../DocsArticle';
 import DocsFeatureItem from '../DocsFeatureItem';
 import DocsCallout from '../DocsCallout';
 
+import * as data from '@/data/docs/api/overview.data';
 import '../../../styles/components/docs/api/ApiOverviewClient.scss';
 
 const ApiOverviewClient = () => {
   return (
-    <main className='api-overview-client'>
-      <DocsArticle
-        category='API'
-        title='API Overview'
-        description='Understand the GitScope API, its purpose, available resources, and how API requests fit into the platform.'
-        previous={{
-          title: 'Share a Profile',
-          href: '/documentation/guides/share-profile',
-        }}
-        next={{
-          title: 'Authentication',
-          href: '/documentation/api/authentication',
-        }}
-      >
+    <DocsArticle
+      category='API'
+      title='API Overview'
+      description='Understand the GitScope API, its purpose, available resources, and how API requests fit into the platform.'
+      previous={{
+        title: 'Share a Profile',
+        href: '/documentation/guides/share-profile',
+      }}
+      next={{
+        title: 'Authentication',
+        href: '/documentation/api/authentication',
+      }}
+    >
+      <div className='api-overview-client'>
         <section id='overview'>
           <h2>Overview</h2>
 
@@ -52,33 +45,9 @@ const ApiOverviewClient = () => {
           <h2>What the API provides</h2>
 
           <div className='api-overview-client__grid'>
-            <DocsFeatureCard
-              icon={BarChart3}
-              title='Analytics data'
-              description='Access the data used to represent GitHub profiles, repositories, languages, and contribution activity.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureCard
-              icon={GitBranch}
-              title='GitHub data'
-              description='Work with GitHub-related information retrieved and processed by GitScope.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureCard
-              icon={Database}
-              title='Structured resources'
-              description='Interact with API resources through predictable request and response structures.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureCard
-              icon={Workflow}
-              title='Programmatic access'
-              description='Use API-based access when application code needs GitScope analytics without relying on the dashboard interface.'
-              accentColor='#F59E0B'
-            />
+            {data.apiProvides.map((item) => (
+              <DocsFeatureCard key={item.title} {...item} />
+            ))}
           </div>
         </section>
 
@@ -86,29 +55,9 @@ const ApiOverviewClient = () => {
           <h2>API areas</h2>
 
           <div className='api-overview-client__list'>
-            <DocsFeatureItem
-              title='Authentication'
-              description='Understand how authenticated API access works and which requests require authentication.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='Endpoints'
-              description='Explore the API resources available for retrieving GitScope data.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureItem
-              title='Responses'
-              description='Learn how API responses are structured and how returned data should be interpreted.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureItem
-              title='Errors'
-              description='Understand API failures, error responses, and how to handle unsuccessful requests.'
-              accentColor='#EF4444'
-            />
+            {data.apiAreas.map((area) => (
+              <DocsFeatureItem key={area.title} {...area} />
+            ))}
           </div>
         </section>
 
@@ -123,29 +72,9 @@ const ApiOverviewClient = () => {
           </p>
 
           <div className='api-overview-client__flow'>
-            <DocsFeatureItem
-              title='GitHub'
-              description='Source of the underlying developer and repository data.'
-              accentColor='#F97316'
-            />
-
-            <DocsFeatureItem
-              title='GitScope data layer'
-              description='Retrieves, processes, and prepares GitHub data for the application.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='GitScope API'
-              description='Exposes application data through documented API resources.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureItem
-              title='GitScope interface'
-              description='Uses the available data to present analytics and insights to users.'
-              accentColor='#22C55E'
-            />
+            {data.apiLayers.map((layer) => (
+              <DocsFeatureItem key={layer.title} {...layer} />
+            ))}
           </div>
         </section>
 
@@ -169,29 +98,9 @@ const ApiOverviewClient = () => {
           <h2>Working with the API</h2>
 
           <div className='api-overview-client__list'>
-            <DocsFeatureItem
-              title='Start with authentication'
-              description='Understand whether the API operation you need requires an authenticated session.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='Choose a resource'
-              description='Identify the API endpoint that corresponds to the data or operation you need.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureItem
-              title='Read the response'
-              description='Use the documented response structure to process the returned data.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureItem
-              title='Handle failures'
-              description='Account for unsuccessful requests and use API error information when troubleshooting.'
-              accentColor='#EF4444'
-            />
+            {data.apiWorks.map((work) => (
+              <DocsFeatureItem key={work.title} {...work} />
+            ))}
           </div>
         </section>
 
@@ -199,26 +108,9 @@ const ApiOverviewClient = () => {
           <h2>API principles</h2>
 
           <div className='api-overview-client__grid'>
-            <DocsFeatureCard
-              icon={ShieldCheck}
-              title='Controlled access'
-              description='API access should respect authentication and permission boundaries.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureCard
-              icon={Workflow}
-              title='Consistent behavior'
-              description='Requests and responses should follow the documented API conventions.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureCard
-              icon={Database}
-              title='Structured data'
-              description='API resources provide structured information that applications can consume.'
-              accentColor='#22C55E'
-            />
+            {data.apiPrinciples.map((principle) => (
+              <DocsFeatureCard key={principle.title} {...principle} />
+            ))}
           </div>
         </section>
 
@@ -242,8 +134,8 @@ const ApiOverviewClient = () => {
             protected API functionality is established.
           </p>
         </section>
-      </DocsArticle>
-    </main>
+      </div>
+    </DocsArticle>
   );
 };
 

@@ -10,20 +10,20 @@ import '../../../styles/components/docs/guides/ShareProfileClient.scss';
 
 const ShareProfileClient = () => {
   return (
-    <main className='share-profile-client'>
-      <DocsArticle
-        category='Guides'
-        title='Share a Profile'
-        description='Learn how to share GitScope profile analytics with other people while keeping the shared context clear.'
-        previous={{
-          title: 'Export Analytics',
-          href: '/documentation/guides/export-analytics',
-        }}
-        next={{
-          title: 'API Overview',
-          href: '/documentation/api',
-        }}
-      >
+    <DocsArticle
+      category='Guides'
+      title='Share a Profile'
+      description='Learn how to share GitScope profile analytics with other people while keeping the shared context clear.'
+      previous={{
+        title: 'Export Analytics',
+        href: '/documentation/guides/export-analytics',
+      }}
+      next={{
+        title: 'API Overview',
+        href: '/documentation/api',
+      }}
+    >
+      <div className='share-profile-client'>
         <section id='overview'>
           <h2>Overview</h2>
 
@@ -210,8 +210,8 @@ const ShareProfileClient = () => {
             exposes analytics data and how to work with its API resources.
           </p>
         </section>
-      </DocsArticle>
-    </main>
+      </div>
+    </DocsArticle>
   );
 };
 

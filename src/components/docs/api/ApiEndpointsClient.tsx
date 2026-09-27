@@ -1,30 +1,29 @@
 'use client';
 
-import { BarChart3, GitBranch, Languages, UserRound } from 'lucide-react';
-
 import DocsArticle from '../DocsArticle';
 import DocsCallout from '../DocsCallout';
 import DocsFeatureCard from '../DocsFeatureCard';
 import DocsFeatureItem from '../DocsFeatureItem';
 
+import * as data from '@/data/docs/api/endpoints.data';
 import '../../../styles/components/docs/api/ApiEndpointsClient.scss';
 
 const ApiEndpointsClient = () => {
   return (
-    <main className='api-endpoints-client'>
-      <DocsArticle
-        category='API'
-        title='API Endpoints'
-        description='Understand how GitScope API endpoints are organized and how to identify the resource required by your application.'
-        previous={{
-          title: 'Authentication',
-          href: '/documentation/api/authentication',
-        }}
-        next={{
-          title: 'Response',
-          href: '/documentation/api/response',
-        }}
-      >
+    <DocsArticle
+      category='API'
+      title='API Endpoints'
+      description='Understand how GitScope API endpoints are organized and how to identify the resource required by your application.'
+      previous={{
+        title: 'Authentication',
+        href: '/documentation/api/authentication',
+      }}
+      next={{
+        title: 'Response',
+        href: '/documentation/api/response',
+      }}
+    >
+      <div className='api-endpoints-client'>
         <section id='overview'>
           <h2>Overview</h2>
 
@@ -46,33 +45,9 @@ const ApiEndpointsClient = () => {
           <h2>Endpoint areas</h2>
 
           <div className='api-endpoints-client__grid'>
-            <DocsFeatureCard
-              icon={UserRound}
-              title='Profiles'
-              description='Resources related to GitHub developer profiles and profile-level analytics.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureCard
-              icon={GitBranch}
-              title='Repositories'
-              description='Resources used to retrieve repository information and repository-level analytics.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureCard
-              icon={BarChart3}
-              title='Contributions'
-              description='Resources related to GitHub contribution activity and contribution analytics.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureCard
-              icon={Languages}
-              title='Languages'
-              description='Resources used to work with programming language distribution and related analytics.'
-              accentColor='#F59E0B'
-            />
+            {data.endpointAreas.map((area) => (
+              <DocsFeatureCard key={area.title} {...area} />
+            ))}
           </div>
         </section>
 
@@ -85,29 +60,9 @@ const ApiEndpointsClient = () => {
           </p>
 
           <div className='api-endpoints-client__list'>
-            <DocsFeatureItem
-              title='Profile data'
-              description='Use a profile-oriented resource when your application needs information about a GitHub developer.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='Repository data'
-              description='Use a repository-oriented resource when working with repository details or project metrics.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureItem
-              title='Contribution data'
-              description='Use a contribution-oriented resource when retrieving activity over time.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureItem
-              title='Language data'
-              description='Use a language-oriented resource when analyzing programming language distribution.'
-              accentColor='#F59E0B'
-            />
+            {data.choosingEndpoint.map((item) => (
+              <DocsFeatureItem key={item.title} {...item} />
+            ))}
           </div>
         </section>
 
@@ -122,35 +77,9 @@ const ApiEndpointsClient = () => {
           </p>
 
           <div className='api-endpoints-client__flow'>
-            <DocsFeatureItem
-              title='1. Resource'
-              description='Identify the API resource that provides the data you need.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='2. Endpoint'
-              description='Send the request to the endpoint associated with that resource.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureItem
-              title='3. Parameters'
-              description='Provide the parameters required by the endpoint.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureItem
-              title='4. Authentication'
-              description='Include the required authenticated context when the resource is protected.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureItem
-              title='5. Response'
-              description='Process the structured response returned by the API.'
-              accentColor='#14B8A6'
-            />
+            {data.requestStructures.map((structure) => (
+              <DocsFeatureItem key={structure.title} {...structure} />
+            ))}
           </div>
         </section>
 
@@ -180,23 +109,9 @@ const ApiEndpointsClient = () => {
           </p>
 
           <div className='api-endpoints-client__list'>
-            <DocsFeatureItem
-              title='Public access'
-              description='Endpoints intended for public data can be accessed without an authenticated session when supported.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureItem
-              title='Authenticated access'
-              description='Protected endpoints require the appropriate authenticated context.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='Access validation'
-              description='The API validates the request context before returning protected data.'
-              accentColor='#06B6D4'
-            />
+            {data.authenticatedEndpoints.map((endpoint) => (
+              <DocsFeatureItem key={endpoint.title} {...endpoint} />
+            ))}
           </div>
         </section>
 
@@ -211,26 +126,9 @@ const ApiEndpointsClient = () => {
           </p>
 
           <div className='api-endpoints-client__grid'>
-            <DocsFeatureCard
-              icon={UserRound}
-              title='Profile response'
-              description='Contains data associated with the requested GitHub profile and supported profile analytics.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureCard
-              icon={GitBranch}
-              title='Repository response'
-              description='Contains information associated with the requested repository and its supported metrics.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureCard
-              icon={BarChart3}
-              title='Analytics response'
-              description='Contains structured analytics data used by GitScope features.'
-              accentColor='#06B6D4'
-            />
+            {data.endpointResponses.map((response) => (
+              <DocsFeatureCard key={response.title} {...response} />
+            ))}
           </div>
         </section>
 
@@ -255,29 +153,9 @@ const ApiEndpointsClient = () => {
           <h2>Endpoint principles</h2>
 
           <div className='api-endpoints-client__list'>
-            <DocsFeatureItem
-              title='Use the appropriate resource'
-              description='Choose an endpoint based on the type of data your application needs.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='Respect documented parameters'
-              description='Send only the parameters supported by the selected endpoint.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureItem
-              title='Handle responses explicitly'
-              description='Process successful and unsuccessful responses as separate application states.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureItem
-              title='Protect authenticated requests'
-              description='Keep authentication information secure and use it only where required.'
-              accentColor='#EF4444'
-            />
+            {data.endpointPrinciples.map((principle) => (
+              <DocsFeatureItem key={principle.title} {...principle} />
+            ))}
           </div>
         </section>
 
@@ -289,8 +167,8 @@ const ApiEndpointsClient = () => {
             successful requests and how returned data should be handled.
           </p>
         </section>
-      </DocsArticle>
-    </main>
+      </div>
+    </DocsArticle>
   );
 };
 

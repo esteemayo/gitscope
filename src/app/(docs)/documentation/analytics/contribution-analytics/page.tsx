@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ContributionAnalyticsClient from '@/components/docs/analytics/contribution/ContributionAnalyticsClient';
+import ContributionAnalyticsClient from '@/components/docs/analytics/ContributionAnalyticsClient';
 
 export const metadata: Metadata = {
   title: 'Contribution Analytics | GitScope Documentation',

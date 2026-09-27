@@ -1,30 +1,29 @@
 'use client';
 
-import { KeyRound, LockKeyhole, ShieldCheck, UserCheck } from 'lucide-react';
-
 import DocsFeatureCard from '../DocsFeatureCard';
 import DocsArticle from '../DocsArticle';
 import DocsFeatureItem from '../DocsFeatureItem';
 import DocsCallout from '../DocsCallout';
 
+import * as data from '@/data/docs/api/authentication.data';
 import '../../../styles/components/docs/api/ApiAuthenticationClient.scss';
 
 const ApiAuthenticationClient = () => {
   return (
-    <main className='api-authentication-client'>
-      <DocsArticle
-        category='API'
-        title='API Authentication'
-        description='Understand how authentication applies to the GitScope API and how authenticated access protects API resources.'
-        previous={{
-          title: 'API Overview',
-          href: '/documentation/api',
-        }}
-        next={{
-          title: 'Endpoints',
-          href: '/documentation/api/endpoints',
-        }}
-      >
+    <DocsArticle
+      category='API'
+      title='API Authentication'
+      description='Understand how authentication applies to the GitScope API and how authenticated access protects API resources.'
+      previous={{
+        title: 'API Overview',
+        href: '/documentation/api',
+      }}
+      next={{
+        title: 'Endpoints',
+        href: '/documentation/api/endpoints',
+      }}
+    >
+      <div className='api-authentication-client'>
         <section id='overview'>
           <h2>Overview</h2>
 
@@ -53,19 +52,9 @@ const ApiAuthenticationClient = () => {
           </p>
 
           <div className='api-authentication-client__grid'>
-            <DocsFeatureCard
-              icon={UserCheck}
-              title='Authentication'
-              description='Establishes the identity or authenticated session associated with an API request.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureCard
-              icon={ShieldCheck}
-              title='Authorization'
-              description='Determines whether the authenticated context can access a particular resource or operation.'
-              accentColor='#22C55E'
-            />
+            {data.authenticationContexts.map((context) => (
+              <DocsFeatureCard key={context.title} {...context} />
+            ))}
           </div>
         </section>
 
@@ -80,23 +69,9 @@ const ApiAuthenticationClient = () => {
           </p>
 
           <div className='api-authentication-client__list'>
-            <DocsFeatureItem
-              title='Public resources'
-              description='Resources intended for public access can be requested without an authenticated session when supported.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureItem
-              title='Protected resources'
-              description='Resources containing authenticated functionality require the appropriate authentication context.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='User-specific operations'
-              description='Operations associated with an authenticated user require GitScope to identify the requesting session.'
-              accentColor='#06B6D4'
-            />
+            {data.authenticationRequests.map((request) => (
+              <DocsFeatureItem key={request.title} {...request} />
+            ))}
           </div>
         </section>
 
@@ -104,35 +79,9 @@ const ApiAuthenticationClient = () => {
           <h2>Authentication flow</h2>
 
           <div className='api-authentication-client__flow'>
-            <DocsFeatureItem
-              title='1. Authenticate'
-              description='The user establishes an authenticated session through the supported GitHub authentication flow.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='2. Establish session'
-              description='GitScope maintains the authenticated context needed for protected application functionality.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureItem
-              title='3. Make the request'
-              description='The application sends an API request within the appropriate authenticated context.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureItem
-              title='4. Validate access'
-              description='The API verifies that the request has the authentication context required by the resource.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureItem
-              title='5. Return the result'
-              description='The API returns the requested data when the request satisfies the resource requirements.'
-              accentColor='#14B8A6'
-            />
+            {data.authenticationFlows.map((flow) => (
+              <DocsFeatureItem key={flow.title} {...flow} />
+            ))}
           </div>
         </section>
 
@@ -157,19 +106,9 @@ const ApiAuthenticationClient = () => {
           <h2>Protected API requests</h2>
 
           <div className='api-authentication-client__grid'>
-            <DocsFeatureCard
-              icon={LockKeyhole}
-              title='Protected context'
-              description='Protected resources should only be processed when the required authenticated context is available.'
-              accentColor='#EF4444'
-            />
-
-            <DocsFeatureCard
-              icon={KeyRound}
-              title='Request credentials'
-              description='Authentication information must be supplied through the mechanism expected by the API.'
-              accentColor='#F59E0B'
-            />
+            {data.apiRequests.map((request) => (
+              <DocsFeatureCard key={request.title} {...request} />
+            ))}
           </div>
         </section>
 
@@ -184,29 +123,9 @@ const ApiAuthenticationClient = () => {
           </p>
 
           <div className='api-authentication-client__list'>
-            <DocsFeatureItem
-              title='Missing authentication'
-              description='The request does not provide the authentication context required by the resource.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureItem
-              title='Invalid authentication'
-              description='The supplied authentication context cannot be validated.'
-              accentColor='#EF4444'
-            />
-
-            <DocsFeatureItem
-              title='Expired session'
-              description='The authenticated session is no longer available or valid.'
-              accentColor='#F97316'
-            />
-
-            <DocsFeatureItem
-              title='Insufficient access'
-              description='The authenticated context does not provide the access required for the requested operation.'
-              accentColor='#8B5CF6'
-            />
+            {data.authenticationFailures.map((failure) => (
+              <DocsFeatureItem key={failure.title} {...failure} />
+            ))}
           </div>
         </section>
 
@@ -247,8 +166,8 @@ const ApiAuthenticationClient = () => {
             through the GitScope API and how requests are organized.
           </p>
         </section>
-      </DocsArticle>
-    </main>
+      </div>
+    </DocsArticle>
   );
 };
 

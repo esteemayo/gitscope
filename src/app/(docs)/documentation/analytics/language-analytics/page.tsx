@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import LanguageAnalyticsClient from '@/components/docs/analytics/language/LanguageAnalyticsClient';
+import LanguageAnalyticsClient from '@/components/docs/analytics/LanguageAnalyticsClient';
 
 export const metadata: Metadata = {
   title: 'Language Analytics | GitScope Documentation',

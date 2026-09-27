@@ -10,20 +10,20 @@ import '../../../styles/components/docs/authentication/GithubAuthenticationClien
 
 const GithubAuthenticationClient = () => {
   return (
-    <main className='github-authentication-client'>
-      <DocsArticle
-        category='Authentication'
-        title='GitHub Authentication'
-        description='Understand how GitScope uses GitHub authentication to provide authenticated features while keeping access scoped to the required capabilities.'
-        previous={{
-          title: 'Contribution Analytics',
-          href: '/documentation/analytics/contribution-analytics',
-        }}
-        next={{
-          title: 'Permissions',
-          href: '/documentation/authentication/permissions',
-        }}
-      >
+    <DocsArticle
+      category='Authentication'
+      title='GitHub Authentication'
+      description='Understand how GitScope uses GitHub authentication to provide authenticated features while keeping access scoped to the required capabilities.'
+      previous={{
+        title: 'Contribution Analytics',
+        href: '/documentation/analytics/contribution-analytics',
+      }}
+      next={{
+        title: 'Permissions',
+        href: '/documentation/authentication/permissions',
+      }}
+    >
+      <div className='github-authentication-client'>
         <section id='overview'>
           <h2>Overview</h2>
 
@@ -174,8 +174,8 @@ const GithubAuthenticationClient = () => {
             requires and how authorization affects authenticated features.
           </p>
         </section>
-      </DocsArticle>
-    </main>
+      </div>
+    </DocsArticle>
   );
 };
 

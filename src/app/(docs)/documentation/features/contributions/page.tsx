@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ContributionsClient from '@/components/docs/ContributionsClient';
+import ContributionsClient from '@/components/docs/features/ContributionsClient';
 
 export const metadata: Metadata = {
   title: 'Contributions  | GitScope Documentation',

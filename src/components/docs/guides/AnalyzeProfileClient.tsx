@@ -10,20 +10,20 @@ import '../../../styles/components/docs/guides/AnalyzeProfileClient.scss';
 
 const AnalyzeProfileClient = () => {
   return (
-    <main className='analyze-profile-client'>
-      <DocsArticle
-        category='Guides'
-        title='Analyze a Profile'
-        description='Learn how to use GitScope to explore a GitHub developer profile and its available analytics.'
-        previous={{
-          title: 'Privacy',
-          href: '/documentation/authentication/privacy',
-        }}
-        next={{
-          title: 'Compare Developers',
-          href: '/documentation/guides/compare-developers',
-        }}
-      >
+    <DocsArticle
+      category='Guides'
+      title='Analyze a Profile'
+      description='Learn how to use GitScope to explore a GitHub developer profile and its available analytics.'
+      previous={{
+        title: 'Privacy',
+        href: '/documentation/authentication/privacy',
+      }}
+      next={{
+        title: 'Compare Developers',
+        href: '/documentation/guides/compare-developers',
+      }}
+    >
+      <div className='analyze-profile-client'>
         <section id='overview'>
           <h2>Overview</h2>
 
@@ -202,8 +202,8 @@ const AnalyzeProfileClient = () => {
             with Compare Developers to explore two GitHub profiles side by side.
           </p>
         </section>
-      </DocsArticle>
-    </main>
+      </div>
+    </DocsArticle>
   );
 };
 

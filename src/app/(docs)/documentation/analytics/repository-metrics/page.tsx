@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import RepositoryMetricsClient from '@/components/docs/analytics/repositoryMetrics/RepositoryMetricsClient';
+import RepositoryMetricsClient from '@/components/docs/analytics/RepositoryMetricsClient';
 
 export const metadata: Metadata = {
   title: 'Repository Metrics | GitScope Documentation',

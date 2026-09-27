@@ -1,37 +1,29 @@
 'use client';
 
-import {
-  AlertCircle,
-  Ban,
-  CircleOff,
-  LockKeyhole,
-  SearchX,
-  ServerCrash,
-} from 'lucide-react';
-
 import DocsFeatureCard from '../DocsFeatureCard';
 import DocsArticle from '../DocsArticle';
 import DocsFeatureItem from '../DocsFeatureItem';
 import DocsCallout from '../DocsCallout';
 
+import * as data from '@/data/docs/api/errors.data';
 import '../../../styles/components/docs/api/ApiErrorsClient.scss';
 
 const ApiErrorsClient = () => {
   return (
-    <main className='api-errors-client'>
-      <DocsArticle
-        category='API'
-        title='API Errors'
-        description='Understand API failures, common error conditions, and how applications should respond to unsuccessful GitScope API requests.'
-        previous={{
-          title: 'Response',
-          href: '/documentation/api/response',
-        }}
-        next={{
-          title: 'FAQ',
-          href: '/documentation/resources/faq',
-        }}
-      >
+    <DocsArticle
+      category='API'
+      title='API Errors'
+      description='Understand API failures, common error conditions, and how applications should respond to unsuccessful GitScope API requests.'
+      previous={{
+        title: 'Response',
+        href: '/documentation/api/response',
+      }}
+      next={{
+        title: 'FAQ',
+        href: '/documentation/resources/faq',
+      }}
+    >
+      <div className='api-errors-client'>
         <section id='overview'>
           <h2>Overview</h2>
 
@@ -53,33 +45,9 @@ const ApiErrorsClient = () => {
           <h2>Common error areas</h2>
 
           <div className='api-errors-client__grid'>
-            <DocsFeatureCard
-              icon={AlertCircle}
-              title='Invalid request'
-              description='The request does not satisfy the requirements expected by the API resource.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureCard
-              icon={LockKeyhole}
-              title='Authentication'
-              description='The request is missing or cannot use the authentication context required by the resource.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureCard
-              icon={SearchX}
-              title='Resource'
-              description='The requested GitHub or GitScope resource cannot be found or accessed.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureCard
-              icon={ServerCrash}
-              title='Server'
-              description='The API encounters a problem while processing a valid request.'
-              accentColor='#EF4444'
-            />
+            {data.errorsAreas.map((area) => (
+              <DocsFeatureCard key={area.title} {...area} />
+            ))}
           </div>
         </section>
 
@@ -93,23 +61,9 @@ const ApiErrorsClient = () => {
           </p>
 
           <div className='api-errors-client__list'>
-            <DocsFeatureItem
-              title='Missing information'
-              description='A required value was not provided by the client.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureItem
-              title='Invalid parameter'
-              description='A supplied parameter does not satisfy the endpoint requirements.'
-              accentColor='#EF4444'
-            />
-
-            <DocsFeatureItem
-              title='Unsupported request'
-              description='The request does not match an operation supported by the endpoint.'
-              accentColor='#8B5CF6'
-            />
+            {data.invalidRequests.map((request) => (
+              <DocsFeatureItem key={request.title} {...request} />
+            ))}
           </div>
         </section>
 
@@ -122,29 +76,9 @@ const ApiErrorsClient = () => {
           </p>
 
           <div className='api-errors-client__list'>
-            <DocsFeatureItem
-              title='Missing authentication'
-              description='The request does not provide the authentication context required by the resource.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureItem
-              title='Invalid authentication'
-              description='The provided authentication context cannot be validated.'
-              accentColor='#EF4444'
-            />
-
-            <DocsFeatureItem
-              title='Expired session'
-              description='The authenticated session is no longer available or valid.'
-              accentColor='#F97316'
-            />
-
-            <DocsFeatureItem
-              title='Insufficient access'
-              description='The authenticated context does not provide the access required by the operation.'
-              accentColor='#8B5CF6'
-            />
+            {data.authenticationErrors.map((item) => (
+              <DocsFeatureItem key={item.title} {...item} />
+            ))}
           </div>
 
           <DocsCallout type='tip'>
@@ -164,26 +98,9 @@ const ApiErrorsClient = () => {
           </p>
 
           <div className='api-errors-client__grid'>
-            <DocsFeatureCard
-              icon={SearchX}
-              title='Not found'
-              description='The requested resource cannot be located.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureCard
-              icon={CircleOff}
-              title='Unavailable'
-              description='The resource exists or is expected to exist, but its data is not currently available.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureCard
-              icon={Ban}
-              title='Restricted'
-              description='Access to the requested resource is not available to the current request context.'
-              accentColor='#EF4444'
-            />
+            {data.resourcesErrors.map((resource) => (
+              <DocsFeatureCard key={resource.title} {...resource} />
+            ))}
           </div>
         </section>
 
@@ -207,35 +124,9 @@ const ApiErrorsClient = () => {
           <h2>Handling API errors</h2>
 
           <div className='api-errors-client__flow'>
-            <DocsFeatureItem
-              title='1. Detect the failure'
-              description='Determine whether the API request completed successfully.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='2. Identify the error'
-              description='Inspect the available error information to determine the cause of the failure.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureItem
-              title='3. Choose a recovery path'
-              description='Decide whether the request should be corrected, retried, or surfaced to the user.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureItem
-              title='4. Protect sensitive details'
-              description='Keep credentials and internal server information out of user-facing error messages.'
-              accentColor='#EF4444'
-            />
-
-            <DocsFeatureItem
-              title='5. Restore application state'
-              description='Return the application to a predictable state after the failed request.'
-              accentColor='#22C55E'
-            />
+            {data.apiErrors.map((item) => (
+              <DocsFeatureItem key={item.title} {...item} />
+            ))}
           </div>
         </section>
 
@@ -249,29 +140,9 @@ const ApiErrorsClient = () => {
           </p>
 
           <div className='api-errors-client__list'>
-            <DocsFeatureItem
-              title='Temporary failures'
-              description='A temporary service or network condition may justify retrying a request.'
-              accentColor='#22C55E'
-            />
-
-            <DocsFeatureItem
-              title='Invalid requests'
-              description='Correct the request before attempting it again.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureItem
-              title='Authentication failures'
-              description='Restore the required authentication context instead of repeatedly sending the same failed request.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureItem
-              title='Unavailable resources'
-              description='Verify the resource and request context before retrying.'
-              accentColor='#06B6D4'
-            />
+            {data.failedRequests.map((request) => (
+              <DocsFeatureItem key={request.title} {...request} />
+            ))}
           </div>
         </section>
 
@@ -279,33 +150,9 @@ const ApiErrorsClient = () => {
           <h2>Error handling principles</h2>
 
           <div className='api-errors-client__grid'>
-            <DocsFeatureCard
-              icon={AlertCircle}
-              title='Handle explicitly'
-              description='Treat unsuccessful API requests as defined application states.'
-              accentColor='#F59E0B'
-            />
-
-            <DocsFeatureCard
-              icon={SearchX}
-              title='Identify the cause'
-              description='Use available error information to determine the appropriate response.'
-              accentColor='#06B6D4'
-            />
-
-            <DocsFeatureCard
-              icon={LockKeyhole}
-              title='Protect credentials'
-              description='Never expose authentication information while reporting an API failure.'
-              accentColor='#8B5CF6'
-            />
-
-            <DocsFeatureCard
-              icon={ServerCrash}
-              title='Fail safely'
-              description='Keep the application stable when an API request cannot be completed.'
-              accentColor='#EF4444'
-            />
+            {data.errorPrinciples.map((primciple) => (
+              <DocsFeatureCard key={primciple.title} {...primciple} />
+            ))}
           </div>
         </section>
 
@@ -346,8 +193,8 @@ const ApiErrorsClient = () => {
             Roadmap pages.
           </p>
         </section>
-      </DocsArticle>
-    </main>
+      </div>
+    </DocsArticle>
   );
 };
 

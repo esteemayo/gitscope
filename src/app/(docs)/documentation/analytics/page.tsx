@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import AnalyticsOverviewClient from '@/components/docs/analytics/overview/AnalyticsOverviewClient';
+import AnalyticsOverviewClient from '@/components/docs/analytics/AnalyticsOverviewClient';
 
 export const metadata: Metadata = {
   title: 'Analytics Overview | GitScope Documentation',

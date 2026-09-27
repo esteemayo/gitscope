@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import GitHubAnalyticsClient from '@/components/docs/GithubAnalyticsClient';
+import GitHubAnalyticsClient from '@/components/docs/features/GithubAnalyticsClient';
 
 export const metadata: Metadata = {
   title: 'GitHub Analytics | GitScope Documentation',

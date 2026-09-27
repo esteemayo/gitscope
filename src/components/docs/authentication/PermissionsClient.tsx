@@ -10,20 +10,20 @@ import '../../../styles/components/docs/authentication/PermissionsClient.scss';
 
 const PermissionsClient = () => {
   return (
-    <main className='permissions-client'>
-      <DocsArticle
-        category='Authentication'
-        title='Permissions'
-        description='Understand how GitHub permissions control the data and account capabilities available to authenticated GitScope features.'
-        previous={{
-          title: 'GitHub Authentication',
-          href: '/documentation/authentication',
-        }}
-        next={{
-          title: 'Sessions',
-          href: '/documentation/authentication/sessions',
-        }}
-      >
+    <DocsArticle
+      category='Authentication'
+      title='Permissions'
+      description='Understand how GitHub permissions control the data and account capabilities available to authenticated GitScope features.'
+      previous={{
+        title: 'GitHub Authentication',
+        href: '/documentation/authentication',
+      }}
+      next={{
+        title: 'Sessions',
+        href: '/documentation/authentication/sessions',
+      }}
+    >
+      <div className='permissions-client'>
         <section id='overview'>
           <h2>Overview</h2>
 
@@ -180,8 +180,8 @@ const PermissionsClient = () => {
             authenticated user session after GitHub authorization.
           </p>
         </section>
-      </DocsArticle>
-    </main>
+      </div>
+    </DocsArticle>
   );
 };
 
