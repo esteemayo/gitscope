@@ -25,11 +25,6 @@
       padding-inline: 3.2rem;
     }
 
-    @include bp.md {
-      display: block;
-      width: min(100% - 3.2rem, 76.8rem);
-    }
-
     @media (max-width: 25em) {
       padding-inline: 1.6rem;
     }

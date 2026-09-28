@@ -50,16 +50,19 @@
   }
 
   &__brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.9rem;
+    &:link,
+    &:visited {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
 
     &:focus {
       outline: none;
     }
 
     &:focus-visible {
-      @include focus-ring();
+      @include focus-ring($width: 2px);
     }
 
     &--logo {
@@ -115,7 +118,7 @@
       }
 
       &:focus-visible {
-        @include focus-ring();
+        @include focus-ring($width: 2px);
       }
     }
 

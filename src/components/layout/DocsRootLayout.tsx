@@ -20,9 +20,9 @@ const DocsRootLayout = ({
       <div className='docs-root-layout__body'>
         <DocsSidebar navigation={docsNavigation} />
 
-        <div id='docs-content' className='docs-root-layout__main'>
+        <main id='docs-content' className='docs-root-layout__main'>
           {children}
-        </div>
+        </main>
 
         <div className='docs-root-layout__toc'>
           <DocsTableOfContents />

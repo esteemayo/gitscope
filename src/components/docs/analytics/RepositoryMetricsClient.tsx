@@ -15,7 +15,7 @@ const RepositoryMetricsClient = () => {
       title='Repository Metrics'
       description='Understand the metrics GitScope uses to analyze repositories, including stars, forks, activity, and project composition.'
       previous={{
-        title: 'Overview',
+        title: 'Analytics Overview',
         href: '/documentation/analytics',
       }}
       next={{

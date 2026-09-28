@@ -19,7 +19,7 @@ const ExportSharingClient = () => {
         href: '/documentation/features/contributions',
       }}
       next={{
-        title: 'Overview',
+        title: 'Analytics Overview',
         href: '/documentation/analytics',
       }}
     >
