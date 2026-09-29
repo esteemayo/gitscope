@@ -11,7 +11,7 @@ export const navItems = [
     icon: GitCompareArrows,
   },
   {
-    href: '/docs',
+    href: '/documentation',
     label: 'Docs',
     icon: BookOpen,
   },

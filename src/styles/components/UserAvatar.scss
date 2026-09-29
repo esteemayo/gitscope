@@ -1,3 +1,7 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/animation';
+@use '../abstracts/responsive' as bp;
+
 .user-avatar {
   display: inline-flex;
 
@@ -33,14 +37,17 @@
       height: 100%;
       color: currentColor;
       stroke: currentColor;
+      margin-right: 4px;
     }
   }
 
   &__img {
     display: inline-block;
+    vertical-align: middle;
     object-fit: cover;
     background-color: color-mix(in srgb, var(--icon) 12%, transparent);
     border: 1px solid var(--border);
+    line-height: 1;
     transition: var(--transition);
 
     &:hover {

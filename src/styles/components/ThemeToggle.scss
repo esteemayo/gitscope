@@ -1,7 +1,15 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/animation';
+@use '../abstracts/responsive' as bp;
+
 .theme {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+
+  @media (max-width: 35em) {
+    display: none;
+  }
 
   &__toggle,
   &__auto {
