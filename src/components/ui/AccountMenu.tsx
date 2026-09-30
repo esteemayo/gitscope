@@ -1,17 +1,22 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { Bookmark, ChevronDown, LogOut, UserRound } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import UserAvatar from './UserAvatar';
+
+import { useEscapeKey } from '@/hooks/useEscapeKey';
+import { useClickOutside } from '@/hooks/useClickOutside';
 
 import '../../styles/components/ui/AccountMenu.scss';
 
 const AccountMenu = () => {
   const { data: session } = useSession();
   const user = session?.user;
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,12 +28,21 @@ const AccountMenu = () => {
     setIsOpen(false);
   };
 
+  const handleSignOut = async () => {
+    await signOut({
+      callbackUrl: '/',
+    });
+  };
+
+  useClickOutside(menuRef, isOpen, handleClose);
+  useEscapeKey({ isEnabled: isOpen, onEscape: handleClose });
+
   if (!user) {
     return null;
   }
 
   return (
-    <div className='account'>
+    <div ref={menuRef} className='account'>
       <button
         type='button'
         onClick={handleToggle}
@@ -112,6 +126,7 @@ const AccountMenu = () => {
 
           <button
             type='button'
+            onClick={handleSignOut}
             role='menuitem'
             className='account-menu__logout'
           >

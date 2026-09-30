@@ -20,7 +20,7 @@
       background-color 0.25s ease,
       border-color 0.25s ease;
 
-    @media (max-width: 35em) {
+    @include bp.md {
       display: none;
     }
 
@@ -62,10 +62,16 @@
   border: 1px solid var(--border);
   box-shadow: 0 1.8rem 5rem color-mix(in srgb, var(--black) 23%, transparent);
   border-radius: 1.4rem;
+  overflow: hidden;
+  isolation: isolate;
   animation: accountMenuIn 0.14s ease-out;
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease;
+
+  @include bp.md {
+    display: none;
+  }
 
   &__header {
     display: flex;
@@ -137,14 +143,24 @@
 
         width: 1.6rem;
         height: 1.6rem;
-        color: currentColor;
+        color: color-mix(in srgb, var(--icon) 50%, transparent);
         stroke: currentColor;
+        transition: color 0.25s ease;
       }
 
       span {
         text-transform: capitalize;
         font-weight: 500;
         font-size: var(--fz-xs);
+      }
+
+      &:hover {
+        background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+        color: var(--icon);
+
+        svg {
+          color: currentColor;
+        }
       }
     }
   }
@@ -172,6 +188,12 @@
       height: 1.6rem;
       color: currentColor;
       stroke: currentColor;
+    }
+
+    span {
+      font-weight: inherit;
+      font-size: inherit;
+      color: currentColor;
     }
 
     &:hover {

@@ -4,8 +4,7 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 
-import Corner from '../ui/Corner';
-import RateLimit from '../ui/RateLimit';
+import GitHubRateLimit from '../ui/GitHubRateLimit';
 
 import SidebarProvider from '@/context/SidebarContext';
 import ToasterProvider from '@/providers/ToasterProvider';
@@ -19,8 +18,7 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
         <Navbar />
         <Sidebar />
         <ToasterProvider />
-        <RateLimit />
-        <Corner />
+        <GitHubRateLimit />
         {children}
         <Footer {...footerData} />
       </SidebarProvider>

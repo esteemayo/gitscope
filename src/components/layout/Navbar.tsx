@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import { useSession } from 'next-auth/react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { signIn, useSession } from 'next-auth/react';
 
 import AccountMenu from '../ui/AccountMenu';
 import MenuButton from '../ui/MenuButton';
@@ -97,7 +97,11 @@ const Navbar = () => {
           {isAuthenticated ? (
             <AccountMenu />
           ) : (
-            <button type='button' className='navbar__login-btn'>
+            <button
+              type='button'
+              onClick={() => signIn('github')}
+              className='navbar__login-btn'
+            >
               Sign in
             </button>
           )}

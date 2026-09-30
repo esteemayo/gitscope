@@ -7,7 +7,7 @@
   align-items: center;
   gap: 0.8rem;
 
-  @media (max-width: 35em) {
+  @include bp.md {
     display: none;
   }
 

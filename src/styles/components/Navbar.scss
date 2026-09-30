@@ -213,45 +213,49 @@
         @include focus-ring($width: 2px);
       }
     }
+  }
 
-    &--profile-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+  &__login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-      padding: 2px;
-      background-color: color-mix(in srgb, var(--icon) 3%, transparent);
-      color: var(--color-white-50);
-      border: 1px solid color-mix(in srgb, var(--icon) 10%, transparent);
-      border-radius: 0.8rem;
-      cursor: pointer;
-      transition:
-        background-color 0.25s ease,
-        border-color 0.25s ease;
+    min-height: 3.6rem;
+    text-transform: none;
+    font-weight: 600;
+    font-size: var(--fz-xs);
+    padding: 0 1.5rem;
+    background-color: color-mix(in srgb, var(--icon) 4%, transparent);
+    color: var(--icon);
+    border: 1px solid color-mix(in srgb, var(--icon) 12%, transparent);
+    border-radius: 0.9rem;
+    cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
 
-      @media (max-width: 35em) {
-        display: none;
-      }
+    &:hover {
+      background-color: color-mix(in srgb, var(--icon) 8%, transparent);
+      border-color: color-mix(in srgb, var(--icon) 20%, transparent);
+      transform: translateY(-1px);
+    }
 
-      svg {
-        width: 1.4rem;
-        height: 1.4rem;
-        color: currentColor;
-        stroke: currentColor;
-      }
+    &:active {
+      transform: translateY(0);
+    }
 
-      &:hover {
-        background-color: color-mix(in srgb, var(--icon) 6%, transparent);
-        border-color: color-mix(in srgb, var(--icon) 18%, transparent);
-      }
+    &:focus {
+      outline: none;
+    }
 
-      &:focus {
-        outline: none;
-      }
+    &:focus-visible {
+      @include focus-ring($width: 2px);
+    }
 
-      &:focus-visible {
-        @include focus-ring($width: 2px);
-      }
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
     }
   }
 }

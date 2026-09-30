@@ -1,4 +1,4 @@
-import '../../styles/components/RateLimit.scss';
+import '../../styles/components/ui/RateLimit.scss';
 
 const RateLimit = () => {
   return (
