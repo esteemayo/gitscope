@@ -4,7 +4,12 @@ import { Activity, Clock3, X } from 'lucide-react';
 import clsx from 'clsx';
 import { useEffect, useMemo, useState } from 'react';
 
+import GitHubRateLimitError from './GitHubRateLimitError';
 import GitHubLogoIcon from '../icons/GitHubLogoIcon';
+import GitHubRateLimitSkeleton from './GitHubRateLimitSkeleton';
+
+import { useGithubRateLimit } from '@/hooks/useGithubRateLimit';
+
 import '../../styles/components/ui/GitHubRateLimit.scss';
 
 type OpenMode = 'click' | 'hover' | null;
@@ -15,9 +20,12 @@ const GitHubRateLimit = () => {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [now, setNow] = useState(() => Date.now());
 
-  const limit = 60;
-  const remaining = 40;
-  const resetAt = 1790707788;
+  const { isPending, error, data, refetch } = useGithubRateLimit();
+
+  const limit = data?.rate.limit ?? 0;
+  const remaining = data?.rate.remaining ?? 0;
+  const reset = data?.rate.reset ?? 0;
+  const used = data?.rate.used ?? 0;
 
   const percentage = useMemo(() => {
     if (!limit) return 0;
@@ -26,10 +34,10 @@ const GitHubRateLimit = () => {
   }, [limit, remaining]);
 
   const resetDate = useMemo(() => {
-    const date = new Date(resetAt);
+    const date = new Date(((reset as number) ?? 0) * 1000);
 
     return Number.isNaN(date.getTime()) ? null : date;
-  }, [resetAt]);
+  }, [reset]);
 
   const resetLabel = useMemo(() => {
     if (!resetDate) return 'Unknown';
@@ -93,14 +101,14 @@ const GitHubRateLimit = () => {
   };
 
   const getStatus = () => {
-    if (percentage <= 10) {
+    if (percentage <= 20) {
       return {
-        label: 'Low',
+        label: 'Critical',
         className: 'danger',
       };
     }
 
-    if (percentage <= 30) {
+    if (percentage < 50) {
       return {
         label: 'Limited',
         className: 'warning',
@@ -133,12 +141,20 @@ const GitHubRateLimit = () => {
 
   const status = getStatus();
 
+  if (isPending) {
+    return <GitHubRateLimitSkeleton />;
+  }
+
+  if (error && !data) {
+    return <GitHubRateLimitError onRetry={refetch} />;
+  }
+
   return (
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={clsx('github-rate-limit', {
-        'github-rate-limit open': isOpen,
+      className={clsx('github-rate-limit', status.className, {
+        'is-open': isOpen,
       })}
     >
       <button
@@ -215,14 +231,7 @@ const GitHubRateLimit = () => {
             <span className='github-rate-limit__stat-label'>limit</span>
           </div>
 
-          <div
-            className={clsx(
-              'github-rate-limit__status-badge',
-              status.className,
-            )}
-          >
-            {status.label}
-          </div>
+          <div className='github-rate-limit__status-badge'>{status.label}</div>
         </div>
 
         <div className='github-rate-limit__progress-section'>
@@ -236,7 +245,7 @@ const GitHubRateLimit = () => {
           <div className='github-rate-limit__progress-meta'>
             <span>{Math.round(percentage)}% available</span>
 
-            <span>{limit - remaining} used</span>
+            <span>{used ?? limit - remaining} used</span>
           </div>
         </div>
 

@@ -1,14 +1,5 @@
 import api from '@/lib/api';
-import { GithubUser } from '@/types/profile';
-
-interface RateLimitType {
-  rate: {
-    limit: number;
-    remaining: number;
-    reset: string | number | Date;
-    used: number;
-  };
-}
+import { GithubUser, RateLimitType } from '@/types/profile';
 
 const endpoint = '/github';
 

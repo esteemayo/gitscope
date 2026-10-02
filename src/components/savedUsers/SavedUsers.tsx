@@ -79,7 +79,7 @@ const SavedUsers = () => {
         {users.length === 0 ? (
           <EmptyState
             title='No saved profiles.'
-            subtitle='You have not saved any profile yet.'
+            description='You have not saved any profile yet.'
           />
         ) : (
           <DndContext

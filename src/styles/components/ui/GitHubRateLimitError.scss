@@ -1,0 +1,112 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.github-rate-limit-error {
+  position: fixed;
+  top: 7.6rem;
+  right: 2.4rem;
+  z-index: 7000;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  height: 3.6rem;
+  padding: 0 1.2rem;
+  background-color: color-mix(
+    in srgb,
+    var(--bg-tertiary) 92%,
+    var(--color-red-700)
+  );
+  color: var(--color-red-700);
+  backdrop-filter: blur(1.4rem);
+  border: 1px solid color-mix(in srgb, var(--color-red-700) 24%, transparent);
+  box-shadow:
+    0 0.8rem 3rem rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  border-radius: 100rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  @media (max-width: 40em) {
+    top: auto;
+    right: 1.6rem;
+    bottom: 1.6rem;
+  }
+
+  &:hover {
+    background-color: color-mix(
+      in srgb,
+      var(--bg-tertiary) 86%,
+      var(--color-red-700)
+    );
+    border-color: color-mix(in srgb, var(--color-red-700) 45%, transparent);
+    box-shadow:
+      0 1rem 3.5rem rgba(0, 0, 0, 0.16),
+      0 0 0 3px rgba(239, 68, 68, 0.08);
+
+    .github-rate-limit-error__retry-icon {
+      color: var(--color-red-700);
+      transform: rotate(-45deg);
+    }
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    @include focus-ring($width: 3px, $color: var(--color-red-700));
+  }
+
+  &:disabled {
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--color-red-700);
+
+    svg {
+      width: 1.4rem;
+      height: 1.4rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__label {
+    font-weight: 500;
+    font-size: var(--fz-xxs);
+    white-space: nowrap;
+    color: var(--text);
+    transition: color 0.25s ease;
+  }
+
+  &__retry-icon {
+    flex-shrink: 0;
+
+    width: 1.3rem;
+    height: 1.3rem;
+    color: var(--text-muted);
+    stroke: currentColor;
+    transition:
+      color 0.25s ease,
+      transform 0.25s ease;
+  }
+}

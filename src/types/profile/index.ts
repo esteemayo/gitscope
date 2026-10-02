@@ -17,6 +17,15 @@ export interface GithubUser {
   updated_at: string;
 }
 
+export interface RateLimitType {
+  rate: {
+    limit: number;
+    remaining: number;
+    reset: string | number | Date;
+    used: number;
+  };
+}
+
 export interface RepositoryType {
   id: number;
   name: string;

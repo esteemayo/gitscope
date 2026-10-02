@@ -6,8 +6,7 @@
   position: fixed;
   top: 7.6rem;
   right: 2.4rem;
-
-  // font-size: 0;
+  z-index: 5000;
 
   @media (max-width: 40em) {
     top: auto;
@@ -15,15 +14,33 @@
     bottom: 1.6rem;
   }
 
-  &.open {
+  &.is-open {
     .github-rate-limit__panel {
       opacity: 1;
       visibility: visible;
-      z-index: 7000;
+      z-index: 5000;
       pointer-events: auto;
 
       transform: translateY(0) scale(1);
     }
+  }
+
+  &.healthy {
+    --status-bg: rgba(34, 197, 94, 0.08);
+    --status-color: var(--color-green-500);
+    --status-border: rgba(34, 197, 94, 0.25);
+  }
+
+  &.warning {
+    --status-bg: rgba(245, 158, 11, 0.08);
+    --status-color: var(--color-yellow-700);
+    --status-border: rgba(245, 158, 11, 0.25);
+  }
+
+  &.danger {
+    --status-bg: rgba(239, 68, 68, 0.08);
+    --status-color: var(--color-red-700);
+    --status-border: rgba(239, 68, 68, 0.25);
   }
 
   &__trigger {
@@ -33,7 +50,11 @@
 
     height: 3.6rem;
     padding: 0 1.2rem;
-    background-color: color-mix(in srgb, var(--bg-tertiary) 94%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--bg-tertiary) 94%,
+      var(--status-color)
+    );
     color: inherit;
     backdrop-filter: blur(1.4rem);
     border: 1px solid var(--border);
@@ -43,6 +64,7 @@
     border-radius: 100rem;
     position: relative;
     z-index: 5000;
+    line-height: 1;
     cursor: pointer;
     transition:
       background-color 0.25s ease,
@@ -68,18 +90,23 @@
     }
 
     &--dot {
+      flex: 0 0 auto;
+
       width: 0.6rem;
       height: 0.6rem;
-      background-color: var(--color-green-500);
+      background-color: var(--status-color);
       border-radius: 100%;
       box-shadow: 0 0 0 4px
-        color-mix(in srgb, var(--color-green-500) 10%, transparent);
+        color-mix(in srgb, var(--status-color) 10%, transparent);
+      transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     &--label {
       font-weight: 500;
       font-size: var(--fz-xxs);
-      color: var(--text-muted);
+      color: var(--status-color);
       transition: color 0.25s ease;
     }
 
@@ -92,15 +119,23 @@
     }
 
     &:hover {
-      background-color: color-mix(in srgb, var(--bg-tertiary) 88%, transparent);
-      border-color: color-mix(in srgb, var(--border) 45%, transparent);
+      background-color: color-mix(
+        in srgb,
+        var(--bg-tertiary) 86%,
+        var(--status-color)
+      );
+      border-color: var(--status-color);
       box-shadow:
         0 1rem 3.5rem rgba(0, 0, 0, 0.18),
-        0 0 0 1px color-mix(in srgb, var(--icon) 10%, transparent);
+        0 0 0 1px color-mix(in srgb, var(--status-color) 10%, transparent);
     }
 
     &:focus {
       outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring($width: 3px);
     }
   }
 
@@ -210,7 +245,7 @@
   &__live-dot {
     width: 0.5rem;
     height: 0.5rem;
-    background-color: var(--color-green-500);
+    background-color: var(--status-color);
     border-radius: 100%;
   }
 
@@ -294,23 +329,14 @@
     font-size: 1rem;
     margin-left: auto;
     padding: 0.5rem 0.8rem;
+    background-color: var(--status-bg);
+    color: var(--status-color);
     border-radius: 100rem;
     user-select: none;
-  }
-
-  .healthy {
-    background-color: rgba(34, 197, 94, 0.1);
-    color: var(--color-green-500);
-  }
-
-  .warning {
-    background-color: rgba(245, 158, 11, 0.1);
-    color: var(--color-yellow-700);
-  }
-
-  .danger {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: var(--color-red-700);
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
   }
 
   &__progress-section {
@@ -333,10 +359,14 @@
     height: 100%;
     background-image: linear-gradient(
       90deg,
-      var(--color-blue-800),
-      var(--color-blue-400)
+      var(--status-color),
+      color-mix(in srgb, var(--status-color) 50%, transparent)
     );
     border-radius: inherit;
+    transition:
+      width 0.25s ease,
+      background-image 0.25s ease,
+      box-shadow 0.25s ease;
   }
 
   &__progress-meta {
@@ -370,8 +400,8 @@
 
     width: 2.8rem;
     height: 2.8rem;
-    background-color: color-mix(in srgb, var(--border) 10%, transparent);
-    color: var(--text-muted);
+    background-color: color-mix(in srgb, var(--icon) 7%, transparent);
+    color: var(--icon);
     border-radius: 0.8rem;
     transition: color 0.25s ease;
 
@@ -407,19 +437,20 @@
     gap: 0.6rem;
 
     margin-top: 1.4rem;
-    color: var(--text-muted);
-    transition: color 0.25s ease;
 
     svg {
       width: 1.3rem;
       height: 1.3rem;
       color: currentColor;
+      color: var(--icon);
       stroke: currentColor;
+      transition: color 0.25s ease;
     }
 
     span {
       font-size: 1.1rem;
-      color: currentColor;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
     }
   }
 }
