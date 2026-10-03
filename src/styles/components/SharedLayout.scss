@@ -1,0 +1,9 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/animation';
+@use '../abstracts/responsive' as bp;
+
+.shared-layout {
+  &__body {
+    min-height: 100vh;
+  }
+}

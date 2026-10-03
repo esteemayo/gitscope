@@ -11,18 +11,22 @@ import ToasterProvider from '@/providers/ToasterProvider';
 
 import { footerData } from '@/data/footer/footerData.data';
 
-const SharedLayout = ({ children }: { children: React.ReactNode }) => {
+import '../../styles/components/SharedLayout.scss';
+
+const SharedLayout = ({
+  children,
+}: Readonly<{ children: React.ReactNode }>) => {
   return (
-    <main>
+    <div className='shared-layout'>
       <SidebarProvider>
         <Navbar />
         <Sidebar />
         <ToasterProvider />
         <GitHubRateLimit />
-        {children}
+        <main className='shared-layout__body'>{children}</main>
         <Footer {...footerData} />
       </SidebarProvider>
-    </main>
+    </div>
   );
 };
 

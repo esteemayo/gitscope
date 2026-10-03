@@ -1,0 +1,23 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.saved-header {
+  &__heading {
+  }
+
+  &__content {
+    &--eyebrow {
+    }
+
+    &--title {
+    }
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+}

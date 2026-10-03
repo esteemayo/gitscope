@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import SavedUsers from '@/components/savedUsers/SavedUsers';
+import SavedClient from '@/components/saved/SavedClient';
+// import SavedUsers from '@/components/savedUsers/SavedUsers';
 
 export const metadata: Metadata = {
   title: 'Saved profiles | GitScope',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const SavedPage = () => {
-  return <SavedUsers />;
+  return <SavedClient />;
 };
 
 export default SavedPage;
