@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/animation';
 @use '../abstracts/responsive' as bp;
 
 .saved-users {
@@ -17,7 +19,6 @@
   &__container {
     width: 120rem;
     height: 100%;
-    min-height: 100vh;
     margin: 0 auto;
   }
 

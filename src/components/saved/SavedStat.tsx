@@ -2,10 +2,12 @@
 
 import type { LucideIcon } from 'lucide-react';
 
+import '../../styles/components/saved/SavedStat.scss';
+
 interface SavedStatProps {
   label: string;
   value: number;
-  icon: LucideIcon;
+  icon: LucideIcon | React.ComponentType;
   accentColor: string;
 }
 
@@ -35,7 +37,9 @@ const SavedStat = ({
       </div>
 
       <div className='saved-stat__content'>
-        <strong className='saved-stat__content--value'>{value}</strong>
+        <strong className='saved-stat__content--value'>
+          {value.toLocaleString()}
+        </strong>
 
         <span className='saved-stat__content--label'>{label}</span>
       </div>

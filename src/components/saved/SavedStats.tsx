@@ -28,7 +28,7 @@ const savedStats = [
 
 const SavedStats = () => {
   return (
-    <section className='saved-stats' aria-label='Saved profile statistics'>
+    <section className='saved-stats' aria-label='Saved collection statistics'>
       {savedStats.map((stat) => (
         <SavedStat key={stat.label} {...stat} />
       ))}

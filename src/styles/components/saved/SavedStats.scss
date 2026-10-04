@@ -3,4 +3,19 @@
 @use '../../abstracts/responsive' as bp;
 
 .saved-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min-content, 1fr));
+
+  margin-top: 3.6rem;
+  border: 1px solid var(--border);
+  border-radius: 1.6rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  @media (max-width: 40em) {
+    grid-template-columns: 1fr;
+  }
 }
