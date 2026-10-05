@@ -14,29 +14,8 @@ import {
 import SavedMetric from './SavedMetric';
 import SavedProfileMenu from './SavedProfileMenu';
 
+import { SavedProfileCardProps } from '@/types/saved/saved.profile.card.type';
 import '../../styles/components/saved/SavedProfileCard.scss';
-
-export interface SavedProfile {
-  id: string;
-  login: string;
-  name: string | null;
-  avatarUrl: string;
-  bio: string | null;
-  location: string | null;
-  repositories: number;
-  stars: number;
-  followers: number;
-  lastViewed: string;
-  accentColor: string;
-}
-
-interface SavedProfileCardProps {
-  profile: SavedProfile;
-  variant?: 'default' | 'pinned';
-  draggable?: boolean;
-  onPin?(profileId: string): void;
-  onOpen?(username: string): void;
-}
 
 const SavedProfileCard = ({
   profile,

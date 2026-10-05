@@ -3,18 +3,11 @@
 import { useRef, useState } from 'react';
 import { MoreVertical, Share2, Trash2 } from 'lucide-react';
 
-import { SavedProfile } from './SavedProfileCard';
-
 import { useEscapeKey } from '@/hooks/useEscapeKey';
 import { useClickOutside } from '@/hooks/useClickOutside';
 
+import { SavedProfileMenuProps } from '@/types/saved/saved.profile.menu.type';
 import '../../styles/components/saved/SavedProfileMenu.scss';
-
-interface SavedProfileMenuProps {
-  profile: SavedProfile;
-  onShare?(profile: SavedProfile): void;
-  onDelete?(profileId: string): void;
-}
 
 const SavedProfileMenu = ({
   profile,

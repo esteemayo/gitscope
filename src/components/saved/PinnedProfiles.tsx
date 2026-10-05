@@ -1,65 +1,14 @@
 'use client';
 
 import { Pin } from 'lucide-react';
+
 import SavedProfileCard from './SavedProfileCard';
+import { savedProfiles } from '@/data/saved/saved-profiles.data';
 
 import '../../styles/components/saved/PinnedProfiles.scss';
 
 const PinnedProfiles = () => {
-  const pinnedProfiles = [
-    {
-      id: 'esteemayo',
-      login: 'esteemayo',
-      name: 'Emmanuel Adebayo',
-      avatarUrl: '/avatar-2.jpg',
-      bio: 'Full Stack Software Engineer | React Next.js | TypeScript | Node.js | Express.js | Building GitScope, a GitHub Analytics Platform | UI Engineering',
-      location: 'Lagos, Nigeria',
-      repositories: 300,
-      stars: 2000,
-      followers: 500,
-      lastViewed: 'Last week',
-      accentColor: '#22C55E',
-    },
-    {
-      id: 'devayo',
-      login: 'devayo',
-      name: 'Emmanuel Ayodeji Adebayo',
-      avatarUrl: '/avatar-1.jpg',
-      bio: 'Frontend Software Engineer | React | Next.js | TypeScript | Building GitScope, a GitHub Analytics Platform | UI Engineering | Accessibility',
-      location: 'Toronto, Canada',
-      repositories: 250,
-      stars: 3000,
-      followers: 1000,
-      lastViewed: 'Last month',
-      accentColor: '#8B5CF6',
-    },
-    {
-      id: 'jdoe',
-      login: 'jdoe',
-      name: 'John Doe',
-      avatarUrl: '/avatar-2.jpg',
-      bio: 'Backend Developer | Node.js | Express | TypeScript | MongoDB',
-      location: 'Barcelona, Spain',
-      repositories: 2500,
-      stars: 6000,
-      followers: 15000,
-      lastViewed: 'Yesterday',
-      accentColor: '#06B6D4',
-    },
-    {
-      id: 'mdoe',
-      login: 'mdoe',
-      name: 'Mary Doe',
-      avatarUrl: '/avatar-2.jpg',
-      bio: 'Frontend Engineer | Vue.js | Angular | React.js | TypeScript | Accessibility | Performance Optimization | Building Veyra, an authenticity platform for your gadgets and other electronic devices',
-      location: 'Barcelona, Spain',
-      repositories: 3000,
-      stars: 9000,
-      followers: 20000,
-      lastViewed: 'Yesterday',
-      accentColor: '#06B6D4',
-    },
-  ];
+  const pinnedProfiles = savedProfiles.filter((profile) => profile.isPinned);
 
   return (
     <section className='pinned-profiles'>
@@ -87,7 +36,7 @@ const PinnedProfiles = () => {
 
       {pinnedProfiles.length > 0 ? (
         <div className='pinned-profiles__grid'>
-          {pinnedProfiles.map((profile) => (
+          {pinnedProfiles.slice(0, 4).map((profile) => (
             <SavedProfileCard
               key={profile.id}
               profile={profile}

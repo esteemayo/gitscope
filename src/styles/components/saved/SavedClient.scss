@@ -3,6 +3,8 @@
 @use '../../abstracts/responsive' as bp;
 
 .saved-client {
+  --accent: #8b5cf6;
+
   display: flex;
   justify-content: center;
 

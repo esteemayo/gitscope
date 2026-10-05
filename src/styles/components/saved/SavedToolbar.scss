@@ -3,4 +3,202 @@
 @use '../../abstracts/responsive' as bp;
 
 .saved-toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2.4rem;
+
+  margin-bottom: 2rem;
+
+  @include bp.md {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  &__heading {
+    &--eyebrow {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      color: color-mix(in srgb, var(--accent) 85%, transparent);
+      user-select: none;
+    }
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-xl);
+      color: inherit;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    @include bp.md {
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    width: 22rem;
+    height: 3.6rem;
+    padding: 0 1.1rem;
+    background-color: var(--bg-tertiary);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    caret-color: var(--accent);
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    &:focus-within {
+      border-color: var(--accent);
+    }
+
+    @include bp.md {
+      flex: 1;
+      min-width: 18rem;
+    }
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--accent);
+      stroke: currentColor;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: var(--fz-xxs);
+      background-color: transparent;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+
+      @include bp.sm {
+        font-size: var(--fz-md);
+      }
+
+      &::placeholder {
+        font-size: var(--fz-xxs);
+        color: var(--text-muted);
+        transition: color 0.25s ease;
+      }
+    }
+  }
+
+  &__sort {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    height: 3.6rem;
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    padding: 0 1.1rem;
+    background-color: var(--bg-tertiary);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--accent);
+      stroke: currentColor;
+    }
+
+    span {
+      font-weight: inherit;
+      font-size: inherit;
+      color: currentColor;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      background-color: color-mix(in srgb, var(--accent) 5%, transparent);
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
+    }
+  }
+
+  &__view-toggle {
+    display: flex;
+    align-items: center;
+
+    padding: 3px;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    button {
+      display: grid;
+      place-items: center;
+
+      width: 3rem;
+      height: 2.8rem;
+      background-color: transparent;
+      color: var(--text-muted);
+      border: none;
+      border-radius: 0.7rem;
+      cursor: pointer;
+      transition: color 0.25s ease;
+
+      &[aria-pressed='true'] {
+        background-color: color-mix(in srgb, var(--accent) 7%, transparent);
+        color: var(--accent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        background-color: color-mix(in srgb, var(--accent) 5%, transparent);
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        pointer-events: none;
+      }
+    }
+  }
 }

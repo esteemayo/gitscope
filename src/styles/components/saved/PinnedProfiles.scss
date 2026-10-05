@@ -3,8 +3,6 @@
 @use '../../abstracts/responsive' as bp;
 
 .pinned-profiles {
-  --accent: #8b5cf6;
-
   margin-top: 4.4rem;
 
   &__header {
@@ -73,7 +71,7 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
     gap: 1.6rem;
 
     @media (max-width: 45em) {

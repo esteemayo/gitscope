@@ -1,13 +1,7 @@
 'use client';
 
-import type { LucideIcon } from 'lucide-react';
+import { SavedMetricProps } from '@/types/saved/saved.metric.type';
 import '../../styles/components/saved/SavedMetric.scss';
-
-interface SavedMetricProps {
-  value: number;
-  label: string;
-  icon?: LucideIcon | React.ComponentType;
-}
 
 const SavedMetric = ({ value, label, icon: Icon }: SavedMetricProps) => {
   return (

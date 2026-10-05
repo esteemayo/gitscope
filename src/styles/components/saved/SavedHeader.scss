@@ -3,8 +3,6 @@
 @use '../../abstracts/responsive' as bp;
 
 .saved-header {
-  --accent: #8b5cf6;
-
   display: flex;
   gap: 1.6rem;
 
@@ -16,9 +14,9 @@
 
     width: 4.2rem;
     height: 4.2rem;
-    background-color: color-mix(in srgb, var(--icon) 10%, var(--bg-tertiary));
-    color: var(--icon);
-    border: 1px solid color-mix(in srgb, var(--icon) 18%, var(--border));
+    background-color: color-mix(in srgb, var(--accent) 10%, var(--bg-tertiary));
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
     border-radius: var(--radius);
     transition:
       background-color 0.25s ease,
@@ -46,7 +44,7 @@
       font-weight: 600;
       font-size: 1.1rem;
       letter-spacing: 0.08em;
-      color: var(--accent);
+      color: color-mix(in srgb, var(--accent) 85%, transparent);
       user-select: none;
     }
 

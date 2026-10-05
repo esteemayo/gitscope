@@ -9,7 +9,13 @@
 
   min-width: 0;
   padding: 1.8rem 2rem;
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 2.5%,
+    var(--bg-tertiary)
+  );
   position: relative;
+  transition: background-color 0.25s ease;
 
   & + & {
     border-left: 1px solid var(--border);

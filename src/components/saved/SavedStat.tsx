@@ -1,28 +1,25 @@
 'use client';
 
-import type { LucideIcon } from 'lucide-react';
+import clsx from 'clsx';
+import { SavedStatProps } from '@/types/saved/saved.stat.type';
 
 import '../../styles/components/saved/SavedStat.scss';
-
-interface SavedStatProps {
-  label: string;
-  value: number;
-  icon: LucideIcon | React.ComponentType;
-  accentColor: string;
-}
 
 const SavedStat = ({
   label,
   value,
   icon: Icon,
   accentColor,
+  className,
+  style,
 }: SavedStatProps) => {
   return (
     <article
-      className='saved-stat'
+      className={clsx('saved-stat', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >

@@ -3,4 +3,43 @@
 @use '../../abstracts/responsive' as bp;
 
 .saved-profiles {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    gap: 1.6rem;
+
+    @include bp.lg {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
+    @media (max-width: 45em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 16rem;
+    background-color: color-mix(
+      in srgb,
+      var(--accent) 2.5%,
+      var(--bg-tertiary)
+    );
+    border: 1px dashed var(--border);
+    border-radius: 1.6rem;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.8;
+      transition: color 0.25s ease;
+    }
+  }
 }
