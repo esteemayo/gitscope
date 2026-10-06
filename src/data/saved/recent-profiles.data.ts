@@ -2,7 +2,7 @@ import { RecentProfile } from '@/types/saved';
 
 export const recentProfiles: RecentProfile[] = [
   {
-    id: 'usr_01',
+    id: 100001,
     login: 'gaearon',
     name: 'Dan Abramov',
     avatarUrl: 'https://github.com/gaearon.png',
@@ -11,7 +11,7 @@ export const recentProfiles: RecentProfile[] = [
     viewedAt: '2 min ago',
   },
   {
-    id: 'usr_02',
+    id: 100002,
     login: 'torvalds',
     name: 'Linus Torvalds',
     avatarUrl: 'https://github.com/torvalds.png',
@@ -20,7 +20,7 @@ export const recentProfiles: RecentProfile[] = [
     viewedAt: '18 min ago',
   },
   {
-    id: 'usr_03',
+    id: 100003,
     login: 'sindresorhus',
     name: 'Sindre Sorhus',
     avatarUrl: 'https://github.com/sindresorhus.png',

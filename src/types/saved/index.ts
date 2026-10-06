@@ -1,5 +1,5 @@
 export interface SavedProfile {
-  id: string;
+  id: number;
   login: string;
   name: string | null;
   avatarUrl: string;
@@ -14,7 +14,7 @@ export interface SavedProfile {
 }
 
 export interface RecentProfile {
-  id: string;
+  id: number;
   name: string;
   login: string;
   avatarUrl: string;

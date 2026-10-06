@@ -3,13 +3,11 @@
 import { Pin } from 'lucide-react';
 
 import SavedProfileCard from './SavedProfileCard';
-import { savedProfiles } from '@/data/saved/saved-profiles.data';
+import { PinnedProfilesProps } from '@/types/saved/pinned.profiles.type';
 
 import '../../styles/components/saved/PinnedProfiles.scss';
 
-const PinnedProfiles = () => {
-  const pinnedProfiles = savedProfiles.filter((profile) => profile.isPinned);
-
+const PinnedProfiles = ({ profiles }: PinnedProfilesProps) => {
   return (
     <section className='pinned-profiles'>
       <div className='pinned-profiles__header'>
@@ -31,18 +29,13 @@ const PinnedProfiles = () => {
           </p>
         </div>
 
-        <span className='pinned-profiles__count'>{pinnedProfiles.length}</span>
+        <span className='pinned-profiles__count'>{profiles.length}</span>
       </div>
 
-      {pinnedProfiles.length > 0 ? (
+      {profiles.length > 0 ? (
         <div className='pinned-profiles__grid'>
-          {pinnedProfiles.slice(0, 4).map((profile) => (
-            <SavedProfileCard
-              key={profile.id}
-              profile={profile}
-              variant='pinned'
-              draggable
-            />
+          {profiles.slice(0, 4).map((profile) => (
+            <SavedProfileCard key={profile.id} profile={profile} draggable />
           ))}
         </div>
       ) : (

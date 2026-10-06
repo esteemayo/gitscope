@@ -56,10 +56,6 @@
       );
       color: var(--accent-color);
       border-color: color-mix(in srgb, var(--accent-color) 30%, var(--border));
-
-      svg {
-        fill: currentColor;
-      }
     }
   }
 

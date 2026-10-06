@@ -19,17 +19,14 @@ import '../../styles/components/saved/SavedProfileCard.scss';
 
 const SavedProfileCard = ({
   profile,
-  variant,
   draggable,
   onPin,
   onOpen,
 }: SavedProfileCardProps) => {
-  const isPinned = variant === 'pinned';
-
   return (
     <article
       className='saved-profile-card'
-      data-pinned={isPinned}
+      data-pinned={profile.isPinned}
       style={
         {
           '--accent-color': profile.accentColor,
@@ -71,9 +68,11 @@ const SavedProfileCard = ({
             type='button'
             className='saved-profile-card__pin-btn'
             aria-label={
-              isPinned ? `Unpin ${profile.login}` : `Pin ${profile.login}`
+              profile.isPinned
+                ? `Unpin ${profile.login}`
+                : `Pin ${profile.login}`
             }
-            aria-pressed={isPinned}
+            aria-pressed={profile.isPinned}
             onClick={() => onPin?.(profile.id)}
           >
             <Pin

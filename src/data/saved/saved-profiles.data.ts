@@ -2,7 +2,7 @@ import { SavedProfile } from '@/types/saved';
 
 export const savedProfiles: SavedProfile[] = [
   {
-    id: 'usr_01',
+    id: 100001,
     login: 'gaearon',
     name: 'Dan Abramov',
     avatarUrl: 'https://github.com/gaearon.png',
@@ -16,7 +16,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: true,
   },
   {
-    id: 'usr_02',
+    id: 100002,
     login: 'torvalds',
     name: 'Linus Torvalds',
     avatarUrl: 'https://github.com/torvalds.png',
@@ -30,7 +30,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: true,
   },
   {
-    id: 'usr_03',
+    id: 100003,
     login: 'sindresorhus',
     name: 'Sindre Sorhus',
     avatarUrl: 'https://github.com/sindresorhus.png',
@@ -44,7 +44,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: false,
   },
   {
-    id: 'usr_04',
+    id: 100004,
     login: 'kentcdodds',
     name: 'Kent C. Dodds',
     avatarUrl: 'https://github.com/kentcdodds.png',
@@ -58,7 +58,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: false,
   },
   {
-    id: 'usr_05',
+    id: 100005,
     login: 'wesbos',
     name: 'Wes Bos',
     avatarUrl: 'https://github.com/wesbos.png',
@@ -72,7 +72,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: true,
   },
   {
-    id: 'usr_06',
+    id: 100006,
     login: 'tj',
     name: 'TJ Holowaychuk',
     avatarUrl: 'https://github.com/tj.png',
@@ -86,7 +86,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: false,
   },
   {
-    id: 'usr_07',
+    id: 100007,
     login: 'leerob',
     name: 'Lee Robinson',
     avatarUrl: 'https://github.com/leerob.png',
@@ -100,7 +100,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: false,
   },
   {
-    id: 'usr_08',
+    id: 100008,
     login: 'shadcn',
     name: 'shadcn',
     avatarUrl: 'https://github.com/shadcn.png',
@@ -114,7 +114,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: false,
   },
   {
-    id: 'usr_09',
+    id: 100009,
     login: 'rauchg',
     name: 'Guillermo Rauch',
     avatarUrl: 'https://github.com/rauchg.png',
@@ -128,7 +128,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: false,
   },
   {
-    id: 'usr_10',
+    id: 100010,
     login: 'addyosmani',
     name: 'Addy Osmani',
     avatarUrl: 'https://github.com/addyosmani.png',
@@ -142,7 +142,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: false,
   },
   {
-    id: 'usr_11',
+    id: 100011,
     login: 'bradtraversy',
     name: 'Brad Traversy',
     avatarUrl: 'https://github.com/bradtraversy.png',
@@ -156,7 +156,7 @@ export const savedProfiles: SavedProfile[] = [
     isPinned: true,
   },
   {
-    id: 'usr_12',
+    id: 100012,
     login: 'ThePrimeagen',
     name: 'ThePrimeagen',
     avatarUrl: 'https://github.com/ThePrimeagen.png',

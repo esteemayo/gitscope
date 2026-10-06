@@ -15,7 +15,7 @@ const SavedStats = () => {
   );
 
   const totalRepos = useMemo(
-    () => savedProfiles.reduce((acc, cur) => cur.repositories + acc, 0),
+    () => savedProfiles.reduce((acc, cur) => acc + cur.repositories, 0),
     [],
   );
 
