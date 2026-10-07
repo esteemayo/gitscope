@@ -1,9 +1,11 @@
 'use client';
 
 import { Grid2X2, List, Search, SlidersHorizontal } from 'lucide-react';
+import { SavedToolbarProps } from '@/types/saved/saved.toolbar.type';
+
 import '../../styles/components/saved/SavedToolbar.scss';
 
-const SavedToolbar = () => {
+const SavedToolbar = ({ view, onView }: SavedToolbarProps) => {
   return (
     <header className='saved-toolbar'>
       <div className='saved-toolbar__heading'>
@@ -45,7 +47,12 @@ const SavedToolbar = () => {
         </button>
 
         <div className='saved-toolbar__view-toggle'>
-          <button type='button' aria-label='Grid view' aria-pressed='true'>
+          <button
+            type='button'
+            onClick={() => onView('grid')}
+            aria-label='Grid view'
+            aria-pressed={view === 'grid'}
+          >
             <Grid2X2
               size={15}
               strokeWidth={1.8}
@@ -55,7 +62,12 @@ const SavedToolbar = () => {
             />
           </button>
 
-          <button type='button' aria-label='List view' aria-pressed='false'>
+          <button
+            type='button'
+            onClick={() => onView('list')}
+            aria-label='List view'
+            aria-pressed={view === 'list'}
+          >
             <List
               size={15}
               strokeWidth={1.8}

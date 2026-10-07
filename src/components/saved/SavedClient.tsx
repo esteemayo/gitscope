@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 import SavedProfiles from './SavedProfiles';
 import SavedStats from './SavedStats';
 import PinnedProfiles from './PinnedProfiles';
@@ -8,10 +10,14 @@ import RecentlyViewed from './RecentlyViewed';
 import SavedToolbar from './SavedToolbar';
 import SavedEmptyState from './SavedEmptyState';
 
+import { SavedView } from '@/types/saved';
 import { savedProfiles } from '@/data/saved/saved-profiles.data';
+
 import '../../styles/components/saved/SavedClient.scss';
 
 const SavedClient = () => {
+  const [view, setView] = useState<SavedView>('grid');
+
   const pinnedProfiles = savedProfiles.filter((profile) => profile.isPinned);
   const unpinnedProfiles = savedProfiles.filter((profile) => !profile.isPinned);
 
@@ -28,9 +34,9 @@ const SavedClient = () => {
             <PinnedProfiles profiles={pinnedProfiles} />
 
             <section className='saved-client__section'>
-              <SavedToolbar />
+              <SavedToolbar view={view} onView={setView} />
 
-              <SavedProfiles profiles={unpinnedProfiles} />
+              <SavedProfiles view={view} profiles={unpinnedProfiles} />
             </section>
           </>
         )}

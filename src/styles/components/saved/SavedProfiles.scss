@@ -17,6 +17,12 @@
     }
   }
 
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
   &__empty {
     display: flex;
     align-items: center;

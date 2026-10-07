@@ -1,3 +1,5 @@
+export type SavedView = 'grid' | 'list';
+
 export interface SavedProfile {
   id: number;
   login: string;

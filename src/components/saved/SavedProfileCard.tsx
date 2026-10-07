@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import clsx from 'clsx';
 import {
   ArrowRight,
   ExternalLink,
@@ -10,6 +10,7 @@ import {
   Pin,
   Star,
 } from 'lucide-react';
+import Link from 'next/link';
 
 import SavedMetric from './SavedMetric';
 import SavedProfileMenu from './SavedProfileMenu';
@@ -18,6 +19,7 @@ import { SavedProfileCardProps } from '@/types/saved/saved.profile.card.type';
 import '../../styles/components/saved/SavedProfileCard.scss';
 
 const SavedProfileCard = ({
+  view,
   profile,
   draggable,
   onPin,
@@ -25,7 +27,9 @@ const SavedProfileCard = ({
 }: SavedProfileCardProps) => {
   return (
     <article
-      className='saved-profile-card'
+      className={clsx('saved-profile-card', {
+        'saved-profile-card--list': view === 'list',
+      })}
       data-pinned={profile.isPinned}
       style={
         {
