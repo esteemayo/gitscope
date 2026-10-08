@@ -4,6 +4,7 @@
 
 .saved-profile-menu {
   position: relative;
+  z-index: 3000;
 
   &__trigger {
     display: inline-flex;
@@ -74,9 +75,9 @@
     position: absolute;
     top: calc(100% + 0.8rem);
     right: 0;
-    z-index: 2000;
+    z-index: 4000;
 
-    width: 16rem;
+    width: 15rem;
     padding: 0.5rem;
     background-color: var(--bg-tertiary);
     border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);

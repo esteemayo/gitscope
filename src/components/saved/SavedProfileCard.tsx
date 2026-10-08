@@ -55,18 +55,6 @@ const SavedProfileCard = ({
           </button>
         )}
 
-        <div className='saved-profile-card__avatar-wrapper'>
-          <Image
-            src={profile.avatarUrl}
-            width={52}
-            height={52}
-            alt={`${profile.name || profile.login}'s avatar`}
-            className='saved-profile-card__avatar'
-          />
-
-          <span className='saved-profile-card__status' aria-hidden='true' />
-        </div>
-
         <div className='saved-profile-card__actions'>
           <button
             type='button'
@@ -93,26 +81,40 @@ const SavedProfileCard = ({
       </div>
 
       <div className='saved-profile-card__identity'>
-        <h3 className='saved-profile-card__identity--name'>
-          {profile.name || profile.login}
-        </h3>
-
-        <Link
-          href={`https://github.com/${profile.login}`}
-          className='saved-profile-card__identity--username'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <span>@{profile.login}</span>
-
-          <ExternalLink
-            size={12}
-            strokeWidth={1.8}
-            role='img'
-            aria-hidden='true'
-            focusable='false'
+        <div className='saved-profile-card__avatar-wrapper'>
+          <Image
+            src={profile.avatarUrl}
+            width={52}
+            height={52}
+            alt={`${profile.name || profile.login}'s avatar`}
+            className='saved-profile-card__avatar'
           />
-        </Link>
+
+          <span className='saved-profile-card__status' aria-hidden='true' />
+        </div>
+
+        <div className='saved-profile-card__identity-content'>
+          <h3 className='saved-profile-card__identity-content--name'>
+            {profile.name || profile.login}
+          </h3>
+
+          <Link
+            href={`https://github.com/${profile.login}`}
+            className='saved-profile-card__identity-content--username'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <span>@{profile.login}</span>
+
+            <ExternalLink
+              size={12}
+              strokeWidth={1.8}
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
+          </Link>
+        </div>
       </div>
 
       {profile.bio && <p className='saved-profile-card__bio'>{profile.bio}</p>}
