@@ -1,11 +1,12 @@
 'use client';
 
-import Image from 'next/image';
+import Link from 'next/link';
 import clsx from 'clsx';
 import { ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
 
-import { RecentProfieRowProps } from '@/types/saved/recent.profile.row.type';
+import RecentProfileImage from './RecentProfileImage';
+import { RecentProfileRowProps } from '@/types/saved/recent.profile.row.type';
+
 import '../../styles/components/saved/RecentProfileRow.scss';
 
 const RecentProfileRow = ({
@@ -15,22 +16,28 @@ const RecentProfileRow = ({
   avatarUrl,
   repositories,
   viewedAt,
+  accentColor,
   className,
   style,
-}: RecentProfieRowProps) => {
+}: RecentProfileRowProps) => {
   return (
     <Link
       href={`/${login}`}
       className={clsx('recent-profile-row', className)}
-      style={style}
+      style={
+        {
+          '--accent-color': accentColor,
+          ...style,
+        } as React.CSSProperties
+      }
     >
       <div className='recent-profile-row__identity'>
-        <Image
+        <RecentProfileImage
           src={avatarUrl}
-          width={40}
-          height={40}
+          name={name}
+          size={40}
           alt={`${name}'s avatar`}
-          className='recent-profile-row__avatar'
+          fallback='icon'
         />
 
         <div className='recent-profile-row__details'>
@@ -46,7 +53,9 @@ const RecentProfileRow = ({
         </div>
       </div>
 
-      <span className='recent-profile-row__repositories'>{repositories}</span>
+      <span className='recent-profile-row__repositories'>
+        {repositories.toLocaleString()}
+      </span>
 
       <time dateTime={viewedAt} className='recent-profile-row__viewed-at'>
         {viewedAt}

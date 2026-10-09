@@ -1,7 +1,7 @@
 import { SavedProfile, SavedView } from './index';
 
 export interface SavedProfileCardProps {
-  view: SavedView;
+  view?: SavedView;
   profile: SavedProfile;
   draggable?: boolean;
   onPin?(profileId: number): void;

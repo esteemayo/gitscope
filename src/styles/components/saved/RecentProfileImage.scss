@@ -1,0 +1,51 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.recent-profile-image {
+  &__fallback {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+    background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
+    border-radius: 1.1rem;
+
+    &--initials {
+      display: inline-flex;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: var(--fz-xs);
+      color: currentColor;
+      letter-spacing: 0.04em;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    &--default,
+    svg {
+      flex-shrink: 0;
+
+      width: 2rem;
+      height: 2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+
+    display: inline-block;
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+    object-fit: cover;
+    border-radius: 1.1rem;
+  }
+}

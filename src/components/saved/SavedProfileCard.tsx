@@ -82,13 +82,17 @@ const SavedProfileCard = ({
 
       <div className='saved-profile-card__identity'>
         <div className='saved-profile-card__avatar-wrapper'>
-          <Image
-            src={profile.avatarUrl}
-            width={52}
-            height={52}
-            alt={`${profile.name || profile.login}'s avatar`}
-            className='saved-profile-card__avatar'
-          />
+          {profile.avatarUrl ? (
+            <Image
+              src={profile.avatarUrl}
+              width={52}
+              height={52}
+              alt={`${profile.name || profile.login}'s avatar`}
+              className='saved-profile-card__avatar'
+            />
+          ) : (
+            <div></div>
+          )}
 
           <span className='saved-profile-card__status' aria-hidden='true' />
         </div>

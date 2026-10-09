@@ -16,27 +16,49 @@
   }
 
   &__heading {
-    &--eyebrow {
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      color: color-mix(in srgb, var(--accent) 85%, transparent);
-      user-select: none;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    min-width: 0;
 
     &--title {
-      display: inline-block;
-      text-transform: none;
-      text-rendering: optimizeLegibility;
-      text-wrap: balance;
-      font-weight: 600;
-      font-size: var(--fz-xl);
-      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+
+      min-width: 0;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: var(--accent);
+        stroke: currentColor;
+      }
+
+      h2 {
+        display: inline-block;
+        text-transform: none;
+        text-rendering: optimizeLegibility;
+        text-wrap: balance;
+        font-weight: 600;
+        font-size: var(--fz-lg);
+        color: inherit;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+    }
+
+    &--description {
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.4;
+      transition: color 0.25s ease;
     }
   }
 
-  &__actions {
+  &__controls {
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -66,12 +88,18 @@
       border-color 0.25s ease;
 
     &:focus-within {
-      border-color: var(--accent);
+      border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 8%, transparent);
     }
 
     @include bp.md {
       flex: 1;
       min-width: 18rem;
+    }
+
+    @media (max-width: 37.5em) {
+      flex-basis: 100%;
+      order: -1;
     }
 
     svg {
@@ -99,11 +127,19 @@
         color: var(--text-muted);
         transition: color 0.25s ease;
       }
+
+      &::-webkit-search-cancel-button {
+        display: none;
+      }
     }
   }
 
   &__sort {
     position: relative;
+
+    @media (max-width: 37.5em) {
+      flex: 1;
+    }
 
     &--btn {
       display: inline-flex;
@@ -125,6 +161,10 @@
         border-color 0.25s ease,
         transform 0.25s ease;
 
+      @media (max-width: 37.5em) {
+        width: 100%;
+      }
+
       &[aria-expanded='true'] {
         background-color: color-mix(
           in srgb,
@@ -140,6 +180,12 @@
         height: 1.5rem;
         color: var(--accent);
         stroke: currentColor;
+
+        &:last-child {
+          @media (max-width: 37.5em) {
+            margin-left: auto;
+          }
+        }
       }
 
       span {
@@ -292,7 +338,7 @@
   }
 
   &__view-toggle {
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     height: 3.6rem;

@@ -12,6 +12,13 @@
 
     min-height: 7.2rem;
     padding: 1.4rem 1.6rem;
+    background:
+      linear-gradient(
+        45deg,
+        color-mix(in srgb, var(--accent-color, #8b5cf6) 5%, transparent),
+        transparent 45%
+      ),
+      var(--bg-tertiary);
     color: inherit;
     transition:
       background-color 0.25s ease,
@@ -29,13 +36,29 @@
   }
 
   &:hover {
-    background-color: color-mix(in srgb, var(--border) 10%, var(--bg-tertiary));
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color) 2.5%,
+      var(--bg-tertiary)
+    );
 
     .recent-profile-row__arrow {
-      background-color: color-mix(in srgb, var(--accent) 9%, transparent);
-      color: var(--accent);
+      background-color: color-mix(in srgb, var(--accent-color) 9%, transparent);
+      color: var(--accent-color);
       transform: translate(2px, -2px);
     }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-within {
+    @include focus-ring(
+      $width: 2px,
+      $color: var(--accent-color, #8b5cf6),
+      $offset: -1px
+    );
   }
 
   &__identity {
@@ -46,16 +69,6 @@
     min-width: 0;
   }
 
-  &__avatar {
-    flex-shrink: 0;
-
-    width: 4rem;
-    height: 4rem;
-    display: inline-block;
-    object-fit: cover;
-    border-radius: 1.1rem;
-  }
-
   &__details {
     display: grid;
     grid-template-columns: auto auto;
@@ -63,6 +76,7 @@
     column-gap: 0.7rem;
 
     min-width: 0;
+    line-height: 1.1;
 
     &--name,
     &--username,

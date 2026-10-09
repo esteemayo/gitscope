@@ -10,9 +10,10 @@ import RecentlyViewed from './RecentlyViewed';
 import SavedToolbar from './SavedToolbar';
 import SavedEmptyState from './SavedEmptyState';
 
-import { SavedView } from '@/types/saved';
 import { savedProfiles } from '@/data/saved/saved-profiles.data';
+import { recentProfiles } from '@/data/saved/recent-profiles.data';
 
+import { SavedView } from '@/types/saved';
 import '../../styles/components/saved/SavedClient.scss';
 
 const SavedClient = () => {
@@ -41,7 +42,7 @@ const SavedClient = () => {
           </>
         )}
 
-        <RecentlyViewed />
+        <RecentlyViewed profiles={recentProfiles} />
       </div>
     </div>
   );

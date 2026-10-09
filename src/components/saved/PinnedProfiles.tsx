@@ -2,32 +2,21 @@
 
 import { Pin } from 'lucide-react';
 
+import SavedHeading from './SavedHeading';
 import SavedProfileCard from './SavedProfileCard';
-import { PinnedProfilesProps } from '@/types/saved/pinned.profiles.type';
 
+import { PinnedProfilesProps } from '@/types/saved/pinned.profiles.type';
 import '../../styles/components/saved/PinnedProfiles.scss';
 
 const PinnedProfiles = ({ profiles }: PinnedProfilesProps) => {
   return (
     <section className='pinned-profiles'>
       <div className='pinned-profiles__header'>
-        <div className='pinned-profiles__heading'>
-          <div className='pinned-profiles__title'>
-            <Pin
-              size={15}
-              strokeWidth={1.8}
-              role='img'
-              aria-hidden='true'
-              focusable='false'
-            />
-
-            <h2>Pinned profiles</h2>
-          </div>
-
-          <p className='pinned-profiles__heading--description'>
-            Profiles you want to keep close
-          </p>
-        </div>
+        <SavedHeading
+          title='Pinned profiles'
+          description='Profiles you want to keep close.'
+          icon={Pin}
+        />
 
         <span className='pinned-profiles__count'>{profiles.length}</span>
       </div>

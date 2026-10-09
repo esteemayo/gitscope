@@ -4,7 +4,7 @@ export interface SavedProfile {
   id: number;
   login: string;
   name: string | null;
-  avatarUrl: string;
+  avatarUrl?: string;
   bio: string | null;
   location: string | null;
   repositories: number;
@@ -19,8 +19,9 @@ export interface RecentProfile {
   id: number;
   name: string;
   login: string;
-  avatarUrl: string;
+  avatarUrl?: string;
   bio?: string | null;
   repositories: number;
   viewedAt: string;
+  accentColor: string;
 }

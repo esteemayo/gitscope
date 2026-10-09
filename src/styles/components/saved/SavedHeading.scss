@@ -1,0 +1,46 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.saved-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  min-width: 0;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    min-width: 0;
+
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+      color: var(--accent, #8b5cf6);
+      stroke: currentColor;
+    }
+
+    h2 {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: var(--fz-lg);
+      color: inherit;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+  }
+
+  &__description {
+    text-wrap: pretty;
+    font-size: var(--fz-xxs);
+    color: var(--text-muted);
+    line-height: 1.8;
+    transition: color 0.25s ease;
+  }
+}

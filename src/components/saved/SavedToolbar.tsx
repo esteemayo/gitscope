@@ -4,6 +4,7 @@ import { useState } from 'react';
 import {
   ArrowDownAZ,
   ArrowDownUp,
+  Bookmark,
   Check,
   ChevronDown,
   Grid2X2,
@@ -12,7 +13,9 @@ import {
   SlidersHorizontal,
 } from 'lucide-react';
 
+import SavedHeading from './SavedHeading';
 import { SavedToolbarProps } from '@/types/saved/saved.toolbar.type';
+
 import '../../styles/components/saved/SavedToolbar.scss';
 
 const SavedToolbar = ({ view, onView }: SavedToolbarProps) => {
@@ -24,13 +27,13 @@ const SavedToolbar = ({ view, onView }: SavedToolbarProps) => {
 
   return (
     <header className='saved-toolbar'>
-      <div className='saved-toolbar__heading'>
-        <div className='saved-toolbar__heading--eyebrow'>Collection</div>
+      <SavedHeading
+        title='Collection'
+        description='All saved profiles.'
+        icon={Bookmark}
+      />
 
-        <h2 className='saved-toolbar__heading--title'>All saved profiles</h2>
-      </div>
-
-      <div className='saved-toolbar__actions'>
+      <div className='saved-toolbar__controls'>
         <label htmlFor='search' className='saved-toolbar__search'>
           <Search
             size={15}

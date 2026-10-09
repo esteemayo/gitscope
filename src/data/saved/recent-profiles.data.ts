@@ -9,6 +9,7 @@ export const recentProfiles: RecentProfile[] = [
     bio: 'Working on things at Vercel.',
     repositories: 200,
     viewedAt: '2 min ago',
+    accentColor: '#61DAFB',
   },
   {
     id: 100002,
@@ -18,6 +19,7 @@ export const recentProfiles: RecentProfile[] = [
     bio: 'Creator of Linux and Git.',
     repositories: 8,
     viewedAt: '18 min ago',
+    accentColor: '#F05032',
   },
   {
     id: 100003,
@@ -27,5 +29,6 @@ export const recentProfiles: RecentProfile[] = [
     bio: 'Full-time open-source developer.',
     repositories: 1300,
     viewedAt: '1 hour ago',
+    accentColor: '#22C55E',
   },
 ];
