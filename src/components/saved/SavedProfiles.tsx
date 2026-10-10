@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import SavedProfileCard from './SavedProfileCard';
+import SavedProfileCard from './card/SavedProfileCard';
 import { SavedProfilesProps } from '@/types/saved/saved.profiles.type';
 
 import '../../styles/components/saved/SavedProfiles.scss';

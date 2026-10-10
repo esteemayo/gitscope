@@ -58,6 +58,7 @@ const SavedToolbar = ({ view, onView }: SavedToolbarProps) => {
             type='button'
             onClick={() => setIsOpen((value) => !value)}
             className='saved-toolbar__sort--btn'
+            aria-haspopup='menu'
             aria-expanded={isOpen}
             aria-controls='saved-toolbar-menu'
           >
@@ -80,129 +81,135 @@ const SavedToolbar = ({ view, onView }: SavedToolbarProps) => {
             />
           </button>
 
-          {isOpen && (
-            <div
-              id='saved-toolbar-menu'
-              className='saved-toolbar__sort-menu'
-              role='menu'
-              aria-hidden={!isOpen}
-            >
-              <div className='saved-toolbar__menu-header'>
-                <span>Sort by</span>
-              </div>
-
-              <button
-                type='button'
-                className='saved-toolbar__menu-item'
-                role='menuitem'
-                aria-current='true'
-              >
-                <ArrowDownUp
-                  size={15}
-                  strokeWidth={1.8}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-
-                <span>Recently viewed</span>
-
-                <Check
-                  size={15}
-                  strokeWidth={1.8}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-              </button>
-
-              <button
-                type='button'
-                className='saved-toolbar__menu-item'
-                role='menuitem'
-              >
-                <ArrowDownAZ
-                  size={15}
-                  strokeWidth={1.8}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-
-                <span>Stars</span>
-              </button>
-
-              <button
-                type='button'
-                className='saved-toolbar__menu-item'
-                role='menuitem'
-              >
-                <ArrowDownAZ
-                  size={15}
-                  strokeWidth={1.8}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-
-                <span>Repositories</span>
-              </button>
-
-              <button
-                type='button'
-                className='saved-toolbar__menu-item'
-                role='menuitem'
-              >
-                <ArrowDownAZ
-                  size={15}
-                  strokeWidth={1.8}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-
-                <span>Followers</span>
-              </button>
-
-              <div className='saved-toolbar__menu-divider' aria-hidden='true' />
-
-              <div className='saved-toolbar__direction-header'>
-                <span>Order</span>
-              </div>
-
-              <button
-                type='button'
-                className='saved-toolbar__menu-item'
-                role='menuitem'
-              >
-                <ArrowDownAZ
-                  size={15}
-                  strokeWidth={1.8}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-
-                <span>Highest first</span>
-              </button>
-
-              <button
-                type='button'
-                className='saved-toolbar__menu-item'
-                role='menuitem'
-              >
-                <ArrowDownAZ
-                  size={15}
-                  strokeWidth={1.8}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-
-                <span>Lowest first</span>
-              </button>
+          <div
+            id='saved-toolbar-menu'
+            className='saved-toolbar__sort-menu'
+            role='menu'
+            aria-label='Sort saved profiles'
+            data-open={isOpen}
+            aria-hidden={!isOpen}
+            inert={!isOpen}
+          >
+            <div className='saved-toolbar__menu-header'>
+              <span>Sort by</span>
             </div>
-          )}
+
+            <button
+              type='button'
+              className='saved-toolbar__menu-item'
+              role='menuitemradio'
+              aria-checked='true'
+            >
+              <ArrowDownUp
+                size={15}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+
+              <span>Recently viewed</span>
+
+              <Check
+                size={15}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+            </button>
+
+            <button
+              type='button'
+              className='saved-toolbar__menu-item'
+              role='menuitemradio'
+              aria-checked='false'
+            >
+              <ArrowDownAZ
+                size={15}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+
+              <span>Stars</span>
+            </button>
+
+            <button
+              type='button'
+              className='saved-toolbar__menu-item'
+              role='menuitemradio'
+              aria-checked='false'
+            >
+              <ArrowDownAZ
+                size={15}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+
+              <span>Repositories</span>
+            </button>
+
+            <button
+              type='button'
+              className='saved-toolbar__menu-item'
+              role='menuitemradio'
+              aria-checked='false'
+            >
+              <ArrowDownAZ
+                size={15}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+
+              <span>Followers</span>
+            </button>
+
+            <div className='saved-toolbar__menu-divider' aria-hidden='true' />
+
+            <div className='saved-toolbar__direction-header'>
+              <span>Order</span>
+            </div>
+
+            <button
+              type='button'
+              className='saved-toolbar__menu-item'
+              role='menuitemradio'
+              aria-checked='false'
+            >
+              <ArrowDownAZ
+                size={15}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+
+              <span>Highest first</span>
+            </button>
+
+            <button
+              type='button'
+              className='saved-toolbar__menu-item'
+              role='menuitemradio'
+              aria-checked='false'
+            >
+              <ArrowDownAZ
+                size={15}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+
+              <span>Lowest first</span>
+            </button>
+          </div>
         </div>
 
         <div className='saved-toolbar__view-toggle' aria-label='View mode'>

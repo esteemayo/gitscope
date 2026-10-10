@@ -2,11 +2,11 @@
 
 import { Clock3 } from 'lucide-react';
 
-import SavedHeading from './SavedHeading';
-import RecentProfileRow from './RecentProfileRow';
+import SavedHeading from '../SavedHeading';
+import RecentProfileRow from '../recent/RecentProfileRow';
 
-import { RecentlyViewedProps } from '@/types/saved/recently.viewed.type';
-import '../../styles/components/saved/RecentlyViewed.scss';
+import { RecentlyViewedProps } from '@/types/saved/recent/recently.viewed.type';
+import '../../../styles/components/saved/recent/RecentlyViewed.scss';
 
 const RecentlyViewed = ({ profiles }: RecentlyViewedProps) => {
   return (

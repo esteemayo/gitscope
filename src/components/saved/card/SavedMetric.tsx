@@ -1,7 +1,7 @@
 'use client';
 
-import { SavedMetricProps } from '@/types/saved/saved.metric.type';
-import '../../styles/components/saved/SavedMetric.scss';
+import { SavedMetricProps } from '@/types/saved/card/saved.metric.type';
+import '../../../styles/components/saved/card/SavedMetric.scss';
 
 const SavedMetric = ({ value, label, icon: Icon }: SavedMetricProps) => {
   return (

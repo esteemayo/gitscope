@@ -239,9 +239,28 @@
       0 1rem 3rem rgba(0, 0, 0, 0.08),
       0 2px 0.8rem rgba(0, 0, 0, 0.05);
     border-radius: var(--radius);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform-origin: top right;
+    transform: translateY(-0.6rem) scale(0.98);
     transition:
       background-color 0.25s ease,
-      border-color 0.25s ease;
+      border-color 0.25s ease,
+      opacity 0.25s ease,
+      visibility 0.25s ease,
+      transform 0.25s ease;
+
+    &[data-open='true'] {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   &__menu-header,
@@ -280,7 +299,7 @@
       background-color 0.25s ease,
       color 0.25s ease;
 
-    &[aria-current='true'] {
+    &[aria-checked='true'] {
       color: var(--text);
       transition: color 0.25s ease;
 

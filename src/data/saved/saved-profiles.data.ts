@@ -1,4 +1,4 @@
-import { SavedProfile } from '@/types/saved';
+import { SavedProfile } from '@/types/saved/card';
 
 export const savedProfiles: SavedProfile[] = [
   {

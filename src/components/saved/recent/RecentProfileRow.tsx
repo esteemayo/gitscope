@@ -5,9 +5,9 @@ import clsx from 'clsx';
 import { ArrowUpRight } from 'lucide-react';
 
 import RecentProfileImage from './RecentProfileImage';
-import { RecentProfileRowProps } from '@/types/saved/recent.profile.row.type';
+import { RecentProfileRowProps } from '@/types/saved/recent/recent.profile.row.type';
 
-import '../../styles/components/saved/RecentProfileRow.scss';
+import '../../../styles/components/saved/recent/RecentProfileRow.scss';
 
 const RecentProfileRow = ({
   name,

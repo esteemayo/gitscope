@@ -6,9 +6,9 @@ import SavedProfiles from './SavedProfiles';
 import SavedStats from './SavedStats';
 import PinnedProfiles from './PinnedProfiles';
 import SavedHeader from './SavedHeader';
-import RecentlyViewed from './RecentlyViewed';
-import SavedToolbar from './SavedToolbar';
 import SavedEmptyState from './SavedEmptyState';
+import SavedToolbar from './SavedToolbar';
+import RecentlyViewed from './recent/RecentlyViewed';
 
 import { savedProfiles } from '@/data/saved/saved-profiles.data';
 import { recentProfiles } from '@/data/saved/recent-profiles.data';

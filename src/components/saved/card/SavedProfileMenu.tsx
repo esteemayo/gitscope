@@ -6,8 +6,8 @@ import { MoreVertical, Share2, Trash2 } from 'lucide-react';
 import { useEscapeKey } from '@/hooks/useEscapeKey';
 import { useClickOutside } from '@/hooks/useClickOutside';
 
-import { SavedProfileMenuProps } from '@/types/saved/saved.profile.menu.type';
-import '../../styles/components/saved/SavedProfileMenu.scss';
+import { SavedProfileMenuProps } from '@/types/saved/card/saved.profile.menu.type';
+import '../../../styles/components/saved/card/SavedProfileMenu.scss';
 
 const SavedProfileMenu = ({
   profile,

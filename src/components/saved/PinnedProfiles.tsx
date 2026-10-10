@@ -3,7 +3,7 @@
 import { Pin } from 'lucide-react';
 
 import SavedHeading from './SavedHeading';
-import SavedProfileCard from './SavedProfileCard';
+import SavedProfileCard from './card/SavedProfileCard';
 
 import { PinnedProfilesProps } from '@/types/saved/pinned.profiles.type';
 import '../../styles/components/saved/PinnedProfiles.scss';

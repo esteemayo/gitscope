@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Link from 'next/link';
 import clsx from 'clsx';
 import {
   ArrowRight,
@@ -10,13 +10,13 @@ import {
   Pin,
   Star,
 } from 'lucide-react';
-import Link from 'next/link';
 
-import SavedMetric from './SavedMetric';
 import SavedProfileMenu from './SavedProfileMenu';
+import SavedMetric from './SavedMetric';
+import SavedProfileImage from './SavedProfileImage';
 
-import { SavedProfileCardProps } from '@/types/saved/saved.profile.card.type';
-import '../../styles/components/saved/SavedProfileCard.scss';
+import { SavedProfileCardProps } from '@/types/saved/card/saved.profile.card.type';
+import '../../../styles/components/saved/card/SavedProfileCard.scss';
 
 const SavedProfileCard = ({
   view,
@@ -81,21 +81,13 @@ const SavedProfileCard = ({
       </div>
 
       <div className='saved-profile-card__identity'>
-        <div className='saved-profile-card__avatar-wrapper'>
-          {profile.avatarUrl ? (
-            <Image
-              src={profile.avatarUrl}
-              width={52}
-              height={52}
-              alt={`${profile.name || profile.login}'s avatar`}
-              className='saved-profile-card__avatar'
-            />
-          ) : (
-            <div></div>
-          )}
-
-          <span className='saved-profile-card__status' aria-hidden='true' />
-        </div>
+        <SavedProfileImage
+          src={profile.avatarUrl}
+          size={52}
+          name={profile.name!}
+          alt={`${profile.name || profile.login}'s avatar`}
+          fallback='icon'
+        />
 
         <div className='saved-profile-card__identity-content'>
           <h3 className='saved-profile-card__identity-content--name'>

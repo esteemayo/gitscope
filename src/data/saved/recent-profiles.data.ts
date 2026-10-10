@@ -1,4 +1,4 @@
-import { RecentProfile } from '@/types/saved';
+import { RecentProfile } from '@/types/saved/recent';
 
 export const recentProfiles: RecentProfile[] = [
   {

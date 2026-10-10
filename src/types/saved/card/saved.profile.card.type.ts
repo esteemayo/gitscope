@@ -1,4 +1,5 @@
-import { SavedProfile, SavedView } from './index';
+import { SavedView } from '../index';
+import { SavedProfile } from './index';
 
 export interface SavedProfileCardProps {
   view?: SavedView;
