@@ -8,8 +8,8 @@ export const recentProfiles: RecentProfile[] = [
     avatarUrl: 'https://github.com/gaearon.png',
     bio: 'Working on things at Vercel.',
     repositories: 200,
-    viewedAt: '2 min ago',
     accentColor: '#61DAFB',
+    viewedAt: '2026-10-10T12:44:00.000Z',
   },
   {
     id: 100002,
@@ -18,8 +18,8 @@ export const recentProfiles: RecentProfile[] = [
     avatarUrl: 'https://github.com/torvalds.png',
     bio: 'Creator of Linux and Git.',
     repositories: 8,
-    viewedAt: '18 min ago',
     accentColor: '#F05032',
+    viewedAt: '2026-10-10T08:50:00.000Z',
   },
   {
     id: 100003,
@@ -28,7 +28,7 @@ export const recentProfiles: RecentProfile[] = [
     avatarUrl: 'https://github.com/sindresorhus.png',
     bio: 'Full-time open-source developer.',
     repositories: 1300,
-    viewedAt: '1 hour ago',
     accentColor: '#22C55E',
+    viewedAt: '2026-10-09T10:15:59.000Z',
   },
 ];

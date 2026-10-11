@@ -15,7 +15,9 @@ import SavedProfileMenu from './SavedProfileMenu';
 import SavedMetric from './SavedMetric';
 import SavedProfileImage from './SavedProfileImage';
 
+import { formatTimeAgo } from '@/utils/formatTimeAgo';
 import { SavedProfileCardProps } from '@/types/saved/card/saved.profile.card.type';
+
 import '../../../styles/components/saved/card/SavedProfileCard.scss';
 
 const SavedProfileCard = ({
@@ -140,9 +142,12 @@ const SavedProfileCard = ({
       </div>
 
       <footer className='saved-profile-card__footer'>
-        <span className='saved-profile-card__footer--last-viewed'>
-          {profile.lastViewed}
-        </span>
+        <time
+          dateTime={profile.lastViewedAt}
+          className='saved-profile-card__footer--last-viewed'
+        >
+          {formatTimeAgo(profile.lastViewedAt)}
+        </time>
 
         <Link
           href={`/${profile.login}`}

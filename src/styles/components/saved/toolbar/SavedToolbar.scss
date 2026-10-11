@@ -1,0 +1,28 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.saved-toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2.4rem;
+
+  margin-bottom: 2rem;
+
+  @include bp.md {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    @include bp.md {
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+}

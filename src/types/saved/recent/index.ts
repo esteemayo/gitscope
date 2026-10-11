@@ -5,6 +5,6 @@ export interface RecentProfile {
   avatarUrl?: string;
   bio?: string | null;
   repositories: number;
-  viewedAt: string;
   accentColor: string;
+  viewedAt: string;
 }

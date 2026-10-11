@@ -64,7 +64,7 @@ const SavedProfileImage = ({
         style={
           {
             '--size': `${size / 10}rem`,
-            '--accent-color': accentColor,
+            '--avatar-color': accentColor,
           } as React.CSSProperties
         }
       >

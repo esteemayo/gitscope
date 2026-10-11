@@ -1,0 +1,73 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.saved-insights-highlight {
+  display: flex;
+  gap: 1.2rem;
+
+  min-width: 0;
+  padding: 1.7rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &:hover {
+    @media (prefers-reduced-motion: reduce) {
+      transform: none;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    svg {
+      width: 1.8em;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    &--label {
+    }
+
+    &--link {
+      &:link,
+      &:visited {
+      }
+
+      svg {
+        flex-shrink: 0;
+
+        width: 1.4rem;
+        height: 1.4rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+
+    &--username {
+    }
+
+    &--description {
+      text-wrap: pretty;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__metric {
+  }
+}

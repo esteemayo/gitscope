@@ -1,0 +1,68 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.search-profiles-search {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  width: 22rem;
+  height: 3.6rem;
+  padding: 0 1.1rem;
+  background-color: var(--bg-tertiary);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  caret-color: var(--accent);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+
+  &:focus-within {
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+
+  @include bp.md {
+    flex: 1;
+    min-width: 18rem;
+  }
+
+  @media (max-width: 37.5em) {
+    flex-basis: 100%;
+    order: -1;
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--accent);
+    stroke: currentColor;
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: var(--fz-xxs);
+    background-color: transparent;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+
+    @include bp.sm {
+      font-size: var(--fz-md);
+    }
+
+    &::placeholder {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+}

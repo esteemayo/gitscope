@@ -5,6 +5,8 @@ import clsx from 'clsx';
 import { ArrowUpRight } from 'lucide-react';
 
 import RecentProfileImage from './RecentProfileImage';
+
+import { formatTimeAgo } from '@/utils/formatTimeAgo';
 import { RecentProfileRowProps } from '@/types/saved/recent/recent.profile.row.type';
 
 import '../../../styles/components/saved/recent/RecentProfileRow.scss';
@@ -58,7 +60,7 @@ const RecentProfileRow = ({
       </span>
 
       <time dateTime={viewedAt} className='recent-profile-row__viewed-at'>
-        {viewedAt}
+        {formatTimeAgo(viewedAt)}
       </time>
 
       <span className='recent-profile-row__arrow' aria-hidden='true'>

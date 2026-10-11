@@ -8,7 +8,7 @@ export interface SavedProfile {
   repositories: number;
   stars: number;
   followers: number;
-  lastViewed: string;
   accentColor: string;
   isPinned: boolean;
+  lastViewedAt: string;
 }
