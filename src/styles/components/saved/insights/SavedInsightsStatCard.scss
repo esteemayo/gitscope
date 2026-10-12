@@ -9,7 +9,12 @@
   min-width: 0;
   padding: 1.8rem;
   background-color: var(--bg-tertiary);
-  border: 1px solid var(--border);
+  background-image: radial-gradient(
+    circle at top left,
+    color-mix(in srgb, var(--accent-color) 5%, transparent),
+    transparent 55%
+  );
+  border: 1px solid color-mix(in srgb, var(--accent-color) 22%, var(--border));
   border-radius: 1.5rem;
   overflow: hidden;
   isolation: isolate;
@@ -18,12 +23,20 @@
     border-color 0.25s ease,
     transform 0.25s ease;
 
+  @media (max-width: 37.5em) {
+    flex-direction: column;
+    gap: 1.2rem;
+
+    padding: 1.4rem;
+    border-radius: var(--radius);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
 
   &:hover {
-    border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+    border-color: color-mix(in srgb, var(--accent-color) 55%, var(--border));
     transform: translateY(-2px);
 
     @media (prefers-reduced-motion: reduce) {
@@ -39,10 +52,24 @@
 
     width: 3.8rem;
     height: 3.8rem;
-    background-color: color-mix(in srgb, var(--accent) 12%, transparent);
-    color: var(--accent);
-    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color) 12%,
+      var(--bg-tertiary)
+    );
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, transparent);
     border-radius: 0.875rem;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    @media (max-width: 37.5em) {
+      flex-basis: 3.4rem;
+
+      width: 3.4rem;
+      height: 3.4rem;
+    }
 
     svg {
       width: 1.9rem;
@@ -70,7 +97,7 @@
     }
 
     &--value {
-      font-weight: 700;
+      font-weight: 600;
       font-size: 2.5rem;
       font-variant-numeric: tabular-nums;
       font-feature-settings: 'tnum';
@@ -78,6 +105,10 @@
       color: inherit;
       line-height: 1.1;
       overflow-wrap: anywhere;
+
+      @media (max-width: 37.5em) {
+        font-size: var(--fz-xxl);
+      }
     }
 
     &--description {

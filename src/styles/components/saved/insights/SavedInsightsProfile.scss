@@ -9,9 +9,11 @@
 
   width: 100%;
   min-width: 0;
-  margin-top: 5.6rem;
-  padding: 2.4rem;
-  border: 1px solid var(--border);
+  margin-top: 8rem;
+
+  @include bp.md {
+    margin-top: 5.6rem;
+  }
 
   &__header {
     display: flex;
@@ -19,6 +21,39 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1.6rem;
+
+    @media (max-width: 37.5em) {
+      gap: 0.5rem;
+    }
+
+    &--count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+
+      min-height: 3.2rem;
+      font-weight: 600;
+      font-size: var(--fz-xxs);
+      white-space: nowrap;
+      padding: 0.6rem 1.1rem;
+      background-color: var(--bg-tertiary);
+      color: var(--text-muted);
+      border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+      border-radius: 100rem;
+      user-select: none;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+
+      svg {
+        width: 1.4rem;
+        height: 1.4rem;
+        color: var(--accent);
+        stroke: currentColor;
+      }
+    }
   }
 
   &__stats {
@@ -33,6 +68,10 @@
     @media (max-width: 37.5em) {
       gap: 1rem;
     }
+
+    @include bp.sm {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__highlights {
@@ -42,6 +81,34 @@
   }
 
   &__highlights-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+
+    @media (max-width: 37.5em) {
+      gap: 0.5rem;
+    }
+
+    h3 {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: -0.2px;
+      line-height: 1.1;
+    }
+
+    p {
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.5;
+      transition: color 0.25s ease;
+    }
   }
 
   &__highlights-grid {
@@ -59,8 +126,8 @@
     gap: 0.9rem;
 
     padding-top: 1.6rem;
-    border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
-    transition: color 0.25s ease;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.25s ease;
 
     svg {
       flex: 0 0 auto;
@@ -74,8 +141,8 @@
 
     &--text {
       font-size: 1.1rem;
-      font-size: var(--fz-xxs);
       color: var(--text-muted);
+      line-height: 1.7;
       transition: color 0.25s ease;
     }
   }

@@ -1,23 +1,24 @@
 'use client';
 
-import type { LucideIcon } from 'lucide-react';
+import { SavedInsightsStatCardProps } from '@/types/saved/insights/saved.insights.stat.card.type';
 import '../../../styles/components/saved/insights/SavedInsightsStatCard.scss';
-
-interface SavedInsightsStatCardProps {
-  label: string;
-  value: string;
-  description: string;
-  icon: LucideIcon | React.ComponentType;
-}
 
 const SavedInsightsStatCard = ({
   label,
   value,
   description,
   icon: Icon,
+  accentColor,
 }: SavedInsightsStatCardProps) => {
   return (
-    <article className='saved-insights-card'>
+    <article
+      className='saved-insights-card'
+      style={
+        {
+          '--accent-color': accentColor,
+        } as React.CSSProperties
+      }
+    >
       <div className='saved-insights-card__icon'>
         <Icon
           size={19}

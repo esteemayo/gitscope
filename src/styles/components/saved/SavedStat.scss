@@ -58,6 +58,8 @@
       display: block;
       font-weight: 600;
       font-size: var(--fz-lg);
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum';
       color: inherit;
       line-height: 1.2;
     }

@@ -3,7 +3,11 @@
 @use '../../../abstracts/responsive' as bp;
 
 .recently-viewed {
-  margin-top: 5.6rem;
+  margin-top: 8rem;
+
+  @include bp.md {
+    margin-top: 5.6rem;
+  }
 
   &__header {
     margin-bottom: 1.6rem;

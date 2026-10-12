@@ -105,7 +105,7 @@ const SavedClient = () => {
 
         <RecentlyViewed profiles={recentProfiles} />
 
-        <SavedInsightsProfile />
+        <SavedInsightsProfile profiles={savedProfiles} />
       </div>
     </div>
   );

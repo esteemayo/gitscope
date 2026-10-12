@@ -1,20 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowUpRight, type LucideIcon } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
-import { SavedInsightProfile } from './SavedInsightsProfile';
+import { SavedInsightProfile } from '@/types/saved/insights';
+import { SavedInsightsHighlightProps } from '@/types/saved/insights/saved.insights.highlight.type';
+
 import '../../../styles/components/saved/insights/SavedInsightsHighlight.scss';
 
-type InsightProfile = SavedInsightProfile;
-
-interface SavedInsightsHighlightProps {
-  label: string;
-  description: string;
-  icon: LucideIcon | React.ComponentType;
-  profile: InsightProfile;
-  metric: string;
-}
+const getDisplayName = (profile: SavedInsightProfile): string => {
+  return profile.name?.trim() || profile.login;
+};
 
 const SavedInsightsHighlight = ({
   label,
@@ -22,9 +18,17 @@ const SavedInsightsHighlight = ({
   icon: Icon,
   profile,
   metric,
+  accentColor,
 }: SavedInsightsHighlightProps) => {
   return (
-    <article className='saved-insights-highlight'>
+    <article
+      className='saved-insights-highlight'
+      style={
+        {
+          '--accent-color': accentColor,
+        } as React.CSSProperties
+      }
+    >
       <div className='saved-insights-highlight__icon'>
         <Icon
           size={18}
@@ -40,14 +44,18 @@ const SavedInsightsHighlight = ({
           {label}
         </span>
 
-        <Link href={``} className='saved-insights-highlight__content--link'>
-          <span></span>
+        <Link
+          href={`/${encodeURIComponent(profile.login)}`}
+          className='saved-insights-highlight__content--link'
+          aria-label={`View ${profile.login}'s profile`}
+        >
+          <span>{getDisplayName(profile)}</span>
 
           <ArrowUpRight size={14} />
         </Link>
 
         <span className='saved-insights-highlight__content--username'>
-          @{profile.username}
+          @{profile.login}
         </span>
 
         <p className='saved-insights-highlight__content--description'>

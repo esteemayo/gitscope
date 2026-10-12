@@ -3,7 +3,11 @@
 @use '../../abstracts/responsive' as bp;
 
 .pinned-profiles {
-  margin-top: 4.4rem;
+  margin-top: 8rem;
+
+  @include bp.md {
+    margin-top: 5.6rem;
+  }
 
   &__header {
     display: flex;
