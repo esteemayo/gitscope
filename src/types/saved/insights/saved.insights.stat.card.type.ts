@@ -1,9 +1,6 @@
-import { type LucideIcon } from 'lucide-react';
+import { SavedInsightsStat } from './index';
 
-export interface SavedInsightsStatCardProps {
-  label: string;
-  value: string;
-  description: string;
-  icon: LucideIcon | React.ComponentType;
-  accentColor: string;
+export interface SavedInsightsStatCardProps extends SavedInsightsStat {
+  className?: string;
+  style?: React.CSSProperties;
 }

@@ -1,6 +1,8 @@
 'use client';
 
+import clsx from 'clsx';
 import { SavedInsightsStatCardProps } from '@/types/saved/insights/saved.insights.stat.card.type';
+
 import '../../../styles/components/saved/insights/SavedInsightsStatCard.scss';
 
 const SavedInsightsStatCard = ({
@@ -9,13 +11,16 @@ const SavedInsightsStatCard = ({
   description,
   icon: Icon,
   accentColor,
+  className,
+  style,
 }: SavedInsightsStatCardProps) => {
   return (
     <article
-      className='saved-insights-card'
+      className={clsx('saved-insights-card', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >

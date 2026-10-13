@@ -16,6 +16,7 @@ import SavedInsightsSummary from './SavedInsightsSummary';
 import SavedInsightsEmptyState from './SavedInsightsEmptyState';
 
 import { SavedInsightProfile } from '@/types/saved/insights';
+import { formatNumber } from '@/utils/formatNumber';
 import { SavedInsightsProfileProps } from '@/types/saved/insights/saved.insights.profile.type';
 
 import '../../../styles/components/saved/insights/SavedInsightsProfile.scss';
@@ -30,15 +31,6 @@ const getRepositories = (profile: SavedInsightProfile): number => {
 
 const getFollowers = (profile: SavedInsightProfile): number => {
   return profile.followers ?? 0;
-};
-
-const formatNumber = (value: number): string => {
-  const FORMATTER = new Intl.NumberFormat('en', {
-    notation: value >= 10_000 ? 'compact' : 'standard',
-    maximumFractionDigits: 1,
-  });
-
-  return FORMATTER.format(value);
 };
 
 const SavedInsightsProfile = ({ profiles }: SavedInsightsProfileProps) => {

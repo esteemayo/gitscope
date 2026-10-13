@@ -18,6 +18,7 @@ import { SavedProfile } from '@/types/saved/card';
 import { SavedView, SortDirection, SortField } from '@/types/saved';
 
 import '../../styles/components/saved/SavedClient.scss';
+import DeleteSavedProfileModal from './card/DeleteSavedProfileModal';
 
 const SavedClient = () => {
   const [sortField, setSortField] = useState<SortField>('recent');
@@ -107,6 +108,7 @@ const SavedClient = () => {
 
         <SavedInsightsProfile profiles={savedProfiles} />
       </div>
+      <DeleteSavedProfileModal />
     </div>
   );
 };

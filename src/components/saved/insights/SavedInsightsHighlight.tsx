@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import clsx from 'clsx';
 import { ArrowUpRight } from 'lucide-react';
 
 import { SavedInsightProfile } from '@/types/saved/insights';
@@ -19,13 +20,16 @@ const SavedInsightsHighlight = ({
   profile,
   metric,
   accentColor,
+  className,
+  style,
 }: SavedInsightsHighlightProps) => {
   return (
     <article
-      className='saved-insights-highlight'
+      className={clsx('saved-insights-highlight', className)}
       style={
         {
           '--accent-color': accentColor,
+          ...style,
         } as React.CSSProperties
       }
     >
