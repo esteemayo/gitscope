@@ -32,7 +32,7 @@ const SavedProfileMenu = ({
   };
 
   const handleDelete = () => {
-    onDelete?.(profile.id);
+    onDelete(profile);
     handleClose();
   };
 

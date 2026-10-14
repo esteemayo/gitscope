@@ -1,7 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
-import { SavedStatProps } from '@/types/saved/saved.stat.type';
+
+import { formatNumber } from '@/utils/formatNumber';
+import { SavedStatProps } from '@/types/saved/stats/saved.stat.type';
 
 import '../../styles/components/saved/SavedStat.scss';
 
@@ -35,7 +37,7 @@ const SavedStat = ({
 
       <div className='saved-stat__content'>
         <strong className='saved-stat__content--value'>
-          {value.toLocaleString()}
+          {formatNumber(value)}
         </strong>
 
         <span className='saved-stat__content--label'>{label}</span>

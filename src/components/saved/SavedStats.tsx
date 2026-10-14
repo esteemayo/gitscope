@@ -4,31 +4,26 @@ import { useMemo } from 'react';
 import { Bookmark, GitFork, Pin } from 'lucide-react';
 
 import SavedStat from './SavedStat';
-import { savedProfiles } from '@/data/saved/saved-profiles.data';
+import { SavedStatsProps } from '@/types/saved/stats/saved.stats.type';
 
 import '../../styles/components/saved/SavedStats.scss';
 
-const SavedStats = () => {
-  const pinnedProfiles = useMemo(
-    () => savedProfiles.filter((profile) => profile.isPinned).length,
-    [],
-  );
-
+const SavedStats = ({ profiles, totalPinned }: SavedStatsProps) => {
   const totalRepos = useMemo(
-    () => savedProfiles.reduce((acc, cur) => acc + cur.repositories, 0),
-    [],
+    () => profiles.reduce((acc, profile) => acc + profile.repositories, 0),
+    [profiles],
   );
 
   const savedStats = [
     {
       label: 'Saved profiles',
-      value: savedProfiles.length,
+      value: profiles.length,
       icon: Bookmark,
       accentColor: '#8B5CF6',
     },
     {
       label: 'Pinned profiles',
-      value: pinnedProfiles,
+      value: totalPinned,
       icon: Pin,
       accentColor: '#F59E0B',
     },

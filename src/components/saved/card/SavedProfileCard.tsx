@@ -26,6 +26,7 @@ const SavedProfileCard = ({
   draggable,
   onPin,
   onOpen,
+  onDelete,
 }: SavedProfileCardProps) => {
   return (
     <article
@@ -78,7 +79,7 @@ const SavedProfileCard = ({
             />
           </button>
 
-          <SavedProfileMenu profile={profile} />
+          <SavedProfileMenu profile={profile} onDelete={onDelete} />
         </div>
       </div>
 

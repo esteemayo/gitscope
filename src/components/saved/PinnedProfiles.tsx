@@ -8,7 +8,7 @@ import SavedProfileCard from './card/SavedProfileCard';
 import { PinnedProfilesProps } from '@/types/saved/pinned.profiles.type';
 import '../../styles/components/saved/PinnedProfiles.scss';
 
-const PinnedProfiles = ({ profiles }: PinnedProfilesProps) => {
+const PinnedProfiles = ({ profiles, onDelete }: PinnedProfilesProps) => {
   return (
     <section className='pinned-profiles'>
       <div className='pinned-profiles__header'>
@@ -24,7 +24,12 @@ const PinnedProfiles = ({ profiles }: PinnedProfilesProps) => {
       {profiles.length > 0 ? (
         <div className='pinned-profiles__grid'>
           {profiles.slice(0, 4).map((profile) => (
-            <SavedProfileCard key={profile.id} profile={profile} draggable />
+            <SavedProfileCard
+              key={profile.id}
+              profile={profile}
+              onDelete={onDelete}
+              draggable
+            />
           ))}
         </div>
       ) : (

@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { User2 } from 'lucide-react';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
-
-import DefaultAvatarIcon from '../icons/DefaultAvatarIcon';
+import { useState } from 'react';
 
 import { getInitials } from '@/utils/getInitials';
 import { getAvatarColor } from '@/utils/avatarColors';
@@ -26,10 +25,10 @@ const UserAvatar = ({
   size = 40,
   fallback = 'initials',
 }: UserAvatarProps) => {
-  const initials = getInitials(name);
-  const bcg = getAvatarColor(name || alt);
-
   const [error, setError] = useState(false);
+
+  const initials = getInitials(name);
+  const accentColor = getAvatarColor(name || alt);
 
   const showFallback = !src || error;
 
@@ -42,22 +41,26 @@ const UserAvatar = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className='user-avatar'
+          style={
+            {
+              '--size': `${size / 10}rem`,
+              '--accent-color': accentColor,
+            } as React.CSSProperties
+          }
         >
-          <div
-            className='user-avatar__fallback'
-            style={{
-              width: size,
-              height: size,
-              backgroundColor: `${bcg}20`,
-              color: bcg,
-            }}
-          >
+          <div className='user-avatar__fallback'>
             {fallback === 'initials' && initials ? (
               <span className='user-avatar__fallback--initials'>
                 {initials}
               </span>
             ) : (
-              <DefaultAvatarIcon size={size * 0.7} />
+              <User2
+                size={20}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
             )}
           </div>
         </motion.div>
@@ -72,6 +75,12 @@ const UserAvatar = ({
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}
         className='user-avatar'
+        style={
+          {
+            '--size': `${size / 10}rem`,
+            '--accent-color': accentColor,
+          } as React.CSSProperties
+        }
       >
         <Image
           key={src}

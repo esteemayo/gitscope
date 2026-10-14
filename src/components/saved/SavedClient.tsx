@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import SavedEmptyState from './SavedEmptyState';
 import SavedStats from './SavedStats';
@@ -10,6 +10,7 @@ import RecentlyViewed from './recent/RecentlyViewed';
 import SavedProfiles from './SavedProfiles';
 import SavedInsightsProfile from './insights/SavedInsightsProfile';
 import PinnedProfiles from './PinnedProfiles';
+import DeleteSavedProfileModal from './card/DeleteSavedProfileModal';
 
 import { savedProfiles } from '@/data/saved/saved-profiles.data';
 import { recentProfiles } from '@/data/saved/recent-profiles.data';
@@ -18,16 +19,27 @@ import { SavedProfile } from '@/types/saved/card';
 import { SavedView, SortDirection, SortField } from '@/types/saved';
 
 import '../../styles/components/saved/SavedClient.scss';
-import DeleteSavedProfileModal from './card/DeleteSavedProfileModal';
 
 const SavedClient = () => {
-  const [sortField, setSortField] = useState<SortField>('recent');
+  const [profiles, setProfiles] = useState<SavedProfile[]>([]);
   const [view, setView] = useState<SavedView>('grid');
-  const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
+  const [sortField, setSortField] = useState<SortField>('recent');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+  const [profileToDelete, setProfileToDelete] = useState<SavedProfile | null>(
+    null,
+  );
 
-  const pinnedProfiles = savedProfiles.filter((profile) => profile.isPinned);
-  const unpinnedProfiles = savedProfiles.filter((profile) => !profile.isPinned);
+  const pinnedProfiles = useMemo(
+    () => profiles.filter((profile) => profile.isPinned),
+    [profiles],
+  );
+
+  const unpinnedProfiles = useMemo(
+    () => profiles.filter((profile) => !profile.isPinned),
+    [profiles],
+  );
 
   const sortedProfiles = useMemo(() => {
     const profiles = [...unpinnedProfiles];
@@ -75,17 +87,57 @@ const SavedClient = () => {
     });
   }, [searchQuery, sortedProfiles]);
 
+  const handleCloseModal = () => {
+    if (isDeleting) return;
+
+    setProfileToDelete(null);
+    setIsDeleting(false);
+  };
+
+  const handleDeleteProfile = async () => {
+    if (isDeleting) return;
+
+    setIsDeleting(true);
+
+    try {
+      setProfiles((prev) =>
+        prev.filter((profile) => profile.id !== profileToDelete?.id),
+      );
+    } catch (err: unknown) {
+      console.log(err);
+      setIsDeleting(false);
+    } finally {
+      setIsDeleting(false);
+      setProfileToDelete(null);
+    }
+  };
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => {
+      setProfiles(savedProfiles);
+    });
+
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
   return (
     <div className='saved-client'>
       <div className='saved-client__container'>
         <SavedHeader />
+
         {savedProfiles.length === 0 ? (
           <SavedEmptyState />
         ) : (
           <>
-            <SavedStats />
+            <SavedStats
+              profiles={profiles}
+              totalPinned={pinnedProfiles.length}
+            />
 
-            <PinnedProfiles profiles={pinnedProfiles} />
+            <PinnedProfiles
+              profiles={pinnedProfiles}
+              onDelete={setProfileToDelete}
+            />
 
             <section className='saved-client__section'>
               <SavedToolbar
@@ -99,7 +151,11 @@ const SavedClient = () => {
                 onSortDirectionChange={setSortDirection}
               />
 
-              <SavedProfiles view={view} profiles={filteredProfiles} />
+              <SavedProfiles
+                view={view}
+                profiles={filteredProfiles}
+                onDelete={setProfileToDelete}
+              />
             </section>
           </>
         )}
@@ -108,7 +164,14 @@ const SavedClient = () => {
 
         <SavedInsightsProfile profiles={savedProfiles} />
       </div>
-      <DeleteSavedProfileModal />
+
+      <DeleteSavedProfileModal
+        isOpen={!!profileToDelete}
+        isDeleting={isDeleting}
+        profile={profileToDelete}
+        onClose={handleCloseModal}
+        onConfirm={handleDeleteProfile}
+      />
     </div>
   );
 };

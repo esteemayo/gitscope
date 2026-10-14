@@ -8,7 +8,7 @@ import { SavedProfilesProps } from '@/types/saved/saved.profiles.type';
 
 import '../../styles/components/saved/SavedProfiles.scss';
 
-const SavedProfiles = ({ view, profiles }: SavedProfilesProps) => {
+const SavedProfiles = ({ view, profiles, onDelete }: SavedProfilesProps) => {
   if (profiles.length === 0) {
     return (
       <div className='saved-profiles__empty'>
@@ -38,6 +38,7 @@ const SavedProfiles = ({ view, profiles }: SavedProfilesProps) => {
             key={profile.id}
             view={view}
             profile={profile}
+            onDelete={onDelete}
             draggable
           />
         ))}

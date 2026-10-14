@@ -1,20 +1,49 @@
 'use client';
 
-import Image from 'next/image';
 import { useRef } from 'react';
-import { Trash2, X } from 'lucide-react';
+import { LoaderCircle, Trash2, X } from 'lucide-react';
 
-import { useFocusTrap } from '@/hooks/useFocusTrap';
-import { useScrollLock } from '@/hooks/useScrollLock';
+import UserAvatar from '@/components/ui/UserAvatar';
+
+import { SavedProfile } from '@/types/saved/card';
+import { useOverlay } from '@/hooks/useOverlay';
+import { useClickOutside } from '@/hooks/useClickOutside';
 
 import '../../../styles/components/saved/card/DeleteSavedProfileModal.scss';
 
-const DeleteSavedProfileModal = () => {
-  const isOpen = true;
+interface DeleteSavedProfileModalProps {
+  isOpen: boolean;
+  isDeleting?: boolean;
+  profile: SavedProfile | null;
+  onClose(): void;
+  onConfirm(): void;
+}
+
+const DeleteSavedProfileModal = ({
+  isOpen,
+  isDeleting,
+  profile,
+  onClose,
+  onConfirm,
+}: DeleteSavedProfileModalProps) => {
   const ref = useRef<HTMLElement | null>(null);
 
-  useScrollLock(isOpen);
-  useFocusTrap(ref, isOpen);
+  const getProfileName = () => {
+    return profile?.name?.trim() || profile?.login;
+  };
+
+  const handleClose = () => {
+    if (isDeleting) return;
+
+    onClose();
+  };
+
+  useClickOutside(ref, isOpen, handleClose);
+  useOverlay(ref, { isOpen, onClose: handleClose });
+
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <div className='delete-saved-profile-modal'>
@@ -29,6 +58,7 @@ const DeleteSavedProfileModal = () => {
         >
           <button
             type='button'
+            onClick={handleClose}
             className='delete-saved-profile-modal__close-btn'
             aria-label='Close confirmation dialog'
           >
@@ -69,24 +99,20 @@ const DeleteSavedProfileModal = () => {
           </div>
 
           <div className='delete-saved-profile-modal__profile'>
-            <div className='delete-saved-profile-modal__wrapper'>
-              <Image
-                src='/avatar-2.jpg'
-                width={44}
-                height={44}
-                alt='avatar'
-                unoptimized
-                className='delete-saved-profile-modal__wrapper--avatar'
-              />
-            </div>
+            <UserAvatar
+              src={profile?.avatarUrl as string}
+              size={44}
+              name={profile?.name as string}
+              alt={`${getProfileName()}'s avatar`}
+            />
 
             <div className='delete-saved-profile-modal__info'>
               <span className='delete-saved-profile-modal__info--username'>
-                @esteemayo
+                @{profile?.login}
               </span>
 
               <span className='delete-saved-profile-modal__info--name'>
-                Emmanuel Adebayo
+                {getProfileName()}
               </span>
             </div>
 
@@ -99,16 +125,47 @@ const DeleteSavedProfileModal = () => {
           <div className='delete-saved-profile-modal__actions'>
             <button
               type='button'
+              onClick={handleClose}
+              disabled={isDeleting}
               className='delete-saved-profile-modal__actions--btn-cancel'
+              aria-disabled={isDeleting}
             >
               Cancel
             </button>
 
             <button
               type='button'
+              onClick={onConfirm}
+              disabled={isDeleting}
               className='delete-saved-profile-modal__actions--btn-delete'
+              aria-disabled={isDeleting}
             >
-              Delete profile
+              {isDeleting ? (
+                <>
+                  <LoaderCircle
+                    size={17}
+                    strokeWidth={1.8}
+                    className='delete-saved-profile-modal__actions--spinner'
+                    role='img'
+                    aria-hidden='true'
+                    focusable='false'
+                  />
+
+                  <span>Removing...</span>
+                </>
+              ) : (
+                <>
+                  <Trash2
+                    size={17}
+                    strokeWidth={1.8}
+                    role='img'
+                    aria-hidden='true'
+                    focusable='false'
+                  />
+
+                  <span>Delete profile</span>
+                </>
+              )}
             </button>
           </div>
         </section>
