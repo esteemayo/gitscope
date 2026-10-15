@@ -71,6 +71,7 @@
 
     @include bp.sm {
       grid-template-columns: 1fr;
+      gap: 1.4rem;
     }
   }
 

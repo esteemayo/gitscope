@@ -124,6 +124,7 @@
       background-color: var(--accent);
       color: var(--color-white-50);
       border-radius: 0.875rem;
+      user-select: none;
       transition:
         background-color 0.25s ease,
         color 0.25s ease,

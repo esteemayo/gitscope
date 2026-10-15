@@ -125,7 +125,7 @@ const SavedClient = () => {
       <div className='saved-client__container'>
         <SavedHeader />
 
-        {savedProfiles.length === 0 ? (
+        {(profiles ?? []).length === 0 ? (
           <SavedEmptyState />
         ) : (
           <>
@@ -162,7 +162,7 @@ const SavedClient = () => {
 
         <RecentlyViewed profiles={recentProfiles} />
 
-        <SavedInsightsProfile profiles={savedProfiles} />
+        <SavedInsightsProfile profiles={profiles} />
       </div>
 
       <DeleteSavedProfileModal

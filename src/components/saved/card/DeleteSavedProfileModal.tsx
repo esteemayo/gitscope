@@ -5,19 +5,11 @@ import { LoaderCircle, Trash2, X } from 'lucide-react';
 
 import UserAvatar from '@/components/ui/UserAvatar';
 
-import { SavedProfile } from '@/types/saved/card';
-import { useOverlay } from '@/hooks/useOverlay';
 import { useClickOutside } from '@/hooks/useClickOutside';
+import { useOverlay } from '@/hooks/useOverlay';
+import { DeleteSavedProfileModalProps } from '@/types/saved/card/delete.saved.profile.modal';
 
 import '../../../styles/components/saved/card/DeleteSavedProfileModal.scss';
-
-interface DeleteSavedProfileModalProps {
-  isOpen: boolean;
-  isDeleting?: boolean;
-  profile: SavedProfile | null;
-  onClose(): void;
-  onConfirm(): void;
-}
 
 const DeleteSavedProfileModal = ({
   isOpen,
@@ -98,7 +90,14 @@ const DeleteSavedProfileModal = ({
             </p>
           </div>
 
-          <div className='delete-saved-profile-modal__profile'>
+          <div
+            className='delete-saved-profile-modal__profile'
+            style={
+              {
+                '--accent-color': profile?.accentColor,
+              } as React.CSSProperties
+            }
+          >
             <UserAvatar
               src={profile?.avatarUrl as string}
               size={44}
@@ -117,7 +116,7 @@ const DeleteSavedProfileModal = ({
             </div>
 
             <span
-              className='delete-saved-profile-modal__accent'
+              className='delete-saved-profile-modal__profile--accent'
               aria-hidden='true'
             />
           </div>
