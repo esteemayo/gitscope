@@ -2,17 +2,19 @@
 
 import { useEffect, useMemo, useState } from 'react';
 
-import SavedEmptyState from './SavedEmptyState';
-import SavedStats from './SavedStats';
 import SavedToolbar from './toolbar/SavedToolbar';
-import SavedHeader from './SavedHeader';
+import SavedStats from './SavedStats';
 import RecentlyViewed from './recent/RecentlyViewed';
+import SavedHeader from './SavedHeader';
+import SavedProfilesChart from './SavedProfilesChart';
 import SavedProfiles from './SavedProfiles';
 import SavedInsightsProfile from './insights/SavedInsightsProfile';
 import PinnedProfiles from './PinnedProfiles';
 import DeleteSavedProfileModal from './card/DeleteSavedProfileModal';
+import SavedEmptyState from './SavedEmptyState';
 
 import { savedProfiles } from '@/data/saved/saved-profiles.data';
+import { MAX_PINNED_PROFILES } from '@/constants/savedProfiles';
 import { recentProfiles } from '@/data/saved/recent-profiles.data';
 
 import { SavedProfile } from '@/types/saved/card';
@@ -40,6 +42,13 @@ const SavedClient = () => {
     () => profiles.filter((profile) => !profile.isPinned),
     [profiles],
   );
+
+  const pinnedCount = useMemo(
+    () => pinnedProfiles.length,
+    [pinnedProfiles.length],
+  );
+
+  const hasReachedPinLimit = pinnedCount >= MAX_PINNED_PROFILES;
 
   const sortedProfiles = useMemo(() => {
     const profiles = [...unpinnedProfiles];
@@ -86,6 +95,34 @@ const SavedClient = () => {
       return searchable.includes(query);
     });
   }, [searchQuery, sortedProfiles]);
+
+  const handleTogglePin = (profileId: number) => {
+    setProfiles((currentProfiles) => {
+      const targetProfile = currentProfiles.find(
+        (profile) => profile.id === profileId,
+      );
+
+      if (!targetProfile) return currentProfiles;
+
+      if (targetProfile.isPinned) {
+        return currentProfiles.map((profile) =>
+          profile.id === profileId ? { ...profile, isPinned: false } : profile,
+        );
+      }
+
+      const currentPinnedCount = currentProfiles.filter(
+        (profile) => profile.isPinned,
+      ).length;
+
+      if (currentPinnedCount >= MAX_PINNED_PROFILES) {
+        return currentProfiles;
+      }
+
+      return currentProfiles.map((profile) =>
+        profile.id === profileId ? { ...profile, isPinned: true } : profile,
+      );
+    });
+  };
 
   const handleCloseModal = () => {
     if (isDeleting) return;
@@ -136,6 +173,7 @@ const SavedClient = () => {
 
             <PinnedProfiles
               profiles={pinnedProfiles}
+              onToggle={handleTogglePin}
               onDelete={setProfileToDelete}
             />
 
@@ -154,6 +192,8 @@ const SavedClient = () => {
               <SavedProfiles
                 view={view}
                 profiles={filteredProfiles}
+                hasReachedPinLimit={hasReachedPinLimit}
+                onToggle={handleTogglePin}
                 onDelete={setProfileToDelete}
               />
             </section>
@@ -163,6 +203,8 @@ const SavedClient = () => {
         <RecentlyViewed profiles={recentProfiles} />
 
         <SavedInsightsProfile profiles={profiles} />
+
+        <SavedProfilesChart profiles={profiles} />
       </div>
 
       <DeleteSavedProfileModal

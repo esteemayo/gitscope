@@ -8,7 +8,13 @@ import { SavedProfilesProps } from '@/types/saved/saved.profiles.type';
 
 import '../../styles/components/saved/SavedProfiles.scss';
 
-const SavedProfiles = ({ view, profiles, onDelete }: SavedProfilesProps) => {
+const SavedProfiles = ({
+  view,
+  profiles,
+  hasReachedPinLimit,
+  onToggle,
+  onDelete,
+}: SavedProfilesProps) => {
   if (profiles.length === 0) {
     return (
       <div className='saved-profiles__empty'>
@@ -38,8 +44,10 @@ const SavedProfiles = ({ view, profiles, onDelete }: SavedProfilesProps) => {
             key={profile.id}
             view={view}
             profile={profile}
+            onPin={onToggle}
             onDelete={onDelete}
-            draggable
+            draggable={true}
+            isPinDisabled={!profile.isPinned && hasReachedPinLimit}
           />
         ))}
       </motion.div>

@@ -1,0 +1,224 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.saved-profiles-chart {
+  width: 100%;
+  min-width: 0;
+  margin-top: 8rem;
+  padding: 2.4rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 1.8rem;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  @include bp.md {
+    margin-top: 5.6rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    min-width: 0;
+  }
+
+  &__icon {
+    flex: 0 0 4rem;
+
+    display: grid;
+    place-items: center;
+
+    width: 4rem;
+    height: 4rem;
+    background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+    border-radius: 0.875rem;
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    min-width: 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: 100%;
+      letter-spacing: -0.3px;
+    }
+
+    &--description {
+      text-wrap: pretty;
+      color: var(--text-muted);
+      line-height: 1.5;
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__metric-selector {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+
+    padding: 4px;
+    background-color: color-mix(in srgb, var(--accent) 5%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    border-radius: 0.875rem;
+  }
+
+  &__metric-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+
+    min-height: 3.4rem;
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    white-space: nowrap;
+    padding: 0 1.1rem;
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    &:hover {
+      color: var(--text);
+    }
+
+    &[data-active='true'] {
+      color: var(--text);
+      color: var(--color-white-50);
+      background-color: var(--accent);
+      border-color: var(--border);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:focus-visible {
+      @include focus-ring($width: 2px, $color: var(--accent), $offset: 2px);
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    margin-top: 2.8rem;
+
+    &--description,
+    &--count {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__chart {
+    width: 100%;
+    height: 30rem;
+    margin-top: 1.2rem;
+
+    svg {
+      outline: none;
+    }
+  }
+
+  &__tooltip {
+    min-width: 17rem;
+    padding: 1.2rem 1.4rem;
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border);
+    box-shadow: 0 1rem 3.2rem rgba(0, 0, 0, 0.16);
+    border-radius: var(--radius);
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    &--heading {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    &--dot {
+      flex: 0 0 auto;
+
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+    }
+
+    &--login {
+    }
+
+    &--value {
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    margin-top: 1.4rem;
+    padding-top: 1.4rem;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    line-height: 1.5;
+
+    &--dot {
+      width: 0.8rem;
+      height: 0.8rem;
+      background-color: var(--accent);
+      border-radius: 100%;
+    }
+  }
+}

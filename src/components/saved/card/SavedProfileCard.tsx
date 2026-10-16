@@ -8,6 +8,7 @@ import {
   GripVertical,
   MapPin,
   Pin,
+  PinOff,
   Star,
 } from 'lucide-react';
 
@@ -15,6 +16,7 @@ import SavedProfileMenu from './SavedProfileMenu';
 import SavedMetric from './SavedMetric';
 import SavedProfileImage from './SavedProfileImage';
 
+import { MAX_PINNED_PROFILES } from '@/constants/savedProfiles';
 import { formatTimeAgo } from '@/utils/formatTimeAgo';
 import { SavedProfileCardProps } from '@/types/saved/card/saved.profile.card.type';
 
@@ -24,6 +26,7 @@ const SavedProfileCard = ({
   view,
   profile,
   draggable,
+  isPinDisabled,
   onPin,
   onOpen,
   onDelete,
@@ -61,22 +64,41 @@ const SavedProfileCard = ({
         <div className='saved-profile-card__actions'>
           <button
             type='button'
+            onClick={() => onPin?.(profile.id)}
             className='saved-profile-card__pin-btn'
+            disabled={isPinDisabled}
             aria-label={
               profile.isPinned
                 ? `Unpin ${profile.login}`
                 : `Pin ${profile.login}`
             }
             aria-pressed={profile.isPinned}
-            onClick={() => onPin?.(profile.id)}
+            aria-disabled={isPinDisabled}
+            title={
+              isPinDisabled
+                ? `You can pin up to ${MAX_PINNED_PROFILES} profiles. Unpin a profile to make a room.`
+                : profile.isPinned
+                  ? 'Unpin profile'
+                  : 'Pin profile'
+            }
           >
-            <Pin
-              size={16}
-              strokeWidth={1.8}
-              role='img'
-              aria-hidden='true'
-              focusable='false'
-            />
+            {profile.isPinned ? (
+              <PinOff
+                size={16}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+            ) : (
+              <Pin
+                size={16}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+            )}
           </button>
 
           <SavedProfileMenu profile={profile} onDelete={onDelete} />
