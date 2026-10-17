@@ -1,7 +1,7 @@
 'use client';
 
-import { GitFork, LucideIcon, Star, Users2 } from 'lucide-react';
-import { useState } from 'react';
+import { GitFork, type LucideIcon, Star, Users2 } from 'lucide-react';
+import { useMemo, useState } from 'react';
 import {
   Bar,
   BarChart,
@@ -13,12 +13,14 @@ import {
 } from 'recharts';
 import { RechartsDevtools } from '@recharts/devtools';
 
-import SavedHeading from './SavedHeading';
+import SavedHeading from '../SavedHeading';
+import SavedProfilesChartTooltip from './SavedProfilesChartTooltip';
 
-import { SavedProfile } from '@/types/saved/card';
 import { formatNumber } from '@/utils/formatNumber';
+import { SavedProfile } from '@/types/saved/card';
+import { MAX_CHART_PROFILES } from '@/constants/savedProfiles';
 
-import '../../styles/components/saved/SavedProfilesChart.scss';
+import '../../../styles/components/saved/chart/SavedProfilesChart.scss';
 
 type Metric = 'repositories' | 'followers' | 'stars';
 
@@ -57,13 +59,18 @@ const metrics: MetricItem[] = [
 const SavedProfilesChart = ({ profiles }: SavedProfilesChartProps) => {
   const [metric, setMetric] = useState<Metric>('repositories');
 
-  const chartData = profiles.map((profile) => ({
-    id: profile.id,
-    login: profile.login,
-    name: profile.name || profile.login,
-    value: profile[metric],
-    accentColor: profile.accentColor,
-  }));
+  const chartData = useMemo(() => {
+    return profiles
+      .map((profile) => ({
+        id: profile.id,
+        login: profile.login,
+        name: profile.name || profile.login,
+        value: profile[metric],
+        accentColor: profile.accentColor,
+      }))
+      .sort((a, b) => b.value - a.value)
+      .slice(0, MAX_CHART_PROFILES);
+  }, [metric, profiles]);
 
   const selectedMetric = metrics.find((item) => item.value === metric);
 
@@ -157,6 +164,9 @@ const SavedProfilesChart = ({ profiles }: SavedProfilesChartProps) => {
 
       <div
         className='saved-profiles-chart__chart'
+        style={{
+          height: `${Math.max(220, chartData.length * 42)}px`,
+        }}
         role='img'
         aria-label={`${selectedMetric?.label} comparison for saved GitHub profiles, ordered from highest to lowest`}
       >
@@ -168,8 +178,8 @@ const SavedProfilesChart = ({ profiles }: SavedProfilesChartProps) => {
           responsive
           data={chartData}
           layout='vertical'
-          margin={{ top: 4, right: 24, bottom: 4, left: 4 }}
-          barCategoryGap={12}
+          margin={{ top: 4, right: 24, bottom: 4, left: 8 }}
+          barCategoryGap={15}
           tabIndex={-1}
         >
           <CartesianGrid
@@ -199,34 +209,29 @@ const SavedProfilesChart = ({ profiles }: SavedProfilesChartProps) => {
           />
 
           <Tooltip
-            cursor={{ fill: 'var(--bg-sidebar)', opacity: 0.7 }}
-            content={({ active, payload }) => {
-              if (!active || !payload?.length) return null;
-
-              const item = payload[0].payload as (typeof chartData)[number];
-
-              return (
-                <div className='saved-profiles-chart__tooltip'>
-                  <div className='saved-profiles-chart__tooltip--heading'>
-                    <span
-                      className='saved-profiles-chart__tooltip--dot'
-                      style={{ backgroundColor: item.accentColor }}
-                    />
-
-                    <span>{item.name}</span>
-                  </div>
-
-                  <span className='saved-profiles-chart__tooltip--login'>
-                    {item.login}
-                  </span>
-
-                  <div className='saved-profiles-chart__tooltip--value'>
-                    {formatNumber(item.value)}{' '}
-                    <span>{selectedMetric?.label.toLowerCase()}</span>
-                  </div>
-                </div>
-              );
+            cursor={{
+              fill: 'color-mix(in srgb, var(--border) 30%, transparent)',
+              opacity: 0.7,
             }}
+            content={(props) => (
+              <SavedProfilesChartTooltip
+                active={props.active}
+                payload={
+                  props.payload as unknown as
+                    | Array<{
+                        payload: {
+                          name: string;
+                          login: string;
+                          value: number;
+                          accentColor: string;
+                        };
+                      }>
+                    | undefined
+                }
+                metricLabel={selectedMetric?.label}
+                formatNumber={formatNumber}
+              />
+            )}
           />
 
           <Bar

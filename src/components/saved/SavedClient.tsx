@@ -6,7 +6,7 @@ import SavedToolbar from './toolbar/SavedToolbar';
 import SavedStats from './SavedStats';
 import RecentlyViewed from './recent/RecentlyViewed';
 import SavedHeader from './SavedHeader';
-import SavedProfilesChart from './SavedProfilesChart';
+import SavedProfilesChart from './chart/SavedProfilesChart';
 import SavedProfiles from './SavedProfiles';
 import SavedInsightsProfile from './insights/SavedInsightsProfile';
 import PinnedProfiles from './PinnedProfiles';

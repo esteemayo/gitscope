@@ -1,6 +1,6 @@
-@use '../../abstracts/mixins' as *;
-@use '../../abstracts/animation';
-@use '../../abstracts/responsive' as bp;
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
 
 .saved-profiles-chart {
   width: 100%;
@@ -16,12 +16,24 @@
 
   @include bp.md {
     margin-top: 5.6rem;
+    padding: 2rem;
+  }
+
+  @media (max-width: 26.25em) {
+    padding: 1.6rem;
+    border-radius: 1.4rem;
   }
 
   &__header {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+
+    @include bp.md {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.8rem;
+    }
   }
 
   &__heading {
@@ -88,6 +100,18 @@
     background-color: color-mix(in srgb, var(--accent) 5%, transparent);
     border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     border-radius: 0.875rem;
+
+    @include bp.md {
+      align-self: flex-start;
+      max-width: 100%;
+    }
+
+    @media (max-width: 26.25em) {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(min-content, 1fr));
+
+      width: 100%;
+    }
   }
 
   &__metric-btn {
@@ -110,6 +134,21 @@
       background-color 0.25s ease,
       color 0.25s ease,
       border-color 0.25s ease;
+
+    @include bp.md {
+      padding: 0 0.9rem;
+    }
+
+    @media (max-width: 26.25em) {
+      gap: 0.5rem;
+
+      padding: 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
 
     &:hover {
       color: var(--text);
@@ -152,6 +191,10 @@
 
     margin-top: 2.8rem;
 
+    @media (max-width: 26.25em) {
+      margin-top: 2.2rem;
+    }
+
     &--description,
     &--count {
       font-size: 1.1rem;
@@ -165,40 +208,13 @@
     height: 30rem;
     margin-top: 1.2rem;
 
-    svg {
+    @media (max-width: 26.25em) {
+      height: 26rem;
+    }
+
+    svg,
+    g {
       outline: none;
-    }
-  }
-
-  &__tooltip {
-    min-width: 17rem;
-    padding: 1.2rem 1.4rem;
-    background-color: var(--bg-sidebar);
-    border: 1px solid var(--border);
-    box-shadow: 0 1rem 3.2rem rgba(0, 0, 0, 0.16);
-    border-radius: var(--radius);
-    transition:
-      background-color 0.25s ease,
-      border-color 0.25s ease;
-
-    &--heading {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    &--dot {
-      flex: 0 0 auto;
-
-      width: 0.8rem;
-      height: 0.8rem;
-      border-radius: 50%;
-    }
-
-    &--login {
-    }
-
-    &--value {
     }
   }
 
@@ -218,6 +234,7 @@
       width: 0.8rem;
       height: 0.8rem;
       background-color: var(--accent);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 10%, transparent);
       border-radius: 100%;
     }
   }
