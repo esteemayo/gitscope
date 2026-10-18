@@ -73,6 +73,9 @@
     border: 1px solid transparent;
     border-radius: 0.625rem;
     cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
 
     @media (max-width: 32.5em) {
       top: 1.6rem;
@@ -84,6 +87,7 @@
     }
 
     &:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--accent) 5%, transparent);
       border-color: color-mix(in srgb, var(--border) 60%, transparent);
     }
 
@@ -96,7 +100,7 @@
     }
 
     &:disabled {
-      opacity: 0.5;
+      opacity: 0.75;
       pointer-events: none;
     }
   }

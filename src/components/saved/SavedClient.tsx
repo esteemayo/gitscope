@@ -132,20 +132,24 @@ const SavedClient = () => {
   };
 
   const handleDeleteProfile = async () => {
-    if (isDeleting) return;
+    if (isDeleting || !profileToDelete) return;
 
     setIsDeleting(true);
 
     try {
+      await new Promise<void>((resolve) => {
+        setTimeout(resolve, 1200);
+      });
+
       setProfiles((prev) =>
         prev.filter((profile) => profile.id !== profileToDelete?.id),
       );
+
+      setProfileToDelete(null);
     } catch (err: unknown) {
-      console.log(err);
-      setIsDeleting(false);
+      console.log('Faled to delete saved profile:', err);
     } finally {
       setIsDeleting(false);
-      setProfileToDelete(null);
     }
   };
 
@@ -157,12 +161,14 @@ const SavedClient = () => {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  const hasSavedProfiles = (profiles ?? []).length > 0;
+
   return (
     <div className='saved-client'>
       <div className='saved-client__container'>
         <SavedHeader />
 
-        {(profiles ?? []).length === 0 ? (
+        {!hasSavedProfiles ? (
           <SavedEmptyState />
         ) : (
           <>
@@ -196,15 +202,15 @@ const SavedClient = () => {
                 onToggle={handleTogglePin}
                 onDelete={setProfileToDelete}
               />
+
+              <SavedInsightsProfile profiles={profiles} />
+
+              <SavedProfilesChart profiles={profiles} />
             </section>
           </>
         )}
 
         <RecentlyViewed profiles={recentProfiles} />
-
-        <SavedInsightsProfile profiles={profiles} />
-
-        <SavedProfilesChart profiles={profiles} />
       </div>
 
       <DeleteSavedProfileModal

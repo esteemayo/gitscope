@@ -3,90 +3,61 @@
 @use '../../../abstracts/responsive' as bp;
 
 .saved-profiles-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
   width: 100%;
   min-width: 0;
   margin-top: 8rem;
-  padding: 2.4rem;
-  background-color: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  border-radius: 1.8rem;
-  transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease;
 
   @include bp.md {
     margin-top: 5.6rem;
-    padding: 2rem;
-  }
-
-  @media (max-width: 26.25em) {
-    padding: 1.6rem;
-    border-radius: 1.4rem;
   }
 
   &__header {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
+    min-width: 0;
+  }
+
+  &__card {
+    padding: 2.4rem;
+    background:
+      linear-gradient(
+        145deg,
+        color-mix(in srgb, var(--accent) 5%, transparent),
+        transparent 45%
+      ),
+      var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 1.6rem;
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
 
     @include bp.md {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 1.8rem;
+      padding: 2rem;
+    }
+
+    @media (max-width: 40em) {
+      padding: 1.6rem;
+      border-radius: var(--radius);
+    }
+
+    @media (max-width: 37.5em) {
+      padding: 1.4rem;
     }
   }
 
-  &__heading {
+  &__controls {
     display: flex;
-    align-items: center;
-    gap: 1.2rem;
+    justify-content: flex-end;
 
-    min-width: 0;
-  }
+    margin-bottom: 2rem;
 
-  &__icon {
-    flex: 0 0 4rem;
-
-    display: grid;
-    place-items: center;
-
-    width: 4rem;
-    height: 4rem;
-    background-color: color-mix(in srgb, var(--accent) 12%, transparent);
-    color: var(--accent);
-    border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
-    border-radius: 0.875rem;
-
-    svg {
-      width: 1.8rem;
-      height: 1.8rem;
-      color: currentColor;
-      stroke: currentColor;
-    }
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    min-width: 0;
-
-    &--title {
-      display: inline-block;
-      text-transform: none;
-      text-rendering: optimizeLegibility;
-      text-wrap: balance;
-      font-weight: 600;
-      font-size: 100%;
-      letter-spacing: -0.3px;
-    }
-
-    &--description {
-      text-wrap: pretty;
-      color: var(--text-muted);
-      line-height: 1.5;
-      transition: color 0.25s ease;
+    @media (max-width: 40em) {
+      justify-content: flex-start;
     }
   }
 
@@ -100,6 +71,7 @@
     background-color: color-mix(in srgb, var(--accent) 5%, transparent);
     border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     border-radius: 0.875rem;
+    transition: border-color 0.25s ease;
 
     @include bp.md {
       align-self: flex-start;
@@ -155,7 +127,6 @@
     }
 
     &[data-active='true'] {
-      color: var(--text);
       color: var(--color-white-50);
       background-color: var(--accent);
       border-color: var(--border);
@@ -189,12 +160,6 @@
     justify-content: space-between;
     gap: 1.2rem;
 
-    margin-top: 2.8rem;
-
-    @media (max-width: 26.25em) {
-      margin-top: 2.2rem;
-    }
-
     &--description,
     &--count {
       font-size: 1.1rem;
@@ -205,6 +170,7 @@
 
   &__chart {
     width: 100%;
+    min-width: 0;
     height: 30rem;
     margin-top: 1.2rem;
 
@@ -225,10 +191,8 @@
 
     margin-top: 1.4rem;
     padding-top: 1.4rem;
-    font-size: 1.1rem;
-    color: var(--text-muted);
     border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
-    line-height: 1.5;
+    transition: border-color 0.25s ease;
 
     &--dot {
       width: 0.8rem;
@@ -236,6 +200,14 @@
       background-color: var(--accent);
       box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 10%, transparent);
       border-radius: 100%;
+    }
+
+    &--text {
+      text-wrap: pretty;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      transition: color 0.25s ease;
     }
   }
 }

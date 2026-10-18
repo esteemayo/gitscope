@@ -51,8 +51,10 @@ const DeleteSavedProfileModal = ({
           <button
             type='button'
             onClick={handleClose}
+            disabled={isDeleting}
             className='delete-saved-profile-modal__close-btn'
             aria-label='Close confirmation dialog'
+            aria-disabled={isDeleting}
           >
             <X
               size={19}
