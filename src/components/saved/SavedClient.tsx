@@ -13,8 +13,10 @@ import PinnedProfiles from './PinnedProfiles';
 import DeleteSavedProfileModal from './card/DeleteSavedProfileModal';
 import SavedEmptyState from './SavedEmptyState';
 
+import * as constant from '@/constants/savedProfiles';
+import { usePaginationSlice } from '@/hooks/usePaginationSlice';
+
 import { savedProfiles } from '@/data/saved/saved-profiles.data';
-import { MAX_PINNED_PROFILES } from '@/constants/savedProfiles';
 import { recentProfiles } from '@/data/saved/recent-profiles.data';
 
 import { SavedProfile } from '@/types/saved/card';
@@ -48,7 +50,7 @@ const SavedClient = () => {
     [pinnedProfiles.length],
   );
 
-  const hasReachedPinLimit = pinnedCount >= MAX_PINNED_PROFILES;
+  const hasReachedPinLimit = pinnedCount >= constant.MAX_PINNED_PROFILES;
 
   const sortedProfiles = useMemo(() => {
     const profiles = [...unpinnedProfiles];
@@ -96,6 +98,12 @@ const SavedClient = () => {
     });
   }, [searchQuery, sortedProfiles]);
 
+  const { canExpand, isExpanded, showLess, showMore, visibleItems } =
+    usePaginationSlice(filteredProfiles, {
+      step: constant.INITIAL_VISIBLE_STEP,
+      initialCount: constant.INITIAL_VISIBLE_COUNT,
+    });
+
   const handleTogglePin = (profileId: number) => {
     setProfiles((currentProfiles) => {
       const targetProfile = currentProfiles.find(
@@ -114,7 +122,7 @@ const SavedClient = () => {
         (profile) => profile.isPinned,
       ).length;
 
-      if (currentPinnedCount >= MAX_PINNED_PROFILES) {
+      if (currentPinnedCount >= constant.MAX_PINNED_PROFILES) {
         return currentProfiles;
       }
 
@@ -197,8 +205,12 @@ const SavedClient = () => {
 
               <SavedProfiles
                 view={view}
-                profiles={filteredProfiles}
+                profiles={visibleItems}
+                canExpand={canExpand}
+                isExpanded={isExpanded}
                 hasReachedPinLimit={hasReachedPinLimit}
+                showLess={showLess}
+                showMore={showMore}
                 onToggle={handleTogglePin}
                 onDelete={setProfileToDelete}
               />

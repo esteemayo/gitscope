@@ -3,26 +3,6 @@
 @use '../../abstracts/responsive' as bp;
 
 .saved-profiles {
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(min-content, 1fr));
-    gap: 1.6rem;
-
-    @include bp.lg {
-      grid-template-columns: repeat(2, minmax(min-content, 1fr));
-    }
-
-    @media (max-width: 45em) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
   &__empty {
     display: flex;
     align-items: center;
@@ -46,6 +26,103 @@
       color: var(--text-muted);
       line-height: 1.8;
       transition: color 0.25s ease;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    gap: 1.6rem;
+
+    @include bp.lg {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
+    @media (max-width: 45em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.4rem;
+
+    &--btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+
+      width: fit-content;
+      max-width: 100%;
+      min-height: 4.2rem;
+      font-weight: 600;
+      font-size: var(--fz-xs);
+      padding: 0 1.8rem;
+      background-color: transparent;
+      background-color: var(--bg-tertiary);
+      color: inherit;
+      border: 1px solid var(--border);
+      border-radius: 0.875rem;
+      cursor: pointer;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+
+      svg {
+        flex-shrink: 0;
+
+        width: 1.6rem;
+        height: 1.6rem;
+        color: var(--accent);
+        stroke: currentColor;
+        opacity: 0.75;
+        transition: opacity 0.25s ease;
+      }
+
+      span {
+        font-weight: inherit;
+        font-size: inherit;
+        color: currentColor;
+      }
+
+      &:hover {
+        background-color: var(--bg-tertiary);
+        color: var(--text-muted);
+        border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 8%, transparent);
+
+        svg {
+          opacity: 1;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        @include focus-ring($width: 2px, $color: var(--accent), $offset: 3px);
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        pointer-events: none;
+      }
     }
   }
 }

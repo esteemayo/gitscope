@@ -37,9 +37,9 @@ export const usePaginationSlice = <T>(
   return {
     canExpand,
     isExpanded,
-    visibleCount,
     showLess,
     showMore,
+    visibleCount,
     visibleItems,
   };
 };

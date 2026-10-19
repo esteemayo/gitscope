@@ -1,7 +1,8 @@
 'use client';
 
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
+import clsx from 'clsx';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 import SavedProfileCard from './card/SavedProfileCard';
 import { SavedProfilesProps } from '@/types/saved/saved.profiles.type';
@@ -11,7 +12,11 @@ import '../../styles/components/saved/SavedProfiles.scss';
 const SavedProfiles = ({
   view,
   profiles,
+  canExpand,
+  isExpanded,
   hasReachedPinLimit,
+  showLess,
+  showMore,
   onToggle,
   onDelete,
 }: SavedProfilesProps) => {
@@ -46,11 +51,48 @@ const SavedProfiles = ({
             profile={profile}
             onPin={onToggle}
             onDelete={onDelete}
-            draggable={true}
             isPinDisabled={!profile.isPinned && hasReachedPinLimit}
           />
         ))}
       </motion.div>
+
+      {canExpand && (
+        <div className='saved-profiles__cta'>
+          {isExpanded ? (
+            <button
+              type='button'
+              onClick={showLess}
+              className='saved-profiles__cta--btn'
+            >
+              <ChevronUp
+                size={16}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+
+              <span>Show less</span>
+            </button>
+          ) : (
+            <button
+              type='button'
+              onClick={showMore}
+              className='saved-profiles__cta--btn'
+            >
+              <ChevronDown
+                size={16}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+
+              <span>Show more profiles</span>
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
