@@ -104,6 +104,28 @@ const SavedClient = () => {
       initialCount: constant.INITIAL_VISIBLE_COUNT,
     });
 
+  const handlePinnedReorder = (reorderedProfiles: SavedProfile[]) => {
+    setProfiles((currentProfiles) => {
+      const reorderedById = new Map(
+        reorderedProfiles.map((profile, index) => [profile.id, index]),
+      );
+
+      const pinned = currentProfiles
+        .filter((profile) => profile.isPinned)
+        .sort(
+          (a, b) =>
+            (reorderedById.get(a.id) ?? Infinity) -
+            (reorderedById.get(b.id) ?? Infinity),
+        );
+
+      let index = 0;
+
+      return currentProfiles.map((profile) =>
+        profile.isPinned ? pinned[index++] : profile,
+      );
+    });
+  };
+
   const handleTogglePin = (profileId: number) => {
     setProfiles((currentProfiles) => {
       const targetProfile = currentProfiles.find(
@@ -187,6 +209,7 @@ const SavedClient = () => {
 
             <PinnedProfiles
               profiles={pinnedProfiles}
+              onReorder={handlePinnedReorder}
               onToggle={handleTogglePin}
               onDelete={setProfileToDelete}
             />

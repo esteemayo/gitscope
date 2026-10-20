@@ -157,6 +157,7 @@
       height: 1.6rem;
       color: currentColor;
       stroke: currentColor;
+      rotate: 45deg;
     }
 
     &:focus {
@@ -192,7 +193,6 @@
 
     min-width: 0;
     position: relative;
-    z-index: 1000;
 
     &--name {
       display: inline-block;

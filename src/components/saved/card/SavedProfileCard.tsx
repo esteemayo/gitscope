@@ -1,7 +1,9 @@
 'use client';
 
-import Link from 'next/link';
+import { CSS } from '@dnd-kit/utilities';
 import clsx from 'clsx';
+import { useSortable } from '@dnd-kit/sortable';
+import Link from 'next/link';
 import {
   ArrowRight,
   ExternalLink,
@@ -22,17 +24,24 @@ import { SavedProfileCardProps } from '@/types/saved/card/saved.profile.card.typ
 
 import '../../../styles/components/saved/card/SavedProfileCard.scss';
 
+type CustomCSSProperties = React.CSSProperties & {
+  '--accent-color': string;
+};
+
 const SavedProfileCard = ({
   view,
   profile,
-  draggable,
+  isDraggable,
   isPinDisabled,
   onPin,
-  onOpen,
   onDelete,
 }: SavedProfileCardProps) => {
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: profile.id, disabled: !isDraggable });
+
   return (
     <article
+      ref={isDraggable ? setNodeRef : undefined}
       className={clsx('saved-profile-card', {
         'saved-profile-card--list': view === 'list',
       })}
@@ -40,16 +49,24 @@ const SavedProfileCard = ({
       style={
         {
           '--accent-color': profile.accentColor,
-        } as React.CSSProperties
+          ...(isDraggable
+            ? {
+                transform: CSS.Transform.toString(transform),
+                transition,
+              }
+            : {}),
+        } as CustomCSSProperties
       }
     >
       <div className='saved-profile-card__top'>
-        {draggable && (
+        {isDraggable && (
           <button
             type='button'
             className='saved-profile-card__drag-handle'
-            aria-label={`Reorder ${profile.login}`}
+            aria-label={`Reorder ${profile.name ?? profile.login}`}
             title='Drag to reorder'
+            {...attributes}
+            {...listeners}
           >
             <GripVertical
               size={17}
