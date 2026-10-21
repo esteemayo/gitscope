@@ -1,0 +1,7 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/variables' as vars;
+
+.repository-explorer {
+  width: 100%;
+}

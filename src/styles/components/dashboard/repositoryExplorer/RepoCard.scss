@@ -1,0 +1,11 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/variables' as vars;
+
+.repo-card {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  min-width: 0;
+}

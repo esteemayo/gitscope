@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import DashboardClient from '@/components/dashboard/DashboardClient';
 
 interface IParams {
@@ -8,8 +8,10 @@ interface IParams {
 export async function generateMetadata({ params }: IParams): Promise<Metadata> {
   const { username } = await params;
 
-  const capitalizedUsername =
-    username.slice(0, 1).toUpperCase().concat(username.slice(1));
+  const capitalizedUsername = username
+    .slice(0, 1)
+    .toUpperCase()
+    .concat(username.slice(1));
 
   return {
     title: `${capitalizedUsername}'s GitScope Dashboard`,
