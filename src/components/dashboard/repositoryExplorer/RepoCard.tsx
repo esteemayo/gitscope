@@ -1,25 +1,24 @@
 import clsx from 'clsx';
 import { Archive, ExternalLink, GitFork, Star } from 'lucide-react';
 
-import { RepositoryItem, RepositoryView } from '@/types/repository.type';
-import '../../../styles/components/dashboard/repositoryExplorer/RepositoryCard.scss';
+import { RepoCardProps } from '@/types/repository.type';
+import { getLanguageColor } from '@/utils/getLanguageColor';
 
-interface RepoCardProps {
-  repository: RepositoryItem;
-  view: RepositoryView;
-}
+import '../../../styles/components/dashboard/repositoryExplorer/RepoCard.scss';
 
 type CustomCSSProperties = React.CSSProperties & {
   '--accent-color': string;
 };
 
 const RepoCard = ({ repository, view }: RepoCardProps) => {
+  const accentColor = getLanguageColor(repository.language);
+
   return (
     <article
       className={clsx('repo-card')}
       style={
         {
-          '--accent-color': repository.accentColor,
+          '--accent-color': accentColor,
         } as CustomCSSProperties
       }
     >
@@ -43,19 +42,25 @@ const RepoCard = ({ repository, view }: RepoCardProps) => {
               )}
             </div>
 
-            <span className='repo-card__visibility'>Public repository</span>
+            <span className='repo-card__visibility'>
+              {repository.private ? 'Private' : 'Public'} repository
+            </span>
           </div>
 
-          <button
-            type='button'
-            className='repo-card__external-btn'
-            aria-label={`Open ${repository.name} repository`}
+          <a
+            href={repository.html_url}
+            target='_blank'
+            rel='noreferrer'
+            className='repo-card__external-link'
+            aria-label={`Open ${repository.full_name} on GitHub`}
           >
             <ExternalLink size={16} />
-          </button>
+          </a>
         </div>
 
-        <p className='repo-card__description'>{repository.description}</p>
+        <p className='repo-card__description'>
+          {repository.description || 'No description provided.'}
+        </p>
 
         <div className='repo-card__topics'>
           {repository.topics.map((topic) => (
@@ -69,25 +74,25 @@ const RepoCard = ({ repository, view }: RepoCardProps) => {
           <div className='repo-card__metrics'>
             <span className='repo-card__language'>
               <span className='repo-card__language--dot' aria-hidden='true' />
-              {repository.language}
+              {repository.language ?? 'Unknown'}
             </span>
 
             <span className='repo-card__stars'>
               <Star size={14} />
-              {repository.stars}
+              {repository.stargazers_count}
             </span>
 
             <span className='repo-card__forks'>
               <GitFork size={14} />
-              {repository.forks}
+              {repository.forks_count}
             </span>
           </div>
 
           <time
-            dateTime={repository.updatedAt}
+            dateTime={repository.updated_at}
             className='repo-card__updated-at'
           >
-            Updated {repository.updatedAt}
+            Updated {new Date(repository.updated_at).toLocaleDateString()}
           </time>
         </div>
       </div>

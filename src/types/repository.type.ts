@@ -56,9 +56,8 @@ export interface RepositoryFilters {
   hasDescription: boolean;
 }
 
-export interface RepositoryCardProps {
+export interface RepoCardProps {
   repository: GitHubRepository;
-  accentColor: string;
   view: RepositoryView;
 }
 
