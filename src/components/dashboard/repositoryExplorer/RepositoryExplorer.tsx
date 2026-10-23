@@ -187,7 +187,13 @@ const RepositoryExplorer = () => {
       <div className='repository-explorer__panel'>
         <div className='repository-explorer__toolbar'>
           <label htmlFor='search' className='repository-explorer__search-box'>
-            <Search size={17} />
+            <Search
+              size={17}
+              strokeWidth={1.8}
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
 
             <input
               type='search'
@@ -203,7 +209,13 @@ const RepositoryExplorer = () => {
               type='button'
               className='repository-explorer__actions--btn-filter'
             >
-              <SlidersHorizontal size={16} />
+              <SlidersHorizontal
+                size={16}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
               Filters
               <span className='repository-explorer__actions--filter-count'>
                 2
@@ -214,9 +226,21 @@ const RepositoryExplorer = () => {
               type='button'
               className='repository-explorer__actions--btn-sort'
             >
-              <ArrowDownUp size={16} />
+              <ArrowDownUp
+                size={16}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
               Recently updated
-              <ChevronDown size={16} />
+              <ChevronDown
+                size={16}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
             </button>
 
             <div className='repository-explorer__view-toggle'>
@@ -230,7 +254,13 @@ const RepositoryExplorer = () => {
                 aria-label='Grid view'
                 aria-pressed={view === 'grid'}
               >
-                <LayoutGrid size={18} />
+                <LayoutGrid
+                  size={18}
+                  strokeWidth={1.8}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
               </button>
 
               <button
@@ -243,7 +273,13 @@ const RepositoryExplorer = () => {
                 aria-label='List view'
                 aria-pressed={view === 'list'}
               >
-                <List size={18} />
+                <List
+                  size={18}
+                  strokeWidth={1.8}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
               </button>
             </div>
           </div>
@@ -255,7 +291,13 @@ const RepositoryExplorer = () => {
             className='repository-explorer__btn-filter-chip'
           >
             All languages
-            <ChevronDown size={14} />
+            <ChevronDown
+              size={14}
+              strokeWidth={1.8}
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
           </button>
 
           <button
@@ -263,7 +305,13 @@ const RepositoryExplorer = () => {
             className='repository-explorer__btn-filter-chip'
           >
             All repositories
-            <ChevronDown size={14} />
+            <ChevronDown
+              size={14}
+              strokeWidth={1.8}
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
           </button>
 
           <button
@@ -271,7 +319,13 @@ const RepositoryExplorer = () => {
             className='repository-explorer__btn-filter-chip'
           >
             Any star count
-            <ChevronDown size={14} />
+            <ChevronDown
+              size={14}
+              strokeWidth={1.8}
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
           </button>
 
           <button

@@ -1,11 +1,20 @@
 @use '../../../abstracts/mixins' as *;
 @use '../../../abstracts/animation';
-@use '../../../abstracts/variables' as vars;
+@use '../../../abstracts/responsive' as bp;
 
 .repository-explorer {
-  width: 120rem;
-  margin-top: 4.8rem;
+  width: 100%;
+  max-width: 140rem;
   margin-inline: auto;
+  padding: 4.8rem 8rem;
+
+  @media (max-width: 56.25em) {
+    padding: 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 1.6rem;
+  }
 
   &__header {
     display: flex;
@@ -14,6 +23,11 @@
     gap: 2.4rem;
 
     margin-bottom: 2.4rem;
+
+    @media (max-width: 40em) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__heading {
@@ -51,16 +65,18 @@
       display: inline-block;
       text-transform: none;
       text-rendering: optimizeLegibility;
-      text-wrap: balance;
       font-weight: 600;
       font-size: 2.8rem;
       color: inherit;
       letter-spacing: -0.8px;
+
+      @media (max-width: 40em) {
+        font-size: 2.4rem;
+      }
     }
 
     &--description {
       max-width: 56rem;
-      text-wrap: pretty;
       font-size: var(--fz-sm);
       color: var(--text-muted);
       line-height: 1.7;
@@ -88,6 +104,10 @@
       filter 0.25s ease,
       transform 0.25s ease;
 
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
     &:hover {
       filter: brightness(0.96);
     }
@@ -111,7 +131,13 @@
     border: 1px solid var(--border);
     border-radius: 1.6rem;
     overflow: visible;
-    transition: border-color 0.25s ease;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    @media (max-width: 40em) {
+      border-radius: var(--radius);
+    }
   }
 
   &__toolbar {
@@ -123,6 +149,15 @@
     padding: 2rem;
     border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     transition: border-color 0.25s ease;
+
+    @media (max-width: 62.5em) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    @media (max-width: 40em) {
+      padding: 1.4rem;
+    }
   }
 
   &__search-box {
@@ -142,6 +177,11 @@
       color 0.25s ease,
       border-color 0.25s ease;
 
+    @media (max-width: 62.5em) {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     svg {
       width: 1.7rem;
       height: 1.7rem;
@@ -158,6 +198,11 @@
       font-size: var(--fz-xxs);
       background-color: transparent;
       color: inherit;
+      caret-color: var(--color-blue-800);
+
+      @include bp.sm {
+        font-size: var(--fz-md);
+      }
 
       &::placeholder {
         color: var(--text-muted);
@@ -188,6 +233,15 @@
     align-items: center;
     gap: 0.8rem;
 
+    @media (max-width: 62.5em) {
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 40em) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
     &--btn-filter,
     &--btn-sort {
       display: inline-flex;
@@ -208,6 +262,15 @@
       transition:
         background-color 0.25s ease,
         border-color 0.25s ease;
+
+      @media (max-width: 40em) {
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
 
       &:hover {
         border-color: var(--color-blue-800);
@@ -256,6 +319,11 @@
     transition:
       background-color 0.25s ease,
       border-color 0.25s ease;
+
+    @media (max-width: 40em) {
+      grid-column: 1 / -1;
+      justify-content: center;
+    }
 
     &--btn {
       display: grid;
@@ -306,6 +374,10 @@
     padding: 1.6rem 2rem;
     border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     transition: border-color 0.25s ease;
+
+    @media (max-width: 40em) {
+      padding: 1.4rem;
+    }
   }
 
   &__btn-filter-chip {
@@ -327,6 +399,14 @@
     transition:
       background-color 0.25s ease,
       border-color 0.25s ease;
+
+    @media (max-width: 40em) {
+      flex: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
 
     &:hover {
       border-color: var(--color-blue-800);
@@ -359,6 +439,10 @@
     color: var(--color-blue-800);
     cursor: pointer;
 
+    @media (max-width: 40em) {
+      flex: 1;
+    }
+
     &:focus {
       outline: none;
     }
@@ -383,10 +467,19 @@
     padding: 1.8rem 2rem 1.4rem;
     color: var(--text-muted);
     transition: color 0.25s ease;
+
+    @media (max-width: 40em) {
+      align-items: flex-start;
+      padding: 1.6rem 1.4rem 1.2rem;
+    }
   }
 
   &__results-hint {
     text-align: right;
+
+    @media (max-width: 40em) {
+      max-width: 45%;
+    }
   }
 
   &__repository-collection {
@@ -395,8 +488,20 @@
 
     padding: 0 2rem 2rem;
 
+    @media (max-width: 40em) {
+      padding: 0 1.2rem 1.2rem;
+    }
+
     &.grid-view {
-      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+      grid-template-columns: repeat(3, minmax(min-content, 1fr));
+
+      @media (max-width: 62.5em) {
+        grid-template-columns: repeat(2, minmax(min-content, 1fr));
+      }
+
+      @media (max-width: 40em) {
+        grid-template-columns: minmax(min-content, 1fr);
+      }
     }
 
     &.list-view {
@@ -417,6 +522,10 @@
     transition:
       color 0.25s ease,
       border-color 0.25s ease;
+
+    @media (max-width: 40em) {
+      padding: 1.4rem;
+    }
 
     &--text {
       font-size: inherit;

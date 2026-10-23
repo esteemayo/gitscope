@@ -6,6 +6,7 @@ import ChartSection from './ChartSection';
 import StatsCards from './StatsCards';
 import ProfileHeader from './ProfileHeader';
 import RepoLists from './repos/RepoLists';
+import RepositoryExplorer from './repositoryExplorer/RepositoryExplorer';
 
 import { REPOSITORIES } from '@/data';
 import { SortType, ViewType } from '@/types';
@@ -22,13 +23,15 @@ const DashboardClient = ({ username }: { username: string }) => {
 
       <ChartSection />
 
-      <RepoLists
+      <RepositoryExplorer />
+
+      {/* <RepoLists
         sort={sort}
         view={view}
         repos={REPOSITORIES}
         onSort={setSort}
         onView={setView}
-      />
+      /> */}
     </div>
   );
 };

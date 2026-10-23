@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import RepoDetailsClient from '@/components/repo/RepoDetailsClient';
 
 interface IParams {
