@@ -1,0 +1,82 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.floating-profile-stat {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  padding: 1.8rem;
+  background-color: var(--bg-tertiary);
+  background-color: var(--bg-menu);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+
+    &--label {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+
+    &--icon {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 3.4rem;
+      height: 3.4rem;
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800) 12%,
+        transparent
+      );
+      color: var(--color-blue-800);
+      border: 1px solid
+        color-mix(in srgb, var(--color-blue-800) 18%, var(--border));
+      border-radius: 0.875rem;
+
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    min-width: 0;
+    margin-top: 1.4rem;
+
+    &--value {
+      display: block;
+      font-weight: 700;
+      font-size: 2.7rem;
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum';
+      letter-spacing: -0.8px;
+      color: inherit;
+    }
+
+    &--description {
+      display: block;
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      transition: color 0.25s ease;
+    }
+  }
+}

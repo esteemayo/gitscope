@@ -10,6 +10,7 @@ import RepositoryExplorer from './repositoryExplorer/RepositoryExplorer';
 
 import { REPOSITORIES } from '@/data';
 import { SortType, ViewType } from '@/types';
+import DashboardHero from './hero/DashboardHero';
 
 const DashboardClient = ({ username }: { username: string }) => {
   const [view, setView] = useState<ViewType>('grid');
@@ -17,9 +18,11 @@ const DashboardClient = ({ username }: { username: string }) => {
 
   return (
     <div>
-      <ProfileHeader username={username} />
+      <DashboardHero />
 
-      <StatsCards sort={sort} onSort={setSort} />
+      {/* <ProfileHeader username={username} /> */}
+
+      {/* <StatsCards sort={sort} onSort={setSort} /> */}
 
       <ChartSection />
 

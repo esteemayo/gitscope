@@ -1,0 +1,20 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.floating-profile-stats {
+  width: 100%;
+  max-width: 100rem;
+  margin-inline: auto;
+  margin-top: -7rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(min-content, 1fr));
+    gap: 1.4rem;
+
+    position: relative;
+    z-index: 1000;
+    // margin: -2.2rem 2.4rem 0;
+  }
+}

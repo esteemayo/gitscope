@@ -1,0 +1,348 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.dashboard-hero {
+  --hero-accent: '#3984f5';
+  --hero-text: '#172033';
+  --hero-muted: '#64748b';
+  --hero-border: '#e2e8f0';
+  --hero-surface: '#ffffff';
+  --hero-background: '#f8fafc';
+
+  padding-bottom: 4px;
+
+  &__container {
+    width: 100%;
+    position: relative;
+    padding: 4.8rem 8rem 16rem;
+    background-color: var(--color-dark-blue);
+    overflow: hidden;
+
+    @media (max-width: 56.25em) {
+      padding: 3.2rem 3.2rem 16rem;
+    }
+
+    @media (max-width: 25em) {
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+    }
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0 0 auto;
+
+    height: 18rem;
+    background:
+      radial-gradient(
+        ellipse at 15% 0%,
+        color-mix(in srgb, var(--color-blue-800) 16%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse at 90% 10%,
+        color-mix(in srgb, var(--color-blue-800) 10%, transparent),
+        transparent 45%
+      );
+
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.4rem;
+
+    position: relative;
+    padding: 3.6rem 3.2rem 4.4rem;
+  }
+
+  &__profile-identity {
+    display: flex;
+    gap: 2.4rem;
+
+    min-width: 0;
+  }
+
+  &__avatar-wrapper {
+    flex-shrink: 0;
+
+    position: relative;
+    padding: 1.4rem;
+    background-color: var(--hero-surface);
+    border: 1px solid
+      color-mix(in srgb, var(--color-blue-800) 40%, var(--border));
+    box-shadow: 0 0.5rem 1.8rem rgba(15, 23, 42, 0.07);
+    border-radius: 2rem;
+  }
+
+  &__avatar {
+    display: block;
+    width: 10.4rem;
+    height: 10.4rem;
+    object-fit: cover;
+    border-radius: 1.6rem;
+  }
+
+  &__online-indicator {
+    position: absolute;
+    right: -3px;
+    bottom: 0.8rem;
+
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: var(--color-blue-800);
+    border: 3px solid var(--hero-surface);
+    border-radius: 100%;
+  }
+
+  &__identity-content {
+    min-width: 0;
+    padding-top: 2px;
+  }
+
+  &__name-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &__name {
+    display: inline-block;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 3vw, var(--fz-heading));
+    letter-spacing: -1.1px;
+    color: var(--color-white-50);
+    overflow-wrap: anywhere;
+    line-height: 1.1;
+  }
+
+  &__profile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    width: fit-content;
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    padding: 0.5rem 0.8rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800) 7%,
+      var(--color-white-50)
+    );
+    color: var(--color-blue-800);
+    border: 1px solid
+      color-mix(in srgb, var(--color-blue-800) 25%, var(--border));
+    border-radius: 0.6rem;
+    line-height: 1.4;
+    user-select: none;
+  }
+
+  &__username {
+    &:link,
+    &:visited {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+
+      position: relative;
+      margin-top: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: var(--fz-xs);
+      color: var(--color-gray-400);
+      transition: color 0.25s ease;
+
+      @include animated-underline(
+        $color: var(--color-gray-400),
+        $hoverColor: var(--color-blue-800)
+      );
+    }
+
+    span {
+      font-size: inherit;
+      color: currentColor;
+    }
+
+    svg {
+      width: 1.3rem;
+      height: 1.3rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__bio {
+    max-width: 65rem;
+    margin: 1.6rem 0;
+    font-size: var(--fz-xs);
+    color: rgba(200, 225, 255, 0.7);
+    overflow-wrap: anywhere;
+    line-height: 1.75;
+  }
+
+  &__metadata {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem 1.8rem;
+
+    span,
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+
+      font-size: 1.1rem;
+      color: var(--color-gray-400);
+      color: rgb(200, 225, 255);
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+
+    a {
+      &:link,
+      &:visited {
+        position: relative;
+
+        @include animated-underline(
+          $color: rgb(200, 225, 255),
+          $hoverColor: var(--color-blue-800)
+        );
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    flex-shrink: 0;
+
+    &--secondary,
+    &--save,
+    &--github {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+
+      min-height: 3.8rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      white-space: nowrap;
+      padding: 0 1.2rem;
+      background-color: var(--color-white-50);
+      color: rgb(36, 41, 46);
+      border: 1px solid var(--color-gray-400);
+      border-radius: 0.875rem;
+      cursor: pointer;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+
+      &:hover {
+        color: var(--color-blue-800);
+        border-color: currentColor;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        @include focus-ring($width: 2px, $offset: 3px);
+      }
+    }
+
+    &--secondary {
+      width: 3.8rem;
+      padding: 0;
+    }
+
+    &--save {
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800) 6%,
+        var(--color-white-50)
+      );
+      border-color: color-mix(
+        in srgb,
+        var(--color-blue-800) 35%,
+        var(--color-gray-400)
+      );
+
+      span {
+        font-size: inherit;
+        color: currentColor;
+      }
+    }
+
+    &--github {
+      &:link,
+      &:visited {
+        background-color: var(--color-blue-800);
+        color: var(--color-white-50);
+        border-color: var(--color-blue-800);
+      }
+
+      span {
+        font-size: inherit;
+        color: currentColor;
+      }
+
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--color-blue-800) 88%,
+          var(--black)
+        );
+      }
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+  }
+
+  &__bottom-line {
+    position: absolute;
+    right: 0;
+    bottom: 10rem;
+    left: 0;
+
+    height: 3px;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-blue-800),
+      transparent
+    );
+    opacity: 0.45;
+  }
+}
