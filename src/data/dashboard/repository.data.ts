@@ -1,4 +1,4 @@
-import { GitHubRepository } from '@/types/repository.type';
+import { GitHubRepository } from '@/types/dashboard';
 
 export const MOCK_REPOSITORIES: GitHubRepository[] = [
   {

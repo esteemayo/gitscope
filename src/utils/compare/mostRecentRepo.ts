@@ -1,4 +1,4 @@
-import { Repository } from '@/types/repository.type';
+import { Repository } from '@/types/dashboard';
 
 export const mostRecentRepo = (repos: Repository[]) => {
   return repos.reduce((latest, repo) => {

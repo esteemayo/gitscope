@@ -1,5 +1,5 @@
 import { GitHubUserPreview } from './index';
-import { Repository } from '../repository.type';
+import { Repository } from '../dashboard';
 
 export interface CompareProfilesProps {
   userA: GitHubUserPreview;

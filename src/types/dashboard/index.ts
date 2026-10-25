@@ -21,6 +21,7 @@ export interface ProfileStat {
   value: number;
   description: string;
   icon: 'repository' | 'star' | 'users' | 'git-fork';
+  accentColor: string;
 }
 
 export type RepositoryView = 'grid' | 'list';

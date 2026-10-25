@@ -1,4 +1,4 @@
-import { Repository } from '../repository.type';
+import { Repository } from '../dashboard';
 import { GitHubUserPreview, LeaderBadgeVariant } from './index';
 
 export interface CompareProfileCardProps {

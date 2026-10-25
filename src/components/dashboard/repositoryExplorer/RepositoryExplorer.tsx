@@ -13,7 +13,7 @@ import {
 
 import RepoCard from './RepoCard';
 
-import { RepositoryView } from '@/types/repository.type';
+import { RepositoryView } from '@/types/dashboard';
 import { MOCK_REPOSITORIES } from '@/data/dashboard/repository.data';
 
 import '../../../styles/components/dashboard/repositoryExplorer/RepositoryExplorer.scss';

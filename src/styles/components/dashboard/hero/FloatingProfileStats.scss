@@ -7,6 +7,20 @@
   max-width: 100rem;
   margin-inline: auto;
   margin-top: -7rem;
+  margin-top: -5rem;
+  padding-inline: 8rem;
+
+  @media (max-width: 56.25em) {
+    padding-inline: 3.2rem;
+  }
+
+  @include bp.sm {
+    margin-top: -6rem;
+  }
+
+  @media (max-width: 25em) {
+    padding-inline: 1.6rem;
+  }
 
   &__grid {
     display: grid;
@@ -16,5 +30,19 @@
     position: relative;
     z-index: 1000;
     // margin: -2.2rem 2.4rem 0;
+
+    @include bp.md {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+      gap: 1rem;
+
+      // margin: -1.8rem 1.4rem 0;
+    }
+
+    @media (max-width: 26.25em) {
+      gap: 0.8rem;
+
+      // margin-right: 1rem;
+      // margin-left: 1rem;
+    }
   }
 }

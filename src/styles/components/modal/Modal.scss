@@ -1,5 +1,6 @@
-@use '../../abstracts/animation';
 @use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
 
 .modal {
   position: fixed;

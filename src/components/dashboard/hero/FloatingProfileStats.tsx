@@ -1,11 +1,7 @@
 import FloatingProfileStat from './FloatingProfileStat';
-import { ProfileStat } from '@/types/repository.type';
+import { FloatingProfileStatsProps } from '@/types/dashboard/floating.profile.stats.type';
 
 import '../../../styles/components/dashboard/hero/FloatingProfileStats.scss';
-
-interface FloatingProfileStatsProps {
-  stats: ProfileStat[];
-}
 
 const FloatingProfileStats = ({ stats }: FloatingProfileStatsProps) => {
   return (

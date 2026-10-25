@@ -7,24 +7,51 @@
   flex-direction: column;
 
   min-width: 0;
-  padding: 1.8rem;
-  background-color: var(--bg-tertiary);
-  background-color: var(--bg-menu);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  padding: 1.6rem;
+  background-color: color-mix(in srgb, var(--accent-color) 6%, var(--bg-menu));
+  border: 1px solid color-mix(in srgb, var(--accent-color) 28%, var(--border));
+  border-radius: 1.6rem;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  @include bp.md {
+    padding: 1.4rem;
+  }
+
+  @media (max-width: 26.25em) {
+    padding: 1.2rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color) 9%,
+      var(--bg-menu)
+    );
+    border: 1px solid color-mix(in srgb, var(--accent-color) 55%, var(--border));
+    box-shadow: 0 0 2rem
+      color-mix(in srgb, var(--accent-color) 20%, transparent);
+
+    @media (prefers-reduced-motion: reduce) {
+      transform: none;
+    }
+  }
 
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.8rem;
 
-    &--label {
-      font-weight: 500;
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      transition: color 0.25s ease;
-    }
+    width: 100%;
 
     &--icon {
       flex-shrink: 0;
@@ -32,21 +59,20 @@
       display: grid;
       place-items: center;
 
-      width: 3.4rem;
-      height: 3.4rem;
+      width: 4.8rem;
+      height: 4.8rem;
       background-color: color-mix(
         in srgb,
-        var(--color-blue-800) 12%,
+        var(--accent-color) 14%,
         transparent
       );
-      color: var(--color-blue-800);
-      border: 1px solid
-        color-mix(in srgb, var(--color-blue-800) 18%, var(--border));
-      border-radius: 0.875rem;
+      color: var(--accent-color);
+      border: 1px solid color-mix(in srgb, var(--accent-color) 28%, transparent);
+      border-radius: var(--radius);
 
       svg {
-        width: 1.8rem;
-        height: 1.8rem;
+        width: 2.4rem;
+        height: 2.4rem;
         color: currentColor;
         stroke: currentColor;
       }
@@ -59,7 +85,7 @@
     gap: 0.5rem;
 
     min-width: 0;
-    margin-top: 1.4rem;
+    margin-top: 1.5rem;
 
     &--value {
       display: block;
@@ -67,13 +93,35 @@
       font-size: 2.7rem;
       font-variant-numeric: tabular-nums;
       font-feature-settings: 'tnum';
-      letter-spacing: -0.8px;
+      letter-spacing: -0.6px;
       color: inherit;
+      line-height: 1.2;
+
+      @include bp.md {
+        font-size: 2.4rem;
+      }
+
+      @media (max-width: 26.25em) {
+        font-size: var(--fz-xxl);
+      }
+    }
+
+    &--label {
+      margin-top: 2px;
+      font-weight: 500;
+      font-weight: 600;
+      font-size: 1.1rem;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      color: inherit;
+      line-height: 1.1;
+      transition: color 0.25s ease;
     }
 
     &--description {
       display: block;
       font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--text-muted);
       line-height: 1.5;
       transition: color 0.25s ease;

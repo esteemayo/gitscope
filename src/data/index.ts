@@ -2,7 +2,7 @@ import AnalyticsIcon from '@/components/icons/AnalyticsIcon';
 import BookmarkIcon from '@/components/icons/BookmarkIcon';
 import GitHubLogoIcon from '@/components/icons/GitHubLogoIcon';
 
-import { Repository } from '@/types/repository.type';
+import { Repository } from '@/types/dashboard';
 import { RepositoryType, SidebarNavLinkType, SortItemType } from '@/types';
 
 export const sidebarLinks: SidebarNavLinkType[] = [

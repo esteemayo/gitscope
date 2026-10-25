@@ -1,0 +1,267 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.share-modal {
+  &__backdrop {
+    display: grid;
+    place-items: center;
+
+    position: fixed;
+    inset: 0;
+    z-index: 7000;
+
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    background-color: color-mix(in srgb, var(--black) 45%, transparent);
+    -webkit-backdrop-filter: blur(0.8rem);
+    backdrop-filter: blur(0.8rem);
+    animation: fadeIn 0.25s ease both;
+  }
+
+  &__panel {
+    width: min(100%, 42rem);
+    padding: 2.4rem;
+    background-color: var(--bg-sidebar);
+    box-shadow: 0 2.4rem 8rem rgba(0, 0, 0, 0.24);
+    border-radius: 2rem;
+    animation: modalIn 0.25s ease both;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.6rem;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    min-width: 0;
+
+    &--eyebrow {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--color-blue-800);
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-xl);
+      color: inherit;
+      line-height: 1.1;
+    }
+  }
+
+  &__btn-close {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.4rem;
+    height: 3.4rem;
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    cursor: pointer;
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
+    &:hover {
+      background-color: rgba(148, 163, 184, 0.12);
+      color: var(--text);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring($width: 3px, $offset: 3px);
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
+    }
+  }
+
+  &__qr-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    padding: 2.4rem 2rem;
+  }
+
+  &__qr-frame {
+    display: grid;
+    place-items: center;
+
+    padding: 1.2rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 1.6rem;
+  }
+
+  &__qr-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    min-width: 0;
+    margin-top: 1.8rem;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      font-size: 1.5rem;
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      max-width: 27rem;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__share-url {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    min-width: 0;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+
+    span {
+      flex: 1;
+
+      min-width: 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      overflow: hidden;
+      transition: color 0.25s ease;
+    }
+
+    button {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 3.2rem;
+      height: 3.2rem;
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800) 7%,
+        transparent
+      );
+      color: var(--color-blue-800);
+      border: none;
+      border-radius: 0.625rem;
+      cursor: pointer;
+
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        @include focus-ring($width: 3px, $offset: 3px);
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__copy-error {
+    margin-top: 0.8rem;
+    font-size: var(--fz-xxs);
+    color: var(--color-red-700);
+    line-height: 1.5;
+  }
+
+  &__share-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+    width: 100%;
+    min-height: 4.2rem;
+    font-weight: 600;
+    font-size: var(--fz-xs);
+    margin-top: 1.4rem;
+    border: none;
+    background-color: var(--color-blue-800);
+    color: var(--color-white-50);
+    border-radius: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+
+    svg {
+      width: 1.7rem;
+      height: 1.7rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
+    &:hover {
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800) 88%,
+        var(--black)
+      );
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring($width: 3px, $offset: 3px);
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
+    }
+  }
+}
