@@ -1,219 +1,289 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import {
-  ArrowUpRight,
   Bookmark,
   Building2,
   CalendarDays,
+  Check,
   Copy,
   ExternalLink,
-  Link2,
+  Globe,
   MapPin,
   Share2,
 } from 'lucide-react';
+import Link from 'next/link';
 
+import ShareModal from '@/components/modal/ShareModal';
 import FloatingProfileStats from './FloatingProfileStats';
-import {
-  MOCK_PROFILE,
-  MOCK_PROFILE_STATS,
-} from '@/data/dashboard/profile.data';
 
+import { GitHubProfile, ProfileStat } from '@/types/dashboard';
 import '../../../styles/components/dashboard/hero/DashboardHero.scss';
 
-const getMemberSince = (date: string) => {
-  return new Date(date).getFullYear();
+interface DashboardHeroProps {
+  profile: GitHubProfile;
+  stats: ProfileStat[];
+  isSaved?: boolean;
+  onSave(profile: GitHubProfile): void;
+}
+
+const getProfileUrl = (username: string) => {
+  return new URL(
+    `/${encodeURIComponent(username)}`,
+    window.location.origin,
+  ).toString();
 };
 
-const DashboardHero = () => {
-  const profile = MOCK_PROFILE;
+const getJoinedDate = (date: string) => {
+  return new Intl.DateTimeFormat('en', {
+    month: 'long',
+    year: 'numeric',
+  }).format(new Date(date));
+};
+
+const getWebsiteUrl = (website: string) => {
+  return /^https?:\/\//i.test(website) ? website : `https://${website}`;
+};
+
+const DashboardHero = ({
+  profile,
+  stats,
+  isSaved = false,
+  onSave,
+}: DashboardHeroProps) => {
+  const [shareOpen, setShareOpen] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
+  const [isCopyError, setIsCopyError] = useState(false);
+
+  const website = profile.blog?.trim();
+  const joinedDate = getJoinedDate(profile.created_at);
+
+  const handleCopy = async () => {
+    setIsCopyError(false);
+
+    try {
+      await navigator.clipboard.writeText(getProfileUrl(profile.login));
+      setIsCopied(true);
+    } catch {
+      setIsCopyError(true);
+    }
+  };
 
   return (
     <section className='dashboard-hero'>
       <div className='dashboard-hero__container'>
-        <div className='dashboard-hero__backdrop' />
+        <div className='dashboard-hero__glow' aria-hidden='true' />
 
         <div className='dashboard-hero__wrapper'>
           <div className='dashboard-hero__content'>
-            <div className='dashboard-hero__profile-identity'>
-              <div className='dashboard-hero__avatar-wrapper'>
+            <div className='dashboard-hero__avatar-wrapper'>
+              <div className='dashboard-hero__avatar-ring'>
                 <Image
                   src={profile.avatar_url}
-                  width={104}
-                  height={104}
+                  width={112}
+                  height={112}
                   alt={`${profile.login}'s GitHub avatar`}
+                  priority
                   className='dashboard-hero__avatar'
-                />
-
-                <span
-                  className='dashboard-hero__online-indicator'
-                  title='GitHub profile'
-                  aria-hidden='true'
                 />
               </div>
 
-              <div className='dashboard-hero__identity-content'>
-                <div className='dashboard-hero__name-row'>
-                  <h1 className='dashboard-hero__name'>
-                    {profile.name ?? profile.login}
-                  </h1>
+              <span
+                className='dashboard-hero__avatar-status'
+                aria-hidden='true'
+                title='GitHub profile'
+              />
+            </div>
 
-                  <span className='dashboard-hero__profile-badge'>
-                    GitHub profile
-                  </span>
-                </div>
+            <div className='dashboard-hero__identity'>
+              <div className='dashboard-hero__name-row'>
+                <h1 className='dashboard-hero__profile-name'>
+                  {profile.name ?? profile.login}
+                </h1>
 
                 <a
                   href={profile.html_url}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='dashboard-hero__username'
+                  className='dashboard-hero__github-link'
+                  aria-label='Open GitHub profile'
                 >
-                  <span>@{profile.login}</span>
-
                   <ExternalLink
-                    size={13}
+                    size={17}
                     strokeWidth={1.8}
                     role='img'
                     aria-hidden='true'
                     focusable='false'
                   />
                 </a>
+              </div>
 
-                {profile.bio && (
-                  <p className='dashboard-hero__bio'>{profile.bio}</p>
-                )}
+              <Link
+                href={`/${encodeURIComponent(profile.login)}`}
+                className='dashboard-hero__username'
+              >
+                @{profile.login}
+              </Link>
 
-                <div className='dashboard-hero__metadata'>
-                  {profile.company && (
-                    <span>
-                      <Building2
-                        size={15}
-                        strokeWidth={1.8}
-                        role='img'
-                        aria-hidden='true'
-                        focusable='false'
-                      />
-                      {profile.company}
-                    </span>
-                  )}
+              {profile.bio && (
+                <p className='dashboard-hero__bio'>{profile.bio}</p>
+              )}
 
-                  {profile.location && (
-                    <span>
-                      <MapPin
-                        size={15}
-                        strokeWidth={1.8}
-                        role='img'
-                        aria-hidden='true'
-                        focusable='false'
-                      />
-                      {profile.location}
-                    </span>
-                  )}
+              <div className='dashboard-hero__actions'>
+                <button
+                  type='button'
+                  onClick={() => setShareOpen(true)}
+                  className='dashboard-hero__actions--share'
+                  aria-label='Share profile'
+                  title='Share profile'
+                >
+                  <Share2
+                    size={16}
+                    strokeWidth={1.8}
+                    role='img'
+                    aria-hidden='true'
+                    focusable='false'
+                  />
+                </button>
 
-                  <span>
-                    <CalendarDays
-                      size={15}
+                <button
+                  type='button'
+                  onClick={handleCopy}
+                  className='dashboard-hero__actions--secondary'
+                  aria-label='Copy profile link'
+                  title='Copy profile link'
+                >
+                  {isCopied ? (
+                    <Check
+                      size={16}
                       strokeWidth={1.8}
                       role='img'
                       aria-hidden='true'
                       focusable='false'
                     />
-                    Joined {getMemberSince(profile.created_at)}
-                  </span>
-
-                  {profile.blog && (
-                    <a
-                      href={profile.blog}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <Link2
-                        size={15}
-                        strokeWidth={1.8}
-                        role='img'
-                        aria-hidden='true'
-                        focusable='false'
-                      />
-                      Website
-                      <ArrowUpRight
-                        size={12}
-                        strokeWidth={1.8}
-                        role='img'
-                        aria-hidden='true'
-                        focusable='false'
-                      />
-                    </a>
+                  ) : (
+                    <Copy
+                      size={16}
+                      strokeWidth={1.8}
+                      role='img'
+                      aria-hidden='true'
+                      focusable='false'
+                    />
                   )}
-                </div>
+
+                  <span>{isCopied ? 'Copied' : 'Copy'}</span>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() => onSave(profile)}
+                  className='dashboard-hero__actions--secondary'
+                  aria-pressed={isSaved}
+                  disabled={!onSave}
+                  title={
+                    !onSave
+                      ? 'Connect this action to your saved profiles'
+                      : undefined
+                  }
+                >
+                  <Bookmark
+                    size={16}
+                    fill={isSaved ? 'currentColor' : 'none'}
+                    strokeWidth={1.8}
+                    role='img'
+                    aria-hidden='true'
+                    focusable='false'
+                  />
+
+                  <span>{isSaved ? 'Saved' : 'Save'} profile</span>
+                </button>
               </div>
             </div>
 
-            <div className='dashboard-hero__actions'>
-              <button
-                type='button'
-                className='dashboard-hero__actions--secondary'
-                aria-label='Copy profile link'
-                title='Copy profile link'
-              >
-                <Copy
+            {isCopyError && (
+              <p className='dashboard-hero__copy-error' role='alert'>
+                Could not copy the profile URL. Please try again.
+              </p>
+            )}
+          </div>
+
+          <div className='dashboard-hero__profile-meta'>
+            {profile.company && (
+              <span>
+                <Building2
                   size={16}
                   strokeWidth={1.8}
                   role='img'
                   aria-hidden='true'
                   focusable='false'
                 />
-              </button>
+                {profile.company}
+              </span>
+            )}
 
-              <button
-                type='button'
-                className='dashboard-hero__actions--secondary'
-                aria-label='Share profile'
-                title='Share profile'
-              >
-                <Share2
+            {profile.location && (
+              <span>
+                <MapPin
                   size={16}
                   strokeWidth={1.8}
                   role='img'
                   aria-hidden='true'
                   focusable='false'
                 />
-              </button>
+                {profile.location}
+              </span>
+            )}
 
-              <button type='button' className='dashboard-hero__actions--save'>
-                <Bookmark
-                  size={16}
-                  strokeWidth={1.8}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
+            <span>
+              <CalendarDays
+                size={16}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+              Joined {joinedDate}
+            </span>
 
-                <span>Save profile</span>
-              </button>
-
+            {website && (
               <a
-                href={profile.html_url}
+                href={getWebsiteUrl(website)}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='dashboard-hero__actions--github'
               >
-                <span>View GitHub</span>
-
-                <ArrowUpRight
-                  size={15}
+                <Globe
+                  size={16}
+                  strokeWidth={1.8}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
+                Website
+                <ExternalLink
+                  size={13}
+                  className='external-link'
                   strokeWidth={1.8}
                   role='img'
                   aria-hidden='true'
                   focusable='false'
                 />
               </a>
-            </div>
+            )}
           </div>
 
           <div className='dashboard-hero__bottom-line' aria-hidden='true' />
         </div>
       </div>
 
-      <FloatingProfileStats stats={MOCK_PROFILE_STATS} />
+      <FloatingProfileStats stats={stats} />
+
+      <ShareModal
+        isOpen={shareOpen}
+        profileUrl={getProfileUrl(profile.login)}
+        username={profile.login}
+        onClose={() => setShareOpen(false)}
+      />
     </section>
   );
 };

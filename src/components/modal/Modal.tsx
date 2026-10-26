@@ -1,14 +1,16 @@
 'use client';
 
+import { createPortal } from 'react-dom';
 import { useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import XmarkIcon from '../icons/XmarkIcon';
 
-import { useScrollLock } from '@/hooks/useScrollLock';
 import { useEscapeKey } from '@/hooks/useEscapeKey';
-import { useClickOutside } from '@/hooks/useClickOutside';
+import { usePortal } from '@/hooks/usePortal';
+import { useScrollLock } from '@/hooks/useScrollLock';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { useClickOutside } from '@/hooks/useClickOutside';
 
 import { ModalProps } from '@/types/modal.type';
 import '../../styles/components/modal/Modal.scss';
@@ -69,6 +71,8 @@ const Modal = ({
 }: ModalProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
+  const { portalId } = usePortal('overlay-root');
+
   const handleClose = () => {
     if (closeOnOutsideClick) {
       onClose?.();
@@ -86,7 +90,7 @@ const Modal = ({
     onEscape: onClose!,
   });
 
-  return (
+  const modalContent = (
     <AnimatePresence mode='wait'>
       <motion.div
         variants={backdropVariants}
@@ -118,6 +122,8 @@ const Modal = ({
       </motion.div>
     </AnimatePresence>
   );
+
+  return portalId ? createPortal(modalContent, portalId) : undefined;
 };
 
 export default Modal;

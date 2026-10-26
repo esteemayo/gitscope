@@ -8,7 +8,7 @@
     position: relative;
   }
 
-  &__backdrop {
+  &__glow {
     position: absolute;
     inset: 0 0 auto;
 
@@ -30,12 +30,18 @@
   }
 
   &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.8rem;
+
     width: 100%;
     max-width: 140rem;
     margin-inline: auto;
     padding: 4.8rem 8rem 16rem;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
 
     @media (max-width: 56.25em) {
       padding: 3.2rem 3.2rem 16rem;
@@ -49,219 +55,273 @@
 
   &__content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 2.4rem;
 
-    position: relative;
-    padding: 3.6rem 3.2rem 4.4rem;
-
-    @media (max-width: 68.75em) {
-      flex-direction: column;
-    }
-
-    @include bp.md {
-      gap: 2.2rem;
-      padding: 2.6rem 2rem 3.8rem;
-    }
-
-    @media (max-width: 26.25em) {
-      padding-right: 1.5rem;
-      padding-left: 1.5rem;
-    }
-  }
-
-  &__profile-identity {
-    display: flex;
-    gap: 2.4rem;
-
-    min-width: 0;
-
-    @include bp.md {
-      gap: 1.7rem;
-    }
-
-    @media (max-width: 26.25em) {
-      align-items: flex-start;
-      gap: 1.2rem;
-    }
+    width: 100%;
+    text-align: center;
   }
 
   &__avatar-wrapper {
-    flex-shrink: 0;
-
     position: relative;
-    padding: 1.4rem;
-    background-color: var(--color-white-50);
-    border: 1px solid
-      color-mix(in srgb, var(--color-blue-800) 40%, var(--border));
-    box-shadow: 0 0.5rem 1.8rem rgba(15, 23, 42, 0.07);
-    border-radius: 2rem;
+    margin-bottom: 2.2rem;
+  }
 
-    @include bp.md {
-      border-radius: 1.5rem;
-    }
+  &__avatar-ring {
+    display: grid;
+    place-items: center;
+
+    width: 12.4rem;
+    height: 12.4rem;
+    padding: 0.5rem;
+    background-image: linear-gradient(
+      145deg,
+      #60a5fa 0%,
+      #2563eb 48%,
+      #1d4ed8 100%
+    );
+    border: 1px solid rgba(96, 165, 250, 0.4);
+    box-shadow:
+      0 0 0 4px rgba(37, 99, 235, 0.09),
+      0 0 2.8rem rgba(37, 99, 235, 0.24);
+    border-radius: 100%;
   }
 
   &__avatar {
     display: block;
-    width: 10.4rem;
-    height: 10.4rem;
+    width: 100%;
+    height: 100%;
+    background-color: #e2e8f0;
+    border: 3px solid var(--color-white-50);
+    border-radius: 100%;
     object-fit: cover;
-    border-radius: 1.6rem;
-
-    @include bp.md {
-      width: 7.6rem;
-      height: 7.6rem;
-      border-radius: var(--radius);
-    }
-
-    @media (max-width: 26.25em) {
-      width: 6.2rem;
-      height: 6.2rem;
-    }
   }
 
-  &__online-indicator {
+  &__avatar-status {
     position: absolute;
-    right: -3px;
+    right: 0.7rem;
     bottom: 0.8rem;
 
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.3rem;
+    height: 1.3rem;
     background-color: var(--color-blue-800);
+    background-color: #3b82f6;
     border: 3px solid var(--color-white-50);
     border-radius: 100%;
   }
 
-  &__identity-content {
-    min-width: 0;
-    padding-top: 2px;
+  &__identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
   }
 
   &__name-row {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
+
+    max-width: 100%;
   }
 
-  &__name {
+  &__profile-name {
     display: inline-block;
     text-transform: none;
     text-rendering: optimizeLegibility;
     font-weight: 700;
-    font-size: clamp(2.4rem, 3vw, var(--fz-heading));
-    letter-spacing: -1.1px;
+    font-size: clamp(2.6rem, 4vw, 3.6rem);
+    letter-spacing: -1px;
     color: var(--color-white-50);
     overflow-wrap: anywhere;
     line-height: 1.1;
-
-    @include bp.md {
-      font-size: 2.4rem;
-    }
-
-    @media (max-width: 26.25em) {
-      font-size: 2.1rem;
-    }
   }
 
-  &__profile-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
+  &__github-link {
+    &:link,
+    &:visited {
+      flex-shrink: 0;
 
-    width: fit-content;
-    font-weight: 600;
-    font-size: 1rem;
-    white-space: nowrap;
-    padding: 0.5rem 0.8rem;
-    background-color: color-mix(
-      in srgb,
-      var(--color-blue-800) 7%,
-      var(--color-white-50)
-    );
-    color: var(--color-blue-800);
-    border: 1px solid
-      color-mix(in srgb, var(--color-blue-800) 25%, var(--border));
-    border-radius: 0.6rem;
-    line-height: 1.4;
-    user-select: none;
+      display: grid;
+      place-items: center;
 
-    @media (max-width: 26.25em) {
-      font-size: 0.9rem;
+      width: 3.2rem;
+      height: 3.2rem;
+      color: var(--color-gray-400);
+      border: 1px solid currentColor;
+      border-radius: 0.625rem;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    svg {
+      width: 1.7rem;
+      height: 1.7rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
+    &:hover {
+      background-color: rgba(59, 130, 246, 0.08);
+      color: #3b82f6;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring($width: 3px, $offset: 3px);
     }
   }
 
   &__username {
     &:link,
     &:visited {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-
-      position: relative;
-      margin-top: 0.6rem;
+      margin-top: 0.8rem;
       font-family: var(--font-mono);
-      font-size: var(--fz-xs);
-      color: var(--color-gray-400);
+      font-size: var(--fz-lg);
+      color: var(--color-blue-800);
       transition: color 0.25s ease;
 
       @include animated-underline(
-        $color: var(--color-gray-400),
+        $color: var(--color-blue-800),
         $hoverColor: var(--color-blue-800)
       );
-    }
-
-    span {
-      font-size: inherit;
-      color: currentColor;
-    }
-
-    svg {
-      width: 1.3rem;
-      height: 1.3rem;
-      color: currentColor;
-      stroke: currentColor;
     }
   }
 
   &__bio {
-    max-width: 65rem;
-    margin: 1.6rem 0;
-    font-size: var(--fz-xs);
+    max-width: 62rem;
+    margin: 1.8rem 0;
+    font-size: var(--fz-sm);
     color: rgba(200, 225, 255, 0.7);
     overflow-wrap: anywhere;
-    line-height: 1.75;
+    line-height: 1.7;
 
     @media (max-width: 26.25em) {
       font-size: var(--fz-xxs);
     }
   }
 
-  &__metadata {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.2rem 1.8rem;
+  &__actions {
+    flex-shrink: 0;
 
-    @include bp.md {
-      gap: 1.1rem 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+    // margin-top: 2rem;
+
+    &--share,
+    &--secondary,
+    &--save,
+    &--github {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+
+      min-height: 3.6rem;
+      font-weight: 600;
+      font-size: var(--fz-xs);
+      padding: 0.8rem 1.2rem;
+      // background-color: var(--color-white-50);
+      // color: rgb(36, 41, 46);
+      border: 1px solid transparent;
+      border-radius: 0.875rem;
+      cursor: pointer;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        @include focus-ring($width: 3px, $offset: 3px);
+      }
     }
+
+    &--share {
+      background-color: var(--color-blue-800);
+      color: var(--color-white-50);
+
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--color-blue-800) 88%,
+          var(--black)
+        );
+        transform: translateY(-1px);
+      }
+    }
+
+    &--secondary {
+      background-color: transparent;
+      color: var(--color-white-50);
+      color: color-mix(in srgb, var(--color-gray-400) 85%, transparent);
+      border-color: color-mix(in srgb, var(--color-gray-400) 60%, transparent);
+
+      &:hover:not(:disabled) {
+        background-color: rgba(59, 130, 246, 0.07);
+        color: #3b82f6;
+        border-color: rgba(59, 130, 246, 0.55);
+      }
+
+      &:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__profile-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem 2rem;
 
     span,
     a {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
 
-      font-size: 1.1rem;
-      color: var(--color-gray-400);
+      font-size: var(--fz-xs);
       color: rgb(200, 225, 255);
 
       svg {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+
+      .external-link {
+        width: 1.3rem;
+        height: 1.3rem;
         color: currentColor;
         stroke: currentColor;
       }
@@ -276,135 +336,6 @@
           $color: rgb(200, 225, 255),
           $hoverColor: var(--color-blue-800)
         );
-      }
-    }
-  }
-
-  &__actions {
-    flex-shrink: 0;
-
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0.8rem;
-
-    @media (max-width: 68.75em) {
-      justify-content: flex-start;
-    }
-
-    @media (max-width: 26.25em) {
-      display: grid;
-      grid-template-columns: 3.8rem 3.8rem minmax(min-content, 1fr);
-
-      width: 100%;
-    }
-
-    &--secondary,
-    &--save,
-    &--github {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-
-      min-height: 3.8rem;
-      font-weight: 600;
-      font-size: 1.1rem;
-      white-space: nowrap;
-      padding: 0 1.2rem;
-      background-color: var(--color-white-50);
-      color: rgb(36, 41, 46);
-      border: 1px solid var(--color-gray-400);
-      border-radius: 0.875rem;
-      cursor: pointer;
-      transition:
-        background-color 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease;
-
-      @media (prefers-reduced-motion: reduce) {
-        transition: none;
-      }
-
-      svg {
-        width: 1.6rem;
-        height: 1.6rem;
-        color: currentColor;
-        stroke: currentColor;
-      }
-
-      &:hover {
-        color: var(--color-blue-800);
-        border-color: currentColor;
-      }
-
-      &:focus {
-        outline: none;
-      }
-
-      &:focus-visible {
-        @include focus-ring($width: 2px, $offset: 3px);
-      }
-    }
-
-    &--secondary {
-      width: 3.8rem;
-      padding: 0;
-    }
-
-    &--save {
-      background-color: color-mix(
-        in srgb,
-        var(--color-blue-800) 6%,
-        var(--color-white-50)
-      );
-      border-color: color-mix(
-        in srgb,
-        var(--color-blue-800) 35%,
-        var(--color-gray-400)
-      );
-
-      @media (max-width: 26.25em) {
-        min-width: 0;
-      }
-
-      span {
-        font-size: inherit;
-        color: currentColor;
-      }
-    }
-
-    &--github {
-      &:link,
-      &:visited {
-        background-color: var(--color-blue-800);
-        color: var(--color-white-50);
-        border-color: var(--color-blue-800);
-      }
-
-      @media (max-width: 26.25em) {
-        grid-column: 1 / -1;
-      }
-
-      span {
-        font-size: inherit;
-        color: currentColor;
-      }
-
-      &:hover {
-        background-color: color-mix(
-          in srgb,
-          var(--color-blue-800) 88%,
-          var(--black)
-        );
-      }
-
-      svg {
-        width: 1.5rem;
-        height: 1.5rem;
-        color: currentColor;
-        stroke: currentColor;
       }
     }
   }

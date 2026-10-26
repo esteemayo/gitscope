@@ -1,8 +1,12 @@
 'use client';
 
-import { QRCodeSVG } from 'qrcode.react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Check, Copy, Share2, X } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
+
+import { usePortal } from '@/hooks/usePortal';
+import { useOverlay } from '@/hooks/useOverlay';
 
 import '../../styles/components/modal/ShareModal.scss';
 
@@ -10,20 +14,74 @@ interface ShareModalProps {
   isOpen: boolean;
   profileUrl: string;
   username: string;
+  onClose(): void;
 }
 
-const ShareModal = ({ isOpen, profileUrl, username }: ShareModalProps) => {
+const ShareModal = ({
+  isOpen,
+  profileUrl,
+  username,
+  onClose,
+}: ShareModalProps) => {
+  const ref = useRef<HTMLElement | null>(null);
+
   const [isCopied, setIsCopied] = useState(false);
   const [isCopyError, setIsCopyError] = useState(false);
+
+  useOverlay(ref, { isOpen, onClose });
+  const { portalId } = usePortal('overlay-root');
+
+  const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  const copyProfileUrl = async () => {
+    setIsCopyError(false);
+
+    try {
+      await navigator.clipboard.writeText(profileUrl);
+      setIsCopied(true);
+    } catch {
+      setIsCopyError(false);
+    }
+  };
+
+  const shareProfileHandler = async () => {
+    if (!navigator.share) {
+      await copyProfileUrl();
+      return;
+    }
+
+    try {
+      await navigator.share({
+        title: `${username} on GitScope`,
+        text: `Explore ${username}'s GitHub analytics on GitScope.`,
+        url: profileUrl,
+      });
+    } catch (err) {
+      if (err instanceof Error && err.name !== 'AbortError') {
+        await copyProfileUrl();
+      }
+    }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsCopied(false), 500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!isOpen) {
     return null;
   }
 
-  return (
+  const modalContent = (
     <div className='share-modal'>
-      <div className='share-modal__backdrop'>
+      <div className='share-modal__backdrop' onMouseDown={handleClose}>
         <section
+          ref={ref}
           className='share-modal__panel'
           role='dialog'
           aria-modal='true'
@@ -45,6 +103,7 @@ const ShareModal = ({ isOpen, profileUrl, username }: ShareModalProps) => {
 
             <button
               type='button'
+              onClick={onClose}
               className='share-modal__btn-close'
               aria-label='Close share dialog'
             >
@@ -61,7 +120,7 @@ const ShareModal = ({ isOpen, profileUrl, username }: ShareModalProps) => {
           <div className='share-modal__qr-wrapper'>
             <div className='share-modal__qr-frame'>
               <QRCodeSVG
-                value={''}
+                value={profileUrl}
                 size={188}
                 level='H'
                 marginSize={2}
@@ -85,7 +144,11 @@ const ShareModal = ({ isOpen, profileUrl, username }: ShareModalProps) => {
           <div className='share-modal__share-url'>
             <span>{profileUrl}</span>
 
-            <button type='button' aria-label='Copy profile URL'>
+            <button
+              type='button'
+              onClick={copyProfileUrl}
+              aria-label='Copy profile URL'
+            >
               {isCopied ? (
                 <Check
                   size={18}
@@ -112,7 +175,11 @@ const ShareModal = ({ isOpen, profileUrl, username }: ShareModalProps) => {
             </p>
           )}
 
-          <button type='button' className='share-modal__share-button'>
+          <button
+            type='button'
+            onClick={shareProfileHandler}
+            className='share-modal__share-button'
+          >
             <Share2
               size={17}
               strokeWidth={1.8}
@@ -126,6 +193,8 @@ const ShareModal = ({ isOpen, profileUrl, username }: ShareModalProps) => {
       </div>
     </div>
   );
+
+  return portalId ? createPortal(modalContent, portalId) : undefined;
 };
 
 export default ShareModal;

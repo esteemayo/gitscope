@@ -47,16 +47,16 @@
   }
 
   &:focus-visible {
-    outline: 4px dashed $color;
-    outline-offset: 4px;
+    outline: 3px dashed $color;
+    outline-offset: 3px;
     border-radius: 0.25rem;
   }
 }
 
 @mixin focus-ring(
   $color: var(--color-blue-800),
-  $offset: 4px,
-  $width: 4px,
+  $offset: 3px,
+  $width: 3px,
   $style: dashed
 ) {
   outline: $width $style $color;
@@ -65,8 +65,8 @@
 
 @mixin focus-ring-box(
   $color: var(--color-blue-800),
-  $offset: 4px,
-  $width: 4px,
+  $offset: 3px,
+  $width: 3px,
   $style: dashed,
   $ring-size: 4px,
   $ring-color: rgba(99, 102, 241, 0.15)
