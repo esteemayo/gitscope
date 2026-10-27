@@ -1,0 +1,55 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.repository-tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  position: relative;
+  padding: 1.2rem 1.4rem;
+  background-color: var(--bg-menu);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  box-shadow: 0 0.8rem 2.8rem rgba(15, 23, 42, 0.12);
+  border-radius: var(--radius);
+  z-index: 2000;
+
+  &__title {
+    margin-bottom: 3px;
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    color: inherit;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    font-size: 1.1rem;
+    color: #64748b;
+  }
+
+  &__star-dot,
+  &__fork-dot {
+    flex-shrink: 0;
+
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 100%;
+  }
+
+  &__star-dot {
+    background-color: var(--color-yellow-700);
+    box-shadow: 0 0 0 4px
+      color-mix(in srgb, var(--color-yellow-700) 10%, transparent);
+  }
+
+  &__fork-dot {
+    background-color: var(--color-purple-500);
+    box-shadow: 0 0 0 4px
+      color-mix(in srgb, var(--color-purple-500) 10%, transparent);
+  }
+}

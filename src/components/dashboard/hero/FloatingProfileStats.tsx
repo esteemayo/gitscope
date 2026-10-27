@@ -1,5 +1,5 @@
 import FloatingProfileStat from './FloatingProfileStat';
-import { FloatingProfileStatsProps } from '@/types/dashboard/floating.profile.stats.type';
+import { FloatingProfileStatsProps } from '@/types/dashboard/hero/floating.profile.stats.type';
 
 import '../../../styles/components/dashboard/hero/FloatingProfileStats.scss';
 

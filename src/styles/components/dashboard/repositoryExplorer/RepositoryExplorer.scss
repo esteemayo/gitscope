@@ -33,6 +33,7 @@
   &__heading {
     display: flex;
     flex-direction: column;
+    gap: 0.7rem;
 
     min-width: 0;
 
@@ -67,8 +68,9 @@
       text-rendering: optimizeLegibility;
       font-weight: 600;
       font-size: 2.8rem;
-      color: inherit;
       letter-spacing: -0.8px;
+      color: inherit;
+      line-height: 1.1;
 
       @media (max-width: 40em) {
         font-size: 2.4rem;
@@ -76,8 +78,8 @@
     }
 
     &--description {
-      max-width: 56rem;
-      font-size: var(--fz-sm);
+      max-width: 62rem;
+      font-size: var(--fz-xs);
       color: var(--text-muted);
       line-height: 1.7;
       transition: color 0.25s ease;

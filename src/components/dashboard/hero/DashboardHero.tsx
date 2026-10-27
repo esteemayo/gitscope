@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import {
   Bookmark,
@@ -18,15 +18,8 @@ import Link from 'next/link';
 import ShareModal from '@/components/modal/ShareModal';
 import FloatingProfileStats from './FloatingProfileStats';
 
-import { GitHubProfile, ProfileStat } from '@/types/dashboard';
+import { DashboardHeroProps } from '@/types/dashboard/hero/dashboard.hero.type';
 import '../../../styles/components/dashboard/hero/DashboardHero.scss';
-
-interface DashboardHeroProps {
-  profile: GitHubProfile;
-  stats: ProfileStat[];
-  isSaved?: boolean;
-  onSave(profile: GitHubProfile): void;
-}
 
 const getProfileUrl = (username: string) => {
   return new URL(
@@ -69,6 +62,12 @@ const DashboardHero = ({
       setIsCopyError(true);
     }
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsCopied(false), 1200);
+
+    return () => clearTimeout(timeout);
+  }, [isCopied]);
 
   return (
     <section className='dashboard-hero'>

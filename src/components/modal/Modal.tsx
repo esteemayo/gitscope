@@ -12,7 +12,7 @@ import { useScrollLock } from '@/hooks/useScrollLock';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useClickOutside } from '@/hooks/useClickOutside';
 
-import { ModalProps } from '@/types/modal.type';
+import { ModalProps } from '@/types/modal/modal.type';
 import '../../styles/components/modal/Modal.scss';
 
 const backdropVariants = {

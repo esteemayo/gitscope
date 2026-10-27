@@ -5,17 +5,11 @@ import { createPortal } from 'react-dom';
 import { Check, Copy, Share2, X } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
-import { usePortal } from '@/hooks/usePortal';
 import { useOverlay } from '@/hooks/useOverlay';
+import { usePortal } from '@/hooks/usePortal';
+import { ShareModalProps } from '@/types/modal/share.modal.type';
 
 import '../../styles/components/modal/ShareModal.scss';
-
-interface ShareModalProps {
-  isOpen: boolean;
-  profileUrl: string;
-  username: string;
-  onClose(): void;
-}
 
 const ShareModal = ({
   isOpen,
@@ -68,10 +62,10 @@ const ShareModal = ({
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsCopied(false), 500);
+    const timer = setTimeout(() => setIsCopied(false), 1200);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isCopied]);
 
   if (!isOpen) {
     return null;
@@ -151,7 +145,7 @@ const ShareModal = ({
             >
               {isCopied ? (
                 <Check
-                  size={18}
+                  size={16}
                   strokeWidth={1.8}
                   role='img'
                   aria-hidden='true'
@@ -159,7 +153,7 @@ const ShareModal = ({
                 />
               ) : (
                 <Copy
-                  size={18}
+                  size={16}
                   strokeWidth={1.8}
                   role='img'
                   aria-hidden='true'

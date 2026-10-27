@@ -38,13 +38,18 @@
     width: 100%;
     max-width: 140rem;
     margin-inline: auto;
-    padding: 4.8rem 8rem 16rem;
+    padding: 4.8rem 8rem 10rem;
     position: relative;
     overflow: hidden;
     isolation: isolate;
 
     @media (max-width: 56.25em) {
-      padding: 3.2rem 3.2rem 16rem;
+      padding: 3.2rem 3.2rem 10rem;
+    }
+
+    @include bp.md {
+      gap: 2.4rem;
+      padding: 3.2rem 3.2rem 8rem;
     }
 
     @media (max-width: 25em) {
@@ -76,15 +81,21 @@
     padding: 0.5rem;
     background-image: linear-gradient(
       145deg,
-      #60a5fa 0%,
-      #2563eb 48%,
-      #1d4ed8 100%
+      var(--color-blue-800),
+      var(--color-blue-400),
+      var(--color-blue-400),
+      var(--color-blue-800)
     );
     border: 1px solid rgba(96, 165, 250, 0.4);
     box-shadow:
       0 0 0 4px rgba(37, 99, 235, 0.09),
       0 0 2.8rem rgba(37, 99, 235, 0.24);
     border-radius: 100%;
+
+    @media (max-width: 26.25em) {
+      width: 10.8rem;
+      height: 10.8rem;
+    }
   }
 
   &__avatar {
@@ -125,6 +136,10 @@
     gap: 1rem;
 
     max-width: 100%;
+
+    @media (max-width: 26.25em) {
+      gap: 0.6rem;
+    }
   }
 
   &__profile-name {
@@ -137,6 +152,11 @@
     color: var(--color-white-50);
     overflow-wrap: anywhere;
     line-height: 1.1;
+
+    @media (max-width: 26.25em) {
+      font-size: 2.5rem;
+      letter-spacing: -0.6px;
+    }
   }
 
   &__github-link {
@@ -156,6 +176,15 @@
         background-color 0.25s ease,
         color 0.25s ease,
         border-color 0.25s ease;
+
+      @media (max-width: 26.25em) {
+        width: 2.8rem;
+        height: 2.8rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        transform: none;
+      }
     }
 
     svg {
@@ -217,12 +246,8 @@
     justify-content: center;
     gap: 0.8rem;
 
-    // margin-top: 2rem;
-
     &--share,
-    &--secondary,
-    &--save,
-    &--github {
+    &--secondary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -232,8 +257,6 @@
       font-weight: 600;
       font-size: var(--fz-xs);
       padding: 0.8rem 1.2rem;
-      // background-color: var(--color-white-50);
-      // color: rgb(36, 41, 46);
       border: 1px solid transparent;
       border-radius: 0.875rem;
       cursor: pointer;
@@ -274,6 +297,10 @@
           var(--black)
         );
         transform: translateY(-1px);
+
+        @media (prefers-reduced-motion: reduce) {
+          transform: none;
+        }
       }
     }
 
@@ -294,6 +321,13 @@
         cursor: not-allowed;
       }
     }
+  }
+
+  &__copy-error {
+    margin-top: 0.8rem;
+    font-size: var(--fz-xxs);
+    color: var(--color-red-700);
+    line-height: 1.5;
   }
 
   &__profile-meta {

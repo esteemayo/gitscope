@@ -6,6 +6,8 @@ import ChartSection from './ChartSection';
 import StatsCards from './StatsCards';
 import ProfileHeader from './ProfileHeader';
 import RepoLists from './repos/RepoLists';
+
+import AnalyticsOverview from './analytics/AnalyticsOverview';
 import RepositoryExplorer from './repositoryExplorer/RepositoryExplorer';
 
 import { REPOSITORIES } from '@/data';
@@ -34,11 +36,13 @@ const DashboardClient = ({ username }: { username: string }) => {
         onSave={handleSave}
       />
 
+      <AnalyticsOverview />
+
       {/* <ProfileHeader username={username} /> */}
 
       {/* <StatsCards sort={sort} onSort={setSort} /> */}
 
-      <ChartSection />
+      {/* <ChartSection /> */}
 
       <RepositoryExplorer />
 
