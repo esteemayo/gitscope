@@ -43,8 +43,8 @@ const AnalyticsOverview = () => {
         </div>
 
         <p className='analytics-overview__disclaimer'>
-          Preview data is illustrative. Repository and language metrics will be
-          populated from GitHub data.
+          Metrics are based on the user&apos;s GitHub profile and repository
+          data.
         </p>
       </div>
     </section>

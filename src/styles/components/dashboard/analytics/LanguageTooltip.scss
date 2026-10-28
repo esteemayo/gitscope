@@ -4,8 +4,8 @@
 
 .language-tooltip {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 1rem;
 
   position: relative;
   padding: 1.2rem 1.4rem;
@@ -13,25 +13,48 @@
   border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
   box-shadow: 0 0.8rem 2.8rem rgba(15, 23, 42, 0.12);
   border-radius: var(--radius);
+  overflow: hidden;
+  isolation: isolate;
   z-index: 2000;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 
-  &__title {
-    margin-bottom: 3px;
-    font-weight: 600;
-    font-size: var(--fz-xxs);
-    color: inherit;
+  &__indicator {
+    flex-shrink: 0;
+
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: var(--language-color);
+    box-shadow: 0 0 0 4px
+      color-mix(in srgb, var(--language-color) 10%, transparent);
+    border-radius: 100%;
   }
 
-  &__percentage,
-  &__bytes {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 
-    font-size: 1.1rem;
-    color: #64748b;
-  }
+    min-width: 0;
 
-  &__bytes {
+    &--name {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-xxs);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--value {
+      font-size: var(--fz-xxs);
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum';
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
   }
 }

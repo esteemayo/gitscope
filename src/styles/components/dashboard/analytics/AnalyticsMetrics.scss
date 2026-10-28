@@ -12,7 +12,7 @@
     gap: 1rem;
   }
 
-  @media (max-width: 22.5em) {
+  @include bp.sm {
     grid-template-columns: minmax(min-content, 1fr);
   }
 }

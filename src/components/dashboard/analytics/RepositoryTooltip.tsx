@@ -1,6 +1,8 @@
 'use client';
 
+import { formatNumber } from '@/utils/formatNumber';
 import { RepositoryComparison } from '@/types/dashboard/analytics';
+
 import '../../../styles/components/dashboard/analytics/RepositoryTooltip.scss';
 
 interface RepositoryTooltipProps {
@@ -23,12 +25,12 @@ const RepositoryTooltip = ({ active, payload }: RepositoryTooltipProps) => {
 
       <p>
         <span className='repository-tooltip__star-dot' aria-hidden='true' />
-        Stars: {repository.stars.toLocaleString()}
+        Stars: {formatNumber(repository.stars)}
       </p>
 
       <p>
         <span className='repository-tooltip__fork-dot' aria-hidden='true' />
-        Forks: {repository.forks.toLocaleString()}
+        Forks: {formatNumber(repository.forks)}
       </p>
     </div>
   );

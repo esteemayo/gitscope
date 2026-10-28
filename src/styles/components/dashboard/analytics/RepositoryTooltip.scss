@@ -13,13 +13,22 @@
   border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
   box-shadow: 0 0.8rem 2.8rem rgba(15, 23, 42, 0.12);
   border-radius: var(--radius);
+  overflow: hidden;
+  isolation: isolate;
   z-index: 2000;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 
   &__title {
-    margin-bottom: 3px;
+    display: inline-block;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
     font-weight: 600;
     font-size: var(--fz-xxs);
+    margin-bottom: 3px;
     color: inherit;
+    line-height: 1.1;
   }
 
   p {
@@ -28,7 +37,8 @@
     gap: 0.7rem;
 
     font-size: 1.1rem;
-    color: #64748b;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
   }
 
   &__star-dot,

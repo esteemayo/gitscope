@@ -6,14 +6,14 @@
   width: 100%;
   max-width: 140rem;
   margin-inline: auto;
-  padding: 4.8rem 8rem;
+  padding: 4rem 8rem 4.8rem;
 
   @media (max-width: 56.25em) {
-    padding: 3.2rem;
+    padding: 4rem 3.2rem 4rem;
   }
 
   @media (max-width: 25em) {
-    padding: 1.6rem;
+    padding: 3rem 1.6rem 4rem;
   }
 
   &__header {
@@ -27,6 +27,10 @@
     @media (max-width: 40em) {
       flex-direction: column;
       align-items: flex-start;
+    }
+
+    @include bp.sm {
+      gap: 1.5rem;
     }
   }
 
@@ -46,9 +50,8 @@
       font-weight: 600;
       font-size: 1.1rem;
       letter-spacing: 1.5px;
-      color: var(--text-muted);
+      color: color-mix(in srgb, var(--color-blue-800) 85%, transparent);
       user-select: none;
-      transition: color 0.25s ease;
 
       &::before {
         content: '';

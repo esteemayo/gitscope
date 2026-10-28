@@ -1,7 +1,14 @@
 'use client';
 
+import { getLanguageColor } from '@/utils/getLanguageColor';
+import { formatRepoSize } from '@/utils/formatRepoSize';
 import { LanguageDistributionItem } from '@/types/dashboard/analytics';
+
 import '../../../styles/components/dashboard/analytics/LanguageTooltip.scss';
+
+type CustomCSSProperties = React.CSSProperties & {
+  '--language-color': string;
+};
 
 interface LanguageTooltipProps {
   active?: boolean;
@@ -17,17 +24,27 @@ const LanguageTooltip = ({ active, payload }: LanguageTooltipProps) => {
 
   const language = payload[0].payload;
 
+  const languageColor = getLanguageColor(language.name);
+
   return (
     <div className='language-tooltip'>
-      <h4 className='language-tooltip__title'>{language.name}</h4>
+      <span
+        className='language-tooltip__indicator'
+        style={
+          {
+            '--language-color': languageColor ?? language.color,
+          } as CustomCSSProperties
+        }
+        aria-hidden='true'
+      />
 
-      <p className='language-tooltip__percentage'>
-        {language.percentage}% of reported language bytes
-      </p>
+      <div className='language-tooltip__content'>
+        <h4 className='language-tooltip__content--name'>{language.name}</h4>
 
-      <p className='language-tooltip__bytes'>
-        {language.bytes.toLocaleString()} bytes
-      </p>
+        <p className='language-tooltip__content--value'>
+          {formatRepoSize(language.bytes)}
+        </p>
+      </div>
     </div>
   );
 };
