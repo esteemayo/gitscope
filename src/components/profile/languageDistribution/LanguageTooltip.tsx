@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-import { formatRepoSize } from '@/utils/formatRepoSize';
+import { formatBytes } from '@/utils/formatBytes';
 import { LanguageTooltipProps } from '@/types/profile/language/language.tooltip.type';
 
 import '../../../styles/components/profile/languageDistribution/LanguageTooltip.scss';
@@ -39,7 +39,7 @@ const LanguageTooltip = ({ active, payload }: LanguageTooltipProps) => {
         </p>
 
         <span className='language-tooltip__content--size'>
-          {formatRepoSize(language.bytes)}
+          {formatBytes(language.bytes)}
         </span>
       </div>
     </motion.div>

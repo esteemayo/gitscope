@@ -1,12 +1,15 @@
 'use client';
 
 import { Pie, PieChart, Tooltip } from 'recharts';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { RechartsDevtools } from '@recharts/devtools';
 
 import LanguageTooltip from './LanguageTooltip';
+import LanguageChartSector from './LanguageChartSector';
 
+import { formatBytes } from '@/utils/formatBytes';
 import { getChartTheme } from '@/utils/chartTheme';
+
 import { useTheme } from '@/context/ThemeContext';
 import { LanguageChartProps } from '@/types/profile/language/language.chart.type';
 
@@ -22,43 +25,48 @@ const LanguageChart = ({
 
   const [isTooltipActive, setIsTooltipActive] = useState(false);
 
-  const totalBytes = languages?.reduce(
-    (acc, language) => acc + language.bytes,
-    0,
+  const totalBytes = useMemo(
+    () => languages?.reduce((acc, language) => acc + language.bytes, 0),
+    [languages],
+  );
+
+  const chartData = useMemo(
+    () =>
+      languages.map((language) => ({
+        ...language,
+        percentage: totalBytes > 0 ? (language.bytes / totalBytes) * 100 : 0,
+      })),
+    [totalBytes, languages],
   );
 
   return (
     <div className='language-chart'>
       <div className='language-chart__container' aria-hidden='true'>
         <PieChart
-          style={{
-            width: '100%',
-            height: '100%',
-            maxWidth: '500px',
-            maxHeight: '80vh',
-            aspectRatio: 1,
-          }}
+          style={{ width: '100%', height: '100%' }}
           responsive
           tabIndex={-1}
         >
           <Pie
-            data={languages}
+            data={chartData}
             dataKey='percentage'
             nameKey='name'
             cx='50%'
             cy='50%'
             fill={chartTheme.fill}
-            isAnimationActive={isAnimationActive}
-            innerRadius={72}
-            outerRadius={82}
+            innerRadius='63%'
+            outerRadius='84%'
             paddingAngle={3}
             cornerRadius={8}
-            stroke='transparent'
+            stroke='none'
+            shape={(props) => (
+              <LanguageChartSector {...props} languages={languages} />
+            )}
+            isAnimationActive={isAnimationActive}
             animationBegin={150}
-            animationDuration={900}
+            animationDuration={700}
             onMouseEnter={() => setIsTooltipActive(true)}
             onMouseLeave={() => setIsTooltipActive(false)}
-            tabIndex={-1}
           />
 
           <Tooltip
@@ -67,6 +75,7 @@ const LanguageChart = ({
             content={<LanguageTooltip />}
             offset={20}
           />
+
           <RechartsDevtools />
         </PieChart>
 
@@ -78,15 +87,15 @@ const LanguageChart = ({
           }
         >
           <strong className='language-chart__center--count'>
-            {languages?.length}
+            {(languages ?? []).length}
           </strong>
 
           <span className='language-chart__center--label'>
-            {languages?.length > 1 ? 'Languages' : 'Language'}
+            {(languages ?? []).length > 1 ? 'Languages' : 'Language'}
           </span>
 
           <small className='language-chart__center--size'>
-            {Math.round(totalBytes / 1024).toFixed(0)} kb
+            {formatBytes(totalBytes)}
           </small>
         </div>
       </div>

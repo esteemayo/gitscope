@@ -7,7 +7,7 @@ import BookIcon from '@/components/icons/BookIcon';
 import ForkIcon from '@/components/icons/ForkIcon';
 import StarIcon from '@/components/icons/StarIcon';
 
-import { formatRepoSize } from '@/utils/formatRepoSize';
+import { formatBytes } from '@/utils/formatBytes';
 import { truncText } from '@/utils';
 import { getLanguageColor } from '@/utils/getLanguageColor';
 
@@ -71,7 +71,7 @@ const RepoCard = ({
           </div>
 
           <div className='repo-card__stats--right'>
-            <span>{formatRepoSize(size)}</span>
+            <span>{formatBytes(size)}</span>
           </div>
         </footer>
       </Link>

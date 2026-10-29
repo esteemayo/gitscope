@@ -20,7 +20,7 @@ const Achievements = ({ achievements }: AchievementsProps) => {
 
         <div className='achievements__grid'>
           {achievements.map((achievement) => (
-            <AchievementCard key={achievement.id} achievement={achievement} />
+            <AchievementCard key={achievement.id} {...achievement} />
           ))}
         </div>
       </div>

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import ForkIcon from '../icons/ForkIcon';
 import StarIcon from '../icons/StarIcon';
 
-import { formatRepoSize } from '@/utils/formatRepoSize';
+import { formatBytes } from '@/utils/formatBytes';
 import { getLanguageColor } from '@/utils/getLanguageColor';
 
 import { RepoPreviewCardProps } from '@/types/compare/repo.preview.card.type';
@@ -57,7 +57,7 @@ const RepoPreviewCard = ({
 
         <div className='repo-preview-card__wrapper'>
           <span className='repo-preview-card__wrapper--value'>
-            {formatRepoSize(size)}
+            {formatBytes(size)}
           </span>
         </div>
       </footer>

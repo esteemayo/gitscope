@@ -48,6 +48,6 @@ export const MOCK_PROFILE_STATS: ProfileStat[] = [
     value: 186,
     description: 'Community reuse',
     icon: 'git-fork',
-    accentColor: '#C4B5FD',
+    accentColor: '#8B5CF6',
   },
 ];

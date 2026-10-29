@@ -106,7 +106,7 @@
     border-radius: 0.875rem;
     cursor: pointer;
     transition:
-      filter 0.25s ease,
+      background-color 0.25s ease,
       transform 0.25s ease;
 
     @media (prefers-reduced-motion: reduce) {
@@ -114,7 +114,11 @@
     }
 
     &:hover {
-      filter: brightness(0.96);
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800) 88%,
+        var(--black)
+      );
     }
 
     &:focus {
@@ -187,6 +191,10 @@
       box-sizing: border-box;
     }
 
+    &:focus-within {
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--border) 30%, transparent);
+    }
+
     svg {
       width: 1.7rem;
       height: 1.7rem;
@@ -210,7 +218,8 @@
       }
 
       &::placeholder {
-        color: var(--text-muted);
+        font-size: var(--fz-xxs);
+        color: color-mix(in srgb, var(--text-muted) 85%, transparent);
         transition: color 0.25s ease;
       }
 

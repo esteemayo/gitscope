@@ -18,6 +18,7 @@ export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
       icon: FlameIcon,
       title: '100+ Followers',
       description: 'Built a growing developer audience.',
+      accentColor: '#4F46E5'
     });
   }
 
@@ -27,6 +28,7 @@ export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
       icon: RocketIcon,
       title: 'Open Source Explorer',
       description: 'Published over 50 repositories.',
+      accentColor: '#22C55E'
     });
   }
 
@@ -36,6 +38,7 @@ export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
       icon: TrophyIcon,
       title: 'Veteran Developer',
       description: 'GitHub member for over 5 years.',
+      accentColor: '#8B5CF6'
     });
   }
 
@@ -45,6 +48,7 @@ export const getAchievements = (user: GithubUser, repos: RepositoryType[]) => {
       icon: StarIcon,
       title: 'Star Collector',
       description: 'Collected 100+ stars across repositories.',
+      accentColor: '#F59E0B'
     });
   }
 

@@ -13,7 +13,6 @@ import {
   MapPin,
   Share2,
 } from 'lucide-react';
-import Link from 'next/link';
 
 import ShareModal from '@/components/modal/ShareModal';
 import FloatingProfileStats from './FloatingProfileStats';
@@ -96,34 +95,19 @@ const DashboardHero = ({
             </div>
 
             <div className='dashboard-hero__identity'>
-              <div className='dashboard-hero__name-row'>
-                <h1 className='dashboard-hero__profile-name'>
-                  {profile.name ?? profile.login}
-                </h1>
+              <h1 className='dashboard-hero__profile-name'>
+                {profile.name ?? profile.login}
+              </h1>
 
-                <a
-                  href={profile.html_url}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='dashboard-hero__github-link'
-                  aria-label='Open GitHub profile'
-                >
-                  <ExternalLink
-                    size={17}
-                    strokeWidth={1.8}
-                    role='img'
-                    aria-hidden='true'
-                    focusable='false'
-                  />
-                </a>
-              </div>
-
-              <Link
-                href={`/${encodeURIComponent(profile.login)}`}
+              <a
+                href={profile.html_url}
+                target='_blank'
+                rel='noopener noreferrer'
                 className='dashboard-hero__username'
+                aria-label='Open GitHub profile'
               >
                 @{profile.login}
-              </Link>
+              </a>
 
               {profile.bio && (
                 <p className='dashboard-hero__bio'>{profile.bio}</p>

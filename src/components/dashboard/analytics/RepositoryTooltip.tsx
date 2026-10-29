@@ -8,6 +8,8 @@ import '../../../styles/components/dashboard/analytics/RepositoryTooltip.scss';
 interface RepositoryTooltipProps {
   active?: boolean;
   payload?: Array<{
+    name?: string;
+    value?: string | number;
     payload: RepositoryComparison;
   }>;
 }

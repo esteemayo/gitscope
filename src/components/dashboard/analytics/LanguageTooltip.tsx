@@ -1,7 +1,7 @@
 'use client';
 
 import { getLanguageColor } from '@/utils/getLanguageColor';
-import { formatRepoSize } from '@/utils/formatRepoSize';
+import { formatBytes } from '@/utils/formatBytes';
 import { LanguageDistributionItem } from '@/types/dashboard/analytics';
 
 import '../../../styles/components/dashboard/analytics/LanguageTooltip.scss';
@@ -13,6 +13,8 @@ type CustomCSSProperties = React.CSSProperties & {
 interface LanguageTooltipProps {
   active?: boolean;
   payload?: Array<{
+    name?: string;
+    value?: string | number;
     payload: LanguageDistributionItem;
   }>;
 }
@@ -42,7 +44,7 @@ const LanguageTooltip = ({ active, payload }: LanguageTooltipProps) => {
         <h4 className='language-tooltip__content--name'>{language.name}</h4>
 
         <p className='language-tooltip__content--value'>
-          {formatRepoSize(language.bytes)}
+          {formatBytes(language.bytes)}
         </p>
       </div>
     </div>

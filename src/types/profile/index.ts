@@ -1,4 +1,4 @@
-import { LucideProps } from 'lucide-react';
+import { type LucideIcon } from 'lucide-react';
 
 export interface GithubUser {
   id: number;
@@ -39,9 +39,8 @@ export interface RepositoryType {
 
 export interface AchievementType {
   id: string;
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: LucideIcon | React.ComponentType;
   title: string;
   description: string;
+  accentColor: string;
 }

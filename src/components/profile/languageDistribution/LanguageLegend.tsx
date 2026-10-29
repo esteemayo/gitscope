@@ -23,7 +23,7 @@ const LanguageLegend = ({ languages }: LanguageLegendProps) => {
   return (
     <ul className='language-legend'>
       {visibleLanguages.map((language) => (
-        <LanguageItem key={language.name} language={language} />
+        <LanguageItem key={language.name} {...language} />
       ))}
 
       {hasHiddenLanguages && isExpanded && (
@@ -41,7 +41,7 @@ const LanguageLegend = ({ languages }: LanguageLegendProps) => {
             className='language-legend__hidden'
           >
             {hiddenLanguages?.map((language) => (
-              <LanguageItem key={language.name} language={language} />
+              <LanguageItem key={language.name} {...language} />
             ))}
           </motion.div>
         )}

@@ -1,3 +1,5 @@
+@use '../../../abstracts/animation';
+@use '../../../abstracts/mixins' as *;
 @use '../../../abstracts/responsive' as bp;
 
 .language-distribution {
@@ -8,7 +10,9 @@
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: var(--transition);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 
   &__container {
     display: flex;

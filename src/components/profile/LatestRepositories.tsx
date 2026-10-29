@@ -69,7 +69,7 @@ const LatestRepositories = ({ repositories }: LatestRepositoriesProps) => {
                 transition={{ duration: 0.35 }}
                 className='latest-repositories__grid--item'
               >
-                <RepositoryCard repository={repository} />
+                <RepositoryCard {...repository} />
               </motion.li>
             ))}
           </motion.ul>

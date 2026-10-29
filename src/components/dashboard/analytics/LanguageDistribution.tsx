@@ -1,14 +1,15 @@
 'use client';
 
-import { RechartsDevtools } from '@recharts/devtools';
+import { Pie, PieChart, Tooltip } from 'recharts';
 import { useMemo } from 'react';
-import { Cell, Pie, PieChart, Tooltip } from 'recharts';
+import { RechartsDevtools } from '@recharts/devtools';
 
+import LanguageSector from './LanguageSector';
 import LanguageTooltip from './LanguageTooltip';
 
 import { getLanguageColor } from '@/utils/getLanguageColor';
-import { formatRepoSize } from '@/utils/formatRepoSize';
-import { LanguageDistributionProps } from '@/types/profile/language/language.distribution.type';
+import { formatBytes } from '@/utils/formatBytes';
+import { LanguageDistributionProps } from '@/types/dashboard/analytics/language.distribution.type';
 
 import '../../../styles/components/dashboard/analytics/LanguageDistribution.scss';
 
@@ -111,13 +112,12 @@ const LanguageDistribution = ({ languages }: LanguageDistributionProps) => {
               outerRadius='84%'
               paddingAngle={3}
               stroke='none'
+              shape={(props) => (
+                <LanguageSector {...props} languages={validLanguages} />
+              )}
               isAnimationActive
               animationDuration={700}
-            >
-              {languages.map((language) => (
-                <Cell key={language.name} fill={language.color} />
-              ))}
-            </Pie>
+            />
 
             <Tooltip content={<LanguageTooltip />} />
 
@@ -130,7 +130,7 @@ const LanguageDistribution = ({ languages }: LanguageDistributionProps) => {
             </span>
 
             <strong className='language-distribution__center--value'>
-              {formatRepoSize(totalBytes)}
+              {formatBytes(totalBytes)}
             </strong>
           </div>
         </div>
@@ -167,7 +167,7 @@ const LanguageDistribution = ({ languages }: LanguageDistributionProps) => {
                   </strong>
 
                   <span className='language-distribution__stats--bytes'>
-                    {formatRepoSize(bytes)}
+                    {formatBytes(bytes)}
                   </span>
                 </div>
               </li>

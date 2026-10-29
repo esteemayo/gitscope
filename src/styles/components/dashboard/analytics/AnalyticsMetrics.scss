@@ -14,5 +14,6 @@
 
   @include bp.sm {
     grid-template-columns: minmax(min-content, 1fr);
+    gap: 1.4rem;
   }
 }

@@ -4,11 +4,10 @@
 
 .floating-profile-stats {
   width: 100%;
-  max-width: 100rem;
-  margin-inline: auto;
-  margin-top: -7rem;
-  margin-top: -5rem;
+  max-width: 90rem;
   padding-inline: 8rem;
+  margin-top: -5rem;
+  margin-inline: auto;
 
   @media (max-width: 56.25em) {
     padding-inline: 3.2rem;

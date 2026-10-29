@@ -1,7 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import millify from 'millify';
+import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import {
   ArrowUpRightIcon,
   ClockIcon,
@@ -14,8 +15,25 @@ import { RepositoryCardProps } from '@/types/profile/repository.card.type';
 
 import '../../styles/components/profile/RepositoryCard.scss';
 
-const RepositoryCard = ({ repository }: RepositoryCardProps) => {
-  const updated = new Date(repository.updated_at).toLocaleDateString('en-US', {
+type CustomCSSProperties = React.CSSProperties & {
+  '--accent-color': string;
+};
+
+const RepositoryCard = ({
+  id,
+  name,
+  description,
+  language,
+  stargazers_count,
+  forks_count,
+  updated_at,
+  html_url,
+  className,
+  style,
+}: RepositoryCardProps) => {
+  const languageColor = getLanguageColor(language);
+
+  const updated = new Date(updated_at).toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
@@ -25,12 +43,12 @@ const RepositoryCard = ({ repository }: RepositoryCardProps) => {
     {
       id: 1,
       icon: StarIcon,
-      value: millify(repository.stargazers_count),
+      value: millify(stargazers_count),
     },
     {
       id: 2,
       icon: GitForkIcon,
-      value: millify(repository.forks_count),
+      value: millify(forks_count),
     },
     {
       id: 3,
@@ -44,43 +62,51 @@ const RepositoryCard = ({ repository }: RepositoryCardProps) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={{ y: -4 }}
-      className='repository-card'
-      aria-labelledby={`repo-${repository.id}`}
+      className={clsx('repository-card', className)}
+      style={
+        {
+          '--accent-color': languageColor,
+          ...style,
+        } as CustomCSSProperties
+      }
+      aria-labelledby={`repo-${id}`}
     >
       <div className='repository-card__container'>
         <header className='repository-card__header'>
-          <h3
-            id={`repo-${repository.id}`}
-            className='repository-card__header--title'
-          >
-            {repository.name}
+          <h3 id={`repo-${id}`} className='repository-card__header--title'>
+            {name}
           </h3>
 
           <a
-            href={repository.html_url}
+            href={html_url}
             target='_blank'
             rel='noopener noreferrer'
             className='repository-card__header--link'
-            aria-label={`Open ${repository.name} repository`}
+            aria-label={`Open ${name} repository`}
           >
-            <ArrowUpRightIcon size={20} />
+            <ArrowUpRightIcon
+              size={20}
+              strokeWidth={1.8}
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
           </a>
         </header>
 
         <div className='repository-card__content'>
           <p className='repository-card__description'>
-            {repository.description ?? 'No description provided'}
+            {description ?? 'No description provided'}
           </p>
 
           <div className='repository-card__language'>
             <span
-              style={{ backgroundColor: getLanguageColor(repository.language) }}
               className='repository-card__language--dot'
+              aria-hidden='true'
             />
 
             <span className='repository-card__language--value'>
-              {repository.language ?? 'Unknown'}
+              {language ?? 'Unknown'}
             </span>
           </div>
         </div>
@@ -91,7 +117,13 @@ const RepositoryCard = ({ repository }: RepositoryCardProps) => {
 
             return (
               <div key={id} className='repository-card__group'>
-                <Icon size={16} />
+                <Icon
+                  size={16}
+                  strokeWidth={1.8}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
 
                 <span className='repository-card__group--value'>{value}</span>
               </div>
