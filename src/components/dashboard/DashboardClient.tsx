@@ -7,6 +7,7 @@ import StatsCards from './StatsCards';
 import ProfileHeader from './ProfileHeader';
 import RepoLists from './repos/RepoLists';
 
+import ProfileIntelligence from './intelligence/ProfileIntelligence';
 import AnalyticsOverview from './analytics/AnalyticsOverview';
 import RepositoryExplorer from './repositoryExplorer/RepositoryExplorer';
 
@@ -37,6 +38,8 @@ const DashboardClient = ({ username }: { username: string }) => {
       />
 
       <AnalyticsOverview />
+
+      <ProfileIntelligence />
 
       {/* <ProfileHeader username={username} /> */}
 

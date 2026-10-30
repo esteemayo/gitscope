@@ -88,7 +88,7 @@ const AccountMenu = () => {
 
           <div className='account-menu__items'>
             <Link
-              href='/profile'
+              href='/user/profile'
               onClick={handleClose}
               className='account-menu__items--link'
               role='menuitem'

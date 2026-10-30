@@ -1,0 +1,154 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.profile-intelligence {
+  padding: 4rem 8rem 4rem;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 120rem;
+    margin-inline: auto;
+
+    @media (max-width: 37.5em) {
+      gap: 1.6rem;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+  }
+
+  &__heading-group {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    min-width: 0;
+  }
+
+  &__heading-icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 4.4rem;
+    height: 4.4rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800) 12%,
+      transparent
+    );
+    color: var(--color-blue-800);
+    border: 1px solid color-mix(in srgb, var(--color-blue-800) 18%, transparent);
+    border-radius: var(--radius);
+
+    @media (max-width: 37.5em) {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__heading-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    min-width: 0;
+  }
+
+  &__title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  &__title {
+    display: inline-block;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    font-weight: 600;
+    font-size: var(--fz-xl);
+    letter-spacing: -0.4px;
+    color: inherit;
+    line-height: 1.1;
+  }
+
+  &__insight-badge {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    width: fit-content;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 4px 0.8rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800) 12%,
+      transparent
+    );
+    color: var(--color-blue-800);
+    border: 1px solid color-mix(in srgb, var(--color-blue-800) 18%, transparent);
+    border-radius: 2rem;
+    user-select: none;
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__description {
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    line-height: 1.5;
+    transition: color 0.25s ease;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    gap: 1.4rem;
+
+    width: 100%;
+
+    @include bp.xl {
+      grid-template-columns: repeat(4, minmax(min-content, 1fr));
+    }
+
+    @media (max-width: 37.5em) {
+      grid-template-columns: minmax(min-content, 1fr);
+      gap: 1.2rem;
+    }
+  }
+
+  &__disclaimer {
+    margin-top: -4px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+  }
+}

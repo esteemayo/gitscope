@@ -1,0 +1,67 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.intelligence-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+
+  text-align: center;
+  padding: 3.6rem 2rem;
+  border: 1px solid var(--border);
+  border-radius: 1.6rem;
+  transition: border-color 0.25s ease;
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 4.4rem;
+    height: 4.4rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800) 12%,
+      transparent
+    );
+    color: var(--color-blue-800);
+    border: 1px solid color-mix(in srgb, var(--color-blue-800) 18%, transparent);
+    border-radius: var(--radius);
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    min-width: 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-md);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      max-width: 40rem;
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      line-height: 1.7;
+      transition: color 0.25s ease;
+    }
+  }
+}
