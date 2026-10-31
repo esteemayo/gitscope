@@ -14,11 +14,11 @@ import {
 import RepoCard from './RepoCard';
 
 import { RepositoryView } from '@/types/dashboard';
-import { MOCK_REPOSITORIES } from '@/data/dashboard/repository.data';
+import { RepositoryExplorerProps } from '@/types/dashboard/repository/repository.explorer.type';
 
 import '../../../styles/components/dashboard/repositoryExplorer/RepositoryExplorer.scss';
 
-const RepositoryExplorer = () => {
+const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
   const [view, setView] = useState<RepositoryView>('grid');
 
   return (
@@ -210,7 +210,7 @@ const RepositoryExplorer = () => {
             'list-view': view === 'list',
           })}
         >
-          {MOCK_REPOSITORIES.map((repository) => (
+          {repositories.map((repository) => (
             <RepoCard key={repository.id} repository={repository} view={view} />
           ))}
         </div>

@@ -1,17 +1,20 @@
 import { BrainCircuit, Sparkles } from 'lucide-react';
 
-import IntelligenceCard from './IntelligenceCard';
+import IntelligenceInsight from './IntelligenceInsight';
 import IntelligenceEmptyState from './IntelligenceEmptyState';
 
+import { ProfileIntelligenceProps } from '@/types/dashboard/intelligence/profile.intelligence.type';
 import '../../../styles/components/dashboard/intelligence/ProfileIntelligence.scss';
-
-interface ProfileIntelligenceProps {
-  isLoading?: boolean;
-}
+import { getProfileIntelligence } from '@/utils/dashboard/getProfileIntelligence';
 
 const ProfileIntelligence = ({
+  profile,
+  repositories,
+  languages,
   isLoading = false,
 }: ProfileIntelligenceProps) => {
+  const insights = getProfileIntelligence({ profile, repositories, languages });
+
   const hasInsightData = true;
 
   return (
@@ -70,8 +73,8 @@ const ProfileIntelligence = ({
           <IntelligenceEmptyState />
         ) : (
           <div className='profile-intelligence__grid'>
-            {[...Array(4)].map((_, index) => (
-              <IntelligenceCard key={index} />
+            {insights.map((insight) => (
+              <IntelligenceInsight key={insight.id} {...insight} />
             ))}
           </div>
         )}

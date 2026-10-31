@@ -5,6 +5,14 @@
 .profile-intelligence {
   padding: 4rem 8rem 4rem;
 
+  @media (max-width: 56.25em) {
+    padding: 4rem 3.2rem 4rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 3rem 1.6rem 4rem;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;

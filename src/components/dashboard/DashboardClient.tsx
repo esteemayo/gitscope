@@ -19,10 +19,14 @@ import {
   MOCK_PROFILE_STATS,
 } from '@/data/dashboard/profile.data';
 import { GitHubProfile } from '@/types/dashboard';
+import { MOCK_ANALYTICS } from '@/data/dashboard/analytics.data';
+import { MOCK_REPOSITORIES } from '@/data/dashboard/repository.data';
 
 const DashboardClient = ({ username }: { username: string }) => {
   const [view, setView] = useState<ViewType>('grid');
   const [sort, setSort] = useState<SortType>('stars');
+
+  const { languages } = MOCK_ANALYTICS;
 
   const handleSave = (profile: GitHubProfile) => {
     console.log(profile);
@@ -39,7 +43,12 @@ const DashboardClient = ({ username }: { username: string }) => {
 
       <AnalyticsOverview />
 
-      <ProfileIntelligence />
+      <ProfileIntelligence
+        profile={MOCK_PROFILE}
+        repositories={MOCK_REPOSITORIES}
+        languages={languages}
+        isLoading={false}
+      />
 
       {/* <ProfileHeader username={username} /> */}
 
@@ -47,7 +56,7 @@ const DashboardClient = ({ username }: { username: string }) => {
 
       {/* <ChartSection /> */}
 
-      <RepositoryExplorer />
+      <RepositoryExplorer repositories={MOCK_REPOSITORIES} />
 
       {/* <RepoLists
         sort={sort}
