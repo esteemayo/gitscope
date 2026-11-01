@@ -1,11 +1,11 @@
-import { BrainCircuit, Sparkles } from 'lucide-react';
-
-import IntelligenceInsight from './IntelligenceInsight';
 import IntelligenceEmptyState from './IntelligenceEmptyState';
+import IntelligenceInsight from './IntelligenceInsight';
+import IntelligenceSkeleton from '@/components/skeletons/dashboard/IntelligenceSkeleton';
 
-import { ProfileIntelligenceProps } from '@/types/dashboard/intelligence/profile.intelligence.type';
-import '../../../styles/components/dashboard/intelligence/ProfileIntelligence.scss';
 import { getProfileIntelligence } from '@/utils/dashboard/getProfileIntelligence';
+import { ProfileIntelligenceProps } from '@/types/dashboard/intelligence/profile.intelligence.type';
+
+import '../../../styles/components/dashboard/intelligence/ProfileIntelligence.scss';
 
 const ProfileIntelligence = ({
   profile,
@@ -13,9 +13,12 @@ const ProfileIntelligence = ({
   languages,
   isLoading = false,
 }: ProfileIntelligenceProps) => {
+  const hasLanguageData = (languages ?? []).length > 0;
+  const hasRepositoryData = (repositories ?? []).length > 0;
+
   const insights = getProfileIntelligence({ profile, repositories, languages });
 
-  const hasInsightData = true;
+  const hasInsightData = hasRepositoryData || hasLanguageData;
 
   return (
     <section
@@ -24,53 +27,32 @@ const ProfileIntelligence = ({
     >
       <div className='profile-intelligence__container'>
         <header className='profile-intelligence__header'>
-          <div className='profile-intelligence__heading-group'>
-            <div
-              className='profile-intelligence__heading-icon'
-              aria-hidden='true'
+          <div className='profile-intelligence__heading'>
+            <span className='profile-intelligence__heading--eyebrow'>
+              Insights
+            </span>
+
+            <h2
+              id='profile-intelligence-title'
+              className='profile-intelligence__heading--title'
             >
-              <BrainCircuit
-                size={20}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </div>
+              Profile intelligence
+            </h2>
 
-            <div className='profile-intelligence__heading-text'>
-              <div className='profile-intelligence__title-row'>
-                <h2
-                  id='profile-intelligence-title'
-                  className='profile-intelligence__title'
-                >
-                  Profile intelligence
-                </h2>
-
-                <span className='profile-intelligence__insight-badge'>
-                  <Sparkles
-                    size={12}
-                    strokeWidth={1.8}
-                    role='img'
-                    aria-hidden='true'
-                    focusable='false'
-                  />
-                  Insights
-                </span>
-              </div>
-
-              <p className='profile-intelligence__description'>
-                A closer look at profile.login&apos;s public developer
-                portfolio.
-              </p>
-            </div>
+            <p className='profile-intelligence__heading--description'>
+              A closer look at {profile.login}&apos;s public developer
+              portfolio.
+            </p>
           </div>
         </header>
 
         {isLoading ? (
-          'loading...'
+          <IntelligenceSkeleton />
         ) : !hasInsightData ? (
-          <IntelligenceEmptyState />
+          <IntelligenceEmptyState
+            title='Insights are not available yet'
+            description='We need repository or language data to generate meaningful insights for this profile.'
+          />
         ) : (
           <div className='profile-intelligence__grid'>
             {insights.map((insight) => (

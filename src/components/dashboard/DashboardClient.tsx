@@ -8,19 +8,21 @@ import ProfileHeader from './ProfileHeader';
 import RepoLists from './repos/RepoLists';
 
 import ProfileIntelligence from './intelligence/ProfileIntelligence';
-import AnalyticsOverview from './analytics/AnalyticsOverview';
+import DashboardHero from './hero/DashboardHero';
 import RepositoryExplorer from './repositoryExplorer/RepositoryExplorer';
+import AnalyticsOverview from './analytics/AnalyticsOverview';
 
 import { REPOSITORIES } from '@/data';
 import { SortType, ViewType } from '@/types';
-import DashboardHero from './hero/DashboardHero';
 import {
   MOCK_PROFILE,
   MOCK_PROFILE_STATS,
 } from '@/data/dashboard/profile.data';
-import { GitHubProfile } from '@/types/dashboard';
+
 import { MOCK_ANALYTICS } from '@/data/dashboard/analytics.data';
+import { GitHubProfile } from '@/types/dashboard';
 import { MOCK_REPOSITORIES } from '@/data/dashboard/repository.data';
+import DeveloperAwards from './awards/DeveloperAwards';
 
 const DashboardClient = ({ username }: { username: string }) => {
   const [view, setView] = useState<ViewType>('grid');
@@ -49,6 +51,8 @@ const DashboardClient = ({ username }: { username: string }) => {
         languages={languages}
         isLoading={false}
       />
+
+      <DeveloperAwards />
 
       {/* <ProfileHeader username={username} /> */}
 

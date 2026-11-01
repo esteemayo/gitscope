@@ -1,13 +1,13 @@
 import { formatNumber } from '../formatNumber';
 import { getRelativeAge } from './getRelativeAge';
 
-import { IntelligenceData, IntelligenceInsight } from '@/types/dashboard/intelligence';
+import { IntelligenceData, IntelligenceInsightType } from '@/types/dashboard/intelligence';
 
 export const getProfileIntelligence = ({
   profile,
   repositories,
   languages,
-}: IntelligenceData): IntelligenceInsight[] => {
+}: IntelligenceData): IntelligenceInsightType[] => {
   const originalRepositories = repositories.filter(
     (repository) => !repository.fork,
   );

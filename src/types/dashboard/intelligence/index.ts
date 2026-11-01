@@ -8,7 +8,7 @@ export interface IntelligenceData {
   languages: LanguageDistributionItem[];
 }
 
-export interface IntelligenceInsight {
+export interface IntelligenceInsightType {
   id: string;
   title: string;
   value: string;
