@@ -1,10 +1,9 @@
+'use client';
+
 import { ArrowRight, LockKeyhole } from 'lucide-react';
 
+import { AuthenticationGateProps } from '@/types/dashboard/awards/authentication.gate.type';
 import '../../../styles/components/dashboard/awards/AuthenticationGate.scss';
-
-interface AuthenticationGateProps {
-  onSignIn?(): void;
-}
 
 const AuthenticationGate = ({ onSignIn }: AuthenticationGateProps) => {
   return (

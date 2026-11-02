@@ -1,14 +1,20 @@
 import { Trophy } from 'lucide-react';
 
-import AwardCard from './AwardCard';
 import AuthenticationGate from './AuthenticationGate';
+import AwardCard from './AwardCard';
+import AwardsSkeleton from '@/components/skeletons/dashboard/AwardsSkeleton';
 
+import { DeveloperAwardsProps } from '@/types/dashboard/awards/developer.awards.type';
 import '../../../styles/components/dashboard/awards/DeveloperAwards.scss';
 
-const DeveloperAwards = () => {
-  const isLoading = false;
-  const isAuthenticated = false;
-
+const DeveloperAwards = ({
+  profile,
+  repositories,
+  isAuthenticated,
+  isLoading,
+  repositoriesComplete,
+  onSignIn,
+}: DeveloperAwardsProps) => {
   return (
     <section
       className='developer-awards'
@@ -16,45 +22,44 @@ const DeveloperAwards = () => {
     >
       <div className='developer-awards__container'>
         <header className='developer-awards__header'>
-          <div className='developer-awards__heading-group'>
-            <div className='developer-awards__heading-icon'>
-              <Trophy
-                size={22}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </div>
+          <div className='developer-awards__heading'>
+            <span className='developer-awards__heading--eyebrow'>
+              Achievements
+            </span>
 
-            <div className='developer-awards__heading-text'>
-              <div className='developer-awards__title-row'>
-                <h2
-                  id='developer-awards-title'
-                  className='developer-awards__title'
-                >
-                  Developer awards
-                </h2>
+            <h2
+              id='developer-awards-title'
+              className='developer-awards__heading--title'
+            >
+              Developer awards
+            </h2>
 
-                <span className='developer-awards__earned-count'>
-                  20 of 30 earned
-                </span>
-              </div>
-
-              <p className='developer-awards__description'>
-                Milestones and achievements from your GitHub journey
-              </p>
-            </div>
+            <p className='developer-awards__heading--description'>
+              Milestones and achievements from your GitHub journey.
+            </p>
           </div>
+
+          <span className='developer-awards__earned-count'>
+            <Trophy
+              size={12}
+              strokeWidth={1.8}
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
+            20 of 30 earned
+          </span>
         </header>
 
         {!isAuthenticated ? (
-          <AuthenticationGate onSignIn={() => console.log('signed in')} />
+          <AuthenticationGate onSignIn={onSignIn} />
         ) : isLoading ? (
-          'loading'
+          <AwardsSkeleton />
         ) : (
           <div className='developer-awards__grid'>
-            <AwardCard />
+            {[...Array(5)].map((_, index) => (
+              <AwardCard key={index} />
+            ))}
           </div>
         )}
 

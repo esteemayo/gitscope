@@ -3,4 +3,203 @@
 @use '../../../abstracts/responsive' as bp;
 
 .award-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+
+  min-width: 0;
+  padding: 1.8rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 1.6rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  @media (prefers-reduced-data: reduce) {
+    transition: none;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(
+      in srgb,
+      var(--accent-color, #8b5cf6) 40%,
+      var(--border)
+    );
+
+    @media (prefers-reduced-data: reduce) {
+      transform: none;
+    }
+  }
+
+  &.earned {
+    border-color: color-mix(
+      in srgb,
+      var(--accent-color, #8b5cf6) 30%,
+      var(--border)
+    );
+  }
+
+  &.unavailable {
+    opacity: 0.75;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 4.6rem;
+    height: 4.6rem;
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color, #8b5cf6) 12%,
+      transparent
+    );
+    color: var(--accent-color, #8b5cf6);
+    border: 1px solid
+      color-mix(in srgb, var(--accent-color, #8b5cf6) 25%, transparent);
+    border-radius: var(--radius);
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__status {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    padding: 0.5rem 0.8rem;
+    border-radius: 2rem;
+    user-select: none;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+
+    &--earned {
+      background-color: color-mix(
+        in srgb,
+        var(--color-green-400) 12%,
+        transparent
+      );
+      color: var(--color-green-400);
+    }
+
+    &--locked {
+      background-color: color-mix(in srgb, var(--border) 60%, transparent);
+      color: var(--text-muted);
+    }
+
+    &--unavailable {
+      background-color: color-mix(
+        in srgb,
+        var(--color-yellow-400) 12%,
+        transparent
+      );
+      color: var(--color-yellow-400);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    min-width: 0;
+
+    &--name {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: -0.2px;
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__progress-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  &__progress-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    margin-top: auto;
+
+    span {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      transition: color 0.25s ease;
+
+      &:last-child {
+        flex-shrink: 0;
+
+        font-weight: 600;
+        color: color-mix(in srgb, var(--text-muted) 70%, transparent);
+      }
+    }
+  }
+
+  &__progress-track {
+    width: 100%;
+    height: 0.6rem;
+    background-color: color-mix(in srgb, var(--border) 70%, transparent);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: background-color 0.25s ease;
+  }
+
+  &__progress-bar {
+    display: block;
+    height: 100%;
+    background-color: var(--accent-color, #8b5cf6);
+    border-radius: inherit;
+    transition: width 0.25s ease;
+
+    @media (prefers-reduced-data: reduce) {
+      transition: none;
+    }
+  }
+
+  &__progress-label {
+    font-size: 1rem;
+    color: color-mix(in srgb, var(--text-muted) 85%, transparent);
+    line-height: 1.5;
+    transition: color 0.25s ease;
+  }
 }

@@ -17,6 +17,13 @@
     background-color 0.25s ease,
     border-color 0.25s ease;
 
+  @media (max-width: 37.5em) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 1.8rem;
+  }
+
   &__icon {
     flex-shrink: 0;
 
@@ -25,7 +32,13 @@
 
     width: 5rem;
     height: 5rem;
-    color: #9ca3af;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800) 12%,
+      transparent
+    );
+    color: var(--color-blue-800);
+    border-radius: var(--radius);
 
     svg {
       width: 2.4rem;
@@ -71,7 +84,18 @@
     font-weight: 600;
     font-size: var(--fz-xs);
     padding: 0.9rem 1.3rem;
+    background-color: var(--color-blue-800);
+    color: var(--color-white-50);
     border: none;
+    border-radius: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+
+    span {
+      font-weight: inherit;
+      font-size: inherit;
+      color: currentColor;
+    }
 
     svg {
       flex-shrink: 0;
@@ -80,6 +104,27 @@
       height: 1.6rem;
       color: currentColor;
       stroke: currentColor;
+    }
+
+    &:hover {
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800) 88%,
+        var(--black)
+      );
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring();
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
     }
   }
 }

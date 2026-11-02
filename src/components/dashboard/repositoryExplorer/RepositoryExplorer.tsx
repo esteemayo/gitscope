@@ -22,14 +22,22 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
   const [view, setView] = useState<RepositoryView>('grid');
 
   return (
-    <section className='repository-explorer'>
+    <section
+      className='repository-explorer'
+      aria-labelledby='repository-explorer-title'
+    >
       <header className='repository-explorer__header'>
         <div className='repository-explorer__heading'>
           <span className='repository-explorer__heading--eyebrow'>
             Project collection
           </span>
 
-          <h2 className='repository-explorer__heading--title'>Repositories</h2>
+          <h2
+            id='repository-explorer-title'
+            className='repository-explorer__heading--title'
+          >
+            Repositories
+          </h2>
 
           <p className='repository-explorer__heading--description'>
             Explore projects, technologies, and open-source work across this

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { signIn, useSession } from 'next-auth/react';
 
 import ChartSection from './ChartSection';
 import StatsCards from './StatsCards';
@@ -25,6 +26,8 @@ import { MOCK_REPOSITORIES } from '@/data/dashboard/repository.data';
 import DeveloperAwards from './awards/DeveloperAwards';
 
 const DashboardClient = ({ username }: { username: string }) => {
+  const { data: session, status } = useSession();
+
   const [view, setView] = useState<ViewType>('grid');
   const [sort, setSort] = useState<SortType>('stars');
 
@@ -52,7 +55,14 @@ const DashboardClient = ({ username }: { username: string }) => {
         isLoading={false}
       />
 
-      <DeveloperAwards />
+      <DeveloperAwards
+        profile={MOCK_PROFILE}
+        repositories={MOCK_REPOSITORIES}
+        isAuthenticated={!!session?.user || status === 'authenticated'}
+        isLoading={false}
+        repositoriesComplete={true}
+        onSignIn={() => signIn('github')}
+      />
 
       {/* <ProfileHeader username={username} /> */}
 
