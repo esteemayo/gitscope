@@ -58,6 +58,7 @@ const DashboardClient = ({ username }: { username: string }) => {
       <DeveloperAwards
         profile={MOCK_PROFILE}
         repositories={MOCK_REPOSITORIES}
+        languages={languages}
         isAuthenticated={!!session?.user || status === 'authenticated'}
         isLoading={false}
         repositoriesComplete={true}

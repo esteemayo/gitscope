@@ -22,7 +22,7 @@ const AwardsSkeleton = () => {
             </div>
 
             <div className='awards-skeleton__progress'>
-              <Skeleton width='100%' height={7} borderRadius={999} />
+              <Skeleton width='100%' height={6} borderRadius={999} />
 
               <Skeleton width='45%' height={10} />
             </div>

@@ -1,20 +1,38 @@
+'use client';
+
+import { useMemo } from 'react';
 import { Trophy } from 'lucide-react';
 
 import AuthenticationGate from './AuthenticationGate';
 import AwardCard from './AwardCard';
 import AwardsSkeleton from '@/components/skeletons/dashboard/AwardsSkeleton';
 
+import { getDeveloperAwards } from '@/utils/dashboard/getDeveloperAwards';
 import { DeveloperAwardsProps } from '@/types/dashboard/awards/developer.awards.type';
+
 import '../../../styles/components/dashboard/awards/DeveloperAwards.scss';
 
 const DeveloperAwards = ({
   profile,
   repositories,
+  languages,
   isAuthenticated,
   isLoading,
   repositoriesComplete,
   onSignIn,
 }: DeveloperAwardsProps) => {
+  const awards = getDeveloperAwards({
+    profile,
+    repositories,
+    languages,
+    repositoriesComplete,
+  });
+
+  const earnedCount = useMemo(
+    () => awards.filter((award) => award.status === 'earned'),
+    [awards],
+  ).length;
+
   return (
     <section
       className='developer-awards'
@@ -39,16 +57,18 @@ const DeveloperAwards = ({
             </p>
           </div>
 
-          <span className='developer-awards__earned-count'>
-            <Trophy
-              size={12}
-              strokeWidth={1.8}
-              role='img'
-              aria-hidden='true'
-              focusable='false'
-            />
-            20 of 30 earned
-          </span>
+          {!isLoading && isAuthenticated && (
+            <span className='developer-awards__earned-count'>
+              <Trophy
+                size={12}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+              {earnedCount} of {awards.length} earned
+            </span>
+          )}
         </header>
 
         {!isAuthenticated ? (
@@ -57,8 +77,8 @@ const DeveloperAwards = ({
           <AwardsSkeleton />
         ) : (
           <div className='developer-awards__grid'>
-            {[...Array(5)].map((_, index) => (
-              <AwardCard key={index} />
+            {awards.map((award) => (
+              <AwardCard key={award.id} {...award} />
             ))}
           </div>
         )}

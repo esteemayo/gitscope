@@ -11,6 +11,8 @@ import {
 } from 'lucide-react';
 
 import { DeveloperAward } from '@/types/dashboard/awards';
+import { AwardCardProps } from '@/types/dashboard/awards/award.card.type';
+
 import '../../../styles/components/dashboard/awards/AwardCard.scss';
 
 type CustomCSSProperties = React.CSSProperties & {
@@ -25,32 +27,40 @@ const AWARD_ICONS: Record<DeveloperAward['icon'], LucideIcon> = {
   languages: Languages,
 };
 
-const AwardCard = () => {
-  const name = 'Star collector';
-  const description =
-    'Your repositories have attracted attention from the developer community.';
-  const requirement = 'Earn 100 repository stars';
-  const progress = 80;
-  const progressLabel = 'Complete repository data required';
+const AwardCard = ({
+  name,
+  description,
+  requirement,
+  icon,
+  accentColor,
+  progress,
+  progressLabel,
+  status,
+  className,
+  style,
+}: AwardCardProps) => {
+  const Icon = AWARD_ICONS[icon];
 
-  const isEarned = true;
-  const isUnavailable = false;
+  const isEarned = status === 'earned';
+  const isUnavailable = status === 'unavailable';
 
   return (
     <article
       className={clsx('award-card', {
         'award-card earned': isEarned,
         'award-card unavailable': isUnavailable,
+        className,
       })}
       style={
         {
-          '--accent-color': '',
+          '--accent-color': accentColor,
+          ...style,
         } as CustomCSSProperties
       }
     >
       <div className='award-card__header'>
         <div className='award-card__icon'>
-          <Star
+          <Icon
             size={24}
             strokeWidth={1.8}
             role='img'
@@ -116,7 +126,7 @@ const AwardCard = () => {
         <div
           className='award-card__progress-track'
           role='progressbar'
-          aria-label={`name progress`}
+          aria-label={`${name} progress`}
           aria-valuenow={isUnavailable ? 0 : progress}
           aria-valuemin={0}
           aria-valuemax={100}
