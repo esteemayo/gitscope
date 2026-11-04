@@ -27,6 +27,7 @@ const PinnedProfiles = ({
   profiles,
   onReorder,
   onToggle,
+  onShare,
   onDelete,
 }: PinnedProfilesProps) => {
   const sensors = useSensors(
@@ -82,6 +83,7 @@ const PinnedProfiles = ({
                   key={profile.id}
                   profile={profile}
                   onPin={onToggle}
+                  onShare={onShare}
                   onDelete={onDelete}
                   isDraggable={true}
                 />

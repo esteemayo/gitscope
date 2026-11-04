@@ -1,13 +1,22 @@
-export const getAccountAge = (createdAt: string): string => {
-  const created = new Date(createdAt).getTime();
+export const getAccountAge = (createdAt: string): number => {
+  const currentDate = new Date();
+  const createdDate = new Date(createdAt);
 
-  if (!Number.isFinite(created)) {
-    return 'Unknown';
+  if (Number.isNaN(createdDate.getTime())) {
+    return 0;
   }
 
-  const years = Math.max((Date.now() - created) / (365.2425 * 86_400_000));
+  let years = currentDate.getFullYear() - createdDate.getFullYear();
 
-  return years < 1
-    ? 'Under 1 year'
-    : `${years} ${years === 1 ? 'year' : 'years'}`;
+  const anniversary = new Date(
+    currentDate.getFullYear(),
+    createdDate.getMonth(),
+    createdDate.getDate(),
+  );
+
+  if (currentDate < anniversary) {
+    years--;
+  }
+
+  return Math.max(0, years);
 };

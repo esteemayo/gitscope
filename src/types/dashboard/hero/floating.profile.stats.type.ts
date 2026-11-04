@@ -1,5 +1,5 @@
-import { ProfileStat } from '../index';
+import { GitHubProfile } from '../index';
 
 export interface FloatingProfileStatsProps {
-  stats: ProfileStat[];
+  profile: GitHubProfile;
 }

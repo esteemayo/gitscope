@@ -15,12 +15,14 @@ export interface GitHubProfile {
   created_at: string;
 }
 
+export type ProfileIcon = 'repository' | 'users' | 'users-plus' | 'calendar';
+
 export interface ProfileStat {
   id: string;
   label: string;
-  value: number;
+  value: string | number;
   description: string;
-  icon: 'repository' | 'star' | 'users' | 'git-fork';
+  icon: ProfileIcon;
   accentColor: string;
 }
 

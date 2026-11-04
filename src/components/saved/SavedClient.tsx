@@ -2,16 +2,17 @@
 
 import { useEffect, useMemo, useState } from 'react';
 
-import SavedToolbar from './toolbar/SavedToolbar';
+import SavedEmptyState from './SavedEmptyState';
 import SavedStats from './SavedStats';
-import RecentlyViewed from './recent/RecentlyViewed';
+import SavedToolbar from './toolbar/SavedToolbar';
 import SavedHeader from './SavedHeader';
-import SavedProfilesChart from './chart/SavedProfilesChart';
+import RecentlyViewed from './recent/RecentlyViewed';
 import SavedProfiles from './SavedProfiles';
+import SavedProfilesChart from './chart/SavedProfilesChart';
+import ShareModal from '../modal/ShareModal';
 import SavedInsightsProfile from './insights/SavedInsightsProfile';
 import PinnedProfiles from './PinnedProfiles';
 import DeleteSavedProfileModal from './card/DeleteSavedProfileModal';
-import SavedEmptyState from './SavedEmptyState';
 
 import * as constant from '@/constants/savedProfiles';
 import { usePaginationSlice } from '@/hooks/usePaginationSlice';
@@ -24,16 +25,26 @@ import { SavedView, SortDirection, SortField } from '@/types/saved';
 
 import '../../styles/components/saved/SavedClient.scss';
 
+const getProfileUrl = (username: string) => {
+  return new URL(
+    `/${encodeURIComponent(username)}`,
+    window.location.origin,
+  ).toString();
+};
+
 const SavedClient = () => {
-  const [profiles, setProfiles] = useState<SavedProfile[]>([]);
-  const [view, setView] = useState<SavedView>('grid');
   const [sortField, setSortField] = useState<SortField>('recent');
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [view, setView] = useState<SavedView>('grid');
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
-  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [profileToShare, setProfileToShare] = useState<SavedProfile | null>(
+    null,
+  );
+  const [profiles, setProfiles] = useState<SavedProfile[]>([]);
   const [profileToDelete, setProfileToDelete] = useState<SavedProfile | null>(
     null,
   );
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
   const pinnedProfiles = useMemo(
     () => profiles.filter((profile) => profile.isPinned),
@@ -161,6 +172,14 @@ const SavedClient = () => {
     setIsDeleting(false);
   };
 
+  const handleShare = (profile: SavedProfile) => {
+    setProfileToShare(profile);
+  };
+
+  const handleDelete = (profile: SavedProfile) => {
+    setProfileToDelete(profile);
+  };
+
   const handleDeleteProfile = async () => {
     if (isDeleting || !profileToDelete) return;
 
@@ -211,7 +230,8 @@ const SavedClient = () => {
               profiles={pinnedProfiles}
               onReorder={handlePinnedReorder}
               onToggle={handleTogglePin}
-              onDelete={setProfileToDelete}
+              onShare={handleShare}
+              onDelete={handleDelete}
             />
 
             <section className='saved-client__section'>
@@ -235,7 +255,8 @@ const SavedClient = () => {
                 showLess={showLess}
                 showMore={showMore}
                 onToggle={handleTogglePin}
-                onDelete={setProfileToDelete}
+                onShare={handleShare}
+                onDelete={handleDelete}
               />
 
               <SavedInsightsProfile profiles={profiles} />
@@ -247,6 +268,13 @@ const SavedClient = () => {
 
         <RecentlyViewed profiles={recentProfiles} />
       </div>
+
+      <ShareModal
+        isOpen={!!profileToShare}
+        profileUrl={getProfileUrl(profileToShare?.login as string)}
+        username={profileToShare?.login as string}
+        onClose={() => setProfileToShare(null)}
+      />
 
       <DeleteSavedProfileModal
         isOpen={!!profileToDelete}

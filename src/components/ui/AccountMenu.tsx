@@ -105,7 +105,7 @@ const AccountMenu = () => {
             </Link>
 
             <Link
-              href='/saved'
+              href='/saved-profiles'
               onClick={handleClose}
               className='account-menu__items--link'
               role='menuitem'

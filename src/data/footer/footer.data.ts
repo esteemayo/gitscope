@@ -17,8 +17,8 @@ export const footerColumns: FooterColumn[] = [
         href: '/compare',
       },
       {
-        label: 'Saved',
-        href: '/saved',
+        label: 'Saved Profiles',
+        href: '/saved-profiles',
       },
     ],
   },

@@ -1,7 +1,41 @@
 import { formatNumber } from '../formatNumber';
-import { getRelativeAge } from './getRelativeAge';
 
-import { IntelligenceData, IntelligenceInsightType } from '@/types/dashboard/intelligence';
+import {
+  IntelligenceData,
+  IntelligenceInsightType,
+} from '@/types/dashboard/intelligence';
+
+export const getAccountAge = (createdAt: string): string => {
+  const created = new Date(createdAt).getTime();
+
+  if (!Number.isFinite(created)) {
+    return 'Unknown';
+  }
+
+  const years = Math.max((Date.now() - created) / (365.2425 * 86_400_000));
+
+  return years < 1
+    ? 'Under 1 year'
+    : `${years} ${years === 1 ? 'year' : 'years'}`;
+};
+
+export const getRelativeAge = (date: string): string => {
+  const timestamp = new Date(date).getTime();
+
+  if (!Number.isFinite(timestamp)) {
+    return 'Unknown';
+  }
+
+  const days = Math.max(0, Math.floor((Date.now() - timestamp) / 86_400_000));
+
+  if (days < 30) {
+    return days === 0 ? 'Today' : `${days} days ago`;
+  }
+
+  const years = Math.floor(days / 365);
+
+  return `${years} ${years === 1 ? 'year' : 'years'} ago`;
+};
 
 export const getProfileIntelligence = ({
   profile,
@@ -87,17 +121,19 @@ export const getProfileIntelligence = ({
       ? `${formatNumber(totalStars)} stars and ${formatNumber(totalForks)} forks across the analyzed repositories.`
       : 'Repository engagement data is not available yet.';
 
-  const communityDetail = analyzedCount < reportedCount
-    ? `Partial repository totals. ${coverageDescription}`
-    : 'Total reflect the repositories included in this analysis.'
+  const communityDetail =
+    analyzedCount < reportedCount
+      ? `Partial repository totals. ${coverageDescription}`
+      : 'Total reflect the repositories included in this analysis.';
 
-  const maintenanceDescription = analyzedCount === 0
-    ? 'No repository update data is available.'
-    : `${updatedWithin90Days} of ${analyzedCount} analyzed repositories updated within 90 days.`
+  const maintenanceDescription =
+    analyzedCount === 0
+      ? 'No repository update data is available.'
+      : `${updatedWithin90Days} of ${analyzedCount} analyzed repositories updated within 90 days.`;
 
   const maintenamceDetail = mostRecentlyUpdated
     ? `Most recently updated. ${mostRecentlyUpdated.name} . ${getRelativeAge(mostRecentlyUpdated.updated_at)}.`
-    : 'Recent update details are unavailable.'
+    : 'Recent update details are unavailable.';
 
   return [
     {
@@ -107,7 +143,7 @@ export const getProfileIntelligence = ({
       description: portfolioDescription,
       detail: portfolioDetail,
       icon: 'layers',
-      accentColor: '#818CF8'
+      accentColor: '#818CF8',
     },
     {
       id: 'technology',
@@ -116,7 +152,7 @@ export const getProfileIntelligence = ({
       description: languageDescription,
       detail: languageDetail,
       icon: 'code',
-      accentColor: leadingLanguage?.color ?? '#34D399'
+      accentColor: leadingLanguage?.color ?? '#34D399',
     },
     {
       id: 'community',
@@ -125,7 +161,7 @@ export const getProfileIntelligence = ({
       description: communityDescription,
       detail: communityDetail,
       icon: 'users',
-      accentColor: '#FBBF24'
+      accentColor: '#FBBF24',
     },
     {
       id: 'maintenance',
@@ -134,7 +170,7 @@ export const getProfileIntelligence = ({
       description: maintenanceDescription,
       detail: maintenamceDetail,
       icon: 'clock',
-      accentColor: '#F472B6'
+      accentColor: '#F472B6',
     },
   ];
 };

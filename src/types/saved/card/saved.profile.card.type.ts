@@ -7,5 +7,6 @@ export interface SavedProfileCardProps {
   isDraggable?: boolean;
   isPinDisabled?: boolean;
   onPin?(profileId: number): void;
-  onDelete: React.Dispatch<React.SetStateAction<SavedProfile | null>>;
+  onShare?(profile: SavedProfile): void;
+  onDelete(profile: SavedProfile): void;
 }

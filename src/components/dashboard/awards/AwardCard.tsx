@@ -5,7 +5,7 @@ import {
   Code2,
   Languages,
   LockKeyhole,
-  LucideIcon,
+  type LucideIcon,
   Star,
   Users2,
 } from 'lucide-react';

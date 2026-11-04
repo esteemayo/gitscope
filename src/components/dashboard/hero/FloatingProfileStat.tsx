@@ -1,25 +1,26 @@
 import clsx from 'clsx';
-import { FolderGit2, GitFork, Star, Users2 } from 'lucide-react';
+import {
+  CalendarDays,
+  FolderGit2,
+  type LucideIcon,
+  UserRoundPlus,
+  Users2,
+} from 'lucide-react';
 
-import { FloatingProfileStatProps } from '@/types/dashboard/floating.profile.stat.type';
+import { ProfileStat } from '@/types/dashboard';
+import { FloatingProfileStatProps } from '@/types/dashboard/hero/floating.profile.stat.type';
+
 import '../../../styles/components/dashboard/hero/FloatingProfileStat.scss';
 
 type CustomCSSProperties = React.CSSProperties & {
   '--accent-color': string;
 };
 
-const STAT_ICONS = {
+const STAT_ICONS: Record<ProfileStat['icon'], LucideIcon> = {
   repository: FolderGit2,
-  star: Star,
   users: Users2,
-  'git-fork': GitFork,
-};
-
-const formatStat = (value: number) => {
-  return new Intl.NumberFormat('en', {
-    notation: 'compact',
-    maximumFractionDigits: 1,
-  }).format(value);
+  'users-plus': UserRoundPlus,
+  calendar: CalendarDays,
 };
 
 const FloatingProfileStat = ({
@@ -56,9 +57,7 @@ const FloatingProfileStat = ({
       </div>
 
       <div className='floating-profile-stat__content'>
-        <p className='floating-profile-stat__content--value'>
-          {formatStat(value)}
-        </p>
+        <p className='floating-profile-stat__content--value'>{value}</p>
 
         <h3 className='floating-profile-stat__content--label'>{label}</h3>
 

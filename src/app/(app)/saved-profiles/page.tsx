@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   },
 };
 
-const SavedPage = () => {
+const SavedProfilesPage = () => {
   return <SavedClient />;
 };
 
-export default SavedPage;
+export default SavedProfilesPage;

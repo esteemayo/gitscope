@@ -1,4 +1,4 @@
-import { ProfileStat } from './index';
+import { ProfileStat } from '../index';
 
 export interface FloatingProfileStatProps extends ProfileStat {
   className?: string;

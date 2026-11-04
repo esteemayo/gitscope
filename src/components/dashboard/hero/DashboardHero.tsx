@@ -259,7 +259,7 @@ const DashboardHero = ({
         </div>
       </div>
 
-      <FloatingProfileStats stats={stats} />
+      <FloatingProfileStats profile={profile} />
 
       <ShareModal
         isOpen={shareOpen}

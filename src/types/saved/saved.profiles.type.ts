@@ -10,5 +10,6 @@ export interface SavedProfilesProps {
   showLess(): void;
   showMore(): void;
   onToggle(profileId: number): void;
-  onDelete: React.Dispatch<React.SetStateAction<SavedProfile | null>>;
+  onShare?(profile: SavedProfile): void;
+  onDelete(profile: SavedProfile): void;
 }

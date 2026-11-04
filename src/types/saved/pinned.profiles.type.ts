@@ -4,5 +4,6 @@ export interface PinnedProfilesProps {
   profiles: SavedProfile[];
   onReorder(profiles: SavedProfile[]): void;
   onToggle(profileId: number): void;
-  onDelete: React.Dispatch<React.SetStateAction<SavedProfile | null>>;
+  onShare?(profile: SavedProfile): void;
+  onDelete(profile: SavedProfile): void;
 }

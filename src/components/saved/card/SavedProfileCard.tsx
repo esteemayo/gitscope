@@ -34,6 +34,7 @@ const SavedProfileCard = ({
   isDraggable,
   isPinDisabled,
   onPin,
+  onShare,
   onDelete,
 }: SavedProfileCardProps) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
@@ -118,7 +119,11 @@ const SavedProfileCard = ({
             )}
           </button>
 
-          <SavedProfileMenu profile={profile} onDelete={onDelete} />
+          <SavedProfileMenu
+            profile={profile}
+            onShare={onShare}
+            onDelete={onDelete}
+          />
         </div>
       </div>
 

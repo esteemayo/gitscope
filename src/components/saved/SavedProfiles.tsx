@@ -18,6 +18,7 @@ const SavedProfiles = ({
   showLess,
   showMore,
   onToggle,
+  onShare,
   onDelete,
 }: SavedProfilesProps) => {
   if (profiles.length === 0) {
@@ -50,6 +51,7 @@ const SavedProfiles = ({
             view={view}
             profile={profile}
             onPin={onToggle}
+            onShare={onShare}
             onDelete={onDelete}
             isPinDisabled={!profile.isPinned && hasReachedPinLimit}
           />
