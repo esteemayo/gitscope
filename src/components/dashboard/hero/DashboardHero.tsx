@@ -40,7 +40,6 @@ const getWebsiteUrl = (website: string) => {
 
 const DashboardHero = ({
   profile,
-  stats,
   isSaved = false,
   onSave,
 }: DashboardHeroProps) => {

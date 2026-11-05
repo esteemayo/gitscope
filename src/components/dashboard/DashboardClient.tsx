@@ -8,10 +8,12 @@ import StatsCards from './StatsCards';
 import ProfileHeader from './ProfileHeader';
 import RepoLists from './repos/RepoLists';
 
-import ProfileIntelligence from './intelligence/ProfileIntelligence';
-import DashboardHero from './hero/DashboardHero';
-import RepositoryExplorer from './repositoryExplorer/RepositoryExplorer';
 import AnalyticsOverview from './analytics/AnalyticsOverview';
+import DashboardHero from './hero/DashboardHero';
+import ProfileIntelligence from './intelligence/ProfileIntelligence';
+import DeveloperAwards from './awards/DeveloperAwards';
+import RepositoryExplorer from './repositoryExplorer/RepositoryExplorer';
+import RepositoryHealth from './health/RepositoryHealth';
 
 import { REPOSITORIES } from '@/data';
 import { SortType, ViewType } from '@/types';
@@ -23,7 +25,6 @@ import {
 import { MOCK_ANALYTICS } from '@/data/dashboard/analytics.data';
 import { GitHubProfile } from '@/types/dashboard';
 import { MOCK_REPOSITORIES } from '@/data/dashboard/repository.data';
-import DeveloperAwards from './awards/DeveloperAwards';
 
 const DashboardClient = ({ username }: { username: string }) => {
   const { data: session, status } = useSession();
@@ -41,7 +42,6 @@ const DashboardClient = ({ username }: { username: string }) => {
     <div>
       <DashboardHero
         profile={MOCK_PROFILE}
-        stats={MOCK_PROFILE_STATS}
         isSaved={false}
         onSave={handleSave}
       />
@@ -64,6 +64,8 @@ const DashboardClient = ({ username }: { username: string }) => {
         repositoriesComplete={true}
         onSignIn={() => signIn('github')}
       />
+
+      <RepositoryHealth />
 
       {/* <ProfileHeader username={username} /> */}
 
