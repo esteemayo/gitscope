@@ -3,4 +3,115 @@
 @use '../../../abstracts/responsive' as bp;
 
 .health-metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  position: relative;
+  min-width: 0;
+  padding: 2.2rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 1.6rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0 auto 0 0;
+
+    width: 3px;
+    background-color: var(--accent-color);
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--accent-color) 40%, var(--border));
+    box-shadow: 0 0.8rem 2.4rem
+      color-mix(in srgb, var(--accent-color) 8%, transparent);
+
+    @media (prefers-reduced-motion: reduce) {
+      transform: none;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--icon {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 4.4rem;
+      height: 4.4rem;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 12%,
+        transparent
+      );
+      color: var(--accent-color);
+      border: 1px solid color-mix(in srgb, var(--accent-color) 25%, transparent);
+      border-radius: var(--radius);
+
+      svg {
+        width: 2.2rem;
+        height: 2.2rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+
+    &--indicator {
+      color: color-mix(in srgb, var(--accent-color) 55%, transparent);
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    min-width: 0;
+
+    &--label {
+      font-size: var(--fz-xs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+
+    &--value {
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: -0.8px;
+      color: inherit;
+    }
+
+    &--description {
+      font-size: var(--fz-xxs);
+      color: color-mix(in srgb, var(--text-muted) 85%, transparent);
+      line-height: 1.5;
+      transition: color 0.25s ease;
+    }
+  }
 }

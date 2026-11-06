@@ -3,4 +3,44 @@
 @use '../../../abstracts/responsive' as bp;
 
 .stale-repository-card {
+  &__icon {
+    flex-shrink: 0;
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__info {
+    &--name {
+      &:link,
+      &:visited {
+      }
+
+      svg {
+        width: 1.3rem;
+        height: 1.3rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+    }
+
+    &--description {
+    }
+
+    &--updated {
+    }
+  }
+
+  &__badge {
+    svg {
+      width: 1.3rem;
+      height: 1.3rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
 }

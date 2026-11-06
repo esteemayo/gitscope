@@ -119,6 +119,132 @@
       border-color 0.25s ease;
   }
 
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    gap: 1.6rem;
+
+    width: 100%;
+
+    @media (max-width: 56.25em) {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
+    @media (max-width: 37.5em) {
+      grid-template-columns: minmax(min-content, 1fr);
+      gap: 1.2rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+
+    padding: 2.4rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 1.8rem;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  &__content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+
+    div {
+      h3 {
+        display: inline-block;
+        text-transform: none;
+        text-rendering: optimizeLegibility;
+        font-weight: 600;
+        font-size: var(--fz-lg);
+        color: inherit;
+        line-height: 1.1;
+      }
+
+      p {
+        margin-top: 0.6rem;
+        font-size: var(--fz-xs);
+        color: var(--text-muted);
+        line-height: 1.5;
+        transition: color 0.25s ease;
+      }
+    }
+  }
+
+  &__stale-count {
+    display: grid;
+    place-items: center;
+
+    min-width: 3.2rem;
+    height: 3.2rem;
+    font-weight: 600;
+    font-size: var(--fz-xs);
+    padding: 0 0.8rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-yellow-700) 12%,
+      transparent
+    );
+    color: var(--color-yellow-800);
+    border-radius: 0.875rem;
+    user-select: none;
+  }
+
+  &__repository-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__empty-stale {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    text-align: center;
+    padding: 4.8rem 2.4rem;
+    border: 1px dashed var(--border);
+    border-radius: 1.6rem;
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: var(--color-blue-800);
+      stroke: currentColor;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      min-width: 0;
+
+      h3 {
+        display: inline-block;
+        text-transform: none;
+        text-rendering: optimizeLegibility;
+        font-size: var(--fz-md);
+        color: inherit;
+        line-height: 1.1;
+      }
+
+      p {
+        font-size: var(--fz-xs);
+        color: var(--text-muted);
+      }
+    }
+  }
+
   &__disclaimer {
     margin-top: -0.5rem;
     font-size: 1.1rem;

@@ -1,10 +1,19 @@
+import clsx from 'clsx';
 import { Clock3, ExternalLink, GitFork } from 'lucide-react';
 
+import { StaleRepositoryCardProps } from '@/types/dashboard/health/stale.repository.card.type';
 import '../../../styles/components/dashboard/health/StaleRepositoryCard.scss';
 
-const StaleRepositoryCard = () => {
+const StaleRepositoryCard = ({
+  name,
+  html_url,
+  description,
+  updated_at,
+  className,
+  style,
+}: StaleRepositoryCardProps) => {
   return (
-    <article className='stale-repository-card'>
+    <article className={clsx('stale-repository-card', className)} style={style}>
       <div className='stale-repository-card__icon'>
         <GitFork
           size={18}
@@ -17,12 +26,13 @@ const StaleRepositoryCard = () => {
 
       <div className='stale-repository-card__info'>
         <a
-          href='http://'
+          href={html_url}
           target='_blank'
           rel='noopener noreferrer'
           className='stale-repository-card__info--name'
         >
-          name
+          <span>{name}</span>
+
           <ExternalLink
             size={13}
             strokeWidth={1.8}
@@ -33,11 +43,14 @@ const StaleRepositoryCard = () => {
         </a>
 
         <span className='stale-repository-card__info--description'>
-          {'No description provided'}
+          {description || 'No description provided'}
         </span>
 
-        <time dateTime='' className='stale-repository-card__info--updated'>
-          updated_at
+        <time
+          dateTime={updated_at}
+          className='stale-repository-card__info--updated'
+        >
+          {updated_at}
         </time>
       </div>
 
@@ -49,6 +62,8 @@ const StaleRepositoryCard = () => {
           aria-hidden='true'
           focusable='false'
         />
+
+        <span>Stale</span>
       </div>
     </article>
   );

@@ -65,7 +65,11 @@ const DashboardClient = ({ username }: { username: string }) => {
         onSignIn={() => signIn('github')}
       />
 
-      <RepositoryHealth />
+      <RepositoryHealth
+        repositories={MOCK_REPOSITORIES}
+        isLoading={false}
+        repositoriesComplete={true}
+      />
 
       {/* <ProfileHeader username={username} /> */}
 
