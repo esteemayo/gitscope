@@ -1,7 +1,9 @@
-import { Activity, AlertCircle } from 'lucide-react';
+import { Activity } from 'lucide-react';
 
-import HealthMetricCard from './HealthMetricCard';
 import StaleRepositoryCard from './StaleRepositoryCard';
+import HealthEmptyState from './HealthEmptyState';
+import RepositoryHealthNotice from './RepositoryHealthNotice';
+import HealthMetricCard from './HealthMetricCard';
 
 import { getRepositoryHealth } from '@/utils/dashboard/getRepositoryHealth';
 import { RepositoryHealthProps } from '@/types/dashboard/health/repository.health.type';
@@ -20,12 +22,31 @@ const RepositoryHealth = ({
   if ((repositories ?? []).length === 0) {
     return (
       <section className='repository-health'>
-        <div className='repository-health__empty-state'>
-          <AlertCircle size={24} />
+        <div className='repository-health__container'>
+          <header className='repository-health__header'>
+            <div className='repository-health__heading'>
+              <span className='repository-health__heading--eyebrow'>
+                Repository insights
+              </span>
 
-          <h3>No repository data available</h3>
+              <h2
+                id='repository-health-title'
+                className='repository-health__heading--title'
+              >
+                Repository health
+              </h2>
 
-          <p>GitScope could not find repositories to analyze.</p>
+              <p className='repository-health__heading--description'>
+                Maintenance signals across public repositories.
+              </p>
+            </div>
+          </header>
+
+          <HealthEmptyState
+            title='No repository data available'
+            description='GitScope could not find repositories to analyze.'
+            accentColor='var(--color-yellow-700)'
+          />
         </div>
       </section>
     );
@@ -107,16 +128,7 @@ const RepositoryHealth = ({
           )}
         </div>
 
-        {!repositoriesComplete && (
-          <div className='repository-health__notice'>
-            <AlertCircle size={16} />
-
-            <span>
-              This analysis uses the repositories currently loaded. Some results
-              might change when additional repositories are fetched.
-            </span>
-          </div>
-        )}
+        {!repositoriesComplete && <RepositoryHealthNotice />}
 
         <p className='repository-health__disclaimer'>
           Maintenance indicators are based on repository update dates. They do

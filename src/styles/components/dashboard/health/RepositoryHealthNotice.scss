@@ -1,0 +1,31 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.repository-health-notice {
+  display: flex;
+  gap: 0.8rem;
+
+  padding: 1.2rem 1.4rem;
+  background-color: color-mix(in srgb, var(--color-yellow-700) 7%, transparent);
+  color: var(--color-yellow-800);
+  border: 1px solid color-mix(in srgb, var(--color-yellow-700) 25%, transparent);
+  border-radius: 1rem;
+  overflow: hidden;
+  isolation: isolate;
+  line-height: 1.5;
+
+  svg {
+    flex-shrink: 0;
+
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-top: 1px;
+    color: currentColor;
+    stroke: currentColor;
+  }
+
+  &--text {
+    font-size: var(--fz-xxs);
+  }
+}

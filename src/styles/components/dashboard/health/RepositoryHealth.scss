@@ -211,11 +211,11 @@
     padding: 4.8rem 2.4rem;
     border: 1px dashed var(--border);
     border-radius: 1.6rem;
-    transition:
-      color 0.25s ease,
-      border-color 0.25s ease;
+    transition: border-color 0.25s ease;
 
     svg {
+      flex-shrink: 0;
+
       width: 2rem;
       height: 2rem;
       color: var(--color-blue-800);
@@ -241,6 +241,7 @@
       p {
         font-size: var(--fz-xs);
         color: var(--text-muted);
+        transition: color 0.25s ease;
       }
     }
   }
