@@ -1,6 +1,6 @@
-import { Activity } from 'lucide-react';
-
 import StaleRepositoryCard from './StaleRepositoryCard';
+import Disclaimer from '../Disclaimer';
+import EmptyStaleRepository from './EmptyStaleRepository';
 import HealthEmptyState from './HealthEmptyState';
 import RepositoryHealthNotice from './RepositoryHealthNotice';
 import HealthMetricCard from './HealthMetricCard';
@@ -110,30 +110,16 @@ const RepositoryHealth = ({
               ))}
             </div>
           ) : (
-            <div className='repository-health__empty-stale'>
-              <Activity
-                size={20}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-
-              <div>
-                <h3>No stale repositories detected</h3>
-
-                <p>No non-archived repositories meet the 180-day threshold.</p>
-              </div>
-            </div>
+            <EmptyStaleRepository
+              title='No stale repositories detected'
+              description='No non-archived repositories meet the 180-day threshold.'
+            />
           )}
         </div>
 
         {!repositoriesComplete && <RepositoryHealthNotice />}
 
-        <p className='repository-health__disclaimer'>
-          Maintenance indicators are based on repository update dates. They do
-          not measure code quality or developer productivity.
-        </p>
+        <Disclaimer text='Maintenance indicators are based on repository update dates. They do not measure code quality or developer productivity.' />
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import IntelligenceEmptyState from './IntelligenceEmptyState';
-import IntelligenceInsight from './IntelligenceInsight';
+import Disclaimer from '../Disclaimer';
 import IntelligenceSkeleton from '@/components/skeletons/dashboard/IntelligenceSkeleton';
+import IntelligenceInsight from './IntelligenceInsight';
 
 import { getProfileIntelligence } from '@/utils/dashboard/getProfileIntelligence';
 import { ProfileIntelligenceProps } from '@/types/dashboard/intelligence/profile.intelligence.type';
@@ -61,11 +62,7 @@ const ProfileIntelligence = ({
           </div>
         )}
 
-        <p className='profile-intelligence__disclaimer'>
-          Insights are derived from available public GitHub profile, repository,
-          and language data. They do not measure developer skill or
-          productivity.
-        </p>
+        <Disclaimer text='Insights are derived from available public GitHub profile, repository, and language data. They do not measure developer skill or productivity.' />
       </div>
     </section>
   );

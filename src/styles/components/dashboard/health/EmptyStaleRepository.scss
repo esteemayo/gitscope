@@ -1,0 +1,65 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.empty-stale-repository {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  padding: 1.8rem;
+  background-color: color-mix(in srgb, var(--color-green-300) 7%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-green-300) 25%, transparent);
+  border-radius: var(--radius);
+  overflow: hidden;
+  isolation: isolate;
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 4.4rem;
+    height: 4.4rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-green-300) 12%,
+      transparent
+    );
+    color: var(--color-green-300);
+    border: 1px solid
+      color-mix(in srgb, var(--color-green-300) 25%, transparent);
+    border-radius: var(--radius);
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    min-width: 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      font-size: var(--fz-xs);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+}

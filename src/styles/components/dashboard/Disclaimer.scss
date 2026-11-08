@@ -1,0 +1,10 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.disclaimer {
+  margin-top: -0.5rem;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+}

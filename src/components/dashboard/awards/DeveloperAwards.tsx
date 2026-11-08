@@ -6,6 +6,7 @@ import { Trophy } from 'lucide-react';
 import AuthenticationGate from './AuthenticationGate';
 import AwardCard from './AwardCard';
 import AwardsSkeleton from '@/components/skeletons/dashboard/AwardsSkeleton';
+import Disclaimer from '../Disclaimer';
 
 import { getDeveloperAwards } from '@/utils/dashboard/getDeveloperAwards';
 import { DeveloperAwardsProps } from '@/types/dashboard/awards/developer.awards.type';
@@ -83,10 +84,7 @@ const DeveloperAwards = ({
           </div>
         )}
 
-        <p className='developer-awards__disclaimer'>
-          Awards are based on GitScope-defined milestones and available public
-          GitHub data. They are not official GitHub achievements.
-        </p>
+        <Disclaimer text='Awards are based on GitScope-defined milestones and available public GitHub data. They are not official GitHub achievements.' />
       </div>
     </section>
   );

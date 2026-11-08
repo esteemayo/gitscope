@@ -26,7 +26,7 @@ const HealthEmptyState = ({
         } as CustomCSSProperties
       }
     >
-      <div className='health-empty-state__icon'>
+      <div className='health-empty-state__icon' aria-hidden='true'>
         <Icon
           size={24}
           strokeWidth={1.8}

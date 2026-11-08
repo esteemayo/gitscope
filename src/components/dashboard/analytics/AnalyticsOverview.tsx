@@ -1,6 +1,7 @@
 import LanguageDistribution from './LanguageDistribution';
-import AnalyticsMetrics from './AnalyticsMetrics';
+import Disclaimer from '../Disclaimer';
 import RepositoryComparisonChart from './RepositoryComparisonChart';
+import AnalyticsMetrics from './AnalyticsMetrics';
 
 import { MOCK_ANALYTICS } from '@/data/dashboard/analytics.data';
 import '../../../styles/components/dashboard/analytics/AnalyticsOverview.scss';
@@ -42,10 +43,7 @@ const AnalyticsOverview = () => {
           <LanguageDistribution languages={languages} />
         </div>
 
-        <p className='analytics-overview__disclaimer'>
-          Metrics are based on the user&apos;s GitHub profile and repository
-          data.
-        </p>
+        <Disclaimer text="Metrics are based on the user's GitHub profile and repository data." />
       </div>
     </section>
   );

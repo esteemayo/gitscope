@@ -68,7 +68,7 @@ const DashboardClient = ({ username }: { username: string }) => {
       <RepositoryHealth
         repositories={MOCK_REPOSITORIES}
         isLoading={false}
-        repositoriesComplete={false}
+        repositoriesComplete={true}
       />
 
       {/* <ProfileHeader username={username} /> */}
