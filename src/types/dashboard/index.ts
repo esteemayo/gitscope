@@ -15,7 +15,7 @@ export interface GitHubProfile {
   created_at: string;
 }
 
-export type ProfileIcon = 'repository' | 'users' | 'users-plus' | 'calendar';
+export type ProfileIcon = 'repository' | 'users' | 'user-round-plus' | 'calendar';
 
 export interface ProfileStat {
   id: string;

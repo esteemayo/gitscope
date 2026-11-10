@@ -39,7 +39,7 @@ export const MOCK_PROFILE_STATS: ProfileStat[] = [
     label: 'Following',
     value: 1280,
     description: 'Developers followed',
-    icon: 'users-plus',
+    icon: 'user-round-plus',
     accentColor: '#10B981',
   },
   {

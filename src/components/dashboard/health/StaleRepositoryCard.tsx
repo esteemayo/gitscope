@@ -6,6 +6,8 @@ import { Clock3, ExternalLink, GitFork } from 'lucide-react';
 import { StaleRepositoryCardProps } from '@/types/dashboard/health/stale.repository.card.type';
 import '../../../styles/components/dashboard/health/StaleRepositoryCard.scss';
 
+const DAYS_IN_MS = 24 * 60 * 60 * 1000;
+
 const getRelativeTime = (updatedAt: string): string => {
   const currentTime = Date.now();
   const timestamp = new Date(updatedAt).getTime();
@@ -14,7 +16,7 @@ const getRelativeTime = (updatedAt: string): string => {
     return 'Unknown update date';
   }
 
-  const days = Math.floor((currentTime - timestamp) / (24 * 60 * 60 * 1000));
+  const days = Math.floor((currentTime - timestamp) / DAYS_IN_MS);
 
   if (days < 0) return 'Updated recently';
   if (days === 0) return 'Updated today';

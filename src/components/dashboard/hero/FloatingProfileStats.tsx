@@ -32,7 +32,7 @@ const FloatingProfileStats = ({ profile }: FloatingProfileStatsProps) => {
       label: 'Following',
       value: formatNumber(profile.following),
       description: 'Developers followed',
-      icon: 'users-plus',
+      icon: 'user-round-plus',
       accentColor: '#10B981',
     },
     {

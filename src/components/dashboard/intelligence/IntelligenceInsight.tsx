@@ -1,14 +1,16 @@
 import clsx from 'clsx';
 import { Clock3, Code2, Layers, type LucideIcon, Users2 } from 'lucide-react';
 
+import { IntelligenceInsightType } from '@/types/dashboard/intelligence';
 import { IntelligenceInsightProps } from '@/types/dashboard/intelligence/intelligence.insight.type';
+
 import '../../../styles/components/dashboard/intelligence/IntelligenceInsight.scss';
 
 type CustomCSSProperties = React.CSSProperties & {
   '--accent-color': string;
 };
 
-const ICONS: Record<'layers' | 'code' | 'users' | 'clock', LucideIcon> = {
+const ICONS: Record<IntelligenceInsightType['icon'], LucideIcon> = {
   layers: Layers,
   code: Code2,
   users: Users2,
@@ -38,7 +40,7 @@ const IntelligenceInsight = ({
       }
     >
       <div className='intelligence-insight__header'>
-        <span className='intelligence-insight__header--icon'>
+        <span className='intelligence-insight__header--icon' aria-hidden='true'>
           <Icon
             size={18}
             strokeWidth={1.8}

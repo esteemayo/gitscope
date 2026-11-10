@@ -19,7 +19,7 @@ type CustomCSSProperties = React.CSSProperties & {
 const STAT_ICONS: Record<ProfileStat['icon'], LucideIcon> = {
   repository: FolderGit2,
   users: Users2,
-  'users-plus': UserRoundPlus,
+  'user-round-plus': UserRoundPlus,
   calendar: CalendarDays,
 };
 
@@ -45,7 +45,7 @@ const FloatingProfileStat = ({
       }
     >
       <div className='floating-profile-stat__top'>
-        <span className='floating-profile-stat__top--icon'>
+        <span className='floating-profile-stat__top--icon' aria-hidden='true'>
           <Icon
             size={24}
             strokeWidth={1.8}
