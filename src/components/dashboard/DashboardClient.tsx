@@ -8,12 +8,13 @@ import StatsCards from './StatsCards';
 import ProfileHeader from './ProfileHeader';
 import RepoLists from './repos/RepoLists';
 
-import AnalyticsOverview from './analytics/AnalyticsOverview';
+import DeveloperSummary from './summary/DeveloperSummary';
 import DashboardHero from './hero/DashboardHero';
-import ProfileIntelligence from './intelligence/ProfileIntelligence';
+import AnalyticsOverview from './analytics/AnalyticsOverview';
 import DeveloperAwards from './awards/DeveloperAwards';
-import RepositoryExplorer from './repositoryExplorer/RepositoryExplorer';
+import ProfileIntelligence from './intelligence/ProfileIntelligence';
 import RepositoryHealth from './health/RepositoryHealth';
+import RepositoryExplorer from './repositoryExplorer/RepositoryExplorer';
 
 import { REPOSITORIES } from '@/data';
 import { SortType, ViewType } from '@/types';
@@ -23,8 +24,10 @@ import {
 } from '@/data/dashboard/profile.data';
 
 import { MOCK_ANALYTICS } from '@/data/dashboard/analytics.data';
-import { GitHubProfile } from '@/types/dashboard';
 import { MOCK_REPOSITORIES } from '@/data/dashboard/repository.data';
+
+import { GitHubProfile } from '@/types/dashboard';
+import { getRepositoryHealth } from '@/utils/dashboard/getRepositoryHealth';
 
 const DashboardClient = ({ username }: { username: string }) => {
   const { data: session, status } = useSession();
@@ -76,6 +79,15 @@ const DashboardClient = ({ username }: { username: string }) => {
       {/* <StatsCards sort={sort} onSort={setSort} /> */}
 
       {/* <ChartSection /> */}
+
+      <DeveloperSummary
+        profile={MOCK_PROFILE}
+        repositories={MOCK_REPOSITORIES}
+        languages={languages}
+        repositoryHealth={getRepositoryHealth(MOCK_REPOSITORIES)}
+        repositoriesComplete={true}
+        isLoading={false}
+      />
 
       <RepositoryExplorer repositories={MOCK_REPOSITORIES} />
 

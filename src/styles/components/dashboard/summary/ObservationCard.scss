@@ -1,0 +1,97 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.observation-card {
+  display: flex;
+  gap: 1.2rem;
+
+  min-width: 0;
+  padding: 1.8rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  isolation: isolate;
+  border-radius: 1.4rem;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  &[data-type='positive'] {
+    .observation-card__icon {
+      background-color: color-mix(in srgb, #10b981 12%, transparent);
+      color: #10b981;
+      border-color: color-mix(in srgb, #10b981 25%, transparent);
+    }
+  }
+
+  &[data-type='technology'] {
+    .observation-card__icon {
+      background-color: color-mix(in srgb, #3b82f6 12%, transparent);
+      color: #3b82f6;
+      border-color: color-mix(in srgb, #3b82f6 25%, transparent);
+    }
+  }
+
+  &[data-type='attention'] {
+    .observation-card__icon {
+      background-color: color-mix(in srgb, #f59e0b 12%, transparent);
+      color: #d97706;
+      border-color: color-mix(in srgb, #f59e0b 25%, transparent);
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.8rem;
+    height: 3.8rem;
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color, var(--color-purple-500)) 12%,
+      transparent
+    );
+    color: var(--accent-color, var(--color-purple-500));
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--accent-color, var(--color-purple-500)) 18%,
+        transparent
+      );
+    border-radius: 1.1rem;
+
+    svg {
+      width: 1.9rem;
+      height: 1.9rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    min-width: 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-xs);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      line-height: 1.7;
+      transition: color 0.25s ease;
+    }
+  }
+}
