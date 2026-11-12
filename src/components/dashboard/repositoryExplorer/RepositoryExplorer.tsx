@@ -204,7 +204,7 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
 
         <div className='repository-explorer__results-bar'>
           <span>
-            Showing <strong>6</strong> repositories
+            Showing <strong>{(repositories ?? []).length}</strong> repositories
           </span>
 
           <span className='repository-explorer__results-hint'>

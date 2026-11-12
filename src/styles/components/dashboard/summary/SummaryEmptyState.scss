@@ -1,0 +1,30 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.summary-empty-state {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 2rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.25s ease;
+
+  &__icon,
+  svg {
+    flex-shrink: 0;
+
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-blue-800, #3b82f6);
+    stroke: currentColor;
+  }
+
+  &__label {
+    font-size: var(--fz-xs);
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+  }
+}

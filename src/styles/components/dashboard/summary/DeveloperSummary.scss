@@ -117,6 +117,10 @@
     transition:
       background-color 0.25s ease,
       border-color 0.25s ease;
+
+    @media (max-width: 37.5em) {
+      padding: 1.8rem;
+    }
   }
 
   &__card-heading {
@@ -180,6 +184,11 @@
     color: var(--text-muted);
     line-height: 1.9;
     transition: color 0.25s ease;
+
+    @media (max-width: 37.5em) {
+      font-size: var(--fz-xs);
+      line-height: 1.6;
+    }
   }
 
   &__observations {
@@ -193,6 +202,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 1.2rem;
+
+    @media (max-width: 37.5em) {
+      align-items: flex-start;
+    }
   }
 
   &__observations-heading {
@@ -240,30 +253,6 @@
 
     @media (max-width: 43.75em) {
       grid-template-columns: minmax(min-content, 1fr);
-    }
-  }
-
-  &__empty-state {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    padding: 2rem;
-    border: 1px dashed var(--border);
-    border-radius: var(--radius);
-    transition: border-color 0.25s ease;
-
-    svg {
-      width: 2rem;
-      height: 2rem;
-      color: var(--color-blue-800, #3b82f6);
-      stroke: currentColor;
-    }
-
-    p {
-      font-size: var(--fz-xs);
-      color: var(--text-muted);
-      transition: color 0.25s ease;
     }
   }
 

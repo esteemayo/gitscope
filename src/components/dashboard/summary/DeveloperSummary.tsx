@@ -1,11 +1,14 @@
-import { Activity, AlertCircle, BookOpen } from 'lucide-react';
+import { AlertCircle, BookOpen } from 'lucide-react';
 
+import SummaryEmptyState from './SummaryEmptyState';
 import Disclaimer from '../Disclaimer';
+import DeveloperSummarySkeleton from '@/components/skeletons/dashboard/DeveloperSummarySkeleton';
 import ObservationCard from './ObservationCard';
 
-import { DeveloperSummaryProps } from '@/types/dashboard/summary/developer.summary.type';
-import '../../../styles/components/dashboard/summary/DeveloperSummary.scss';
 import { getDeveloperSummary } from '@/utils/dashboard/getDeveloperSummary';
+import { DeveloperSummaryProps } from '@/types/dashboard/summary/developer.summary.type';
+
+import '../../../styles/components/dashboard/summary/DeveloperSummary.scss';
 
 const DeveloperSummary = ({
   profile,
@@ -16,7 +19,7 @@ const DeveloperSummary = ({
   isLoading = false,
 }: DeveloperSummaryProps) => {
   if (isLoading) {
-    return 'DeveloperSummarySkeleton';
+    return <DeveloperSummarySkeleton />;
   }
 
   const { overview, observations, dataCoverage } = getDeveloperSummary({
@@ -95,17 +98,7 @@ const DeveloperSummary = ({
                 ))}
               </div>
             ) : (
-              <div className='developer-summary__empty-state'>
-                <Activity
-                  size={20}
-                  strokeWidth={1.8}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-
-                <p>There is not enough data to generate observations.</p>
-              </div>
+              <SummaryEmptyState label='There is not enough data to generate observations.' />
             )}
           </div>
 
