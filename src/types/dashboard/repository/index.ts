@@ -22,3 +22,49 @@ export interface GitHubRepository {
     spdx_id: string | null;
   } | null;
 }
+
+export type RepositoryView = 'grid' | 'list';
+
+export type RepositorySort = 'updated' | 'stars' | 'forks' | 'name';
+
+export type RepositoryType = 'all' | 'original' | 'forks' | 'archived';
+
+export type StarRange =
+  | 'all'
+  | '0-10'
+  | '10-50'
+  | '50-100'
+  | '100-500'
+  | '500+';
+
+export interface AdvancedFilters {
+  hasDescription: boolean;
+  hastopics: boolean;
+  recentlyActive: boolean;
+}
+
+export type DropdownMenu =
+  | 'filters'
+  | 'sort'
+  | 'language'
+  | 'type'
+  | 'stars'
+  | null;
+
+export interface SortOptionsType {
+  value: RepositorySort;
+  label: string;
+  description: string;
+}
+
+export interface TypeOptionsType {
+  value: RepositoryType;
+  label: string;
+  description: string;
+}
+
+export interface StarOptionsType {
+  value: StarRange;
+  label: string;
+  description: string;
+}

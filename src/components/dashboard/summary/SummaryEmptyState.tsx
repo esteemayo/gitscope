@@ -1,14 +1,8 @@
 import clsx from 'clsx';
-import { Activity, LucideIcon } from 'lucide-react';
+import { Activity } from 'lucide-react';
 
+import { SummaryEmptyStateProps } from '@/types/dashboard/summary/summary.empty.state,type';
 import '../../../styles/components/dashboard/summary/SummaryEmptyState.scss';
-
-interface SummaryEmptyStateProps {
-  label: string;
-  icon?: LucideIcon | React.ComponentType;
-  className?: string;
-  style?: React.CSSProperties;
-}
 
 const SummaryEmptyState = ({
   label,

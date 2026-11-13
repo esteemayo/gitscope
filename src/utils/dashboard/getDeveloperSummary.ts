@@ -1,3 +1,5 @@
+import { getAccountAge } from './getAccountAge';
+
 import { GitHubProfile, GitHubRepository } from '@/types/dashboard';
 import { RepositoryHealthData } from '@/types/dashboard/health';
 import { LanguageDistributionItem } from '@/types/dashboard/analytics';
@@ -13,30 +15,6 @@ interface GetDeveloperSummaryParams {
   repositoryHealth: RepositoryHealthData;
   repositoriesComplete: boolean;
 }
-
-const getAccountAge = (createdAt: string): number => {
-  const createdDate = new Date(createdAt);
-
-  if (Number.isNaN(createdDate.getTime())) {
-    return 0;
-  }
-
-  const now = new Date();
-
-  let years = now.getFullYear() - createdDate.getFullYear();
-
-  const anniversary = new Date(
-    now.getFullYear(),
-    createdDate.getMonth(),
-    createdDate.getDate(),
-  );
-
-  if (now < anniversary) {
-    years--;
-  }
-
-  return Math.max(0, years);
-};
 
 const getLeadingLanguage = (
   languages: LanguageDistributionItem[],

@@ -228,6 +228,46 @@
       }
     }
 
+    button {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 2.3rem;
+      height: 2.3rem;
+      background-color: transparent;
+      color: var(--text-muted);
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+
+      svg {
+        width: 1.4rem;
+        height: 1.4rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background-color: color-mix(in srgb, var(--border) 30%, transparent);
+        color: var(--color-blue-800);
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        pointer-events: none;
+      }
+    }
+
     kbd {
       flex-shrink: 0;
 

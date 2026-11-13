@@ -9,17 +9,104 @@ import {
   List,
   Search,
   SlidersHorizontal,
+  X,
 } from 'lucide-react';
 
 import RepoCard from './RepoCard';
 
-import { RepositoryView } from '@/types/dashboard';
+import {
+  RepositoryView,
+  SortOptionsType,
+  StarOptionsType,
+  TypeOptionsType,
+} from '@/types/dashboard/repository';
 import { RepositoryExplorerProps } from '@/types/dashboard/repository/repository.explorer.type';
 
 import '../../../styles/components/dashboard/repositoryExplorer/RepositoryExplorer.scss';
 
+const SORT_OPTIONS: SortOptionsType[] = [
+  {
+    value: 'updated',
+    label: 'Recently updated',
+    description: 'Newest activity first',
+  },
+  {
+    value: 'stars',
+    label: 'Most stars',
+    description: 'Highest star count first',
+  },
+  {
+    value: 'forks',
+    label: 'Most forks',
+    description: 'Highest fork count first',
+  },
+  {
+    value: 'name',
+    label: 'Name',
+    description: 'Alphabetical order',
+  },
+];
+
+const TYPE_OPTIONS: TypeOptionsType[] = [
+  {
+    value: 'all',
+    label: 'All repositories',
+    description: 'Every public repository',
+  },
+  {
+    value: 'original',
+    label: 'Original repositories',
+    description: 'Repositories created by this developer',
+  },
+  {
+    value: 'forks',
+    label: 'Forks',
+    description: 'Repositories forked from other projects',
+  },
+  {
+    value: 'archived',
+    label: 'Archived',
+    description: 'Repositories marked as archived',
+  },
+];
+
+const STAR_OPTIONS: StarOptionsType[] = [
+  {
+    value: 'all',
+    label: 'Any star count',
+    description: 'No minimum or maximum',
+  },
+  {
+    value: '0-10',
+    label: '0-10 stars',
+    description: 'Less than 11 stars',
+  },
+  {
+    value: '10-50',
+    label: '10-50 stars',
+    description: 'Between 10 and 50 stars',
+  },
+  {
+    value: '50-100',
+    label: '50-100 stars',
+    description: 'Between 50 and 100 stars',
+  },
+  {
+    value: '100-500',
+    label: '100-500 stars',
+    description: 'Between 100 and 500 stars',
+  },
+  {
+    value: '500+',
+    label: '500+ stars',
+    description: 'More than 500 stars',
+  },
+];
+
 const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
   const [view, setView] = useState<RepositoryView>('grid');
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <section
@@ -63,11 +150,29 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
 
             <input
               type='search'
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               placeholder='Search repositories...'
               aria-label='Search repositories'
             />
 
-            <kbd>/</kbd>
+            {searchQuery ? (
+              <button
+                type='button'
+                onClick={() => setSearchQuery('')}
+                aria-label='Clear search'
+              >
+                <X
+                  size={14}
+                  strokeWidth={1.8}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
+              </button>
+            ) : (
+              <kbd>/</kbd>
+            )}
           </label>
 
           <div className='repository-explorer__actions'>
