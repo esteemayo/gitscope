@@ -3,8 +3,12 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import {
+  Archive,
   ArrowDownUp,
+  ArrowUpDown,
+  Check,
   ChevronDown,
+  CircleDot,
   LayoutGrid,
   List,
   Search,
@@ -15,9 +19,14 @@ import {
 import RepoCard from './RepoCard';
 
 import {
+  AdvancedFilters,
+  DropdownMenu,
+  RepositorySort,
+  RepositoryType,
   RepositoryView,
   SortOptionsType,
   StarOptionsType,
+  StarRange,
   TypeOptionsType,
 } from '@/types/dashboard/repository';
 import { RepositoryExplorerProps } from '@/types/dashboard/repository/repository.explorer.type';
@@ -103,10 +112,36 @@ const STAR_OPTIONS: StarOptionsType[] = [
   },
 ];
 
+const getSortLabel = (value: RepositorySort) =>
+  SORT_OPTIONS.find((option) => option.value === value)?.label ??
+  'Recently updated';
+
+const getTypeLabel = (value: RepositoryType) =>
+  TYPE_OPTIONS.find((option) => option.value === value)?.label ??
+  'All repositories';
+
+const getStarRangeLabel = (value: StarRange) =>
+  STAR_OPTIONS.find((option) => option.value === value)?.label ??
+  'Any star count';
+
 const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
   const [view, setView] = useState<RepositoryView>('grid');
-  const [activeMenu, setActiveMenu] = useState(null);
+  const [activeMenu, setActiveMenu] = useState<DropdownMenu | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState<RepositorySort>('updated');
+  const [selectedLanguage, setSelectedLanguage] = useState('all');
+  const [repositoryType, setRepositoryType] = useState<RepositoryType>('all');
+  const [starRange, setStarRange] = useState<StarRange>('all');
+
+  const [advancedFilters, setAdvancedFilters] = useState<AdvancedFilters>({
+    hasDescription: false,
+    hastopics: false,
+    recentlyActive: false,
+  });
+
+  const toggleMenu = (menu: DropdownMenu) => {
+    setActiveMenu((current) => (current === menu ? null : menu));
+  };
 
   return (
     <section
@@ -176,43 +211,286 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
           </label>
 
           <div className='repository-explorer__actions'>
-            <button
-              type='button'
-              className='repository-explorer__actions--btn-filter'
-            >
-              <SlidersHorizontal
-                size={16}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-              Filters
-              <span className='repository-explorer__actions--filter-count'>
-                2
-              </span>
-            </button>
+            <div className='repository-explorer__dropdown'>
+              <button
+                type='button'
+                onClick={() => toggleMenu('filters')}
+                className={clsx('repository-explorer__dropdown--btn-filter', {
+                  'dropdown-btn-active': activeMenu === 'filters',
+                })}
+                aria-expanded={activeMenu === 'filters'}
+                aria-haspopup='dialog'
+              >
+                <SlidersHorizontal
+                  size={16}
+                  strokeWidth={1.8}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
 
-            <button
-              type='button'
-              className='repository-explorer__actions--btn-sort'
-            >
-              <ArrowDownUp
-                size={16}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-              Recently updated
-              <ChevronDown
-                size={16}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </button>
+                <span>Filters</span>
+
+                <span className='repository-explorer__dropdown--filter-count'>
+                  2
+                </span>
+
+                <ChevronDown
+                  size={14}
+                  strokeWidth={1.8}
+                  className={activeMenu === 'filters' ? 'chevron-open' : ''}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
+              </button>
+
+              {activeMenu === 'filters' && (
+                <div
+                  className='repository-explorer__dropdown-panel'
+                  role='dialog'
+                  aria-label='Advanced repository filters'
+                >
+                  <div className='repository-explorer__dropdown-header'>
+                    <div>
+                      <h4>Advanced filters</h4>
+
+                      <p>Refine your repository results.</p>
+                    </div>
+
+                    <button
+                      type='button'
+                      onClick={() => setActiveMenu(null)}
+                      className='repository-explorer__panel-close'
+                      aria-label='Close filters'
+                    >
+                      <X
+                        size={15}
+                        strokeWidth={1.8}
+                        role='img'
+                        aria-hidden='true'
+                        focusable='false'
+                      />
+                    </button>
+                  </div>
+
+                  <div className='repository-explorer__filter-options'>
+                    <label
+                      htmlFor='description'
+                      className='repository-explorer__checkbox-option'
+                    >
+                      <div className='repository-explorer__checkbox-content'>
+                        <span className='repository-explorer__option-icon'>
+                          <Archive
+                            size={15}
+                            strokeWidth={1.8}
+                            role='img'
+                            aria-hidden='true'
+                            focusable='false'
+                          />
+                        </span>
+
+                        <div>
+                          <strong>Has description</strong>
+
+                          <small>Only show documented repositories</small>
+                        </div>
+                      </div>
+
+                      <input
+                        type='checkbox'
+                        name='description'
+                        id='description'
+                      />
+
+                      <span className='repository-explorer__custom-checkbox'>
+                        <Check
+                          size={12}
+                          strokeWidth={1.8}
+                          role='img'
+                          aria-hidden='true'
+                          focusable='false'
+                        />
+                      </span>
+                    </label>
+
+                    <label
+                      htmlFor='topics'
+                      className='repository-explorer__checkbox-option'
+                    >
+                      <div className='repository-explorer__checkbox-content'>
+                        <span className='repository-explorer__option-icon'>
+                          <CircleDot
+                            size={15}
+                            strokeWidth={1.8}
+                            role='img'
+                            aria-hidden='true'
+                            focusable='false'
+                          />
+                        </span>
+
+                        <div>
+                          <strong>Has topics</strong>
+
+                          <small>Only show repositories with topics</small>
+                        </div>
+                      </div>
+
+                      <input type='checkbox' name='topics' id='topics' />
+
+                      <span className='repository-explorer__custom-checkbox'>
+                        <Check
+                          size={12}
+                          strokeWidth={1.8}
+                          role='img'
+                          aria-hidden='true'
+                          focusable='false'
+                        />
+                      </span>
+                    </label>
+
+                    <label
+                      htmlFor='recently'
+                      className='repository-explorer__checkbox-option'
+                    >
+                      <div className='repository-explorer__checkbox-content'>
+                        <span className='repository-explorer__option-icon'>
+                          <ArrowUpDown
+                            size={15}
+                            strokeWidth={1.8}
+                            role='img'
+                            aria-hidden='true'
+                            focusable='false'
+                          />
+                        </span>
+
+                        <div>
+                          <strong>Recently active</strong>
+
+                          <small>Updated within the last 30 days</small>
+                        </div>
+                      </div>
+
+                      <input type='checkbox' name='recently' id='recently' />
+
+                      <span className='repository-explorer__custom-checkbox'>
+                        <Check
+                          size={12}
+                          strokeWidth={1.8}
+                          role='img'
+                          aria-hidden='true'
+                          focusable='false'
+                        />
+                      </span>
+                    </label>
+                  </div>
+
+                  <div className='repository-explorer__dropdown-footer'>
+                    <button
+                      type='button'
+                      onClick={() =>
+                        setAdvancedFilters({
+                          hasDescription: false,
+                          hastopics: false,
+                          recentlyActive: false,
+                        })
+                      }
+                      className='repository-explorer__reset-button'
+                    >
+                      Reset
+                    </button>
+
+                    <button
+                      type='button'
+                      onClick={() => setActiveMenu(null)}
+                      className='repository-explorer__apply-button'
+                    >
+                      Show results
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className='repository-explorer__dropdown'>
+              <button
+                type='button'
+                onClick={() => toggleMenu('sort')}
+                className={clsx('repository-explorer__dropdown--btn-sort', {
+                  'dropdown-btn-active': activeMenu === 'sort',
+                })}
+                aria-expanded={activeMenu === 'sort'}
+                aria-haspopup='listbox'
+              >
+                <ArrowDownUp
+                  size={16}
+                  strokeWidth={1.8}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
+
+                <span>{getSortLabel(sortBy)}</span>
+
+                <ChevronDown
+                  size={14}
+                  strokeWidth={1.8}
+                  className={activeMenu === 'sort' ? 'chevron-open' : ''}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
+              </button>
+
+              {activeMenu === 'sort' && (
+                <div
+                  className='repository-explorer__dropdown-panel'
+                  role='listbox'
+                  aria-label='Sort repositories'
+                >
+                  <div className='repository-explorer__panel-label'>
+                    Sort by
+                  </div>
+
+                  {SORT_OPTIONS.map((option) => {
+                    const { value, label, description } = option;
+
+                    return (
+                      <button
+                        key={value}
+                        type='button'
+                        onClick={() => {
+                          setSortBy(value);
+                          setActiveMenu(null);
+                        }}
+                        className={clsx('repository-explorer__menu-option', {
+                          'menu-option-active': sortBy === value,
+                        })}
+                        role='option'
+                        aria-selected={sortBy === value}
+                      >
+                        <span className='repository-explorer__menu-option-text'>
+                          <strong>{label}</strong>
+
+                          <small>{description}</small>
+                        </span>
+
+                        {sortBy === value && (
+                          <Check
+                            size={16}
+                            strokeWidth={1.8}
+                            className='selected-check'
+                            role='img'
+                            aria-hidden='true'
+                            focusable='false'
+                          />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
 
             <div className='repository-explorer__view-toggle'>
               <button
@@ -259,9 +537,13 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
         <div className='repository-explorer__filter-bar'>
           <button
             type='button'
+            onClick={() => toggleMenu('language')}
             className='repository-explorer__btn-filter-chip'
+            aria-expanded={activeMenu === 'language'}
+            aria-haspopup='listbox'
           >
-            All languages
+            <span>All languages</span>
+
             <ChevronDown
               size={14}
               strokeWidth={1.8}
@@ -273,9 +555,11 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
 
           <button
             type='button'
+            onClick={() => toggleMenu('type')}
             className='repository-explorer__btn-filter-chip'
           >
-            All repositories
+            <span>{getTypeLabel(repositoryType)}</span>
+
             <ChevronDown
               size={14}
               strokeWidth={1.8}
@@ -287,9 +571,11 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
 
           <button
             type='button'
+            onClick={() => toggleMenu('stars')}
             className='repository-explorer__btn-filter-chip'
           >
-            Any star count
+            <span>{getStarRangeLabel(starRange)}</span>
+
             <ChevronDown
               size={14}
               strokeWidth={1.8}

@@ -126,7 +126,9 @@
     }
 
     &:focus-visible {
-      @include focus-ring($width: 2px, $offset: 3px);
+      @include focus-ring(
+        $color: var(--color-blue-800, var(--color-purple-500))
+      );
     }
 
     &:disabled {
@@ -208,16 +210,18 @@
       padding: 1rem 0;
       border: none;
       outline: none;
+      font-family: var(--font-mono);
       font-size: var(--fz-xxs);
       background-color: transparent;
-      color: inherit;
-      caret-color: var(--color-blue-800);
+      color: var(--color-blue-800);
+      caret-color: currentColor;
 
       @include bp.sm {
         font-size: var(--fz-md);
       }
 
       &::placeholder {
+        font-family: var(--font-poppins);
         font-size: var(--fz-xxs);
         color: color-mix(in srgb, var(--text-muted) 85%, transparent);
         transition: color 0.25s ease;
@@ -295,6 +299,13 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(min-content, 1fr));
     }
+  }
+
+  &__dropdown {
+    display: inline;
+
+    position: relative;
+    min-width: 0;
 
     &--btn-filter,
     &--btn-sort {
@@ -326,6 +337,11 @@
         transition: none;
       }
 
+      svg {
+        flex-shrink: 0;
+        transition: transform 0.25s ease;
+      }
+
       &:hover {
         border-color: var(--color-blue-800);
       }
@@ -335,12 +351,44 @@
       }
 
       &:focus-visible {
-        @include focus-ring($width: 2px, $offset: 3px);
+        @include focus-ring(
+          $color: var(--color-blue-800, var(--color-purple-500))
+        );
       }
 
       &:disabled {
         opacity: 0.75;
         pointer-events: none;
+      }
+
+      &.dropdown-btn-active {
+        background-color: color-mix(
+          in srgb,
+          var(--color-blue-800, var(--color-purple-500)) 5%,
+          transparent
+        );
+        border-color: var(--color-blue-800, var(--color-purple-500));
+      }
+
+      .chevron-open {
+        transform: rotate(180deg);
+      }
+    }
+
+    &--btn-filter {
+      svg {
+        stroke: currentColor;
+
+        &:first-child {
+          width: 1.6rem;
+          height: 1.6rem;
+        }
+
+        &:last-child {
+          width: 1.4rem;
+          height: 1.4rem;
+          color: var(--color-blue-800);
+        }
       }
     }
 
@@ -358,6 +406,413 @@
       );
       color: var(--color-blue-800);
       border-radius: 0.6rem;
+    }
+  }
+
+  &__dropdown-panel {
+    position: absolute;
+    z-index: 3000;
+    top: calc(100% - 0.9rem);
+    left: 0;
+
+    width: 26rem;
+    max-height: 36rem;
+    padding: 0.7rem;
+    background-color: var(--bg-menu);
+    border: 1px solid var(--border);
+    box-shadow:
+      0 1.2rem 3.2rem rgba(15, 23, 42, 0.12),
+      0 2px 0.6rem rgba(15, 23, 42, 0.05);
+    border-radius: var(--radius);
+    overflow-y: auto;
+    animation: dropdownEnter 0.25s ease;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    @media (max-width: 40em) {
+      // position: fixed;
+      top: auto;
+      right: 1.2rem;
+      left: 1.2rem;
+
+      // width: auto;
+      max-width: none;
+      max-height: min(65vh, 42rem);
+      margin-top: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  &__panel-label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 1rem 1.1rem 0.8rem;
+    letter-spacing: 1.1px;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+  }
+
+  &__menu-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.1rem;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+
+    &:hover {
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 2.5%,
+        transparent
+      );
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring(
+        $color: var(--color-blue-800, var(--color-purple-500)),
+        $offset: -3px
+      );
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    &.menu-option-active {
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 8%,
+        var(--bg-tertiary)
+      );
+
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--color-blue-800, var(--color-purple-500)) 12%,
+          var(--bg-tertiary)
+        );
+      }
+
+      .repository-explorer__menu-option-text {
+        strong {
+          color: var(--color-blue-800, var(--color-purple-500));
+        }
+      }
+    }
+
+    .selected-check {
+      flex-shrink: 0;
+
+      width: 1.6rem;
+      height: 1.6rem;
+      color: var(--color-blue-800, var(--color-purple-500));
+      stroke: currentColor;
+    }
+  }
+
+  &__menu-option-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    min-width: 0;
+    text-transform: none;
+
+    strong {
+      font-weight: 600;
+      font-size: var(--fz-xxs);
+    }
+
+    small {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    padding: 1.7rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    transition: border-color 0.25s ease;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      min-width: 0;
+
+      h4 {
+        display: inline-block;
+        text-transform: none;
+        text-rendering: optimizeLegibility;
+        font-weight: 600;
+        font-size: var(--fz-xs);
+        color: inherit;
+        line-height: 1.1;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        transition: color 0.25s ease;
+      }
+    }
+  }
+
+  &__panel-close {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 2.8rem;
+    height: 2.8rem;
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
+    &:hover {
+      color: var(--color-blue-800, var(--color-purple-500));
+      border-color: var(--color-blue-800, var(--color-purple-500));
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring(
+        $color: var(--color-blue-800, var(--color-purple-500))
+      );
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
+    }
+  }
+
+  &__filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  &__checkbox-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    position: relative;
+    min-height: 5.6rem;
+    padding: 0.9rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+
+    input {
+      position: absolute;
+
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      clip: rect(0, 0, 0, 0);
+
+      &:checked + .repository-explorer__custom-checkbox {
+        background-color: var(--color-blue-800);
+        color: var(--color-white-50);
+        border-color: var(--color-blue-800);
+      }
+
+      &:focus-visible + .repository-explorer__custom-checkbox {
+        @include focus-ring(
+          $color: var(--color-blue-800, var(--color-purple-500))
+        );
+      }
+    }
+  }
+
+  &__checkbox-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    min-width: 0;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      min-width: 0;
+
+      strong {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: inherit;
+      }
+
+      small {
+        font-size: 1rem;
+        color: var(--text-muted);
+        transition: color 0.25s ease;
+      }
+    }
+  }
+
+  &__option-icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800, var(--color-purple-500)) 12%,
+      transparent
+    );
+    color: var(--color-blue-800, var(--color-purple-500));
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 18%,
+        transparent
+      );
+    border-radius: 0.8rem;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__custom-checkbox {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 1.8rem;
+    height: 1.8rem;
+    color: transparent;
+    background-color: var(--bg-tertiary);
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    border-radius: var(--border-radius);
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__dropdown-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    padding: 1.2rem 1.5rem;
+    background-color: color-mix(in srgb, var(--border) 10%, transparent);
+    border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  }
+
+  &__reset-button,
+  &__apply-button {
+    min-height: 3.4rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0 1.2rem;
+    border-radius: 0.7rem;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring(
+        $color: var(--color-blue-800, var(--color-purple-500))
+      );
+    }
+  }
+
+  &__reset-button {
+    border: none;
+    padding: 0.8rem 1rem;
+    background-color: transparent;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: var(--color-blue-800, var(--color-purple-500));
+    }
+  }
+
+  &__apply-button {
+    background-color: var(--color-blue-800, var(--color-purple-500));
+    color: var(--color-white-50);
+    border: 1px solid var(--color-blue-800, var(--color-purple-500));
+
+    &:hover {
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 88%,
+        var(--black)
+      );
     }
   }
 
@@ -409,7 +864,9 @@
       }
 
       &:focus-visible {
-        @include focus-ring($width: 2px, $offset: 2px);
+        @include focus-ring(
+          $color: var(--color-blue-800, var(--color-purple-500))
+        );
       }
 
       &:disabled {
@@ -471,7 +928,9 @@
     }
 
     &:focus-visible {
-      @include focus-ring($width: 2px, $offset: 3px);
+      @include focus-ring(
+        $color: var(--color-blue-800, var(--color-purple-500))
+      );
     }
 
     &:disabled {
@@ -502,7 +961,9 @@
     }
 
     &:focus-visible {
-      @include focus-ring($width: 2px, $offset: 3px);
+      @include focus-ring(
+        $color: var(--color-blue-800, var(--color-purple-500))
+      );
     }
 
     &:disabled {
