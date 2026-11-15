@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import clsx from 'clsx';
 import {
   Archive,
@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 
 import RepoCard from './RepoCard';
+import RepositoryEmptyState from './RepositoryEmptyState';
 
 import {
   AdvancedFilters,
@@ -125,6 +126,8 @@ const getStarRangeLabel = (value: StarRange) =>
   'Any star count';
 
 const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
   const [view, setView] = useState<RepositoryView>('grid');
   const [activeMenu, setActiveMenu] = useState<DropdownMenu | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -142,6 +145,16 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
   const toggleMenu = (menu: DropdownMenu) => {
     setActiveMenu((current) => (current === menu ? null : menu));
   };
+
+  const languages = useMemo(() => {
+    const uniqueLanguages = new Set(
+      repositories
+        .map((repository) => repository.language)
+        .filter((language): language is string => Boolean(language)),
+    );
+
+    return Array.from(uniqueLanguages).sort((a, b) => a.localeCompare(b));
+  }, [repositories]);
 
   return (
     <section
@@ -172,7 +185,7 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
         </button>
       </header>
 
-      <div className='repository-explorer__panel'>
+      <div ref={dropdownRef} className='repository-explorer__panel'>
         <div className='repository-explorer__toolbar'>
           <label htmlFor='search' className='repository-explorer__search-box'>
             <Search
@@ -535,71 +548,273 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
         </div>
 
         <div className='repository-explorer__filter-bar'>
-          <button
-            type='button'
-            onClick={() => toggleMenu('language')}
-            className='repository-explorer__btn-filter-chip'
-            aria-expanded={activeMenu === 'language'}
-            aria-haspopup='listbox'
-          >
-            <span>All languages</span>
+          <div className='repository-explorer__dropdown'>
+            <button
+              type='button'
+              onClick={() => toggleMenu('language')}
+              className='repository-explorer__btn-filter-chip'
+              aria-expanded={activeMenu === 'language'}
+              aria-haspopup='listbox'
+            >
+              <span>
+                {selectedLanguage === 'all'
+                  ? 'All languages'
+                  : selectedLanguage}
+              </span>
 
-            <ChevronDown
-              size={14}
-              strokeWidth={1.8}
-              role='img'
-              aria-hidden='true'
-              focusable='false'
-            />
-          </button>
+              <ChevronDown
+                size={14}
+                strokeWidth={1.8}
+                className={activeMenu === 'language' ? 'chevron-open' : ''}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+            </button>
 
-          <button
-            type='button'
-            onClick={() => toggleMenu('type')}
-            className='repository-explorer__btn-filter-chip'
-          >
-            <span>{getTypeLabel(repositoryType)}</span>
+            {activeMenu === 'language' && (
+              <div
+                className='repository-explorer__dropdown-panel'
+                role='listbox'
+                aria-label='Filter by language'
+              >
+                <div className='repository-explorer__panel-label'>
+                  Programming language
+                </div>
 
-            <ChevronDown
-              size={14}
-              strokeWidth={1.8}
-              role='img'
-              aria-hidden='true'
-              focusable='false'
-            />
-          </button>
+                <button
+                  type='button'
+                  onClick={() => {
+                    setSelectedLanguage('all');
+                    setActiveMenu(null);
+                  }}
+                  className={clsx('repository-explorer__menu-option', {
+                    'menu-option-active': selectedLanguage === 'all',
+                  })}
+                  role='option'
+                  aria-selected={selectedLanguage === 'all'}
+                >
+                  <span className='repository-explorer__menu-option-text'>
+                    <strong>All languages</strong>
 
-          <button
-            type='button'
-            onClick={() => toggleMenu('stars')}
-            className='repository-explorer__btn-filter-chip'
-          >
-            <span>{getStarRangeLabel(starRange)}</span>
+                    <small>Show every programming language</small>
+                  </span>
 
-            <ChevronDown
-              size={14}
-              strokeWidth={1.8}
-              role='img'
-              aria-hidden='true'
-              focusable='false'
-            />
-          </button>
+                  {selectedLanguage === 'all' && (
+                    <Check
+                      size={16}
+                      strokeWidth={1.8}
+                      className='selected-check'
+                      role='img'
+                      aria-hidden='true'
+                      focusable='true'
+                    />
+                  )}
+                </button>
+
+                <div
+                  className='repository-explorer__menu-divider'
+                  aria-hidden='true'
+                />
+
+                {languages.map((language) => (
+                  <button
+                    key={language}
+                    type='button'
+                    onClick={() => {
+                      setSelectedLanguage(language);
+                      setActiveMenu(null);
+                    }}
+                    className={clsx('repository-explorer__menu-option', {
+                      'menu-option-active': selectedLanguage === language,
+                    })}
+                    role='option'
+                    aria-selected={selectedLanguage === language}
+                  >
+                    <span className='repository-explorer__menu-option-text'>
+                      <strong>{language}</strong>
+                    </span>
+
+                    {selectedLanguage === language && (
+                      <Check
+                        size={16}
+                        strokeWidth={1.8}
+                        className='selected-check'
+                        role='img'
+                        aria-hidden='true'
+                        focusable='true'
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className='repository-explorer__dropdown'>
+            <button
+              type='button'
+              onClick={() => toggleMenu('type')}
+              className='repository-explorer__btn-filter-chip'
+              aria-expanded={activeMenu === 'type'}
+              aria-haspopup='listbox'
+            >
+              <span>{getTypeLabel(repositoryType)}</span>
+
+              <ChevronDown
+                size={14}
+                strokeWidth={1.8}
+                className={activeMenu === 'type' ? 'chevron-open' : ''}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+            </button>
+
+            {activeMenu === 'type' && (
+              <div
+                className='repository-explorer__dropdown-panel'
+                role='listbox'
+                aria-label='Filter by repository type'
+              >
+                <div className='repository-explorer__panel-label'>
+                  Repository type
+                </div>
+
+                {TYPE_OPTIONS.map((option) => {
+                  const { value, label, description } = option;
+
+                  return (
+                    <button
+                      key={value}
+                      type='button'
+                      onClick={() => {
+                        setRepositoryType(value);
+                        setActiveMenu(null);
+                      }}
+                      className={clsx('repository-explorer__menu-option', {
+                        'menu-option-active': repositoryType === value,
+                      })}
+                      role='option'
+                      aria-selected={repositoryType === value}
+                    >
+                      <span className='repository-explorer__menu-option-text'>
+                        <strong>{label}</strong>
+
+                        <small>{description}</small>
+                      </span>
+
+                      {repositoryType === value && (
+                        <Check
+                          size={16}
+                          strokeWidth={1.8}
+                          className='selected-check'
+                          role='img'
+                          aria-hidden='true'
+                          focusable='true'
+                        />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          <div className='repository-explorer__dropdown'>
+            <button
+              type='button'
+              onClick={() => toggleMenu('stars')}
+              className='repository-explorer__btn-filter-chip'
+              aria-expanded={activeMenu === 'stars'}
+              aria-haspopup='listbox'
+            >
+              <span>{getStarRangeLabel(starRange)}</span>
+
+              <ChevronDown
+                size={14}
+                strokeWidth={1.8}
+                className={activeMenu === 'stars' ? 'chevron-open' : ''}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+            </button>
+
+            {activeMenu === 'stars' && (
+              <div
+                className='repository-explorer__dropdown-panel'
+                role='listbox'
+                aria-label='Filter by star count'
+              >
+                <div className='repository-explorer__panel-label'>
+                  Star count
+                </div>
+
+                {STAR_OPTIONS.map((option) => {
+                  const { value, label, description } = option;
+
+                  return (
+                    <button
+                      key={value}
+                      type='button'
+                      onClick={() => {
+                        setStarRange(value);
+                        setActiveMenu(null);
+                      }}
+                      className={clsx('repository-explorer__menu-option', {
+                        'menu-option-active': starRange === value,
+                      })}
+                      role='option'
+                      aria-selected={starRange === value}
+                    >
+                      <span className='repository-explorer__menu-option-text'>
+                        <strong>{label}</strong>
+
+                        <small>{description}</small>
+                      </span>
+
+                      {starRange === value && (
+                        <Check
+                          size={16}
+                          strokeWidth={1.8}
+                          className='selected-check'
+                          role='img'
+                          aria-hidden='true'
+                          focusable='true'
+                        />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
 
           <button
             type='button'
             className='repository-explorer__btn-clear-filter'
           >
-            Clear filters
+            <X
+              size={13}
+              strokeWidth={1.8}
+              role='img'
+              aria-hidden='true'
+              focusable='true'
+            />
+
+            <span>Clear filters</span>
           </button>
         </div>
 
         <div className='repository-explorer__results-bar'>
           <span>
-            Showing <strong>{(repositories ?? []).length}</strong> repositories
+            Showing <strong>{(repositories ?? []).length}</strong> of{' '}
+            <strong>{(repositories ?? []).length}</strong> repositories
           </span>
 
           <span className='repository-explorer__results-hint'>
-            Sorted by last update
+            Sorted by {getSortLabel(sortBy).toLowerCase()}
           </span>
         </div>
 
@@ -609,9 +824,22 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
             'list-view': view === 'list',
           })}
         >
-          {repositories.map((repository) => (
-            <RepoCard key={repository.id} repository={repository} view={view} />
-          ))}
+          {repositories.length > 0 ? (
+            repositories.map((repository) => (
+              <RepoCard
+                key={repository.id}
+                repository={repository}
+                view={view}
+              />
+            ))
+          ) : (
+            <RepositoryEmptyState
+              title='No repositories found'
+              description='Try changing your search or removing some filters.'
+              btnLabel='Clear all filters'
+              onReset={() => console.log('reset btn clicked!')}
+            />
+          )}
         </div>
 
         <footer className='repository-explorer__footer'>

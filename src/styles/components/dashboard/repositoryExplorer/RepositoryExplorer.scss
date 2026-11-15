@@ -437,8 +437,8 @@
     @media (max-width: 40em) {
       // position: fixed;
       top: auto;
-      right: 1.2rem;
-      left: 1.2rem;
+      // right: 1.2rem;
+      // left: 1.2rem;
 
       // width: auto;
       max-width: none;
@@ -554,6 +554,13 @@
       line-height: 1.4;
       transition: color 0.25s ease;
     }
+  }
+
+  &__menu-divider {
+    height: 1px;
+    margin: 0.6rem 0.8rem;
+    background-color: var(--border);
+    transition: background-color 0.25s ease;
   }
 
   &__dropdown-header {
@@ -770,8 +777,8 @@
     border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
   }
 
-  &__reset-button,
-  &__apply-button {
+  &__apply-button,
+  &__reset-button {
     min-height: 3.4rem;
     font-weight: 600;
     font-size: 1.1rem;
@@ -806,6 +813,7 @@
     background-color: var(--color-blue-800, var(--color-purple-500));
     color: var(--color-white-50);
     border: 1px solid var(--color-blue-800, var(--color-purple-500));
+    transition: background-color 0.25s ease;
 
     &:hover {
       background-color: color-mix(
@@ -917,6 +925,10 @@
 
     @media (prefers-reduced-motion: reduce) {
       transition: none;
+    }
+
+    .chevron-open {
+      transform: rotate(180deg);
     }
 
     &:hover {

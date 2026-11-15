@@ -1,0 +1,100 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.repository-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1 / -1;
+
+  min-height: 26rem;
+  text-align: center;
+  padding: 3rem 2rem;
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 4.8rem;
+    height: 4.8rem;
+    background-color: color-mix(in srgb, var(--border) 10%, transparent);
+    color: color-mix(in srgb, var(--text-muted) 70%, transparent);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    min-width: 0;
+    margin: 1.5rem 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      text-wrap: balance;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      max-width: 30rem;
+      text-wrap: pretty;
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__btn-reset {
+    min-height: 3.6rem;
+    text-transform: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0 1.2rem;
+    background-color: var(--color-blue-800, var(--color-purple-500));
+    color: var(--color-white-50);
+    border: 1px solid var(--color-blue-800, var(--color-purple-500));
+    border-radius: 0.7rem;
+    transition: background-color 0.25s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 88%,
+        var(--black)
+      );
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring(
+        $color: var(--color-blue-800, var(--color-purple-500))
+      );
+    }
+  }
+}
