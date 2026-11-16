@@ -1,0 +1,63 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.repository-view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  padding: 4px;
+  background-color: color-mix(in srgb, var(--border) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  border-radius: 0.875rem;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  @media (max-width: 40em) {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  &__btn {
+    display: grid;
+    place-items: center;
+
+    width: 3.2rem;
+    height: 3.2rem;
+    border: none;
+    background-color: transparent;
+    color: var(--text-muted);
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: color 0.25s ease;
+
+    &.active-view {
+      color: var(--color-blue-800);
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+    }
+
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring(
+        $color: var(--color-blue-800, var(--color-purple-500))
+      );
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
+    }
+  }
+}

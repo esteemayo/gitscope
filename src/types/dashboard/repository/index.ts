@@ -39,7 +39,7 @@ export type StarRange =
 
 export interface AdvancedFilters {
   hasDescription: boolean;
-  hastopics: boolean;
+  hasTopics: boolean;
   recentlyActive: boolean;
 }
 

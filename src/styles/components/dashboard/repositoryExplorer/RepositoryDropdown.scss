@@ -1,0 +1,152 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.repository-dropdown {
+  display: inline;
+
+  position: relative;
+  min-width: 0;
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+
+    min-height: 4rem;
+    font-weight: 600;
+    font-size: var(--fz-xxs);
+    white-space: nowrap;
+    padding: 0 1.3rem;
+    background-color: transparent;
+    color: inherit;
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    border-radius: 0.875rem;
+    cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    @media (max-width: 40em) {
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+    svg {
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    &:hover {
+      border-color: var(--color-blue-800);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring(
+        $color: var(--color-blue-800, var(--color-purple-500))
+      );
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    &--filter {
+      svg {
+        stroke: currentColor;
+
+        &:first-child {
+          width: 1.6rem;
+          height: 1.6rem;
+        }
+
+        &:last-child {
+          width: 1.4rem;
+          height: 1.4rem;
+          color: var(--color-blue-800);
+        }
+      }
+    }
+
+    &--active {
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 5%,
+        transparent
+      );
+      border-color: var(--color-blue-800, var(--color-purple-500));
+    }
+
+    &--filter-count {
+      display: grid;
+      place-items: center;
+
+      width: 1.9rem;
+      height: 1.9rem;
+      font-size: 1rem;
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800) 12%,
+        transparent
+      );
+      color: var(--color-blue-800);
+      border-radius: 0.6rem;
+    }
+
+    .chevron-open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__panel {
+    position: absolute;
+    z-index: 3000;
+    top: calc(100% - 0.9rem);
+    left: 0;
+
+    width: 26rem;
+    max-height: 36rem;
+    padding: 0.7rem;
+    background-color: var(--bg-menu);
+    border: 1px solid var(--border);
+    box-shadow:
+      0 1.2rem 3.2rem rgba(15, 23, 42, 0.12),
+      0 2px 0.6rem rgba(15, 23, 42, 0.05);
+    border-radius: var(--radius);
+    overflow-y: auto;
+    animation: dropdownEnter 0.25s ease;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    @media (max-width: 40em) {
+      // position: fixed;
+      top: auto;
+      // right: 1.2rem;
+      // left: 1.2rem;
+
+      // width: auto;
+      max-width: none;
+      max-height: min(65vh, 42rem);
+      margin-top: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+}

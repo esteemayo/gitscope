@@ -1,0 +1,48 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.repository-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+
+  font-size: 1rem;
+  padding: 1.6rem 2rem;
+  color: var(--text-muted);
+  border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+
+  @media (max-width: 40em) {
+    padding: 1.4rem;
+  }
+
+  &__text {
+    font-size: inherit;
+    color: currentColor;
+  }
+
+  &__indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    font-size: inherit;
+    color: currentColor;
+
+    &::before {
+      content: '';
+
+      width: 0.7rem;
+      height: 0.7rem;
+      background-color: #36a987;
+      background-color: var(--color-green-400);
+      box-shadow: 0 0 0 3px
+        color-mix(in srgb, var(--color-green-400) 10%, transparent);
+      border-radius: 100%;
+    }
+  }
+}
