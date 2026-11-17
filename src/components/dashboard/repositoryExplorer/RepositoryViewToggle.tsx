@@ -13,7 +13,12 @@ const RepositoryViewToggle = ({
   style,
 }: RepositoryViewToggleProps) => {
   return (
-    <div className={clsx('repository-view-toggle', className)} style={style}>
+    <div
+      className={clsx('repository-view-toggle', className)}
+      style={style}
+      role='group'
+      aria-label='Repository display mode'
+    >
       <button
         type='button'
         onClick={() => onChange('grid')}

@@ -3,47 +3,40 @@
 @use '../../../abstracts/responsive' as bp;
 
 .repository-dropdown {
-  display: inline;
-
-  position: relative;
-  min-width: 0;
-
-  &__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.9rem;
-
-    min-height: 4rem;
+  &__label {
+    text-transform: uppercase;
     font-weight: 600;
-    font-size: var(--fz-xxs);
-    white-space: nowrap;
-    padding: 0 1.3rem;
+    font-size: 0.9rem;
+    padding: 1rem 1.1rem 0.8rem;
+    letter-spacing: 1.1px;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.1rem;
     background-color: transparent;
     color: inherit;
-    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
-    border-radius: 0.875rem;
+    border: none;
+    border-radius: 0.8rem;
     cursor: pointer;
     transition:
       background-color 0.25s ease,
-      border-color 0.25s ease;
-
-    @media (max-width: 40em) {
-      min-width: 0;
-      overflow: hidden;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
-    }
-
-    svg {
-      flex-shrink: 0;
-      transition: transform 0.25s ease;
-    }
+      color 0.25s ease;
 
     &:hover {
-      border-color: var(--color-blue-800);
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 2.5%,
+        transparent
+      );
     }
 
     &:focus {
@@ -52,7 +45,8 @@
 
     &:focus-visible {
       @include focus-ring(
-        $color: var(--color-blue-800, var(--color-purple-500))
+        $color: var(--color-blue-800, var(--color-purple-500)),
+        $offset: -3px
       );
     }
 
@@ -61,92 +55,56 @@
       pointer-events: none;
     }
 
-    &--filter {
-      svg {
-        stroke: currentColor;
+    &--active {
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 8%,
+        var(--bg-tertiary)
+      );
 
-        &:first-child {
-          width: 1.6rem;
-          height: 1.6rem;
-        }
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--color-blue-800, var(--color-purple-500)) 12%,
+          var(--bg-tertiary)
+        );
+      }
 
-        &:last-child {
-          width: 1.4rem;
-          height: 1.4rem;
-          color: var(--color-blue-800);
+      .repository-dropdown__option {
+        &--label {
+          color: var(--color-blue-800, var(--color-purple-500));
         }
       }
     }
 
-    &--active {
-      background-color: color-mix(
-        in srgb,
-        var(--color-blue-800, var(--color-purple-500)) 5%,
-        transparent
-      );
-      border-color: var(--color-blue-800, var(--color-purple-500));
-    }
+    .selected-check {
+      flex-shrink: 0;
 
-    &--filter-count {
-      display: grid;
-      place-items: center;
-
-      width: 1.9rem;
-      height: 1.9rem;
-      font-size: 1rem;
-      background-color: color-mix(
-        in srgb,
-        var(--color-blue-800) 12%,
-        transparent
-      );
-      color: var(--color-blue-800);
-      border-radius: 0.6rem;
-    }
-
-    .chevron-open {
-      transform: rotate(180deg);
+      width: 1.6rem;
+      height: 1.6rem;
+      color: var(--color-blue-800, var(--color-purple-500));
+      stroke: currentColor;
     }
   }
 
-  &__panel {
-    position: absolute;
-    z-index: 3000;
-    top: calc(100% - 0.9rem);
-    left: 0;
+  &__option {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 
-    width: 26rem;
-    max-height: 36rem;
-    padding: 0.7rem;
-    background-color: var(--bg-menu);
-    border: 1px solid var(--border);
-    box-shadow:
-      0 1.2rem 3.2rem rgba(15, 23, 42, 0.12),
-      0 2px 0.6rem rgba(15, 23, 42, 0.05);
-    border-radius: var(--radius);
-    overflow-y: auto;
-    animation: dropdownEnter 0.25s ease;
+    min-width: 0;
+    text-transform: none;
 
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
-
-    transition:
-      background-color 0.25s ease,
-      border-color 0.25s ease;
-
-    @media (max-width: 40em) {
-      // position: fixed;
-      top: auto;
-      // right: 1.2rem;
-      // left: 1.2rem;
-
-      // width: auto;
-      max-width: none;
-      max-height: min(65vh, 42rem);
-      margin-top: 0;
+    &--label {
+      font-weight: 600;
+      font-size: var(--fz-xxs);
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      animation: none;
+    &--description {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      transition: color 0.25s ease;
     }
   }
 }

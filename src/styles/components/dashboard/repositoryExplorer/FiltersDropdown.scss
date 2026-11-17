@@ -1,0 +1,266 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.filters-dropdown {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    padding: 1.7rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    transition: border-color 0.25s ease;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    min-width: 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-xs);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--description {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__btn-close {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 2.8rem;
+    height: 2.8rem;
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
+    &:hover {
+      color: var(--color-blue-800, var(--color-purple-500));
+      border-color: var(--color-blue-800, var(--color-purple-500));
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring(
+        $color: var(--color-blue-800, var(--color-purple-500))
+      );
+    }
+
+    &:disabled {
+      opacity: 0.75;
+      pointer-events: none;
+    }
+  }
+
+  &__filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  &__checkbox-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    position: relative;
+    min-height: 5.6rem;
+    padding: 0.9rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+
+    input {
+      position: absolute;
+
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      clip: rect(0, 0, 0, 0);
+
+      &:checked + .repository-explorer__custom-checkbox {
+        background-color: var(--color-blue-800);
+        color: var(--color-white-50);
+        border-color: var(--color-blue-800);
+      }
+
+      &:focus-visible + .repository-explorer__custom-checkbox {
+        @include focus-ring(
+          $color: var(--color-blue-800, var(--color-purple-500))
+        );
+      }
+    }
+  }
+
+  &__checkbox-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    min-width: 0;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      min-width: 0;
+
+      strong {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: inherit;
+      }
+
+      small {
+        font-size: 1rem;
+        color: var(--text-muted);
+        transition: color 0.25s ease;
+      }
+    }
+  }
+
+  &__option-icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800, var(--color-purple-500)) 12%,
+      transparent
+    );
+    color: var(--color-blue-800, var(--color-purple-500));
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 18%,
+        transparent
+      );
+    border-radius: 0.8rem;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__custom-checkbox {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 1.8rem;
+    height: 1.8rem;
+    color: transparent;
+    background-color: var(--bg-tertiary);
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    border-radius: var(--border-radius);
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    padding: 1.2rem 1.5rem;
+    background-color: color-mix(in srgb, var(--border) 10%, transparent);
+    border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+
+    &--btn-apply,
+    &--btn-reset {
+      min-height: 3.4rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0 1.2rem;
+      border-radius: 0.7rem;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        @include focus-ring(
+          $color: var(--color-blue-800, var(--color-purple-500))
+        );
+      }
+    }
+
+    &--btn-reset {
+      border: none;
+      padding: 0.8rem 1rem;
+      background-color: transparent;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+
+      &:hover {
+        color: var(--color-blue-800, var(--color-purple-500));
+      }
+    }
+
+    &--btn-apply {
+      background-color: var(--color-blue-800, var(--color-purple-500));
+      color: var(--color-white-50);
+      border: 1px solid var(--color-blue-800, var(--color-purple-500));
+      transition: background-color 0.25s ease;
+
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--color-blue-800, var(--color-purple-500)) 88%,
+          var(--black)
+        );
+      }
+    }
+  }
+}

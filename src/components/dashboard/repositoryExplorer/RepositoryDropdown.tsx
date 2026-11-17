@@ -1,88 +1,85 @@
 'use client';
 
 import clsx from 'clsx';
-import { ChevronDown, LucideIcon } from 'lucide-react';
+import { Check } from 'lucide-react';
+
+import DropdownMenu from './DropdownMenu';
+import { RepositoryType, TypeOptionsType } from '@/types/dashboard/repository';
 
 import '../../../styles/components/dashboard/repositoryExplorer/RepositoryDropdown.scss';
 
 interface RepositoryDropdownProps {
+  repositoryValue: RepositoryType;
   label: string;
   isOpen: boolean;
-  icon?: LucideIcon;
-  filterCount?: number;
-  type?: 'filter' | 'sort';
+  options: TypeOptionsType[];
   onToggle(): void;
-  children: React.ReactNode;
-  ariaLabel?: string;
+  onChange(value: RepositoryType): void;
+  ariaLabel: string;
   className?: string;
   style?: React.CSSProperties;
 }
 
 const RepositoryDropdown = ({
+  repositoryValue,
   label,
   isOpen,
-  icon: Icon,
-  filterCount,
-  type,
+  options,
   onToggle,
-  children,
+  onChange,
   ariaLabel,
-  className = '',
+  className,
   style,
 }: RepositoryDropdownProps) => {
   return (
-    <div className={clsx('repository-dropdown', className)} style={style}>
-      <button
-        type='button'
-        onClick={onToggle}
-        className={clsx('repository-dropdown__btn', {
-          'repository-dropdown__btn--active': isOpen,
-          'repository-dropdown__btn--filter':
-            type === 'filter' || type === 'sort',
+    <DropdownMenu
+      label={label}
+      isOpen={isOpen}
+      onToggle={onToggle}
+      ariaLabel={ariaLabel}
+    >
+      <div className={clsx('repository-dropdown', className)} style={style}>
+        <div className='repository-dropdown__label'>Repository type</div>
+
+        {options.map((option) => {
+          const { value, label, description } = option;
+
+          return (
+            <button
+              key={value}
+              type='button'
+              onClick={() => onChange(value)}
+              className={clsx('repository-dropdown__menu', {
+                'repository-dropdown__menu--active': repositoryValue === value,
+              })}
+              role='option'
+              aria-selected={repositoryValue === value}
+            >
+              <span className='repository-dropdown__option'>
+                <strong className='repository-dropdown__option--label'>
+                  {label}
+                </strong>
+
+                <small className='repository-dropdown__option--description'>
+                  {description}
+                </small>
+              </span>
+
+              {repositoryValue === value && (
+                <Check
+                  size={16}
+                  strokeWidth={1.8}
+                  className='selected-check'
+                  role='img'
+                  aria-hidden='true'
+                  focusable='true'
+                />
+              )}
+            </button>
+          );
         })}
-        aria-expanded={isOpen}
-        aria-haspopup={
-          type === 'filter' || type === 'sort' ? 'dialog' : 'listbox'
-        }
-      >
-        {Icon && (
-          <Icon
-            size={16}
-            strokeWidth={1.8}
-            role='img'
-            aria-hidden='true'
-            focusable='false'
-          />
-        )}
-
-        <span>{label}</span>
-
-        {filterCount && (
-          <span className='repository-dropdown__btn--filter-count'>
-            {filterCount}
-          </span>
-        )}
-
-        <ChevronDown
-          size={14}
-          strokeWidth={1.8}
-          className={isOpen ? 'chevron-open' : ''}
-          role='img'
-          aria-hidden='true'
-          focusable='false'
-        />
-      </button>
-
-      {isOpen && (
-        <div
-          className='repository-dropdown__panel'
-          role='dialog'
-          aria-label={ariaLabel}
-        >
-          {children}
-        </div>
-      )}
-    </div>
+      </div>
+    </DropdownMenu>
   );
 };
 

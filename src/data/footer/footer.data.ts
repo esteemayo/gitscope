@@ -13,7 +13,7 @@ export const footerColumns: FooterColumn[] = [
         href: '/dashboard',
       },
       {
-        label: 'Compare',
+        label: 'Compare Developers',
         href: '/compare',
       },
       {
