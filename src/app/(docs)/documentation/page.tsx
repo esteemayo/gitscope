@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import DocsHome from '@/components/docs/home/DocsHome';
 
 export const metadata: Metadata = {
-  title: 'Documentation | GitScope Documentation',
+  title: 'Documentation | GitScope Analytics Documentation',
   description:
     'Explore the comprehensive GitScope documentation, including key concepts, features, analytics, and resources to help you understand and utilize the platform effectively.',
 };

@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import GitHubAnalyticsClient from '@/components/docs/features/GithubAnalyticsClient';
 
 export const metadata: Metadata = {
-  title: 'GitHub Analytics | GitScope Documentation',
+  title: 'GitHub Analytics | GitScope Analytics Documentation',
   description:
     'GitHub Analytics is a feature of GitScope that allows you to analyze your GitHub repositories and visualize the data in a meaningful way.',
 };

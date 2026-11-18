@@ -14,7 +14,7 @@ export const footerColumns: FooterColumn[] = [
       },
       {
         label: 'Compare Developers',
-        href: '/compare',
+        href: '/compare-developers',
       },
       {
         label: 'Saved Profiles',

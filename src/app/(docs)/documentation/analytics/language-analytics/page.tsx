@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import LanguageAnalyticsClient from '@/components/docs/analytics/LanguageAnalyticsClient';
 
 export const metadata: Metadata = {
-  title: 'Language Analytics | GitScope Documentation',
+  title: 'Language Analytics | GitScope Analytics Documentation',
   description:
     'Explore the programming languages represented across a GitHub profile and understand how GitScope organizes language data.',
 };

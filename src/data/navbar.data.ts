@@ -6,7 +6,7 @@ export const navItems = [
     label: 'Overview',
   },
   {
-    href: '/compare',
+    href: '/compare-developers',
     label: 'Compare Developers',
     icon: GitCompareArrows,
   },

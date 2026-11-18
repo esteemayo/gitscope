@@ -19,7 +19,7 @@ const roboto = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'GitScope',
+  title: 'GitScope Analytics',
   description:
     'A GitHub analytics dashboard for visualizing developer repository insights.',
 };

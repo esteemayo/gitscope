@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import PermissionsClient from '@/components/docs/authentication/PermissionsClient';
 
 export const metadata: Metadata = {
-  title: 'Permissions - Authentication | GitScope Documentation',
+  title: 'Permissions - Authentication | GitScope Analytics Documentation',
   description:
     'Understand how GitHub permissions control the data and account capabilities available to authenticated GitScope features.',
 };

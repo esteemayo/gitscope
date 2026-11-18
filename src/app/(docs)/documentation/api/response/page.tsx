@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import ApiResponsesClient from '@/components/docs/api/ApiResponsesClient';
 
 export const metadata: Metadata = {
-  title: 'API Responses | GitScope Documentation',
+  title: 'API Responses | GitScope Analytics Documentation',
   description: 'Understand the structure of API responses.',
 };
 

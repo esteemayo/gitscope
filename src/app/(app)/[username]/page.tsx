@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: IParams): Promise<Metadata> {
     .concat(username.slice(1));
 
   return {
-    title: `${capitalizedUsername}'s GitScope Dashboard | GitScope`,
-    description: `Explore ${capitalizedUsername}'s GitScope dashboard, showcasing their GitHub profile, repositories, and contributions.`,
+    title: `${capitalizedUsername}'s GitScope Dashboard | GitScope Analytics`,
+    description: `Explore ${capitalizedUsername}'s GitScope Analytics dashboard, showcasing their GitHub profile, repositories, and contributions.`,
   };
 }
 

@@ -7,7 +7,9 @@ import { mockUser } from '@/data/profile/mockUser';
 import { mockRepositories } from '@/data/profile/mockRepositories';
 
 export const metadata: Metadata = {
-  title: 'User profile | GitScope',
+  title: 'User profile | GitScope Analytics',
+  description:
+    'Explore GitHub user profiles and analyze their repositories, contributions, and activity with GitScope Analytics.',
 };
 
 const ProfilePage = () => {

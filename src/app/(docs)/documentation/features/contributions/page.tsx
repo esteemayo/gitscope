@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import ContributionsClient from '@/components/docs/features/ContributionsClient';
 
 export const metadata: Metadata = {
-  title: 'Contributions  | GitScope Documentation',
+  title: 'Contributions  | GitScope Analytics Documentation',
   description:
     'Learn about the contributions feature in Gitscope, which provides insights into your development activity and helps you understand your coding patterns.',
 };

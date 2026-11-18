@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import ResourcesFaqClient from '@/components/docs/resources/ResourcesFaqClient';
 
 export const metadata: Metadata = {
-  title: 'GitScope Resources FAQ | GitScope Documentation',
+  title: 'GitScope Resources FAQ | GitScope Analytics Documentation',
   description:
     'Find answers to common questions about GitScope, its analytics, authentication, and documentation.',
 };

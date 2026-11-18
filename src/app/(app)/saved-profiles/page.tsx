@@ -2,7 +2,7 @@ import { type Metadata } from 'next';
 import SavedClient from '@/components/saved/SavedClient';
 
 export const metadata: Metadata = {
-  title: 'Saved profiles | GitScope',
+  title: 'Saved profiles | GitScope Analytics',
   description: 'View and manage your saved GitHub profiles on GitScope.',
   openGraph: {
     title: 'Saved profiles | GitScope',

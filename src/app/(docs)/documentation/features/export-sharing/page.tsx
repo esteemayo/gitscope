@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import ExportSharingClient from '@/components/docs/features/ExportSharingClient';
 
 export const metadata: Metadata = {
-  title: 'Export & Sharing | GitScope Documentation',
+  title: 'Export & Sharing | GitScope Analytics Documentation',
   description:
     'Learn about the export and sharing feature in Gitscope, which allows you to easily share your insights and findings with others.',
 };

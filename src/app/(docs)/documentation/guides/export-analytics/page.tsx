@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import ExportAnalyticsClient from '@/components/docs/guides/ExportAnalyticsClient';
 
 export const metadata: Metadata = {
-  title: 'Export Analytics - Guides | GitScope Documentation',
+  title: 'Export Analytics - Guides | GitScope Analytics Documentation',
   description:
     'Learn how to export analytics using GitScope, including insights into contributions, repositories, and more.',
 };

@@ -6,7 +6,9 @@ interface IParams {
 }
 
 export const metadata: Metadata = {
-  title: 'Repo detailed page | GitScope',
+  title: 'Repo detailed page | GitScope Analytics',
+  description:
+    'Explore GitHub repository details, including code, issues, pull requests, and contributors with GitScope Analytics.',
 };
 
 const RepoDetailsPage = async ({ params }: IParams) => {

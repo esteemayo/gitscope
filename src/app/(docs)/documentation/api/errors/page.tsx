@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import ApiErrorsClient from '@/components/docs/api/ApiErrorsClient';
 
 export const metadata: Metadata = {
-  title: 'API Errors | GitScope Documentation',
+  title: 'API Errors | GitScope Analytics Documentation',
   description:
     'Understand how GitScope API errors are structured, interpreted, and handled by applications.',
 };

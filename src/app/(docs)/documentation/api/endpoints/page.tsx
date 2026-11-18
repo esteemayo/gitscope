@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import ApiEndpointsClient from '@/components/docs/api/ApiEndpointsClient';
 
 export const metadata: Metadata = {
-  title: 'API Endpoints | GitScope Documentation',
+  title: 'API Endpoints | GitScope Analytics Documentation',
   description:
     'Understand how GitScope API endpoints are organized and how to identify the resource required by your application.',
 };
