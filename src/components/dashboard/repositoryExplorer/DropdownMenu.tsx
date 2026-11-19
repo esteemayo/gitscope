@@ -1,22 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import { ChevronDown, LucideIcon } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
+import { DropdownMenuProps } from '@/types/dashboard/repository/dropdown.menu.type';
 import '../../../styles/components/dashboard/repositoryExplorer/DropdownMenu.scss';
-
-interface DropdownMenuProps {
-  label: string;
-  isOpen: boolean;
-  icon?: LucideIcon;
-  filterCount?: number;
-  type?: 'filter' | 'sort';
-  onToggle(): void;
-  children: React.ReactNode;
-  ariaLabel: string;
-  className?: string;
-  style?: React.CSSProperties;
-}
 
 const DropdownMenu = ({
   label,

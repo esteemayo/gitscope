@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import clsx from 'clsx';
-import { ArrowDownUp, Search, SlidersHorizontal, X } from 'lucide-react';
+import { ArrowDownUp, SlidersHorizontal, X } from 'lucide-react';
 
 import LanguageDropdown from './LanguageDropdown';
 import RepoCard from './RepoCard';
@@ -13,6 +13,7 @@ import StarsDropdown from './StarsDropdown';
 import RepositoryEmptyState from './RepositoryEmptyState';
 import FiltersDropdown from './FiltersDropdown';
 import RepositoryViewToggle from './RepositoryViewToggle';
+import RepositorySearch from './RepositorySearch';
 
 import { useEscapeKey } from '@/hooks/useEscapeKey';
 import { useClickOutside } from '@/hooks/useClickOutside';
@@ -298,41 +299,7 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
 
       <div ref={dropdownRef} className='repository-explorer__panel'>
         <div ref={dropdownRef} className='repository-explorer__toolbar'>
-          <label htmlFor='search' className='repository-explorer__search-box'>
-            <Search
-              size={17}
-              strokeWidth={1.8}
-              role='img'
-              aria-hidden='true'
-              focusable='false'
-            />
-
-            <input
-              type='search'
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder='Search repositories...'
-              aria-label='Search repositories'
-            />
-
-            {searchQuery ? (
-              <button
-                type='button'
-                onClick={() => setSearchQuery('')}
-                aria-label='Clear search'
-              >
-                <X
-                  size={14}
-                  strokeWidth={1.8}
-                  role='img'
-                  aria-hidden='true'
-                  focusable='false'
-                />
-              </button>
-            ) : (
-              <kbd>/</kbd>
-            )}
-          </label>
+          <RepositorySearch value={searchQuery} onChange={setSearchQuery} />
 
           <div className='repository-explorer__actions'>
             <FiltersDropdown
@@ -351,7 +318,7 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
             <SortDropdown
               label={getSortLabel(sortBy)}
               isOpen={activeMenu === 'sort'}
-              sortValue={sortBy}
+              value={sortBy}
               options={SORT_OPTIONS}
               icon={ArrowDownUp}
               type='filter'
@@ -378,7 +345,7 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
           />
 
           <RepositoryDropdown
-            repositoryValue={repositoryType}
+            value={repositoryType}
             label={getTypeLabel(repositoryType)}
             isOpen={activeMenu === 'type'}
             options={TYPE_OPTIONS}
@@ -388,7 +355,7 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
           />
 
           <StarsDropdown
-            starValue={starRange}
+            value={starRange}
             label={getStarRangeLabel(starRange)}
             isOpen={activeMenu === 'stars'}
             options={STAR_OPTIONS}

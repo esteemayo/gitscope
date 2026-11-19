@@ -23,6 +23,12 @@ export interface GitHubRepository {
   } | null;
 }
 
+export interface DropdownOption<T extends string> {
+  value: T;
+  label: string;
+  description: string;
+}
+
 export type RepositoryView = 'grid' | 'list';
 
 export type RepositorySort = 'updated' | 'stars' | 'forks' | 'name';

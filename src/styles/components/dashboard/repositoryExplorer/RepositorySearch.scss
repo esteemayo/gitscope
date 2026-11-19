@@ -1,0 +1,126 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.repository-search {
+  width: 100%;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    width: min(100%, 36rem);
+    min-height: 4.2rem;
+    padding: 0 1.2rem;
+    background-color: var(--bg-tertiary);
+    color: var(--text-muted);
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    border-radius: 0.875rem;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    @media (max-width: 62.5em) {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    &:focus-within {
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--border) 30%, transparent);
+    }
+
+    svg {
+      width: 1.7rem;
+      height: 1.7rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
+    input {
+      width: 100%;
+      min-width: 0;
+      padding: 1rem 0;
+      border: none;
+      outline: none;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: var(--fz-xxs);
+      background-color: transparent;
+      color: var(--text-muted);
+      caret-color: var(--color-blue-800);
+      transition: color 0.25s ease;
+
+      @include bp.sm {
+        font-size: var(--fz-md);
+      }
+
+      &::placeholder {
+        font-family: var(--font-poppins);
+        font-weight: 400;
+        font-size: var(--fz-xxs);
+        color: color-mix(in srgb, var(--text-muted) 85%, transparent);
+        transition: color 0.25s ease;
+      }
+
+      &::-webkit-search-cancel-button {
+        display: none;
+      }
+    }
+
+    button {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 2.3rem;
+      height: 2.3rem;
+      background-color: transparent;
+      color: var(--text-muted);
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+
+      svg {
+        width: 1.4rem;
+        height: 1.4rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background-color: color-mix(in srgb, var(--border) 30%, transparent);
+        color: var(--color-blue-800);
+      }
+
+      &:disabled {
+        opacity: 0.75;
+        pointer-events: none;
+      }
+    }
+
+    kbd {
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      width: 2.3rem;
+      height: 2.3rem;
+      font-size: 1.1rem;
+      border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+      border-radius: 0.5rem;
+      transition: border-color 0.25s ease;
+    }
+  }
+}

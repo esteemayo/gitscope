@@ -1,6 +1,7 @@
 import { BookOpen, GitCompareArrows } from 'lucide-react';
+import { NavItem } from '@/types/layout';
 
-export const navItems = [
+export const navItems: NavItem[] = [
   {
     href: '/',
     label: 'Overview',

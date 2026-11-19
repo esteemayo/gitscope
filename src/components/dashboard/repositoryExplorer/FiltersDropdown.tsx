@@ -1,34 +1,12 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  Archive,
-  ArrowUpDown,
-  Check,
-  CircleDot,
-  LucideIcon,
-  X,
-} from 'lucide-react';
+import { Archive, ArrowUpDown, Check, CircleDot, X } from 'lucide-react';
 
 import DropdownMenu from './DropdownMenu';
-import { AdvancedFilters } from '@/types/dashboard/repository';
+import { FiltersDropdownProps } from '@/types/dashboard/repository/filters.dropdown.type';
 
 import '../../../styles/components/dashboard/repositoryExplorer/FiltersDropdown.scss';
-
-interface FiltersDropdownProps {
-  label: string;
-  isOpen: boolean;
-  icon?: LucideIcon;
-  filterCount?: number;
-  type?: 'filter' | 'sort';
-  onToggle(): void;
-  onClose(): void;
-  onToggleAdvancedFilter(key: keyof AdvancedFilters): void;
-  onResetAdvancedFilter(): void;
-  ariaLabel: string;
-  className?: string;
-  style?: React.CSSProperties;
-}
 
 const FiltersDropdown = ({
   label,

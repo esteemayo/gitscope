@@ -2,7 +2,7 @@
 @use '../../../abstracts/animation';
 @use '../../../abstracts/responsive' as bp;
 
-.sort-dropdown {
+.dropdown-options {
   &__label {
     text-transform: uppercase;
     font-weight: 600;
@@ -70,7 +70,7 @@
         );
       }
 
-      .sort-dropdown__option {
+      .dropdown-options__option {
         &--label {
           color: var(--color-blue-800, var(--color-purple-500));
         }
