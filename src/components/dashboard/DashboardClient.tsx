@@ -75,7 +75,7 @@ const DashboardClient = ({ username }: { username: string }) => {
         isLoading={false}
       />
 
-      <RepositoryExplorer repositories={MOCK_REPOSITORIES} />
+      <RepositoryExplorer repositories={MOCK_REPOSITORIES} isLoading={false} />
     </div>
   );
 };

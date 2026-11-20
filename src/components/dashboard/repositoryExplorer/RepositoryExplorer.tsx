@@ -1,16 +1,15 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import clsx from 'clsx';
 import { ArrowDownUp, SlidersHorizontal, X } from 'lucide-react';
 
 import LanguageDropdown from './LanguageDropdown';
-import RepoCard from './RepoCard';
-import RepositoryFooter from './RepositoryFooter';
 import SortDropdown from './SortDropdown';
-import RepositoryDropdown from './RepositoryDropdown';
+import RepositoryFooter from './RepositoryFooter';
 import StarsDropdown from './StarsDropdown';
-import RepositoryEmptyState from './RepositoryEmptyState';
+import RepositoryResults from './RepositoryResults';
+import RepositoryList from './RepositoryList';
+import RepositoryDropdown from './RepositoryDropdown';
 import FiltersDropdown from './FiltersDropdown';
 import RepositoryViewToggle from './RepositoryViewToggle';
 import RepositorySearch from './RepositorySearch';
@@ -75,7 +74,10 @@ const INITIAL_ADVANCED_FILTER_STATE = {
   recentlyActive: false,
 };
 
-const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
+const RepositoryExplorer = ({
+  repositories,
+  isLoading,
+}: RepositoryExplorerProps) => {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const [selectedLanguage, setSelectedLanguage] = useState('all');
@@ -152,6 +154,15 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
     Number(repositoryType !== 'all') +
     Number(selectedLanguage !== 'all') +
     Number(starRange !== 'all');
+
+  const activeTotalFilterCount = [
+    selectedLanguage !== 'all',
+    repositoryType !== 'all',
+    starRange !== 'all',
+    advancedFilters.hasDescription,
+    advancedFilters.hasTopics,
+    advancedFilters.recentlyActive,
+  ].filter(Boolean).length;
 
   const availableLanguages = useMemo(() => {
     const uniqueLanguages = new Set(
@@ -383,40 +394,19 @@ const RepositoryExplorer = ({ repositories }: RepositoryExplorerProps) => {
           )}
         </div>
 
-        <div className='repository-explorer__results-bar'>
-          <span>
-            Showing <strong>{(filteredRepositories ?? []).length}</strong> of{' '}
-            <strong>{(repositories ?? []).length}</strong> repositories
-          </span>
+        <RepositoryResults
+          totalResults={filteredRepositories.length}
+          totalRepositories={repositories.length}
+          sortLabel={getSortLabel(sortBy)}
+          activeFilterCount={activeTotalFilterCount}
+        />
 
-          <span className='repository-explorer__results-hint'>
-            Sorted by {getSortLabel(sortBy).toLowerCase()}
-          </span>
-        </div>
-
-        <div
-          className={clsx('repository-explorer__repository-collection', {
-            'grid-view': view === 'grid',
-            'list-view': view === 'list',
-          })}
-        >
-          {(filteredRepositories ?? []).length > 0 ? (
-            (filteredRepositories ?? []).map((repository) => (
-              <RepoCard
-                key={repository.id}
-                repository={repository}
-                view={view}
-              />
-            ))
-          ) : (
-            <RepositoryEmptyState
-              title='No repositories found'
-              description='Try changing your search or removing some filters.'
-              btnLabel='Clear all filters'
-              onReset={handleClearFilters}
-            />
-          )}
-        </div>
+        <RepositoryList
+          view={view}
+          repositories={filteredRepositories}
+          isLoading={isLoading}
+          onReset={handleClearFilters}
+        />
 
         <RepositoryFooter repositories={filteredRepositories} />
       </div>

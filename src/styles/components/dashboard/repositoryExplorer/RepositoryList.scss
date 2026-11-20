@@ -1,0 +1,30 @@
+@use '../../../abstracts/mixins' as *;
+@use '../../../abstracts/animation';
+@use '../../../abstracts/responsive' as bp;
+
+.repository-list {
+  display: grid;
+  gap: 1.6rem;
+
+  padding: 0 2rem 2rem;
+
+  @media (max-width: 40em) {
+    padding: 0 1.2rem 1.2rem;
+  }
+
+  &__grid-view {
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+
+    @media (max-width: 62.5em) {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
+    @media (max-width: 40em) {
+      grid-template-columns: minmax(min-content, 1fr);
+    }
+  }
+
+  &__list-view {
+    grid-template-columns: minmax(min-content, 1fr);
+  }
+}

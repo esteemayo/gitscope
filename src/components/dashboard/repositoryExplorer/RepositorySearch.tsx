@@ -3,15 +3,8 @@
 import clsx from 'clsx';
 import { Search, X } from 'lucide-react';
 
+import { RepositorySearchProps } from '@/types/dashboard/repository/repository.search.type';
 import '../../../styles/components/dashboard/repositoryExplorer/RepositorySearch.scss';
-
-interface RepositorySearchProps {
-  value: string;
-  placeholder?: string;
-  onChange(value: string): void;
-  className?: string;
-  style?: React.CSSProperties;
-}
 
 const RepositorySearch = ({
   value,
