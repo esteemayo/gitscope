@@ -113,6 +113,13 @@
       transition: none;
     }
 
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+
     &:hover {
       background-color: color-mix(
         in srgb,

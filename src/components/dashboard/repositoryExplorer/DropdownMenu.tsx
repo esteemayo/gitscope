@@ -44,7 +44,7 @@ const DropdownMenu = ({
 
         <span>{label}</span>
 
-        {filterCount && (
+        {typeof filterCount === 'number' && filterCount > 0 && (
           <span className='dropdown-menu__btn--filter-count'>
             {filterCount}
           </span>

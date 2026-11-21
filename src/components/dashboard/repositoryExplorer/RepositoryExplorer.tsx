@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowDownUp, SlidersHorizontal, X } from 'lucide-react';
+import { ArrowDownUp, Download, SlidersHorizontal, X } from 'lucide-react';
 
 import LanguageDropdown from './LanguageDropdown';
 import SortDropdown from './SortDropdown';
@@ -32,6 +32,8 @@ import {
   STAR_OPTIONS,
   TYPE_OPTIONS,
 } from '@/data/dashboard/repository-options.data';
+import { exportRepositoriesCSV } from '@/utils/dashboard/exportRepositoriesCSV';
+
 import '../../../styles/components/dashboard/repositoryExplorer/RepositoryExplorer.scss';
 
 const getSortLabel = (value: RepositorySort) =>
@@ -271,6 +273,10 @@ const RepositoryExplorer = ({
     starRange,
   ]);
 
+  const handleExportCSV = () => {
+    exportRepositoriesCSV(filteredRepositories);
+  };
+
   useEffect(() => {
     const raf = requestAnimationFrame(() => {
       setCurrentTime(new Date().getTime());
@@ -303,8 +309,25 @@ const RepositoryExplorer = ({
           </p>
         </div>
 
-        <button type='button' className='repository-explorer__btn-export'>
-          Export CSV
+        <button
+          type='button'
+          onClick={handleExportCSV}
+          className='repository-explorer__btn-export'
+          disabled={filteredRepositories.length === 0}
+          aria-label='Export repositories to CSV'
+          aria-disabled={filteredRepositories.length === 0}
+        >
+          <Download
+            size={16}
+            strokeWidth={1.8}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
+
+          <span>
+            Export CSV <small>({filteredRepositories.length})</small>
+          </span>
         </button>
       </header>
 
@@ -317,7 +340,7 @@ const RepositoryExplorer = ({
               label='Filters'
               isOpen={activeMenu === 'filters'}
               icon={SlidersHorizontal}
-              filterCount={2}
+              filterCount={activeAdvancedFilterCount}
               type='filter'
               onToggle={() => toggleMenu('filters')}
               onClose={handleClose}
