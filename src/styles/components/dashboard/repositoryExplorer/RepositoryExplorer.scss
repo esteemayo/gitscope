@@ -89,61 +89,6 @@
     }
   }
 
-  &__btn-export {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.9rem;
-
-    min-height: 4rem;
-    font-weight: 600;
-    font-size: var(--fz-xxs);
-    white-space: nowrap;
-    padding: 0 1.3rem;
-    background-color: var(--color-blue-800);
-    color: var(--color-white-50);
-    border: 1px solid var(--color-blue-800);
-    border-radius: 0.875rem;
-    cursor: pointer;
-    transition:
-      background-color 0.25s ease,
-      transform 0.25s ease;
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
-    }
-
-    svg {
-      width: 1.6rem;
-      height: 1.6rem;
-      color: currentColor;
-      stroke: currentColor;
-    }
-
-    &:hover {
-      background-color: color-mix(
-        in srgb,
-        var(--color-blue-800) 88%,
-        var(--black)
-      );
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    &:focus-visible {
-      @include focus-ring(
-        $color: var(--color-blue-800, var(--color-purple-500))
-      );
-    }
-
-    &:disabled {
-      opacity: 0.75;
-      pointer-events: none;
-    }
-  }
-
   &__panel {
     background-color: var(--bg-tertiary);
     border: 1px solid var(--border);

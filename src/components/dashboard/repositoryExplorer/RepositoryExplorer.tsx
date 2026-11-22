@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowDownUp, Download, SlidersHorizontal, X } from 'lucide-react';
+import { ArrowDownUp, SlidersHorizontal, X } from 'lucide-react';
 
 import LanguageDropdown from './LanguageDropdown';
 import SortDropdown from './SortDropdown';
@@ -13,6 +13,7 @@ import RepositoryDropdown from './RepositoryDropdown';
 import FiltersDropdown from './FiltersDropdown';
 import RepositoryViewToggle from './RepositoryViewToggle';
 import RepositorySearch from './RepositorySearch';
+import ExportRepositoriesButton from './ExportRepositoriesButton';
 
 import { useEscapeKey } from '@/hooks/useEscapeKey';
 import { useClickOutside } from '@/hooks/useClickOutside';
@@ -32,7 +33,6 @@ import {
   STAR_OPTIONS,
   TYPE_OPTIONS,
 } from '@/data/dashboard/repository-options.data';
-import { exportRepositoriesCSV } from '@/utils/dashboard/exportRepositoriesCSV';
 
 import '../../../styles/components/dashboard/repositoryExplorer/RepositoryExplorer.scss';
 
@@ -273,10 +273,6 @@ const RepositoryExplorer = ({
     starRange,
   ]);
 
-  const handleExportCSV = () => {
-    exportRepositoriesCSV(filteredRepositories);
-  };
-
   useEffect(() => {
     const raf = requestAnimationFrame(() => {
       setCurrentTime(new Date().getTime());
@@ -309,26 +305,10 @@ const RepositoryExplorer = ({
           </p>
         </div>
 
-        <button
-          type='button'
-          onClick={handleExportCSV}
-          className='repository-explorer__btn-export'
+        <ExportRepositoriesButton
+          repositories={filteredRepositories}
           disabled={filteredRepositories.length === 0}
-          aria-label='Export repositories to CSV'
-          aria-disabled={filteredRepositories.length === 0}
-        >
-          <Download
-            size={16}
-            strokeWidth={1.8}
-            role='img'
-            aria-hidden='true'
-            focusable='false'
-          />
-
-          <span>
-            Export CSV <small>({filteredRepositories.length})</small>
-          </span>
-        </button>
+        />
       </header>
 
       <div ref={dropdownRef} className='repository-explorer__panel'>
