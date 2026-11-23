@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 
 import ProfileHeader from './ProfileHeader';
@@ -23,6 +24,8 @@ import { getRepositoryHealth } from '@/utils/dashboard/getRepositoryHealth';
 const DashboardClient = ({ username }: { username: string }) => {
   const { data: session, status } = useSession();
 
+  const [isLoading, setIsLoading] = useState(true);
+
   const { languages } = MOCK_ANALYTICS;
 
   const handleSave = (profile: GitHubProfile) => {
@@ -30,6 +33,12 @@ const DashboardClient = ({ username }: { username: string }) => {
   };
 
   console.log(username);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+  }, []);
 
   return (
     <div>
@@ -45,7 +54,7 @@ const DashboardClient = ({ username }: { username: string }) => {
         profile={MOCK_PROFILE}
         repositories={MOCK_REPOSITORIES}
         languages={languages}
-        isLoading={false}
+        isLoading={isLoading}
       />
 
       <DeveloperAwards
@@ -53,14 +62,14 @@ const DashboardClient = ({ username }: { username: string }) => {
         repositories={MOCK_REPOSITORIES}
         languages={languages}
         isAuthenticated={!!session?.user || status === 'authenticated'}
-        isLoading={false}
+        isLoading={isLoading}
         repositoriesComplete={true}
         onSignIn={() => signIn('github')}
       />
 
       <RepositoryHealth
         repositories={MOCK_REPOSITORIES}
-        isLoading={false}
+        isLoading={isLoading}
         repositoriesComplete={true}
       />
 
@@ -72,10 +81,13 @@ const DashboardClient = ({ username }: { username: string }) => {
         languages={languages}
         repositoryHealth={getRepositoryHealth(MOCK_REPOSITORIES)}
         repositoriesComplete={true}
-        isLoading={false}
+        isLoading={isLoading}
       />
 
-      <RepositoryExplorer repositories={MOCK_REPOSITORIES} isLoading={false} />
+      <RepositoryExplorer
+        repositories={MOCK_REPOSITORIES}
+        isLoading={isLoading}
+      />
     </div>
   );
 };

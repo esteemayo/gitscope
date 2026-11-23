@@ -1,14 +1,10 @@
 import clsx from 'clsx';
 import Skeleton from 'react-loading-skeleton';
 
-import { RepositoryView } from '@/types/dashboard/repository';
+import { RepoCardSkeletonProps } from '@/types/dashboard/repository/repo.card.skeleton.type';
 
 import 'react-loading-skeleton/dist/skeleton.css';
 import '../../../styles/components/skeletons/dashboard/RepoCardSkeleton.scss';
-
-interface RepoCardSkeletonProps {
-  view: RepositoryView;
-}
 
 const RepoCardSkeleton = ({ view }: RepoCardSkeletonProps) => {
   return (
@@ -18,17 +14,25 @@ const RepoCardSkeleton = ({ view }: RepoCardSkeletonProps) => {
       })}
       aria-hidden='true'
     >
-      <div className='repo-card-skeleton__accent' aria-hidden='true' />
-
       <div className='repo-card-skeleton__content'>
         <div className='repo-card-skeleton__top'>
-          <Skeleton width={40} height={40} borderRadius={9} />
+          <Skeleton
+            width={40}
+            height={40}
+            borderRadius={9}
+            className='repo-card-skeleton__icon'
+          />
 
           <div className='repo-card-skeleton__identity'>
             <div className='repo-card-skeleton__title'>
               <Skeleton width='65%' height={14} />
 
-              <Skeleton width={65} height={20} />
+              <Skeleton
+                width={65}
+                height={20}
+                borderRadius={5}
+                className='repo-card-skeleton__archive'
+              />
             </div>
 
             <Skeleton
@@ -39,8 +43,8 @@ const RepoCardSkeleton = ({ view }: RepoCardSkeletonProps) => {
           </div>
 
           <Skeleton
-            width={32}
-            height={32}
+            width={16}
+            height={16}
             className='repo-card__external-link'
           />
         </div>

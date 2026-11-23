@@ -3,4 +3,142 @@
 @use '../../../abstracts/responsive' as bp;
 
 .repo-card-skeleton {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  min-width: 0;
+  background-color: var(--bg-card-secondary);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  border-radius: var(--radius);
+  overflow: hidden;
+  isolation: isolate;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    padding: 1.8rem;
+
+    @media (max-width: 40em) {
+      padding: 1.5rem;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+
+    min-width: 0;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: block;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &__identity {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+
+    line-height: 1.1;
+
+    span {
+      &:first-child {
+        width: 65%;
+      }
+    }
+  }
+
+  &__archive {
+    flex-shrink: 0;
+  }
+
+  &__visibility {
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  &__external-link {
+    flex-shrink: 0;
+    display: block;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    min-height: 6rem;
+    margin: 1.7rem 0;
+  }
+
+  &__topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+
+    margin-bottom: 1.8rem;
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    margin-top: auto;
+    padding-top: 1.4rem;
+    border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+
+    @media (max-width: 40em) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__metrics {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.3rem;
+  }
+
+  &__updated-at {
+    min-width: 0;
+  }
+}
+
+.list-card {
+  .repo-card {
+    &__content {
+      padding: 1.5rem 1.8rem;
+    }
+
+    &__description {
+      min-height: 0;
+      margin: 1.2rem 0;
+    }
+
+    &__topics {
+      margin-bottom: 1.2rem;
+    }
+
+    &__footer {
+      padding-top: 1.2rem;
+    }
+  }
 }

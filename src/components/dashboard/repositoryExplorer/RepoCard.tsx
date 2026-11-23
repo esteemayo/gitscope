@@ -2,8 +2,8 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { Archive, ExternalLink, GitFork, Star } from 'lucide-react';
 
-import { RepoCardProps } from '@/types/dashboard';
 import { getLanguageColor } from '@/utils/getLanguageColor';
+import { RepoCardProps } from '@/types/dashboard/repository/repo.card.type';
 
 import '../../../styles/components/dashboard/repositoryExplorer/RepoCard.scss';
 

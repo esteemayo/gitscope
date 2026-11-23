@@ -41,7 +41,7 @@
     flex-shrink: 0;
 
     height: 3px;
-    background-color: var(--accent-color);
+    background-color: var(--accent-color, #64748b);
   }
 
   &__content {

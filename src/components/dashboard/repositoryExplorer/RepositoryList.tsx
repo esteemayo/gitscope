@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 
-import RepoCard from './RepoCard';
 import RepositoryEmptyState from './RepositoryEmptyState';
+import RepoCard from './RepoCard';
+import RepoCardSkeleton from '@/components/skeletons/dashboard/RepoCardSkeleton';
 
 import { RepositoryListProps } from '@/types/dashboard/repository/repository.list.type';
 import '../../../styles/components/dashboard/repositoryExplorer/RepositoryList.scss';
@@ -21,7 +22,9 @@ const RepositoryList = ({
     >
       {(repositories ?? []).length > 0 ? (
         isLoading ? (
-          <span aria-hidden='true'>Loading...</span>
+          Array.from({ length: 6 }, (_, index) => (
+            <RepoCardSkeleton key={`repo-skeleton-${index}`} view={view} />
+          ))
         ) : (
           (repositories ?? []).map((repository) => (
             <RepoCard key={repository.id} repository={repository} view={view} />

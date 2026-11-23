@@ -84,11 +84,6 @@ export interface RepositoryFilters {
   hasDescription: boolean;
 }
 
-export interface RepoCardProps {
-  repository: GitHubRepository;
-  view: RepositoryView;
-}
-
 export interface Repository {
   id: number;
   name: string;
