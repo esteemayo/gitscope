@@ -149,6 +149,14 @@
   --gradient: linear-gradient(135deg, #020617, #0f172a);
 
   --bg-sidebar: var(--color-black-100);
+
+  --illustration-card: #211d35;
+  --illustration-card-border: #393052;
+  --illustration-avatar: #393052;
+  --illustration-person: #a78bfa;
+  --illustration-glass: #e4e0f0;
+  --illustration-spark: #a78bfa;
+  --illustration-dot: #8273a8;
 }
 
 [data-theme='light'] {
@@ -214,6 +222,14 @@
   --gradient: linear-gradient(135deg, #e0f2fe, #ffffff);
 
   --bg-sidebar: var(--color-white-50);
+
+  --illustration-card: #f3f0ff;
+  --illustration-card-border: #d8d0f5;
+  --illustration-avatar: #ded6ff;
+  --illustration-person: #7c5cfc;
+  --illustration-glass: #344054;
+  --illustration-spark: #7c5cfc;
+  --illustration-dot: #9b8acb;
 }
 
 *,

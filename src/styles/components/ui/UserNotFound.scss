@@ -1,0 +1,214 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/animation';
+@use '../../abstracts/responsive' as bp;
+
+.user-not-found {
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: 4.8rem 8rem 4.8rem;
+
+  @media (max-width: 56.25em) {
+    padding: 3.2rem 3.2rem 4rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 3.2rem 1.6rem 4rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 44rem;
+    text-align: center;
+    padding: 4.8rem 2.4rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  &__illustration {
+    width: 19rem;
+    margin-bottom: 2.4rem;
+
+    & > * {
+      transition:
+        fill 0.25s ease,
+        stroke 0.25s ease;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    &--card {
+      fill: var(--illustration-card);
+      stroke: var(--illustration-card-border);
+      stroke-width: 2;
+    }
+
+    &--avatar {
+      fill: var(--illustration-avatar);
+    }
+
+    &--person {
+      stroke: var(--illustration-person);
+      opacity: 0.85;
+    }
+
+    &--glass {
+      stroke: var(--illustration-glass);
+    }
+
+    &--spark {
+      fill: var(--illustration-spark);
+    }
+
+    &--dot {
+      fill: var(--illustration-dot);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+
+    min-width: 0;
+
+    &--eyebrow {
+      align-self: center;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: fit-content;
+      height: fit-content;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.6rem 1rem;
+      background-color: color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 8%,
+        transparent
+      );
+      color: var(--color-blue-800, var(--color-purple-500));
+      border-radius: 100rem;
+      user-select: none;
+    }
+
+    &--title {
+      display: inline-block;
+      max-width: 48rem;
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      font-weight: 700;
+      font-size: clamp(var(--fz-xl), 3vw, 2.6rem);
+      color: inherit;
+      line-height: 1.1;
+    }
+
+    &--message {
+      font-size: var(--fz-sm);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+
+    &--username {
+      align-self: center;
+
+      display: inline-block;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      padding: 0.9rem 1.6rem;
+      background-color: color-mix(in srgb, var(--border,) 20%, transparent);
+      color: var(--text-muted);
+      color: inherit;
+      border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+      border-radius: 0.875rem;
+      overflow-wrap: anywhere;
+      user-select: none;
+      transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    &--hint {
+      max-width: 39rem;
+      text-wrap: pretty;
+      margin: 4px 0 0;
+      color: var(--text-muted);
+      font-size: var(--fz-xs);
+      line-height: 1.7;
+      transition: color 0.25s ease;
+    }
+
+    &--back {
+      &:link,
+      &:visited {
+        align-self: center;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+
+        text-transform: none;
+        font-weight: 600;
+        font-size: var(--fz-xs);
+        margin-top: 1rem;
+        padding: 1.1rem 1.8rem;
+        background-color: var(--color-blue-800, var(--color-purple-500));
+        color: var(--color-white-50);
+        border-radius: 0.875rem;
+        user-select: none;
+        transition:
+          background-color 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--color-blue-800, var(--color-purple-500)) 88%,
+          var(--black)
+        );
+        transform: translateY(-2px);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        @include focus-ring($offset: 4px);
+      }
+
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        color: currentColor;
+        stroke: currentColor;
+      }
+
+      span {
+        font-weight: inherit;
+        font-size: inherit;
+        color: currentColor;
+      }
+    }
+  }
+}

@@ -6,12 +6,13 @@ import { signIn, useSession } from 'next-auth/react';
 import ProfileHeader from './ProfileHeader';
 
 import DeveloperSummary from './summary/DeveloperSummary';
-import DashboardHero from './hero/DashboardHero';
+import UserNotFound from '../ui/UserNotFound';
 import AnalyticsOverview from './analytics/AnalyticsOverview';
-import DeveloperAwards from './awards/DeveloperAwards';
+import DashboardHero from './hero/DashboardHero';
 import ProfileIntelligence from './intelligence/ProfileIntelligence';
-import RepositoryHealth from './health/RepositoryHealth';
+import DeveloperAwards from './awards/DeveloperAwards';
 import RepositoryExplorer from './repositoryExplorer/RepositoryExplorer';
+import RepositoryHealth from './health/RepositoryHealth';
 
 import { MOCK_PROFILE } from '@/data/dashboard/profile.data';
 
@@ -39,6 +40,10 @@ const DashboardClient = ({ username }: { username: string }) => {
       setIsLoading(false);
     }, 5000);
   }, []);
+
+  if (!username) {
+    return <UserNotFound username={username} />;
+  }
 
   return (
     <div>

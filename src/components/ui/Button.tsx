@@ -1,3 +1,5 @@
+'use client';
+
 import { ButtonProps } from '@/types/ui/button.type';
 import '../../styles/components/ui/Button.scss';
 
