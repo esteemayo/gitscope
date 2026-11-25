@@ -10,6 +10,11 @@ import { getAvatarColor } from '@/utils/avatarColors';
 
 import '../../styles/components/Avatar.scss';
 
+type CustomCSSProperties = React.CSSProperties & {
+  '--avatar-size': string;
+  '--accent-color': string;
+};
+
 interface AvatarProps {
   imgSrc?: string;
   alt: string;
@@ -26,7 +31,7 @@ const Avatar = ({
   fallback = 'initials',
 }: AvatarProps) => {
   const initials = getInitials(name);
-  const bcg = getAvatarColor(name || alt);
+  const accentColor = getAvatarColor(name || alt);
 
   const [error, setError] = useState(false);
 
@@ -38,38 +43,67 @@ const Avatar = ({
         <div
           key={fallback}
           className='avatar__fallback'
-          style={{
-            width: size,
-            height: size,
-            backgroundColor: `${bcg}20`,
-            color: bcg,
-            border: `0.8rem solid ${bcg}`,
-          }}
+          style={
+            {
+              '--avatar-size': `${size / 10}rem`,
+              '--accent-color': accentColor,
+            } as CustomCSSProperties
+          }
         >
-          {fallback === 'initials' && initials ? (
-            <span className='avatar__fallback--initials'>{initials}</span>
-          ) : (
-            <DefaultAvatarIcon size={size * 0.7} />
-          )}
+          <div className='avatar__fallback--inner'>
+            {fallback === 'initials' && initials ? (
+              <span className='avatar__fallback--initials'>{initials}</span>
+            ) : (
+              <DefaultAvatarIcon size={size * 0.7} />
+            )}
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className='avatar'>
-      <div className='avatar__container'>
+    <div
+      className='avatar'
+      style={
+        {
+          '--avatar-size': `${size / 10}rem`,
+          '--accent-color': accentColor,
+        } as CustomCSSProperties
+      }
+    >
+      <div className='avatar__ring'>
         <Image
           key={imgSrc}
           src={imgSrc}
-          width={130}
-          height={130}
+          width={112}
+          height={112}
           alt={alt}
+          priority
           loading='eager'
           onError={() => setError(true)}
         />
       </div>
+
+      <span
+        className='avatar__status'
+        aria-hidden='true'
+        title='GitHub profile'
+      />
     </div>
+    // <div className='avatar'>
+    //   <div className='avatar__container'>
+    //     <Image
+    //       key={imgSrc}
+    //       src={imgSrc}
+    //       width={130}
+    //       height={130}
+    //       alt={alt}
+    //       loading='eager'
+    //       onError={() => setError(true)}
+    //     />
+    //   </div>
+    // </div>
   );
 };
 

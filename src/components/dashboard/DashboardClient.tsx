@@ -3,8 +3,6 @@
 import { useEffect, useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 
-import ProfileHeader from './ProfileHeader';
-
 import DeveloperSummary from './summary/DeveloperSummary';
 import UserNotFound from '../ui/UserNotFound';
 import AnalyticsOverview from './analytics/AnalyticsOverview';
@@ -77,8 +75,6 @@ const DashboardClient = ({ username }: { username: string }) => {
         isLoading={isLoading}
         repositoriesComplete={true}
       />
-
-      {/* <ProfileHeader username={username} /> */}
 
       <DeveloperSummary
         profile={MOCK_PROFILE}

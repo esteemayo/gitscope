@@ -3,72 +3,104 @@
 @use '../abstracts/responsive' as bp;
 
 .avatar {
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  margin-bottom: 2.2rem;
 
-    position: relative;
-    width: 15rem;
-    height: 15rem;
-    border-radius: 100%;
-    overflow: hidden;
-    margin-bottom: 2.4rem;
-
-    &::before {
-      content: '';
-
-      position: absolute;
-      inset: 0;
-
-      padding: 0.8rem;
-      background-image: linear-gradient(
-        90deg,
-        var(--color-blue-800),
-        var(--color-blue-400),
-        var(--color-blue-400),
-        var(--color-blue-800)
-      );
-      background-size: 300% 300%;
-      border-radius: inherit;
-
-      -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-      mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-
-    img {
-      display: inline-block;
-      vertical-align: middle;
-      width: 13.4rem;
-      height: 13.4rem;
-      object-fit: cover;
-      vertical-align: middle;
-      border-radius: 100%;
-      line-height: 1;
-      user-select: none;
-      transition: var(--transition);
-
-      &:hover {
-        filter: blur(1px) grayscale(0.3);
-      }
-    }
-  }
-
+  &__ring,
   &__fallback {
     display: grid;
     place-items: center;
 
-    width: 15rem !important;
-    height: 15rem !important;
+    width: var(--avatar-size, 12.4rem);
+    height: var(--avatar-size, 12.4rem);
+    padding: 0.5rem;
+    background-image: linear-gradient(
+      145deg,
+      var(--accent-color, var(--color-blue-800)),
+      color-mix(
+        in srgb,
+        var(--accent-color, var(--color-blue-400)) 50%,
+        transparent
+      ),
+      color-mix(
+        in srgb,
+        var(--accent-color, var(--color-blue-400)) 50%,
+        transparent
+      ),
+      var(--accent-color, var(--color-blue-800))
+    );
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--accent-color, rgba(96, 165, 250, 0.4)) 20%,
+        transparent
+      );
+    box-shadow:
+      0 0 0 4px
+        color-mix(
+          in srgb,
+          var(--accent-color, rgba(37, 99, 235, 0.09)) 8%,
+          transparent
+        ),
+      0 0 2.8rem
+        color-mix(
+          in srgb,
+          var(--accent-color, rgba(37, 99, 235, 0.24)) 12%,
+          transparent
+        );
     border-radius: 100%;
-    margin-bottom: 2.4rem;
+
+    @media (max-width: 26.25em) {
+      width: 10.8rem;
+      height: 10.8rem;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #e2e8f0;
+      border: 3px solid var(--color-white-50);
+      border-radius: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__status {
+    position: absolute;
+    right: 0.7rem;
+    bottom: 0.8rem;
+
+    width: 1.3rem;
+    height: 1.3rem;
+    background-color: var(--color-blue-800);
+    background-color: #3b82f6;
+    background-color: color-mix(
+      in srgb,
+      var(--accent-color, #3b82f6) 85%,
+      transparent
+    );
+    border: 3px solid var(--color-white-50);
+    border-radius: 100%;
+  }
+
+  &__fallback {
+    &--inner {
+      display: grid;
+      place-items: center;
+
+      width: 100%;
+      height: 100%;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color, #e2e8f0) 45%,
+        transparent
+      );
+      background-color: #e2e8f0;
+      border: 3px solid var(--color-white-50);
+      border-radius: 100%;
+      object-fit: cover;
+    }
 
     &--initials {
       display: inline-flex;
@@ -77,15 +109,105 @@
       font-weight: 700;
       font-size: var(--fz-heading);
       letter-spacing: 0.04em;
+      color: var(--color-white-50);
+      color: var(--accent-color);
       user-select: none;
       pointer-events: none;
     }
 
     svg {
+      flex-shrink: 0;
+
       width: 100%;
       height: 100%;
-      color: currentColor;
+      color: color-mix(in srgb, var(--accent-color) 60%, var(--black));
       stroke: currentColor;
     }
   }
+
+  // &__container {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+
+  //   position: relative;
+  //   width: 15rem;
+  //   height: 15rem;
+  //   border-radius: 100%;
+  //   overflow: hidden;
+  //   margin-bottom: 2.4rem;
+
+  //   &::before {
+  //     content: '';
+
+  //     position: absolute;
+  //     inset: 0;
+
+  //     padding: 0.8rem;
+  //     background-image: linear-gradient(
+  //       90deg,
+  //       var(--color-blue-800),
+  //       var(--color-blue-400),
+  //       var(--color-blue-400),
+  //       var(--color-blue-800)
+  //     );
+  //     background-size: 300% 300%;
+  //     border-radius: inherit;
+
+  //     -webkit-mask:
+  //       linear-gradient(#000 0 0) content-box,
+  //       linear-gradient(#000 0 0);
+  //     mask:
+  //       linear-gradient(#000 0 0) content-box,
+  //       linear-gradient(#000 0 0);
+  //     -webkit-mask-composite: xor;
+  //     mask-composite: exclude;
+  //     pointer-events: none;
+  //   }
+
+  //   img {
+  //     display: inline-block;
+  //     vertical-align: middle;
+  //     width: 13.4rem;
+  //     height: 13.4rem;
+  //     object-fit: cover;
+  //     vertical-align: middle;
+  //     border-radius: 100%;
+  //     line-height: 1;
+  //     user-select: none;
+  //     transition: var(--transition);
+
+  //     &:hover {
+  //       filter: blur(1px) grayscale(0.3);
+  //     }
+  //   }
+  // }
+
+  // &__fallback {
+  //   display: grid;
+  //   place-items: center;
+
+  //   width: 15rem !important;
+  //   height: 15rem !important;
+  //   border-radius: 100%;
+  //   margin-bottom: 2.4rem;
+
+  //   &--initials {
+  //     display: inline-flex;
+  //     text-transform: uppercase;
+  //     font-family: var(--font-mono);
+  //     font-weight: 700;
+  //     font-size: var(--fz-heading);
+  //     letter-spacing: 0.04em;
+  //     user-select: none;
+  //     pointer-events: none;
+  //   }
+
+  //   svg {
+  //     width: 100%;
+  //     height: 100%;
+  //     color: currentColor;
+  //     stroke: currentColor;
+  //   }
+  // }
 }

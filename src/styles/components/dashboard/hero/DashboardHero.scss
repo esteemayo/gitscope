@@ -172,10 +172,6 @@
     color: rgba(200, 225, 255, 0.7);
     overflow-wrap: anywhere;
     line-height: 1.7;
-
-    @media (max-width: 26.25em) {
-      font-size: var(--fz-xxs);
-    }
   }
 
   &__actions {

@@ -19,6 +19,7 @@ import FloatingProfileStats from './FloatingProfileStats';
 
 import { DashboardHeroProps } from '@/types/dashboard/hero/dashboard.hero.type';
 import '../../../styles/components/dashboard/hero/DashboardHero.scss';
+import Avatar from '../Avatar';
 
 const getProfileUrl = (username: string) => {
   return new URL(
@@ -74,7 +75,14 @@ const DashboardHero = ({
 
         <div className='dashboard-hero__wrapper'>
           <div className='dashboard-hero__content'>
-            <div className='dashboard-hero__avatar-wrapper'>
+            <Avatar
+              imgSrc={profile.avatar_url}
+              size={124}
+              alt={`${profile.login}'s GitHub avatar`}
+              name={profile.name!}
+              fallback='icon'
+            />
+            {/* <div className='dashboard-hero__avatar-wrapper'>
               <div className='dashboard-hero__avatar-ring'>
                 <Image
                   src={profile.avatar_url}
@@ -91,7 +99,7 @@ const DashboardHero = ({
                 aria-hidden='true'
                 title='GitHub profile'
               />
-            </div>
+            </div> */}
 
             <div className='dashboard-hero__identity'>
               <h1 className='dashboard-hero__profile-name'>
