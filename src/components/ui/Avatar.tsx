@@ -5,23 +5,16 @@ import { useState } from 'react';
 
 import DefaultAvatarIcon from '../icons/DefaultAvatarIcon';
 
+import { AvatarProps } from '@/types/ui/avatar.type';
 import { getInitials } from '@/utils/getInitials';
 import { getAvatarColor } from '@/utils/avatarColors';
 
-import '../../styles/components/Avatar.scss';
+import '../../styles/components/ui/Avatar.scss';
 
 type CustomCSSProperties = React.CSSProperties & {
   '--avatar-size': string;
   '--accent-color': string;
 };
-
-interface AvatarProps {
-  imgSrc?: string;
-  alt: string;
-  name?: string;
-  size?: number;
-  fallback?: 'initials' | 'icon';
-}
 
 const Avatar = ({
   imgSrc,
@@ -33,9 +26,9 @@ const Avatar = ({
   const initials = getInitials(name);
   const accentColor = getAvatarColor(name || alt);
 
-  const [error, setError] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const showFallback = !imgSrc || error;
+  const showFallback = !imgSrc || isError;
 
   if (showFallback) {
     return (
@@ -81,7 +74,7 @@ const Avatar = ({
           alt={alt}
           priority
           loading='eager'
-          onError={() => setError(true)}
+          onError={() => setIsError(true)}
         />
       </div>
 
@@ -91,19 +84,6 @@ const Avatar = ({
         title='GitHub profile'
       />
     </div>
-    // <div className='avatar'>
-    //   <div className='avatar__container'>
-    //     <Image
-    //       key={imgSrc}
-    //       src={imgSrc}
-    //       width={130}
-    //       height={130}
-    //       alt={alt}
-    //       loading='eager'
-    //       onError={() => setError(true)}
-    //     />
-    //   </div>
-    // </div>
   );
 };
 

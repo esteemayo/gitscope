@@ -1,4 +1,4 @@
-import Avatar from '../dashboard/Avatar';
+import Avatar from '../ui/Avatar';
 import RepoPreviewCard from './RepoPreviewCard';
 
 import ProfileStatChip from './ProfileStatChip';

@@ -1,14 +1,16 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useRef } from 'react';
 import { Check, Copy, Share2, X } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
+import { useCopyUrl } from '@/hooks/useCopyUrl';
+import { useShare } from '@/hooks/useShare';
 import { useOverlay } from '@/hooks/useOverlay';
 import { usePortal } from '@/hooks/usePortal';
-import { ShareModalProps } from '@/types/modal/share.modal.type';
 
+import { ShareModalProps } from '@/types/modal/share.modal.type';
 import '../../styles/components/modal/ShareModal.scss';
 
 const ShareModal = ({
@@ -19,53 +21,21 @@ const ShareModal = ({
 }: ShareModalProps) => {
   const ref = useRef<HTMLElement | null>(null);
 
-  const [isCopied, setIsCopied] = useState(false);
-  const [isCopyError, setIsCopyError] = useState(false);
+  const { isCopied, isCopyError, handleCopy } = useCopyUrl(profileUrl);
+  const { portalId } = usePortal('overlay-root');
+  const { handleShare } = useShare(
+    `${username} on GitScope`,
+    `Explore ${username}'s GitHub analytics on GitScope.`,
+    profileUrl,
+  );
 
   useOverlay(ref, { isOpen, onClose });
-  const { portalId } = usePortal('overlay-root');
 
   const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
   };
-
-  const copyProfileUrl = async () => {
-    setIsCopyError(false);
-
-    try {
-      await navigator.clipboard.writeText(profileUrl);
-      setIsCopied(true);
-    } catch {
-      setIsCopyError(false);
-    }
-  };
-
-  const shareProfileHandler = async () => {
-    if (!navigator.share) {
-      await copyProfileUrl();
-      return;
-    }
-
-    try {
-      await navigator.share({
-        title: `${username} on GitScope`,
-        text: `Explore ${username}'s GitHub analytics on GitScope.`,
-        url: profileUrl,
-      });
-    } catch (err) {
-      if (err instanceof Error && err.name !== 'AbortError') {
-        await copyProfileUrl();
-      }
-    }
-  };
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsCopied(false), 1200);
-
-    return () => clearTimeout(timer);
-  }, [isCopied]);
 
   if (!isOpen) {
     return null;
@@ -140,7 +110,7 @@ const ShareModal = ({
 
             <button
               type='button'
-              onClick={copyProfileUrl}
+              onClick={handleCopy}
               aria-label='Copy profile URL'
             >
               {isCopied ? (
@@ -171,7 +141,7 @@ const ShareModal = ({
 
           <button
             type='button'
-            onClick={shareProfileHandler}
+            onClick={handleShare}
             className='share-modal__share-button'
           >
             <Share2
@@ -181,7 +151,8 @@ const ShareModal = ({
               aria-hidden='true'
               focusable='false'
             />
-            Share profile
+
+            <span>Share profile</span>
           </button>
         </section>
       </div>

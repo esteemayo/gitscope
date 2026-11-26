@@ -250,7 +250,7 @@ const RepositoryExplorer = ({
           return b.stargazers_count - a.stargazers_count;
 
         case 'forks':
-          return +b.fork - +a.fork;
+          return b.forks_count - a.forks_count;
 
         case 'name':
           return a.name.localeCompare(b.name);

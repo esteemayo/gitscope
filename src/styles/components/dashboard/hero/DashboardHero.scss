@@ -72,55 +72,6 @@
     margin-bottom: 2.2rem;
   }
 
-  &__avatar-ring {
-    display: grid;
-    place-items: center;
-
-    width: 12.4rem;
-    height: 12.4rem;
-    padding: 0.5rem;
-    background-image: linear-gradient(
-      145deg,
-      var(--color-blue-800),
-      var(--color-blue-400),
-      var(--color-blue-400),
-      var(--color-blue-800)
-    );
-    border: 1px solid rgba(96, 165, 250, 0.4);
-    box-shadow:
-      0 0 0 4px rgba(37, 99, 235, 0.09),
-      0 0 2.8rem rgba(37, 99, 235, 0.24);
-    border-radius: 100%;
-
-    @media (max-width: 26.25em) {
-      width: 10.8rem;
-      height: 10.8rem;
-    }
-  }
-
-  &__avatar {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: #e2e8f0;
-    border: 3px solid var(--color-white-50);
-    border-radius: 100%;
-    object-fit: cover;
-  }
-
-  &__avatar-status {
-    position: absolute;
-    right: 0.7rem;
-    bottom: 0.8rem;
-
-    width: 1.3rem;
-    height: 1.3rem;
-    background-color: var(--color-blue-800);
-    background-color: #3b82f6;
-    border: 3px solid var(--color-white-50);
-    border-radius: 100%;
-  }
-
   &__identity {
     display: flex;
     flex-direction: column;
@@ -219,7 +170,7 @@
       }
 
       &:focus-visible {
-        @include focus-ring($width: 3px, $offset: 3px);
+        @include focus-ring();
       }
     }
 
@@ -243,9 +194,8 @@
 
     &--secondary {
       background-color: transparent;
-      color: var(--color-white-50);
-      color: color-mix(in srgb, var(--color-gray-400) 85%, transparent);
-      border-color: color-mix(in srgb, var(--color-gray-400) 60%, transparent);
+      color: color-mix(in srgb, var(--color-white-50) 75%, var(--black));
+      border-color: color-mix(in srgb, var(--color-white-50) 75%, var(--black));
 
       &:hover:not(:disabled) {
         background-color: rgba(59, 130, 246, 0.07);

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-import Avatar from '../dashboard/Avatar';
+import Avatar from '../ui/Avatar';
 
 import { formatDate } from '@/utils/formatDate';
 import { GithubUser } from '@/types/profile';

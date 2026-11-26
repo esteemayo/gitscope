@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useState } from 'react';
 import {
   Bookmark,
   Building2,
@@ -15,11 +14,13 @@ import {
 } from 'lucide-react';
 
 import ShareModal from '@/components/modal/ShareModal';
+import Avatar from '../../ui/Avatar';
 import FloatingProfileStats from './FloatingProfileStats';
 
+import { useCopyUrl } from '@/hooks/useCopyUrl';
 import { DashboardHeroProps } from '@/types/dashboard/hero/dashboard.hero.type';
+
 import '../../../styles/components/dashboard/hero/DashboardHero.scss';
-import Avatar from '../Avatar';
 
 const getProfileUrl = (username: string) => {
   return new URL(
@@ -44,29 +45,14 @@ const DashboardHero = ({
   isSaved = false,
   onSave,
 }: DashboardHeroProps) => {
+  const { isCopied, isCopyError, handleCopy } = useCopyUrl(
+    getProfileUrl(profile.login),
+  );
+
   const [shareOpen, setShareOpen] = useState(false);
-  const [isCopied, setIsCopied] = useState(false);
-  const [isCopyError, setIsCopyError] = useState(false);
 
   const website = profile.blog?.trim();
   const joinedDate = getJoinedDate(profile.created_at);
-
-  const handleCopy = async () => {
-    setIsCopyError(false);
-
-    try {
-      await navigator.clipboard.writeText(getProfileUrl(profile.login));
-      setIsCopied(true);
-    } catch {
-      setIsCopyError(true);
-    }
-  };
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsCopied(false), 1200);
-
-    return () => clearTimeout(timeout);
-  }, [isCopied]);
 
   return (
     <section className='dashboard-hero'>
@@ -82,24 +68,6 @@ const DashboardHero = ({
               name={profile.name!}
               fallback='icon'
             />
-            {/* <div className='dashboard-hero__avatar-wrapper'>
-              <div className='dashboard-hero__avatar-ring'>
-                <Image
-                  src={profile.avatar_url}
-                  width={112}
-                  height={112}
-                  alt={`${profile.login}'s GitHub avatar`}
-                  priority
-                  className='dashboard-hero__avatar'
-                />
-              </div>
-
-              <span
-                className='dashboard-hero__avatar-status'
-                aria-hidden='true'
-                title='GitHub profile'
-              />
-            </div> */}
 
             <div className='dashboard-hero__identity'>
               <h1 className='dashboard-hero__profile-name'>
