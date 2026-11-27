@@ -1,4 +1,144 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/animation';
+@use '../abstracts/responsive' as bp;
+
 .compare-hero {
-  max-width: 90rem;
-  margin-inline: auto;
+  position: relative;
+  padding: 8rem;
+  background-color: var(--color-dark-blue);
+
+  @media (max-width: 56.25em) {
+    padding: 8rem 3.2rem;
+  }
+
+  @include bp.md {
+    padding: 5rem 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 5rem 1.6rem;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0 0 auto;
+
+    height: 18rem;
+    background:
+      radial-gradient(
+        ellipse at 15% 0%,
+        color-mix(
+          in srgb,
+          var(--color-blue-800, var(--color-purple-500)) 16%,
+          transparent
+        ),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse at 90% 10%,
+        color-mix(
+          in srgb,
+          var(--color-blue-800, var(--color-purple-500)) 10%,
+          transparent
+        ),
+        transparent 45%
+      );
+
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+  }
+
+  &__header,
+  &__body {
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 5rem;
+    height: 5rem;
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-800, var(--color-purple-500)) 12%,
+      transparent
+    );
+    color: var(--color-blue-800, var(--color-purple-500));
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--color-blue-800, var(--color-purple-500)) 20%,
+        transparent
+      );
+    border-radius: 100%;
+    transition: var(--transition);
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      color: currentColor;
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    min-width: 0;
+
+    &--title {
+      display: inline-block;
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-lg);
+      color: var(--color-white-50);
+      line-height: 1.1;
+    }
+
+    &--description {
+      font-size: var(--fz-xs);
+      color: var(--color-gray-400);
+      transition: color 0.25s ease;
+    }
+  }
+
+  &__bottom-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
+
+    height: 3px;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-blue-800),
+      transparent
+    );
+    opacity: 0.45;
+  }
 }

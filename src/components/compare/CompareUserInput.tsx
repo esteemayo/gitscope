@@ -38,7 +38,7 @@ const CompareUserInput = ({
         <input
           id={name}
           name={name}
-          type='text'
+          type='search'
           value={value}
           placeholder={placeholder}
           onChange={(e) => onChange(e.target.value)}

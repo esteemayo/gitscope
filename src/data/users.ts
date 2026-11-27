@@ -1,16 +1,16 @@
 import { GitHubUserPreview } from '@/types/compare';
 
 export const userProfileA: GitHubUserPreview = {
-  name: 'Emmanuel Adebayo',
-  login: 'esteemayo',
-  avatar_url: '/avatar-2.jpg',
-  location: 'Nigeria',
-  company: 'SwiftPay Nigeria',
+  name: 'The Octocat',
+  login: 'octocat',
+  avatar_url: 'https://github.com/octocat.png',
+  location: 'San Francisco',
+  company: 'SwiftPay',
   html_url: 'https://github.com/esteemayo',
-  followers: 14,
-  following: 44,
+  followers: 1200,
+  following: 180,
   public_repos: 3000,
-  created_at: '2018-10-29T15:34:58Z',
+  created_at: '2011-01-25T18:44:36Z',
 };
 
 export const userProfileB: GitHubUserPreview = {

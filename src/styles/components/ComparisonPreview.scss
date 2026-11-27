@@ -10,11 +10,23 @@
   margin-inline: auto;
   margin-bottom: 10rem;
 
+  padding: 4rem 8rem 4rem;
+
+  @media (max-width: 56.25em) {
+    padding: 4rem 3.2rem 4rem;
+  }
+
   @include bp.md {
     flex-direction: column;
   }
 
+  @media (max-width: 25em) {
+    padding: 3rem 1.6rem 4rem;
+  }
+
   &__versus {
+    flex-shrink: 0;
+
     display: grid;
     place-items: center;
 

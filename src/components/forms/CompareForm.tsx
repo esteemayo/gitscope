@@ -1,5 +1,8 @@
+'use client';
+
+import { ArrowLeftRight, ArrowRight } from 'lucide-react';
+
 import Spinner from '../ui/Spinner';
-import SwapIcon from '../icons/SwapIcon';
 
 import CompareUserInput from '../compare/CompareUserInput';
 import PopularComparisons from '../compare/PopularComparisons';
@@ -20,19 +23,23 @@ const CompareForm = ({
 }: CompareFormProps) => {
   return (
     <form onSubmit={onSubmit} className='compare-form' noValidate>
-      <div className='compare-form__field'>
+      <div className='compare-form__users'>
         <CompareUserInput
           name='User A'
-          label='User A'
+          label='Developer A'
           value={userA}
           placeholder='e.g. torvalds'
           profile={{
-            name: 'Emmanuel Adebayo',
-            login: 'esteemayo',
-            avatar_url: '/avatar-2.jpg',
-            location: 'Nigeria',
-            company: 'SwiftPay Nigeria',
+            name: 'The Octocat',
+            login: 'octocat',
+            avatar_url: 'https://github.com/octocat.png',
+            location: 'San Francisco',
+            company: 'SwiftPay',
             html_url: 'https://github.com/esteemayo',
+            followers: 1200,
+            following: 180,
+            public_repos: 3000,
+            created_at: '2011-01-25T18:44:36Z',
           }}
           onClear={() => onChangeUserA('')}
           onChange={onChangeUserA}
@@ -41,23 +48,34 @@ const CompareForm = ({
         <button
           type='button'
           onClick={onSwap}
-          className='compare-form__field--swap'
-          aria-label='Swap users'
+          className='compare-form__users--swap'
+          aria-label='Swap developers'
+          title='Swap developers'
         >
-          <SwapIcon />
+          <ArrowLeftRight
+            size={20}
+            strokeWidth={1.8}
+            role='img'
+            aria-hidden='true'
+            focusable='false'
+          />
         </button>
 
         <CompareUserInput
           name='User B'
-          label='User B'
+          label='Developer B'
           value={userB}
           placeholder='e.g. gaearon'
           profile={{
             name: 'Brittany Chiang',
             login: 'brittany',
             location: 'United States of America',
-            company: 'Apple',
+            company: 'Apple Inc.',
             html_url: 'https://github.com/brittany',
+            followers: 5000,
+            following: 400,
+            public_repos: 2000,
+            created_at: '2010-05-29T15:34:58Z',
           }}
           onClear={() => onChangeUserB('')}
           onChange={onChangeUserB}
@@ -66,11 +84,11 @@ const CompareForm = ({
 
       <PopularComparisons onSelect={onPreset} />
 
-      <div className='compare-form__actions'>
+      <div className='compare-form__footer'>
         <button
           type='button'
           onClick={onReset}
-          className='compare-form__actions--reset'
+          className='compare-form__footer--reset'
         >
           Reset
         </button>
@@ -79,15 +97,26 @@ const CompareForm = ({
           type='submit'
           disabled={isLoading}
           aria-disabled={isLoading}
-          className='compare-form__actions--submit'
+          className='compare-form__footer--submit'
         >
           {isLoading ? (
             <>
               <Spinner />
-              Comparing profiles...
+
+              <span>Comparing profiles...</span>
             </>
           ) : (
-            'Compare developers'
+            <>
+              <span>Compare developers</span>
+
+              <ArrowRight
+                size={18}
+                strokeWidth={1.8}
+                role='img'
+                aria-hidden='true'
+                focusable='false'
+              />
+            </>
           )}
         </button>
       </div>

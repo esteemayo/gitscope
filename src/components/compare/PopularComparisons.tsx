@@ -13,7 +13,15 @@ const presets = [
 const PopularComparisons = ({ onSelect }: PopularComparisonsProps) => {
   return (
     <div className='popular-comparisons'>
-      <p className='popular-comparisons__title'>Popular Comparisons</p>
+      <div className='popular-comparisons__heading'>
+        <h3 className='popular-comparisons__heading--title'>
+          Popular Comparisons
+        </h3>
+
+        <span className='popular-comparisons__heading--hint'>
+          Try a suggested comparison
+        </span>
+      </div>
 
       <div className='popular-comparisons__list'>
         {presets.map(([userA, userB]) => (
