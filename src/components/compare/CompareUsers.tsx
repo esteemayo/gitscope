@@ -120,6 +120,7 @@ const CompareUsers = () => {
           <ComparisonPreview userA={profileA} userB={profileB} />
 
           <CompareOverview />
+
           <CompareInsight />
 
           <CompareTimeline

@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowLeftRight, ArrowRight } from 'lucide-react';
+import { ArrowLeftRight, ArrowRight, Info } from 'lucide-react';
 
 import Spinner from '../ui/Spinner';
 
@@ -85,40 +85,64 @@ const CompareForm = ({
       <PopularComparisons onSelect={onPreset} />
 
       <div className='compare-form__footer'>
-        <button
-          type='button'
-          onClick={onReset}
-          className='compare-form__footer--reset'
-        >
-          Reset
-        </button>
+        <div className='compare-form__footer-guide'>
+          <div className='compare-form__footer-guide--icon'>
+            <Info
+              size={18}
+              strokeWidth={1.8}
+              role='img'
+              aria-hidden='true'
+              focusable='false'
+            />
+          </div>
 
-        <button
-          type='submit'
-          disabled={isLoading}
-          aria-disabled={isLoading}
-          className='compare-form__footer--submit'
-        >
-          {isLoading ? (
-            <>
-              <Spinner />
+          <div className='compare-form__footer-guide-content'>
+            <span className='compare-form__footer-guide-title'>
+              Ready to compare?
+            </span>
 
-              <span>Comparing profiles...</span>
-            </>
-          ) : (
-            <>
-              <span>Compare developers</span>
+            <p className='compare-form__footer-guide-description'>
+              Enter two GitHub usernames to see how they stack up.
+            </p>
+          </div>
+        </div>
 
-              <ArrowRight
-                size={18}
-                strokeWidth={1.8}
-                role='img'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </>
-          )}
-        </button>
+        <div className='compare-form__footer-actions'>
+          <button
+            type='button'
+            onClick={onReset}
+            className='compare-form__footer-actions--reset'
+          >
+            Reset
+          </button>
+
+          <button
+            type='submit'
+            disabled={isLoading}
+            aria-disabled={isLoading}
+            className='compare-form__footer-actions--submit'
+          >
+            {isLoading ? (
+              <>
+                <Spinner />
+
+                <span>Comparing profiles...</span>
+              </>
+            ) : (
+              <>
+                <span>Compare developers</span>
+
+                <ArrowRight
+                  size={18}
+                  strokeWidth={1.8}
+                  role='img'
+                  aria-hidden='true'
+                  focusable='false'
+                />
+              </>
+            )}
+          </button>
+        </div>
       </div>
     </form>
   );

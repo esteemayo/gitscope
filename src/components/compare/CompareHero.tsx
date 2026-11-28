@@ -20,24 +20,26 @@ const CompareHero = ({
     <section className='compare-hero'>
       <div className='compare-hero__container'>
         <header className='compare-hero__header'>
-          <div className='compare-hero__icon'>
+          <div className='compare-hero__eyebrow'>
             <GitCompareArrows
-              size={22}
+              size={16}
               strokeWidth={1.8}
+              className='compare-hero__eyebrow--icon'
               role='img'
               aria-hidden='true'
               focusable='false'
             />
+
+            <span className='compare-hero__eyebrow--label'>
+              GitHub comparison
+            </span>
           </div>
 
           <div className='compare-hero__content'>
-            <h3 className='compare-hero__content--title'>
-              Compare GitHub Profiles
-            </h3>
+            <h1 className='compare-hero__content--title'>Compare developers</h1>
 
             <p className='compare-hero__content--description'>
-              Analyze repositories, stars, followers, activity trends and
-              contribution patterns side-by-side.
+              Compare GitHub stats, repositories, and activity.
             </p>
           </div>
         </header>

@@ -6,11 +6,18 @@ import '../../styles/components/ComparisonPreview.scss';
 const ComparisonPreview = ({ userA, userB }: ComparisonPreviewProps) => {
   return (
     <div className='comparison-preview'>
-      <UserBadge user={userA} />
+      <div className='comparison-preview__container'>
+        <UserBadge user={userA} />
 
-      <span className='comparison-preview__versus'>Vs</span>
+        <span
+          className='comparison-preview__container--versus'
+          aria-label='versus'
+        >
+          Vs
+        </span>
 
-      <UserBadge user={userB} />
+        <UserBadge user={userB} />
+      </div>
     </div>
   );
 };

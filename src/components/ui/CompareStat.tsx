@@ -8,6 +8,12 @@ import { compareValues } from '@/utils/compare/compareValues';
 
 import { CompareStatProps } from '@/types/compare/compare.stat.type';
 import '../../styles/components/CompareStat.scss';
+import { getAvatarColor } from '@/utils/avatarColors';
+
+type CustomCSSProperties = React.CSSProperties & {
+  '--accent-color-one': string;
+  '--accent-color-two': string;
+};
 
 const CompareStat = ({
   label,
@@ -17,6 +23,9 @@ const CompareStat = ({
   rightUser,
 }: CompareStatProps) => {
   if (!leftUser || !rightUser) return null;
+
+  const accentColorOne = getAvatarColor(leftUser.name || leftUser.login);
+  const accentColorTwo = getAvatarColor(rightUser.name || rightUser.login);
 
   // const stat1 = getStats(leftUser);
   // const stat2 = getStats(rightUser);
@@ -78,6 +87,12 @@ const CompareStat = ({
   return (
     <article
       className={isWinner ? 'compare-stat winnerA' : 'compare-stat winnerB'}
+      style={
+        {
+          '--accent-color-one': accentColorOne,
+          '--accent-color-two': accentColorTwo,
+        } as CustomCSSProperties
+      }
     >
       <h3 className='compare-stat__label'>{label}</h3>
 
@@ -143,10 +158,13 @@ const CompareStat = ({
               name={profileName}
               size={26}
               alt={`${winnerName} avatar`}
+              fallback='icon'
             />
 
             <div className='compare-stat__content'>
-              <span className='compare-stat__content--name'>{winnerName}</span>
+              <span className='compare-stat__content--username'>
+                {winnerName}
+              </span>
 
               <span className='compare-stat__content--text'>
                 leads by {diff}%

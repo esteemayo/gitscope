@@ -4,6 +4,9 @@
 
 .compare-profiles {
   width: 100%;
+  max-width: 140rem;
+  margin-inline: auto;
+  padding: 4rem 8rem;
 
   &__grid {
     display: grid;

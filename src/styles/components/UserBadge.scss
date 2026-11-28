@@ -1,23 +1,50 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/animation';
+@use '../abstracts/responsive' as bp;
+
 .user-badge {
-  min-width: 22rem;
-  padding: 1.2rem 1.6rem;
+  flex: 1;
+
+  position: relative;
+  min-width: 0;
+  max-width: 34rem;
+  padding: 1.6rem 2rem;
   background-color: var(--bg-tertiary);
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 20%, var(--border));
   box-shadow: var(--shadow);
   border-radius: var(--radius);
-  transition: var(--transition);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  @include bp.md {
+    flex: none;
+
+    width: 100%;
+    max-width: 40rem;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+
+    width: 3px;
+    background-color: var(--accent-color);
+    opacity: 0.85;
+  }
 
   &:hover {
-    &:nth-child(2n + 1) {
-      border-color: color-mix(in srgb, var(--icon) 20%, transparent);
-      box-shadow: 0 0 2rem color-mix(in srgb, var(--icon) 20%, transparent);
-    }
-
-    &:nth-child(2n) {
-      border-color: color-mix(in srgb, var(--color-green-300) 20%, transparent);
-      box-shadow: 0 0 2rem
-        color-mix(in srgb, var(--color-green-300) 20%, transparent);
-    }
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent-color) 30%, var(--border));
+    box-shadow: 0 0 2rem
+      color-mix(in srgb, var(--accent-color) 20%, transparent);
   }
 
   &__container {
@@ -26,32 +53,41 @@
     gap: 1.2rem;
 
     width: 100%;
+    min-width: 0;
   }
 
   &__content {
     flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
     min-width: 0;
-  }
 
-  &__name,
-  &__username {
-    max-width: 20rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
+    &--name,
+    &--username {
+      max-width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
 
-  &__name {
-    text-transform: capitalize;
-    text-rendering: optimizeLegibility;
-    font-weight: 600;
-    font-size: var(--fz-sm);
-    line-height: 1.1;
-  }
+    &--name {
+      display: inline-block;
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+      font-weight: 600;
+      font-size: var(--fz-sm);
+      color: inherit;
+      line-height: 1.1;
+    }
 
-  &__username {
-    font-family: var(--font-mono);
-    font-size: var(--fz-xxs);
-    color: var(--text-muted);
+    &--username {
+      font-family: var(--font-mono);
+      font-size: var(--fz-xxs);
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
   }
 }

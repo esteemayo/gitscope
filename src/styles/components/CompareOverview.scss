@@ -1,6 +1,20 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/animation';
+@use '../abstracts/responsive' as bp;
+
 .compare-overview {
   width: 100%;
-  margin-bottom: 10rem;
+  max-width: 140rem;
+  margin-inline: auto;
+  padding: 4rem 8rem;
+
+  @media (max-width: 56.25em) {
+    padding: 4rem 3.2rem;
+  }
+
+  @media (max-width: 25em) {
+    padding: 3rem 1.6rem;
+  }
 
   &__widgets {
     display: grid;
